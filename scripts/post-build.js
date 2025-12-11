@@ -18,6 +18,8 @@ const filesToCopy = [
   { src: './split-text.js', dest: 'split-text.js' },
   { src: './card-effects.js', dest: 'card-effects.js' },
   { src: './reactive-effects.js', dest: 'reactive-effects.js' },
+  // CSS files
+  { src: './navbar.css', dest: 'navbar.css' },
 ];
 
 // Directories to copy recursively
