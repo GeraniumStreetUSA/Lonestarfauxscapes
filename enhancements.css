@@ -367,7 +367,7 @@ details[open] summary::after {
    ========================================================================== */
 
 @media (max-width: 991px) {
-  /* MOBILE: Hero uses CSS background-image like commercial.html - hide all hero-media elements */
+  /* MOBILE: Hero uses CSS background-image like commercial.html - hide ALL complex elements */
   .hero-media,
   .hero-blend,
   .hero-motif,
@@ -377,7 +377,8 @@ details[open] summary::after {
   .bg-glow,
   .bg-glow-1,
   .bg-glow-2,
-  .grain {
+  .grain,
+  #canvas-container {
     display: none !important;
   }
 
