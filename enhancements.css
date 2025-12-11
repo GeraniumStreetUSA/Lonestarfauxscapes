@@ -369,6 +369,19 @@ details[open] summary::after {
     opacity: 0.35 !important;
     mask-image: none !important;
     -webkit-mask-image: none !important;
+    /* CRITICAL: Remove GPU promotion that causes scroll jank */
+    will-change: auto !important;
+    transform: none !important;
+  }
+
+  .hero-media picture, .hero-media img {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  .hero-content {
+    will-change: auto !important;
+    transform: none !important;
   }
 
   /* Add a strong gradient overlay behind hero content */
