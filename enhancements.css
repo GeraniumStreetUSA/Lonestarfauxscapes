@@ -615,3 +615,60 @@ details[open] summary::after {
     pointer-events: auto;
   }
 }
+
+/* ==========================================================================
+   MOBILE HERO TEXT READABILITY
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Dim the hero image on mobile so text is readable */
+  .hero-media {
+    opacity: 0.35 !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  /* Add a strong gradient overlay behind hero content */
+  #hero .container {
+    position: relative;
+  }
+
+  #hero .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    right: -2rem;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(5, 10, 7, 0.85) 0%,
+      rgba(5, 10, 7, 0.7) 40%,
+      rgba(5, 10, 7, 0.4) 70%,
+      transparent 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Ensure hero content sits above the overlay */
+  .hero-content {
+    position: relative;
+    z-index: 10 !important;
+  }
+
+  /* Boost text contrast on mobile */
+  .hero-content h1 span {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+  }
+
+  .hero-content p {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Reduce hero padding on mobile for better content positioning */
+  #hero {
+    padding-top: clamp(6rem, 8vh, 9rem) !important;
+    padding-bottom: 4rem !important;
+  }
+}
