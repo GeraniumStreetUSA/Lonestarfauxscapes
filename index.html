@@ -508,14 +508,13 @@
         .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
         @media(min-width: 992px) { .mobile-toggle { display: none; } }
 
-        /* Hero Section */
+        /* Hero Section - NO vh/svh units, use vw like commercial.html which works */
         #hero {
-            min-height: 100svh; /* svh = stable viewport height, doesn't jump with iOS URL bar */
             position: relative;
             display: flex;
             align-items: flex-start;
             overflow: hidden;
-            padding-top: clamp(8rem, 10svh, 11rem); /* Use svh to prevent iOS URL bar jump */
+            padding-top: clamp(8rem, 12vw, 10rem); /* vw not vh - viewport WIDTH doesn't change on iOS */
             padding-bottom: 6rem;
             background: var(--color-bg);
         }
@@ -525,7 +524,7 @@
             left: 0;
             right: 0;
             bottom: -1px;
-            height: 25svh; /* svh for stable sizing */
+            height: 200px; /* Fixed px, no viewport units */
             pointer-events: none;
             background: linear-gradient(180deg,
                 rgba(12,24,18,0) 0%,
