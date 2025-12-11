@@ -4,15 +4,18 @@
   // Wait for utils to be available
   const utils = window.LonestarUtils || {
     throttleRAF: (fn) => fn,
-    isMobile: () => window.innerWidth < 768,
+    isMobile: () => window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
     prefersReducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
   };
+
+  // Skip ENTIRELY on mobile - the injected CSS (will-change, transforms) causes scroll jank
+  if (utils.isMobile()) return;
 
   // Respect reduced motion preference
   if (utils.prefersReducedMotion()) return;
 
-  // Skip heavy effects on mobile
-  const isMobile = utils.isMobile();
+  // Desktop only from here
+  const isMobile = false; // We already returned if mobile
 
   // ===== 1. CURSOR-REACTIVE SPOTLIGHT & TILT =====
   const initCardEffects = () => {
