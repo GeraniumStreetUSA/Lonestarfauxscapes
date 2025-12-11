@@ -23,9 +23,13 @@
     <link rel="preload" as="image" href="images/hero/hero-main.avif" type="image/avif">
     <link rel="preload" as="image" href="images/hero/hero-main.jpg" type="image/jpeg" media="(max-width: 767px)">
 
-    <!-- GSAP for animations -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP for animations - only load on desktop -->
+    <script>
+      if (window.innerWidth >= 768 && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"><\/script>');
+        document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"><\/script>');
+      }
+    </script>
     <!-- Three.js loaded lazily when canvas is visible -->
 
     <!-- JSON-LD Structured Data -->
