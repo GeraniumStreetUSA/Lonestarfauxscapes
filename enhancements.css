@@ -1,0 +1,576 @@
+/**
+ * Tier 1 Visual Enhancements
+ * High-impact UI/UX improvements
+ */
+
+/* ==========================================================================
+   GRADIENT TEXT FOR KEY HEADINGS
+   ========================================================================== */
+
+/* Gradient text - apply only to subpage heroes with simple .hero sections */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #4caf50 50%,
+    #81c784 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Only apply to subpage hero h1, not homepage which uses .hero-content */
+section.hero h1 {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #4caf50 50%,
+    #81c784 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle shimmer animation on gradient text */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-animated {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ==========================================================================
+   AMBIENT GLOW BEHIND HERO IMAGES
+   ========================================================================== */
+
+/* Only apply to subpage hero visuals, not homepage hero-media which has its own effects */
+.hero-visual {
+  position: relative;
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(76, 175, 80, 0.3) 0%,
+    rgba(76, 175, 80, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   ENHANCED CARD TILT/SPOTLIGHT EFFECTS
+   ========================================================================== */
+
+.card,
+.live-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Spotlight overlay that follows cursor */
+.card::before,
+.live-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(76, 175, 80, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover::before,
+.live-card:hover::before {
+  opacity: 1;
+}
+
+/* Border glow effect */
+.card::after,
+.live-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(76, 175, 80, 0.3),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  padding: 1px;
+}
+
+.card:hover::after,
+.live-card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure card content stays above effects */
+.card > *,
+.live-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM ENHANCEMENTS
+   ========================================================================== */
+
+.nav-dropdown-menu {
+  background: rgba(5, 10, 7, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Make all dropdown items reveal (supporting >4 links like Amazon Wall Mat) */
+.nav-dropdown:hover .nav-dropdown-item,
+.nav-dropdown:focus-within .nav-dropdown-item {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* ==========================================================================
+   BLUR-TO-SHARP REVEAL ANIMATION
+   ========================================================================== */
+
+[data-reveal] {
+  filter: blur(8px);
+}
+
+[data-reveal].reveal-in {
+  filter: blur(0);
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text-animated {
+    animation: none;
+  }
+
+  .card::before,
+  .card::after,
+  .live-card::before,
+  .live-card::after {
+    display: none;
+  }
+
+  [data-reveal] {
+    filter: none;
+  }
+}
+
+/* ==========================================================================
+   CONTENT VISUAL ENHANCEMENTS
+   ========================================================================== */
+
+/* Step number badges for process steps */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+/* Stat callout boxes for key numbers */
+.stat-callout {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.08), rgba(76, 175, 80, 0.03));
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat-callout-value {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+.stat-callout-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Stats row container */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Icon prefix for feature headings */
+.feature-icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--color-accent);
+}
+
+/* Enhanced table styling with winner highlighting */
+.table-winner {
+  background: rgba(76, 175, 80, 0.08) !important;
+}
+
+.table-check {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.table-x {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+/* Feature card with icon */
+.feature-with-icon {
+  position: relative;
+  padding-left: 3.5rem;
+}
+
+.feature-with-icon .feature-icon-badge {
+  position: absolute;
+  left: 1.2rem;
+  top: 1.2rem;
+  font-size: 1.3rem;
+}
+
+/* Highlight box for important info */
+.highlight-box {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.highlight-box p {
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* Process timeline connector */
+.process-step {
+  position: relative;
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 3rem;
+  bottom: -1.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.3), transparent);
+}
+
+.process-step:last-child::before {
+  display: none;
+}
+
+/* FAQ toggle indicator */
+details summary {
+  position: relative;
+  padding-right: 2rem;
+}
+
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  content: '−';
+}
+
+/* Comparison table enhancements */
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  background: rgba(76, 175, 80, 0.05);
+}
+
+/* Animated counter effect placeholder */
+.counter-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* ========================================================================== 
+   NAVBAR POLISH & MICRO-ANIMATIONS
+   ========================================================================== */
+
+/* Base header visuals (both states) */
+#main-header {
+  background: linear-gradient(135deg, rgba(10,20,15,0.78) 0%, rgba(10,20,15,0.66) 70%, rgba(12,24,18,0.64) 100%);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px) saturate(130%);
+  transition:
+    background 0.6s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.6s cubic-bezier(0.4,0,0.2,1),
+    padding 0.6s cubic-bezier(0.4,0,0.2,1),
+    border-radius 0.6s cubic-bezier(0.4,0,0.2,1);
+  animation: none;
+  left: 0 !important;
+  right: 0 !important;
+  margin-inline: auto;
+  transform: none !important;
+  will-change: background, box-shadow, padding, border-radius;
+  width: 96% !important;
+  max-width: 1260px !important;
+  border-radius: 999px;
+}
+
+#main-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(100,211,138,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Unscrolled (full-width) state */
+#main-header:not(.scrolled) {
+  padding: 0.75rem 2.25rem !important;
+}
+
+/* Scrolled (compact) state */
+#main-header.scrolled {
+  width: 74% !important;
+  max-width: 900px !important;
+  padding: 0.48rem 0.35rem !important;
+  background: linear-gradient(135deg, rgba(8,16,12,0.74) 0%, rgba(8,16,12,0.62) 70%, rgba(10,20,15,0.6) 100%);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* Shared nav container structure */
+#main-header .nav-container {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Layout for full header (logo | links | CTA) */
+#main-header:not(.scrolled) .nav-container {
+  justify-content: space-between;
+  padding-inline: 0;
+}
+
+/* Layout for scrolled header (links fill pill) */
+#main-header.scrolled .nav-container {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+/* Logo behaviour */
+.logo {
+  transition:
+    opacity 0.45s cubic-bezier(0.4,0,0.2,1),
+    max-width 0.45s cubic-bezier(0.4,0,0.2,1),
+    margin 0.45s cubic-bezier(0.4,0,0.2,1),
+    padding 0.45s cubic-bezier(0.4,0,0.2,1),
+    transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: left center;
+}
+
+#main-header:not(.scrolled) .logo {
+  flex-shrink: 0;
+  margin-right: 1.75rem;
+}
+
+.scrolled .logo {
+  opacity: 0;
+  max-width: 0;
+  width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Nav links base */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem !important;
+}
+
+/* Full header: links centered between logo and CTA */
+#main-header:not(.scrolled) .nav-links {
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+/* Scrolled header: links span pill and control edges */
+#main-header.scrolled .nav-links {
+  width: 100% !important;
+  justify-content: space-between !important; /* HOME left, CTA right */
+  gap: 1.25rem !important;
+  margin: 0 !important;
+}
+
+/* Edge spacing in scrolled state */
+#main-header.scrolled .nav-links::before,
+#main-header.scrolled .nav-links::after {
+  content: '' !important;
+  flex: 0 0 0.9rem !important; /* distance from HOME / GET QUOTE to pill edge */
+}
+
+/* No fake spacers in unscrolled state */
+#main-header:not(.scrolled) .nav-links::before,
+#main-header:not(.scrolled) .nav-links::after {
+  content: none !important;
+}
+
+/* CTA button */
+.nav-item.nav-cta {
+  padding: 0.48rem 1.05rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 128px;
+  line-height: 1.05;
+}
+
+.nav-cta {
+  white-space: nowrap;
+  padding: 0.5rem 1.1rem !important;
+  min-height: 0;
+  line-height: 1.1;
+}
+
+/* Full header: CTA on the right with balanced spacing */
+#main-header:not(.scrolled) .nav-item.nav-cta,
+#main-header:not(.scrolled) .nav-cta {
+  margin-left: 1.75rem !important;
+  margin-right: 0 !important;
+}
+
+/* Scrolled header: CTA pinned by flex spacing, no auto margin */
+#main-header.scrolled .nav-item.nav-cta,
+#main-header.scrolled .nav-cta {
+  margin-left: 0 !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap;
+}
+
+/* Safety: first/last nav items don't add stray margins */
+#main-header .nav-links .nav-item:first-child {
+  margin-left: 0 !important;
+}
+#main-header .nav-links .nav-item:last-child {
+  margin-right: 0 !important;
+}
+
+/* FINAL ALIGNMENT TWEAKS – FULL-WIDTH HEADER ONLY */
+#main-header:not(.scrolled) {
+  /* perfectly symmetric pill padding */
+  padding-left: 2rem !important;
+  padding-right: 0.2rem !important;
+}
+
+/* make sure logo isn't adding its own left padding/margin */
+#main-header:not(.scrolled) .logo {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* keep spacing between logo/nav/CTA balanced */
+#main-header:not(.scrolled) .logo {
+  margin-right: 1.75rem !important;
+}
+
+#main-header:not(.scrolled) .nav-item.nav-cta,
+#main-header:not(.scrolled) .nav-cta {
+  margin-left: 1.75rem !important;
+  margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   NAV DROPDOWN STAGGER FIX – INCLUDE 5TH ITEM
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(5) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 250ms;
+  }
+}

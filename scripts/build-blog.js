@@ -1,0 +1,603 @@
+import fs from 'fs';
+import path from 'path';
+import { marked } from 'marked';
+import matter from 'gray-matter';
+
+const CONTENT_DIR = './content/blog';
+const OUTPUT_DIR = './blog';
+const POSTS_JSON = './content/posts.json';
+
+// Blog post page template - matches your existing site styling
+const generatePostHTML = (post) => `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${post.title} | Lone Star Faux Scapes Blog</title>
+  <meta name="description" content="${post.summary}">
+  <meta name="keywords" content="${post.tags.join(', ')}">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/blog/${post.slug}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="${post.title}">
+  <meta property="og:description" content="${post.summary}">
+  <meta property="og:image" content="https://lonestarfauxscapes.com/${post.image}">
+  <meta property="og:url" content="https://lonestarfauxscapes.com/blog/${post.slug}">
+  <meta property="og:type" content="article">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${post.title}">
+  <meta name="twitter:description" content="${post.summary}">
+  <meta name="twitter:image" content="https://lonestarfauxscapes.com/${post.image}">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "${post.title}",
+    "description": "${post.summary}",
+    "image": "https://lonestarfauxscapes.com/${post.image}",
+    "datePublished": "${post.date}",
+    "dateModified": "${post.date}",
+    "author": {
+      "@type": "Organization",
+      "name": "Lone Star Faux Scapes"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lone Star Faux Scapes",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lonestarfauxscapes.com/images/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lonestarfauxscapes.com/blog/${post.slug}"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --color-bg: #050a07;
+      --color-bg-alt: #0a140f;
+      --color-accent: #4caf50;
+      --color-text: #f5f5f5;
+      --color-text-muted: #889990;
+      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --container-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
+
+    /* Navbar */
+    #main-header {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96%;
+      max-width: 1200px;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 1rem 1.75rem;
+      border-radius: 28px;
+      background: rgba(10, 20, 15, 0.8);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    #main-header.scrolled {
+      top: 1rem;
+      background: rgba(5, 10, 7, 0.9);
+      width: 97%;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: none;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .nav-links { display: none; }
+    @media(min-width: 992px) {
+      .nav-links {
+        display: flex;
+        gap: 2.75rem;
+        align-items: center;
+        margin-left: auto;
+      }
+      .nav-item {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        position: relative;
+        padding-bottom: 0.25rem;
+      }
+      .nav-item:hover { color: var(--color-accent); }
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+      }
+      .nav-item:hover::after { transform: scaleX(1); }
+      .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+      .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+      .nav-cta {
+        padding: 0.55rem 1.1rem;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(255,255,255,0.06);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      }
+      .nav-cta:hover { background: rgba(255,255,255,0.12); color: #fff; }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(5,10,7,0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        min-width: 220px;
+        padding: 0.5rem 0;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        display: none;
+        transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block;
+      }
+      .nav-dropdown-item {
+        display: block;
+        padding: 0.6rem 1rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.2s, transform 0.2s, background 0.2s;
+      }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 50ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 150ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 200ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 250ms; }
+      .nav-dropdown-item:hover { color: var(--color-accent); background: rgba(255,255,255,0.04); }
+      .nav-caret { font-size: 0.7rem; margin-left: 0.3rem; display: inline-block; transition: transform 0.2s; }
+      .nav-dropdown:hover .nav-caret { transform: rotate(180deg); }
+    }
+    .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
+    @media(min-width: 992px) { .mobile-toggle { display: none; } }
+    #mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(5, 10, 7, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      padding: 6rem 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    #mobile-menu.active { transform: translateY(0); }
+    .mobile-link {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      transition: 0.3s;
+    }
+    .mobile-link:hover { color: var(--color-accent); -webkit-text-stroke: 0px; }
+
+    /* Article Hero */
+    .article-hero {
+      padding: clamp(8rem, 12vw, 10rem) 0 3rem;
+      background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(5,10,7,0.95));
+    }
+    .article-hero .container { max-width: 800px; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a:hover { color: var(--color-accent); }
+    .breadcrumb span { opacity: 0.5; }
+    .article-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .date-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .category-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(76,175,80,0.15);
+      border: 1px solid rgba(76,175,80,0.3);
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* Featured Image */
+    .featured-image {
+      margin: -1rem auto 0;
+      max-width: 900px;
+      padding: 0 4%;
+    }
+    .featured-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    /* Article Content */
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 4% 4rem;
+    }
+    .article-content h2 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    .article-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin: 2rem 0 0.75rem;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .article-content ul, .article-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-content a:hover { text-decoration: none; }
+    .article-content blockquote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.5rem;
+      border-left: 3px solid var(--color-accent);
+      background: rgba(255,255,255,0.03);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+    }
+    .article-content img {
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .article-content code {
+      background: rgba(255,255,255,0.08);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .article-content pre {
+      background: rgba(0,0,0,0.4);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .article-content pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Tags */
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .tag {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Back to Blog */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(76,175,80,0.1);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: 999px;
+      color: var(--color-accent);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(76,175,80,0.2);
+      transform: translateX(-4px);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #000;
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+  <link rel="stylesheet" href="/enhancements.css">
+</head>
+<body>
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="/index.html" class="logo">Lone Star Faux Scapes</a>
+      <nav class="nav-links">
+        <a href="/index.html" class="nav-item">Home</a>
+        <div class="nav-dropdown">
+          <a href="/products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="/living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+            <a href="/commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+            <a href="/fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+            <a href="/artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+            <a href="/amazon-wall-mat.html" class="nav-dropdown-item">Amazon Wall Mat</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/commercial.html" class="nav-item nav-item-parent">Commercial <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="/hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/residential.html" class="nav-item nav-item-parent">Residential <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="/hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <a href="/index.html#gallery" class="nav-item">Gallery</a>
+        <a href="/blog.html" class="nav-item active">Blog</a>
+        <a href="/index.html#contact" class="nav-item nav-cta">Get Quote</a>
+      </nav>
+      <div class="mobile-toggle" id="mobile-toggle-btn" aria-label="Open navigation">&#9776;</div>
+    </div>
+  </header>
+
+  <div id="mobile-menu">
+    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: #fff;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+    <a href="/index.html" class="mobile-link">Home</a>
+    <a href="/products.html" class="mobile-link">Products</a>
+    <a href="/commercial.html" class="mobile-link">Commercial</a>
+    <a href="/residential.html" class="mobile-link">Residential</a>
+    <a href="/index.html#gallery" class="mobile-link">Gallery</a>
+    <a href="/blog.html" class="mobile-link">Blog</a>
+    <a href="/index.html#contact" class="mobile-link">Get Quote</a>
+  </div>
+
+  <main>
+    <section class="article-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/index.html">Home</a>
+          <span>/</span>
+          <a href="/blog.html">Blog</a>
+          <span>/</span>
+          <span>${post.title}</span>
+        </nav>
+        <h1>${post.title}</h1>
+        <div class="article-meta">
+          <span class="date-pill">${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          <span class="category-pill">${post.category}</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="featured-image">
+      <img src="/${post.image}" alt="${post.title}" loading="eager">
+    </div>
+
+    <article class="article-content">
+      ${post.content}
+
+      <div class="article-tags">
+        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>
+
+      <a href="/blog.html" class="back-link">
+        <span>&larr;</span> Back to Blog
+      </a>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> Lone Star Faux Scapes - Artificial hedges, living walls, and privacy systems across Texas.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const header = document.getElementById('main-header');
+    const mobileToggle = document.getElementById('mobile-toggle-btn');
+    const mobileClose = document.getElementById('mobile-close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', () => {
+      if (!header) return;
+      if (window.scrollY > 100) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }, { passive: true });
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    if (mobileClose) {
+      mobileClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>`;
+
+// Build the blog
+async function buildBlog() {
+  console.log('Building blog...');
+
+  // Create output directory if it doesn't exist
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
+
+  // Check if content directory exists
+  if (!fs.existsSync(CONTENT_DIR)) {
+    console.log('No blog content directory found. Creating empty posts.json');
+    fs.writeFileSync(POSTS_JSON, JSON.stringify([], null, 2));
+    return;
+  }
+
+  // Get all markdown files
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
+
+  if (files.length === 0) {
+    console.log('No blog posts found. Creating empty posts.json');
+    fs.writeFileSync(POSTS_JSON, JSON.stringify([], null, 2));
+    return;
+  }
+
+  const posts = [];
+
+  for (const file of files) {
+    const filePath = path.join(CONTENT_DIR, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    // Parse frontmatter and content
+    const { data, content } = matter(fileContent);
+
+    // Convert markdown to HTML
+    const htmlContent = marked(content);
+
+    // Create post object
+    const slug = file.replace('.md', '');
+    const post = {
+      slug,
+      title: data.title || 'Untitled',
+      date: data.date || new Date().toISOString(),
+      image: data.image || 'images/hedges/hedge-privacy-1.jpg',
+      summary: data.summary || '',
+      category: data.category || 'Guides',
+      tags: data.tags || [],
+      relatedUrl: data.relatedUrl || '',
+      content: htmlContent
+    };
+
+    posts.push(post);
+
+    // Generate individual post HTML
+    const postHTML = generatePostHTML(post);
+    const outputPath = path.join(OUTPUT_DIR, `${slug}.html`);
+    fs.writeFileSync(outputPath, postHTML);
+    console.log(`  Generated: ${outputPath}`);
+  }
+
+  // Sort posts by date (newest first)
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Save posts data for blog listing (without full content)
+  const postsData = posts.map(({ content, ...rest }) => rest);
+  fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
+  console.log(`  Generated: ${POSTS_JSON}`);
+
+  console.log(`Blog build complete! ${posts.length} posts generated.`);
+}
+
+buildBlog().catch(console.error);

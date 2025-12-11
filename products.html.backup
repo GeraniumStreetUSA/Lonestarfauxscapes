@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artificial Hedges & Living Wall Products | Lone Star Faux Scapes</title>
+  <meta name="description" content="Explore Lone Star Faux Scapes products: artificial living walls, commercial wall coverings, fence extensions, and privacy walls - fire-rated, UV-stabilized, and installed across Texas.">
+  <meta name="keywords" content="artificial living wall, commercial wall covering, fence extensions, privacy wall, NFPA 701 Method 2, Texas artificial hedges">
+  <meta property="og:title" content="Artificial Hedges & Living Wall Products | Lone Star Faux Scapes">
+  <meta property="og:description" content="Premium faux greenery products engineered for safety, acoustics, and fast installs across Texas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lonestarfauxscapes.com/products">
+  <meta property="og:image" content="https://picsum.photos/1200/630?grayscale">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/products">
+  <style>
+    :root {
+      --color-bg: #050a07;
+      --color-bg-alt: #0a140f;
+      --color-accent: #4caf50;
+      --color-neutral: #e0e0e0;
+      --color-text: #f5f5f5;
+      --color-text-muted: #889990;
+      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --container-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,10,7,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 0; gap: 1rem; }
+    .nav-brand { font-family: var(--font-heading); font-weight: 900; letter-spacing: 0.08em; font-size: 0.95rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; font-size: 0.9rem; }
+    .nav-item { color: rgba(255,255,255,0.75); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+    .nav-item:hover { color: #fff; }
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-item {
+      display: block;
+      padding: 0.55rem 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      white-space: normal;
+    }
+    .nav-dropdown-item:hover { color: var(--color-accent); background: rgba(255,255,255,0.04); }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(5,10,7,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      min-width: 240px;
+      padding: 0.4rem 0;
+      display: none;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+      z-index: 1500;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown-menu:hover { display: block; }
+    .nav-cta {
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+    .nav-cta:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.6rem;
+      background: var(--color-accent);
+      color: #051007;
+      font-weight: 700;
+      border-radius: 999px;
+      border: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(76,175,80,0.3);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(76,175,80,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: none;
+    }
+    .btn:focus-visible, .btn-outline:focus-visible, .nav-item:focus-visible, .nav-dropdown-item:focus-visible, .carousel-control:focus-visible, .carousel-dot:focus-visible {
+      outline: 2px solid rgba(76,175,80,0.8);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(76,175,80,0.18);
+    }
+    .hero {
+      padding: 6rem 0 3.5rem;
+      background: radial-gradient(circle at 20% 20%, rgba(76,175,80,0.08), rgba(5,10,7,0.95));
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+    .hero h1 { font-family: var(--font-heading); font-size: clamp(2.8rem, 4.5vw, 4rem); letter-spacing: -0.03em; line-height: 1.05; }
+    .hero p { color: var(--color-text-muted); max-width: 700px; margin: 1.4rem 0; font-size: 1.05rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1rem;
+      background: rgba(76,175,80,0.15);
+      border: 1px solid rgba(76,175,80,0.4);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .grid-2 { grid-template-columns: 1fr; }
+    @media(min-width: 720px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media(min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; } }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      isolation: isolate;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 14%;
+      background: radial-gradient(circle at 25% 20%, rgba(76,175,80,0.12), transparent 45%);
+      filter: blur(16px);
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .card-media {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: -0.5rem -0.5rem 1rem;
+      aspect-ratio: 4 / 3;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate3d(0,0,0);
+      transition: transform 0.35s ease, filter 0.35s ease;
+      filter: saturate(0.95) brightness(0.95);
+    }
+    .card:hover .card-media img { transform: scale(1.05); filter: saturate(1.05) brightness(1); }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(76,175,80,0.08), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .card:hover::after { opacity: 1; }
+    }
+    .card h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .card p { color: var(--color-text-muted); font-size: 0.98rem; margin-bottom: 1rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .pill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .section { padding: 4rem 0; }
+    .section h2 { font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.6rem); margin-bottom: 1rem; }
+    .section p { color: var(--color-text-muted); max-width: 720px; margin-bottom: 2rem; }
+    .product-block {
+      background: linear-gradient(135deg, rgba(76,175,80,0.12), rgba(4,12,9,0.95));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media(min-width: 860px) { .product-block { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
+    .product-block h3 { font-size: 1.8rem; margin-bottom: 0.6rem; }
+    .product-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .note { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 1rem;
+      min-height: 280px;
+      aspect-ratio: 16/9;
+    }
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.95) brightness(0.95);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: zoom-in;
+      animation: kenburns 12s ease-in-out infinite;
+      animation-play-state: paused;
+    }
+    .carousel:hover .carousel-slide.active img { transform: scale(1.03); filter: saturate(1) brightness(1); }
+    .carousel-slide.active img { animation-play-state: running; }
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    @keyframes kenburns {
+      0% { transform: scale(1.02) translate3d(0,0,0); }
+      50% { transform: scale(1.08) translate3d(-1.5%, -1.5%, 0); }
+      100% { transform: scale(1.04) translate3d(1%, 1%, 0); }
+    }
+    .carousel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.25), transparent 35%, rgba(0,0,0,0.25));
+      pointer-events: none;
+    }
+    .carousel-controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.35rem;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-control {
+      pointer-events: auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.35);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .carousel-control:hover {
+      transform: translateY(-1px);
+      background: rgba(0,0,0,0.55);
+      border-color: rgba(76,175,80,0.6);
+    }
+    .carousel-pause {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      z-index: 3;
+      pointer-events: auto;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.35);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .carousel-pause:hover { transform: translateY(-1px); background: rgba(0,0,0,0.55); border-color: rgba(76,175,80,0.6); }
+    .carousel-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.85rem 1rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.6));
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+      z-index: 2;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 3000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .lightbox.open { opacity: 1; visibility: visible; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      background: #000;
+    }
+    .lightbox img { width: 100%; height: auto; display: block; }
+    .lightbox .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.85rem 1rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.65));
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .lightbox .lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .carousel-dot.active { background: var(--color-accent); transform: scale(1.1); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Artificial Hedge Installation",
+    "provider": { "@type": "LocalBusiness", "name": "Lone Star Faux Scapes" },
+    "areaServed": "Texas",
+    "serviceType": "Artificial Hedge Installation"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Artificial Living Wall Installation",
+    "provider": { "@type": "LocalBusiness", "name": "Lone Star Faux Scapes" },
+    "areaServed": "Texas",
+    "serviceType": "Artificial Living Wall Installation"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="nav-brand">Lone Star Faux Scapes</div>
+      <nav class="nav-links">
+        <a class="nav-item" href="index.html">Home</a>
+          <div class="nav-dropdown" aria-label="Products dropdown">
+            <a class="nav-item nav-item-parent" href="products.html">Products <span class="nav-caret">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a class="nav-dropdown-item" href="living-wall.html">Artificial Living Wall</a>
+              <a class="nav-dropdown-item" href="commercial-wall.html">Commercial Wall Covering</a>
+              <a class="nav-dropdown-item" href="fence-extensions.html">Fence Extensions</a>
+            <a class="nav-dropdown-item" href="artificial-hedge.html">Artificial Hedge</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" aria-label="Commercial dropdown">
+          <a class="nav-item nav-item-parent" href="commercial.html">Commercial <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="hedge-builder-commercial.html">Hedge Builder</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" aria-label="Residential dropdown">
+          <a class="nav-item nav-item-parent" href="residential.html">Residential <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="hedge-builder-residential.html">Hedge Builder</a>
+          </div>
+        </div>
+        <a class="nav-item" href="blog.html">Blog</a>
+        <a class="nav-item nav-cta" href="index.html#contact">Get Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Engineered Greenery</div>
+          <h1>Artificial hedges & living walls, built for Texas codes.</h1>
+          <p>Fire-rated, UV-stabilized, acoustically capable fauxscapes that install fast and stay vibrant. Pick the system that fits your site and we handle design, fabrication, and install.</p>
+          <p style="color: var(--color-text-muted); margin-top: 0.5rem;">Serving Austin, Dallas, Houston, and San Antonio with artificial hedge installation, faux living walls, and fence extensions.</p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a class="btn" href="index.html#contact">Schedule a consult</a>
+            <a class="btn btn-outline" href="#products">Browse products</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Highlights</h3>
+          <div class="pill-row">
+            <span class="pill">NFPA 701 Method 2</span>
+            <span class="pill">Turnkey install</span>
+            <span class="pill">Acoustic options</span>
+            <span class="pill">Architect-ready</span>
+            <span class="pill">UV stabilized</span>
+          </div>
+          <p class="note">Always ask for the test - fire certifications and shop drawings available for permitting and design teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <h2>Product lineup</h2>
+        <p>Four solutions tailored to privacy, acoustics, and brand-driven aesthetics. Each system is fabricated for your dimensions - no gaps, no sag, no guesswork.</p>
+        <div class="grid grid-2">
+          <div class="card">
+              <div class="card-media">
+                <img src="images/living_walls/living-wall-1.jpg" alt="Artificial living wall example">
+              </div>
+            <h3><a href="#living-wall">Artificial Living Wall</a></h3>
+            <p>Hyper-realistic vertical greenery for lobbies, amenities, and feature walls.</p>
+            <div class="pill-row">
+              <span class="pill">Multi-pattern foliage</span><span class="pill">Hidden seams</span><span class="pill">LED-friendly</span>
+            </div>
+            <div style="margin-top:1rem;"><a class="btn btn-outline" href="living-wall.html">View details</a></div>
+          </div>
+          <div class="card">
+              <div class="card-media">
+                <img src="images/commercial/commercial-1.png" alt="Commercial wall covering with greenery">
+              </div>
+            <h3><a href="#commercial-wall">Commercial Wall Covering</a></h3>
+            <p>Dense hedge cladding for hospitality and retail facades with brand-safe finishes.</p>
+            <div class="pill-row">
+              <span class="pill">Fire-rated</span><span class="pill">UV stabilized</span><span class="pill">Framed systems</span>
+            </div>
+            <div style="margin-top:1rem;"><a class="btn btn-outline" href="commercial-wall.html">View details</a></div>
+          </div>
+          <div class="card">
+              <div class="card-media">
+                <img src="images/fence/fence-1.jpg" alt="Fence extensions privacy greenery">
+              </div>
+            <h3><a href="#fence-extensions">Fence Extensions</a></h3>
+            <p>Height and privacy boosters for existing fences with clean finishes.</p>
+            <div class="pill-row">
+              <span class="pill">Fast install</span><span class="pill">Optional noise blocking</span><span class="pill">Wind-considered</span>
+            </div>
+            <div style="margin-top:1rem;"><a class="btn btn-outline" href="fence-extensions.html">View details</a></div>
+          </div>
+          <div class="card">
+          <div class="card-media">
+            <img src="images/hedges/hedge-privacy-1.jpg" alt="Artificial hedge">
+          </div>
+            <h3><a href="#artificial-hedge">Artificial Hedge</a></h3>
+            <p>Dense faux hedge panels for instant coverage on fences, facades, and perimeter screens.</p>
+            <div class="pill-row">
+              <span class="pill">Instant coverage</span><span class="pill">HOA friendly</span><span class="pill">Custom heights</span>
+            </div>
+            <div style="margin-top:1rem;"><a class="btn btn-outline" href="artificial-hedge.html">View details</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="living-wall">
+      <div class="container product-block">
+        <div>
+          <h3>Artificial Living Wall</h3>
+          <p>Layered faux botanicals with depth and shadow play. Ideal for feature walls, fitness centers, and amenity decks that need evergreen impact without irrigation.</p>
+          <div class="product-meta">
+            <span class="pill">Fire-rated option</span><span class="pill">Multi-tone foliage</span><span class="pill">Custom frames</span>
+          </div>
+          <p class="note">Pairs with concealed lighting or backlit logos for brand walls.</p>
+          <div style="margin-top:1rem;"><a class="btn" href="index.html#contact">Plan a living wall</a></div>
+        </div>
+        <div class="card">
+          <h4>Specs</h4>
+          <p><strong>Use:</strong> Lobbies, amenities, corridors</p>
+          <p><strong>Structure:</strong> Powder-coated frames or direct mount grid</p>
+          <p><strong>Options:</strong> Acoustic backing, logo integration</p>
+        </div>
+        <div class="card" style="grid-column: 1/-1;">
+            <div class="carousel" data-carousel data-delay="4000" aria-label="Living wall carousel">
+              <div class="carousel-track">
+               <div class="carousel-slide active"><img src="images/living_walls/living-wall-1.jpg" alt="Living wall lobby installation" loading="lazy" decoding="async"></div>
+               <div class="carousel-slide"><img src="images/living_walls/living-wall-2.jpg" alt="Textured greenery panel closeup" loading="lazy" decoding="async"></div>
+               <div class="carousel-slide"><img src="images/living_walls/living-wall-3.jpg" alt="Amenity deck living wall" loading="lazy" decoding="async"></div>
+              </div>
+              <button class="carousel-pause" type="button" aria-label="Pause slides">&#10074;&#10074;</button>
+              <div class="carousel-controls">
+                <button class="carousel-control" data-dir="prev" aria-label="Previous slide">&#10094;</button>
+                <button class="carousel-control" data-dir="next" aria-label="Next slide">&#10095;</button>
+              </div>
+              <div class="carousel-overlay"></div>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section" id="commercial-wall">
+      <div class="container product-block">
+        <div>
+          <h3>Commercial Wall Covering</h3>
+          <p>Dense hedge skins for facades, retail fronts, and hospitality backdrops. Built to withstand Texas UV with fire-rated foliage and concealed fasteners.</p>
+          <div class="product-meta">
+            <span class="pill">NFPA 701 Method 2</span><span class="pill">UV stabilized</span><span class="pill">Brand-ready</span>
+          </div>
+          <p class="note">Always ask for the test - we supply documentation for AHJs and safety teams.</p>
+          <div style="margin-top:1rem;"><a class="btn" href="index.html#contact">Spec this system</a></div>
+        </div>
+        <div class="card">
+          <h4>Specs</h4>
+          <p><strong>Use:</strong> Hospitality, retail, multifamily exteriors</p>
+          <p><strong>Structure:</strong> Modular panels with mechanical fastening</p>
+          <p><strong>Options:</strong> Acoustic infill, pattern mixing, logo cutouts</p>
+        </div>
+          <div class="card" style="grid-column: 1/-1;">
+            <div class="carousel" data-carousel data-delay="4200" aria-label="Commercial wall carousel">
+               <div class="carousel-track">
+                <div class="carousel-slide active"><img src="images/commercial/commercial-1.png" alt="Commercial facade with greenery cladding" loading="lazy" decoding="async"></div>
+                <div class="carousel-slide"><img src="images/commercial/commercial-2.jpg" alt="Retail exterior hedge treatment" loading="lazy" decoding="async"></div>
+                <div class="carousel-slide"><img src="images/commercial/commercial-3.jpg" alt="Hospitality backdrop with faux greenery" loading="lazy" decoding="async"></div>
+                </div>
+              <button class="carousel-pause" type="button" aria-label="Pause slides">&#10074;&#10074;</button>
+              <div class="carousel-controls">
+                <button class="carousel-control" data-dir="prev" aria-label="Previous slide">&#10094;</button>
+                <button class="carousel-control" data-dir="next" aria-label="Next slide">&#10095;</button>
+              </div>
+              <div class="carousel-overlay"></div>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section" id="fence-extensions">
+      <div class="container product-block">
+        <div>
+          <h3>Fence Extensions</h3>
+          <p>Boost fence height and privacy without rebuilding. Panels are fabricated to your span for a seamless look and quick install.</p>
+          <div class="product-meta">
+            <span class="pill">Optional noise blocking</span><span class="pill">Neighbor-friendly</span><span class="pill">Fast install</span>
+          </div>
+          <p class="note">Ideal for side yards, pool enclosures, and equipment screens.</p>
+          <div style="margin-top:1rem;"><a class="btn" href="index.html#contact">Upgrade my fence</a></div>
+        </div>
+        <div class="card">
+          <h4>Specs</h4>
+          <p><strong>Use:</strong> Residential buffers, alley screens, patios</p>
+          <p><strong>Structure:</strong> Extensions with steel or aluminum framing</p>
+          <p><strong>Options:</strong> Sound-dampening core, custom cap details</p>
+        </div>
+          <div class="card" style="grid-column: 1/-1;">
+           <div class="carousel" data-carousel data-delay="3600" aria-label="Fence extensions carousel">
+              <div class="carousel-track">
+               <div class="carousel-slide active"><img src="images/fence/fence-1.jpg" alt="Fence extension privacy greenery" loading="lazy" decoding="async"></div>
+               <div class="carousel-slide"><img src="images/fence/fence-2.jpg" alt="Side yard fence extension" loading="lazy" decoding="async"></div>
+               <div class="carousel-slide"><img src="images/fence/fence-3.jpg" alt="Patio privacy extension" loading="lazy" decoding="async"></div>
+               </div>
+              <button class="carousel-pause" type="button" aria-label="Pause slides">&#10074;&#10074;</button>
+              <div class="carousel-controls">
+                <button class="carousel-control" data-dir="prev" aria-label="Previous slide">&#10094;</button>
+                <button class="carousel-control" data-dir="next" aria-label="Next slide">&#10095;</button>
+              </div>
+              <div class="carousel-overlay"></div>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section" id="artificial-hedge">
+      <div class="container product-block">
+        <div>
+          <h3>Artificial Hedge</h3>
+          <p>Dense faux hedge systems for fences, facades, and perimeters - built to your height and span with clean, seamless coverage.</p>
+          <div class="product-meta">
+            <span class="pill">Instant coverage</span><span class="pill">Custom heights</span><span class="pill">HOA friendly</span>
+          </div>
+          <p class="note">Ideal for privacy boosts on fences, alley screens, rooftop edges, or branded facades.</p>
+          <div style="margin-top:1rem;"><a class="btn" href="index.html#contact">Design my hedge</a></div>
+        </div>
+        <div class="card">
+          <h4>Specs</h4>
+          <p><strong>Use:</strong> Fences, perimeters, facades, equipment screens</p>
+          <p><strong>Structure:</strong> Custom panels with framed or grid backing</p>
+          <p><strong>Options:</strong> Mixed foliage patterns, acoustic backing, logo recesses</p>
+        </div>
+          <div class="card" style="grid-column: 1/-1;">
+              <div class="carousel" data-carousel data-delay="3800" aria-label="Artificial hedge carousel">
+                <div class="carousel-track">
+                  <div class="carousel-slide active"><img src="images/hedges/hedge-privacy-1.jpg" alt="Artificial hedge screening a backyard" loading="lazy" decoding="async"></div>
+                  <div class="carousel-slide"><img src="images/hedges/hedge-privacy-2.jpg" alt="Artificial hedge for perimeter privacy" loading="lazy" decoding="async"></div>
+                  <div class="carousel-slide"><img src="images/hedges/hedge-privacy-3.jpg" alt="Artificial hedge along driveway" loading="lazy" decoding="async"></div>
+                  <div class="carousel-slide"><img src="images/hedges/hedge-topper-la.jpg" alt="Custom artificial hedge panels on fence" loading="lazy" decoding="async"></div>
+                  <div class="carousel-slide"><img src="images/hedges/rooftop-hedge-ac-1.jpg" alt="Facade cladding with artificial hedge" loading="lazy" decoding="async"></div>
+                 </div>
+                <button class="carousel-pause" type="button" aria-label="Pause slides">&#10074;&#10074;</button>
+                <div class="carousel-controls">
+                  <button class="carousel-control" data-dir="prev" aria-label="Previous slide">&#10094;</button>
+                  <button class="carousel-control" data-dir="next" aria-label="Next slide">&#10095;</button>
+                </div>
+                <div class="carousel-overlay"></div>
+                <div class="carousel-dots"></div>
+              </div>
+             </div>
+            </div>
+    </section>
+
+    <section class="section" style="padding-bottom:5rem;">
+      <div class="container">
+        <div class="product-block">
+          <div>
+            <h3>Permitting & safety ready</h3>
+            <p>We deliver shop drawings, fire tests, and installation details for smooth approvals. Our crews handle fabrication and install so schedules stay tight.</p>
+            <div class="product-meta">
+              <span class="pill">Shop drawings</span><span class="pill">Fire docs</span><span class="pill">Texas coverage</span>
+            </div>
+          </div>
+          <div>
+            <a class="btn" href="index.html#contact">Start a project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> Lone Star Faux Scapes - Artificial hedges, living walls, and privacy systems across Texas.
+    </div>
+  </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear().toString();
+
+      const carousels = document.querySelectorAll('[data-carousel]');
+      carousels.forEach((carousel) => {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dotsContainer = carousel.querySelector('.carousel-dots');
+        const caption = carousel.querySelector('.carousel-overlay');
+        const controls = carousel.querySelectorAll('.carousel-control');
+        const pauseBtn = carousel.querySelector('.carousel-pause');
+        if (!slides.length || !dotsContainer) return;
+
+        let index = 0;
+        const delay = Number(carousel.getAttribute('data-delay')) || 4000;
+        let paused = false;
+
+        slides.forEach((_, idx) => {
+          const dot = document.createElement('span');
+          dot.className = 'carousel-dot';
+          dot.addEventListener('click', () => {
+            index = idx;
+            render();
+            restart();
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+        const render = () => {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+          });
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+          if (caption) {
+            const alt = slides[index]?.querySelector('img')?.alt || '';
+            caption.textContent = alt;
+          }
+        };
+
+        let timer;
+        const play = () => {
+          if (paused) return;
+          timer = setInterval(() => {
+            index = (index + 1) % slides.length;
+            render();
+          }, delay);
+        };
+        const restart = () => {
+          clearInterval(timer);
+          play();
+        };
+
+        carousel.addEventListener('mouseenter', () => clearInterval(timer));
+        carousel.addEventListener('mouseleave', restart);
+
+        controls.forEach(btn => {
+          btn.addEventListener('click', () => {
+            clearInterval(timer);
+            const dir = btn.getAttribute('data-dir') === 'prev' ? -1 : 1;
+            index = (index + dir + slides.length) % slides.length;
+            render();
+            restart();
+          });
+        });
+
+        const togglePause = () => {
+          paused = !paused;
+          if (pauseBtn) pauseBtn.innerHTML = paused ? '&#9658;' : '&#10074;&#10074;';
+          if (paused) clearInterval(timer); else restart();
+        };
+        if (pauseBtn) {
+          pauseBtn.addEventListener('click', togglePause);
+        }
+        carousel.setAttribute('role', 'region');
+        if (!carousel.getAttribute('aria-label')) {
+          carousel.setAttribute('aria-label', 'Product carousel');
+        }
+        carousel.setAttribute('tabindex', '0');
+        carousel.addEventListener('keydown', (e) => {
+          if (e.code === 'Space') {
+            e.preventDefault();
+            togglePause();
+          }
+        });
+
+        render();
+        play();
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      document.querySelectorAll('.carousel-slide img').forEach((img) => {
+        img.addEventListener('click', () => {
+          if (!lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || '';
+          if (lightboxCaption) lightboxCaption.textContent = img.alt || 'Full image';
+          lightbox.classList.add('open');
+        });
+      });
+      const closeLightbox = () => lightbox && lightbox.classList.remove('open');
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || (e.target && e.target.classList.contains('lightbox-close'))) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    });
+    </script>
+    <script src="reveal.js"></script>
+    <script src="nav.js"></script>
+    <link rel="stylesheet" href="enhancements.css">
+    <script src="magnetic.js"></script>
+    <script src="split-text.js"></script>
+    <script src="card-effects.js"></script>
+  <script src="reactive-effects.js"></script>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" aria-label="Close full image">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+  </body>
+  </html>

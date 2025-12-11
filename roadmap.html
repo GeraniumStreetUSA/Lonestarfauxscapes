@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lone Star Faux Scapes - Website Deployment Roadmap</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.75in;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    .page {
+      page-break-after: always;
+      min-height: 100vh;
+      padding: 0.5in;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #2d5a27;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-section h1 {
+      font-size: 1.5rem;
+      color: #2d5a27;
+      font-weight: 700;
+    }
+
+    .logo-section p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .doc-info {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* Title Section */
+    .title-section {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e9 100%);
+      border-radius: 12px;
+      border: 1px solid #c8e6c9;
+    }
+
+    .title-section h2 {
+      font-size: 1.8rem;
+      color: #1b5e20;
+      margin-bottom: 0.5rem;
+    }
+
+    .title-section p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Section Styles */
+    h3 {
+      font-size: 1.2rem;
+      color: #2d5a27;
+      margin: 1.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e8f5e9;
+    }
+
+    h4 {
+      font-size: 1rem;
+      color: #333;
+      margin: 1rem 0 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background: #2d5a27;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    tr:hover {
+      background: #f0f7f0;
+    }
+
+    /* Architecture Diagram */
+    .architecture {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.85rem;
+      margin: 1rem 0;
+      white-space: pre;
+      line-height: 1.4;
+      overflow-x: auto;
+    }
+
+    /* Highlight Boxes */
+    .highlight-box {
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .highlight-green {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+    }
+
+    .highlight-blue {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+    }
+
+    .highlight-orange {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 0.75rem 0 0.75rem 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Phase Cards */
+    .phase {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .phase-number {
+      width: 32px;
+      height: 32px;
+      background: #2d5a27;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .phase-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    /* Cost Summary */
+    .cost-total {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2d5a27;
+      text-align: center;
+      padding: 1rem;
+      background: #e8f5e9;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    /* Security Grid */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .security-item {
+      background: #f5f5f5;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .security-item strong {
+      display: block;
+      color: #2d5a27;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Checkmark list */
+    .check-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .check-list li {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    /* X list */
+    .x-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .x-list li {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .x-list li::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: #f44336;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* Print adjustments */
+    @media print {
+      body {
+        font-size: 10pt;
+      }
+
+      .page {
+        padding: 0;
+        min-height: auto;
+      }
+
+      .architecture {
+        background: #f5f5f5 !important;
+        color: #1a1a1a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      th {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Overview -->
+  <div class="page">
+    <div class="header">
+      <div class="logo-section">
+        <h1>LONE STAR FAUX SCAPES</h1>
+        <p>Website Deployment Strategy</p>
+      </div>
+      <div class="doc-info">
+        <strong>Technical Roadmap</strong><br>
+        Prepared: December 2024<br>
+        Version 1.0
+      </div>
+    </div>
+
+    <div class="title-section">
+      <h2>Static Site + Decap CMS Deployment</h2>
+      <p>Maximum Performance | Zero Monthly Cost | Enterprise Security</p>
+    </div>
+
+    <h3>Executive Summary</h3>
+    <p>This document outlines the recommended deployment strategy for the Lone Star Faux Scapes website. The proposed architecture delivers the fastest possible page loads, built-in blog management for SEO, and enterprise-grade security at zero monthly hosting cost.</p>
+
+    <div class="highlight-green">
+      <strong>Key Benefits:</strong>
+      <ul class="check-list">
+        <li>Page load times under 1 second globally</li>
+        <li>Blog CMS with easy-to-use admin interface</li>
+        <li>No database vulnerabilities (unhackable architecture)</li>
+        <li>$0/month hosting (Cloudflare Pages free tier)</li>
+        <li>Automatic SSL, DDoS protection, and global CDN</li>
+      </ul>
+    </div>
+
+    <h3>Proposed Architecture</h3>
+    <div class="architecture">┌─────────────────────────────────────────────────────────────────┐
+│                     CLOUDFLARE PAGES                            │
+│              (Free Tier - Unlimited Bandwidth)                  │
+│                                                                 │
+│   Features:                                                     │
+│   • 300+ global edge locations                                  │
+│   • Automatic SSL/HTTPS                                         │
+│   • DDoS protection included                                    │
+│   • Instant cache invalidation                                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ Auto-deploy on commit
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         GITHUB                                  │
+│                  (Free - Version Control)                       │
+│                                                                 │
+│   Contents:                                                     │
+│   • Website source code (HTML, CSS, JS)                         │
+│   • Blog posts as Markdown files                                │
+│   • Full revision history                                       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ Authenticated access
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       DECAP CMS                                 │
+│                (Free - Git-based Headless CMS)                  │
+│                                                                 │
+│   Features:                                                     │
+│   • Visual blog editor at /admin                                │
+│   • Image uploads                                               │
+│   • Draft/publish workflow                                      │
+│   • GitHub authentication (secure)                              │
+└─────────────────────────────────────────────────────────────────┘</div>
+
+    <h3>Why Not WordPress?</h3>
+    <table>
+      <tr>
+        <th>Factor</th>
+        <th>WordPress</th>
+        <th>Static + Decap CMS</th>
+      </tr>
+      <tr>
+        <td>Page Speed</td>
+        <td>2-5 seconds (requires optimization)</td>
+        <td><strong>&lt;1 second</strong> (static files)</td>
+      </tr>
+      <tr>
+        <td>Monthly Cost</td>
+        <td>$15-50/month minimum</td>
+        <td><strong>$0/month</strong></td>
+      </tr>
+      <tr>
+        <td>Security Risk</td>
+        <td>High (PHP, database, plugins)</td>
+        <td><strong>Near zero</strong> (no attack surface)</td>
+      </tr>
+      <tr>
+        <td>Maintenance</td>
+        <td>Weekly updates required</td>
+        <td><strong>None</strong></td>
+      </tr>
+      <tr>
+        <td>Scalability</td>
+        <td>Requires upgrades</td>
+        <td><strong>Unlimited</strong> (CDN handles traffic)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PAGE 2: Implementation Phases -->
+  <div class="page">
+    <div class="header">
+      <div class="logo-section">
+        <h1>LONE STAR FAUX SCAPES</h1>
+        <p>Website Deployment Strategy</p>
+      </div>
+      <div class="doc-info">
+        Page 2 of 4
+      </div>
+    </div>
+
+    <h3>Implementation Phases</h3>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">1</div>
+        <div class="phase-title">Git Repository Setup</div>
+      </div>
+      <p>Initialize version control and push codebase to GitHub for collaboration and deployment pipeline.</p>
+      <ul>
+        <li>Initialize Git repository locally</li>
+        <li>Create GitHub repository (private or public)</li>
+        <li>Configure .gitignore for node_modules and build artifacts</li>
+        <li>Push initial codebase</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">2</div>
+        <div class="phase-title">Decap CMS Integration</div>
+      </div>
+      <p>Add the content management system that enables blog post creation without code changes.</p>
+      <ul>
+        <li>Create /admin/index.html (CMS interface)</li>
+        <li>Create /admin/config.yml (content schema definition)</li>
+        <li>Set up /content/blog/ directory for Markdown posts</li>
+        <li>Configure authentication via GitHub OAuth</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">3</div>
+        <div class="phase-title">Blog Build Pipeline</div>
+      </div>
+      <p>Create automated system to convert Markdown blog posts into SEO-optimized HTML pages.</p>
+      <ul>
+        <li>Install markdown processing dependencies</li>
+        <li>Create build script to generate individual blog post pages</li>
+        <li>Auto-generate blog listing page from all posts</li>
+        <li>Integrate with existing Vite build process</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">4</div>
+        <div class="phase-title">Content Migration</div>
+      </div>
+      <p>Convert existing hardcoded blog content to Markdown files manageable through the CMS.</p>
+      <ul>
+        <li>Create Markdown files for 6 existing blog posts</li>
+        <li>Add frontmatter (title, date, tags, featured image)</li>
+        <li>Verify content renders correctly</li>
+        <li>Test CMS editing workflow</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">5</div>
+        <div class="phase-title">Cloudflare Pages Deployment</div>
+      </div>
+      <p>Connect repository to Cloudflare for automatic deployments and global CDN distribution.</p>
+      <ul>
+        <li>Create Cloudflare account (free)</li>
+        <li>Connect GitHub repository to Cloudflare Pages</li>
+        <li>Configure build settings (npm run build, output: dist)</li>
+        <li>Set up custom domain (optional)</li>
+        <li>Verify automatic deployments on push</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-number">6</div>
+        <div class="phase-title">SEO Enhancements</div>
+      </div>
+      <p>Automate SEO metadata generation for maximum search engine visibility.</p>
+      <ul>
+        <li>Auto-generate sitemap.xml including all blog posts</li>
+        <li>Add JSON-LD structured data for BlogPosting schema</li>
+        <li>Generate Open Graph and Twitter meta tags per post</li>
+        <li>Submit sitemap to Google Search Console</li>
+      </ul>
+    </div>
+
+    <div class="highlight-blue">
+      <strong>Deployment Workflow (After Setup):</strong>
+      <ol>
+        <li>Login to yoursite.com/admin with GitHub account</li>
+        <li>Write/edit blog post in visual editor</li>
+        <li>Click "Publish"</li>
+        <li>Site automatically rebuilds in ~30-60 seconds</li>
+        <li>New post is live globally</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PAGE 3: Security & Cost -->
+  <div class="page">
+    <div class="header">
+      <div class="logo-section">
+        <h1>LONE STAR FAUX SCAPES</h1>
+        <p>Website Deployment Strategy</p>
+      </div>
+      <div class="doc-info">
+        Page 3 of 4
+      </div>
+    </div>
+
+    <h3>Security Analysis</h3>
+    <p>Static site architecture eliminates entire categories of security vulnerabilities that affect traditional CMS platforms like WordPress.</p>
+
+    <table>
+      <tr>
+        <th>Attack Vector</th>
+        <th>WordPress Risk</th>
+        <th>Static Site Risk</th>
+      </tr>
+      <tr>
+        <td>SQL Injection</td>
+        <td>High - Database queries</td>
+        <td><strong>Impossible</strong> - No database</td>
+      </tr>
+      <tr>
+        <td>PHP/Server Exploits</td>
+        <td>High - Server-side code</td>
+        <td><strong>Impossible</strong> - No server code</td>
+      </tr>
+      <tr>
+        <td>Plugin Vulnerabilities</td>
+        <td>Very High - Third-party code</td>
+        <td><strong>Impossible</strong> - No plugins</td>
+      </tr>
+      <tr>
+        <td>Brute Force Login</td>
+        <td>Medium - wp-admin exposed</td>
+        <td><strong>Protected</strong> - GitHub 2FA</td>
+      </tr>
+      <tr>
+        <td>Malware Injection</td>
+        <td>High - File upload exploits</td>
+        <td><strong>Impossible</strong> - Read-only CDN</td>
+      </tr>
+      <tr>
+        <td>DDoS Attacks</td>
+        <td>Vulnerable - Single server</td>
+        <td><strong>Protected</strong> - Cloudflare CDN</td>
+      </tr>
+      <tr>
+        <td>Data Breach</td>
+        <td>Possible - User data in DB</td>
+        <td><strong>Impossible</strong> - No user data stored</td>
+      </tr>
+    </table>
+
+    <h4>Built-in Security Features</h4>
+    <div class="security-grid">
+      <div class="security-item">
+        <strong>Cloudflare DDoS Protection</strong>
+        Enterprise-grade mitigation included free, handles traffic spikes automatically.
+      </div>
+      <div class="security-item">
+        <strong>Automatic SSL/HTTPS</strong>
+        Free SSL certificate, auto-renewed, enforced HTTPS with HSTS.
+      </div>
+      <div class="security-item">
+        <strong>GitHub Authentication</strong>
+        CMS login via GitHub OAuth, supports 2FA, full audit trail.
+      </div>
+      <div class="security-item">
+        <strong>Immutable Deployments</strong>
+        Each deploy is atomic; rollback instantly if issues occur.
+      </div>
+    </div>
+
+    <div class="highlight-orange">
+      <strong>Security Recommendation:</strong> Enable two-factor authentication (2FA) on all GitHub accounts with repository access. This is the single point requiring protection.
+    </div>
+
+    <h3>Cost Analysis</h3>
+
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Provider</th>
+        <th>Monthly Cost</th>
+      </tr>
+      <tr>
+        <td>Static Hosting + CDN</td>
+        <td>Cloudflare Pages</td>
+        <td><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td>Version Control</td>
+        <td>GitHub</td>
+        <td><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td>Content Management</td>
+        <td>Decap CMS</td>
+        <td><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td>SSL Certificate</td>
+        <td>Cloudflare (included)</td>
+        <td><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td>DDoS Protection</td>
+        <td>Cloudflare (included)</td>
+        <td><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td>Domain Name</td>
+        <td>Cloudflare Registrar</td>
+        <td>~$10-12/year</td>
+      </tr>
+    </table>
+
+    <div class="cost-total">
+      Total Monthly Hosting Cost: $0
+    </div>
+
+    <h4>Cloudflare Pages Free Tier Includes:</h4>
+    <ul class="check-list">
+      <li>Unlimited bandwidth</li>
+      <li>Unlimited requests</li>
+      <li>500 builds per month</li>
+      <li>Unlimited sites</li>
+      <li>Preview deployments for testing</li>
+      <li>Automatic HTTPS</li>
+      <li>Global CDN (300+ locations)</li>
+    </ul>
+
+    <h4>Compared to WordPress Hosting:</h4>
+    <table>
+      <tr>
+        <th>WordPress Host</th>
+        <th>Monthly Cost</th>
+        <th>Annual Cost</th>
+      </tr>
+      <tr>
+        <td>Shared Hosting (Bluehost, etc.)</td>
+        <td>$15-25</td>
+        <td>$180-300</td>
+      </tr>
+      <tr>
+        <td>Managed WordPress (WP Engine)</td>
+        <td>$25-50</td>
+        <td>$300-600</td>
+      </tr>
+      <tr>
+        <td>Premium Plugins (SEO, Security)</td>
+        <td>$10-30</td>
+        <td>$120-360</td>
+      </tr>
+      <tr>
+        <td><strong>Total WordPress</strong></td>
+        <td><strong>$40-105</strong></td>
+        <td><strong>$480-1,260</strong></td>
+      </tr>
+    </table>
+
+    <div class="highlight-green">
+      <strong>Annual Savings vs WordPress:</strong> $480 - $1,260 per year
+    </div>
+  </div>
+
+  <!-- PAGE 4: Technical Specs & Next Steps -->
+  <div class="page">
+    <div class="header">
+      <div class="logo-section">
+        <h1>LONE STAR FAUX SCAPES</h1>
+        <p>Website Deployment Strategy</p>
+      </div>
+      <div class="doc-info">
+        Page 4 of 4
+      </div>
+    </div>
+
+    <h3>Technical Specifications</h3>
+
+    <h4>Current Technology Stack</h4>
+    <table>
+      <tr>
+        <th>Component</th>
+        <th>Technology</th>
+      </tr>
+      <tr>
+        <td>Build Tool</td>
+        <td>Vite 6.2.0</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>JavaScript / TypeScript</td>
+      </tr>
+      <tr>
+        <td>Animations</td>
+        <td>GSAP 3.12.2 + ScrollTrigger</td>
+      </tr>
+      <tr>
+        <td>Minification</td>
+        <td>Terser (JS), built-in (CSS)</td>
+      </tr>
+      <tr>
+        <td>Pages</td>
+        <td>21 HTML pages (multi-page app)</td>
+      </tr>
+    </table>
+
+    <h4>Additions for Blog CMS</h4>
+    <table>
+      <tr>
+        <th>Component</th>
+        <th>Technology</th>
+      </tr>
+      <tr>
+        <td>CMS</td>
+        <td>Decap CMS (formerly Netlify CMS)</td>
+      </tr>
+      <tr>
+        <td>Content Format</td>
+        <td>Markdown with YAML frontmatter</td>
+      </tr>
+      <tr>
+        <td>Markdown Parser</td>
+        <td>marked / markdown-it</td>
+      </tr>
+      <tr>
+        <td>Build Integration</td>
+        <td>Custom Node.js prebuild script</td>
+      </tr>
+    </table>
+
+    <h4>Performance Targets</h4>
+    <div class="security-grid">
+      <div class="security-item">
+        <strong>Time to First Byte (TTFB)</strong>
+        &lt;100ms globally via Cloudflare edge
+      </div>
+      <div class="security-item">
+        <strong>Largest Contentful Paint (LCP)</strong>
+        &lt;2.5 seconds (Core Web Vital target)
+      </div>
+      <div class="security-item">
+        <strong>First Contentful Paint (FCP)</strong>
+        &lt;1.8 seconds
+      </div>
+      <div class="security-item">
+        <strong>Cumulative Layout Shift (CLS)</strong>
+        &lt;0.1 (minimal layout shift)
+      </div>
+    </div>
+
+    <h3>SEO Deliverables</h3>
+    <ul class="check-list">
+      <li>Individual URL for each blog post (e.g., /blog/how-to-choose-installer)</li>
+      <li>Auto-generated XML sitemap with all pages and posts</li>
+      <li>JSON-LD structured data (BlogPosting, Organization schemas)</li>
+      <li>Open Graph meta tags for social sharing</li>
+      <li>Canonical URLs to prevent duplicate content</li>
+      <li>Semantic HTML structure (article, header, main tags)</li>
+      <li>Image alt text and lazy loading</li>
+    </ul>
+
+    <h3>Content Workflow</h3>
+    <div class="highlight-blue">
+      <strong>Creating a New Blog Post:</strong>
+      <ol>
+        <li>Navigate to yoursite.com/admin</li>
+        <li>Login with GitHub credentials</li>
+        <li>Click "New Post"</li>
+        <li>Enter title, content, tags, and featured image</li>
+        <li>Save as draft or publish immediately</li>
+        <li>Site rebuilds automatically (~30-60 seconds)</li>
+        <li>Post is live with full SEO metadata</li>
+      </ol>
+    </div>
+
+    <h3>Recommended Next Steps</h3>
+    <table>
+      <tr>
+        <th>Step</th>
+        <th>Action</th>
+        <th>Owner</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Review and approve this roadmap</td>
+        <td>Team</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Create GitHub organization/account</td>
+        <td>Team</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Create Cloudflare account</td>
+        <td>Team</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Implement Phases 1-6</td>
+        <td>Developer</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Test CMS workflow and review</td>
+        <td>Team</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Connect custom domain</td>
+        <td>Team</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Go live</td>
+        <td>All</td>
+      </tr>
+    </table>
+
+    <h3>Questions for Team Discussion</h3>
+    <ol>
+      <li>Do you have an existing GitHub account/organization to use?</li>
+      <li>Who will need CMS access to write/edit blog posts?</li>
+      <li>Is the current domain (lonestarfauxscapes.com) ready to transfer to Cloudflare, or use existing registrar?</li>
+      <li>Any additional content types beyond blog posts needed (case studies, testimonials, etc.)?</li>
+    </ol>
+
+    <div class="footer">
+      <p>Lone Star Faux Scapes - Website Deployment Roadmap</p>
+      <p>Prepared December 2024 | Static Architecture with Decap CMS</p>
+    </div>
+  </div>
+
+</body>
+</html>

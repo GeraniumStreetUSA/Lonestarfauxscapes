@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python standardize-navbar.py)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell:*)",
+      "Bash(dir /s \"c:\\dev\\loanstar\\images\")",
+      "Bash(cmd.exe:*)",
+      "Bash(where:*)",
+      "Bash(npm --version:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run build:blog:*)",
+      "Bash(npm run build:sitemap:*)",
+      "Bash(dir /b C:devloanstardistblog)",
+      "Bash(dir /b C:devloanstardistadmin)",
+      "Bash(cmd /c \"dir /b C:\\dev\\loanstar\\dist\\blog && dir /b C:\\dev\\loanstar\\dist\\admin\")",
+      "Bash(del \"C:\\dev\\loanstar\\content\\blog\\sample-post.md\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

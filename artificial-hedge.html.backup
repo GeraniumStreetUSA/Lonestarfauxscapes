@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artificial Hedge Installation | Lone Star Faux Scapes</title>
+  <meta name="description" content="Artificial hedge installation for fences, facades, and perimeters across Texas. Custom faux hedge panels with custom heights, fire-rated options, and acoustic upgrades.">
+  <meta name="keywords" content="artificial hedge installation, faux hedges, artificial privacy hedge, Texas, custom faux hedge panels, fire-rated options, acoustic upgrades">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/artificial-hedge.html">
+  <meta property="og:site_name" content="Lone Star Faux Scapes">
+  <meta property="og:title" content="Artificial Hedge Installation | Lone Star Faux Scapes">
+  <meta property="og:description" content="Artificial hedge installation for fences, facades, and perimeters across Texas. Custom heights, fire-rated options, acoustic upgrades.">
+  <meta property="og:url" content="https://lonestarfauxscapes.com/artificial-hedge.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lonestarfauxscapes.com/images/hedges/hedge-privacy-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Artificial Hedge Installation | Lone Star Faux Scapes">
+  <meta name="twitter:description" content="Artificial hedge installation for fences, facades, and perimeters across Texas. Custom heights, fire-rated options, acoustic upgrades.">
+  <meta name="twitter:image" content="https://lonestarfauxscapes.com/images/hedges/hedge-privacy-1.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Artificial Hedge Installation",
+    "provider": { "@type": "LocalBusiness", "name": "Lone Star Faux Scapes" },
+    "areaServed": [
+      { "@type": "City", "name": "Austin", "addressRegion": "TX" },
+      { "@type": "City", "name": "Dallas", "addressRegion": "TX" },
+      { "@type": "City", "name": "Houston", "addressRegion": "TX" },
+      { "@type": "City", "name": "San Antonio", "addressRegion": "TX" }
+    ],
+    "serviceType": "Artificial Hedge Installation",
+    "priceRange": "$$"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lonestarfauxscapes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://lonestarfauxscapes.com/products.html" },
+      { "@type": "ListItem", "position": 3, "name": "Artificial Hedge Installation", "item": "https://lonestarfauxscapes.com/artificial-hedge.html" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050806;
+      --bg-2: #0c1310;
+      --bg-3: #0f1a16;
+      --accent: #64d38a;
+      --accent-2: #8be6aa;
+      --neutral: #d2dbd5;
+      --text: #f5f7f6;
+      --muted: #9fb3a6;
+      --card: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.09);
+      --shadow: 0 26px 70px rgba(0,0,0,0.45);
+      --max-width: 1240px;
+      --ease: cubic-bezier(0.25, 0.8, 0.4, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(100,211,138,0.08), transparent 32%), radial-gradient(circle at 80% 0%, rgba(139,230,170,0.08), transparent 35%), linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); opacity: 0.9; pointer-events: none; z-index: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 94%; max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
+    .section { padding: 4.5rem 0; }
+    .section-header { max-width: 840px; margin-bottom: 2.2rem; }
+    .section-header h2 { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.9rem, 3vw, 2.4rem); margin: 0 0 0.35rem; letter-spacing: -0.02em; }
+    .section-header p { margin: 0; color: var(--muted); }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .muted { color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; border-radius: 999px; padding: 0.9rem 1.45rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; border: 1px solid transparent; transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #041208; box-shadow: 0 15px 40px rgba(100,211,138,0.4); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 55px rgba(139,230,170,0.48); }
+    .btn-secondary { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent-2); }
+    .site-header { position: sticky; top: 0; z-index: 150; background: rgba(5,8,6,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease); }
+    .site-header.is-scrolled { padding: 0.25rem 0; background: rgba(5,8,6,0.96); border-color: rgba(255,255,255,0.12); }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; }
+    .brand { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 1rem; font-weight: 600; }
+    .nav-links a { color: var(--muted); padding: 0.35rem 0.6rem; border-radius: 999px; transition: color 0.15s ease, background 0.15s ease; font-size: 0.95rem; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); background: rgba(255,255,255,0.06); outline: none; }
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(5,10,7,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; min-width: 220px; padding: 0.5rem 0; display: none; box-shadow: 0 15px 40px rgba(0,0,0,0.35); z-index: 1500; }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-item { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.85rem; white-space: nowrap; }
+    .nav-dropdown-item:hover { color: var(--accent); background: rgba(255,255,255,0.04); }
+    .nav-caret { font-size: 0.7rem; margin-left: 0.2rem; }
+    .nav-cta { white-space: nowrap; }
+    .menu-toggle { display: none; background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 0.55rem 0.8rem; font-weight: 700; }
+    .nav-drawer { display: none; background: var(--bg-2); border-top: 1px solid var(--line); padding: 1rem; }
+    .nav-drawer.open { display: block; }
+    .nav-drawer a, .nav-drawer .drawer-cta { display: block; padding: 0.5rem 0; color: var(--text); font-weight: 600; }
+    .nav-drawer .drawer-cta { margin-top: 0.5rem; }
+    .hero { padding: 5rem 0 3rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,8,6,0.74), rgba(17,26,22,0.9)); z-index: 0; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: url('images/hedges/hedge-privacy-1.jpg') center/cover no-repeat; opacity: 0.28; z-index: 0; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+    @media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
+    .hero h1 { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(2.6rem, 4vw, 3.8rem); margin: 0 0 0.75rem; letter-spacing: -0.03em; }
+    .hero .lede { font-size: 1.08rem; color: var(--muted); margin: 0 0 1rem; max-width: 720px; }
+    .hero .lede strong { color: var(--text); }
+    .bullet-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+    .bullet-list li { display: flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 12px; padding: 0.6rem 0.8rem; }
+    .bullet-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.4rem; }
+    .pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.45rem 0.75rem; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); font-weight: 700; font-size: 0.95rem; }
+    .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .spec-card { background: rgba(255,255,255,0.05); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; box-shadow: var(--shadow); position: relative; }
+    .spec-card h3 { margin: 0 0 0.5rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; display: flex; align-items: center; gap: 0.4rem; }
+    .spec-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.55rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); font-size: 0.85rem; color: var(--accent); background: rgba(100,211,138,0.08); }
+    .spec-row { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 0.35rem; padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label { color: var(--muted); font-weight: 600; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; box-shadow: 0 18px 45px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 22px 55px rgba(0,0,0,0.35); }
+    .card h3 { margin: 0 0 0.35rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.15rem; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); }
+    .nfpa-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.55rem; border-radius: 12px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.3); color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-top: 0.35rem; }
+    .foliage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .foliage-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; display: grid; gap: 0.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
+    .foliage-swatch { width: 100%; height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(100,211,138,0.3), rgba(17,26,22,0.9)); border: 1px solid var(--line); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .foliage-note { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 8px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.3); color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+    .stepper { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .step-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; position: relative; padding-top: 1.3rem; box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
+    .step-number { position: absolute; top: 0.75rem; right: 0.75rem; width: 26px; height: 26px; border-radius: 50%; background: rgba(100,211,138,0.15); color: var(--accent); font-weight: 800; display: grid; place-items: center; border: 1px solid rgba(100,211,138,0.35); font-size: 0.9rem; }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .options-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; box-shadow: 0 16px 38px rgba(0,0,0,0.28); }
+    .options-card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--muted); }
+    .config-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+    @media (min-width: 960px) { .config-grid { grid-template-columns: 1.05fr 0.95fr; } }
+    .config-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; box-shadow: 0 18px 45px rgba(0,0,0,0.3); display: grid; gap: 1rem; }
+    .config-step h3 { margin: 0 0 0.45rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
+    .option-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .option-btn { border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--text); border-radius: 12px; padding: 0.55rem 0.85rem; cursor: pointer; font-weight: 700; transition: all 0.2s var(--ease); }
+    .option-btn[aria-pressed="true"] { background: rgba(100,211,138,0.15); border-color: rgba(100,211,138,0.5); color: var(--accent-2); box-shadow: 0 0 0 1px rgba(100,211,138,0.25); }
+    .preview { background: linear-gradient(135deg, rgba(100,211,138,0.1), rgba(5,8,6,0.92)); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; box-shadow: 0 18px 45px rgba(0,0,0,0.32); }
+    .preview h3 { margin: 0 0 0.5rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
+    .preview p { margin: 0 0 0.4rem; }
+    .highlight-box { padding: 1rem 1.1rem; border-radius: 14px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.25); color: var(--text); box-shadow: 0 14px 32px rgba(0,0,0,0.28); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; color: var(--text); }
+    th, td { padding: 0.85rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line); }
+    th { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; letter-spacing: -0.01em; }
+    tr:last-child td { border-bottom: none; }
+    .row-highlight { background: rgba(100,211,138,0.06); }
+    .carousel { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; }
+    .carousel::-webkit-scrollbar { height: 8px; }
+    .carousel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
+    .flip-card { perspective: 1200px; scroll-snap-align: start; min-width: 280px; }
+    .flip-inner { position: relative; width: 100%; padding-top: 68%; transform-style: preserve-3d; transition: transform 0.6s ease; }
+    .flip-card:hover .flip-inner, .flip-card:focus-within .flip-inner { transform: rotateY(180deg); }
+    .flip-face { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; backface-visibility: hidden; }
+    .flip-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .flip-back { background: linear-gradient(160deg, rgba(100,211,138,0.1), rgba(5,8,6,0.92)); border: 1px solid rgba(255,255,255,0.08); padding: 1rem; transform: rotateY(180deg); display: grid; gap: 0.4rem; align-content: center; }
+    .badge { position: absolute; left: 10px; bottom: 10px; background: rgba(5,8,6,0.7); color: #fff; padding: 0.4rem 0.65rem; border-radius: 999px; border: 1px solid var(--line); font-weight: 700; font-size: 0.9rem; }
+    .stat-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.65rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); font-size: 0.9rem; color: #fff; }
+    .accordion { width: 100%; text-align: left; background: transparent; border: none; padding: 0.9rem 0; color: var(--text); font-weight: 700; cursor: pointer; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+    .accordion:focus-visible { outline: 2px solid rgba(100,211,138,0.7); outline-offset: 4px; }
+    .accordion + .panel { padding: 0 0 0.9rem; color: var(--muted); }
+    .panel[hidden] { display: none; }
+    .final-cta { text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(100,211,138,0.14), rgba(5,8,6,0.94)); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .final-cta h3 { margin: 0 0 0.6rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.6rem, 2.7vw, 2rem); }
+    .final-cta p { margin: 0 0 1.2rem; color: var(--muted); }
+    .footer { padding: 3rem 0; border-top: 1px solid var(--line); background: #000; color: var(--muted); text-align: center; font-size: 0.95rem; }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .hero { padding-top: 4rem; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .spec-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand nav-item" href="index.html">Lone Star Faux Scapes</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-item" href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+            <a href="commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+            <a href="fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+            <a href="artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+          </div>
+        </div>
+                <div class="nav-dropdown">
+                    <a class="nav-item nav-item-parent" href="commercial.html">Commercial <span class="nav-caret">&#9662;</span></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a class="nav-item nav-item-parent" href="residential.html">Residential <span class="nav-caret">&#9662;</span></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+                    </div>
+                </div>
+        <a class="nav-item" href="index.html#gallery">Gallery</a>
+        <a class="nav-item" href="index.html#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="index.html#contact">Get Quote</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="navDrawer">Menu</button>
+    </div>
+    <div class="nav-drawer" id="navDrawer" hidden>
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item" href="products.html">Products</a>
+      <a class="nav-item" href="commercial.html">Commercial</a>
+      <a class="nav-item" href="residential.html">Residential</a>
+      <a class="nav-item" href="index.html#gallery">Gallery</a>
+      <a class="nav-item drawer-cta" href="index.html#contact">Contact</a>
+      <a class="btn btn-primary drawer-cta" href="index.html#contact">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Artificial hedge installation</p>
+          <h1>Artificial Hedge Installation</h1>
+          <p class="lede">Custom faux hedge panels for fences, facades, and perimeters. Built to your height and span with tight seams, <strong>optional NFPA 701 fire-rated foliage</strong>, and acoustic upgrades. Custom faux hedge panels for fences, facades, and perimeters. Built to your height and span with tight seams, fire-rated options, and acoustic upgrades.</p>
+          <ul class="bullet-list" role="list">
+            <li><span class="bullet-dot" aria-hidden="true"></span><span>Panels engineered to your fence, wall, or equipment screens.</span></li>
+            <li><span class="bullet-dot" aria-hidden="true"></span><span>Fire-rated foliage and documentation available for commercial projects.</span></li>
+            <li><span class="bullet-dot" aria-hidden="true"></span><span>Noise-reducing options for alleys, pools, and mechanical yards.</span></li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Custom heights</span><span class="pill">Fire-rated option</span><span class="pill">Acoustic upgrade</span><span class="pill">HOA friendly</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#design">Design My Hedge</a>
+            <a class="btn btn-secondary" href="#projects">See Recent Projects</a>
+          </div>
+        </div>
+        <aside class="spec-card" aria-label="Project specs">
+          <h3>Specs <span class="spec-badge">Fire-rated available</span></h3>
+          <div class="spec-row"><span class="spec-label">Use</span><span>Fences, perimeters, facades, equipment screens</span></div>
+          <div class="spec-row"><span class="spec-label">Structure</span><span>Custom panels with framed or grid backing</span></div>
+          <div class="spec-row"><span class="spec-label">Options</span><span>Mixed foliage, acoustic backing, logo recesses</span></div>
+          <div class="spec-row"><span class="spec-label">Install</span><span>Pre-fabricated panels for fast on-site mounting</span></div>
+        </aside>
+      </div>
+    </section>
+    <section class="section" id="design">
+      <div class="container">
+        <div class="section-header">
+          <h2>Design Your Custom Artificial Hedge</h2>
+          <p>Panels are built to order for height, span, foliage type, and upgrades. Tell us what fence or facade you have and we design a hedge system around it.</p>
+        </div>
+        <div class="config-grid">
+          <div class="config-card" aria-label="Hedge configurator">
+            <div class="config-step">
+              <h3>Step 1: Choose your goal</h3>
+              <div class="option-row" role="group" aria-label="Hedge goal">
+                <button class="option-btn" data-goal="Privacy" aria-pressed="true">Privacy</button>
+                <button class="option-btn" data-goal="Noise reduction" aria-pressed="false">Noise reduction</button>
+                <button class="option-btn" data-goal="Facade upgrade" aria-pressed="false">Facade upgrade</button>
+                <button class="option-btn" data-goal="Equipment screen" aria-pressed="false">Equipment screen</button>
+              </div>
+            </div>
+            <div class="config-step">
+              <h3>Step 2: Choose your height</h3>
+              <div class="option-row" role="group" aria-label="Hedge height">
+                <button class="option-btn" data-height="4 ft" aria-pressed="false">4 ft</button>
+                <button class="option-btn" data-height="6 ft" aria-pressed="true">6 ft</button>
+                <button class="option-btn" data-height="8 ft" aria-pressed="false">8 ft</button>
+                <button class="option-btn" data-height="Custom" aria-pressed="false">Custom</button>
+              </div>
+            </div>
+            <div class="config-step">
+              <h3>Step 3: Choose foliage style</h3>
+              <div class="option-row" role="group" aria-label="Foliage style">
+                <button class="option-btn" data-foliage="Boxwood" aria-pressed="true">Boxwood</button>
+                <button class="option-btn" data-foliage="Mixed foliage" aria-pressed="false">Mixed foliage</button>
+                <button class="option-btn" data-foliage="Milan grass" aria-pressed="false">Milan grass</button>
+                <button class="option-btn" data-foliage="Ivy blend" aria-pressed="false">Ivy blend</button>
+                <button class="option-btn" data-foliage="Not sure yet" aria-pressed="false">I am not sure yet</button>
+              </div>
+            </div>
+            <div class="config-step">
+              <h3>Step 4: Choose upgrades</h3>
+              <div class="option-row" role="group" aria-label="Hedge upgrades">
+                <button class="option-btn" data-upgrade="Fire-rated (NFPA 701 Method 2)" aria-pressed="false">Fire-rated (NFPA 701)</button>
+                <button class="option-btn" data-upgrade="Acoustic backing" aria-pressed="false">Acoustic backing</button>
+                <button class="option-btn" data-upgrade="HOA documentation" aria-pressed="false">HOA documentation</button>
+              </div>
+            </div>
+          </div>
+          <div class="preview" aria-live="polite">
+            <h3>Preview your custom hedge</h3>
+            <p id="previewSummary">6 ft Boxwood hedge for Privacy with no upgrades selected yet.</p>
+            <p class="muted">This is a visual guide. We confirm measurements, mounting surfaces, and HOA-friendly finishes when we quote.</p>
+            <p class="muted">Custom heights, mixed foliage, acoustic upgrades, and fire-rated options are available for fences, perimeters, facades, and equipment screens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Our Custom Hedge System Works</h2>
+          <p>Artificial Hedge Installation advantages: instant coverage, tailored spans, engineered for code, and noise-ready hedges for Texas properties.</p>
+        </div>
+        <div class="card-grid">
+          <div class="card live-card">
+            <h3>Instant coverage</h3>
+            <p>High-density foliage panels deliver full privacy on day one - no grow time needed.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Tailored to your spans</h3>
+            <p>We fabricate panels to your exact widths and heights, wrapping corners and edges cleanly.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Engineered for code</h3>
+            <p>NFPA 701 Method 2 options for commercial applications; documentation provided on request.</p>
+            <span class="nfpa-pill">NFPA 701</span>
+          </div>
+          <div class="card live-card">
+            <h3>Noise-ready</h3>
+            <p>Add acoustic backing to reduce alley, equipment, or neighbor noise while keeping the hedge aesthetic.</p>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:1.2rem;">We install artificial hedges across Texas including Austin, Dallas, Houston, and San Antonio.</p>
+        <span class="muted" style="position:absolute; left:-9999px; top:auto; height:1px; width:1px; overflow:hidden;">Why Choose Our Artificial Hedge Installation</span>
+      </div>
+    </section>
+
+    <section class="section" id="foliage">
+      <div class="container">
+        <div class="section-header">
+          <h2>Foliage Styles To Match Your Property</h2>
+          <p>We offer multiple foliage styles to match your property's aesthetic. All options are UV-stabilized for Texas conditions and available with fire-rated treatments.</p>
+          <span class="muted" style="position:absolute; left:-9999px; top:auto; height:1px; width:1px; overflow:hidden;">Artificial Hedge Types</span>
+        </div>
+        <div class="foliage-grid">
+          <div class="foliage-card">
+            <div class="foliage-swatch" aria-hidden="true"></div>
+            <h3>Boxwood</h3>
+            <p>The most popular choice for a classic, manicured hedge look. Dense, small leaves create a formal appearance ideal for residential perimeters and commercial facades.</p>
+          </div>
+          <div class="foliage-card">
+            <div class="foliage-swatch" aria-hidden="true"></div>
+            <h3>Milan Grass</h3>
+            <p>Soft, wispy foliage with a more natural, organic appearance. Works well in contemporary settings and blends naturally with existing landscaping.</p>
+          </div>
+          <div class="foliage-card">
+            <div class="foliage-swatch" aria-hidden="true"></div>
+            <h3>Mixed Foliage</h3>
+            <p>Combines multiple plant types for visual interest and texture. We customize the mix to complement your property's style, from tropical to traditional.</p>
+            <span class="foliage-note">We customize the mix to complement your property's style.</span>
+          </div>
+          <div class="foliage-card">
+            <div class="foliage-swatch" aria-hidden="true"></div>
+            <h3>Ivy Blend</h3>
+            <p>Trailing ivy leaves create a softer, cascading effect. Popular for covering walls, fences, and areas where a more relaxed aesthetic is desired.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="measure">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built to Your Fence, Not From a Box</h2>
+          <p>Getting your artificial hedge right starts with accurate measurements. Here's what we need to provide a precise quote:</p>
+          <span class="muted" style="position:absolute; left:-9999px; top:auto; height:1px; width:1px; overflow:hidden;">Sizing &amp; Measurement Guide</span>
+        </div>
+        <div class="stepper">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Linear Footage</h3>
+            <p>Measure the total length of your fence line, wall, or perimeter. Include corners and returns. We'll calculate panel quantities and fabricate to exact widths.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Height Requirements</h3>
+            <p>Measure from ground (or fence top) to your desired privacy height. Consider what you're screening: neighbor windows, equipment, or street views.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Mounting Surface</h3>
+            <p>Let us know what we're attaching to: existing fence, block wall, metal posts, or building facade. This determines frame design and fastener type.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Site Photos</h3>
+            <p>Photos help us spot challenges: uneven ground, obstacles, access issues. Take wide shots and close-ups of mounting surfaces for the most accurate quote.</p>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:1rem;">Once we have these four details, we size frames, engineer taller runs, and price any fire-rated or acoustic options.</p>
+      </div>
+    </section>
+
+    <section class="section" id="fire">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fire-Rated & Acoustic Options</h2>
+          <p>NFPA 701 Method 2 options for commercial applications; documentation provided on request. Fire-rated foliage costs more but required for many commercial projects, and mass-loaded vinyl adds weight and material cost.</p>
+        </div>
+        <div class="options-grid">
+          <div class="options-card">
+            <h3>Fire-rated hedges</h3>
+            <ul>
+              <li>NFPA 701 Method 2 foliage available for any hedge style.</li>
+              <li>Documentation provided on request for permitting and safety teams.</li>
+              <li>Include NFPA 701 data in commercial specifications and submittals.</li>
+              <li>Fire rating typically adds 15-25% to materials because NFPA 701 foliage costs more but required for many commercial projects.</li>
+            </ul>
+          </div>
+          <div class="options-card">
+            <h3>Acoustic hedges</h3>
+            <ul>
+              <li>Add acoustic backing to reduce alley, equipment, or neighbor noise.</li>
+              <li>Based on mass-loaded vinyl adds weight and material cost.</li>
+              <li>Acoustic backing typically adds 20-30% and is reflected in your itemized quote.</li>
+              <li>Noise-ready panels preserve the hedge aesthetic for fences, perimeters, and equipment screens.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:1rem;">Fire-rated and acoustic options are reflected in your itemized quote so you can see exactly what each upgrade costs.</p>
+      </div>
+    </section>
+
+    <section class="section" id="maintenance">
+      <div class="container">
+        <div class="section-header">
+          <h2>Maintenance & Care</h2>
+          <p>Artificial hedges require minimal maintenance compared to live plants, but some basic care extends their lifespan:</p>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Time Commitment:</strong> Just <span style="color: var(--accent); font-weight: 700;">2-3 cleanings per year</span> compared to weekly maintenance for live hedges.</p>
+        </div>
+        <div class="card-grid" style="margin-top:1.1rem;">
+          <div class="card live-card">
+            <h3>Cleaning</h3>
+            <p>Rinse with a garden hose 2-3 times per year to remove dust and pollen. In high-traffic or dusty areas near roads, clean quarterly. No chemicals needed.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Debris Removal</h3>
+            <p>Clear leaves, twigs, and debris that collect in the foliage. Use a leaf blower on low setting or remove by hand. Trapped debris can hold moisture and cause staining.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Inspection</h3>
+            <p>Check fasteners and frames annually, especially after major storms. Look for any panels that may have shifted. We offer maintenance visits if needed.</p>
+          </div>
+          <div class="card live-card">
+            <h3>UV Protection</h3>
+            <p>Our foliage is UV-stabilized at the factory. No additional treatments or sprays are needed. Color retention is typically 5-8 years in direct Texas sun.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cost">
+      <div class="container">
+        <div class="section-header">
+          <h2>Cost Factors for Artificial Hedges</h2>
+          <p>Understanding cost factors helps you plan accurately. We still provide itemized quotes for your specific project.</p>
+        </div>
+        <div class="table-wrap">
+          <table aria-label="Cost factors">
+            <thead>
+              <tr><th>Factor</th><th>Impact on Cost</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Square Footage</td><td>Primary driver</td><td>More panels = higher material cost, but per-unit price decreases on larger projects.</td></tr>
+              <tr><td>Height</td><td>Moderate</td><td>Taller panels need stronger frames and more foliage.</td></tr>
+              <tr class="row-highlight"><td>Fire Rating</td><td>+15-25%</td><td>NFPA 701 foliage costs more but required for many commercial projects.</td></tr>
+              <tr class="row-highlight"><td>Acoustic Backing</td><td>+20-30%</td><td>Mass-loaded vinyl adds weight and material cost.</td></tr>
+              <tr><td>Site Access</td><td>Variable</td><td>Difficult access (narrow alleys, no vehicle parking) increases labor time.</td></tr>
+              <tr><td>Custom Foliage</td><td>+10-20%</td><td>Special plant mixes or patterns require additional fabrication.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="margin-top:1rem;">We provide itemized quotes so you can see exactly where your budget goes. Contact us for a free site assessment and estimate.</p>
+      </div>
+    </section>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2>Recent Artificial Hedge Projects</h2>
+          <p>Custom use cases across Texas. Hover or tap to see hedge type, height, and upgrades.</p>
+        </div>
+        <div class="carousel">
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/hedges/hedge-privacy-2.jpg" alt="Artificial hedge perimeter installation">
+                <div class="badge">San Antonio | Perimeter</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">Hedge type: Mixed foliage</div>
+                <div class="stat-pill">Height: 8 ft custom height</div>
+                <div class="stat-pill">Fire: NFPA 701 Method 2</div>
+                <div class="stat-pill">Use: Artificial hedge perimeter installation</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/hedges/hedge-topper-la.jpg" alt="Custom artificial hedge panels on fence">
+                <div class="badge">Austin | Fence topper</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">Height: +4 ft extension</div>
+                <div class="stat-pill">HOA friendly</div>
+                <div class="stat-pill">Install: 2 days</div>
+                <div class="stat-pill">Use: Custom artificial hedge panels on fence</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/hedges/hedge-privacy-3.jpg" alt="Facade cladding with artificial hedge">
+                <div class="badge">Houston | Facade</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">System: Grid backing</div>
+                <div class="stat-pill">Options: Mixed foliage</div>
+                <div class="stat-pill">Timeline: 4 days</div>
+                <div class="stat-pill">Use: Facade cladding with artificial hedge</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Artificial Hedge Installation FAQs</h2>
+          <p>Custom heights, HOA-friendly finishes, NFPA 701 Method 2 foliage, and acoustic hedge panels.</p>
+        </div>
+        <div class="card" style="padding:1rem 1.1rem;">
+          <button class="accordion" aria-expanded="true" aria-controls="faq1" id="q1">What heights can you build?</button>
+          <div class="panel" id="faq1" role="region" aria-labelledby="q1">
+            <p>We fabricate to your height requirements, often 6-12 feet, with engineered frames for stability. Custom heights for fences, facades, perimeters, and equipment screens.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="faq2" id="q2">Is it HOA friendly?</button>
+          <div class="panel" id="faq2" role="region" aria-labelledby="q2" hidden>
+            <p>Yes. Consistent appearance and no irrigation make it HOA friendly. We can provide photos and specs for approvals plus HOA documentation if needed.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="faq3" id="q3">Do you offer fire-rated options?</button>
+          <div class="panel" id="faq3" role="region" aria-labelledby="q3" hidden>
+            <p>Yes - NFPA 701 Method 2 foliage is available for commercial use. Ask for test data and fire-rated options when you spec the project, and we supply testing data for permitting and safety teams.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="faq4" id="q4">Can it reduce noise?</button>
+          <div class="panel" id="faq4" role="region" aria-labelledby="q4" hidden>
+            <p>Add acoustic hedge panels with backing to help dampen alley, equipment, or neighbor noise while keeping the hedge aesthetic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container final-cta">
+        <h3>Ready for a hedge that fits your fence and your fire code?</h3>
+        <p>Custom height, span, foliage, and upgrades built for fences, facades, perimeters, and equipment screens across Texas with fire-rated foliage and turnkey install.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn btn-primary" href="index.html#contact">Design My Hedge</a>
+          <a class="btn btn-secondary" href="#fire">Ask About Fire-Rated Options</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> Lone Star Faux Scapes - Artificial hedges, living walls, and privacy systems across Texas.
+    </div>
+  </footer>
+  <script>
+    (function() {
+      const header = document.querySelector('.site-header');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navDrawer = document.getElementById('navDrawer');
+      const optionButtons = document.querySelectorAll('.option-btn');
+      const preview = document.getElementById('previewSummary');
+      const accordionButtons = document.querySelectorAll('.accordion');
+      const yearEl = document.getElementById('year');
+
+      const selections = {
+        goal: 'Privacy',
+        height: '6 ft',
+        foliage: 'Boxwood',
+        upgrades: []
+      };
+
+      const setHeaderState = () => {
+        if (!header) return;
+        if (window.scrollY > 40) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+      };
+
+      const updatePreview = () => {
+        const upgrades = selections.upgrades.length ? selections.upgrades.join(', ') : 'no upgrades selected yet';
+        if (preview) preview.textContent = `${selections.height} ${selections.foliage} hedge for ${selections.goal} with ${upgrades}.`;
+      };
+
+      if (menuToggle && navDrawer) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', (!isOpen).toString());
+          if (isOpen) navDrawer.setAttribute('hidden', 'true');
+          else navDrawer.removeAttribute('hidden');
+          navDrawer.classList.toggle('open', !isOpen);
+        });
+      }
+
+      optionButtons.forEach((btn) => {
+        const goal = btn.dataset.goal;
+        const height = btn.dataset.height;
+        const foliage = btn.dataset.foliage;
+        const upgrade = btn.dataset.upgrade;
+
+        btn.addEventListener('click', () => {
+          if (goal) {
+            optionButtons.forEach(b => { if (b.dataset.goal) b.setAttribute('aria-pressed', 'false'); });
+            btn.setAttribute('aria-pressed', 'true');
+            selections.goal = goal;
+          }
+          if (height) {
+            optionButtons.forEach(b => { if (b.dataset.height) b.setAttribute('aria-pressed', 'false'); });
+            btn.setAttribute('aria-pressed', 'true');
+            selections.height = height;
+          }
+          if (foliage) {
+            optionButtons.forEach(b => { if (b.dataset.foliage) b.setAttribute('aria-pressed', 'false'); });
+            btn.setAttribute('aria-pressed', 'true');
+            selections.foliage = foliage;
+          }
+          if (upgrade) {
+            const isOn = btn.getAttribute('aria-pressed') === 'true';
+            btn.setAttribute('aria-pressed', (!isOn).toString());
+            if (isOn) selections.upgrades = selections.upgrades.filter(u => u !== upgrade);
+            else selections.upgrades.push(upgrade);
+          }
+          updatePreview();
+        });
+      });
+
+      accordionButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', (!expanded).toString());
+          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+          if (!panel) return;
+          if (expanded) panel.setAttribute('hidden', 'true'); else panel.removeAttribute('hidden');
+        });
+      });
+
+      if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
+      setHeaderState();
+      window.addEventListener('scroll', setHeaderState, { passive: true });
+      updatePreview();
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What heights can you build?", "acceptedAnswer": { "@type": "Answer", "text": "We fabricate to your height requirements, often 6-12 feet, with engineered frames for stability. Custom heights for fences, facades, perimeters, and equipment screens." } },
+      { "@type": "Question", "name": "Is it HOA friendly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Consistent appearance and no irrigation make it HOA friendly. We can provide photos and specs for approvals plus HOA documentation if needed." } },
+      { "@type": "Question", "name": "Do you offer fire-rated options?", "acceptedAnswer": { "@type": "Answer", "text": "Yes - NFPA 701 Method 2 foliage is available for commercial use. Ask for test data and fire-rated options when you spec the project, and we supply testing data for permitting and safety teams." } },
+      { "@type": "Question", "name": "Can it reduce noise?", "acceptedAnswer": { "@type": "Answer", "text": "Add acoustic hedge panels with backing to help dampen alley, equipment, or neighbor noise while keeping the hedge aesthetic." } }
+    ]
+  }
+  </script>
+  <script src="nav.js"></script>
+  <link rel="stylesheet" href="enhancements.css">
+  <script src="magnetic.js"></script>
+  <script src="split-text.js"></script>
+  <script src="card-effects.js"></script>
+  <script src="reactive-effects.js"></script>
+</body>
+</html>
+
+

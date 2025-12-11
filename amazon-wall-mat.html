@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Amazon Series | Architectural Foliage</title>
+
+    
+
+    <!-- Tailwind CSS -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enhancements.css">
+
+    
+
+    <!-- Babel for in-browser JSX -->
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+
+    <!-- Import Map for Dependencies -->
+
+    <script type="importmap">
+
+    {
+
+      "imports": {
+
+        "react": "https://esm.sh/react@18.2.0",
+
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+
+        "lucide-react": "https://esm.sh/lucide-react@0.292.0"
+
+      }
+
+    }
+
+    </script>
+
+
+
+    <!-- Tailwind Config -->
+
+    <script>
+
+      tailwind.config = {
+
+        theme: {
+
+          extend: {
+
+            fontFamily: {
+
+              sans: ['Inter', 'sans-serif'],
+
+              display: ['Space Grotesk', 'sans-serif'],
+
+              mono: ['JetBrains Mono', 'monospace'],
+
+            },
+
+            colors: {
+
+              bio: {
+
+                900: '#051a12', // Deep jungle
+
+                800: '#0a2f23',
+
+                500: '#10b981',
+
+                400: '#34d399',
+
+                accent: '#ccff00', // Acid green for emphasis
+
+              }
+
+            },
+
+            animation: {
+
+              'float': 'float 6s ease-in-out infinite',
+
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+
+              'marquee': 'marquee 25s linear infinite',
+
+              'gradient-x': 'gradient-x 15s ease infinite',
+
+              'scan': 'scan 2s ease-in-out infinite',
+
+            },
+
+            keyframes: {
+
+              float: {
+
+                '0%, 100%': { transform: 'translateY(0)' },
+
+                '50%': { transform: 'translateY(-20px)' },
+
+              },
+
+              marquee: {
+
+                '0%': { transform: 'translateX(0%)' },
+
+                '100%': { transform: 'translateX(-100%)' },
+
+              },
+
+              'gradient-x': {
+
+                  '0%, 100%': {
+
+                      'background-size': '200% 200%',
+
+                      'background-position': 'left center'
+
+                  },
+
+                  '50%': {
+
+                      'background-size': '200% 200%',
+
+                      'background-position': 'right center'
+
+                  },
+
+              },
+
+              scan: {
+
+                '0%': { width: '0%', opacity: '1' },
+
+                '50%': { opacity: '1' },
+
+                '100%': { width: '100%', opacity: '0' },
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    </script>
+
+
+
+    <!-- Custom Styles -->
+
+    <style>
+
+      /* Minimal var so navbar colors match other pages */
+
+      :root {
+
+        --accent: #64d38a;
+
+      }
+
+
+
+      /* Custom Scrollbar */
+
+      ::-webkit-scrollbar {
+
+        width: 8px;
+
+      }
+
+      ::-webkit-scrollbar-track {
+
+        background: #051a12;
+
+      }
+
+      ::-webkit-scrollbar-thumb {
+
+        background: #333;
+
+        border-radius: 4px;
+
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+
+        background: #10b981;
+
+      }
+
+
+
+      /* Noise Overlay */
+
+      .bg-noise {
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        pointer-events: none;
+
+        z-index: 50;
+
+        opacity: 0.03;
+
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+      }
+
+      
+
+      .glass-panel {
+
+        background: rgba(255, 255, 255, 0.03);
+
+        backdrop-filter: blur(10px);
+
+        -webkit-backdrop-filter: blur(10px);
+
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+      }
+
+
+
+      /* === FLOATING NAVBAR COPIED FROM OTHER PAGES === */
+
+
+
+      #main-header {
+
+        position: fixed;
+
+        top: 1.25rem;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 96%;
+
+        max-width: 1200px;
+
+        z-index: 1000;
+
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        padding: 0.75rem 1.5rem;
+
+        border-radius: 24px;
+
+        background: rgba(10, 20, 15, 0.8);
+
+        backdrop-filter: blur(14px);
+
+        border: 1px solid rgba(255,255,255,0.07);
+
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+
+      }
+
+      #main-header.scrolled {
+
+        top: 1rem;
+
+        background: rgba(5, 10, 7, 0.9);
+
+        width: 97%;
+
+      }
+
+      .nav-container {
+
+        display: flex;
+
+        align-items: center;
+
+        width: 100%;
+
+        max-width: none;
+
+        gap: 1rem;
+
+      }
+
+      .logo {
+
+        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+
+        font-size: 1rem;
+
+        font-weight: 900;
+
+        color: #fff;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.1em;
+
+        white-space: nowrap;
+
+      }
+
+      .nav-links {
+
+        display: none;
+
+      }
+
+      @media (min-width: 992px) {
+
+        .nav-links {
+
+          display: flex;
+
+          gap: 2.25rem;
+
+          align-items: center;
+
+          margin-left: auto;
+
+        }
+
+        .nav-item {
+
+          font-size: 0.85rem;
+
+          font-weight: 600;
+
+          color: rgba(255,255,255,0.7);
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.03em;
+
+          position: relative;
+
+          padding-bottom: 0.25rem;
+
+        }
+
+        .nav-item:hover {
+
+          color: var(--accent);
+
+        }
+
+        .nav-item::after {
+
+          content: '';
+
+          position: absolute;
+
+          left: 0;
+
+          right: 0;
+
+          bottom: 0;
+
+          height: 2px;
+
+          background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+
+          transform: scaleX(0);
+
+          transform-origin: center;
+
+          transition: transform 0.2s ease;
+
+        }
+
+        .nav-item:hover::after {
+
+          transform: scaleX(1);
+
+        }
+
+        .nav-item.active::after {
+
+          transform: scaleX(1);
+
+        }
+
+        .nav-dropdown { 
+
+          position: relative; 
+
+          display: inline-flex; 
+
+          align-items: center; 
+
+        }
+
+        .nav-item-parent { 
+
+          display: inline-flex; 
+
+          align-items: center; 
+
+          gap: 0.3rem; 
+
+        }
+
+        .nav-cta {
+
+          padding: 0.55rem 1.1rem;
+
+          border: 1px solid rgba(255,255,255,0.16);
+
+          border-radius: 999px;
+
+          color: #fff;
+
+          background: rgba(255,255,255,0.06);
+
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+
+        }
+
+        .nav-cta:hover {
+
+          background: rgba(255,255,255,0.12);
+
+          color: #fff;
+
+        }
+
+        .nav-dropdown-menu {
+
+          position: absolute;
+
+          top: 100%;
+
+          left: 0;
+
+          background: rgba(5,10,7,0.95);
+
+          backdrop-filter: blur(10px);
+
+          border: 1px solid rgba(255,255,255,0.08);
+
+          border-radius: 12px;
+
+          min-width: 220px;
+
+          padding: 0.5rem 0;
+
+          box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+          z-index: 1500;
+
+          opacity: 0;
+
+          visibility: hidden;
+
+          transform: translateY(-8px);
+
+          pointer-events: none;
+
+          display: none;
+
+          transition:
+
+            opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+
+            transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+
+            visibility 0.3s;
+
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu,
+
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+
+          opacity: 1;
+
+          visibility: visible;
+
+          transform: translateY(0);
+
+          pointer-events: auto;
+
+          display: block;
+
+        }
+
+        .nav-dropdown-item {
+
+          display: block;
+
+          padding: 0.6rem 1rem;
+
+          color: rgba(255,255,255,0.8);
+
+          font-size: 0.8rem;
+
+          letter-spacing: 0.03em;
+
+          white-space: nowrap;
+
+          opacity: 0;
+
+          transform: translateX(-8px);
+
+          transition:
+
+            opacity 0.2s ease,
+
+            transform 0.2s ease,
+
+            background 0.2s ease;
+
+        }
+
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(1) {
+
+          opacity: 1;
+
+          transform: translateX(0);
+
+          transition-delay: 50ms;
+
+        }
+
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(2) {
+
+          opacity: 1;
+
+          transform: translateX(0);
+
+          transition-delay: 100ms;
+
+        }
+
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(3) {
+
+          opacity: 1;
+
+          transform: translateX(0);
+
+          transition-delay: 150ms;
+
+        }
+
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(4) {
+
+          opacity: 1;
+
+          transform: translateX(0);
+
+          transition-delay: 200ms;
+
+        }
+
+                /* Support additional items (e.g., Amazon Wall Mat) */
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(n+5),
+        .nav-dropdown:focus-within .nav-dropdown-item:nth-child(n+5) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 250ms;
+        }
+        .nav-dropdown-item:hover {
+
+          color: var(--accent);
+
+          background: rgba(255,255,255,0.04);
+
+        }
+
+        .nav-caret {
+
+          font-size: 0.7rem;
+
+          margin-left: 0.3rem;
+
+          display: inline-block;
+
+          transition: transform 0.2s ease;
+
+        }
+
+        .nav-dropdown:hover .nav-caret {
+
+          transform: rotate(180deg);
+
+        }
+
+      }
+
+
+
+      .mobile-toggle {
+
+        color: #fff;
+
+        font-size: 1.2rem;
+
+        cursor: pointer;
+
+        display: block;
+
+      }
+
+      @media (min-width: 992px) {
+
+        .mobile-toggle {
+
+          display: none;
+
+        }
+
+      }
+
+
+
+      #mobile-menu {
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100vh;
+
+        background: rgba(5, 10, 7, 0.98);
+
+        backdrop-filter: blur(20px);
+
+        z-index: 9999;
+
+        padding: 6rem 2rem;
+
+        transform: translateY(-100%);
+
+        transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 2rem;
+
+      }
+
+      #mobile-menu.active {
+
+        transform: translateY(0);
+
+      }
+
+
+
+      .mobile-link {
+
+        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+
+        font-size: 3rem;
+
+        font-weight: 700;
+
+        color: transparent;
+
+        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+
+        transition: 0.3s;
+
+      }
+
+      .mobile-link:hover {
+
+        color: var(--accent);
+
+        -webkit-text-stroke: 0px;
+
+      }
+
+    
+      /* Floating island navbar (matches site-wide) */
+      #main-header {
+        position: fixed;
+        top: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 96%;
+        max-width: 1200px;
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0.9rem 1.75rem;
+        border-radius: 28px;
+        background: rgba(10, 20, 15, 0.8);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255,255,255,0.07);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+      }
+      #main-header.scrolled {
+        top: 1rem;
+        background: rgba(5, 10, 7, 0.9);
+        width: 97%;
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: none;
+        gap: 1rem;
+      }
+      .logo {
+        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 900;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+      }
+      .nav-links { display: none; }
+      @media(min-width: 992px) {
+        .nav-links {
+          display: flex;
+          gap: 2.75rem;
+          align-items: center;
+          margin-left: auto;
+        }
+        .nav-item {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: rgba(255,255,255,0.7);
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+          position: relative;
+          padding-bottom: 0.25rem;
+        }
+        .nav-item:hover { color: var(--color-accent, #4caf50); }
+        .nav-item::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 2px;
+          background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.2s ease;
+        }
+        .nav-item:hover::after,
+        .nav-item.active::after { transform: scaleX(1); }
+        .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+        .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .nav-cta {
+          padding: 0.55rem 1.1rem;
+          border: 1px solid rgba(255,255,255,0.16);
+          border-radius: 999px;
+          color: #fff;
+          background: rgba(255,255,255,0.06);
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+        }
+        .nav-cta:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .nav-dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: rgba(5,10,7,0.95);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 12px;
+          min-width: 220px;
+          padding: 0.5rem 0;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+          z-index: 1500;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-8px);
+          pointer-events: none;
+          display: none;
+          transition:
+            opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            visibility 0.3s;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+          display: block;
+        }
+        .nav-dropdown-item {
+          display: block;
+          padding: 0.6rem 1rem;
+          color: rgba(255,255,255,0.8);
+          font-size: 0.8rem;
+          letter-spacing: 0.03em;
+          white-space: nowrap;
+          opacity: 0;
+          transform: translateX(-8px);
+          transition:
+            opacity 0.2s ease,
+            transform 0.2s ease,
+            background 0.2s ease;
+        }
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 50ms; }
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 150ms; }
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 200ms; }
+        .nav-dropdown:hover .nav-dropdown-item:nth-child(n+5),
+        .nav-dropdown:focus-within .nav-dropdown-item:nth-child(n+5) {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: 250ms;
+        }
+        .nav-dropdown-item:hover {
+          color: var(--color-accent, #4caf50);
+          background: rgba(255,255,255,0.04);
+        }
+        .nav-caret {
+          font-size: 0.7rem;
+          margin-left: 0.3rem;
+          display: inline-block;
+          transition: transform 0.2s ease;
+        }
+        .nav-dropdown:hover .nav-caret { transform: rotate(180deg); }
+      }
+      .mobile-toggle {
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: block;
+      }
+      @media(min-width: 992px) { .mobile-toggle { display: none; } }
+      #mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 10, 7, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 9999;
+        padding: 6rem 2rem;
+        transform: translateY(-100%);
+        transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      #mobile-menu.active { transform: translateY(0); }
+      .mobile-link {
+        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+        transition: 0.3s;
+      }
+      .mobile-link:hover {
+        color: var(--color-accent, #4caf50);
+        -webkit-text-stroke: 0px;
+      }
+
+    
+      /* Nav overrides to match global pill sizing */
+      #main-header { width: 96%; max-width: 1260px; padding: 0.85rem 1.5rem; border-radius: 28px; }
+      #main-header.scrolled { width: 74%; max-width: 900px; padding: 0.48rem 0.35rem; border-radius: 999px; }
+      .nav-links { gap: 2.75rem; }
+      .nav-container { gap: 1rem; }
+
+    </style>
+
+  </head>
+
+  <body class="bg-bio-900 text-white antialiased overflow-x-hidden selection:bg-bio-accent selection:text-bio-900">
+
+    <!-- SITE-WIDE NAVBAR: EXACT STRUCTURE FROM OTHER PAGES -->
+
+    <header id="main-header">
+
+      <div class="container nav-container">
+
+        <a href="index.html" class="logo">Lone Star Faux Scapes</a>
+
+        <nav class="nav-links" aria-label="Primary">
+
+          <a href="index.html" class="nav-item">Home</a>
+
+          <div class="nav-dropdown">
+
+            <a href="products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+
+            <div class="nav-dropdown-menu">
+
+              <a href="living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+
+              <a href="commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+
+              <a href="fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+
+              <a href="artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+
+              <a href="amazon-wall-mat.html" class="nav-dropdown-item">Amazon Wall Mat</a>
+
+            </div>
+
+          </div>
+
+          <div class="nav-dropdown">
+
+            <a href="commercial.html" class="nav-item nav-item-parent">Commercial <span class="nav-caret">&#9662;</span></a>
+
+            <div class="nav-dropdown-menu">
+
+              <a href="hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+
+            </div>
+
+          </div>
+
+          <div class="nav-dropdown">
+
+            <a href="residential.html" class="nav-item nav-item-parent">Residential <span class="nav-caret">&#9662;</span></a>
+
+            <div class="nav-dropdown-menu">
+
+              <a href="hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+
+            </div>
+
+          </div>
+
+          <a href="index.html#gallery" class="nav-item">Gallery</a>
+
+          <a href="blog.html" class="nav-item">Blog</a>
+
+          <a href="index.html#contact" class="nav-item nav-cta">Get Quote</a>
+
+        </nav>
+
+        <div class="mobile-toggle" id="mobile-toggle-btn" aria-label="Open navigation">&#9776;</div>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- Mobile full-screen menu -->
+
+    <div id="mobile-menu">
+
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: #fff;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+
+      <a href="index.html" class="mobile-link">Home</a>
+
+      <a href="products.html" class="mobile-link">Products</a>
+
+      <a href="commercial.html" class="mobile-link">Commercial</a>
+
+      <a href="residential.html" class="mobile-link">Residential</a>
+
+      <a href="index.html#gallery" class="mobile-link">Gallery</a>
+
+      <a href="blog.html" class="mobile-link">Blog</a>
+
+      <a href="index.html#contact" class="mobile-link">Get Quote</a>
+
+    </div>
+
+
+
+    <div id="root"></div>
+
+    <div class="bg-noise"></div>
+
+
+
+    <!-- React Application Logic -->
+
+    <script type="text/babel" data-type="module">
+
+      import React, { useState, useEffect, useRef } from 'react';
+
+      import { createRoot } from 'react-dom/client';
+
+      import { 
+
+        Leaf, 
+
+        ShieldCheck, 
+
+        LayoutGrid, 
+
+        Clock, 
+
+        MapPin, 
+
+        ArrowRight, 
+
+        Maximize2,
+
+        Droplets,
+
+        Flame,
+
+        Sun,
+
+        CheckCircle2,
+
+        Loader2,
+
+        ArrowUp,
+
+        TrendingUp
+
+      } from 'lucide-react';
+
+
+
+      // --- Components ---
+
+
+
+      const Reveal = ({ children, delay = 0, className = "" }) => {
+
+        const [isVisible, setIsVisible] = useState(false);
+
+        const ref = useRef(null);
+
+
+
+        useEffect(() => {
+
+          const observer = new IntersectionObserver(
+
+            ([entry]) => {
+
+              if (entry.isIntersecting) {
+
+                setIsVisible(true);
+
+                observer.disconnect();
+
+              }
+
+            },
+
+            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+
+          );
+
+          if (ref.current) observer.observe(ref.current);
+
+          return () => observer.disconnect();
+
+        }, []);
+
+
+
+        return (
+
+          <div
+
+            ref={ref}
+
+            className={`${className} transition-all duration-1000 ease-out transform ${
+
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+
+            }`}
+
+            style={{ transitionDelay: `${delay}ms` }}
+
+          >
+
+            {children}
+
+          </div>
+
+        );
+
+      };
+
+
+
+      const Hero = () => {
+
+        const [scrollY, setScrollY] = useState(0);
+
+
+
+        useEffect(() => {
+
+          const handleScroll = () => requestAnimationFrame(() => setScrollY(window.scrollY));
+
+          window.addEventListener('scroll', handleScroll);
+
+          return () => window.removeEventListener('scroll', handleScroll);
+
+        }, []);
+
+
+
+        return (
+
+          <section id="top" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+
+            {/* Background with Green Depth */}
+
+            <div className="absolute inset-0 z-0 pointer-events-none">
+
+               <div 
+
+                 className="absolute inset-0 bg-gradient-to-br from-bio-900 via-bio-800 to-bio-900 bg-[length:400%_400%] animate-gradient-x opacity-70"
+
+                 style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+
+               ></div>
+
+
+
+              <div 
+
+                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay grayscale"
+
+                style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+
+              ></div>
+
+              
+
+              <div className="absolute inset-0 bg-gradient-to-b from-bio-900/0 via-bio-900/80 to-bio-900"></div>
+
+              <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-bio-500/20 rounded-full blur-[120px] animate-float"></div>
+
+              <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-bio-accent/10 rounded-full blur-[100px]"></div>
+
+            </div>
+
+
+
+            <div className="relative z-10 mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center">
+
+              <div className="lg:col-span-7 space-y-8">
+
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+
+                  <span className="w-2 h-2 rounded-full bg-bio-accent"></span>
+
+                  <span className="font-mono text-xs tracking-widest text-white/80 uppercase">Engineered Flora System 2.0</span>
+
+                </div>
+
+                
+
+                <h1 className="font-display text-6xl md:text-8xl font-bold leading-[0.9] tracking-tight">
+
+                  The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Amazon</span><br />
+
+                  <span className="text-bio-500 italic font-serif font-light">Living Wall</span><br />
+
+                  Platform.
+
+                </h1>
+
+                
+
+                <p className="font-sans text-lg md:text-xl text-white/60 max-w-xl border-l-2 border-bio-accent/30 pl-6">
+
+                  Architectural-grade faux biodiversity. Fully UV stabilized and NFPA 701 fire-rated. 
+
+                  Deployed nationwide at 500 sq ft/day.
+
+                </p>
+
+
+
+                <div className="flex flex-wrap gap-4 pt-4">
+
+                  <button className="group relative px-8 py-4 bg-bio-accent text-bio-900 font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
+
+                    <span className="relative z-10 flex items-center gap-2">
+
+                      Initiate Project <ArrowRight size={18} />
+
+                    </span>
+
+                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+
+                  </button>
+
+                  <button className="px-8 py-4 border border-white/20 hover:bg-white/5 rounded-lg font-mono text-sm tracking-wide transition-all">
+
+                    View Technical Data
+
+                  </button>
+
+                </div>
+
+              </div>
+
+
+
+              <div className="lg:col-span-5 relative hidden lg:block">
+
+                  <div className="absolute inset-0 bg-gradient-to-tr from-bio-500/20 to-bio-accent/5 rounded-[2rem] blur-2xl transform translate-y-4 scale-95 opacity-50 animate-pulse-slow"></div>
+
+
+
+                  <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black/50 h-[600px] group animate-float bg-bio-900/40 backdrop-blur-md">
+
+                      <img 
+
+                      src="images/amazon/amazon-wall-mat-hero.avif" 
+
+                      alt="Amazon Mat Close Up" 
+
+                      className="object-cover h-full w-full scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out grayscale-[20%] opacity-90"
+
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/40 pointer-events-none z-10"></div>
+
+                      <div className="absolute top-12 left-12 glass-panel p-3 rounded-lg flex items-center gap-3 z-20 animate-pulse-slow" style={{animationDelay: '1s'}}>
+
+                          <ShieldCheck className="text-bio-accent" size={20} />
+
+                          <div>
+
+                              <p className="text-[10px] font-mono text-white/50 uppercase">Safety Rating</p>
+
+                              <p className="text-xs font-bold">NFPA 701 Method 2</p>
+
+                          </div>
+
+                      </div>
+
+                      <div className="absolute bottom-24 right-8 glass-panel p-3 rounded-lg flex items-center gap-3 z-20 animate-pulse-slow" style={{animationDelay: '2.5s'}}>
+
+                          <Leaf className="text-bio-400" size={20} />
+
+                          <div>
+
+                              <p className="text-[10px] font-mono text-white/50 uppercase">Density</p>
+
+                              <p className="text-xs font-bold">High-Fidelity Foliage</p>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        );
+
+      };
+
+
+
+      const ProductShowcase = () => {
+
+          return (
+
+              <section id="product" className="py-24 relative">
+
+                  <div className="mx-auto max-w-7xl px-6">
+
+                      <div className="mb-16">
+
+                          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Engineered for <br/>Immersion.</h2>
+
+                          <p className="text-white/60 max-w-2xl text-lg">
+
+                              The Amazon Mat isn't just a hedge; it's a curated ecosystem. We combine ferns, grasses, and broad-leaf textures to create depth-mapped botanical simulations.
+
+                          </p>
+
+                      </div>
+
+
+
+                      <div className="grid md:grid-cols-3 gap-6">
+
+                          {[
+
+                              { title: "Commercial Grade", desc: "Built for high-traffic lobbies and exteriors.", icon: <Maximize2 /> },
+
+                              { title: "Zero Maintenance", desc: "No irrigation, no soil, no pests. Just aesthetics.", icon: <Droplets /> },
+
+                              { title: "UV Stabilized", desc: "Fade-resistant polymers designed for direct sun exposure.", icon: <Sun /> },
+
+                          ].map((feature, idx) => (
+
+                              <div key={idx} className="glass-panel p-8 rounded-2xl group hover:bg-white/5 transition-colors">
+
+                                  <div className="h-12 w-12 rounded-full bg-white/5 flex items-center justify-center text-bio-accent mb-6 group-hover:scale-110 transition-transform">
+
+                                      {feature.icon}
+
+                                  </div>
+
+                                  <h3 className="font-display text-2xl font-bold mb-3">{feature.title}</h3>
+
+                                  <p className="text-white/50 leading-relaxed">{feature.desc}</p>
+
+                              </div>
+
+                          ))}
+
+                      </div>
+
+
+
+                      <div className="mt-16 relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden border border-white/10">
+
+                          <img src="images/amazon/amazon-wall-mat-depth.avif" className="absolute inset-0 w-full h-full object-cover grayscale-[30%]" alt="Wide wall installation" />
+
+                          <div className="absolute inset-0 bg-gradient-to-t from-bio-900 via-transparent to-transparent"></div>
+
+                          <div className="absolute bottom-8 left-8 md:bottom-16 md:left-16 max-w-lg">
+
+                               <h3 className="font-display text-3xl font-bold mb-2">Depth & Texture</h3>
+
+                               <p className="text-white/70">Our mats use varied leaf heights (2" to 8") to catch light and cast natural shadows.</p>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </section>
+
+          );
+
+      };
+
+
+
+      const Specs = () => {
+
+          return (
+
+              <section id="specs" className="py-24 bg-black/20 border-y border-white/5">
+
+                  <div className="mx-auto max-w-7xl px-6">
+
+                      <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+
+                          <div>
+
+                              <span className="font-mono text-bio-accent text-sm tracking-widest uppercase">Technical Manifest</span>
+
+                              <h2 className="font-display text-4xl font-bold mt-2">Core Performance</h2>
+
+                          </div>
+
+                          <div className="font-mono text-right text-white/40 hidden md:block">
+
+                              DOC_REF: AMZN-2025-V2<br/>
+
+                              STATUS: CERTIFIED
+
+                          </div>
+
+                      </div>
+
+
+
+                      <div className="grid lg:grid-cols-2 gap-20 items-start">
+
+                          <div className="space-y-0 divide-y divide-white/10 border-t border-b border-white/10">
+
+                              <Reveal delay={0} className="w-full">
+
+                                  <div className="py-8 flex gap-6 group">
+
+                                      <Flame className="text-white/30 group-hover:text-orange-500 transition-colors shrink-0 mt-1" size={28} />
+
+                                      <div>
+
+                                          <h4 className="text-xl font-bold font-display mb-2 group-hover:text-white transition-colors">Fire Rated: NFPA 701 Method 2</h4>
+
+                                          <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+
+                                              Approved for use in commercial public spaces, assembly areas, and egress routes. We don't just spray it; the retardant is impregnated in the polymer structure.
+
+                                          </p>
+
+                                      </div>
+
+                                  </div>
+
+                              </Reveal>
+
+                              
+
+                              <Reveal delay={150} className="w-full">
+
+                                  <div className="py-8 flex gap-6 group">
+
+                                      <Sun className="text-white/30 group-hover:text-yellow-400 transition-colors shrink-0 mt-1" size={28} />
+
+                                      <div>
+
+                                          <h4 className="text-xl font-bold font-display mb-2 group-hover:text-white transition-colors">UV Defense Class A</h4>
+
+                                          <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+
+                                              Lab-tested against discoloration and brittleness. Engineered to withstand intense solar exposure without chromatic degradation.
+
+                                          </p>
+
+                                      </div>
+
+                                  </div>
+
+                              </Reveal>
+
+
+
+                              <Reveal delay={300} className="w-full">
+
+                                  <div className="py-8 flex gap-6 group">
+
+                                      <LayoutGrid className="text-white/30 group-hover:text-bio-400 transition-colors shrink-0 mt-1" size={28} />
+
+                                      <div>
+
+                                          <h4 className="text-xl font-bold font-display mb-2 group-hover:text-white transition-colors">Seamless Continuity</h4>
+
+                                          <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+
+                                              Interlocking snap-grid system eliminates visible seams. The modular infrastructure dissolves, creating a unified, monolithic green facade.
+
+                                          </p>
+
+                                      </div>
+
+                                  </div>
+
+                              </Reveal>
+
+                          </div>
+
+
+
+                          <div className="lg:pt-4">
+
+                              <h3 className="font-mono text-xs uppercase text-white/40 mb-6 tracking-widest">System Parameters</h3>
+
+                              <div className="font-mono text-sm">
+
+                                  {[
+
+                                      { k: "Panel Dimensions", v: "40\" x 40\"" },
+
+                                      { k: "Unit Weight", v: "8.5 lbs" },
+
+                                      { k: "Composition", v: "100% Virgin PE" },
+
+                                      { k: "Warranty", v: "3-Year Fade" },
+
+                                      { k: "Mounting", v: "Snap-Grid / Direct" },
+
+                                      { k: "Application", v: "Interior / Exterior" }
+
+                                  ].map((item, i) => (
+
+                                      <Reveal key={i} delay={400 + (i * 100)} className="w-full">
+
+                                          <div className="flex justify-between items-center py-4 border-b border-dashed border-white/20 hover:bg-white/5 px-2 transition-colors cursor-default group">
+
+                                              <span className="text-white/50 group-hover:text-bio-accent transition-colors">{item.k}</span>
+
+                                              <span className="text-white font-bold">{item.v}</span>
+
+                                          </div>
+
+                                      </Reveal>
+
+                                  ))}
+
+                              </div>
+
+                              <Reveal delay={1000} className="w-full">
+
+                                  <div className="mt-8 p-6 bg-bio-accent/10 border border-bio-accent/20 rounded-lg">
+
+                                      <p className="font-mono text-xs text-bio-accent leading-relaxed">
+
+                                          NOTE: All specifications are subject to site verification. Custom backing solutions available for non-standard substrates.
+
+                                      </p>
+
+                                  </div>
+
+                              </Reveal>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </section>
+
+          );
+
+      };
+
+
+
+      const Logistics = () => {
+
+          return (
+
+              <section id="installation" className="py-24 relative overflow-hidden">
+
+                   <div className="absolute right-0 top-0 h-full w-1/2 opacity-10 pointer-events-none">
+
+                       <svg viewBox="0 0 200 200" className="h-full w-full fill-current text-white">
+
+                           <circle cx="150" cy="100" r="80" />
+
+                           <path d="M100 20 L180 180 L20 180 Z" fill="none" stroke="currentColor" strokeWidth="1" />
+
+                           <circle cx="100" cy="100" r="2" fill="white" />
+
+                           <circle cx="120" cy="80" r="2" fill="white" />
+
+                           <circle cx="140" cy="120" r="2" fill="white" />
+
+                       </svg>
+
+                   </div>
+
+
+
+                  <div className="mx-auto max-w-7xl px-6 relative z-10">
+
+                      <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+                          <div className="lg:col-span-5 space-y-8">
+
+                              <div>
+
+                                  <span className="font-mono text-bio-accent text-sm tracking-widest uppercase">Deployment</span>
+
+                                  <h2 className="font-display text-4xl font-bold mt-2">Rapid Execution.</h2>
+
+                              </div>
+
+                              <p className="text-white/60 leading-relaxed">
+
+                                  Time is currency. Our panelized system installs 4x faster than individual plant setups. We ship from three strategic domestic hubs to minimize lead time.
+
+                              </p>
+
+                              
+
+                              <div className="grid grid-cols-2 gap-6 pt-4">
+
+                                  <div className="glass-panel p-4 rounded-lg border-l-2 border-bio-accent">
+
+                                      <Clock className="text-white/40 mb-2" />
+
+                                      <div className="text-2xl font-bold font-display">500+</div>
+
+                                      <div className="text-xs font-mono text-white/50 uppercase">Sq Ft / Day / Team</div>
+
+                                  </div>
+
+                                  <div className="glass-panel p-4 rounded-lg border-l-2 border-bio-accent">
+
+                                      <MapPin className="text-white/40 mb-2" />
+
+                                      <div className="text-2xl font-bold font-display">3</div>
+
+                                      <div className="text-xs font-mono text-white/50 uppercase">US Distribution Hubs</div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                          
+
+                          <div className="lg:col-span-7">
+
+                              <div className="grid grid-cols-2 gap-4">
+
+                                  <div className="relative group rounded-lg overflow-hidden border border-white/10 h-64">
+
+                                      <img src="images/amazon/amazon-wall-mat-framing.avif" className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="Install Process 1" />
+
+                                      <div className="absolute inset-0 bg-gradient-to-t from-bio-900 via-transparent to-transparent opacity-60"></div>
+
+                                      <div className="absolute bottom-0 left-0 w-full p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+
+                                          <div className="flex justify-between items-center mb-2">
+
+                                              <span className="font-mono text-[10px] text-bio-accent tracking-widest">PHASE 01: FRAMING</span>
+
+                                              <CheckCircle2 size={14} className="text-bio-500" />
+
+                                          </div>
+
+                                          <div className="w-full h-0.5 bg-white/20">
+
+                                              <div className="w-full h-full bg-bio-500"></div>
+
+                                          </div>
+
+                                      </div>
+
+                                  </div>
+
+
+
+                                  <div className="relative group rounded-lg overflow-hidden border border-white/10 h-64 mt-8">
+
+                                      <img src="images/amazon/amazon-wall-mat-close.avif" className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="Install Process 2" />
+
+                                      <div className="absolute inset-0 bg-gradient-to-t from-bio-900 via-transparent to-transparent opacity-60"></div>
+
+                                      <div className="absolute bottom-0 left-0 w-full p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+
+                                          <div className="flex justify-between items-center mb-2">
+
+                                              <span className="font-mono text-[10px] text-white tracking-widest flex items-center gap-2">
+
+                                                  PHASE 02: POPULATION <Loader2 size={10} className="animate-spin" />
+
+                                              </span>
+
+                                              <span className="font-mono text-[10px] text-bio-accent">68%</span>
+
+                                          </div>
+
+                                          <div className="w-full h-0.5 bg-white/20 overflow-hidden relative">
+
+                                              <div className="absolute top-0 left-0 h-full bg-bio-accent animate-scan"></div>
+
+                                          </div>
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </section>
+
+          );
+
+      };
+
+
+
+      const PerformanceMetrics = () => {
+
+        return (
+
+          <section id="performance" className="py-24 relative border-t border-white/5 bg-bio-900/50">
+
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+
+              
+
+              <div className="mx-auto max-w-7xl px-6 relative z-10">
+
+                   <div className="mb-16 md:w-2/3">
+
+                       <span className="font-mono text-bio-accent text-sm tracking-widest uppercase">System Intelligence</span>
+
+                       <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-6">Quantifiable Impact.</h2>
+
+                       <p className="text-white/60 text-lg">
+
+                          We don't just sell fake plants. We sell facility optimization. 
+
+                          The Amazon Series delivers the psychological benefits of biophilia without the hydrologic liability.
+
+                       </p>
+
+                   </div>
+
+
+
+                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                      <div className="lg:col-span-8 glass-panel p-8 rounded-2xl relative overflow-hidden group">
+
+                          <div className="flex justify-between items-start mb-8">
+
+                              <div>
+
+                                  <h3 className="font-display text-2xl font-bold">10-Year OpEx Projection</h3>
+
+                                  <p className="font-mono text-xs text-white/40 mt-1">COMPARATIVE ANALYSIS: ORGANIC VS. AMAZON SERIES</p>
+
+                              </div>
+
+                              <div className="p-2 bg-white/5 rounded-lg">
+
+                                  <TrendingUp className="text-bio-accent" />
+
+                              </div>
+
+                          </div>
+
+                          
+
+                          <div className="relative h-64 w-full mt-4 flex items-end gap-2 pb-8 border-b border-white/10">
+
+                              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
+
+                                  {[100, 75, 50, 25, 0].map(val => (
+
+                                      <div key={val} className="w-full h-px bg-white/5 relative">
+
+                                          <span className="absolute -left-8 -top-2 text-[10px] text-white/20 font-mono">${val}k</span>
+
+                                      </div>
+
+                                  ))}
+
+                              </div>
+
+                              
+
+                              <div className="absolute left-0 bottom-0 w-full h-full">
+
+                                  <svg className="w-full h-full overflow-visible" viewBox="0 0 800 250" preserveAspectRatio="none">
+
+                                      <path d="M0,250 C100,240 200,200 400,50" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="4 4" />
+
+                                      <text x="50%" y="40" fill="#ef4444" fontSize="12" fontFamily="monospace">LIVING WALL (HIGH OPEX)</text>
+
+                                  </svg>
+
+                              </div>
+
+                              <div className="absolute left-0 bottom-0 w-full h-full">
+
+                                  <svg className="w-full h-full overflow-visible" viewBox="0 0 800 250" preserveAspectRatio="none">
+
+                                      <path d="M0,250 L800,240" fill="none" stroke="#ccff00" strokeWidth="3" />
+
+                                      <text x="90%" y="230" fill="#ccff00" fontSize="12" fontFamily="monospace">AMAZON SERIES</text>
+
+                                  </svg>
+
+                              </div>
+
+                          </div>
+
+                          
+
+                          <div className="grid grid-cols-3 gap-4 mt-6">
+
+                               <div>
+
+                                   <div className="text-3xl font-display font-bold text-white">-$45k</div>
+
+                                   <div className="text-[10px] font-mono text-white/40 uppercase">Avg. 10y Irrigation Cost</div>
+
+                               </div>
+
+                               <div>
+
+                                   <div className="text-3xl font-display font-bold text-white">-$12k</div>
+
+                                   <div className="text-[10px] font-mono text-white/40 uppercase">Nutrient/Fertilizer</div>
+
+                               </div>
+
+                               <div>
+
+                                   <div className="text-3xl font-display font-bold text-bio-accent">93%</div>
+
+                                   <div className="text-[10px] font-mono text-white/40 uppercase">Total Cost Savings</div>
+
+                               </div>
+
+                          </div>
+
+                      </div>
+
+
+
+                      <div className="lg:col-span-4 glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between group hover:bg-white/5 transition-colors">
+
+                           <div className="absolute top-0 right-0 p-32 bg-blue-500/10 rounded-full blur-[80px] group-hover:bg-blue-500/20 transition-all"></div>
+
+                           <div className="relative z-10">
+
+                              <Droplets className="text-blue-400 mb-4" size={32} />
+
+                              <h3 className="font-display text-4xl font-bold">0 Gal.</h3>
+
+                              <p className="font-mono text-sm text-blue-200/60 mt-2">ANNUAL WATER CONSUMPTION</p>
+
+                              <p className="text-sm text-white/50 mt-4 leading-relaxed">
+
+                                  Eliminate the need for complex plumbing infrastructure. No leaks, no mold, no water bill.
+
+                              </p>
+
+                           </div>
+
+                      </div>
+
+
+
+                      <div className="lg:col-span-4 glass-panel p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between group hover:bg-white/5 transition-colors">
+
+                           <div className="absolute top-0 right-0 p-32 bg-bio-accent/5 rounded-full blur-[80px]"></div>
+
+                           <div className="relative z-10">
+
+                              <div className="flex items-center gap-2 mb-4">
+
+                                  <div className="h-4 w-1 bg-bio-accent animate-pulse"></div>
+
+                                  <div className="h-8 w-1 bg-bio-accent animate-pulse" style={{animationDelay:'0.1s'}}></div>
+
+                                  <div className="h-6 w-1 bg-bio-accent animate-pulse" style={{animationDelay:'0.2s'}}></div>
+
+                                  <div className="h-3 w-1 bg-bio-accent animate-pulse" style={{animationDelay:'0.3s'}}></div>
+
+                              </div>
+
+                              <h3 className="font-display text-4xl font-bold">0.85 NRC</h3>
+
+                              <p className="font-mono text-sm text-bio-accent/60 mt-2">NOISE REDUCTION COEFFICIENT</p>
+
+                              <p className="text-sm text-white/50 mt-4 leading-relaxed">
+
+                                  Dense foliage geometry naturally dampens open-office reverb and ambient noise pollution.
+
+                              </p>
+
+                           </div>
+
+                      </div>
+
+                      
+
+                      <div className="lg:col-span-8 glass-panel p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+
+                          <div className="flex items-center gap-4">
+
+                              <div className="p-3 rounded-full bg-white/5 border border-white/10">
+
+                                  <Leaf size={24} className="text-bio-500" />
+
+                              </div>
+
+                              <div>
+
+                                  <h4 className="font-bold">Sustainability Profile</h4>
+
+                                  <p className="text-xs text-white/40 font-mono">100% RECYCLABLE LDPE � NON-TOXIC</p>
+
+                              </div>
+
+                          </div>
+
+                          <div className="h-px w-full md:w-24 bg-white/10 hidden md:block"></div>
+
+                          <p className="text-sm text-white/60 max-w-md text-center md:text-left">
+
+                              Contributes to material conservation credits. Manufactured in ISO 14001 certified facilities.
+
+                          </p>
+
+                          <button className="text-xs font-bold bg-white/10 hover:bg-white/20 px-4 py-2 rounded uppercase tracking-wider transition-colors">
+
+                              View EPD
+
+                          </button>
+
+                      </div>
+
+                   </div>
+
+              </div>
+
+          </section>
+
+        );
+
+      };
+
+
+
+      const Contact = () => {
+
+          return (
+
+              <section id="contact" className="py-24 border-t border-white/5">
+
+                  <div className="mx-auto max-w-7xl px-6 text-center">
+
+                      <div className="max-w-3xl mx-auto">
+
+                          <h2 className="font-display text-5xl md:text-7xl font-bold mb-8">Ready to Spec?</h2>
+
+                          <p className="text-white/60 text-xl mb-12">
+
+                              Get the sample kit, full CAD files, and a quote within 24 hours.
+
+                          </p>
+
+                          <div className="flex flex-col md:flex-row justify-center gap-4">
+
+                              <button className="bg-bio-accent text-bio-900 font-bold px-12 py-4 rounded-full hover:scale-105 transition-transform text-lg">
+
+                                  Request Sample Kit
+
+                              </button>
+
+                              <button className="border border-white/20 hover:bg-white/5 text-white font-mono px-12 py-4 rounded-full transition-colors">
+
+                                  Download BIM/CAD
+
+                              </button>
+
+                          </div>
+
+                      </div>
+
+                      <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-white/30 text-sm font-mono">
+
+                          <p>&copy; 2025 VERDANT ARCHITECT. ALL RIGHTS RESERVED.</p>
+
+                          <div className="flex gap-6 mt-4 md:mt-0">
+
+                              <a href="#" className="hover:text-white">PRIVACY</a>
+
+                              <a href="#" className="hover:text-white">TERMS</a>
+
+                              <a href="#" className="hover:text-white">INSTAGRAM</a>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </section>
+
+          );
+
+      };
+
+
+
+      const BackToTop = () => {
+
+        const [isVisible, setIsVisible] = useState(false);
+
+
+
+        useEffect(() => {
+
+          const toggleVisibility = () => {
+
+            if (window.scrollY > 800) {
+
+              setIsVisible(true);
+
+            } else {
+
+              setIsVisible(false);
+
+            }
+
+          };
+
+
+
+          window.addEventListener('scroll', toggleVisibility);
+
+          return () => window.removeEventListener('scroll', toggleVisibility);
+
+        }, []);
+
+
+
+        const scrollToTop = () => {
+
+          window.scrollTo({
+
+            top: 0,
+
+            behavior: 'smooth',
+
+          });
+
+        };
+
+
+
+        return (
+
+          <button
+
+            onClick={scrollToTop}
+
+            className={`fixed bottom-8 right-8 z-50 p-4 rounded-full glass-panel text-white shadow-2xl transition-all duration-500 hover:bg-bio-accent hover:text-bio-900 hover:scale-110 group ${
+
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'
+
+            }`}
+
+            aria-label="Back to top"
+
+          >
+
+            <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform duration-300" />
+
+          </button>
+
+        );
+
+      };
+
+
+
+      const App = () => {
+
+        return (
+
+          <div className="bg-bio-900 text-white selection:bg-bio-accent selection:text-bio-900">
+
+            {/* Navbar is now pure HTML above; do NOT render React Navbar */}
+
+            <Hero />
+
+            <ProductShowcase />
+
+            <Specs />
+
+            <Logistics />
+
+            <PerformanceMetrics />
+
+            <Contact />
+
+            <BackToTop />
+
+          </div>
+
+        );
+
+      };
+
+
+
+      const root = createRoot(document.getElementById('root'));
+
+      root.render(<App />);
+
+    </script>
+<script>
+    (function() {
+      const header = document.getElementById('main-header');
+      const mobileToggle = document.getElementById('mobile-toggle-btn');
+      const mobileClose = document.getElementById('mobile-close-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const scrollHandler = () => {
+        if (!header) return;
+        if (window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+      };
+      scrollHandler();
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+      if (mobileToggle) mobileToggle.addEventListener('click', () => { mobileMenu.classList.add('active'); document.body.style.overflow='hidden'; });
+      if (mobileClose) mobileClose.addEventListener('click', () => { mobileMenu.classList.remove('active'); document.body.style.overflow=''; });
+      document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => { mobileMenu.classList.remove('active'); document.body.style.overflow=''; }));
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-item').forEach(item => {
+        const href = item.getAttribute('href') || '';
+        if (href && currentPage && href.includes(currentPage)) item.classList.add('active');
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
+

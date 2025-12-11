@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artificial Hedge Fence Extensions | HOA-Friendly Fence Height | Lone Star Faux Scapes</title>
+  <meta name="description" content="Artificial hedge fence extensions that add 2-4 feet of privacy height, acoustic fence extensions for fence noise reduction, and HOA-friendly fence extensions across Texas.">
+  <meta name="keywords" content="artificial hedge fence extensions, HOA-friendly fence extensions, acoustic fence extensions, fence height extensions, fence noise reduction, Lone Star Faux Scapes, Texas">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/fence-extensions.html">
+  <meta property="og:site_name" content="Lone Star Faux Scapes">
+  <meta property="og:title" content="Artificial Hedge Fence Extensions | Lone Star Faux Scapes">
+  <meta property="og:description" content="Fence height extensions with artificial hedges, HOA approval support, and acoustic fence extensions for fence noise reduction across Texas.">
+  <meta property="og:url" content="https://lonestarfauxscapes.com/fence-extensions.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lonestarfauxscapes.com/images/fence/fence-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fence Height Extensions | Lone Star Faux Scapes">
+  <meta name="twitter:description" content="Artificial hedge fence extensions, HOA-friendly fence extensions, and acoustic fence extensions for quieter backyards.">
+  <meta name="twitter:image" content="https://lonestarfauxscapes.com/images/fence/fence-1.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Artificial Hedge Fence Extensions",
+    "provider": { "@type": "LocalBusiness", "name": "Lone Star Faux Scapes" },
+    "areaServed": [
+      { "@type": "City", "name": "Austin", "addressRegion": "TX" },
+      { "@type": "City", "name": "Dallas", "addressRegion": "TX" },
+      { "@type": "City", "name": "Houston", "addressRegion": "TX" },
+      { "@type": "City", "name": "San Antonio", "addressRegion": "TX" }
+    ],
+    "serviceType": "Fence Extensions with Artificial Hedges",
+    "priceRange": "$$"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lonestarfauxscapes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://lonestarfauxscapes.com/products.html" },
+      { "@type": "ListItem", "position": 3, "name": "Fence Extensions", "item": "https://lonestarfauxscapes.com/fence-extensions.html" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050806;
+      --bg-2: #0b1410;
+      --bg-3: #0f1c15;
+      --accent: #64d38a;
+      --accent-2: #8be6aa;
+      --neutral: #cfd8d3;
+      --text: #f4f7f5;
+      --muted: #9bb1a4;
+      --card: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 24px 70px rgba(0,0,0,0.45);
+      --max-width: 1240px;
+      --ease: cubic-bezier(0.25, 0.8, 0.4, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Source Sans 3', 'Segoe UI', sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(100,211,138,0.08), transparent 32%), radial-gradient(circle at 80% 0%, rgba(139,230,170,0.08), transparent 35%), linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); opacity: 0.9; pointer-events: none; z-index: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 94%; max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
+    .section { padding: 4.5rem 0; }
+    .section-header { max-width: 780px; margin-bottom: 2.2rem; }
+    .section-header h2 { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.8rem, 3vw, 2.2rem); margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+    .section-header p { color: var(--muted); margin: 0; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .muted { color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 999px; padding: 0.9rem 1.5rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; border: 1px solid transparent; transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #041208; box-shadow: 0 15px 40px rgba(100,211,138,0.4); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 55px rgba(139,230,170,0.48); }
+    .btn-secondary { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent-2); }
+    .site-header { position: sticky; top: 0; z-index: 150; background: rgba(5,8,6,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease); }
+    .site-header.is-scrolled { padding: 0.2rem 0; background: rgba(5,8,6,0.97); border-color: rgba(255,255,255,0.12); }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; }
+    .brand { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 1rem; font-weight: 600; }
+    .nav-links a { color: var(--muted); padding: 0.35rem 0.6rem; border-radius: 999px; transition: color 0.15s ease, background 0.15s ease; font-size: 0.95rem; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); background: rgba(255,255,255,0.06); outline: none; }
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(5,10,7,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; min-width: 220px; padding: 0.5rem 0; display: none; box-shadow: 0 15px 40px rgba(0,0,0,0.35); z-index: 1500; }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-item { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.85rem; white-space: nowrap; }
+    .nav-dropdown-item:hover { color: var(--accent); background: rgba(255,255,255,0.04); }
+    .nav-caret { font-size: 0.7rem; margin-left: 0.2rem; }
+    .nav-cta { white-space: nowrap; }
+    .menu-toggle { display: none; background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 0.55rem 0.8rem; font-weight: 700; }
+    .nav-drawer { display: none; background: var(--bg-2); border-top: 1px solid var(--line); padding: 1rem; }
+    .nav-drawer.open { display: block; }
+    .nav-drawer a, .nav-drawer .drawer-cta { display: block; padding: 0.5rem 0; color: var(--text); font-weight: 600; }
+    .nav-drawer .drawer-cta { margin-top: 0.5rem; }
+    .hero { padding: 5rem 0 3rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+    @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
+    .hero h1 { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(2.4rem, 4vw, 3.4rem); margin: 0 0 0.8rem; letter-spacing: -0.03em; }
+    .hero .lede { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.4rem; max-width: 680px; }
+    .hero .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .icon-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+    .icon-list li { display: flex; align-items: center; gap: 0.65rem; background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 0.65rem 0.9rem; }
+    .icon-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-flex; }
+    .hero-visual { background: var(--bg-2); padding: 1rem; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .before-after { position: relative; overflow: hidden; border-radius: 14px; isolation: isolate; --ba-position: 52%; min-height: 340px; background: var(--bg-3); }
+    .before-after img { position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%; }
+    .before-after .ba-after { clip-path: inset(0 calc(100% - var(--ba-position)) 0 0); transition: clip-path 0.25s var(--ease); }
+    .ba-handle { position: absolute; top: 0; bottom: 0; left: calc(var(--ba-position)); width: 3px; background: rgba(255,255,255,0.8); pointer-events: none; box-shadow: 0 0 0 1px rgba(0,0,0,0.25); }
+    .ba-handle::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.8); background: rgba(5,8,6,0.7); box-shadow: 0 10px 25px rgba(0,0,0,0.45); }
+    .ba-label { position: absolute; top: 12px; padding: 0.25rem 0.6rem; background: rgba(5,8,6,0.8); border-radius: 999px; font-weight: 700; font-size: 0.85rem; border: 1px solid var(--line); }
+    .ba-label.before { left: 12px; }
+    .ba-label.after { right: 12px; }
+    .ba-slider { display: grid; gap: 0.35rem; margin-top: 1rem; }
+    .ba-slider label { font-weight: 600; color: var(--muted); }
+    .ba-slider input[type="range"] { accent-color: var(--accent); width: 100%; }
+    .specs-pill { margin-top: 0.9rem; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    .specs-pill summary { padding: 0.8rem 1rem; cursor: pointer; font-weight: 700; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+    .specs-pill[open] summary { border-bottom: 1px solid var(--line); }
+    .specs-pill summary::marker { content: ''; }
+    .specs-pill ul { margin: 0; padding: 0.8rem 1rem 1rem 1.2rem; color: var(--muted); list-style: disc; }
+    .trust-strip { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .trust-item { padding: 0.9rem 1.1rem; background: var(--card); border: 1px solid var(--line); border-radius: 14px; font-weight: 700; color: var(--text); text-align: center; box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
+    .trust-item span { display: block; color: var(--muted); font-weight: 600; margin-top: 0.3rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; box-shadow: 0 18px 45px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 22px 55px rgba(0,0,0,0.35); }
+    .card h3 { margin: 0 0 0.35rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.15rem; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); }
+    .height-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+    @media (min-width: 980px) { .height-grid { grid-template-columns: 1fr 1fr; } }
+    .height-controls { display: grid; gap: 1rem; }
+    .height-buttons { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .height-buttons button { border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--text); padding: 0.7rem 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
+    .height-buttons button[aria-pressed="true"] { background: rgba(100,211,138,0.12); border-color: var(--accent); color: var(--accent-2); }
+    .height-slider { margin-top: 0.4rem; }
+    .height-slider input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .height-output { padding: 1rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); }
+    .fence-visual { position: relative; background: linear-gradient(180deg, rgba(100,211,138,0.08), rgba(5,8,6,0.9)); border-radius: 16px; padding: 1rem; border: 1px solid var(--line); min-height: 320px; box-shadow: var(--shadow); overflow: hidden; }
+    .fence-base { position: absolute; bottom: 0; left: 10%; right: 10%; height: 45%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 12px, rgba(255,255,255,0.04) 12px 24px); border-radius: 8px 8px 0 0; border: 1px solid var(--line); }
+    .fence-extension { position: absolute; bottom: 45%; left: 12%; right: 12%; background: linear-gradient(135deg, rgba(100,211,138,0.35), rgba(139,230,170,0.3)); border: 1px solid rgba(100,211,138,0.6); border-radius: 12px 12px 2px 2px; height: 35%; display: grid; place-items: center; color: var(--bg); font-weight: 800; letter-spacing: 0.05em; }
+    .height-label { position: absolute; top: 14px; right: 14px; padding: 0.35rem 0.75rem; background: rgba(5,8,6,0.8); border: 1px solid var(--line); border-radius: 999px; font-weight: 700; }
+    .timeline { border-left: 2px solid var(--line); margin-top: 1.5rem; display: grid; gap: 1.2rem; padding-left: 1.5rem; }
+    .timeline-step { position: relative; padding-left: 0.2rem; }
+    .timeline-step::before { content: ''; position: absolute; left: -1.65rem; top: 0.15rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(100,211,138,0.12); }
+    .timeline-step h3 { margin: 0 0 0.35rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
+    .timeline-step p { margin: 0; color: var(--muted); }
+    .detail-box { margin-top: 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    .detail-box summary { cursor: pointer; padding: 0.85rem 1rem; font-weight: 700; list-style: none; }
+    .detail-box[open] summary { border-bottom: 1px solid var(--line); }
+    .detail-box summary::marker { content: ''; }
+    .detail-box div { padding: 0 1rem 1rem; color: var(--muted); }
+    .noise-wrap { display: grid; gap: 1rem; margin-top: 1rem; }
+    .pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 0.8rem; background: rgba(100,211,138,0.16); color: var(--text); border-radius: 999px; border: 1px solid rgba(100,211,138,0.4); font-weight: 700; }
+    .noise-scale { position: relative; height: 14px; background: linear-gradient(90deg, #3b4a40, #64d38a); border-radius: 999px; overflow: hidden; }
+    .noise-marker { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; border-radius: 50%; border: 2px solid #0b1410; background: #fff; }
+    .noise-marker.current { left: 72%; }
+    .noise-marker.reduced { left: 42%; background: var(--accent); border-color: #041208; }
+    .noise-scale-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; margin-top: 0.35rem; }
+    .two-col { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 900px) { .two-col { grid-template-columns: repeat(2, 1fr); } }
+    .tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem; background: rgba(255,255,255,0.03); gap: 0.25rem; }
+    .tabs button { border: none; background: transparent; color: var(--muted); padding: 0.65rem 0.9rem; border-radius: 999px; font-weight: 700; cursor: pointer; }
+    .tabs button[aria-selected="true"] { background: rgba(100,211,138,0.16); color: var(--text); }
+    .comparison { margin-top: 1.2rem; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; background: rgba(255,255,255,0.02); }
+    .comparison-row { display: grid; grid-template-columns: 1fr; gap: 0.35rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+    .comparison-row:last-child { border-bottom: none; }
+    .comparison-row strong { color: var(--text); }
+    .comparison-row span { color: var(--muted); }
+    @media (min-width: 840px) {
+      .comparison-row { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
+      .comparison-row span { text-align: right; }
+    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .gallery-card { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 16px 45px rgba(0,0,0,0.3); }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; transition: transform 0.25s ease; }
+    .gallery-card button { all: unset; cursor: pointer; display: block; }
+    .gallery-card:hover img { transform: scale(1.03); }
+    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 0.9rem; background: linear-gradient(180deg, transparent, rgba(5,8,6,0.9)); color: var(--text); font-weight: 700; }
+    .gallery-overlay span { display: block; color: var(--muted); font-weight: 600; font-size: 0.95rem; }
+    .carousel { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; }
+    .carousel::-webkit-scrollbar { height: 8px; }
+    .carousel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
+    .flip-card { perspective: 1200px; scroll-snap-align: start; min-width: 280px; }
+    .flip-inner { position: relative; width: 100%; padding-top: 68%; transform-style: preserve-3d; transition: transform 0.6s ease; }
+    .flip-card:hover .flip-inner, .flip-card:focus-within .flip-inner { transform: rotateY(180deg); }
+    .flip-face { position: absolute; inset: 0; border-radius: 16px; overflow: hidden; backface-visibility: hidden; }
+    .flip-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .flip-back { background: linear-gradient(160deg, rgba(100,211,138,0.1), rgba(5,8,6,0.92)); border: 1px solid rgba(255,255,255,0.08); padding: 1rem; transform: rotateY(180deg); display: grid; gap: 0.4rem; align-content: center; }
+    .badge { position: absolute; left: 10px; bottom: 10px; background: rgba(5,8,6,0.7); color: #fff; padding: 0.4rem 0.65rem; border-radius: 999px; border: 1px solid var(--line); font-weight: 700; font-size: 0.9rem; }
+    .stat-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.65rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); font-size: 0.9rem; color: #fff; }
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: grid; place-items: center; padding: 1.5rem; z-index: 500; }
+    .lightbox.hidden { display: none; }
+    .lightbox-content { max-width: 1000px; width: 95%; background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; box-shadow: var(--shadow); }
+    .lightbox-content img { border-radius: 10px; }
+    .lightbox-caption { margin-top: 0.6rem; color: var(--muted); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .lightbox-close { background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 0.4rem 0.7rem; cursor: pointer; }
+    details.faq { border-bottom: 1px solid var(--line); padding: 0.7rem 0; }
+    details.faq summary { cursor: pointer; font-weight: 700; list-style: none; }
+    details.faq summary::marker { content: ''; }
+    details.faq p { margin: 0.4rem 0 0.8rem; color: var(--muted); }
+    .final-cta { text-align: center; padding: 3.2rem 2rem; background: linear-gradient(135deg, rgba(100,211,138,0.14), rgba(5,8,6,0.94)); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .final-cta h3 { margin: 0 0 0.6rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.6rem, 2.7vw, 2rem); }
+    .final-cta p { margin: 0 0 1.2rem; color: var(--muted); }
+    .footer { padding: 3rem 0; border-top: 1px solid var(--line); background: #000; color: var(--muted); text-align: center; font-size: 0.95rem; }
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .nav-bar { align-items: center; }
+      .site-header { padding: 0.3rem 0; }
+      .hero { padding-top: 4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand nav-item" href="index.html">Lone Star Faux Scapes</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-item" href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+            <a href="commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+            <a href="fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+            <a href="artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a class="nav-item nav-item-parent" href="commercial.html">Commercial <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a class="nav-item nav-item-parent" href="residential.html">Residential <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <a class="nav-item" href="index.html#gallery">Gallery</a>
+        <a class="nav-item" href="index.html#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="index.html#contact">Get Quote</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="navDrawer">Menu</button>
+    </div>
+    <div class="nav-drawer" id="navDrawer" hidden>
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item" href="products.html">Products</a>
+      <a class="nav-item" href="hedge-builder-commercial.html">Commercial Hedge Builder</a>
+      <a class="nav-item" href="hedge-builder-residential.html">Residential Hedge Builder</a>
+      <a class="nav-item" href="index.html#gallery">Gallery</a>
+      <a class="nav-item drawer-cta" href="index.html#contact">Contact</a>
+      <a class="btn btn-primary drawer-cta" href="index.html#contact">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Lone Star Faux Scapes - fence height extensions in Texas</p>
+          <h1>Artificial Hedge Fence Extensions for Instant Privacy & HOA-Friendly Height</h1>
+          <p class="lede">Pre-built artificial hedge panels that add 2-4 feet of height, cut noise, and pass HOA review without rebuilding your fence. HOA-friendly fence extensions and acoustic fence extensions for fence noise reduction are engineered for Texas homes.</p>
+          <ul class="icon-list" role="list">
+            <li><span class="icon-dot" aria-hidden="true"></span><span>+2 to +4 feet of privacy</span></li>
+            <li><span class="icon-dot" aria-hidden="true"></span><span>HOA-ready documentation included</span></li>
+            <li><span class="icon-dot" aria-hidden="true"></span><span>Noise-reducing acoustic options</span></li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="index.html#contact">Get My Fence Quote</a>
+            <a class="btn btn-secondary" href="#gallery">See Before & After Photos</a>
+          </div>
+          <p class="muted" style="margin-top:0.5rem;">Artificial hedge fence extensions that boost fence height and privacy without rebuilds. Custom heights, clean finishes, HOA-friendly fence extensions, and acoustic fence extensions for noisier sites.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="before-after" style="--ba-position: 55%;">
+            <img src="images/fence/fence-1.jpg" alt="Backyard fence before artificial hedge fence extension" loading="lazy">
+            <img class="ba-after" src="images/fence/fence-2.jpg" alt="Backyard after artificial hedge fence extension with added height" loading="lazy">
+            <div class="ba-handle"></div>
+            <div class="ba-label before">Before</div>
+            <div class="ba-label after">After</div>
+          </div>
+          <div class="ba-slider">
+            <label for="beforeAfterRange">Drag to see the hedge extension transformation</label>
+            <input id="beforeAfterRange" type="range" min="0" max="100" value="55" aria-label="Adjust before and after fence extension view">
+          </div>
+          <details class="specs-pill">
+            <summary>Technical Specs</summary>
+            <ul>
+              <li><strong>Use:</strong> Side yards, alleys, patios, equipment screens</li>
+              <li><strong>Structure:</strong> Extension frames with steel or aluminum support</li>
+              <li><strong>Options:</strong> Acoustic backing, mixed foliage patterns, cap details</li>
+              <li><strong>Install:</strong> Rapid fit to existing fence/posts with minimal disruption</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="container trust-strip">
+        <div class="trust-item">Serving: Austin / Dallas / Houston / San Antonio <span>Fence height extensions across Texas</span></div>
+        <div class="trust-item">___+ fences extended in Texas <span>Artificial hedge fence extensions</span></div>
+        <div class="trust-item">HOA-friendly plans and photos included <span>Fast approvals for homeowners</span></div>
+      </div>
+    </section>
+    <section class="section" id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Homeowners Choose Our Fence Extensions</h2>
+          <p>Artificial hedge fence extensions that solve privacy, height, and fence noise reduction without rebuilding.</p>
+        </div>
+        <div class="card-grid">
+          <div class="card live-card">
+            <h3>Fast Privacy</h3>
+            <p>We add height and coverage to your existing fence - days not weeks - using pre-built faux hedge panels and fence height extensions.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Custom Fit</h3>
+            <p>Panels tailored to your spans, including corners and returns. No gaps, no sag, just clean fence extensions.</p>
+          </div>
+          <div class="card live-card">
+            <h3>HOA-Friendly & Low Noise</h3>
+            <p>Optional acoustic cores to tame alley and equipment noise; clean aesthetics for HOA approvals and calm neighbors.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Built for Texas Weather</h3>
+            <p>UV-stabilized foliage with weather-ready framing to handle sun and storms across Texas cities.</p>
+          </div>
+        </div>
+        <div style="margin-top:1.2rem; color: var(--muted);">We install fence height extensions in Texas including Austin, Dallas, Houston, and San Antonio.</div>
+      </div>
+    </section>
+
+    <section class="section" id="height">
+      <div class="container height-grid">
+        <div class="height-controls">
+          <div class="section-header" style="margin-bottom: 1rem;">
+            <h2>Choose Your Fence Extension Height</h2>
+            <p>We custom-build artificial hedge fence extensions to match your fence and HOA limits.</p>
+          </div>
+          <div class="height-buttons" role="group" aria-label="Fence height extensions">
+            <button type="button" data-height="2" aria-pressed="false">+2 ft</button>
+            <button type="button" data-height="3" aria-pressed="true">+3 ft</button>
+            <button type="button" data-height="4" aria-pressed="false">+4 ft</button>
+            <button type="button" data-height="custom" aria-pressed="false">Custom</button>
+          </div>
+          <div class="height-slider">
+            <label for="heightRange">Slide between common fence height extensions</label>
+            <input id="heightRange" type="range" min="2" max="4" step="1" value="3" aria-label="Fence height extension selector">
+          </div>
+          <div class="height-output" aria-live="polite">
+            <h3 id="heightHeading" style="margin:0 0 0.35rem;">+3 Foot Extension</h3>
+            <p id="heightDescription" style="margin:0; color: var(--muted);">Our most popular option. Creates a 9-foot barrier that screens out most neighboring views while staying within many HOA maximum height limits.</p>
+          </div>
+          <p class="muted">We design to your HOA's maximum allowed height and create a clean finish that does not look improvised.</p>
+        </div>
+        <div class="fence-visual" aria-hidden="true">
+          <div class="height-label" id="heightLabel">9 ft total height</div>
+          <div class="fence-extension">+3 ft</div>
+          <div class="fence-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hoa">
+      <div class="container">
+        <div class="section-header">
+          <h2>HOA Approval, Handled for You</h2>
+          <p>We package your project so your HOA sees a clean, consistent upgrade, not a problem.</p>
+        </div>
+        <div class="timeline" role="list">
+          <div class="timeline-step" role="listitem">
+            <h3>We provide documentation and photos</h3>
+            <p>We provide photos of completed projects, material specifications, and color samples. Most HOAs approve artificial hedge extensions faster than lattice or solid panel alternatives.</p>
+          </div>
+          <div class="timeline-step" role="listitem">
+            <h3>We design to your HOA height rules</h3>
+            <p>We research your HOA's maximum fence height before quoting. If needed, we design extensions that meet the limit while maximizing your privacy gains.</p>
+          </div>
+          <div class="timeline-step" role="listitem">
+            <h3>Clean, neighbor-friendly finish</h3>
+            <p>Our panels present a uniform green surface that looks like a manicured hedge. No visible hardware, no sagging, no color variation that triggers aesthetic objections. Green hedge extensions block views without creating a fortress appearance, making neighbor acceptance easier.</p>
+          </div>
+        </div>
+        <details class="detail-box">
+          <summary>For HOA boards and property managers</summary>
+          <div>
+            Clean, consistent finish with HOA-friendly fence extensions, clear documentation, and fence height extensions that stay within posted limits. Acoustic fence extensions and standard artificial hedge panels are available with color samples, material specifications, and photos to speed review.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <h2>How the Process Works</h2>
+          <p>Three simple steps to get your artificial hedge fence extensions installed fast.</p>
+        </div>
+        <div class="card-grid">
+          <div class="card live-card">
+            <h3>Virtual or on-site consult</h3>
+            <p>We review your fence, HOA rules, and noise or privacy needs so we can design the right fence height extensions.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Custom design and HOA packet</h3>
+            <p>We size panels, finalize height, and prepare photos and specs for HOA approval with fence noise reduction options if needed.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Fast install day</h3>
+            <p>We attach extensions to your existing fence with minimal disruption and leave you with a finished hedge and clean site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="acoustic">
+      <div class="container">
+        <div class="section-header">
+          <h2>Acoustic Fence Extensions: Privacy plus Noise Reduction</h2>
+          <p>Acoustic fence extensions pair artificial hedge privacy with fence noise reduction for louder yards.</p>
+        </div>
+        <div class="pill">Reduce perceived noise by 5-10 decibels with acoustic hedge panels.</div>
+        <div class="noise-wrap">
+          <div class="noise-scale" aria-hidden="true">
+            <div class="noise-marker current" title="Before noise"></div>
+            <div class="noise-marker reduced" title="After fence noise reduction"></div>
+          </div>
+          <div class="noise-scale-labels">
+            <span>Loud street</span>
+            <span>Quieter backyard</span>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top: 1.2rem;">
+          <div class="card live-card">
+            <h3>How it works</h3>
+            <p><strong>Mass-Loaded Vinyl Core:</strong> Panels include a dense acoustic barrier behind the foliage. This mass blocks sound waves from traffic, HVAC equipment, pool pumps, and alley noise.</p>
+            <p style="margin-top:0.6rem;"><strong>Invisible design:</strong> The green exterior looks identical to standard panels so acoustic fence extensions stay invisible in your yard.</p>
+          </div>
+          <div class="card live-card">
+            <h3>Best uses</h3>
+            <p><strong>Best applications:</strong> Homes near busy roads, alleys with garbage trucks, commercial HVAC units, or neighbors with barking dogs benefit most from acoustic fence extensions.</p>
+            <p style="margin-top:0.6rem;"><strong>Combined benefits:</strong> Get privacy screening and noise reduction in a single installation - one project, two major improvements.</p>
+          </div>
+        </div>
+        <details class="detail-box" style="margin-top: 1.2rem;">
+          <summary>Technical details</summary>
+          <div>
+            Mass-Loaded Vinyl Core panels include a dense acoustic barrier behind the foliage. This mass blocks sound waves from traffic, HVAC equipment, pool pumps, and alley noise. Homes near busy roads, alleys with garbage trucks, commercial HVAC units, or neighbors with barking dogs benefit most from acoustic fence extensions. The green exterior looks identical to standard panels - invisible design that hides the acoustic material. Combined benefits give you privacy screening and fence noise reduction in a single installation.
+          </div>
+        </details>
+        <div class="cta-row" style="margin-top: 1.3rem;">
+          <a class="btn btn-primary" href="index.html#contact">Get My Fence Quote</a>
+          <a class="btn btn-secondary" href="#height">Learn About Acoustic Options</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="install">
+      <div class="container">
+        <div class="section-header">
+          <h2>DIY vs Professional Installation</h2>
+          <p>An honest comparison before you climb a ladder.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Installation comparison">
+          <button type="button" data-tab-target="pro" aria-selected="true" role="tab">Professional Install (Recommended)</button>
+          <button type="button" data-tab-target="diy" aria-selected="false" role="tab">DIY Option</button>
+        </div>
+        <div class="comparison" data-tab-panel="pro" role="tabpanel">
+          <div class="comparison-row">
+            <strong>Fit and finish</strong>
+            <span>Seamless, custom-fit fence extensions with no gaps or sagging.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Time required</strong>
+            <span>1-2 days because panels are pre-built offsite.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Wind resistance and durability</strong>
+            <span>Engineered fastening with steel or aluminum support for Texas weather.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Materials and tools</strong>
+            <span>Handled by our crew with professional-grade hardware.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>HOA approval</strong>
+            <span>We provide the photos/specs for HOA review.</span>
+          </div>
+        </div>
+        <div class="comparison" data-tab-panel="diy" role="tabpanel" hidden>
+          <div class="comparison-row">
+            <strong>Fit and finish</strong>
+            <span>Risk of gaps and uneven heights with improvised fence extensions.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Time required</strong>
+            <span>Multiple weekends for layout, framing, and attaching hedge panels.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Wind resistance and durability</strong>
+            <span>Greater chance of detachment without engineered fastening.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>Materials and tools</strong>
+            <span>Out-of-pocket materials plus tool rentals or purchases.</span>
+          </div>
+          <div class="comparison-row">
+            <strong>HOA approval</strong>
+            <span>You handle the submittal and revisions.</span>
+          </div>
+        </div>
+        <p class="muted" style="margin-top: 1rem;">Most homeowners choose professional installation for faster completion, cleaner finish, and HOA-friendly documentation.</p>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2>Recent Fence Extension Projects</h2>
+          <p>Artificial hedge fence extensions across Texas. Flip to see specs.</p>
+        </div>
+        <div class="carousel">
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/fence/fence-1.jpg" alt="Artificial hedge fence extension plus 3 ft in Houston backyard" loading="lazy">
+                <div class="badge">Houston, TX · +3 ft</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">Extension: +3 ft</div>
+                <div class="stat-pill">Fence: Existing wood</div>
+                <div class="stat-pill">Timeline: 1 day</div>
+                <div class="stat-pill">Use: Side yard privacy</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/fence/fence-2.jpg" alt="Acoustic fence extensions with hedge panels in Austin backyard" loading="lazy">
+                <div class="badge">Austin, TX · Acoustic</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">System: Acoustic hedge</div>
+                <div class="stat-pill">Use: Alley screening</div>
+                <div class="stat-pill">Timeline: 2 days</div>
+                <div class="stat-pill">Noise: Fence noise reduction</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/fence/fence-3.jpg" alt="Artificial hedge fence extension plus 4 ft in Dallas patio" loading="lazy">
+                <div class="badge">Dallas, TX · +4 ft</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">Extension: +4 ft</div>
+                <div class="stat-pill">Frame: Aluminum</div>
+                <div class="stat-pill">Timeline: 1 day</div>
+                <div class="stat-pill">Finish: Clean cap detail</div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-inner" tabindex="0">
+              <div class="flip-face">
+                <img src="images/fence/fence-1.jpg" alt="Fence height extension plus 2 ft in San Antonio side yard" loading="lazy">
+                <div class="badge">San Antonio, TX · +2 ft</div>
+              </div>
+              <div class="flip-face flip-back">
+                <div class="stat-pill">Extension: +2 ft</div>
+                <div class="stat-pill">Use: Side yard</div>
+                <div class="stat-pill">Install: Rapid fit</div>
+                <div class="stat-pill">HOA: Friendly plans</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fence Extension FAQs</h2>
+          <p>Plain-English answers about artificial hedge fence extensions, HOA rules, and fence noise reduction.</p>
+        </div>
+        <div class="block" style="border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.02); padding: 1rem;">
+          <details class="faq" open>
+            <summary>Will it meet HOA requirements?</summary>
+            <p>We keep finishes clean and consistent and can provide photos and specs for HOA review so your artificial hedge fence extensions stay HOA-friendly.</p>
+          </details>
+          <details class="faq">
+            <summary>Can you add sound dampening?</summary>
+            <p>Yes. Acoustic fence extensions with backing are available to reduce alley, road, or equipment noise and improve fence noise reduction.</p>
+          </details>
+          <details class="faq">
+            <summary>How long does installation take?</summary>
+            <p>Most fence extension installs are completed in a day or two since panels are pre-built offsite and attach quickly to your existing fence.</p>
+          </details>
+          <details class="faq">
+            <summary>Does it handle Texas weather?</summary>
+            <p>Foliage is UV-stabilized and frames are metal; ready for sun and rain with proper anchoring for Texas wind.</p>
+          </details>
+          <details class="faq">
+            <summary>How soon can you install after I approve the quote?</summary>
+            <p>Scheduling is fast. Once you approve the fence height extension design and HOA paperwork, we set an install date and complete most projects in 1-2 days.</p>
+          </details>
+          <details class="faq">
+            <summary>Do you remove or modify my existing fence?</summary>
+            <p>We attach artificial hedge fence extensions to your existing fence structure with minimal disruption. If repairs are needed, we address them before fastening the new panels.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container final-cta">
+        <h3>Ready to stop staring at your neighbor's windows?</h3>
+        <p>Get a fast quote for artificial hedge fence extensions, acoustic fence extensions, or HOA-friendly fence extensions anywhere in Austin, Dallas, Houston, or San Antonio.</p>
+        <div class="cta-row" style="justify-content: center;">
+          <a class="btn btn-primary" href="index.html#contact">Get My Fence Quote</a>
+          <a class="btn btn-secondary" href="#acoustic">See Acoustic Options</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded project image">
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption">
+        <span id="lightboxCaption"></span>
+        <button id="lightboxClose" class="lightbox-close" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> Lone Star Faux Scapes - Artificial hedges, living walls, artificial hedge fence extensions, acoustic fence extensions, and privacy systems across Texas.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const header = document.querySelector('.site-header');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navDrawer = document.getElementById('navDrawer');
+      const beforeAfter = document.querySelector('.before-after');
+      const beforeAfterRange = document.getElementById('beforeAfterRange');
+      const heightButtons = document.querySelectorAll('[data-height]');
+      const heightRange = document.getElementById('heightRange');
+      const heightHeading = document.getElementById('heightHeading');
+      const heightDescription = document.getElementById('heightDescription');
+      const fenceExtension = document.querySelector('.fence-extension');
+      const heightLabel = document.getElementById('heightLabel');
+      const tabButtons = document.querySelectorAll('[data-tab-target]');
+      const tabPanels = document.querySelectorAll('[data-tab-panel]');
+      const galleryButtons = document.querySelectorAll('.gallery-card button');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const yearEl = document.getElementById('year');
+
+      const heightContent = {
+        "2": { heading: "+2 Foot Extension", description: "Takes a standard 6-foot fence to 8 feet. Ideal for blocking sightlines from neighbors' second-story windows or raised decks without appearing imposing.", visual: 2 },
+        "3": { heading: "+3 Foot Extension", description: "Our most popular option. Creates a 9-foot barrier that screens out most neighboring views while staying within many HOA maximum height limits.", visual: 3 },
+        "4": { heading: "+4 Foot Extension", description: "Maximum privacy for busy alleys, commercial boundaries, or properties bordering multi-story buildings. Creates a 10-foot privacy screen.", visual: 4 },
+        "custom": { heading: "Custom Heights", description: "Uneven terrain or special requirements? We build extensions to any height specification, including stepped installations that follow sloped fence lines.", visual: 4 }
+      };
+
+      const setHeaderState = () => {
+        if (!header) return;
+        if (window.scrollY > 40) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+      };
+
+      const updateBeforeAfter = (value) => {
+        if (!beforeAfter) return;
+        const bounded = Math.min(100, Math.max(0, Number(value)));
+        beforeAfter.style.setProperty('--ba-position', `${bounded}%`);
+      };
+
+      const setHeightSelection = (key) => {
+        const data = heightContent[key] || heightContent["3"];
+        if (heightHeading) heightHeading.textContent = data.heading;
+        if (heightDescription) heightDescription.textContent = data.description;
+        const extensionHeight = typeof data.visual === 'number' ? data.visual : 4;
+        const totalHeight = 6 + extensionHeight;
+        const pct = (extensionHeight / totalHeight) * 100;
+        if (fenceExtension) {
+          fenceExtension.style.height = `${pct}%`;
+          fenceExtension.textContent = key === "custom" ? "Custom" : `+${extensionHeight} ft`;
+        }
+        if (heightLabel) heightLabel.textContent = `${totalHeight} ft total height`;
+        heightButtons.forEach(btn => btn.setAttribute('aria-pressed', btn.getAttribute('data-height') === key ? 'true' : 'false'));
+        if (heightRange && key !== "custom") heightRange.value = key;
+      };
+
+      const activateTab = (target) => {
+        tabButtons.forEach(btn => btn.setAttribute('aria-selected', btn.getAttribute('data-tab-target') === target ? 'true' : 'false'));
+        tabPanels.forEach(panel => {
+          const match = panel.getAttribute('data-tab-panel') === target;
+          panel.hidden = !match;
+        });
+      };
+
+      const closeLightbox = () => {
+        if (lightbox) lightbox.classList.add('hidden');
+      };
+
+      if (menuToggle && navDrawer) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', (!isOpen).toString());
+          if (isOpen) navDrawer.setAttribute('hidden', 'true');
+          else navDrawer.removeAttribute('hidden');
+          navDrawer.classList.toggle('open', !isOpen);
+        });
+      }
+
+      if (beforeAfterRange) {
+        beforeAfterRange.addEventListener('input', (e) => updateBeforeAfter(e.target.value));
+        updateBeforeAfter(beforeAfterRange.value);
+      }
+
+      heightButtons.forEach(btn => {
+        btn.addEventListener('click', () => setHeightSelection(btn.getAttribute('data-height')));
+      });
+
+      if (heightRange) {
+        heightRange.addEventListener('input', (e) => setHeightSelection(e.target.value));
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => activateTab(btn.getAttribute('data-tab-target')));
+      });
+
+      galleryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!lightbox || !lightboxImg || !lightboxCaption) return;
+          lightboxImg.src = btn.getAttribute('data-large') || '';
+          lightboxImg.alt = btn.getAttribute('data-alt') || 'Fence extension project';
+          lightboxCaption.textContent = btn.getAttribute('data-caption') || '';
+          lightbox.classList.remove('hidden');
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+      }
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
+
+      setHeightSelection("3");
+      setHeaderState();
+      window.addEventListener('scroll', setHeaderState, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Will it meet HOA requirements?", "acceptedAnswer": { "@type": "Answer", "text": "We keep finishes clean and consistent and can provide photos and specs for HOA review so your artificial hedge fence extensions stay HOA-friendly." } },
+      { "@type": "Question", "name": "Can you add sound dampening?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Acoustic fence extensions with backing are available to reduce alley, road, or equipment noise and improve fence noise reduction." } },
+      { "@type": "Question", "name": "How long does installation take?", "acceptedAnswer": { "@type": "Answer", "text": "Most fence extension installs are completed in a day or two since panels are pre-built offsite and attach quickly to your existing fence." } },
+      { "@type": "Question", "name": "Does it handle Texas weather?", "acceptedAnswer": { "@type": "Answer", "text": "Foliage is UV-stabilized and frames are metal; ready for sun and rain with proper anchoring for Texas wind." } },
+      { "@type": "Question", "name": "How soon can you install after I approve the quote?", "acceptedAnswer": { "@type": "Answer", "text": "Scheduling is fast. Once you approve the fence height extension design and HOA paperwork, we set an install date and complete most projects in 1-2 days." } },
+      { "@type": "Question", "name": "Do you remove or modify my existing fence?", "acceptedAnswer": { "@type": "Answer", "text": "We attach artificial hedge fence extensions to your existing fence structure with minimal disruption. If repairs are needed, we address them before fastening the new panels." } }
+    ]
+  }
+  </script>
+  <script src="nav.js"></script>
+  <link rel="stylesheet" href="enhancements.css">
+  <script src="magnetic.js"></script>
+  <script src="split-text.js"></script>
+  <script src="card-effects.js"></script>
+  <script src="reactive-effects.js"></script>
+</body>
+</html>
+
+

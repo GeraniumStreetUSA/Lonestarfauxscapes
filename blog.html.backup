@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | Lone Star Faux Scapes Blog</title>
+  <meta name="description" content="Articles on artificial hedges, faux living walls, installation tips, and Texas project inspiration from Lone Star Faux Scapes.">
+  <meta name="keywords" content="artificial hedges blog, faux living wall tips, artificial hedge installation advice, Texas faux greenery">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/blog">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Lone Star Faux Scapes Blog",
+    "url": "https://lonestarfauxscapes.com/blog",
+    "description": "Articles on artificial hedges, faux living walls, installation tips, and Texas project inspiration."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"BlogPosting","headline":"How to choose an artificial hedge installer in Texas","description":"Red flags, spec questions, and timelines to vet when hiring for artificial hedge installation across Austin, Dallas, Houston, and San Antonio.","datePublished":"2025-10-12","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/hedges/hedge-privacy-1.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/artificial-hedge.html"}},
+      {"@type":"BlogPosting","headline":"Faux living wall vs real living wall: maintenance face-off","description":"We compare irrigation, lifespan, fire rating, and acoustic performance so you can pick the best living wall approach for your project.","datePublished":"2025-09-05","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/living_walls/living-wall-2.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/living-wall.html"}},
+      {"@type":"BlogPosting","headline":"Acoustic upgrades for artificial hedge screens","description":"Add acoustic backing to faux hedges to cut alley and equipment noise. Materials, STC gains, and install tips.","datePublished":"2025-08-22","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/fence/fence-3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/fence-extensions.html"}},
+      {"@type":"BlogPosting","headline":"Fire safety for faux greenery: NFPA 701 explained","description":"What NFPA 701 Method 2 means for hospitality and multifamily, plus how to document compliance for AHJs.","datePublished":"2025-08-01","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/hedges/hedge-privacy-2.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/commercial-wall.html"}},
+      {"@type":"BlogPosting","headline":"Designing a branded artificial living wall","description":"Logo recesses, lighting, and mixed foliage patterns to keep faux living walls on-brand for retail and corporate environments.","datePublished":"2025-07-18","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/living_walls/living-wall-3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/living-wall.html"}},
+      {"@type":"BlogPosting","headline":"Fence extension playbook: instant privacy without rebuilds","description":"How to add height and coverage with faux hedges on existing fences - structural fastening, HOA tips, and finish details.","datePublished":"2025-06-30","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/fence/fence-1.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/fence-extensions.html"}}
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --color-bg: #050a07;
+      --color-bg-alt: #0a140f;
+      --color-accent: #4caf50;
+      --color-text: #f5f5f5;
+      --color-text-muted: #889990;
+      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --container-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,7,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1rem; }
+    .nav-brand { font-family: var(--font-heading); font-weight: 900; letter-spacing: 0.08em; font-size: 0.95rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; font-size: 0.9rem; }
+    .nav-item { color: rgba(255,255,255,0.75); letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; position: relative; padding-bottom: 0.25rem; }
+    .nav-item:hover { color: #fff; }
+    .nav-item::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)); transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease; }
+    .nav-item:hover::after { transform: scaleX(1); }
+    .nav-cta { padding: 0.55rem 1rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.06); letter-spacing: 0.04em; font-weight: 700; }
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: rgba(5,10,7,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      display: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown-menu:hover { display: block; }
+    .nav-dropdown-item {
+      display: block;
+      padding: 0.6rem 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .nav-dropdown-item:hover { color: var(--color-accent); background: rgba(255,255,255,0.04); }
+    .nav-caret { font-size: 0.7rem; margin-left: 0.3rem; }
+    .hero { padding: 4.5rem 0 3rem; background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(5,10,7,0.95)); }
+    .hero h1 { font-family: var(--font-heading); font-size: clamp(2.8rem, 4vw, 3.6rem); letter-spacing: -0.03em; }
+    .hero p { color: var(--color-text-muted); max-width: 760px; margin-top: 1rem; font-size: 1.05rem; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    @media(min-width: 820px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media(min-width: 620px) and (max-width: 819px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .card { position: relative; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; box-shadow: 0 14px 30px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; display: flex; flex-direction: column; min-height: 380px; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 18px 45px rgba(0,0,0,0.32); border-color: rgba(255,255,255,0.12); }
+    .card-media { position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.06); aspect-ratio: 4/3; }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; filter: saturate(0.95) brightness(0.95); }
+    .card:hover .card-media img { transform: scale(1.05); filter: saturate(1.05) brightness(1); }
+    .card-body { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+    .meta-row { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--color-text-muted); }
+    .date-pill { padding: 0.35rem 0.7rem; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-weight: 700; letter-spacing: 0.02em; }
+    .card h3 { font-family: var(--font-heading); font-size: 1.2rem; letter-spacing: -0.01em; }
+    .card p { color: var(--color-text-muted); font-size: 0.98rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { padding: 0.3rem 0.6rem; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.78rem; letter-spacing: 0.02em; }
+    .arrow-cta { margin-top: auto; display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 700; letter-spacing: 0.03em; color: #fff; }
+    .arrow-cta span { width: 40px; height: 40px; border-radius: 50%; background: rgba(76,175,80,0.12); border: 1px solid rgba(76,175,80,0.4); display: grid; place-items: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover .arrow-cta span { transform: translateX(6px); box-shadow: 0 0 14px rgba(76,175,80,0.35); }
+    .section { padding: 4rem 0 5rem; }
+    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
+    [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    [data-reveal].reveal-in { opacity: 1; transform: translateY(0); }
+    [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="nav-brand">Lone Star Faux Scapes</div>
+      <nav class="nav-links">
+        <a class="nav-item" href="index.html">Home</a>
+        <div class="nav-dropdown" aria-label="Products dropdown">
+          <a class="nav-item nav-item-parent" href="products.html">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="living-wall.html">Artificial Living Wall</a>
+            <a class="nav-dropdown-item" href="commercial-wall.html">Commercial Wall Covering</a>
+            <a class="nav-dropdown-item" href="fence-extensions.html">Fence Extensions</a>
+            <a class="nav-dropdown-item" href="artificial-hedge.html">Artificial Hedge</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" aria-label="Commercial dropdown">
+          <a class="nav-item nav-item-parent" href="commercial.html">Commercial <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="hedge-builder-commercial.html">Hedge Builder</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" aria-label="Residential dropdown">
+          <a class="nav-item nav-item-parent" href="residential.html">Residential <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="hedge-builder-residential.html">Hedge Builder</a>
+          </div>
+        </div>
+        <a class="nav-item nav-cta" href="index.html#contact">Get Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Insights on Artificial Hedges & Living Walls</h1>
+        <p>Guides, installs, and best practices for artificial hedge installation, faux living walls, and acoustic greenery across Texas. Fresh looks straight from the field.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3" id="blog-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> Lone Star Faux Scapes - Artificial hedges, living walls, and privacy systems across Texas.
+    </div>
+  </footer>
+
+  <script>
+    const posts = [
+      {
+        title: 'How to choose an artificial hedge installer in Texas',
+        summary: 'Red flags, spec questions, and timelines to vet when hiring for artificial hedge installation across Austin, Dallas, Houston, and San Antonio.',
+        tags: ['Artificial hedge installation', 'Texas', 'Specs'],
+        image: 'images/hedges/hedge-privacy-1.jpg',
+        url: 'artificial-hedge.html',
+        date: '2025-10-12',
+        category: 'Guides'
+      },
+      {
+        title: 'Faux living wall vs real living wall: maintenance face-off',
+        summary: 'We compare irrigation, lifespan, fire rating, and acoustic performance so you can pick the best living wall approach for your project.',
+        tags: ['Faux living wall', 'Maintenance', 'Acoustics'],
+        image: 'images/living_walls/living-wall-2.jpg',
+        url: 'living-wall.html',
+        date: '2025-09-05',
+        category: 'Comparisons'
+      },
+      {
+        title: 'Acoustic upgrades for artificial hedge screens',
+        summary: 'Add acoustic backing to faux hedges to cut alley and equipment noise. We break down materials, STC gains, and install tips.',
+        tags: ['Acoustic', 'Faux hedges', 'Noise control'],
+        image: 'images/fence/fence-3.jpg',
+        url: 'fence-extensions.html',
+        date: '2025-08-22',
+        category: 'Acoustics'
+      },
+      {
+        title: 'Fire safety for faux greenery: NFPA 701 explained',
+        summary: 'What NFPA 701 Method 2 means for hospitality and multifamily, plus how to document compliance for AHJs and code officials.',
+        tags: ['Fire rated', 'NFPA 701', 'Compliance'],
+        image: 'images/hedges/hedge-privacy-2.jpg',
+        url: 'commercial-wall.html',
+        date: '2025-08-01',
+        category: 'Compliance'
+      },
+      {
+        title: 'Designing a branded artificial living wall',
+        summary: 'Logo recesses, lighting, and mixed foliage patterns to keep faux living walls on-brand for retail and corporate environments.',
+        tags: ['Branding', 'Artificial living wall', 'Design'],
+        image: 'images/living_walls/living-wall-3.jpg',
+        url: 'living-wall.html',
+        date: '2025-07-18',
+        category: 'Design'
+      },
+      {
+        title: 'Fence extension playbook: instant privacy without rebuilds',
+        summary: 'How to add height and coverage with faux hedges on existing fences - structural fastening, HOA tips, and finish details.',
+        tags: ['Fence extensions', 'Privacy wall', 'HOA friendly'],
+        image: 'images/fence/fence-1.jpg',
+        url: 'fence-extensions.html',
+        date: '2025-06-30',
+        category: 'How-to'
+      }
+    ];
+
+    const grid = document.getElementById('blog-grid');
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear().toString();
+
+    if (grid) {
+      posts.forEach((post, idx) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.setAttribute('data-reveal', '');
+        if (idx % 3 === 1) card.setAttribute('data-delay', '1');
+        if (idx % 3 === 2) card.setAttribute('data-delay', '2');
+        card.innerHTML = `
+          <div class="card-media">
+            <img src="${post.image}" alt="${post.title}" loading="lazy" decoding="async">
+          </div>
+          <div class="card-body">
+            <div class="meta-row">
+              <span class="date-pill">${new Date(post.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+              <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">${post.category}</span>
+            </div>
+            <h3>${post.title}</h3>
+            <p>${post.summary}</p>
+            <div class="pill-row">
+              ${post.tags.map((tag) => `<span class="pill">${tag}</span>`).join('')}
+            </div>
+            <a class="arrow-cta" href="${post.url}">Learn More <span>&rarr;</span></a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+  </script>
+  <link rel="stylesheet" href="enhancements.css">
+  <script src="reveal.js"></script>
+  <script src="nav.js"></script>
+  <script src="magnetic.js"></script>
+  <script src="split-text.js"></script>
+  <script src="card-effects.js"></script>
+</body>
+</html>

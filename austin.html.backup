@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Austin Artificial Hedges & Living Walls | Lone Star Faux Scapes</title>
+  <meta name="description" content="Austin artificial hedge and faux living wall installs for downtown facades, rooftop privacy, and amenities. NFPA 701 Method 2 foliage, acoustic options, and fast turnarounds.">
+  <meta name="keywords" content="Austin artificial hedge installation, Austin living wall, faux living wall Austin, rooftop privacy Austin">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/austin.html">
+  <style>
+    :root {
+      --color-bg: #050a07;
+      --color-bg-alt: #0a140f;
+      --color-accent: #4caf50;
+      --color-text: #f5f5f5;
+      --color-text-muted: #889990;
+      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --container-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,7,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1rem; }
+    .nav-brand { font-family: var(--font-heading); font-weight: 900; letter-spacing: 0.08em; font-size: 0.95rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; font-size: 0.9rem; }
+    .nav-item { color: rgba(255,255,255,0.75); letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; position: relative; padding-bottom: 0.25rem; }
+    .nav-item:hover { color: #fff; }
+    .nav-item::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)); transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease; }
+    .nav-item:hover::after { transform: scaleX(1); }
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(5,10,7,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      min-width: 220px;
+      padding: 0.6rem 0;
+      display: none;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+      z-index: 1500;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown-menu:hover { display: block; }
+    .nav-dropdown-item {
+      display: block;
+      padding: 0.55rem 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover { color: var(--color-accent); background: rgba(255,255,255,0.04); }
+    .nav-cta { padding: 0.55rem 1rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.06); letter-spacing: 0.04em; font-weight: 700; }
+    .hero { padding: 4rem 0 3rem; background: linear-gradient(140deg, rgba(76,175,80,0.12), rgba(5,10,7,0.94)); }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+    @media(min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
+    h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; }
+    h1 { font-size: clamp(2.7rem, 4vw, 3.6rem); }
+    h2 { font-size: clamp(2rem, 3vw, 2.6rem); }
+    h3 { font-size: 1.35rem; }
+    p.lede { font-size: 1.05rem; color: var(--color-text-muted); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .pill { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 0.85rem; color: #fff; letter-spacing: 0.01em; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.6rem; border-radius: 999px; background: var(--color-accent); color: #051007; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border: none; box-shadow: 0 12px 30px rgba(76,175,80,0.35); transition: transform 0.2s, box-shadow 0.2s; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(76,175,80,0.4); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; padding: 0.85rem 1.4rem; border-radius: 999px; font-weight: 700; letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s; }
+    .btn-outline:hover { color: var(--color-accent); border-color: rgba(76,175,80,0.7); }
+    .section { padding: 4rem 0; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media(min-width: 860px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media(min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.4rem; box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
+    .card h3 { margin-bottom: 0.4rem; }
+    .muted { color: var(--color-text-muted); }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
+    .gallery img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); object-fit: cover; aspect-ratio: 4/3; transition: transform 0.25s ease, filter 0.25s ease; filter: saturate(0.95) brightness(0.95); }
+    .gallery img:hover { transform: scale(1.03); filter: saturate(1.05) brightness(1); }
+    details { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    summary { padding: 1rem 0; cursor: pointer; font-weight: 600; letter-spacing: 0.01em; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    .faq-answer { padding-bottom: 1rem; color: var(--color-text-muted); }
+    .stat { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.8rem; border-radius: 12px; background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.25); font-weight: 700; color: #b5e3bf; }
+    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="nav-brand">Lone Star Faux Scapes</div>
+      <nav class="nav-links">
+        <a class="nav-item" href="index.html">Home</a>
+        <div class="nav-dropdown" aria-label="Products dropdown">
+          <a class="nav-item nav-item-parent" href="products.html">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a class="nav-dropdown-item" href="living-wall.html">Artificial Living Wall</a>
+            <a class="nav-dropdown-item" href="commercial-wall.html">Commercial Wall Covering</a>
+            <a class="nav-dropdown-item" href="fence-extensions.html">Fence Extensions</a>
+            <a class="nav-dropdown-item" href="artificial-hedge.html">Artificial Hedge</a>
+          </div>
+        </div>
+        <a class="nav-item" href="commercial.html">Commercial</a>
+        <a class="nav-item" href="residential.html">Residential</a>
+        <a class="nav-item" href="blog.html">Blog</a>
+        <a class="nav-item nav-cta" href="index.html#contact">Get Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="pill" style="display:inline-flex;">City Installations</p>
+          <h1>Artificial hedges & living walls — Austin, TX</h1>
+          <p class="lede">Downtown facades, rooftop privacy, and amenities built with NFPA 701 Method 2 foliage, acoustic options, and clean, code-compliant installs.</p>
+          <div class="pill-row">
+            <span class="pill">NFPA 701 Method 2</span>
+            <span class="pill">Acoustic backers</span>
+            <span class="pill">Custom frames</span>
+            <span class="pill">Fast rooftop installs</span>
+          </div>
+          <div style="margin-top:1.2rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+            <a class="btn" href="index.html#contact">Plan an Austin project</a>
+            <a class="btn-outline" href="products.html">View products</a>
+          </div>
+          <div class="pill-row" style="margin-top:1rem;">
+            <span class="pill">Downtown / Domain / East Austin</span>
+            <span class="pill">Hospitality & multifamily</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.4rem;">Austin install profile</h3>
+          <p class="muted" style="margin-bottom:0.7rem;">Designed for wind, shade, and rooftop loading limits.</p>
+          <div class="stat">2–4 day install windows</div>
+          <p style="margin-top:0.6rem;">Prefabricated panels with hidden seams, rooftop-safe anchoring, and LED-friendly layouts for signage or lighting.</p>
+          <div class="gallery" style="margin-top:1rem; grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <img src="images/living_walls/living-wall-2.jpg" alt="Austin faux living wall lobby" loading="lazy">
+            <img src="images/hedges/hedge-privacy-2.jpg" alt="Austin rooftop artificial hedge" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>What we install in Austin</h2>
+        <div class="grid grid-3" style="margin-top:1.4rem;">
+          <div class="card">
+            <h3>Mixed-tone living walls</h3>
+            <p class="muted">Feature walls for lobbies, amenities, and coworking lounges with multi-depth foliage and acoustic options.</p>
+          </div>
+          <div class="card">
+            <h3>Privacy hedges</h3>
+            <p class="muted">Dense hedge panels for rooftop rails, patios, and pool decks—UV stabilized and fire-rated options available.</p>
+          </div>
+          <div class="card">
+            <h3>Brand-safe cladding</h3>
+            <p class="muted">Frame-mounted greenery for hospitality entries and retail facades, ready for signage and lighting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: rgba(255,255,255,0.02);">
+      <div class="container">
+        <h2>Recent Austin installs</h2>
+        <div class="gallery">
+          <img src="images/living_walls/living-wall-2.jpg" alt="Austin amenity faux living wall" loading="lazy">
+          <img src="images/hedges/hedge-privacy-1.jpg" alt="Austin privacy hedge install" loading="lazy">
+          <img src="images/fence/fence-1.jpg" alt="Fence extension greenery in Austin" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid-3">
+        <div class="card">
+          <h3>Code compliance</h3>
+          <p class="muted">NFPA 701 Method 2 foliage, shop drawings on request, and coordination with Austin fire marshals for amenity and lobby installs.</p>
+        </div>
+        <div class="card">
+          <h3>Timelines</h3>
+          <p class="muted">Most projects install in 2–4 days. Prefabrication in our shop keeps onsite work quiet and fast.</p>
+        </div>
+        <div class="card">
+          <h3>Service areas</h3>
+          <p class="muted">Downtown, Domain, East Austin, South Congress, Zilker, and surrounding metro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQ — Austin</h2>
+        <details open>
+          <summary>How fast can you install in Austin?</summary>
+          <div class="faq-answer">Most Austin installs are completed in 2–4 days after measurements. Rooftop work is staged to minimize crane or lift time.</div>
+        </details>
+        <details>
+          <summary>Are the hedges fire-rated?</summary>
+          <div class="faq-answer">Yes. We offer NFPA 701 Method 2-rated foliage and provide documentation on request for hospitality and multifamily projects.</div>
+        </details>
+        <details>
+          <summary>Do you work with GC or directly with owners?</summary>
+          <div class="faq-answer">Both. We coordinate with GCs, designers, or owners to deliver shop drawings, framing plans, and quick installs.</div>
+        </details>
+        <details>
+          <summary>Can you add logos or lighting?</summary>
+          <div class="faq-answer">We fabricate frames for backlit logos, signage recesses, and concealed wiring so brand elements sit flush.</div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Austin artificial hedges & living walls by Lone Star Faux Scapes. Custom, code-ready, and installed fast.</div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Lone Star Faux Scapes - Austin",
+    "image": "https://lonestarfauxscapes.com/images/hero/hero-main.jpg",
+    "areaServed": "Austin, TX",
+    "url": "https://lonestarfauxscapes.com/austin.html",
+    "description": "Austin artificial hedge and faux living wall installation with NFPA 701 Method 2 foliage, acoustic options, and rooftop-ready framing.",
+    "serviceType": "Artificial hedge installation, faux living wall installation"
+  }
+  </script>
+  <script src="nav.js"></script>
+  <link rel="stylesheet" href="enhancements.css">
+  <script src="magnetic.js"></script>
+  <script src="split-text.js"></script>
+  <script src="card-effects.js"></script>
+</body>
+</html>

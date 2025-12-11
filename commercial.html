@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Greenery Systems | Lone Star Faux Scapes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/living_walls/living-wall-2.webp" type="image/webp">
+  <link rel="preload" as="image" href="images/living_walls/living-wall-2.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="enhancements.css">
+  <style>
+    :root {
+      /* Align to existing site palette */
+      --bg-hero: #050a07;
+      --bg-section: #0a140f;
+      --bg-dark-green: #0f1a14;
+      --text-main: #f5f5f5;
+      --text-muted: #889990;
+      --border: rgba(255,255,255,0.12);
+      --accent: #4caf50;
+      --accent-2: #74d680;
+      --accent-3: #a3e6a8;
+      --panel: rgba(5,10,7,0.82);
+      --card-glass: radial-gradient(circle at 20% 15%, rgba(76,175,80,0.12), rgba(5,10,7,0.96));
+      --shadow-strong: 0 24px 60px rgba(0,0,0,0.5);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(76,175,80,0.08) 0, transparent 42%),
+        radial-gradient(circle at 88% 86%, rgba(12,18,15,0.65) 0, var(--bg-hero) 55%),
+        var(--bg-hero);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 94%; max-width: 1280px; margin: 0 auto; }
+    /* Universal Floating Navbar */
+    #main-header {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96%;
+      max-width: 1200px;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 1rem 1.75rem;
+      border-radius: 28px;
+      background: rgba(10, 20, 15, 0.8);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    #main-header.scrolled {
+      top: 1rem;
+      background: rgba(5, 10, 7, 0.9);
+      width: 97%;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: none;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .nav-links { display: none; }
+    @media(min-width: 992px) {
+      .nav-links {
+        display: flex;
+        gap: 2.75rem;
+        align-items: center;
+        margin-left: auto;
+      }
+      .nav-item {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        position: relative;
+        padding-bottom: 0.25rem;
+      }
+      .nav-item:hover { color: var(--accent); }
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+      }
+      .nav-item:hover::after { transform: scaleX(1); }
+      .nav-item.active::after { transform: scaleX(1); }
+      .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+      .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+      .nav-cta {
+        padding: 0.55rem 1.1rem;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(255,255,255,0.06);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      }
+      .nav-cta:hover {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+      }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(5,10,7,0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        min-width: 220px;
+        padding: 0.5rem 0;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        display: none;
+        transition:
+          opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          visibility 0.3s;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block;
+      }
+      .nav-dropdown-item {
+        display: block;
+        padding: 0.6rem 1rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 50ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 150ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 200ms; }
+      .nav-dropdown-item:hover { color: var(--accent); background: rgba(255,255,255,0.04); }
+      .nav-caret {
+        font-size: 0.7rem;
+        margin-left: 0.3rem;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-caret { transform: rotate(180deg); }
+    }
+    .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
+    @media(min-width: 992px) { .mobile-toggle { display: none; } }
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 10, 7, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      padding: 6rem 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    #mobile-menu.active { transform: translateY(0); }
+    .mobile-link {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      transition: 0.3s;
+    }
+    .mobile-link:hover {
+      color: var(--accent);
+      -webkit-text-stroke: 0px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+      color: #041208;
+      border-radius: 999px;
+      padding: 0.85rem 1.6rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 0 0 1px rgba(34,197,94,0.3),
+        0 18px 30px rgba(22,163,74,0.45);
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 400ms ease-in-out;
+    }
+    .btn-primary:hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 24px 45px rgba(22,163,74,0.65); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #e2e8f0;
+      border-radius: 999px;
+      padding: 0.85rem 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border 150ms ease, transform 150ms ease;
+    }
+    .btn-ghost:hover { border-color: rgba(34,197,94,0.45); transform: translateY(-1px); }
+    main { overflow: hidden; }
+    section { position: relative; }
+    .section-wrap {
+      max-width: 1280px;
+      width: 94%;
+      margin: 0 auto;
+      padding: 72px 1.4rem;
+    }
+    .section-wrap.narrow { max-width: 1180px; }
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(5,10,7,0.82) 0%, rgba(5,10,7,0.55) 45%, rgba(5,10,7,0.68) 70%),
+        url('images/commercial/commercial-2.jpg') center/cover no-repeat;
+      padding: clamp(8rem, 12vw, 10rem) 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 18% 20%, rgba(76,175,80,0.12), transparent 38%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      align-items: center;
+      gap: 32px;
+    }
+    .hero-visual { display:none; }
+    .spec-hero {
+      background: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(20px) saturate(125%);
+      box-shadow:
+        0 26px 70px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .spec-hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 45%);
+      opacity: 0.8;
+      pointer-events:none;
+      z-index: -1;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .stat-box {
+      background: linear-gradient(160deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      color: #0f130f;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+    .stat-box span { display:block; color: #1f2b1f; font-weight: 600; font-size: 0.9rem; }
+    .spec-list { display:grid; gap: 8px; color:#0f130f; font-size:0.95rem; }
+    .spec-list div { display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid rgba(255,255,255,0.32); padding-bottom:6px; }
+    .spec-list div:last-child { border-bottom:none; padding-bottom:0; }
+    .spec-list span { color: #233226; }
+    .quick-jump {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 0;
+    }
+    .jump-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #d1d5db;
+      cursor: pointer;
+      background: rgba(255,255,255,0.03);
+      transition: all 150ms ease;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .jump-pill.active { border-color: rgba(76,175,80,0.7); color: #fff; box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+    h1 {
+      font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(3.25rem, 5vw, 3.75rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: 0.01em;
+    }
+    h2 {
+      font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(2rem, 3vw, 2.3rem);
+      margin: 0 0 12px;
+      letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.15rem; margin: 0 0 10px; font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; }
+    p { margin: 0; color: var(--text-muted); }
+    .muted { color: var(--text-muted); font-size: 0.98rem; }
+    .hero .subcopy { max-width: 560px; margin-bottom: 18px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 12px; }
+    .hero-bullets { margin: 12px 0 16px; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .hero-bullets li { display: flex; align-items: center; gap: 8px; color: #dce7dd; }
+    .hero-bullets li::before { content: "•"; color: var(--accent); font-weight: 700; }
+    .hero-chips, .trust-points { display:none; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stat {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat strong { color: #fff; font-size: 1.05rem; }
+    .stat span { color: var(--text-muted); font-size: 0.9rem; }
+    .spec-card {
+      background: var(--card-glass);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(12px);
+    }
+    .spec-card h3 { color: #fff; }
+    .spec-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+    .spec-item {
+      padding: 12px 12px;
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      color: #e2e8f0;
+    }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 4px; }
+    .pill { padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; color: #cbd5e1; background: rgba(255,255,255,0.03); }
+    .systems { background: linear-gradient(var(--bg-hero), var(--bg-section)); }
+    .process { background: linear-gradient(var(--bg-hero), var(--bg-dark-green)); }
+    .cta-band { background: linear-gradient(120deg, rgba(76,175,80,0.22), rgba(5,10,7,0.9)); }
+    .section-header { margin-bottom: 22px; }
+    .section-lead { color: var(--text-muted); max-width: 720px; }
+    .microcards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .microcard {
+      background: var(--card-glass);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.95rem;
+    }
+    .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .filter-pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #d1d5db;
+      cursor: pointer;
+      background: rgba(255,255,255,0.03);
+      transition: all 150ms ease;
+    }
+    .filter-pill.active { border-color: rgba(34,197,94,0.65); color: #fff; box-shadow: 0 0 0 1px rgba(34,197,94,0.25), 0 10px 25px rgba(0,0,0,0.35); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card-thumb {
+      height: 120px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.78);
+      transition: transform 800ms ease;
+    }
+    .card:hover .card-thumb img { transform: scale(1.04); }
+    .card {
+      background: var(--card-glass);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.32);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-image 180ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-image: linear-gradient(135deg, var(--accent), #2dd4bf) 1;
+      box-shadow: 0 24px 45px rgba(0,0,0,0.45);
+    }
+    .card .meta { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 6px; }
+    .card .meta .chip { background: rgba(255,255,255,0.08); padding:6px 10px; border-radius:999px; font-size:0.82rem; color:#d1d5db; }
+    .spec-strip {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #c7d0c9;
+    }
+    .spec-strip span {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hover-spec {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 6px;
+    }
+    .card:hover .hover-spec { opacity: 1; transform: translateY(0); }
+    .card .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(34,197,94,0.14);
+      display: grid;
+      place-items: center;
+      color: #a3e635;
+      margin-bottom: 10px;
+    }
+    .tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+    .timeline {
+      position: relative;
+      padding-top: 18px;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 36px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(76,175,80,0.35), rgba(116,214,128,0.2));
+      opacity: 0.6;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .process-card { padding: 18px; min-height: 150px; }
+    .step { font-weight: 700; color: #bef264; margin-bottom: 6px; display:flex; align-items:center; gap:6px; }
+    .divider {
+      width: 100%;
+      height: 70px;
+      background: linear-gradient(100deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.008) 70%, transparent 100%);
+      transform: skewY(-2deg);
+      margin: -10px 0 -30px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .flip {
+      perspective: 1000px;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 360px;
+    }
+    .flip-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 500ms ease;
+      transform-style: preserve-3d;
+      border-radius: 18px;
+    }
+    .flip:hover .flip-inner { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      overflow: hidden;
+      display: grid;
+      place-items: end;
+      padding: 16px;
+      color: #fff;
+    }
+    .flip-face.back {
+      transform: rotateY(180deg);
+      background: var(--card-glass);
+      align-content: center;
+      gap: 10px;
+    }
+    .flip img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: transform 3s ease;
+    }
+    .flip:hover img { transform: scale(1.04); }
+    .overlay {
+      position: relative;
+      background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.5));
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .overlay h3 { margin: 0; }
+    .cities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .map-card {
+      position: relative;
+      height: 220px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at 20% 30%, rgba(76,175,80,0.14), transparent 55%), radial-gradient(circle at 75% 70%, rgba(12,18,15,0.8), rgba(5,10,7,0.9));
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .map-pin {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 18px rgba(76,175,80,0.6);
+    }
+    .map-pin::after {
+      content: attr(data-city);
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      font-size: 0.85rem;
+      color: #d1d5db;
+      white-space: nowrap;
+    }
+    .city-bar {
+      background: var(--card-glass);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .bar-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 14px rgba(34,197,94,0.6);
+      transition: width 900ms ease;
+    }
+    .faq-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:10px; }
+    details {
+      background: var(--card-glass);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: #e5e7eb;
+      min-height: 56px;
+    }
+    details + details { margin-top: 0; }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+    details ul { margin: 8px 0 4px 16px; padding:0; color: var(--text-muted); }
+    details ul li { margin-bottom: 4px; }
+    .cta-panel {
+      background: linear-gradient(120deg, rgba(34,197,94,0.28), rgba(2,44,34,0.95));
+      border: 1px solid rgba(34,197,94,0.28);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      flex-wrap: wrap;
+    }
+    footer { text-align: center; color: #6b7280; padding: 28px 1rem 40px; font-size: 0.9rem; }
+    .io-reveal { opacity: 0; transform: translateY(12px); transition: opacity 420ms ease, transform 420ms ease; }
+    .io-reveal.visible { opacity: 1; transform: translateY(0); }
+    .hero-cta.breathe { animation: breathe 3.8s ease-in-out infinite; }
+    @keyframes breathe {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(34,197,94,0.0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.0); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding-top: 7rem; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .cta-panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Lone Star Faux Scapes</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+            <a href="commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+            <a href="fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+            <a href="artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+            <a href="amazon-wall-mat.html" class="nav-dropdown-item">Amazon Wall Mat</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="commercial.html" class="nav-item nav-item-parent">Commercial <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="residential.html" class="nav-item nav-item-parent">Residential <span class="nav-caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+          </div>
+        </div>
+        <a href="index.html#gallery" class="nav-item">Gallery</a>
+        <a href="blog.html" class="nav-item">Blog</a>
+        <a href="index.html#contact" class="nav-item nav-cta">Get Quote</a>
+      </nav>
+      <div class="mobile-toggle" id="mobile-toggle-btn" aria-label="Open navigation">&#9776;</div>
+    </div>
+  </header>
+
+  <div id="mobile-menu">
+    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: #fff;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="products.html" class="mobile-link">Products</a>
+    <a href="commercial.html" class="mobile-link">Commercial</a>
+    <a href="residential.html" class="mobile-link">Residential</a>
+    <a href="index.html#gallery" class="mobile-link">Gallery</a>
+    <a href="blog.html" class="mobile-link">Blog</a>
+    <a href="index.html#contact" class="mobile-link">Get Quote</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="section-wrap hero-grid io-reveal" id="top">
+        <div>
+          <h1>Fire-rated greenery for commercial builds.</h1>
+          <p class="subcopy">Code-safe, acoustic, and UV-stable systems with shop drawings and rapid install crews.</p>
+          <ul class="hero-bullets">
+            <li>Rapid 24–72 hr mobilization with TX crews.</li>
+            <li>NFPA 701 Method 2 foliage, acoustic options, UV-stable exteriors.</li>
+            <li>Spec-ready CAD, submittals, and stamped docs.</li>
+          </ul>
+          <div class="hero-actions">
+            <button class="btn-primary hero-cta">Start a commercial project</button>
+            <button class="btn-ghost">View installs</button>
+          </div>
+          <div class="quick-jump" id="quick-jump">
+            <div class="jump-pill active" data-target="systems">Systems</div>
+            <div class="jump-pill" data-target="fire">Fire & Code</div>
+            <div class="jump-pill" data-target="process">Process</div>
+            <div class="jump-pill" data-target="installs">Installs</div>
+            <div class="jump-pill" data-target="faqs">FAQs</div>
+          </div>
+        </div>
+        <div class="spec-hero">
+          <div class="stat-row">
+            <div class="stat-box">24–72 hr<span>Mobilization</span></div>
+            <div class="stat-box">NFPA 701<span>Fire rating</span></div>
+            <div class="stat-box">5 yr<span>Warranty</span></div>
+            <div class="stat-box">Panels / Frames<span>Formats</span></div>
+          </div>
+          <div class="spec-list">
+            <div><span>Docs</span><strong>CAD + submittals</strong></div>
+            <div><span>Options</span><strong>Acoustic backers</strong></div>
+            <div><span>Use</span><strong>Interior / Exterior</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section class="systems" id="systems">
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Commercial Greenery Systems</h2>
+          <p class="section-lead">Choose the system, then dive into specs. Filters make it fast for owners, architects, and GCs.</p>
+          <div class="microcards">
+            <div class="microcard">Interior / exterior mixes with fire + acoustic variants.</div>
+            <div class="microcard">Spec sheets, CAD, and stamped submittals on request.</div>
+            <div class="microcard">Rapid install crews in Austin, Dallas, Houston, SATX.</div>
+          </div>
+        </div>
+        <div class="filters" id="system-filters">
+          <div class="filter-pill active" data-filter="all">All systems</div>
+          <div class="filter-pill" data-filter="fire">Fire-rated</div>
+          <div class="filter-pill" data-filter="acoustic">Acoustic</div>
+          <div class="filter-pill" data-filter="brand">Brand-ready</div>
+        </div>
+        <div class="card-grid" id="system-cards">
+          <div class="card" data-tags="fire acoustic interior">
+            <div class="tag">Interior</div>
+            <div class="card-thumb"><picture>
+                <source srcset="images/living_walls/living-wall-2-400w.webp 400w, images/living_walls/living-wall-2-800w.webp 800w, images/living_walls/living-wall-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/living_walls/living-wall-2-400w.jpg 400w, images/living_walls/living-wall-2-800w.jpg 800w, images/living_walls/living-wall-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/living_walls/living-wall-2.jpg" alt="Living wall" loading="lazy">
+              </picture></div>
+            <h3>Living Walls & Lobby Features</h3>
+            <div class="meta"><span class="chip">Fire-rated</span><span class="chip">Acoustic</span><span class="chip">Interior</span></div>
+            <div class="spec-strip"><span>Panels + trims</span><span>Acoustic backers</span><span>CAD + subs</span></div>
+            <div class="hover-spec">Quick read: lobby walls, NFPA 701 foliage, optional acoustic cores.</div>
+          </div>
+          <div class="card" data-tags="fire exterior">
+            <div class="tag">Exterior</div>
+            <div class="card-thumb"><picture>
+                <source srcset="images/commercial/commercial-2-400w.webp 400w, images/commercial/commercial-2-800w.webp 800w, images/commercial/commercial-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/commercial/commercial-2-400w.jpg 400w, images/commercial/commercial-2-800w.jpg 800w, images/commercial/commercial-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/commercial/commercial-2.jpg" alt="Facade cladding" loading="lazy">
+              </picture></div>
+            <h3>Wall Coverings & Facades</h3>
+            <div class="meta"><span class="chip">Fire-rated</span><span class="chip">Wind-rated</span><span class="chip">Exterior</span></div>
+            <div class="spec-strip"><span>Mechanical fastening</span><span>UV foliage</span><span>Edge trims</span></div>
+            <div class="hover-spec">Fasten to garages/retail fronts; UV-stable, wind-rated packages.</div>
+          </div>
+          <div class="card" data-tags="acoustic exterior">
+            <div class="tag">Acoustic</div>
+            <div class="card-thumb"><picture>
+                <source srcset="images/hedges/hedge-privacy-3-400w.webp 400w, images/hedges/hedge-privacy-3-800w.webp 800w, images/hedges/hedge-privacy-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/hedges/hedge-privacy-3-400w.jpg 400w, images/hedges/hedge-privacy-3-800w.jpg 800w, images/hedges/hedge-privacy-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/hedges/hedge-privacy-3.jpg" alt="Hedge screens" loading="lazy">
+              </picture></div>
+            <h3>Hedge Screens & Extensions</h3>
+            <div class="meta"><span class="chip">Acoustic</span><span class="chip">Exterior</span><span class="chip">Screens</span></div>
+            <div class="spec-strip"><span>Acoustic core</span><span>Fence adapters</span><span>Service access</span></div>
+            <div class="hover-spec">Perimeter and rooftop screening with acoustic options.</div>
+          </div>
+          <div class="card" data-tags="brand interior">
+            <div class="tag">Brand</div>
+            <div class="card-thumb"><picture>
+                <source srcset="images/commercial/commercial-1-400w.webp 400w, images/commercial/commercial-1-800w.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/commercial/commercial-1-400w.png 400w, images/commercial/commercial-1-800w.png 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/commercial/commercial-1.png" alt="Brand greenery" loading="lazy">
+              </picture></div>
+            <h3>Custom Branded Installations</h3>
+            <div class="meta"><span class="chip">Brand</span><span class="chip">Interior</span><span class="chip">Lighting</span></div>
+            <div class="spec-strip"><span>Backlit recess</span><span>Logo cutouts</span><span>Mixed palettes</span></div>
+            <div class="hover-spec">Logos, backlighting, and mixed foliage tuned to standards.</div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section id="fire">
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Fire & Code Confidence</h2>
+          <p class="section-lead">Docs, submittals, and controls to keep projects moving.</p>
+          <div class="microcards">
+            <div class="microcard">NFPA 701 Method 2 foliage + traceability.</div>
+            <div class="microcard">Shop drawings, stamped submittals, samples.</div>
+            <div class="microcard">Acoustic backers and UV-stable exteriors.</div>
+          </div>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="icon">✓</div>
+            <h3>Fire Rating & Code</h3>
+            <p>NFPA 701 data, flame spread letters, shop drawings, and stamped submittals for AHJs.</p>
+          </div>
+          <div class="card">
+            <div class="icon">➟</div>
+            <h3>NFPA 701 Method 2</h3>
+            <p>Tested foliage and UV-stabilized materials with documented traceability.</p>
+          </div>
+          <div class="card">
+            <div class="icon">≋</div>
+            <h3>Acoustic bundles</h3>
+            <p>Acoustic backing and sound-absorbing cores for noisy venues and rooftops.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⇧</div>
+            <h3>Rapid scheduling</h3>
+            <p>Pre-fabricated panels and coordinated installs to hit compressed timelines.</p>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Turnkey Commercial Process</h2>
+          <p class="section-lead">Six scripted steps—owners and GCs see what’s coming.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="process-grid">
+            <div class="card process-card">
+              <div class="step">01 · Scope & Concept</div>
+              <h3>Align with design</h3>
+              <p>Review renderings, targets, brand rules.</p>
+            </div>
+            <div class="card process-card">
+              <div class="step">02 · System Detailing</div>
+              <h3>Fire & acoustic choices</h3>
+              <p>Foliage, fire rating, acoustic options, trims.</p>
+            </div>
+            <div class="card process-card">
+              <div class="step">03 · Fire Docs</div>
+              <h3>Submittals ready</h3>
+              <p>NFPA 701 docs, CAD, stamped submittals.</p>
+            </div>
+            <div class="card process-card">
+              <div class="step">04 · Fabrication</div>
+              <h3>Pre-fab panels</h3>
+              <p>Cut site time; coordinate around trades.</p>
+            </div>
+            <div class="card process-card">
+              <div class="step">05 · Install</div>
+              <h3>Fast crews</h3>
+              <p>Set, align, walk-through, maintenance tips.</p>
+            </div>
+            <div class="card process-card">
+              <div class="step">06 · Follow-up</div>
+              <h3>Care & warranty</h3>
+              <p>Post-install check-in; facility support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section id="installs">
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Recent installs</h2>
+          <p class="section-lead">Hover to flip for specs and FAQs.</p>
+        </div>
+        <div class="projects-grid">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front">
+                <picture>
+                <source srcset="images/commercial/commercial-1-400w.webp 400w, images/commercial/commercial-1-800w.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/commercial/commercial-1-400w.png 400w, images/commercial/commercial-1-800w.png 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/commercial/commercial-1.png" alt="Austin lobby greenery wall">
+              </picture>
+                <div class="overlay">
+                  <h3>Austin · Lobby</h3>
+                </div>
+              </div>
+              <div class="flip-face back">
+                <h3>Spec / FAQs</h3>
+                <ul>
+                  <li>Concealed rails; optional acoustic core.</li>
+                  <li>Quarterly brush-down; low VOC install.</li>
+                  <li>Branding: logo cutouts, backlit recesses.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front">
+                <picture>
+                <source srcset="images/commercial/commercial-2-400w.webp 400w, images/commercial/commercial-2-800w.webp 800w, images/commercial/commercial-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
+                <source srcset="images/commercial/commercial-2-400w.jpg 400w, images/commercial/commercial-2-800w.jpg 800w, images/commercial/commercial-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
+                <img src="images/commercial/commercial-2.jpg" alt="Retail wall cladding">
+              </picture>
+                <div class="overlay">
+                  <h3>Dallas · Retail</h3>
+                </div>
+              </div>
+              <div class="flip-face back">
+                <h3>Spec / FAQs</h3>
+                <ul>
+                  <li>Wind rating: project-specific; mechanical anchors.</li>
+                  <li>Fade control: UV additives + warranty-backed color.</li>
+                  <li>Edge trims for clean seams.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front">
+                <img src="images/commercial/commercial-3.jpg" alt="Hospitality hedge cladding">
+                <div class="overlay">
+                  <h3>Houston · Hospitality</h3>
+                </div>
+              </div>
+              <div class="flip-face back">
+                <h3>Spec / FAQs</h3>
+                <ul>
+                  <li>Core: acoustic + fire-rated foliage.</li>
+                  <li>Access: removable panels for service areas.</li>
+                  <li>Maintenance: rinse/brush as needed.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section>
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Where we install</h2>
+          <p class="section-lead">Texas metros with dedicated crews.</p>
+        </div>
+        <div class="map-card">
+          <div class="map-pin" data-city="Dallas" style="top:22%;left:62%;"></div>
+          <div class="map-pin" data-city="Austin" style="top:50%;left:45%;"></div>
+          <div class="map-pin" data-city="Houston" style="top:48%;left:72%;"></div>
+          <div class="map-pin" data-city="San Antonio" style="top:62%;left:50%;"></div>
+        </div>
+        <div class="cities" id="city-bars">
+          <div class="city-bar"><div style="display:flex;justify-content:space-between;"><strong>Austin</strong><span>Full crew</span></div><div class="bar-track"><div class="bar-fill" data-fill="92"></div></div></div>
+          <div class="city-bar"><div style="display:flex;justify-content:space-between;"><strong>Dallas</strong><span>Full crew</span></div><div class="bar-track"><div class="bar-fill" data-fill="96"></div></div></div>
+          <div class="city-bar"><div style="display:flex;justify-content:space-between;"><strong>Houston</strong><span>Acoustic + fire</span></div><div class="bar-track"><div class="bar-fill" data-fill="88"></div></div></div>
+          <div class="city-bar"><div style="display:flex;justify-content:space-between;"><strong>San Antonio</strong><span>Rapid</span></div><div class="bar-track"><div class="bar-fill" data-fill="82"></div></div></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section id="faqs">
+      <div class="section-wrap narrow io-reveal">
+        <div class="section-header">
+          <h2>Commercial FAQs</h2>
+          <p class="section-lead">Quick answers for owners, architects, and GCs.</p>
+        </div>
+        <div class="faq-grid">
+          <details open>
+            <summary><span>Fire docs & submittals?</span><span class="faq-icon">+</span></summary>
+            <ul>
+              <li>NFPA 701 data, shop drawings, stamped submittals.</li>
+              <li>Samples for AHJs; digital packages for GC portals.</li>
+              <li>Downloads: Fire doc / CAD / Warranty.</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span>Interior vs exterior?</span><span class="faq-icon">+</span></summary>
+            <ul>
+              <li>Interior: acoustic + fire-rated foliage.</li>
+              <li>Exterior: UV-stable, wind-rated mounting and trims.</li>
+              <li>Edge trims for clean seams.</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span>How fast can you mobilize?</span><span class="faq-icon">+</span></summary>
+            <ul>
+              <li>24–72 hr on stocked SKUs.</li>
+              <li>Pre-fabricated panels to cut site time.</li>
+              <li>Dedicated TX crews.</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span>Maintenance expectations?</span><span class="faq-icon">+</span></summary>
+            <ul>
+              <li>Low VOC install; light rinse/brush-down.</li>
+              <li>Care guides for facilities teams.</li>
+              <li>Optional refresh visits.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <section class="cta-band">
+      <div class="section-wrap io-reveal">
+        <div class="cta-panel">
+          <div>
+            <h2 style="margin-bottom:8px;">Need a fire-rated greenery partner?</h2>
+            <p class="section-lead">Spec-ready documents, acoustic options, and rapid installs for Texas projects.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-primary hero-cta">Start a commercial project</button>
+            <button class="btn-ghost">Talk with a specialist</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Lone Star Faux Scapes. Fire-rated greenery systems across Texas.</footer>
+
+  <script>
+    (function() {
+      const header = document.getElementById('main-header');
+      const mobileToggle = document.getElementById('mobile-toggle-btn');
+      const mobileClose = document.getElementById('mobile-close-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      window.addEventListener('scroll', () => {
+        if (!header) return;
+        const currentScroll = window.scrollY;
+        if (currentScroll > 20) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }, { passive: true });
+
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+          mobileMenu.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (mobileClose) {
+        mobileClose.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-item').forEach(item => {
+        const href = item.getAttribute('href');
+        if (href && (href === currentPage || href.includes(currentPage) || (currentPage === 'commercial.html' && href.includes('commercial')))) {
+          item.classList.add('active');
+        }
+      });
+    })();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.io-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+
+    // Quick jump bar
+    const jumpPills = document.querySelectorAll('.jump-pill');
+    jumpPills.forEach(p => {
+      p.addEventListener('click', () => {
+        const target = document.getElementById(p.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const sections = ['systems','fire','process','installs','faqs'].map(id => document.getElementById(id)).filter(Boolean);
+    const jumpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          jumpPills.forEach(p => p.classList.toggle('active', p.dataset.target === e.target.id));
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => jumpObserver.observe(s));
+
+    // System filters
+    const filters = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('#system-cards .card');
+    filters.forEach(f => {
+      f.addEventListener('click', () => {
+        filters.forEach(x => x.classList.remove('active'));
+        f.classList.add('active');
+        const tag = f.dataset.filter;
+        cards.forEach(c => {
+          if (tag === 'all' || c.dataset.tags.includes(tag)) c.style.display = '';
+          else c.style.display = 'none';
+        });
+      });
+    });
+
+    // Bars animate
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const fill = e.target.querySelector('.bar-fill');
+          if (fill && !fill.dataset.done) {
+            fill.style.width = fill.dataset.fill + '%';
+            fill.dataset.done = true;
+          }
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.city-bar').forEach(c => barObserver.observe(c));
+
+    // FAQ icon toggle
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        const icon = d.querySelector('.faq-icon');
+        if (icon) icon.textContent = d.open ? '−' : '+';
+      });
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

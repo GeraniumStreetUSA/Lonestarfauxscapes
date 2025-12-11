@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: bobamusic1989/Lonestarfauxscapes
+  branch: main
+
+# For local development testing (run: npx decap-server)
+local_backend: true
+
+# Media files configuration
+media_folder: "images/blog"
+public_folder: "/images/blog"
+
+# Site URL for preview
+site_url: https://lonestarfauxscapes.com
+
+# Collections (content types)
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image", required: true }
+      - { label: "Summary", name: "summary", widget: "text", hint: "Brief description for blog listing and SEO (150-160 characters)" }
+      - { label: "Category", name: "category", widget: "select", options: ["Guides", "Comparisons", "Acoustics", "Compliance", "Design", "How-to", "Case Studies", "News"] }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "Add relevant tags for filtering and SEO"
+      - { label: "Related Product Page", name: "relatedUrl", widget: "string", required: false, hint: "Link to related product page (e.g., artificial-hedge.html)" }
+      - { label: "Body", name: "body", widget: "markdown" }

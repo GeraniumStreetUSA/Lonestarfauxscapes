@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residential Hedge Builder | Lone Star Faux Scapes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050a07;
+      --bg-2: #0a140f;
+      --bg-3: #121c17;
+      --accent: #4caf50;
+      --accent-2: #81c784;
+      --text: #f0f5f2;
+      --muted: #8a9e91;
+      --border: rgba(255,255,255,0.16);
+      --glass: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      --max: 1280px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter","Helvetica Neue",system-ui,-apple-system,sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(76,175,80,0.14), transparent 42%),
+        radial-gradient(circle at 88% 86%, rgba(12,18,15,0.6), transparent 55%),
+        var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: 94%; max-width: var(--max); margin: 0 auto; }
+    a { color: inherit; text-decoration: none; }
+    .page-wrap { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1 0 auto; }
+
+    /* Floating Navbar */
+    #main-header {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96%;
+      max-width: 1200px;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      background: rgba(10, 20, 15, 0.8);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    #main-header.scrolled {
+      top: 1rem;
+      background: rgba(5, 10, 7, 0.9);
+      width: 97%;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: none;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .nav-links { display: none; }
+    @media(min-width: 992px) {
+      .nav-links {
+        display: flex;
+        gap: 2.25rem;
+        align-items: center;
+        margin-left: auto;
+      }
+      .nav-item {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        position: relative;
+        padding-bottom: 0.25rem;
+      }
+      .nav-item:hover { color: var(--accent); }
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease;
+      }
+      .nav-item:hover::after { transform: scaleX(1); }
+      .nav-item.active::after { transform: scaleX(1); }
+      .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+      .nav-item-parent { display: inline-flex; align-items: center; gap: 0.3rem; }
+      .nav-cta {
+        padding: 0.55rem 1.1rem;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(255,255,255,0.06);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      }
+      .nav-cta:hover {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+      }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(5,10,7,0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        min-width: 220px;
+        padding: 0.5rem 0;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        display: none;
+        transition:
+          opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          visibility 0.3s;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block;
+      }
+      .nav-dropdown-item {
+        display: block;
+        padding: 0.6rem 1rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 50ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 150ms; }
+      .nav-dropdown:hover .nav-dropdown-item:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 200ms; }
+      .nav-dropdown-item:hover { color: var(--accent); background: rgba(255,255,255,0.04); }
+      .nav-caret {
+        font-size: 0.7rem;
+        margin-left: 0.3rem;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-caret { transform: rotate(180deg); }
+    }
+    .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
+    @media(min-width: 992px) { .mobile-toggle { display: none; } }
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 10, 7, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      padding: 6rem 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    #mobile-menu.active { transform: translateY(0); }
+    .mobile-link {
+      font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      transition: 0.3s;
+    }
+    .mobile-link:hover {
+      color: var(--accent);
+      -webkit-text-stroke: 0px;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: var(--max);
+      width: 94%;
+      margin: 0 auto;
+      padding: clamp(7rem, 10vw, 9rem) 1rem 50px;
+      display: grid;
+      grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr);
+      gap: 28px;
+      align-items: center;
+      position: relative;
+    }
+    .hero::before {
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 70% 20%, rgba(76,175,80,0.16), transparent 55%);
+      pointer-events:none;
+      z-index:0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-copy h1 { font-family: "Space Grotesk",sans-serif; font-size: clamp(2.4rem, 4vw, 3rem); margin:0 0 0.6rem; letter-spacing:-0.02em; }
+    .hero-copy p { margin:0 0 1rem; color: var(--muted); max-width: 640px; }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 14px; }
+    .hero-tag { font-size: 0.78rem; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #d1d8cf; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top: 14px; }
+    .hero-primary-btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041208;
+      box-shadow: 0 18px 45px rgba(76,175,80,0.45), 0 0 0 1px rgba(76,175,80,0.5);
+      cursor: pointer;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+    .hero-primary-btn:hover { transform: translateY(-1px); box-shadow: 0 22px 60px rgba(76,175,80,0.65); }
+    .hero-secondary-link { color: var(--muted); font-weight: 600; }
+    .hero-secondary-link span { border-bottom: 1px dashed rgba(255,255,255,0.35); }
+
+    .hero-panel {
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: var(--glass);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.16);
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(20px) saturate(125%);
+    }
+    .hero-panel h2 { margin:0 0 6px; font-size: 0.95rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .hero-panel p { margin:0 0 10px; color: #d6dcd4; font-size: 0.9rem; }
+    .hero-panel-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; margin-top: 10px; }
+    .hero-pill {
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
+      display: flex; align-items: center; gap: 8px;
+      color: #111;
+      font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .hero-dot { width: 10px; height: 10px; border-radius: 999px; background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e); box-shadow: 0 0 12px rgba(34,197,94,0.7); }
+    .hero-pill span:last-child { color: #0f1a14; }
+
+    /* Feature strip */
+    .feature-strip { max-width: var(--max); width:94%; margin: 0 auto; padding: 0 1rem 50px; }
+    .feature-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .feature-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(140deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      padding: 14px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    }
+    .feature-card h3 { margin:0 0 6px; font-size: 1rem; font-family:"Space Grotesk",sans-serif; }
+    .feature-card p { margin:0; color: var(--muted); }
+
+    /* Configurator */
+    #hedge-configurator { position: relative; padding: 60px 1rem 70px; }
+    .config-shell { max-width: var(--max); width:94%; margin: 0 auto; }
+    .config-header h2 { font-size: clamp(1.9rem, 3vw, 2.2rem); margin:0 0 6px; letter-spacing:-0.02em; font-family:"Space Grotesk",sans-serif; }
+    .config-subtitle { margin:0 0 18px; color: var(--muted); max-width: 720px; }
+    .config-layout { display:grid; grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr); gap: 18px; }
+
+    .glass-card {
+      background: var(--glass);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.16);
+      backdrop-filter: blur(20px) saturate(125%);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card::before {
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.12), transparent 55%);
+      pointer-events:none;
+    }
+    .glass-card > * { position: relative; z-index: 1; }
+
+    fieldset {
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 0 0 14px;
+    }
+    legend { padding: 0 6px; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--muted); }
+    label { display:block; margin-bottom: 10px; color: #dbe3d9; font-size: 0.9rem; }
+    label span { display:block; margin-bottom: 4px; color: var(--muted); font-size: 0.85rem; }
+    .field-row { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px; align-items: flex-end; }
+    .field-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px; margin-bottom: 8px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      color: #fff;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+    }
+    input::placeholder, textarea::placeholder { color: #6b7280; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(76,175,80,0.8); box-shadow: 0 0 0 1px rgba(76,175,80,0.6); transform: translateY(-1px); }
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, #d7ded4 50%), linear-gradient(135deg, #d7ded4 50%, transparent 50%);
+      background-position: calc(100% - 14px) 12px, calc(100% - 10px) 12px;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 1.6rem;
+      color: #0f130f;
+      background-color: rgba(255,255,255,0.14);
+    }
+    option { color: #0f130f; background: #f5f7f4; }
+    textarea { resize: vertical; min-height: 90px; }
+    .hidden { display:none; }
+    .collapsible { overflow: hidden; transition: max-height 240ms ease, opacity 240ms ease, margin 240ms ease, padding 240ms ease, border-width 240ms ease; }
+    .collapsed { max-height: 0 !important; opacity: 0; margin: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; border-width: 0 !important; }
+
+    .glass-subcard {
+      border-radius: 14px;
+      padding: 10px;
+      margin-top: 10px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .glass-subcard h4 { margin:0 0 6px; font-size: 0.88rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .summary-header h3 { margin:0 0 4px; font-size: 1.05rem; letter-spacing:-0.01em; font-family:"Space Grotesk",sans-serif; }
+    .summary-header p { margin:0 0 10px; color: var(--muted); }
+    .summary-list { list-style:none; margin:0 0 12px; padding:0; }
+    .summary-list li { position: relative; padding-left: 14px; margin-bottom: 6px; font-size: 0.92rem; }
+    .summary-list li::before { content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:999px; background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e); box-shadow: 0 0 10px rgba(34,197,94,0.7); }
+
+    .render-image-shell {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      padding: 8px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+      transition: box-shadow 240ms ease, border-color 240ms ease, background 240ms ease;
+      cursor: zoom-in;
+      min-height: 740px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hedgeRenderImage {
+      width: 100%;
+      height: 720px;
+      object-fit: contain;
+      background: transparent;
+      mix-blend-mode: normal;
+      display:block;
+      transition: transform 260ms ease, box-shadow 260ms ease, filter 260ms ease;
+      border-radius: 12px;
+      filter: none;
+    }
+    .glass-card--accent:hover .render-image-shell {
+      box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+      border-color: transparent;
+      background: transparent;
+    }
+    .glass-card--accent:hover #hedgeRenderImage {
+      transform: scale(1.15);
+      box-shadow: 0 20px 65px rgba(0,0,0,0.45);
+      filter: drop-shadow(0 0 32px rgba(76,175,80,0.3));
+    }
+    .render-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+
+    .form-footer { border-top: 1px solid rgba(255,255,255,0.14); margin-top: 12px; padding-top: 12px; }
+    .primary-btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041208;
+      box-shadow: 0 18px 45px rgba(76,175,80,0.45), 0 0 0 1px rgba(76,175,80,0.5);
+      cursor: pointer;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+    .primary-btn:hover { transform: translateY(-1px); box-shadow: 0 22px 60px rgba(76,175,80,0.65); }
+    .fine-print { margin: 8px 0 0; color: var(--muted); font-size: 0.86rem; }
+
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 1rem 26px;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    .site-footer-inner { max-width: var(--max); width:94%; margin:0 auto; display:flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: minmax(0,1fr); padding-top: 7rem; }
+      .hero-panel-grid { grid-template-columns: minmax(0,1fr); }
+      .config-layout { grid-template-columns: minmax(0,1fr); }
+    }
+    @media (max-width: 640px) {
+      .hero, .feature-strip, #hedge-configurator { padding-inline: 1rem; }
+      .hero { padding-top: 6.5rem; }
+      .glass-card { padding: 16px; }
+      .hero-panel { padding: 16px; }
+      #hedgeRenderImage { height: 360px; }
+    }
+  </style>
+  <link rel="stylesheet" href="enhancements.css">
+</head>
+<body>
+<div class="page-wrap">
+  <header id="main-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Lone Star Faux Scapes</a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-item">Home</a>
+      <div class="nav-dropdown">
+        <a href="products.html" class="nav-item nav-item-parent">Products <span class="nav-caret">&#9662;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="living-wall.html" class="nav-dropdown-item">Artificial Living Wall</a>
+          <a href="commercial-wall.html" class="nav-dropdown-item">Commercial Wall Covering</a>
+          <a href="fence-extensions.html" class="nav-dropdown-item">Fence Extensions</a>
+          <a href="artificial-hedge.html" class="nav-dropdown-item">Artificial Hedge</a>
+          <a href="amazon-wall-mat.html" class="nav-dropdown-item">Amazon Wall Mat</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="commercial.html" class="nav-item nav-item-parent">Commercial <span class="nav-caret">&#9662;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="hedge-builder-commercial.html" class="nav-dropdown-item">Hedge Builder</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="residential.html" class="nav-item nav-item-parent">Residential <span class="nav-caret">&#9662;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="hedge-builder-residential.html" class="nav-dropdown-item">Hedge Builder</a>
+        </div>
+      </div>
+      <a href="index.html#gallery" class="nav-item">Gallery</a>
+      <a href="blog.html" class="nav-item">Blog</a>
+      <a href="#hedge-configurator" class="nav-item nav-cta">Build a hedge</a>
+    </nav>
+    <div class="mobile-toggle" id="mobile-toggle-btn" aria-label="Open navigation">&#9776;</div>
+  </div>
+</header>
+
+<div id="mobile-menu">
+  <div style="position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: #fff;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+  <a href="index.html" class="mobile-link">Home</a>
+  <a href="products.html" class="mobile-link">Products</a>
+  <a href="commercial.html" class="mobile-link">Commercial</a>
+  <a href="residential.html" class="mobile-link">Residential</a>
+  <a href="index.html#gallery" class="mobile-link">Gallery</a>
+  <a href="blog.html" class="mobile-link">Blog</a>
+  <a href="#hedge-configurator" class="mobile-link">Build a hedge</a>
+</div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-tags">
+          <span class="hero-tag">Commercial</span>
+          <span class="hero-tag">Custom hedges</span>
+          <span class="hero-tag">Spec-ready</span>
+        </div>
+        <h1>Build a residential hedge that fits your space.</h1>
+        <p>Size, material, base, and mobility—capture what your home or HOA needs, then get a fast quote and render.</p>
+        <div class="hero-actions">
+          <button class="hero-primary-btn" type="button" onclick="scrollToConfigurator()">Start building</button>
+          <a href="#hedge-configurator" class="hero-secondary-link"><span>Preview the configurator</span></a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h2>Home-ready in clicks</h2>
+        <p>Enter dimensions, hedge material, base style, and casters. We return a tailored spec + quote.</p>
+        <div class="hero-panel-grid">
+          <div class="hero-pill"><span class="hero-dot"></span><span>Standard & custom sizes</span></div>
+          <div class="hero-pill"><span class="hero-dot"></span><span>Composite or powder bases</span></div>
+          <div class="hero-pill"><span class="hero-dot"></span><span>Casters for portable installs</span></div>
+          <div class="hero-pill"><span class="hero-dot"></span><span>Specs & CAD sent to you</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="feature-strip">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Home & HOA friendly</h3>
+          <p>Collect what approvals need—heights, bases, and materials.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Practical options</h3>
+          <p>Depths, bases, and casters that ship and install cleanly.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Fast quotes & renders</h3>
+          <p>Submit and get pricing plus a render for quick decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hedge-configurator">
+      <div class="config-shell">
+        <header class="config-header">
+          <h2>Build Your Commercial Hedge</h2>
+          <p class="config-subtitle">Dial in dimensions, materials, and base details. Live summary updates as you go.</p>
+        </header>
+
+        <div class="config-layout">
+          <form id="hedge-config-form" action="/hedge-quote" method="post" novalidate class="glass-card">
+            <fieldset>
+              <legend>Dimensions</legend>
+              <div class="field-row">
+                <label><span>Height</span>
+                  <select id="heightOption" name="heightOption">
+                    <option value="4ft">4 ft (standard)</option>
+                    <option value="6ft">6 ft (standard)</option>
+                    <option value="8ft">8 ft (standard)</option>
+                    <option value="custom">Custom (inches)</option>
+                  </select>
+                </label>
+                <div id="heightCustomWrapper" class="hidden">
+                  <label><span>Custom height (inches)</span><input type="number" id="heightCustom" name="heightCustom" min="1" step="1"></label>
+                </div>
+              </div>
+              <div class="field-row">
+                <label><span>Length</span>
+                  <select id="lengthOption" name="lengthOption">
+                    <option value="4ft">4 ft</option>
+                    <option value="5ft">5 ft</option>
+                    <option value="6ft">6 ft</option>
+                    <option value="custom">Custom (inches)</option>
+                  </select>
+                </label>
+                <div id="lengthCustomWrapper" class="hidden">
+                  <label><span>Custom length (inches)</span><input type="number" id="lengthCustom" name="lengthCustom" min="1" step="1"></label>
+                </div>
+              </div>
+              <div class="field-row">
+                <label><span>Depth</span>
+                  <select id="depthOption" name="depthOption">
+                    <option value="19in">19 in</option>
+                    <option value="23in">23 in</option>
+                    <option value="27in">27 in</option>
+                    <option value="custom">Custom (inches)</option>
+                  </select>
+                </label>
+                <div id="depthCustomWrapper" class="hidden">
+                  <label><span>Custom depth (inches)</span><input type="number" id="depthCustom" name="depthCustom" min="1" step="1"></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Hedge & Base</legend>
+              <label><span>Hedge material</span>
+                <select id="hedgeMaterial" name="hedgeMaterial">
+                  <option value="boxwood">Boxwood</option>
+                  <option value="ficus">Ficus</option>
+                  <option value="fern">Fern</option>
+                  <option value="living_wall">Living wall</option>
+                </select>
+              </label>
+              <label><span>Install type</span>
+                <select id="installType" name="installType">
+                  <option value="free">Free standing</option>
+                  <option value="permanent">Permanent</option>
+                </select>
+              </label>
+              <label><span>Base included?</span>
+                <select id="basePresence" name="basePresence">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </label>
+              <div id="baseOptionsWrap" class="collapsible">
+                <label><span>Base material</span>
+                  <select id="baseMaterial" name="baseMaterial">
+                    <option value="composite_wood">Composite wood</option>
+                    <option value="powder_coated">Powder coated metal</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </label>
+                <div id="customBaseWrapper" class="hidden">
+                  <label><span>Custom base material</span><input type="text" id="customBaseMaterial" name="customBaseMaterial" placeholder="Describe base material"></label>
+                </div>
+                <div id="compositeOptions" class="hidden glass-subcard">
+                  <h4>Composite wood base</h4>
+                  <label><span>Base height</span>
+                    <select id="compositeBaseHeight" name="compositeBaseHeight">
+                      <option value="5.5in">5.5 in</option>
+                      <option value="11in">11 in</option>
+                      <option value="16.5in">16.5 in</option>
+                    </select>
+                  </label>
+                  <label><span>Base color</span>
+                    <select id="compositeBaseColor" name="compositeBaseColor">
+                      <option value="brown">Brown (standard)</option>
+                      <option value="grey">Grey</option>
+                      <option value="tan">Tan</option>
+                    </select>
+                  </label>
+                </div>
+                <div id="powderOptions" class="hidden glass-subcard">
+                  <h4>Powder coated base</h4>
+                  <label><span>Base color</span><input type="text" id="powderColor" name="powderColor" placeholder="e.g. RAL code or color name"></label>
+                  <label><span>Base height (inches)</span><input type="number" id="powderHeight" name="powderHeight" min="1" step="1"></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Extras</legend>
+              <label><span>Casters</span>
+                <select id="casters" name="casters">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </label>
+            </fieldset>
+
+            <fieldset id="contact">
+              <legend>Contact & project info</legend>
+              <div class="field-grid">
+                <label><span>Name</span><input type="text" name="customerName" required></label>
+                <label><span>Phone</span><input type="tel" name="customerPhone" required></label>
+              </div>
+              <label><span>Quantity needed (number of hedges)</span><input type="number" id="quantity" name="quantity" min="1" step="1" value="1"></label>
+              <div class="field-grid">
+                <label><span>Business (optional)</span><input type="text" name="customerBusiness"></label>
+                <label><span>Email</span><input type="email" name="customerEmail" required></label>
+              </div>
+              <label><span>Need by date</span><input type="date" name="needByDate"></label>
+              <label><span>Additional information</span><textarea name="customInfo" rows="4" placeholder="Tell us about your project, installation conditions, etc."></textarea></label>
+            </fieldset>
+
+            <div class="form-footer">
+              <button type="submit" class="primary-btn">Request quote</button>
+              <p class="fine-print">You’ll receive a detailed quote and, if needed, a custom render based on your configuration.</p>
+            </div>
+          </form>
+
+          <aside id="hedge-summary-panel" class="glass-card glass-card--accent">
+            <div class="summary-header">
+              <h3>Your hedge configuration</h3>
+              <p>Live preview of what you’ve set so far.</p>
+            </div>
+            <ul id="hedgeSummaryList" class="summary-list"></ul>
+            <div id="hedgeRender" class="render-block">
+              <div class="render-image-shell">
+                <img id="hedgeRenderImage" src="" alt="Hedge render preview">
+              </div>
+              <p id="hedgeRenderNote" class="render-note"></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>&copy; <span id="year"></span> Lone Star Faux Scapes. All rights reserved.</span>
+      <span>Custom commercial hedges built to real project constraints.</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function scrollToConfigurator() {
+    const el = document.getElementById('hedge-configurator');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    const header = document.getElementById('main-header');
+    const mobileToggle = document.getElementById('mobile-toggle-btn');
+    const mobileClose = document.getElementById('mobile-close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    const setHeaderState = () => {
+      if (!header) return;
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    if (mobileClose && mobileMenu) {
+      mobileClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const href = item.getAttribute('href');
+      if (href && (href === currentPage || href.includes(currentPage))) {
+        item.classList.add('active');
+      }
+    });
+
+    const heightSelect = document.getElementById('heightOption');
+    const lengthSelect = document.getElementById('lengthOption');
+    const depthSelect = document.getElementById('depthOption');
+    const heightCustomWrapper = document.getElementById('heightCustomWrapper');
+    const lengthCustomWrapper = document.getElementById('lengthCustomWrapper');
+    const depthCustomWrapper = document.getElementById('depthCustomWrapper');
+
+    const installTypeSelect = document.getElementById('installType');
+    const basePresenceSelect = document.getElementById('basePresence');
+    const baseMaterialSelect = document.getElementById('baseMaterial');
+    const customBaseWrapper = document.getElementById('customBaseWrapper');
+    const compositeOptions = document.getElementById('compositeOptions');
+    const powderOptions = document.getElementById('powderOptions');
+    const baseOptionsWrap = document.getElementById('baseOptionsWrap');
+
+    const hedgeMaterialSelect = document.getElementById('hedgeMaterial');
+    const castersSelect = document.getElementById('casters');
+    const quantityInput = document.getElementById('quantity');
+
+    const compositeBaseHeight = document.getElementById('compositeBaseHeight');
+    const compositeBaseColor = document.getElementById('compositeBaseColor');
+    const powderColor = document.getElementById('powderColor');
+    const powderHeight = document.getElementById('powderHeight');
+
+    const heightCustomInput = document.getElementById('heightCustom');
+    const lengthCustomInput = document.getElementById('lengthCustom');
+    const depthCustomInput = document.getElementById('depthCustom');
+    const customBaseMaterialInput = document.getElementById('customBaseMaterial');
+
+    const summaryList = document.getElementById('hedgeSummaryList');
+    const renderImage = document.getElementById('hedgeRenderImage');
+    const renderNote = document.getElementById('hedgeRenderNote');
+
+    const imageMap = {
+      "boxwood_composite_wood": "images/hedge-builder-default-2.avif",
+      "boxwood_no_base": "images/hedge-builder-default-2.avif",
+      "ficus_composite_wood": "images/hedge-builder-default-2.avif",
+      "fern_composite_wood": "images/hedge-builder-default-2.avif",
+      "living_wall_composite_wood": "images/hedge-builder-default-2.avif",
+      "default": "images/hedge-builder-default-2.avif"
+    };
+
+    function toggleCustomWrappers() {
+      heightCustomWrapper.style.display = heightSelect.value === 'custom' ? 'block' : 'none';
+      lengthCustomWrapper.style.display = lengthSelect.value === 'custom' ? 'block' : 'none';
+      depthCustomWrapper.style.display = depthSelect.value === 'custom' ? 'block' : 'none';
+    }
+    function toggleBaseOptions() {
+      const showBase = basePresenceSelect.value === 'yes';
+      if (showBase) {
+        baseOptionsWrap.classList.remove('collapsed');
+        baseOptionsWrap.style.maxHeight = baseOptionsWrap.scrollHeight + 'px';
+      } else {
+        baseOptionsWrap.style.maxHeight = baseOptionsWrap.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          baseOptionsWrap.classList.add('collapsed');
+          baseOptionsWrap.style.maxHeight = '0px';
+        });
+      }
+      const base = baseMaterialSelect.value;
+      compositeOptions.style.display = showBase && base === 'composite_wood' ? 'block' : 'none';
+      powderOptions.style.display = showBase && base === 'powder_coated' ? 'block' : 'none';
+      customBaseWrapper.style.display = showBase && base === 'custom' ? 'block' : 'none';
+    }
+    function getSelectedText(selectEl) {
+      if (!selectEl) return "";
+      const idx = selectEl.selectedIndex;
+      if (idx < 0) return "";
+      return selectEl.options[idx].text;
+    }
+    function buildConfig() {
+      const heightText = heightSelect.value === 'custom'
+        ? (heightCustomInput.value ? heightCustomInput.value + " in (custom)" : "Custom height")
+        : getSelectedText(heightSelect);
+      const lengthText = lengthSelect.value === 'custom'
+        ? (lengthCustomInput.value ? lengthCustomInput.value + " in (custom)" : "Custom length")
+        : getSelectedText(lengthSelect);
+      const depthText = depthSelect.value === 'custom'
+        ? (depthCustomInput.value ? depthCustomInput.value + " in (custom)" : "Custom depth")
+        : getSelectedText(depthSelect);
+      const installType = getSelectedText(installTypeSelect);
+      const basePresent = basePresenceSelect.value === 'yes';
+      const base = basePresent ? baseMaterialSelect.value : "none";
+      let baseDetails = "";
+      if (basePresent && base === "composite_wood") {
+        baseDetails = getSelectedText(compositeBaseHeight) + ", " + getSelectedText(compositeBaseColor);
+      } else if (basePresent && base === "powder_coated") {
+        baseDetails = (powderHeight.value ? powderHeight.value + " in, " : "") + (powderColor.value || "custom color");
+      } else if (basePresent && base === "custom") {
+        baseDetails = customBaseMaterialInput.value || "Custom base material";
+      }
+      const hasCustom = heightSelect.value === "custom" || lengthSelect.value === "custom" || depthSelect.value === "custom" || (basePresent && (base === "custom" || base === "powder_coated"));
+      return {
+        height: heightText,
+        length: lengthText,
+        depth: depthText,
+        material: getSelectedText(hedgeMaterialSelect),
+        materialKey: hedgeMaterialSelect.value,
+        baseMaterialLabel: basePresent ? getSelectedText(baseMaterialSelect) : "No base",
+        baseMaterialKey: base,
+        baseDetails,
+        casters: getSelectedText(castersSelect),
+        quantity: quantityInput.value || "1",
+        hasCustom,
+        installType
+      };
+    }
+    function updateSummary() {
+      const config = buildConfig();
+      summaryList.innerHTML = "";
+      function add(label, value) {
+        if (!value) return;
+        const li = document.createElement('li');
+        li.textContent = label + ": " + value;
+        summaryList.appendChild(li);
+      }
+      add("Height", config.height);
+      add("Length", config.length);
+      add("Depth", config.depth);
+      add("Hedge material", config.material);
+      add("Base", config.baseMaterialLabel + (config.baseDetails ? " (" + config.baseDetails + ")" : ""));
+      add("Install", config.installType);
+      add("Casters", config.casters);
+      add("Quantity", config.quantity);
+    }
+    function updateRender() {
+      const config = buildConfig();
+      const key = config.materialKey + "_" + config.baseMaterialKey;
+      const url = imageMap[key] || imageMap["default"];
+      renderImage.src = url;
+      renderImage.alt = "Preview of " + config.material + " hedge";
+      renderNote.textContent = config.hasCustom
+        ? "Render is approximate. A custom hedge render will be provided with your quote."
+        : "Render represents the standard configuration you selected.";
+    }
+    function updateAll() {
+      toggleCustomWrappers();
+      toggleBaseOptions();
+      updateSummary();
+      updateRender();
+    }
+    [
+      heightSelect, lengthSelect, depthSelect,
+      heightCustomInput, lengthCustomInput, depthCustomInput,
+      installTypeSelect, basePresenceSelect, baseMaterialSelect, compositeBaseHeight, compositeBaseColor,
+      powderColor, powderHeight,
+      hedgeMaterialSelect, castersSelect, quantityInput
+    ].forEach(el => el && (el.addEventListener('change', updateAll) || el.addEventListener('input', updateAll)));
+
+    updateAll();
+    setHeaderState();
+    window.addEventListener('scroll', setHeaderState, { passive: true });
+  });
+</script>
+</body>
+</html>
+
+
+
