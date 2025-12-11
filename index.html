@@ -638,11 +638,13 @@
         .texas-map {
             width: 100%;
             aspect-ratio: 4 / 3;
+            overflow: visible;
         }
         .texas-map svg {
             width: 100%;
             height: 100%;
             display: block;
+            overflow: visible;
         }
         .map-outline {
             fill: url(#txGradient);
@@ -672,12 +674,12 @@
             animation: mapPulse 2.8s ease-out infinite;
         }
         .map-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
+            font-size: 10px;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            fill: rgba(255,255,255,0.6);
-            dominant-baseline: middle;
-            alignment-baseline: middle;
+            fill: rgba(255,255,255,0.85);
+            font-weight: 600;
+            text-anchor: start;
         }
         .map-legend {
             display: inline-flex;
@@ -1551,7 +1553,7 @@
                         <div class="texas-map-card" aria-hidden="true">
                             <div class="texas-map-heading">Statewide Coverage</div>
                             <div class="texas-map">
-                                <svg viewBox="0 0 220 200">
+                                <svg viewBox="0 0 260 210">
                                     <defs>
                                         <linearGradient id="txGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                             <stop offset="0%" stop-color="rgba(76,175,80,0.18)"/>
@@ -1572,22 +1574,22 @@
                                         <g class="map-city" transform="translate(172 96)">
                                             <circle class="map-node-ring" r="6"></circle>
                                             <circle class="map-node" r="5"></circle>
-                                            <text class="map-label" x="10" y="0">Dallas</text>
+                                            <text class="map-label" x="-8" y="-12">Dallas</text>
                                         </g>
                                         <g class="map-city" transform="translate(182 150)">
                                             <circle class="map-node-ring" r="6"></circle>
                                             <circle class="map-node" r="5"></circle>
-                                            <text class="map-label" x="10" y="0">Houston</text>
+                                            <text class="map-label" x="10" y="-8">Houston</text>
                                         </g>
                                         <g class="map-city" transform="translate(128 136)">
                                             <circle class="map-node-ring" r="6"></circle>
                                             <circle class="map-node" r="5"></circle>
-                                            <text class="map-label" x="10" y="0">Austin</text>
+                                            <text class="map-label" x="10" y="-8">Austin</text>
                                         </g>
                                         <g class="map-city" transform="translate(116 160)">
                                             <circle class="map-node-ring" r="6"></circle>
                                             <circle class="map-node" r="5"></circle>
-                                            <text class="map-label" x="10" y="0">San Antonio</text>
+                                            <text class="map-label" x="-70" y="4">San Antonio</text>
                                         </g>
                                     </g>
                                 </svg>
