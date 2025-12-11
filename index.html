@@ -1152,8 +1152,10 @@
             border: 1px solid rgba(255,255,255,0.1);
             color: #fff;
             font-family: inherit;
+            font-size: 16px; /* Prevents iOS auto-zoom on focus */
             border-radius: 8px;
             transition: 0.3s;
+            min-height: 44px;
         }
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
@@ -1753,19 +1755,19 @@
                   <div class="grid-2" style="gap: 2rem; margin-bottom: 2rem;">
                       <div class="floating-field">
                           <label for="name">Identification</label>
-                          <input type="text" class="form-input" id="name" name="name" placeholder="Name" required>
+                          <input type="text" class="form-input" id="name" name="name" placeholder="Name" autocomplete="name" required>
                           <div class="input-hint" data-hint="name"></div>
                       </div>
                       <div class="floating-field">
                           <label for="email">Contact</label>
-                          <input type="email" class="form-input" id="email" name="email" placeholder="Email Address" required>
+                          <input type="email" class="form-input" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
                           <div class="input-hint" data-hint="email"></div>
                       </div>
                   </div>
                   <div class="grid-2" style="gap: 2rem; margin-bottom: 2rem;">
                       <div class="floating-field">
                           <label for="location">Location</label>
-                          <input type="text" class="form-input" id="location" name="location" placeholder="City, Zip">
+                          <input type="text" class="form-input" id="location" name="location" placeholder="City, Zip" autocomplete="postal-code">
                           <div class="input-hint" data-hint="location"></div>
                       </div>
                       <div class="floating-field">

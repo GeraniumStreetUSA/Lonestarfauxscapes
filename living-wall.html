@@ -252,6 +252,12 @@
       color: var(--accent);
       -webkit-text-stroke: 0px;
     }
+    .mobile-link-sub {
+      font-size: 1rem;
+      padding-left: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      -webkit-text-stroke: 0;
+    }
     .hero { padding: clamp(7rem, 10vw, 9rem) 0 3rem; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,8,6,0.7), rgba(17,26,22,0.9)); z-index: 0; }
     .hero::after { content: ''; position: absolute; inset: 0; background: url('images/living_walls/living-wall-1.jpg') center/cover no-repeat; opacity: 0.25; z-index: 0; }
@@ -365,14 +371,18 @@
   </header>
 
   <div id="mobile-menu">
-    <div style="position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: #fff;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+    <div style="position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2rem; cursor: pointer; color: #fff; padding: 0.5rem;" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
     <a href="index.html" class="mobile-link">Home</a>
     <a href="products.html" class="mobile-link">Products</a>
+    <a href="living-wall.html" class="mobile-link mobile-link-sub">Living Wall</a>
+    <a href="commercial-wall.html" class="mobile-link mobile-link-sub">Commercial Wall</a>
+    <a href="fence-extensions.html" class="mobile-link mobile-link-sub">Fence Extensions</a>
+    <a href="artificial-hedge.html" class="mobile-link mobile-link-sub">Artificial Hedge</a>
     <a href="commercial.html" class="mobile-link">Commercial</a>
     <a href="residential.html" class="mobile-link">Residential</a>
-    <a href="index.html#gallery" class="mobile-link">Gallery</a>
+    <a href="gallery.html" class="mobile-link">Gallery</a>
     <a href="blog.html" class="mobile-link">Blog</a>
-    <a href="index.html#contact" class="mobile-link">Get Quote</a>
+    <a href="index.html#contact" class="mobile-link" style="color: var(--accent);">Get Quote</a>
   </div>
 
   <main>

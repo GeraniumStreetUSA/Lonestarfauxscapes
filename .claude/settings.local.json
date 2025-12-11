@@ -20,7 +20,10 @@
       "Bash(dir /b C:devloanstardistblog)",
       "Bash(dir /b C:devloanstardistadmin)",
       "Bash(cmd /c \"dir /b C:\\dev\\loanstar\\dist\\blog && dir /b C:\\dev\\loanstar\\dist\\admin\")",
-      "Bash(del \"C:\\dev\\loanstar\\content\\blog\\sample-post.md\")"
+      "Bash(del \"C:\\dev\\loanstar\\content\\blog\\sample-post.md\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []

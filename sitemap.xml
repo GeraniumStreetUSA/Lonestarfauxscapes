@@ -56,6 +56,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lonestarfauxscapes.com/gallery</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lonestarfauxscapes.com/hedge-builder-commercial</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>

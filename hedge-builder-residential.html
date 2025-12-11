@@ -329,12 +329,13 @@
     .field-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px; margin-bottom: 8px; }
     input, select, textarea {
       width: 100%;
-      padding: 10px 11px;
+      padding: 12px 14px;
       border-radius: 10px;
       border: 1px solid rgba(255,255,255,0.24);
       background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
       color: #fff;
-      font-size: 0.92rem;
+      font-size: 16px; /* Prevents iOS auto-zoom on focus */
+      min-height: 44px;
       outline: none;
       transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
     }
@@ -664,15 +665,15 @@
             <fieldset id="contact">
               <legend>Contact & project info</legend>
               <div class="field-grid">
-                <label><span>Name</span><input type="text" name="customerName" required></label>
-                <label><span>Phone</span><input type="tel" name="customerPhone" required></label>
+                <label><span>Name</span><input type="text" name="customerName" autocomplete="name" required></label>
+                <label><span>Phone</span><input type="tel" name="customerPhone" autocomplete="tel" required></label>
               </div>
               <label><span>Quantity needed (number of hedges)</span><input type="number" id="quantity" name="quantity" min="1" step="1" value="1"></label>
               <div class="field-grid">
-                <label><span>Business (optional)</span><input type="text" name="customerBusiness"></label>
-                <label><span>Email</span><input type="email" name="customerEmail" required></label>
+                <label><span>Business (optional)</span><input type="text" name="customerBusiness" autocomplete="organization"></label>
+                <label><span>Email</span><input type="email" name="customerEmail" autocomplete="email" required></label>
               </div>
-              <label><span>Need by date</span><input type="date" name="needByDate"></label>
+              <label><span>Need by date</span><input type="date" name="needByDate" autocomplete="off"></label>
               <label><span>Additional information</span><textarea name="customInfo" rows="4" placeholder="Tell us about your project, installation conditions, etc."></textarea></label>
             </fieldset>
 

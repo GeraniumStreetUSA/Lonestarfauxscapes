@@ -847,3 +847,65 @@ details[open] summary::after {
   color: var(--color-accent, #4caf50) !important;
   margin-top: 1rem;
 }
+
+/* ==========================================================================
+   MOBILE FONT SIZE FIXES
+   Ensure all text is readable on mobile (min 12px rendered)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Fix very small fonts that are hard to read on mobile */
+  .nav-caret,
+  .item-category,
+  .eyebrow,
+  .pill,
+  .badge,
+  .stat-pill,
+  .input-hint {
+    font-size: 0.75rem !important; /* 12px minimum */
+  }
+
+  /* Slightly larger fonts that were still too small */
+  .nav-dropdown-item,
+  .meta-row,
+  .stat-callout-label,
+  .spec-label {
+    font-size: 0.875rem !important; /* 14px */
+  }
+
+  /* Ensure buttons have adequate touch targets */
+  .btn,
+  button,
+  [role="button"] {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+
+  /* Accordion touch targets */
+  .accordion,
+  details summary {
+    min-height: 44px;
+    padding: 12px 0;
+  }
+
+  /* Filter buttons in gallery */
+  .filter-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+
+  /* Card improvements for mobile */
+  .card,
+  .system-card,
+  .foliage-card {
+    padding: 1rem;
+  }
+
+  /* Lightbox nav buttons for mobile */
+  .lightbox-nav {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
+  }
+}
