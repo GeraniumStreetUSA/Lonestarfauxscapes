@@ -1,0 +1,418 @@
+/**
+ * Navbar Styles
+ * Extracted from enhancements.css for cleaner architecture
+ */
+
+/* ==========================================================================
+   NAVBAR POLISH & MICRO-ANIMATIONS
+   ========================================================================== */
+
+/* Base header visuals (both states) */
+#main-header {
+  background: linear-gradient(135deg, rgba(10,20,15,0.78) 0%, rgba(10,20,15,0.66) 70%, rgba(12,24,18,0.64) 100%);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px) saturate(130%);
+  transition:
+    background 0.6s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.6s cubic-bezier(0.4,0,0.2,1),
+    padding 0.6s cubic-bezier(0.4,0,0.2,1),
+    border-radius 0.6s cubic-bezier(0.4,0,0.2,1);
+  animation: none;
+  left: 0 !important;
+  right: 0 !important;
+  margin-inline: auto;
+  transform: none !important;
+  will-change: background, box-shadow, padding, border-radius;
+  width: 96% !important;
+  max-width: 1260px !important;
+  border-radius: 999px;
+}
+
+#main-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(100,211,138,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Unscrolled (full-width) state */
+#main-header:not(.scrolled) {
+  padding: 0.75rem 2.25rem !important;
+}
+
+/* Scrolled (compact) state */
+#main-header.scrolled {
+  width: 74% !important;
+  max-width: 900px !important;
+  padding: 0.48rem 0.35rem !important;
+  background: linear-gradient(135deg, rgba(8,16,12,0.74) 0%, rgba(8,16,12,0.62) 70%, rgba(10,20,15,0.6) 100%);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* Shared nav container structure */
+#main-header .nav-container {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Layout for full header (logo | links | CTA) */
+#main-header:not(.scrolled) .nav-container {
+  justify-content: space-between;
+  padding-inline: 0;
+}
+
+/* Layout for scrolled header (links fill pill) */
+#main-header.scrolled .nav-container {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+/* Logo behaviour */
+.logo {
+  transition:
+    opacity 0.45s cubic-bezier(0.4,0,0.2,1),
+    max-width 0.45s cubic-bezier(0.4,0,0.2,1),
+    margin 0.45s cubic-bezier(0.4,0,0.2,1),
+    padding 0.45s cubic-bezier(0.4,0,0.2,1),
+    transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: left center;
+}
+
+#main-header:not(.scrolled) .logo {
+  flex-shrink: 0;
+  margin-right: 1.75rem;
+}
+
+.scrolled .logo {
+  opacity: 0;
+  max-width: 0;
+  width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Nav links base */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem !important;
+}
+
+/* Full header: links centered between logo and CTA */
+#main-header:not(.scrolled) .nav-links {
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+/* Scrolled header: links span pill and control edges */
+#main-header.scrolled .nav-links {
+  width: 100% !important;
+  justify-content: space-between !important;
+  gap: 1.25rem !important;
+  margin: 0 !important;
+}
+
+/* Edge spacing in scrolled state */
+#main-header.scrolled .nav-links::before,
+#main-header.scrolled .nav-links::after {
+  content: '' !important;
+  flex: 0 0 0.9rem !important;
+}
+
+/* No fake spacers in unscrolled state */
+#main-header:not(.scrolled) .nav-links::before,
+#main-header:not(.scrolled) .nav-links::after {
+  content: none !important;
+}
+
+/* CTA button */
+.nav-item.nav-cta {
+  padding: 0.48rem 1.05rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 128px;
+  line-height: 1.05;
+}
+
+.nav-cta {
+  white-space: nowrap;
+  padding: 0.5rem 1.1rem !important;
+  min-height: 0;
+  line-height: 1.1;
+}
+
+/* Full header: CTA on the right with balanced spacing */
+#main-header:not(.scrolled) .nav-item.nav-cta,
+#main-header:not(.scrolled) .nav-cta {
+  margin-left: 1.75rem !important;
+  margin-right: 0 !important;
+}
+
+/* Scrolled header: CTA pinned by flex spacing, no auto margin */
+#main-header.scrolled .nav-item.nav-cta,
+#main-header.scrolled .nav-cta {
+  margin-left: 0 !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap;
+}
+
+/* Safety: first/last nav items don't add stray margins */
+#main-header .nav-links .nav-item:first-child {
+  margin-left: 0 !important;
+}
+#main-header .nav-links .nav-item:last-child {
+  margin-right: 0 !important;
+}
+
+/* FINAL ALIGNMENT TWEAKS - FULL-WIDTH HEADER ONLY */
+#main-header:not(.scrolled) {
+  padding-left: 2rem !important;
+  padding-right: 0.2rem !important;
+}
+
+/* make sure logo isn't adding its own left padding/margin */
+#main-header:not(.scrolled) .logo {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* keep spacing between logo/nav/CTA balanced */
+#main-header:not(.scrolled) .logo {
+  margin-right: 1.75rem !important;
+}
+
+#main-header:not(.scrolled) .nav-item.nav-cta,
+#main-header:not(.scrolled) .nav-cta {
+  margin-left: 1.75rem !important;
+  margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   NAV DROPDOWN STAGGER FIX - INCLUDE 5TH ITEM
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(5) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 250ms;
+  }
+}
+
+/* ==========================================================================
+   MOBILE NAV FIXES
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Hide desktop nav links on mobile */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* Hide dropdown menus on mobile */
+  .nav-dropdown-menu {
+    display: none !important;
+  }
+
+  /* Show mobile toggle */
+  .mobile-toggle {
+    display: block !important;
+  }
+
+  /* Header adjustments for mobile */
+  #main-header {
+    width: 94% !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 20px;
+  }
+
+  #main-header.scrolled {
+    width: 94% !important;
+    padding: 0.6rem 1rem !important;
+  }
+
+  /* Keep logo visible on mobile when scrolled */
+  #main-header.scrolled .logo {
+    opacity: 1;
+    max-width: none;
+    width: auto;
+    pointer-events: auto;
+  }
+}
+
+/* ==========================================================================
+   MOBILE NAV STABILITY FIXES
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Prevent header animation conflicts */
+  #main-header {
+    animation: none !important;
+    transform: none !important;
+    transition: background 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  /* Ensure header stays fixed and stable */
+  #main-header,
+  #main-header.scrolled {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    will-change: auto !important;
+  }
+
+  /* Make toggle button larger and easier to tap */
+  .mobile-toggle {
+    padding: 0.5rem !important;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem !important;
+  }
+
+  /* Fix nav container layout on mobile */
+  #main-header .nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* Ensure logo stays visible and properly sized */
+  #main-header .logo,
+  #main-header.scrolled .logo {
+    font-size: 0.9rem !important;
+    white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ==========================================================================
+   UNIVERSAL MOBILE MENU STYLES (for all pages)
+   ========================================================================== */
+
+/* Mobile toggle button - show on mobile only */
+.mobile-toggle {
+  display: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  /* Hide desktop nav on mobile */
+  .nav-links {
+    display: none !important;
+  }
+}
+
+/* Mobile menu overlay */
+#mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh; /* svh = stable viewport, no jump with iOS URL bar */
+  background: rgba(5, 10, 7, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  padding: 5rem 2rem 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+#mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile menu close button */
+.mobile-close,
+#mobile-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile menu links */
+.mobile-link {
+  font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.2s ease;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}
+
+.mobile-link:hover {
+  color: var(--color-accent, #4caf50);
+}
+
+/* Sub-links (indented) */
+.mobile-link-sub {
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 1rem;
+}
+
+.mobile-link-sub:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA link styling */
+.mobile-link-cta {
+  color: var(--color-accent, #4caf50) !important;
+  margin-top: 1rem;
+}

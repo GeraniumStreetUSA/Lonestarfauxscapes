@@ -1,6 +1,14 @@
 (function () {
+  const isMobile = window.innerWidth < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   const style = document.createElement('style');
-  style.innerHTML = `
+  style.innerHTML = isMobile ? `
+    /* MOBILE: No transitions on header to prevent scroll jank */
+    header { background: rgba(5,10,7,0.92); }
+    header.scrolled { background: rgba(5,10,7,0.92); box-shadow: 0 12px 30px rgba(0,0,0,0.35); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-item.active { color: #fff !important; }
+    .nav-item.active::after { transform: scaleX(1); }
+  ` : `
     header { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
     header.scrolled { background: rgba(5,10,7,0.92); box-shadow: 0 12px 30px rgba(0,0,0,0.35); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .nav-item { transition: color 0.2s ease; }
@@ -20,11 +28,24 @@
   document.head.appendChild(style);
 
   const header = document.querySelector('header');
+  let lastScrolled = null;
+
+  // Throttled scroll handler - only update when state actually changes
   const handleScroll = () => {
     if (!header) return;
-    if (window.scrollY > 80) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    const isScrolled = window.scrollY > 80;
+
+    // Only modify DOM if state changed
+    if (lastScrolled !== isScrolled) {
+      lastScrolled = isScrolled;
+      if (isScrolled) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
   };
+
   handleScroll();
   window.addEventListener('scroll', handleScroll, { passive: true });
 
