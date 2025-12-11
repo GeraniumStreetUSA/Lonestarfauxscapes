@@ -20,6 +20,7 @@ const filesToCopy = [
   { src: './reactive-effects.js', dest: 'reactive-effects.js' },
   // CSS files
   { src: './navbar.css', dest: 'navbar.css' },
+  { src: './enhancements.css', dest: 'enhancements.css' },
 ];
 
 // Directories to copy recursively
