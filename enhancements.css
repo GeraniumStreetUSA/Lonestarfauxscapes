@@ -20,14 +20,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Apply gradient to subpage hero h1, not homepage which uses .hero-content */
+/* Solid white text for subpage hero h1 - gradient breaks with split-text.js */
 section.hero h1,
 .hero h1 {
-  background: linear-gradient(135deg, #ffffff 0%, #4caf50 50%, #81c784 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #fff; /* Fallback for browsers that don't support gradient text */
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
 }
 
 /* Subtle shimmer animation on gradient text */
