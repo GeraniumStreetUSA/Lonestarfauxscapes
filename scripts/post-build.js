@@ -18,14 +18,39 @@ const filesToCopy = [
   { src: './reactive-effects.js', dest: 'reactive-effects.js' },
 ];
 
+// Directories to copy recursively
+const dirsToCopy = [
+  { src: './images', dest: 'images' },
+];
+
+// Helper function to copy directory recursively
+function copyDirRecursive(src, dest) {
+  if (!fs.existsSync(src)) return;
+
+  fs.mkdirSync(dest, { recursive: true });
+
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+
+    if (entry.isDirectory()) {
+      copyDirRecursive(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
 console.log('Running post-build tasks...');
 
+// Copy individual files
 for (const file of filesToCopy) {
   if (fs.existsSync(file.src)) {
     const destPath = path.join(DIST_DIR, file.dest);
     const destDir = path.dirname(destPath);
 
-    // Ensure destination directory exists
     if (!fs.existsSync(destDir)) {
       fs.mkdirSync(destDir, { recursive: true });
     }
@@ -34,6 +59,17 @@ for (const file of filesToCopy) {
     console.log(`  Copied: ${file.src} -> ${destPath}`);
   } else {
     console.log(`  Skipped (not found): ${file.src}`);
+  }
+}
+
+// Copy directories
+for (const dir of dirsToCopy) {
+  const destPath = path.join(DIST_DIR, dir.dest);
+  if (fs.existsSync(dir.src)) {
+    copyDirRecursive(dir.src, destPath);
+    console.log(`  Copied directory: ${dir.src} -> ${destPath}`);
+  } else {
+    console.log(`  Skipped directory (not found): ${dir.src}`);
   }
 }
 
