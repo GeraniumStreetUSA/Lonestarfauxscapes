@@ -87,6 +87,9 @@
     const scrollTrigger = window.ScrollTrigger;
     if (!gsapLib || !scrollTrigger) return;
 
+    // Skip ALL GSAP animations on mobile - transforms cause scroll jank
+    if (isMobile()) return;
+
     gsapLib.registerPlugin(scrollTrigger);
 
     // Header scroll is handled by nav.js - removed duplicate here
@@ -122,8 +125,8 @@
       );
     });
 
-    // Skip scroll-based parallax animations on mobile - causes overlap/stutter
-    if (!isMobile()) {
+    // Parallax effects (already desktop-only from the mobile check above)
+    {
       // Micro-motion: hero headline lift as products come in
       const heroHeadline = document.querySelector('#hero h1');
       if (heroHeadline) {

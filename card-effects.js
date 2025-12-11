@@ -1,13 +1,15 @@
 /**
  * Card Spotlight/Tilt Effects
  * Cursor-tracking spotlight and subtle 3D tilt on cards
+ * DESKTOP ONLY - transforms cause scroll jank on mobile
  */
 (function() {
+  // Skip on mobile - transforms cause scroll jank
+  const isMobile = window.innerWidth < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if (isMobile) return;
+
   // Respect reduced motion preference
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  // Skip on mobile
-  if (window.innerWidth < 768) return;
 
   // Use shared throttle utility or fallback
   const throttleRAF = (window.LonestarUtils && window.LonestarUtils.throttleRAF) || ((fn) => {
