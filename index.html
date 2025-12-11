@@ -1868,8 +1868,8 @@
 <script src="reveal.js"></script>
 <script>
 (function() {
-    // Skip parallax on mobile - causes text shake
-    const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // Skip parallax on mobile - causes scroll jank and text jumping
+    const isMobile = window.innerWidth < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     if (isMobile) return;
 
     const media = document.querySelector('.hero-media');
