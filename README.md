@@ -1,20 +1,53 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Lone Star Faux Scapes
 
-# Run and deploy your AI Studio app
+Static site built with Vite and hosted on Cloudflare Pages.
 
-This contains everything you need to run your app locally.
+## Local Development
 
-View your app in AI Studio: https://ai.studio/apps/drive/1yv5-Gk_DbhF15UVDzyQTCBs1CumU3tMu
+**Prerequisites:** Node.js
 
-## Run Locally
+1. Install dependencies: `npm install`
+2. Run the dev server: `npm run dev`
 
-**Prerequisites:**  Node.js
+## Build
 
+Build output goes to `dist/`:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- `npm run build`
+
+## Cloudflare Pages
+
+Recommended settings:
+
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
+
+### Pages Functions (Backend)
+
+This repo includes Cloudflare Pages Functions for “backend” behavior:
+
+- `POST /api/contact` — sends the homepage contact form via Resend
+- `POST /hedge-quote` — handles the hedge builder quote form via Resend
+- `GET /api/cms/auth` — GitHub OAuth for Decap CMS (`/admin`)
+
+### Cloudflare Pages Environment Variables
+
+Required:
+
+- `RESEND_API_KEY` (secret)
+- `TO_EMAIL` (secret)
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+
+Optional:
+
+- `FROM_NAME`
+- `FROM_EMAIL`
+- `ALLOWED_ORIGINS` (comma-separated, for CORS on `/api/contact`)
+- `TURNSTILE_SECRET_KEY` (enables Turnstile bot protection on `/api/contact`)
+- `CMS_ALLOWED_HOSTS` (comma-separated hostnames allowed to use `/api/cms/auth`)
+
+## Standalone Worker (Optional)
+
+`workers/contact-form.js` is a standalone Cloudflare Worker version of the contact form handler.
+It is still referenced as a fallback from `index.html`, but the preferred path is the Pages Function at `/api/contact`.

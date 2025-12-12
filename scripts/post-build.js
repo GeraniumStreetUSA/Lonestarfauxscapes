@@ -26,6 +26,7 @@ const filesToCopy = [
 // Directories to copy recursively
 const dirsToCopy = [
   { src: './images', dest: 'images' },
+  { src: './favicon', dest: 'favicon' },
 ];
 
 // Helper function to copy directory recursively

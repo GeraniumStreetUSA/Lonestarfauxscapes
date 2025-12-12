@@ -40,7 +40,8 @@
       "Bash(curl:*)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Skill(frontend-design:frontend-design)"
+      "Skill(frontend-design:frontend-design)",
+      "Bash(git revert:*)"
     ],
     "deny": [],
     "ask": []

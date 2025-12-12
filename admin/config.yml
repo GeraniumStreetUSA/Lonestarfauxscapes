@@ -2,6 +2,9 @@ backend:
   name: github
   repo: bobamusic1989/Lonestarfauxscapes
   branch: main
+  # Cloudflare Pages: use our own OAuth endpoint (NetlifyAuthenticator-compatible)
+  base_url: https://lonestarfauxscapes.com
+  auth_endpoint: api/cms/auth
 
 # For local development testing (run: npx decap-server)
 local_backend: true

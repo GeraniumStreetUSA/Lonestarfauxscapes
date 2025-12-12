@@ -2048,13 +2048,22 @@
         };
 
         try {
-            const response = await fetch('https://contact-form.atrex92.workers.dev', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
+            const trySend = async (url) => {
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+                const json = await res.json().catch(() => ({}));
+                return { res, json };
+            };
 
-            const result = await response.json();
+            // Prefer same-origin Cloudflare Pages Function (faster: no CORS preflight).
+            // Fallback to the standalone Worker URL if needed.
+            let { res: response, json: result } = await trySend('/api/contact');
+            if (!response.ok) {
+                ({ res: response, json: result } = await trySend('https://contact-form.atrex92.workers.dev'));
+            }
 
             if (response.ok && result.success) {
                 if (statusEl) {
@@ -2114,4 +2123,3 @@
 <script defer src="card-effects.js"></script>
 </body>
 </html>
-
