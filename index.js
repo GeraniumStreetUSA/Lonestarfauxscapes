@@ -240,9 +240,15 @@
     };
 
     const initThreeJS = () => {
+        console.log('[WebGL] initThreeJS called');
         const container = document.getElementById('canvas-container');
         const THREE = window.THREE;
-        if (!container || !THREE) return;
+        console.log('[WebGL] container:', container, 'THREE:', !!THREE);
+        console.log('[WebGL] container dimensions:', container?.offsetWidth, 'x', container?.offsetHeight);
+        if (!container || !THREE) {
+          console.log('[WebGL] Missing container or THREE, aborting');
+          return;
+        }
 
     while (container.firstChild) {
       container.removeChild(container.firstChild);
@@ -570,8 +576,11 @@
 
   // Lazy-load Three.js when canvas container is visible
   const lazyLoadThreeJS = () => {
+    console.log('[WebGL] lazyLoadThreeJS called');
+
     // Respect reduced motion preference
     if (prefersReducedMotion()) {
+      console.log('[WebGL] Reduced motion preference detected, skipping');
       const container = document.getElementById('canvas-container');
       if (container) {
         container.style.display = 'none';
@@ -580,22 +589,33 @@
     }
 
     const container = document.getElementById('canvas-container');
-    if (!container) return;
+    console.log('[WebGL] Canvas container:', container);
+    if (!container) {
+      console.log('[WebGL] No canvas container found!');
+      return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        console.log('[WebGL] IntersectionObserver entry:', entry.isIntersecting);
         if (entry.isIntersecting) {
           observer.disconnect();
+          console.log('[WebGL] Loading Three.js...');
           // Dynamically load Three.js
           const script = document.createElement('script');
           script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-          script.onload = () => setTimeout(initThreeJS, 50);
+          script.onload = () => {
+            console.log('[WebGL] Three.js loaded, initializing...');
+            setTimeout(initThreeJS, 50);
+          };
+          script.onerror = (e) => console.error('[WebGL] Failed to load Three.js:', e);
           document.head.appendChild(script);
         }
       });
     }, { rootMargin: '200px' }); // Start loading 200px before visible
 
     observer.observe(container);
+    console.log('[WebGL] Observer started');
   };
 
   const init = () => {
