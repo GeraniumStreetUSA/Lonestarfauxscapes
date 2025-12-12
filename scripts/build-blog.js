@@ -555,6 +555,8 @@ async function buildBlog() {
   }
 
   const posts = [];
+  const scheduledPosts = [];
+  const now = new Date();
 
   for (const file of files) {
     const filePath = path.join(CONTENT_DIR, file);
@@ -563,22 +565,30 @@ async function buildBlog() {
     // Parse frontmatter and content
     const { data, content } = matter(fileContent);
 
-    // Convert markdown to HTML
-    const htmlContent = marked(content);
-
     // Create post object
     const slug = file.replace('.md', '');
+    const postDate = new Date(data.date || now);
     const post = {
       slug,
       title: data.title || 'Untitled',
-      date: data.date || new Date().toISOString(),
+      date: data.date || now.toISOString(),
       image: data.image || 'images/hedges/hedge-privacy-1.jpg',
       summary: data.summary || '',
       category: data.category || 'Guides',
       tags: data.tags || [],
       relatedUrl: data.relatedUrl || '',
-      content: htmlContent
     };
+
+    // Check if post is scheduled for the future
+    if (postDate > now) {
+      scheduledPosts.push({ ...post, publishDate: postDate });
+      console.log(`  Scheduled: ${slug} (publishes ${postDate.toLocaleDateString()})`);
+      continue; // Skip generating HTML for future posts
+    }
+
+    // Convert markdown to HTML for published posts
+    const htmlContent = marked(content);
+    post.content = htmlContent;
 
     posts.push(post);
 
@@ -597,7 +607,17 @@ async function buildBlog() {
   fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
   console.log(`  Generated: ${POSTS_JSON}`);
 
-  console.log(`Blog build complete! ${posts.length} posts generated.`);
+  console.log(`Blog build complete! ${posts.length} posts published, ${scheduledPosts.length} scheduled.`);
+
+  // Log upcoming scheduled posts
+  if (scheduledPosts.length > 0) {
+    console.log('\nUpcoming scheduled posts:');
+    scheduledPosts
+      .sort((a, b) => a.publishDate - b.publishDate)
+      .forEach(post => {
+        console.log(`  - ${post.title} (${post.publishDate.toLocaleDateString()})`);
+      });
+  }
 }
 
 buildBlog().catch(console.error);
