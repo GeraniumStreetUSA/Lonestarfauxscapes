@@ -510,6 +510,8 @@
             padding-top: clamp(8rem, 12vw, 10rem); /* vw not vh - viewport WIDTH doesn't change on iOS */
             padding-bottom: 6rem;
             background: var(--color-bg);
+            min-height: 100vh;
+            min-height: 100svh; /* stable viewport height for iOS */
         }
         #hero::after {
             content: '';
@@ -953,16 +955,19 @@
             right: 0;
             width: 60%;
             height: 100%;
-            z-index: 1;
+            z-index: 5;
             mask-image: linear-gradient(to right, transparent 0%, black 30%);
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+            pointer-events: none;
         }
 
         @media(max-width: 991px) {
             #canvas-container {
                 width: 100%;
-                mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
-                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+                z-index: 4;
+                mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+                opacity: 0.8;
             }
         }
 
