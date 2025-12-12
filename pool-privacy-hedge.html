@@ -113,26 +113,10 @@
       --container-width: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 5rem; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
-
-    /* Header */
-    header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,7,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1rem; }
-    .logo { font-family: var(--font-heading); font-weight: 900; letter-spacing: 0.08em; font-size: 0.95rem; text-transform: uppercase; color: #fff; }
-    .nav-links { display: flex; gap: 1.25rem; align-items: center; font-size: 0.9rem; }
-    .nav-item { color: rgba(255,255,255,0.75); letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; position: relative; padding-bottom: 0.25rem; }
-    .nav-item:hover { color: #fff; }
-    .nav-item::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)); transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease; }
-    .nav-item:hover::after { transform: scaleX(1); }
-    .nav-cta { padding: 0.55rem 1rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.06); letter-spacing: 0.04em; font-weight: 700; }
-    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
-    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(5,10,7,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; min-width: 220px; padding: 0.6rem 0; display: none; box-shadow: 0 15px 40px rgba(0,0,0,0.35); z-index: 1500; }
-    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-item { display: block; padding: 0.55rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.8rem; }
-    .nav-dropdown-item:hover { color: var(--color-accent); background: rgba(255,255,255,0.04); }
 
     /* Hero */
     .hero { padding: 5rem 0 4rem; background: linear-gradient(160deg, rgba(8,145,178,0.15) 0%, rgba(5,10,7,0.98) 50%); position: relative; overflow: hidden; }
@@ -215,7 +199,6 @@
 
     /* Mobile */
     @media(max-width: 768px) {
-      .nav-links { display: none; }
       .hero { padding: 3rem 0; }
       .section { padding: 3rem 0; }
     }
@@ -224,28 +207,39 @@
   <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-  <header>
-    <div class="container nav">
+  <header id="main-header">
+    <div class="nav-container">
       <a href="index.html" class="logo">Lone Star Faux Scapes</a>
       <nav class="nav-links">
         <a class="nav-item" href="index.html">Home</a>
-        <div class="nav-dropdown">
-          <a class="nav-item" href="products.html">Products</a>
-          <div class="nav-dropdown-menu">
-            <a class="nav-dropdown-item" href="living-wall.html">Artificial Living Wall</a>
-            <a class="nav-dropdown-item" href="commercial-wall.html">Commercial Wall Covering</a>
-            <a class="nav-dropdown-item" href="fence-extensions.html">Fence Extensions</a>
-            <a class="nav-dropdown-item" href="artificial-hedge.html">Artificial Hedge</a>
-          </div>
-        </div>
+        <a class="nav-item" href="products.html">Products</a>
         <a class="nav-item" href="installation.html">Installation</a>
         <a class="nav-item" href="commercial.html">Commercial</a>
         <a class="nav-item" href="residential.html">Residential</a>
         <a class="nav-item" href="gallery.html">Gallery</a>
+        <a class="nav-item" href="blog.html">Blog</a>
         <a class="nav-item nav-cta" href="index.html#contact">Get Quote</a>
       </nav>
+      <div class="mobile-toggle" id="mobile-toggle-btn" aria-label="Open navigation">&#9776;</div>
     </div>
   </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <div class="mobile-close" id="mobile-close-btn" aria-label="Close navigation">&times;</div>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="products.html" class="mobile-link">Products</a>
+    <a href="living-wall.html" class="mobile-link mobile-link-sub">Living Wall</a>
+    <a href="commercial-wall.html" class="mobile-link mobile-link-sub">Commercial Wall</a>
+    <a href="fence-extensions.html" class="mobile-link mobile-link-sub">Fence Extensions</a>
+    <a href="artificial-hedge.html" class="mobile-link mobile-link-sub">Artificial Hedge</a>
+    <a href="installation.html" class="mobile-link">Installation</a>
+    <a href="commercial.html" class="mobile-link">Commercial</a>
+    <a href="residential.html" class="mobile-link">Residential</a>
+    <a href="gallery.html" class="mobile-link">Gallery</a>
+    <a href="blog.html" class="mobile-link">Blog</a>
+    <a href="index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
+  </div>
 
   <main>
     <!-- Hero -->
@@ -542,5 +536,26 @@
 
   <script defer src="nav.js"></script>
   <script src="utils.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileToggle = document.getElementById('mobile-toggle-btn');
+      const mobileClose = document.getElementById('mobile-close-btn');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      function toggleMenu() {
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
+
+      if (mobileToggle) mobileToggle.addEventListener('click', toggleMenu);
+      if (mobileClose) mobileClose.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }));
+    });
+  </script>
 </body>
 </html>
