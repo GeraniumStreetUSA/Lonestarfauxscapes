@@ -4,15 +4,217 @@
  */
 
 /* ==========================================================================
-   NAVBAR POLISH & MICRO-ANIMATIONS
+   FLOATING ISLAND HEADER - BASE POSITIONING
+   These styles MUST come first to establish the floating navbar
    ========================================================================== */
 
-/* Base header visuals (both states) */
 #main-header {
-  background: linear-gradient(135deg, rgba(10,20,15,0.78) 0%, rgba(10,20,15,0.66) 70%, rgba(12,24,18,0.64) 100%);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
-  backdrop-filter: blur(18px) saturate(130%);
-  transition:
+  /* Core positioning - floating island */
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  /* Sizing */
+  width: 96%;
+  max-width: 1200px;
+  padding: 1rem 1.75rem;
+  border-radius: 28px;
+
+  /* Visual */
+  background: rgba(10, 20, 15, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+
+  /* Transitions */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#main-header.scrolled {
+  top: 1rem;
+  background: rgba(5, 10, 7, 0.9);
+  width: 97%;
+}
+
+/* Nav container layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  gap: 1rem;
+}
+
+/* Logo base styles */
+.logo {
+  font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Nav links - hidden on mobile by default */
+.nav-links {
+  display: none;
+}
+
+/* Desktop nav links */
+@media (min-width: 992px) {
+  .nav-links {
+    display: flex;
+    gap: 2.75rem;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav-item {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    position: relative;
+    padding-bottom: 0.25rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-item:hover {
+    color: var(--color-accent, #4caf50);
+  }
+
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-item:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Dropdown container */
+  .nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-item-parent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .nav-caret {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown:hover .nav-caret {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown menu */
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    padding: 0.5rem 0;
+    background: rgba(5,10,7,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-dropdown-item {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 50ms; }
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 100ms; }
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 150ms; }
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 200ms; }
+  .nav-dropdown:hover .nav-dropdown-item:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 250ms; }
+
+  .nav-dropdown-item:hover {
+    color: var(--color-accent, #4caf50);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* CTA button */
+  .nav-cta {
+    padding: 0.55rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    transition: background 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  .nav-cta::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   NAVBAR POLISH & MICRO-ANIMATIONS (ENHANCED)
+   ========================================================================== */
+
+/* Enhanced header visuals - layer on top of base */
+@media (min-width: 992px) {
+  #main-header {
+    background: linear-gradient(135deg, rgba(10,20,15,0.78) 0%, rgba(10,20,15,0.66) 70%, rgba(12,24,18,0.64) 100%);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    transition:
     background 0.6s cubic-bezier(0.4,0,0.2,1),
     box-shadow 0.6s cubic-bezier(0.4,0,0.2,1),
     padding 0.6s cubic-bezier(0.4,0,0.2,1),
