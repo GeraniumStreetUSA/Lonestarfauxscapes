@@ -19,6 +19,21 @@ body {
 }
 
 /* ==========================================================================
+   GLOBAL CONTAINMENT FIX
+   Prevents decorative/absolute elements from escaping their containers
+   ========================================================================== */
+
+main,
+section,
+.hero,
+.page,
+.pageShell,
+.container {
+  position: relative;
+  overflow-x: clip;
+}
+
+/* ==========================================================================
    FLOATING ISLAND HEADER - BASE POSITIONING
    These styles MUST come first to establish the floating navbar
    ========================================================================== */
