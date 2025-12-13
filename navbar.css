@@ -1,10 +1,11 @@
 /**
- * Navbar Styles - CLEAN REWRITE
- * Matches homepage exactly
+ * NAVBAR - TWO SEPARATE SYSTEMS
+ * Desktop nav: .nav-links (992px+)
+ * Mobile nav: #mobile-menu (below 992px)
  */
 
 /* ==========================================================================
-   GLOBAL FIXES
+   GLOBAL
    ========================================================================== */
 
 html {
@@ -17,7 +18,7 @@ body {
 }
 
 /* ==========================================================================
-   FLOATING ISLAND HEADER
+   HEADER - SHARED BETWEEN DESKTOP AND MOBILE
    ========================================================================== */
 
 #main-header {
@@ -35,31 +36,19 @@ body {
   -webkit-backdrop-filter: blur(14px) !important;
   border: 1px solid rgba(255,255,255,0.07) !important;
   box-shadow: 0 12px 28px rgba(0,0,0,0.2) !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  overflow: visible !important;
 }
 
 #main-header.scrolled {
   top: 1rem !important;
   background: rgba(5, 10, 7, 0.9) !important;
-  width: 97% !important;
 }
-
-/* ==========================================================================
-   NAV CONTAINER
-   ========================================================================== */
 
 .nav-container {
   display: flex !important;
   align-items: center !important;
+  justify-content: space-between !important;
   width: 100% !important;
-  max-width: none !important;
-  gap: 1rem !important;
 }
-
-/* ==========================================================================
-   LOGO
-   ========================================================================== */
 
 .logo {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
@@ -73,11 +62,23 @@ body {
 }
 
 /* ==========================================================================
-   DESKTOP NAV LINKS (992px+)
+   DESKTOP NAV - ONLY VISIBLE 992px+
+   ==========================================================================
+   This is completely hidden on mobile. No conflicts.
    ========================================================================== */
 
 .nav-links {
   display: none !important;
+}
+
+.mobile-toggle {
+  display: block !important;
+  color: #fff !important;
+  font-size: 1.5rem !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  padding: 0.5rem !important;
 }
 
 @media (min-width: 992px) {
@@ -95,14 +96,30 @@ body {
     color: rgba(255,255,255,0.7) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.03em !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
     position: relative !important;
     padding-bottom: 0.25rem !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
   }
 
   .nav-item:hover {
     color: #4caf50 !important;
+  }
+
+  .nav-item::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)) !important;
+    transform: scaleX(0) !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .nav-item:hover::after {
+    transform: scaleX(1) !important;
   }
 
   .nav-dropdown {
@@ -119,10 +136,25 @@ body {
 
   .nav-caret {
     font-size: 0.7rem !important;
-    margin-left: 0.3rem !important;
+  }
+
+  .nav-cta {
+    padding: 0.5rem 1rem !important;
+    border: 1px solid rgba(255,255,255,0.16) !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,0.06) !important;
+  }
+
+  .nav-cta:hover {
+    background: rgba(255,255,255,0.12) !important;
+  }
+
+  .nav-cta::after {
+    display: none !important;
   }
 
   .nav-dropdown-menu {
+    display: none !important;
     position: absolute !important;
     top: 100% !important;
     left: 0 !important;
@@ -135,20 +167,11 @@ body {
     padding: 0.5rem 0 !important;
     box-shadow: 0 15px 40px rgba(0,0,0,0.35) !important;
     z-index: 1500 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(-8px) !important;
-    pointer-events: none !important;
-    transition: opacity 0.3s, transform 0.3s, visibility 0.3s !important;
   }
 
   .nav-dropdown:hover .nav-dropdown-menu,
   .nav-dropdown:focus-within .nav-dropdown-menu {
     display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
   }
 
   .nav-dropdown-item {
@@ -156,7 +179,6 @@ body {
     padding: 0.5rem 1rem !important;
     color: rgba(255,255,255,0.8) !important;
     font-size: 0.7rem !important;
-    letter-spacing: 0.03em !important;
     white-space: nowrap !important;
     text-decoration: none !important;
   }
@@ -166,43 +188,16 @@ body {
     background: rgba(255,255,255,0.04) !important;
   }
 
-  .nav-cta {
-    padding: 0.5rem 1rem !important;
-    border: 1px solid rgba(255,255,255,0.16) !important;
-    border-radius: 999px !important;
-    color: #fff !important;
-    background: rgba(255,255,255,0.06) !important;
-  }
-
-  .nav-cta:hover {
-    background: rgba(255,255,255,0.12) !important;
-  }
-}
-
-/* ==========================================================================
-   MOBILE TOGGLE (visible below 992px)
-   ========================================================================== */
-
-.mobile-toggle {
-  display: block !important;
-  color: #fff !important;
-  font-size: 1.5rem !important;
-  cursor: pointer !important;
-  padding: 0.5rem !important;
-  min-width: 44px !important;
-  min-height: 44px !important;
-  background: none !important;
-  border: none !important;
-}
-
-@media (min-width: 992px) {
+  /* HIDE mobile toggle on desktop */
   .mobile-toggle {
     display: none !important;
   }
 }
 
 /* ==========================================================================
-   MOBILE MENU OVERLAY
+   MOBILE NAV - ONLY VISIBLE BELOW 992px
+   ==========================================================================
+   This is completely separate from desktop. No conflicts.
    ========================================================================== */
 
 #mobile-menu {
@@ -217,15 +212,17 @@ body {
   -webkit-backdrop-filter: blur(20px) !important;
   z-index: 9999 !important;
   padding: 5rem 2rem 2rem !important;
-  transform: translateY(-100%) !important;
-  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.3s ease, visibility 0.3s ease !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 0.5rem !important;
+  overflow-y: auto !important;
+
+  /* HIDDEN BY DEFAULT */
+  transform: translateY(-100%) !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  overflow-y: auto !important;
+  transition: transform 0.4s ease, opacity 0.3s ease, visibility 0.3s ease !important;
 }
 
 #mobile-menu.active {
@@ -235,41 +232,28 @@ body {
   pointer-events: auto !important;
 }
 
-/* ==========================================================================
-   MOBILE MENU CLOSE BUTTON
-   ========================================================================== */
-
 #mobile-close-btn,
 .mobile-close {
   position: absolute !important;
   top: 1.5rem !important;
   right: 1.5rem !important;
   font-size: 2rem !important;
-  cursor: pointer !important;
   color: #fff !important;
-  padding: 0.5rem !important;
-  min-width: 44px !important;
-  min-height: 44px !important;
+  cursor: pointer !important;
   background: none !important;
   border: none !important;
+  padding: 0.5rem !important;
 }
 
-/* ==========================================================================
-   MOBILE MENU LINKS - EXACT COPY FROM HOMEPAGE
-   ========================================================================== */
-
 .mobile-link {
-  font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif) !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
   color: rgba(255,255,255,0.9) !important;
   -webkit-text-fill-color: rgba(255,255,255,0.9) !important;
   -webkit-text-stroke: 0 !important;
-  -webkit-text-stroke-width: 0 !important;
-  text-stroke: 0 !important;
-  transition: color 0.3s ease !important;
-  padding: 0.5rem 0 !important;
   text-decoration: none !important;
+  padding: 0.5rem 0 !important;
   display: block !important;
 }
 
@@ -291,34 +275,20 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE HEADER ADJUSTMENTS (below 992px)
+   MOBILE HEADER ADJUSTMENTS
    ========================================================================== */
 
 @media (max-width: 991px) {
   #main-header {
-    width: 94% !important;
     padding: 0.75rem 1rem !important;
-    border-radius: 20px !important;
-  }
-
-  #main-header.scrolled {
-    width: 94% !important;
-    padding: 0.6rem 1rem !important;
-  }
-
-  .nav-container {
-    justify-content: space-between !important;
   }
 
   .logo {
-    font-size: 0.85rem !important;
+    font-size: 0.9rem !important;
   }
 
-  /* Hide desktop nav on mobile */
-  .nav-links {
-    display: none !important;
-  }
-
+  /* Desktop nav is GONE on mobile */
+  .nav-links,
   .nav-dropdown-menu {
     display: none !important;
   }
