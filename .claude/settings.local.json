@@ -41,7 +41,9 @@
       "Bash(git pull:*)",
       "Bash(git stash:*)",
       "Skill(frontend-design:frontend-design)",
-      "Bash(git revert:*)"
+      "Bash(git revert:*)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
