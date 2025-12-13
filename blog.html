@@ -924,16 +924,27 @@
   </script>
 
   <script>
-    (async () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       const grid = document.getElementById('blog-grid');
       const yearSpan = document.getElementById('year');
       if (yearSpan) yearSpan.textContent = new Date().getFullYear().toString();
       if (!grid) return;
 
+      async function loadPosts(retries = 3) {
+        for (let i = 0; i < retries; i++) {
+          try {
+            const res = await fetch('/content/posts.json', { cache: 'no-store' });
+            if (!res.ok) throw new Error(`${res.status}`);
+            return await res.json();
+          } catch (err) {
+            if (i === retries - 1) throw err;
+            await new Promise(r => setTimeout(r, 500));
+          }
+        }
+      }
+
       try {
-        const res = await fetch('/content/posts.json', { cache: 'no-cache' });
-        if (!res.ok) throw new Error(`Failed to load posts.json (${res.status})`);
-        const posts = await res.json();
+        const posts = await loadPosts();
 
         posts
           .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -967,15 +978,15 @@
             grid.appendChild(card);
           });
       } catch (err) {
-        console.warn(err);
+        console.warn('Blog load failed:', err);
         grid.innerHTML = `
           <div class="card" style="padding: 1.5rem;">
-            <h3>Blog posts are loading...</h3>
-            <p>If this message doesn’t go away, something is blocking the blog feed.</p>
+            <h3>Unable to load posts</h3>
+            <p>Please refresh the page.</p>
           </div>
         `;
       }
-    })();
+    });
   </script>
   <script defer src="reveal.js"></script>
   <script src="utils.js"></script>
