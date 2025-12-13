@@ -1164,7 +1164,7 @@
         </div>
         <div class="cta-row" style="margin-top:1.4rem;">
           <a class="btn btn-primary" href="index.html#contact">Plan a Living Wall</a>
-          <a class="btn btn-secondary" href="#comparison">Download Spec Sheet</a>
+          <button class="btn btn-secondary" onclick="openTallyModal()">Download Spec Sheet</button>
         </div>
       </div>
     </section>
@@ -1574,5 +1574,125 @@
   <script defer src="card-effects.js"></script>
   <script defer src="reactive-effects.js"></script>
   <script src="nav.js"></script>
+
+  <!-- Tally Modal -->
+  <div id="tally-modal" class="tally-modal">
+    <div class="tally-modal-backdrop" onclick="closeTallyModal()"></div>
+    <div class="tally-modal-content">
+      <button class="tally-modal-close" onclick="closeTallyModal()" aria-label="Close">&times;</button>
+      <iframe
+        data-tally-src="https://tally.so/embed/obEZYP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="400"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Download Spec Sheet">
+      </iframe>
+    </div>
+  </div>
+
+  <style>
+    /* Tally Modal Styles */
+    .tally-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .tally-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tally-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .tally-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      background: linear-gradient(135deg, #0c1310 0%, #050806 100%);
+      border: 1px solid rgba(100, 211, 138, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(100, 211, 138, 0.1);
+      overflow-y: auto;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .tally-modal.active .tally-modal-content {
+      transform: translateY(0);
+    }
+
+    .tally-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .tally-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .tally-modal iframe {
+      border-radius: 12px;
+    }
+  </style>
+
+  <script>
+    // Tally Modal Functions
+    function openTallyModal() {
+      const modal = document.getElementById('tally-modal');
+      const iframe = modal.querySelector('iframe');
+
+      // Load Tally iframe on first open
+      if (!iframe.src) {
+        iframe.src = iframe.dataset.tallySrc;
+      }
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTallyModal() {
+      const modal = document.getElementById('tally-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeTallyModal();
+    });
+  </script>
 </body>
 </html>
