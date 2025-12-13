@@ -29,7 +29,9 @@ body {
   width: 96% !important;
   max-width: 1200px !important;
   z-index: 1000 !important;
-  padding: 1rem 1.5rem !important;
+  height: 64px !important;
+  min-height: 64px !important;
+  padding: 0 1.5rem !important;
   border-radius: 28px !important;
   background: rgba(10, 20, 15, 0.8) !important;
   backdrop-filter: blur(14px) !important;
@@ -54,6 +56,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-size: 1rem !important;
   font-weight: 900 !important;
+  line-height: 1 !important;
   color: #fff !important;
   text-transform: uppercase !important;
   letter-spacing: 0.1em !important;
@@ -97,6 +100,7 @@ body {
     text-transform: uppercase !important;
     letter-spacing: 0.03em !important;
     white-space: nowrap !important;
+    line-height: 1 !important;
     text-decoration: none !important;
     position: relative !important;
     padding-bottom: 0.25rem !important;
@@ -280,7 +284,9 @@ body {
 
 @media (max-width: 991px) {
   #main-header {
-    padding: 0.75rem 1rem !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 0 1rem !important;
   }
 
   .logo {
