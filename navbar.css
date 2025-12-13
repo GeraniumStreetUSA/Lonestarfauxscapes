@@ -194,9 +194,9 @@ section,
 
   .nav-dropdown-item {
     display: block;
-    padding: 0.6rem 1rem;
-    color: rgba(255,255,255,0.8);
-    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.7rem;
     letter-spacing: 0.03em;
     white-space: nowrap;
     text-decoration: none;
