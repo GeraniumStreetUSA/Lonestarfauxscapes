@@ -30,19 +30,6 @@
     "description": "Articles on artificial hedges, faux living walls, installation tips, and Texas project inspiration."
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {"@type":"BlogPosting","headline":"How to choose an artificial hedge installer in Texas","description":"Red flags, spec questions, and timelines to vet when hiring for artificial hedge installation across Austin, Dallas, Houston, and San Antonio.","datePublished":"2025-10-12","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/hedges/hedge-privacy-1.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/artificial-hedge.html"}},
-      {"@type":"BlogPosting","headline":"Faux living wall vs real living wall: maintenance face-off","description":"We compare irrigation, lifespan, fire rating, and acoustic performance so you can pick the best living wall approach for your project.","datePublished":"2025-09-05","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/living_walls/living-wall-2.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/living-wall.html"}},
-      {"@type":"BlogPosting","headline":"Acoustic upgrades for artificial hedge screens","description":"Add acoustic backing to faux hedges to cut alley and equipment noise. Materials, STC gains, and install tips.","datePublished":"2025-08-22","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/fence/fence-3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/fence-extensions.html"}},
-      {"@type":"BlogPosting","headline":"Fire safety for faux greenery: NFPA 701 explained","description":"What NFPA 701 Method 2 means for hospitality and multifamily, plus how to document compliance for AHJs.","datePublished":"2025-08-01","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/hedges/hedge-privacy-2.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/commercial-wall.html"}},
-      {"@type":"BlogPosting","headline":"Designing a branded artificial living wall","description":"Logo recesses, lighting, and mixed foliage patterns to keep faux living walls on-brand for retail and corporate environments.","datePublished":"2025-07-18","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/living_walls/living-wall-3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/living-wall.html"}},
-      {"@type":"BlogPosting","headline":"Fence extension playbook: instant privacy without rebuilds","description":"How to add height and coverage with faux hedges on existing fences - structural fastening, HOA tips, and finish details.","datePublished":"2025-06-30","author":{"@type":"Organization","name":"Lone Star Faux Scapes"},"image":"https://lonestarfauxscapes.com/images/fence/fence-1.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://lonestarfauxscapes.com/fence-extensions.html"}}
-    ]
-  }
-  </script>
   <style>
     :root {
       --color-bg: #050a07;
@@ -220,16 +207,19 @@
     }
     #mobile-menu.active { transform: translateY(0); }
     .mobile-link {
-      font-family: var(--font-heading);
-      font-size: 3rem;
+      font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+      font-size: 1.5rem;
       font-weight: 700;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
       transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
     }
     .mobile-link:hover {
-      color: var(--color-accent);
-      -webkit-text-stroke: 0px;
+      color: var(--color-accent, var(--accent, #4caf50));
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
     }
     .hero { padding: clamp(7rem, 10vw, 9rem) 0 3.5rem; background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(5,10,7,0.95)); position: relative; }
     .hero h1 { font-family: var(--font-heading); font-size: clamp(2.8rem, 4vw, 3.6rem); letter-spacing: -0.03em; }
@@ -314,7 +304,7 @@
     <a href="residential.html" class="mobile-link">Residential</a>
     <a href="gallery.html" class="mobile-link">Gallery</a>
     <a href="blog.html" class="mobile-link">Blog</a>
-    <a href="index.html#contact" class="mobile-link" style="color: var(--color-accent);">Get Quote</a>
+    <a href="index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
   </div>
 
   <main>
@@ -384,94 +374,58 @@
   </script>
 
   <script>
-    const posts = [
-      {
-        title: 'How to choose an artificial hedge installer in Texas',
-        summary: 'Red flags, spec questions, and timelines to vet when hiring for artificial hedge installation across Austin, Dallas, Houston, and San Antonio.',
-        tags: ['Artificial hedge installation', 'Texas', 'Specs'],
-        image: 'images/hedges/hedge-privacy-1.jpg',
-        url: 'artificial-hedge.html',
-        date: '2025-10-12',
-        category: 'Guides'
-      },
-      {
-        title: 'Faux living wall vs real living wall: maintenance face-off',
-        summary: 'We compare irrigation, lifespan, fire rating, and acoustic performance so you can pick the best living wall approach for your project.',
-        tags: ['Faux living wall', 'Maintenance', 'Acoustics'],
-        image: 'images/living_walls/living-wall-2.jpg',
-        url: 'living-wall.html',
-        date: '2025-09-05',
-        category: 'Comparisons'
-      },
-      {
-        title: 'Acoustic upgrades for artificial hedge screens',
-        summary: 'Add acoustic backing to faux hedges to cut alley and equipment noise. We break down materials, STC gains, and install tips.',
-        tags: ['Acoustic', 'Faux hedges', 'Noise control'],
-        image: 'images/fence/fence-3.jpg',
-        url: 'fence-extensions.html',
-        date: '2025-08-22',
-        category: 'Acoustics'
-      },
-      {
-        title: 'Fire safety for faux greenery: NFPA 701 explained',
-        summary: 'What NFPA 701 Method 2 means for hospitality and multifamily, plus how to document compliance for AHJs and code officials.',
-        tags: ['Fire rated', 'NFPA 701', 'Compliance'],
-        image: 'images/hedges/hedge-privacy-2.jpg',
-        url: 'commercial-wall.html',
-        date: '2025-08-01',
-        category: 'Compliance'
-      },
-      {
-        title: 'Designing a branded artificial living wall',
-        summary: 'Logo recesses, lighting, and mixed foliage patterns to keep faux living walls on-brand for retail and corporate environments.',
-        tags: ['Branding', 'Artificial living wall', 'Design'],
-        image: 'images/living_walls/living-wall-3.jpg',
-        url: 'living-wall.html',
-        date: '2025-07-18',
-        category: 'Design'
-      },
-      {
-        title: 'Fence extension playbook: instant privacy without rebuilds',
-        summary: 'How to add height and coverage with faux hedges on existing fences - structural fastening, HOA tips, and finish details.',
-        tags: ['Fence extensions', 'Privacy wall', 'HOA friendly'],
-        image: 'images/fence/fence-1.jpg',
-        url: 'fence-extensions.html',
-        date: '2025-06-30',
-        category: 'How-to'
-      }
-    ];
+    (async () => {
+      const grid = document.getElementById('blog-grid');
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear().toString();
+      if (!grid) return;
 
-    const grid = document.getElementById('blog-grid');
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear().toString();
+      try {
+        const res = await fetch('/content/posts.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`Failed to load posts.json (${res.status})`);
+        const posts = await res.json();
 
-    if (grid) {
-      posts.forEach((post, idx) => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.setAttribute('data-reveal', '');
-        if (idx % 3 === 1) card.setAttribute('data-delay', '1');
-        if (idx % 3 === 2) card.setAttribute('data-delay', '2');
-        card.innerHTML = `
-          <div class="card-media">
-            <img src="${post.image}" alt="${post.title}" loading="lazy" decoding="async">
-          </div>
-          <div class="card-body">
-            <div class="meta-row">
-              <span class="date-pill">${new Date(post.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-              <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">${post.category}</span>
-            </div>
-            <h3>${post.title}</h3>
-            <p>${post.summary}</p>
-            <div class="pill-row">
-              ${post.tags.map((tag) => `<span class="pill">${tag}</span>`).join('')}
-            </div>
-            <a class="arrow-cta" href="${post.url}">Learn More <span>&rarr;</span></a>
+        posts
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .forEach((post, idx) => {
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.setAttribute('data-reveal', '');
+            if (idx % 3 === 1) card.setAttribute('data-delay', '1');
+            if (idx % 3 === 2) card.setAttribute('data-delay', '2');
+
+            const imageSrc = (post.image || '').startsWith('/') ? post.image : `/${post.image || ''}`;
+            const postUrl = `/blog/${post.slug}.html`;
+
+            card.innerHTML = `
+              <div class="card-media">
+                <img src="${imageSrc}" alt="${post.title}" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <div class="meta-row">
+                  <span class="date-pill">${new Date(post.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">${post.category || 'Guides'}</span>
+                </div>
+                <h3>${post.title}</h3>
+                <p>${post.summary || ''}</p>
+                <div class="pill-row">
+                  ${(post.tags || []).map((tag) => `<span class="pill">${tag}</span>`).join('')}
+                </div>
+                <a class="arrow-cta" href="${postUrl}">Read Article <span>&rarr;</span></a>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+      } catch (err) {
+        console.warn(err);
+        grid.innerHTML = `
+          <div class="card" style="padding: 1.5rem;">
+            <h3>Blog posts are loading...</h3>
+            <p>If this message doesn’t go away, something is blocking the blog feed.</p>
           </div>
         `;
-        grid.appendChild(card);
-      });
-    }
+      }
+    })();
   </script>
   <script defer src="reveal.js"></script>
   <script src="utils.js"></script>

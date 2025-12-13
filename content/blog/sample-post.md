@@ -1,7 +1,7 @@
 ---
 title: "5 Benefits of Artificial Hedges for Texas Properties"
 date: 2024-12-10
-image: images/hedges/hedge-privacy-1.jpg
+image: images/hedges/hedge-privacy-1-1200w.jpg
 summary: "Discover why artificial hedges are the smart choice for Texas homeowners and businesses looking for low-maintenance, year-round greenery."
 category: "Guides"
 tags:

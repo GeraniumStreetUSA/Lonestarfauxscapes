@@ -192,15 +192,18 @@ const navbarCSS = `    /* Floating Island Header */
     }
     .mobile-link {
       font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif);
-      font-size: 3rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
       transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
     }
     .mobile-link:hover {
       color: var(--color-accent, var(--accent, #4caf50));
-      -webkit-text-stroke: 0px;
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
     }`;
 
 console.log('Starting navbar update process...');

@@ -50,7 +50,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
       "name": "Lone Star Faux Scapes",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lonestarfauxscapes.com/images/logo.png"
+        "url": "https://lonestarfauxscapes.com/favicon/web-app-manifest-512x512.png"
       }
     },
     "mainEntityOfPage": {
@@ -220,14 +220,20 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     }
     #mobile-menu.active { transform: translateY(0); }
     .mobile-link {
-      font-family: var(--font-heading);
-      font-size: 3rem;
+      font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+      font-size: 1.5rem;
       font-weight: 700;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
       transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
     }
-    .mobile-link:hover { color: var(--color-accent); -webkit-text-stroke: 0px; }
+    .mobile-link:hover {
+      color: var(--color-accent, var(--accent, #4caf50));
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
+    }
 
     /* Article Hero */
     .article-hero {
@@ -447,7 +453,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     <a href="/residential.html" class="mobile-link">Residential</a>
     <a href="/index.html#gallery" class="mobile-link">Gallery</a>
     <a href="/blog.html" class="mobile-link">Blog</a>
-    <a href="/index.html#contact" class="mobile-link">Get Quote</a>
+    <a href="/index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
   </div>
 
   <main>
@@ -538,6 +544,13 @@ async function buildBlog() {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
+  // Clean out previously generated HTML posts to avoid stale pages shipping.
+  for (const entry of fs.readdirSync(OUTPUT_DIR)) {
+    if (entry.endsWith('.html')) {
+      fs.unlinkSync(path.join(OUTPUT_DIR, entry));
+    }
+  }
+
   // Check if content directory exists
   if (!fs.existsSync(CONTENT_DIR)) {
     console.log('No blog content directory found. Creating empty posts.json');
@@ -565,15 +578,29 @@ async function buildBlog() {
     // Parse frontmatter and content
     const { data, content } = matter(fileContent);
 
+    const isDraft = data.draft === true || data.published === false;
+    const title = typeof data.title === 'string' ? data.title.trim() : '';
+    const summary = typeof data.summary === 'string' ? data.summary.trim() : '';
+
+    if (isDraft) {
+      console.log(`  Draft: ${file} (skipped)`);
+      continue;
+    }
+
+    if (!title || !summary) {
+      console.log(`  Skipped: ${file} (missing title or summary)`);
+      continue;
+    }
+
     // Create post object
     const slug = file.replace('.md', '');
     const postDate = new Date(data.date || now);
     const post = {
       slug,
-      title: data.title || 'Untitled',
+      title,
       date: data.date || now.toISOString(),
       image: data.image || 'images/hedges/hedge-privacy-1.jpg',
-      summary: data.summary || '',
+      summary,
       category: data.category || 'Guides',
       tags: data.tags || [],
       relatedUrl: data.relatedUrl || '',

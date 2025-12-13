@@ -252,21 +252,25 @@
     }
     #mobile-menu.active { transform: translateY(0); }
     .mobile-link {
-      font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 3rem;
+      font-family: var(--font-heading, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+      font-size: 1.5rem;
       font-weight: 700;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
       transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
     }
     .mobile-link:hover {
-      color: var(--accent);
-      -webkit-text-stroke: 0px;
+      color: var(--color-accent, var(--accent, #4caf50));
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
     }
     .mobile-link-sub {
-      font-size: 1rem;
-      padding-left: 1.5rem;
+      font-size: 1rem !important;
+      padding-left: 1rem;
       color: rgba(255,255,255,0.6);
+      -webkit-text-fill-color: rgba(255,255,255,0.6);
       -webkit-text-stroke: 0;
     }
     .hero { padding: clamp(7rem, 10vw, 9rem) 0 3rem; position: relative; overflow: hidden; }
@@ -420,7 +424,7 @@
     <a href="residential.html" class="mobile-link">Residential</a>
     <a href="gallery.html" class="mobile-link">Gallery</a>
     <a href="blog.html" class="mobile-link">Blog</a>
-    <a href="index.html#contact" class="mobile-link" style="color: var(--accent);">Get Quote</a>
+    <a href="index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
   </div>
 
   <main>

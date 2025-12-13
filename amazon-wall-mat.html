@@ -705,25 +705,31 @@
 
       .mobile-link {
 
-        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+        font-family: var(--font-heading, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
 
-        font-size: 3rem;
+        font-size: 1.5rem;
 
         font-weight: 700;
 
-        color: transparent;
+        color: rgba(255,255,255,0.9);
 
-        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+        -webkit-text-fill-color: rgba(255,255,255,0.9);
+
+        -webkit-text-stroke: 0;
 
         transition: 0.3s;
+
+        padding: 0.5rem 0;
+
+        text-decoration: none;
 
       }
 
       .mobile-link:hover {
 
-        color: var(--accent);
+        color: var(--color-accent, var(--accent, #4caf50));
 
-        -webkit-text-stroke: 0px;
+        -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
 
       }
 
@@ -900,16 +906,19 @@
       }
       #mobile-menu.active { transform: translateY(0); }
       .mobile-link {
-        font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-        font-size: 3rem;
+        font-family: var(--font-heading, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+        font-size: 1.5rem;
         font-weight: 700;
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+        color: rgba(255,255,255,0.9);
+        -webkit-text-fill-color: rgba(255,255,255,0.9);
+        -webkit-text-stroke: 0;
         transition: 0.3s;
+        padding: 0.5rem 0;
+        text-decoration: none;
       }
       .mobile-link:hover {
-        color: var(--color-accent, #4caf50);
-        -webkit-text-stroke: 0px;
+        color: var(--color-accent, var(--accent, #4caf50));
+        -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
       }
 
     
@@ -1025,7 +1034,7 @@
 
       <a href="blog.html" class="mobile-link">Blog</a>
 
-      <a href="index.html#contact" class="mobile-link" style="color: var(--color-accent);">Get Quote</a>
+      <a href="index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
 
     </div>
 
@@ -1937,7 +1946,7 @@
 
                                   <h4 className="font-bold">Sustainability Profile</h4>
 
-                                  <p className="text-xs text-white/40 font-mono">100% RECYCLABLE LDPE � NON-TOXIC</p>
+                                  <p className="text-xs text-white/40 font-mono">100% RECYCLABLE LDPE • NON-TOXIC</p>
 
                               </div>
 

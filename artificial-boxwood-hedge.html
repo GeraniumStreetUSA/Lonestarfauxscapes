@@ -182,9 +182,28 @@
     @media(min-width: 992px) { .mobile-toggle { display: none; } }
     #mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(5, 10, 7, 0.98); backdrop-filter: blur(20px); z-index: 9999; padding: 6rem 2rem; transform: translateY(-100%); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); display: flex; flex-direction: column; gap: 2rem; }
     #mobile-menu.active { transform: translateY(0); }
-    .mobile-link { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 3rem; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.5); transition: 0.3s; }
-    .mobile-link:hover { color: var(--accent); -webkit-text-stroke: 0px; }
-    .mobile-link-sub { font-size: 1rem; padding-left: 1.5rem; color: rgba(255,255,255,0.6); -webkit-text-stroke: 0; }
+    .mobile-link {
+      font-family: var(--font-heading, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
+      transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
+    }
+    .mobile-link:hover {
+      color: var(--color-accent, var(--accent, #4caf50));
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
+    }
+    .mobile-link-sub {
+      font-size: 1rem !important;
+      padding-left: 1rem;
+      color: rgba(255,255,255,0.6);
+      -webkit-text-fill-color: rgba(255,255,255,0.6);
+      -webkit-text-stroke: 0;
+    }
 
     .hero { padding: clamp(7rem, 10vw, 9rem) 0 3rem; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,8,6,0.74), rgba(17,26,22,0.9)); z-index: 0; }
@@ -322,7 +341,7 @@
     <a href="residential.html" class="mobile-link">Residential</a>
     <a href="gallery.html" class="mobile-link">Gallery</a>
     <a href="blog.html" class="mobile-link">Blog</a>
-    <a href="index.html#contact" class="mobile-link" style="color: var(--accent);">Get Quote</a>
+    <a href="index.html#contact" class="mobile-link mobile-link-cta">Get Quote</a>
   </div>
 
   <main>

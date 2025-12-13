@@ -618,35 +618,44 @@ section,
 }
 
 /* Mobile menu links - !important overrides inline styles */
-.mobile-link {
+#mobile-menu .mobile-link {
   font-family: var(--font-heading, 'Helvetica Neue', Helvetica, Arial, sans-serif) !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
   color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
   -webkit-text-stroke: 0 !important;
+  -webkit-text-stroke-width: 0 !important;
+  -webkit-text-stroke-color: transparent !important;
   text-stroke: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
   transition: color 0.2s ease;
   padding: 0.5rem 0;
   text-decoration: none;
 }
 
-.mobile-link:hover {
-  color: var(--color-accent, #4caf50) !important;
+#mobile-menu .mobile-link:hover {
+  color: var(--color-accent, var(--accent, #4caf50)) !important;
+  -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50)) !important;
 }
 
 /* Sub-links (indented) */
-.mobile-link-sub {
+#mobile-menu .mobile-link-sub {
   font-size: 1rem !important;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
   padding-left: 1rem;
 }
 
-.mobile-link-sub:hover {
-  color: rgba(255, 255, 255, 0.9);
+#mobile-menu .mobile-link-sub:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* CTA link styling */
-.mobile-link-cta {
-  color: var(--color-accent, #4caf50) !important;
+#mobile-menu .mobile-link-cta {
+  color: var(--color-accent, var(--accent, #4caf50)) !important;
+  -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50)) !important;
   margin-top: 1rem;
 }

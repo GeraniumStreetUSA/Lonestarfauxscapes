@@ -216,16 +216,19 @@
     }
     #mobile-menu.active { transform: translateY(0); }
     .mobile-link {
-      font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 3rem;
+      font-family: var(--font-heading, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+      font-size: 1.5rem;
       font-weight: 700;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      -webkit-text-fill-color: rgba(255,255,255,0.9);
+      -webkit-text-stroke: 0;
       transition: 0.3s;
+      padding: 0.5rem 0;
+      text-decoration: none;
     }
     .mobile-link:hover {
-      color: var(--accent);
-      -webkit-text-stroke: 0px;
+      color: var(--color-accent, var(--accent, #4caf50));
+      -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
     }
 
     /* Hero */
@@ -941,4 +944,3 @@
   <script src="nav.js"></script>
 </body>
 </html>
-

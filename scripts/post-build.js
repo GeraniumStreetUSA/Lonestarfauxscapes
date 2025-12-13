@@ -9,6 +9,7 @@ const filesToCopy = [
   { src: './robots.txt', dest: 'robots.txt' },
   { src: './_headers', dest: '_headers' },
   { src: './admin/config.yml', dest: 'admin/config.yml' },
+  { src: './content/posts.json', dest: 'content/posts.json' },
   // JavaScript files (not bundled due to missing type="module")
   { src: './utils.js', dest: 'utils.js' },
   { src: './index.js', dest: 'index.js' },
@@ -19,7 +20,9 @@ const filesToCopy = [
   { src: './card-effects.js', dest: 'card-effects.js' },
   { src: './reactive-effects.js', dest: 'reactive-effects.js' },
   { src: './prefetch.js', dest: 'prefetch.js' },
+  { src: './script.js', dest: 'script.js' },
   // CSS files
+  { src: './style.css', dest: 'style.css' },
   { src: './navbar.css', dest: 'navbar.css' },
   { src: './enhancements.css', dest: 'enhancements.css' },
 ];
