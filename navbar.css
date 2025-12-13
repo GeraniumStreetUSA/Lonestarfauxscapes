@@ -570,34 +570,34 @@ section,
   }
 }
 
-/* Mobile menu overlay */
+/* Mobile menu overlay - !important overrides inline styles */
 #mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh; /* svh = stable viewport, no jump with iOS URL bar */
-  background: rgba(5, 10, 7, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 9999;
-  padding: 5rem 2rem 2rem;
-  transform: translateY(-100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  overflow-y: auto;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100svh !important; /* svh = stable viewport, no jump with iOS URL bar */
+  background: rgba(5, 10, 7, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  z-index: 9999 !important;
+  padding: 5rem 2rem 2rem !important;
+  transform: translateY(-100%) !important;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  overflow-y: auto !important;
 }
 
 #mobile-menu.active {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 /* Mobile menu close button */
