@@ -7,6 +7,29 @@ const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
 
+// Generate FAQ schema if FAQs exist
+const generateFAQSchema = (faq) => {
+  if (!faq || !Array.isArray(faq) || faq.length === 0) return '';
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
+  return `
+  <script type="application/ld+json">
+  ${JSON.stringify(faqSchema, null, 2)}
+  </script>`;
+};
+
 // Blog post page template - matches your existing site styling
 const generatePostHTML = (post) => `<!DOCTYPE html>
 <html lang="en">
@@ -59,6 +82,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     }
   }
   </script>
+  ${generateFAQSchema(post.faq)}
 
   <style>
     :root {
@@ -596,6 +620,7 @@ async function buildBlog() {
       category: data.category || 'Guides',
       tags: data.tags || [],
       relatedUrl: data.relatedUrl || '',
+      faq: data.faq || [],
     };
 
     // Check if post is scheduled for the future
@@ -622,7 +647,7 @@ async function buildBlog() {
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   // Save posts data for blog listing (without full content)
-  const postsData = posts.map(({ content, ...rest }) => rest);
+  const postsData = posts.map(({ content, faq, ...rest }) => rest);
   fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
   console.log(`  Generated: ${POSTS_JSON}`);
 
