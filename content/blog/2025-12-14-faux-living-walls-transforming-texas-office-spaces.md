@@ -2,7 +2,7 @@
 title: "Faux Living Walls Transforming Texas Office Spaces"
 summary: "Discover how faux living walls enhance Texas offices with low-maintenance beauty, fire-rated safety, and custom design flexibility for business owners."
 date: 2025-12-14
-image: /images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg
+image: images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg
 category: "Commercial Design"
 tags:
   - faux-living-wall
@@ -33,7 +33,7 @@ The commercial advantages extend beyond aesthetics. Unlike live walls that requi
 
 For facilities managers, the benefits are measurable. Corporate campuses report eliminating 15-20 hours monthly previously spent on plant maintenance staff. Energy savings also accrue from removing irrigation systems that often account for 5-8% of a building's water usage.  
 
-![heat flow artificial living wall 001](/images/blog/heat flow artificial living wall-001.jpg)  
+![Heat flow artificial living wall](/images/blog/heat-flow-artificial-living-wall-001.jpg)  
 
 ## Why Texas Offices Are Switching to Faux  
 
@@ -81,7 +81,7 @@ Installation flexibility meets diverse needs:
 - Freestanding room dividers with planter bases  
 - Corner wrap designs that maximize small footprints  
 
-![artificial living walls 001](/images/blog/artificial living walls-001.jpg)  
+![Artificial living walls](/images/blog/artificial-living-walls-001.jpg)  
 
 The design process typically involves:  
 1. Digital mockups showing lighting effects at different times of day  
@@ -145,7 +145,7 @@ Professional installation teams should provide:
 - Custom cutting tools for precise perimeter fits  
 - Post-installation tension adjustments as materials settle  
 
-![artificial living walls 002](/images/blog/artificial living walls-002.jpg)  
+![Artificial living walls installation](/images/blog/artificial-living-walls-002.jpg)  
 
 ## Frequently Asked Questions  
 
