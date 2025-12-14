@@ -1,25 +1,13 @@
 ---
 title: "Why Fire Rated Artificial Hedges Are Ideal for Texas High-Rises"
-description: "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes."
-date: 2025-12-13T19:14:12-06:00
-keywords: ["Artificial Fire Rated Hedges for High Rises"]
-author: "Alexander Tarnowski"
-draft: false
-faq:
-  - question: "Do fire rated hedges look cheap?"
-    answer: "Not the high-end ones. Premium artificial hedges use varied leaf patterns and color gradients to mimic real plants. Up close, you might see the difference—but from a neighbor’s balcony or street view, they’re indistinguishable."
-  - question: "How long do they last outdoors?"
-    answer: "Expect 7–10 years in Texas weather if they’re UV-treated. Cheaper options might fade or crack in 2–3 years."
-  - question: "Can I install them myself?"
-    answer: "Yes, if you’re comfortable drilling into balcony rails. For rentals or complex layouts, professional installation ensures compliance with building codes."
-  - question: "Will they blow away?"
-    answer: "Not if installed correctly. Aluminum framing and tight panel connections prevent movement, even in high winds."
-  - question: "Are they safe for pets?"
-    answer: "Yes. The materials are non-toxic, though some pets might try to chew them (just like real plants)."
-  - question: "Can fire rated hedges be customized to fit odd-shaped balconies?"
-    answer: "Many manufacturers offer custom sizing or trim-to-fit panels that can adapt to curved railings or angled corners. Some even provide templates for complex installations."
-  - question: "Do they provide any sound dampening benefits?"
-    answer: "While not their primary purpose, dense artificial hedge panels can slightly reduce street noise—a bonus in urban high-rises near busy roads or construction sites."
+summary: "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes."
+date: 2025-12-13
+image: images/hedges/hedge-privacy-2-1200w.jpg
+category: "Guides"
+tags:
+  - fire rated artificial hedges
+  - Texas high-rises
+  - balcony landscaping
 faq:
   - question: "Do fire rated hedges look cheap?"
     answer: "Not the high-end ones. Premium artificial hedges use varied leaf patterns and color gradients to mimic real plants. Up close, you might see the difference—but from a neighbor’s balcony or street view, they’re indistinguishable."
