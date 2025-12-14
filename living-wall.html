@@ -463,6 +463,66 @@
         font-weight: 800;
         margin-right: 0.3rem;
       }
+
+      /* === MOBILE HERO IMPROVEMENTS === */
+      .hero::before {
+        background: rgba(0, 0, 0, 0.65) !important;
+      }
+      .hero-copy {
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
+        line-height: 1.15;
+      }
+      .hero .eyebrow {
+        display: none;
+      }
+      .hero .lede {
+        font-size: 1rem;
+        line-height: 1.5;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .bullet-list {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto 1rem;
+      }
+      .bullet-list li {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+      }
+      .hero .cta-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        max-width: 280px;
+        margin: 1rem auto 0;
+      }
+      .hero .cta-row .btn {
+        width: 100%;
+        text-align: center;
+      }
+      .spec-card {
+        display: none;
+      }
+      .metrics-strip {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        max-width: 280px;
+        margin: 1.5rem auto 0;
+      }
+      .metric-pill {
+        padding: 0.75rem;
+      }
+      .metric-value {
+        font-size: 1.2rem;
+      }
+      .metric-label {
+        font-size: 0.85rem;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
