@@ -1104,21 +1104,42 @@
             background: rgba(255, 255, 255, 0.25);
         }
         @media (max-width: 768px) {
+            /* Mobile: Glass card treatment for trust strip */
             .trust-strip {
-                gap: 0.5rem 0.75rem;
-                margin-bottom: 0.75rem;
+                background: rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 12px;
+                padding: 0.75rem 1rem;
+                gap: 0.4rem 0.6rem;
+                margin-bottom: 1rem;
+                justify-content: center;
             }
             .trust-item {
-                font-size: 0.6rem;
-                color: rgba(255, 255, 255, 0.85);
-                text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+                font-size: 0.65rem;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 600;
             }
             .trust-item svg {
-                width: 10px;
-                height: 10px;
+                width: 11px;
+                height: 11px;
+                stroke: var(--color-accent);
             }
             .trust-divider {
-                display: none;
+                height: 12px;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            /* Mobile: Glass card treatment for eyebrow */
+            .eyebrow {
+                background: rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 12px;
+                padding: 0.5rem 1rem;
+                font-size: 0.7rem;
+                text-shadow: none;
             }
         }
 
