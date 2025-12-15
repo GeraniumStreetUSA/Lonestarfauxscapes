@@ -131,7 +131,8 @@
       "Bash(cmd /c del \"C:\\dev\\loanstar\\blog\\sample-post.html\")",
       "Bash(cmd /c del \"C:\\dev\\loanstar\\content\\blog\\sample-post.md\")",
       "Bash(cmd /c dir \"C:\\dev\\loanstar\\content\\blog\\*.md\")",
-      "Bash(git -C \"C:\\dev\\loanstar\" commit -m \"$(cat <<''EOF''\nRemove fake content and add fire-rated blog hero image\n\n- Remove carousel overlay captions from products page\n- Update gallery labels to generic descriptions\n- Remove fake case study from commercial page\n- Remove fake aggregateRating from 3 product pages\n- Remove \"deployed nationwide\" claim from amazon-wall-mat\n- Delete sample blog post\n- Add artsy hero image for fire-rated hedges article\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git -C \"C:\\dev\\loanstar\" commit -m \"$(cat <<''EOF''\nRemove fake content and add fire-rated blog hero image\n\n- Remove carousel overlay captions from products page\n- Update gallery labels to generic descriptions\n- Remove fake case study from commercial page\n- Remove fake aggregateRating from 3 product pages\n- Remove \"deployed nationwide\" claim from amazon-wall-mat\n- Delete sample blog post\n- Add artsy hero image for fire-rated hedges article\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git -C \"C:\\dev\\loanstar\" commit -m \"$(cat <<''EOF''\nAdd images to fire-rated hedges article\n\n- Rename balcony hedge images for SEO (remove spaces)\n- Replace [IMAGE_1] and [IMAGE_2] placeholders with actual images\n- Rebuild blog\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []
