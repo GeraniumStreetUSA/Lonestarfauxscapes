@@ -596,32 +596,34 @@
     window.addEventListener('resize', handleResize);
   };
 
-  // Lazy-load Three.js when canvas container is visible
+  // FIX 1: Lazy-load Three.js only after user scrolls (prevents TBT on initial load)
   const lazyLoadThreeJS = () => {
     const container = document.getElementById('canvas-container');
-    if (!container) return;
+    if (!container || isMobile()) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          const script = document.createElement('script');
-          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-          script.onload = () => setTimeout(initThreeJS, 50);
-          document.head.appendChild(script);
-        }
-      });
-    }, { rootMargin: '200px' });
+    let loaded = false;
+    const loadThreeJS = () => {
+      if (loaded) return;
+      loaded = true;
+      window.removeEventListener('scroll', onFirstScroll);
 
-    observer.observe(container);
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+      script.onload = () => requestAnimationFrame(initThreeJS);
+      document.head.appendChild(script);
+    };
+
+    const onFirstScroll = () => loadThreeJS();
+    window.addEventListener('scroll', onFirstScroll, { once: true, passive: true });
   };
 
   const init = () => {
         initLiveCards();
         initYear();
         initMobileMenu();
-        initAnimations();
-        initTexasMap();
+        // FIX 2: Delay GSAP animations by 3 seconds to reduce TBT
+        setTimeout(initAnimations, 3000);
+        setTimeout(initTexasMap, 3000);
         initParallaxMedia();
         lazyLoadThreeJS();
     };
