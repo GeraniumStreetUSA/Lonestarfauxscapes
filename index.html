@@ -608,22 +608,36 @@
         .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
         @media(min-width: 992px) { .mobile-toggle { display: none; } }
 
-        /* ===== HERO v4: "QUIET LUXURY" ===== */
-        /* Billion-dollar brand aesthetic: restraint, stillness, confidence */
+        /* ===== HERO v5: "THE REVEAL" ===== */
+        /* Award-worthy: Clip-path image reveal + masked text animation */
 
-        /* Single Cinematic Animation */
-        @keyframes luxuryFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Animation Keyframes */
+        @keyframes imageReveal {
+            from { clip-path: circle(0% at 50% 50%); }
+            to { clip-path: circle(75% at 50% 50%); }
         }
 
-        /* Hero Container - Full-bleed Cinematic */
+        @keyframes textReveal {
+            from { transform: translateY(110%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes ctaReveal {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Hero Container */
         #hero {
             position: relative;
             min-height: 100vh;
@@ -634,101 +648,138 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
-            background: #0a0f0c;
+            background: #080a08;
         }
 
-        /* Full-bleed Image Layer (LCP) */
+        /* Image Layer - Clip-Path Reveal */
         .hero__media {
             position: absolute;
             inset: 0;
             z-index: 1;
         }
+
         .hero__media picture,
         .hero__media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 30%;
-            filter: brightness(0.35);
+            object-position: center 35%;
+            filter: brightness(0.55) saturate(1.1);
+            animation: imageReveal 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s both;
         }
 
-        /* Subtle Vignette - Refined, Not Dramatic */
+        /* Vignette */
         .hero__vignette {
             position: absolute;
             inset: 0;
             z-index: 2;
             pointer-events: none;
             background: radial-gradient(
-                ellipse 80% 60% at 50% 50%,
-                transparent 0%,
-                rgba(10,15,12,0.5) 100%
+                ellipse 120% 100% at 50% 50%,
+                transparent 40%,
+                rgba(0,0,0,0.6) 100%
             );
         }
 
-        /* Hero Content - Centered, Breathing Space */
+        /* Subtle Green Glow */
+        .hero__glow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 30%;
+            background: radial-gradient(
+                ellipse at 50% 100%,
+                rgba(76, 175, 80, 0.12) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 3;
+            animation: fadeIn 2s ease 2s both;
+        }
+
+        /* Content Container */
         .hero__content {
             position: relative;
             z-index: 10;
-            max-width: 900px;
+            max-width: 1000px;
             padding: 0 2rem;
-            animation: luxuryFadeIn 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s both;
         }
 
-        /* Eyebrow - Understated Brand Name */
+        /* Eyebrow */
         .hero__eyebrow {
             display: block;
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease 0.8s both;
         }
 
-        /* Editorial Headline - Light Weight, Generous Spacing */
+        /* Headline with Masked Reveal */
         .hero__headline {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: 0.01em;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 400;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
             color: #fff;
-            margin: 0 0 2rem 0;
+            margin: 0 0 1.5rem 0;
         }
 
-        /* Subhead - Small Caps, Muted */
+        .hero__headline-line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero__headline-line span {
+            display: block;
+            animation: textReveal 0.9s cubic-bezier(0.77, 0, 0.175, 1) both;
+        }
+
+        .hero__headline-line:nth-child(1) span { animation-delay: 1.0s; }
+        .hero__headline-line:nth-child(2) span { animation-delay: 1.25s; }
+
+        /* Subhead */
         .hero__subhead {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: clamp(0.75rem, 1vw, 0.9rem);
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
             font-weight: 400;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease 1.6s both;
         }
 
-        /* CTA - Understated Refinement */
+        /* CTA Button - Confident Green */
         .hero__cta {
             display: inline-block;
-            padding: 1.1rem 2.5rem;
+            padding: 1.2rem 3rem;
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: #fff;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(76, 175, 80, 0.9);
+            border: none;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        .hero__cta:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.5);
+            animation: ctaReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 2.0s both;
+            transition: all 0.3s ease;
         }
 
-        /* City Navigation - Subtle Footer */
+        .hero__cta:hover {
+            background: rgba(76, 175, 80, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        /* City Navigation */
         .hero__cities {
             position: absolute;
             bottom: 2.5rem;
@@ -737,34 +788,44 @@
             z-index: 10;
             display: flex;
             gap: 2.5rem;
+            animation: fadeIn 0.8s ease 2.5s both;
         }
+
         .hero__cities a {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 0.65rem;
-            font-weight: 400;
+            font-size: 0.7rem;
+            font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .hero__cities a:hover {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* ===== REDUCED MOTION ===== */
         @media (prefers-reduced-motion: reduce) {
-            .hero__content {
-                animation: none;
+            .hero__media img,
+            .hero__headline-line span,
+            .hero__eyebrow,
+            .hero__subhead,
+            .hero__cta,
+            .hero__glow,
+            .hero__cities {
+                animation: none !important;
                 opacity: 1;
                 transform: none;
+                clip-path: circle(75% at 50% 50%);
             }
         }
 
         /* ===== MOBILE HERO ===== */
         @media (max-width: 768px) {
             .hero__headline {
-                font-size: clamp(2.5rem, 11vw, 4rem);
+                font-size: clamp(2.8rem, 12vw, 4.5rem);
             }
 
             .hero__content {
@@ -778,8 +839,9 @@
                 justify-content: center;
                 max-width: 90%;
             }
+
             .hero__cities a {
-                font-size: 0.6rem;
+                font-size: 0.65rem;
             }
         }
 
@@ -2197,10 +2259,10 @@
 </script>
 
 
-<!-- Hero Section - "Quiet Luxury" v4 -->
+<!-- Hero Section - "THE REVEAL" v5 -->
     <div id="main-content" tabindex="-1" style="outline:none;"></div>
     <section id="hero" aria-labelledby="hero-heading">
-        <!-- Full-bleed LCP Image -->
+        <!-- Image Layer with Clip-Path Reveal -->
         <div class="hero__media">
             <picture>
                 <source
@@ -2226,20 +2288,22 @@
             </picture>
         </div>
 
-        <!-- Subtle Vignette -->
+        <!-- Visual Effects -->
         <div class="hero__vignette" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
 
-        <!-- Content - Centered, Minimal -->
+        <!-- Content with Masked Reveals -->
         <div class="hero__content">
             <p class="hero__eyebrow">Lone Star Faux Scapes</p>
             <h1 id="hero-heading" class="hero__headline">
-                Custom Greenery.<br>Built for Texas.
+                <span class="hero__headline-line"><span>Custom Greenery.</span></span>
+                <span class="hero__headline-line"><span>Built for Texas.</span></span>
             </h1>
             <p class="hero__subhead">Fire-Rated · UV-Stable · Zero Maintenance</p>
-            <a href="#contact" class="hero__cta">Begin Your Consultation</a>
+            <a href="#contact" class="hero__cta">Schedule Your Consultation</a>
         </div>
 
-        <!-- City Navigation - Subtle Footer -->
+        <!-- City Navigation -->
         <nav class="hero__cities" aria-label="Service areas">
             <a href="austin.html">Austin</a>
             <a href="dallas.html">Dallas</a>
