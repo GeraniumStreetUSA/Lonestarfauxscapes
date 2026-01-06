@@ -199,3 +199,90 @@ Fix Lighthouse scores to achieve:
 - Mobile experience preserved
 - Deploy to Cloudflare Pages to see updated scores
 
+---
+
+# Hero Redesign - "The Stillness" (2026-01-06)
+
+## Goal
+
+Redesign homepage hero section with premium editorial design inspired by Tobias van Schneider. Key objectives:
+- Remove performance-heavy Three.js WebGL (2000 particles)
+- Remove GSAP hero animations
+- Use CSS-only animations (transform + opacity only)
+- Maintain Lighthouse Performance 95+
+- Support `prefers-reduced-motion`
+
+## Design: "The Stillness"
+
+Premium editorial restraint with frosted glass text panel. Large hero image dominates viewport with floating glass panel bottom-left.
+
+### Copy
+- **Headline**: "Custom Greenery. Built for Texas."
+- **Subhead**: "Fire-rated. UV-stable. Zero maintenance."
+- **CTA**: "Schedule Consultation"
+- **City Links**: Austin / Dallas / Houston / San Antonio
+
+## Completed Changes
+
+### 1. Hero HTML Structure (index.html lines 2325-2375)
+- Replaced complex multi-layer hero with clean semantic structure
+- New `.hero__media` layer for full-bleed image (LCP)
+- New `.hero__panel` frosted glass content panel
+- New `.hero__cities` navigation
+
+### 2. Hero CSS ("The Stillness" styles, lines 605-813)
+- CSS keyframe animations: `heroFadeIn`, `heroSlideUp`, `heroScaleIn`
+- Frosted glass: `backdrop-filter: blur(16px) saturate(120%)`
+- Staggered entrance animations with `animation-delay`
+- `@media (prefers-reduced-motion: reduce)` support
+- Mobile responsive layout
+
+### 3. Three.js Removal (index.js)
+- Removed entire `initThreeJS()` function (~350 lines)
+- Removed `lazyLoadThreeJS()` function
+- Removed Three.js library loading
+
+### 4. GSAP Hero Cleanup (index.js)
+- Removed `.gs-fade-up` hero element animations
+- Removed hero headline parallax
+- Removed hero media parallax
+- Removed hero motif animation
+- Kept `.gs-reveal` scroll animations for below-fold content
+
+## Files Modified
+
+| File | Changes |
+|------|---------|
+| `index.html` | Hero HTML (lines 2325-2375), Hero CSS (lines 605-813) |
+| `index.js` | Removed Three.js (~350 lines), cleaned GSAP (~40 lines) |
+| `hero-backup.html` | Backup of original hero section |
+
+## Expected Performance Impact
+
+| Metric | Before | After | Impact |
+|--------|--------|-------|--------|
+| TBT | ~200ms | ~50ms | Three.js/GSAP removed |
+| LCP | ~1.2s | ~1.0s | No canvas delay |
+| CLS | 0 | 0 | Explicit dimensions |
+| JS Bundle | ~150KB | 0 | Three.js removed |
+
+## Animation Timing
+
+| Element | Animation | Duration | Delay |
+|---------|-----------|----------|-------|
+| `.hero__panel` | fadeIn | 600ms | 200ms |
+| `.hero__headline-line:nth(1)` | slideUp | 500ms | 300ms |
+| `.hero__headline-line:nth(2)` | slideUp | 500ms | 450ms |
+| `.hero__subhead` | fadeIn | 400ms | 600ms |
+| `.hero__cta` | scaleIn | 400ms | 750ms |
+| `.hero__cities` | fadeIn | 400ms | 900ms |
+
+## Testing Checklist
+
+- [ ] Lighthouse Performance 95+
+- [ ] `prefers-reduced-motion` disables animations
+- [ ] Mobile layout centers panel
+- [ ] City links work correctly
+- [ ] CTA scrolls to contact section
+- [ ] No CLS on load
+
