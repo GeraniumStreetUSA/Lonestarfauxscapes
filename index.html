@@ -11,6 +11,12 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <!-- Instrument Serif - Premium architectural display font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"></noscript>
 
     <!-- SEO Metadata -->
     <title>Artificial Hedges & Living Walls in Texas | Lone Star Faux Scapes</title>
@@ -602,31 +608,48 @@
         .mobile-toggle { color: #fff; font-size: 1.2rem; cursor: pointer; display: block; }
         @media(min-width: 992px) { .mobile-toggle { display: none; } }
 
-        /* ===== "THE STILLNESS" HERO - Premium Editorial Design ===== */
+        /* ===== PREMIUM HERO v2 - High-End Architecture Firm Aesthetic ===== */
 
-        /* CSS Keyframe Animations */
-        @keyframes heroFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Cinematic Animation Keyframes */
+        @keyframes imageZoom {
+            from { transform: scale(1.05); }
+            to { transform: scale(1); }
         }
-        @keyframes heroSlideUp {
+        @keyframes clipRevealUp {
+            from { clip-path: inset(100% 0 0 0); }
+            to { clip-path: inset(0 0 0 0); }
+        }
+        @keyframes clipRevealRight {
+            from { clip-path: inset(0 100% 0 0); }
+            to { clip-path: inset(0 0 0 0); }
+        }
+        @keyframes subtlePush {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes heroScaleIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes accentSlideIn {
+            from { transform: scaleY(0); opacity: 0; }
+            to { transform: scaleY(1); opacity: 0.7; }
+        }
+        @keyframes accentPulse {
+            0%, 100% { opacity: 0.5; box-shadow: 0 0 15px rgba(76,175,80,0.3); }
+            50% { opacity: 0.8; box-shadow: 0 0 30px rgba(76,175,80,0.5); }
+        }
+        @keyframes cityFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Hero Container */
+        /* Hero Container - CSS Grid Layout */
         #hero.hero {
             position: relative;
             min-height: 100vh;
             min-height: 100svh;
-            display: flex;
-            align-items: flex-end;
+            display: grid;
+            grid-template-columns: clamp(4rem, 8vw, 8rem) 1fr clamp(4rem, 8vw, 8rem);
+            grid-template-rows: 1fr auto 1fr;
             overflow: hidden;
-            background: var(--color-bg);
+            background: #050a07;
         }
 
         /* Full-bleed Image Layer (LCP) */
@@ -634,6 +657,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
+            overflow: hidden;
         }
         .hero__media picture,
         .hero__media img {
@@ -641,174 +665,243 @@
             height: 100%;
             object-fit: cover;
             object-position: center 30%;
+            animation: imageZoom 2s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
-        /* Subtle darkening scrim for text legibility */
+        /* Multi-Layer Gradient Scrim */
         .hero__scrim {
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(5, 10, 7, 0.85) 0%,
-                rgba(5, 10, 7, 0.4) 40%,
-                rgba(5, 10, 7, 0.15) 70%,
-                transparent 100%
-            );
+            z-index: 2;
             pointer-events: none;
+            background:
+                /* Bottom fade for text */
+                linear-gradient(to top, rgba(5,10,7,0.95) 0%, rgba(5,10,7,0.7) 25%, transparent 60%),
+                /* Left vignette */
+                linear-gradient(to right, rgba(5,10,7,0.6) 0%, transparent 40%),
+                /* Green accent glow */
+                radial-gradient(ellipse 80% 50% at 70% 60%, rgba(76,175,80,0.08) 0%, transparent 50%),
+                /* Top-right highlight */
+                radial-gradient(ellipse 60% 40% at 85% 15%, rgba(255,255,255,0.03) 0%, transparent 50%);
         }
 
-        /* Frosted Glass Panel */
-        .hero__panel {
-            position: relative;
+        /* Film Grain Texture */
+        .hero__grain {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Signature Vertical Accent Bar */
+        .hero__accent-bar {
+            position: absolute;
+            left: clamp(1rem, 4vw, 5rem);
+            top: 20%;
+            height: 40%;
+            width: 3px;
+            background: linear-gradient(to bottom, transparent 0%, #4caf50 20%, #4caf50 80%, transparent 100%);
+            border-radius: 2px;
+            z-index: 15;
+            box-shadow: 0 0 20px rgba(76,175,80,0.4);
+            transform-origin: top center;
+            animation:
+                accentSlideIn 800ms cubic-bezier(0.16,1,0.3,1) 100ms both,
+                accentPulse 4s ease-in-out 1s infinite;
+        }
+
+        /* Hero Content - Grid Positioned */
+        .hero__content {
+            grid-column: 2;
+            grid-row: 2;
             z-index: 10;
-            margin: 0 0 clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 6rem);
-            padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3rem);
-            max-width: 520px;
-            background: rgba(5, 10, 7, 0.55);
-            backdrop-filter: blur(16px) saturate(120%);
-            -webkit-backdrop-filter: blur(16px) saturate(120%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 4px;
-            box-shadow:
-                0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            /* Animation */
-            animation: heroFadeIn 600ms ease-out 200ms both;
-        }
-        .hero__panel:hover {
-            border-color: rgba(76, 175, 80, 0.2);
-            transition: border-color 0.4s ease;
+            max-width: 700px;
+            padding-left: clamp(1rem, 3vw, 2rem);
         }
 
-        /* Headline Typography */
+        /* Eyebrow Text */
+        .hero__eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            animation: clipRevealRight 500ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+        }
+
+        /* Headline Typography - Instrument Serif */
         .hero__headline {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
             color: #fff;
-            margin: 0 0 1rem 0;
+            margin: 0 0 1.5rem 0;
         }
         .hero__headline-line {
             display: block;
-            animation: heroSlideUp 500ms ease-out both;
+            animation: clipRevealUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        .hero__headline-line:nth-child(1) { animation-delay: 300ms; }
+        .hero__headline-line:nth-child(1) {
+            animation-delay: 400ms;
+        }
         .hero__headline-line:nth-child(2) {
-            animation-delay: 450ms;
-            color: var(--color-accent);
+            animation-delay: 600ms;
+        }
+
+        /* Gradient Italic Accent */
+        .hero__headline-accent {
+            font-style: italic;
+            background: linear-gradient(135deg, #4caf50 0%, #7ec881 50%, #4caf50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Subhead */
         .hero__subhead {
             font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             font-weight: 500;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0 0 1.5rem 0;
-            animation: heroFadeIn 400ms ease-out 600ms both;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0 0 2rem 0;
+            animation: subtlePush 500ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both;
         }
 
         /* CTA Button */
         .hero__cta.btn {
             display: inline-block;
-            padding: 1rem 2rem;
-            font-size: 0.95rem;
+            padding: 1.1rem 2.5rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            letter-spacing: 0.04em;
-            animation: heroScaleIn 400ms ease-out 750ms both;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            animation: subtlePush 500ms cubic-bezier(0.16, 1, 0.3, 1) 1100ms both;
         }
 
-        /* City Navigation */
+        /* City Navigation - Vertical on Desktop */
         .hero__cities {
-            position: absolute;
-            bottom: clamp(1.5rem, 3vw, 2.5rem);
-            right: clamp(1.5rem, 5vw, 6rem);
+            grid-column: 3;
+            grid-row: 2;
             z-index: 10;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            animation: heroFadeIn 400ms ease-out 900ms both;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0.75rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding-right: clamp(1rem, 2vw, 2rem);
         }
         .hero__cities a {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            transition: color 0.2s ease;
+            color: rgba(255, 255, 255, 0.4);
+            transition: color 0.3s ease, transform 0.3s ease;
+            animation: cityFadeIn 400ms ease-out both;
         }
+        .hero__cities a:nth-child(1) { animation-delay: 1400ms; }
+        .hero__cities a:nth-child(3) { animation-delay: 1500ms; }
+        .hero__cities a:nth-child(5) { animation-delay: 1600ms; }
+        .hero__cities a:nth-child(7) { animation-delay: 1700ms; }
         .hero__cities a:hover {
             color: var(--color-accent);
+            transform: translateX(-2px);
         }
         .hero__cities span {
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 0.6rem;
+            animation: cityFadeIn 400ms ease-out 1450ms both;
         }
 
         /* ===== REDUCED MOTION ===== */
         @media (prefers-reduced-motion: reduce) {
-            .hero__panel,
+            .hero__media img,
+            .hero__accent-bar,
+            .hero__eyebrow,
             .hero__headline-line,
             .hero__subhead,
             .hero__cta.btn,
-            .hero__cities {
+            .hero__cities a,
+            .hero__cities span {
                 animation: none;
                 opacity: 1;
                 transform: none;
+                clip-path: none;
+            }
+            .hero__accent-bar {
+                opacity: 0.6;
             }
         }
 
         /* ===== MOBILE HERO ===== */
         @media (max-width: 768px) {
             #hero.hero {
-                align-items: center;
-                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: stretch;
+                padding-bottom: 5rem;
             }
 
             /* Stronger scrim on mobile */
             .hero__scrim {
-                background: linear-gradient(
-                    to top,
-                    rgba(5, 10, 7, 0.9) 0%,
-                    rgba(5, 10, 7, 0.6) 50%,
-                    rgba(5, 10, 7, 0.3) 100%
-                );
+                background:
+                    linear-gradient(to top, rgba(5,10,7,0.95) 0%, rgba(5,10,7,0.7) 40%, rgba(5,10,7,0.3) 70%, transparent 100%),
+                    linear-gradient(to right, rgba(5,10,7,0.4) 0%, transparent 50%);
             }
 
-            /* Center the panel */
-            .hero__panel {
-                margin: 0 1rem;
-                padding: 1.5rem;
-                max-width: 100%;
+            /* Hide accent bar on mobile */
+            .hero__accent-bar {
+                display: none;
+            }
+
+            /* Center content on mobile */
+            .hero__content {
                 text-align: center;
-                background: rgba(5, 10, 7, 0.65);
+                padding: 0 1.5rem;
+                max-width: 100%;
             }
 
-            /* Headline adjustments */
+            /* Smaller headline on mobile */
             .hero__headline {
-                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                font-size: clamp(2.5rem, 12vw, 4rem);
+                line-height: 1;
             }
 
-            /* Full-width CTA on mobile */
+            /* Full-width CTA */
             .hero__cta.btn {
                 width: 100%;
-                text-align: center;
+                max-width: 280px;
             }
 
-            /* City navigation at bottom center */
+            /* Horizontal city nav at bottom */
             .hero__cities {
                 position: absolute;
                 bottom: 1.5rem;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%);
-                flex-wrap: wrap;
+                left: 0;
+                right: 0;
+                writing-mode: horizontal-tb;
+                text-orientation: initial;
+                flex-direction: row;
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0 1rem;
             }
             .hero__cities a {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+            }
+            .hero__cities a:hover {
+                transform: none;
             }
         }
 
@@ -2226,7 +2319,7 @@
 </script>
 
 
-<!-- Hero Section - "The Stillness" Design -->
+<!-- Hero Section - Premium v2 Design -->
     <div id="main-content" tabindex="-1" style="outline:none;"></div>
     <section id="hero" class="hero" aria-labelledby="hero-heading">
         <!-- LCP Image Layer -->
@@ -2253,20 +2346,25 @@
                   width="1200"
                   height="800">
             </picture>
-            <div class="hero__scrim" aria-hidden="true"></div>
         </div>
 
-        <!-- Frosted Glass Content Panel -->
-        <div class="hero__panel">
+        <!-- Visual Layers -->
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="hero__grain" aria-hidden="true"></div>
+        <div class="hero__accent-bar" aria-hidden="true"></div>
+
+        <!-- Content - Direct Over Image -->
+        <div class="hero__content">
+            <span class="hero__eyebrow">Texas Installations</span>
             <h1 id="hero-heading" class="hero__headline">
-                <span class="hero__headline-line">Custom Greenery.</span>
-                <span class="hero__headline-line">Built for Texas.</span>
+                <span class="hero__headline-line">Custom</span>
+                <span class="hero__headline-line hero__headline-accent">Greenery.</span>
             </h1>
-            <p class="hero__subhead">Fire-rated. UV-stable. Zero maintenance.</p>
+            <p class="hero__subhead">Fire-rated · UV-stable · Zero maintenance</p>
             <a href="#contact" class="hero__cta btn">Schedule Consultation</a>
         </div>
 
-        <!-- City Navigation -->
+        <!-- City Navigation - Vertical on Desktop -->
         <nav class="hero__cities" aria-label="Service areas">
             <a href="austin.html">Austin</a>
             <span aria-hidden="true">/</span>
