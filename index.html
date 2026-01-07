@@ -671,14 +671,18 @@
             to { opacity: 1; }
         }
 
+        /* Smooth text reveal - gentle rise with soft landing */
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; transform: translateY(12px); }
+            60% { opacity: 0.8; }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* Smooth CTA reveal - gentle fade with subtle scale */
         @keyframes ctaReveal {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            0% { opacity: 0; transform: scale(0.97); }
+            60% { opacity: 0.8; }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         /* ===== HERO CONTAINER ===== */
@@ -832,7 +836,7 @@
             text-transform: uppercase;
             color: var(--hero-accent);
             margin: 0 0 1.25rem 0;
-            animation: fadeIn 0.3s var(--settle) 1.3s forwards;
+            animation: fadeIn 0.4s var(--settle) 1.3s forwards;
         }
 
         /* Headline - Fraunces, bolder for Texas confidence */
@@ -857,11 +861,11 @@
         }
 
         .hero__headline-line:nth-child(1) span {
-            animation: slideUp 0.3s var(--spring-bounce) 1.4s forwards;
+            animation: slideUp 0.5s var(--settle) 1.4s forwards;
         }
 
         .hero__headline-line:nth-child(2) span {
-            animation: slideUp 0.3s var(--spring-bounce) 1.5s forwards;
+            animation: slideUp 0.5s var(--settle) 1.55s forwards;
         }
 
         /* Subhead (FASTER: 1.6s not 2.7s) */
@@ -873,7 +877,7 @@
             text-transform: uppercase;
             color: var(--hero-text-muted);
             margin: 0 0 2.5rem 0;
-            animation: fadeIn 0.3s var(--settle) 1.6s forwards;
+            animation: fadeIn 0.4s var(--settle) 1.7s forwards;
         }
 
         /* CTA Button */
@@ -893,7 +897,7 @@
             border-radius: 2px;
             text-decoration: none;
             cursor: pointer;
-            animation: ctaReveal 0.3s var(--spring-bounce) 1.7s forwards;
+            animation: ctaReveal 0.5s var(--settle) 1.75s forwards;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
 
@@ -917,7 +921,7 @@
             align-items: center;
             gap: 1.25rem;
             opacity: 0;
-            animation: fadeIn 0.3s var(--settle) 1.9s forwards;
+            animation: fadeIn 0.4s var(--settle) 2.1s forwards;
         }
 
         .hero__cities a {
@@ -955,7 +959,7 @@
             text-transform: uppercase;
             color: rgba(245, 242, 235, 0.3);
             opacity: 0;
-            animation: fadeIn 0.3s var(--settle) 1.9s forwards;
+            animation: fadeIn 0.4s var(--settle) 2.1s forwards;
         }
 
         /* ===== REDUCED MOTION ===== */
