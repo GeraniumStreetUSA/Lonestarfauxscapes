@@ -307,9 +307,18 @@
     .step h3 { margin: 0 0 0.35rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
     .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; }
     .use-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
-    .foliage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .foliage-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; display: grid; gap: 0.5rem; }
-    .foliage-swatch { width: 100%; height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(100,211,138,0.3), rgba(17,26,22,0.9)); border: 1px solid var(--line); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .product-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .product-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 16px 40px rgba(100,211,138,0.15); }
+    .product-badge { position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: #041208; font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; z-index: 2; }
+    .product-image { width: 100%; height: 200px; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .product-card:hover .product-image img { transform: scale(1.05); }
+    .product-content { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+    .product-content h3 { margin: 0; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; }
+    .product-content p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+    .product-content .btn { align-self: flex-start; font-size: 0.75rem; padding: 0.65rem 1.1rem; }
     .comparison { border: 1px solid var(--line); border-radius: 16px; padding: 1rem; background: rgba(255,255,255,0.02); overflow: hidden; }
     .comparison-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 0.6rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); align-items: center; }
     .comparison-row:last-child { border-bottom: none; }
@@ -1249,32 +1258,53 @@
       </div>
     </section>
 
-    <section class="section" id="foliage">
+    <section class="section" id="products">
       <div class="container">
         <div class="section-header">
-          <h2>Living Wall Foliage Options</h2>
-          <p>We offer a variety of artificial foliage styles to match your design vision. All options are UV-stabilized for outdoor use and available with fire-rated treatments.</p>
+          <h2>Living Wall Mat Options</h2>
+          <p>Choose from our curated selection of artificial living wall systems. All options are UV-stabilized and available with fire-rated treatments for commercial compliance.</p>
         </div>
-        <div class="foliage-grid">
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Mixed Tropical</h3>
-            <p>Our most popular option combines ferns, philodendrons, and pothos for a lush, layered look. Varying leaf sizes create depth and visual interest suited to modern commercial spaces.</p>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="images/living-wall-mats/single-mat.avif" alt="Single Mat Living Wall" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Single Mat</h3>
+              <p>Various single mat artificial living wall options. Perfect for accent walls, columns, and smaller installations. Mix and match to create your unique design.</p>
+              <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+            </div>
           </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Succulent Mosaic</h3>
-            <p>Geometric patterns using artificial succulents, echeveria, and sedum. Perfect for contemporary designs that want color variation and sculptural texture.</p>
+          <div class="product-card featured">
+            <div class="product-badge">Popular</div>
+            <div class="product-image">
+              <img src="images/living-wall-mats/vallum-frx.avif" alt="Vallum FRX Living Wall System" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Vallum FRX</h3>
+              <p>Three-layer engineered system with NFPA 701 Method 2 fire rating and ASTM E84 Class A smoke rating. 1-year structural warranty, 3-year foliage color warranty.</p>
+              <a href="vallum-frx.html" class="btn btn-primary">Learn More</a>
+            </div>
           </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Boxwood & Ivy Blend</h3>
-            <p>A classic combination with dense boxwood base and trailing ivy accents. This timeless style works well in traditional settings and formal entryways.</p>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="images/living-wall-mats/fluid-design.avif" alt="Fluid Design Custom Living Wall" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Fluid Design</h3>
+              <p>Custom mix of various single mat options creating unique, flowing designs. Let our team craft a one-of-a-kind living wall tailored to your space.</p>
+              <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+            </div>
           </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Custom Botanical Mix</h3>
-            <p>We source specific plants to match your brand colors or existing landscaping. From flowering accents to specific leaf shapes, we build exactly what you envision.</p>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="images/living-wall-mats/oasis-mat.avif" alt="Oasis Living Wall Mat" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Oasis</h3>
+              <p>Artificial living wall mat designed to brighten up any space. Vibrant colors and lush textures bring energy and life to lobbies, offices, and retail environments.</p>
+              <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+            </div>
           </div>
         </div>
       </div>
