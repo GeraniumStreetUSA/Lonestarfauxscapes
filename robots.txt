@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /api/
-Disallow: /hedge-quote
-
 Sitemap: https://lonestarfauxscapes.com/sitemap.xml
