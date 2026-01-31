@@ -252,6 +252,54 @@
     @media (min-width: 992px) { #lsfs-mobile-menu { display: none !important; } }
 
     /* Article Hero */
+    
+    /* Related Products Section */
+    .related-products {
+      margin: 3rem 0 2rem;
+      padding: 2rem;
+      background: rgba(100, 211, 138, 0.05);
+      border: 1px solid rgba(100, 211, 138, 0.15);
+      border-radius: 12px;
+    }
+    .related-products h3 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .related-card:hover {
+      background: rgba(100, 211, 138, 0.1);
+      border-color: rgba(100, 211, 138, 0.3);
+      transform: translateY(-2px);
+    }
+    .related-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+    }
+    .related-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+    }
+
     .article-hero {
       padding: clamp(8rem, 12vw, 10rem) 0 3rem;
       background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(5,10,7,0.95));
@@ -495,34 +543,65 @@
     <nav id="lsfs-nav">
       <a href="/index.html" id="lsfs-logo">Lone Star Faux Scapes</a>
       <div id="lsfs-desktop-links">
-        <a href="/index.html" class="lsfs-link">Home</a>
-        <div class="lsfs-dropdown">
-          <a href="/products.html" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/living-wall.html">Living Wall</a>
-            <a href="/commercial-wall.html">Commercial Wall</a>
-            <a href="/fence-extensions.html">Fence Extensions</a>
-            <a href="/artificial-hedge.html">Artificial Hedge</a>
+      <a href="index.html" class="lsfs-link">Home</a>
+
+      <!-- Products Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="products.html" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Hedges</span>
+            <a href="artificial-hedge.html">Artificial Hedge</a>
+            <a href="artificial-boxwood-hedge.html">Boxwood Hedge</a>
+            <a href="fire-rated-artificial-hedge.html">Fire-Rated</a>
+            <a href="hoa-approved-artificial-hedge.html">HOA-Approved</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Walls & More</span>
+            <a href="living-wall.html">Living Wall</a>
+            <a href="commercial-wall.html">Commercial Wall</a>
+            <a href="fence-extensions.html">Fence Extensions</a>
+            <a href="pool-privacy-hedge.html">Pool Privacy</a>
+            <a href="vallum-frx.html">Vallum FRX</a>
           </div>
         </div>
-        <a href="/installation.html" class="lsfs-link">Installation</a>
-        <div class="lsfs-dropdown">
-          <a href="/commercial.html" class="lsfs-link">Commercial <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/hedge-builder-commercial.html">Hedge Builder</a>
-          </div>
-        </div>
-        <div class="lsfs-dropdown">
-          <a href="/residential.html" class="lsfs-link">Residential <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/hedge-builder-residential.html">Hedge Builder</a>
-          </div>
-        </div>
-        <a href="/gallery.html" class="lsfs-link">Gallery</a>
-        <a href="/blog.html" class="lsfs-link">Blog</a>
-        <a href="/index.html#contact" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
-      <button id="lsfs-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+      <!-- Locations Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="#" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Major Cities</span>
+            <a href="dallas.html">Dallas</a>
+            <a href="houston.html">Houston</a>
+            <a href="austin.html">Austin</a>
+            <a href="san-antonio.html">San Antonio</a>
+            <a href="fort-worth.html">Fort Worth</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">DFW Metro</span>
+            <a href="plano.html">Plano</a>
+            <a href="frisco.html">Frisco</a>
+            <a href="irving.html">Irving</a>
+            <a href="arlington.html">Arlington</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Houston Metro</span>
+            <a href="sugar-land.html">Sugar Land</a>
+            <a href="the-woodlands.html">The Woodlands</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="installation.html" class="lsfs-link">Installation</a>
+      <a href="gallery.html" class="lsfs-link">Gallery</a>
+      <a href="blog.html" class="lsfs-link">Blog</a>
+      <a href="pricing.html" class="lsfs-link">Pricing</a>
+      <a href="contact.html" class="lsfs-link lsfs-cta">Get Quote</a>
+    </div>
+
+    <button id="lsfs-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </nav>
   </header>
 
@@ -774,6 +853,29 @@
 <h2 id="references">References</h2>
 <p>[1] <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701">https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701</a><br>[2] <a href="https://www.austintexas.gov/department/codes-and-standards">https://www.austintexas.gov/department/codes-and-standards</a></p>
 
+
+      
+      <div class="related-products">
+        <h3>Explore Our Products</h3>
+        <div class="related-grid">
+          <a href="/artificial-hedge.html" class="related-card">
+            <span class="related-title">Artificial Hedges</span>
+            <span class="related-desc">Premium UV-resistant hedge panels for Texas homes</span>
+          </a>
+          <a href="/living-wall.html" class="related-card">
+            <span class="related-title">Living Walls</span>
+            <span class="related-desc">Vertical garden solutions for any space</span>
+          </a>
+          <a href="/fire-rated-artificial-hedge.html" class="related-card">
+            <span class="related-title">Fire-Rated Hedges</span>
+            <span class="related-desc">NFPA 701 certified for commercial projects</span>
+          </a>
+          <a href="/pricing.html" class="related-card">
+            <span class="related-title">Pricing Guide</span>
+            <span class="related-desc">See our cost breakdown and get a quote</span>
+          </a>
+        </div>
+      </div>
 
       <div class="article-tags">
         <span class="tag">faux-living-wall</span><span class="tag">texas-office-design</span><span class="tag">fire-rated-materials</span>
