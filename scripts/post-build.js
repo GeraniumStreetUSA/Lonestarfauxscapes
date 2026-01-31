@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const DIST_DIR = './dist';
+const allowIndexing = process.env.ALLOW_INDEXING === 'true';
 
 // Files to copy to dist after vite build
 const filesToCopy = [
@@ -53,6 +54,29 @@ function copyDirRecursive(src, dest) {
   }
 }
 
+function applyRobotsHeader(content) {
+  const robotsLine = '  X-Robots-Tag: noindex, nofollow';
+  const lines = content.split(/\r?\n/);
+
+  if (allowIndexing) {
+    return lines.filter(line => line.trim().toLowerCase() !== 'x-robots-tag: noindex, nofollow').join('\n');
+  }
+
+  const hasRobotsLine = lines.some(
+    line => line.trim().toLowerCase() === 'x-robots-tag: noindex, nofollow',
+  );
+  if (hasRobotsLine) return lines.join('\n');
+
+  const blockIndex = lines.findIndex(line => line.trim() === '/*');
+  if (blockIndex === -1) {
+    lines.push('', '/*', robotsLine);
+  } else {
+    lines.splice(blockIndex + 1, 0, robotsLine);
+  }
+
+  return lines.join('\n');
+}
+
 console.log('Running post-build tasks...');
 
 // Copy individual files
@@ -65,7 +89,13 @@ for (const file of filesToCopy) {
       fs.mkdirSync(destDir, { recursive: true });
     }
 
-    fs.copyFileSync(file.src, destPath);
+    if (file.src === './_headers') {
+      const content = fs.readFileSync(file.src, 'utf-8');
+      const updated = applyRobotsHeader(content);
+      fs.writeFileSync(destPath, updated);
+    } else {
+      fs.copyFileSync(file.src, destPath);
+    }
     console.log(`  Copied: ${file.src} -> ${destPath}`);
   } else {
     console.log(`  Skipped (not found): ${file.src}`);

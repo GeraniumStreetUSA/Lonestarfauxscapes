@@ -1874,7 +1874,7 @@
       <a href="index.html" class="lsfs-link">Home</a>
 
       <!-- Products Dropdown -->
-      <div class="lsfs-dropdown">
+            <div class="lsfs-dropdown">
         <a href="products.html" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
         <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
           <div class="lsfs-dropdown-section">
@@ -1883,21 +1883,21 @@
             <a href="artificial-boxwood-hedge.html">Boxwood Hedge</a>
             <a href="fire-rated-artificial-hedge.html">Fire-Rated</a>
             <a href="hoa-approved-artificial-hedge.html">HOA-Approved</a>
+            <a href="pool-privacy-hedge.html">Pool Privacy</a>
+            <a href="vallum-frx.html">Vallum FRX</a>
           </div>
           <div class="lsfs-dropdown-section">
-            <span class="lsfs-dropdown-label">Walls & More</span>
+            <span class="lsfs-dropdown-label">Walls</span>
             <a href="living-wall.html">Living Wall</a>
             <a href="commercial-wall.html">Commercial Wall</a>
             <a href="fence-extensions.html">Fence Extensions</a>
-            <a href="pool-privacy-hedge.html">Pool Privacy</a>
-            <a href="vallum-frx.html">Vallum FRX</a>
           </div>
         </div>
       </div>
 
       <!-- Locations Dropdown -->
       <div class="lsfs-dropdown">
-        <a href="#" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <a href="locations.html" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
         <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
           <div class="lsfs-dropdown-section">
             <span class="lsfs-dropdown-label">Major Cities</span>
@@ -1946,14 +1946,17 @@
 
   <!-- Products Section -->
   <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
   <a href="artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
   <a href="artificial-boxwood-hedge.html" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
   <a href="fire-rated-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="hoa-approved-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="pool-privacy-hedge.html" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="vallum-frx.html" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
   <a href="living-wall.html" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
   <a href="commercial-wall.html" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
   <a href="fence-extensions.html" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-  <a href="pool-privacy-hedge.html" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-
   <!-- Locations Section -->
   <span class="lsfs-mobile-label">Locations</span>
   <a href="dallas.html" class="lsfs-mobile-link lsfs-sub">Dallas</a>
@@ -2205,7 +2208,7 @@
   transform: rotate(180deg) translateZ(0) !important;
 }
 
-.lsfs-dropdown-menu {
+#lsfs-header .lsfs-dropdown-menu {
   position: absolute !important;
   top: 100% !important;
   left: 50% !important;
@@ -2234,12 +2237,12 @@
   transform: translateX(-50%) translateY(-10px) !important;
 }
 
-.lsfs-dropdown:hover .lsfs-dropdown-menu {
+#lsfs-header .lsfs-dropdown:hover .lsfs-dropdown-menu {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateX(-50%) translateY(0) !important;
 }
-.lsfs-dropdown:focus-within .lsfs-dropdown-menu {
+#lsfs-header .lsfs-dropdown:focus-within .lsfs-dropdown-menu {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateX(-50%) translateY(0) !important;
@@ -2287,6 +2290,89 @@
   background: rgba(100,211,138,0.12) !important;
   padding-left: 1rem !important;
 }
+/* LSFS DROPDOWN GLASS OVERRIDES */
+#lsfs-header .lsfs-dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-10px) !important;
+  margin-top: 1rem !important;
+  min-width: 200px !important;
+  background: linear-gradient(135deg, rgba(10, 18, 14, 0.72), rgba(6, 12, 9, 0.58)) !important;
+  backdrop-filter: blur(22px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 14px !important;
+  padding: 0.75rem !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.2s ease !important;
+  z-index: 1000 !important;
+}
+
+.lsfs-dropdown-menu.lsfs-dropdown-wide {
+  display: flex !important;
+  gap: 0.5rem !important;
+  min-width: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-10px) !important;
+}
+
+.lsfs-dropdown-section {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 160px !important;
+  padding: 0.25rem !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.lsfs-dropdown-section:last-child {
+  border-right: none !important;
+}
+
+.lsfs-dropdown-label {
+  display: block !important;
+  padding: 0.5rem 0.75rem 0.4rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  margin-bottom: 0.4rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+}
+
+.lsfs-dropdown-menu a {
+  display: block !important;
+  padding: 0.65rem 0.75rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-align: left !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+  transition: all 0.15s ease !important;
+}
+
+.lsfs-mobile-subhead {
+  display: block !important;
+  margin-top: 1rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+/* LSFS DROPDOWN GLASS HOVER */
+#lsfs-header .lsfs-dropdown:hover .lsfs-dropdown-menu,
+#lsfs-header .lsfs-dropdown:focus-within .lsfs-dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+
 
 /* Mobile label styling */
 .lsfs-mobile-label {

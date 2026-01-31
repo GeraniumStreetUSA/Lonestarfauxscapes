@@ -46,6 +46,8 @@ Optional:
 - `ALLOWED_ORIGINS` (comma-separated, for CORS on `/api/contact`)
 - `TURNSTILE_SECRET_KEY` (enables Turnstile bot protection on `/api/contact`)
 - `CMS_ALLOWED_HOSTS` (comma-separated hostnames allowed to use `/api/cms/auth`)
+- `SITE_URL` (base URL used for sitemap + blog canonical tags)
+- `ALLOW_INDEXING` (set to `true` to allow indexing; otherwise robots + headers block crawlers)
 
 ## Standalone Worker (Optional)
 

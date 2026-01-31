@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://lonestarfauxscapes.com';
+const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
+const ALLOW_INDEXING = process.env.ALLOW_INDEXING === 'true';
 const POSTS_JSON = './content/posts.json';
 
 function generateSitemap() {
@@ -70,7 +71,8 @@ function generateSitemap() {
   console.log('  Generated: sitemap.xml');
 
   // Generate robots.txt
-  const robots = `User-agent: *
+  const robots = ALLOW_INDEXING
+    ? `User-agent: *
 Allow: /
 
 Disallow: /admin/
@@ -78,6 +80,9 @@ Disallow: /api/
 Disallow: /hedge-quote
 
 Sitemap: ${SITE_URL}/sitemap.xml
+`
+    : `User-agent: *
+Disallow: /
 `;
   fs.writeFileSync('./robots.txt', robots);
   console.log('  Generated: robots.txt');

@@ -3,6 +3,7 @@ import path from 'path';
 import { marked } from 'marked';
 import matter from 'gray-matter';
 
+const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
@@ -88,20 +89,20 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <title>${post.title} | Lone Star Faux Scapes Blog</title>
   <meta name="description" content="${post.summary}">
   <meta name="keywords" content="${post.tags.join(', ')}">
-  <link rel="canonical" href="https://lonestarfauxscapes.com/blog/${post.slug}.html">
+  <link rel="canonical" href="${SITE_URL}/blog/${post.slug}.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${post.title}">
   <meta property="og:description" content="${post.summary}">
-  <meta property="og:image" content="https://lonestarfauxscapes.com/${post.image}">
-  <meta property="og:url" content="https://lonestarfauxscapes.com/blog/${post.slug}.html">
+  <meta property="og:image" content="${SITE_URL}/${post.image}">
+  <meta property="og:url" content="${SITE_URL}/blog/${post.slug}.html">
   <meta property="og:type" content="article">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${post.title}">
   <meta name="twitter:description" content="${post.summary}">
-  <meta name="twitter:image" content="https://lonestarfauxscapes.com/${post.image}">
+  <meta name="twitter:image" content="${SITE_URL}/${post.image}">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -110,7 +111,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     "@type": "BlogPosting",
     "headline": "${post.title}",
     "description": "${post.summary}",
-    "image": "https://lonestarfauxscapes.com/${post.image}",
+    "image": "${SITE_URL}/${post.image}",
     "datePublished": "${post.date}",
     "dateModified": "${post.date}",
     "author": {
@@ -122,12 +123,12 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
       "name": "Lone Star Faux Scapes",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lonestarfauxscapes.com/favicon/web-app-manifest-512x512.png"
+        "url": "${SITE_URL}/favicon/web-app-manifest-512x512.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://lonestarfauxscapes.com/blog/${post.slug}.html"
+      "@id": "${SITE_URL}/blog/${post.slug}.html"
     }
   }
   </script>
@@ -150,132 +151,530 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     img { max-width: 100%; display: block; }
     .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
 
-    /* ===== UNIVERSAL NAVBAR - LSFS PREFIX ===== */
-    #lsfs-header, #lsfs-header *, #lsfs-mobile-menu, #lsfs-mobile-menu * {
-      margin: 0 !important; padding: 0 !important; box-sizing: border-box !important;
+    html { overflow-y: scroll !important; }
+    /*
+     * Using #lsfs- prefix to prevent ALL conflicts
+     * Every rule uses !important to win specificity wars
+     * This navbar CANNOT be broken by external CSS
+     */
+    
+    /* ===== RESET FOR NAVBAR ELEMENTS ONLY ===== */
+    #lsfs-header,
+    #lsfs-header *,
+    #lsfs-mobile-menu,
+    #lsfs-mobile-menu * {
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-      -webkit-text-fill-color: inherit !important; -webkit-text-stroke: 0 !important;
-      text-decoration: none !important; list-style: none !important; border: none !important; outline: none !important; background: transparent !important;
+      -webkit-text-fill-color: inherit !important;
+      -webkit-text-stroke: 0 !important;
+      text-decoration: none !important;
+      list-style: none !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
     }
+    
+    /* ===== FLOATING HEADER - BASE ===== */
     #lsfs-header {
-      position: fixed !important; top: 1.25rem !important; left: 0 !important; right: 0 !important;
-      margin-inline: auto !important; width: 94% !important; max-width: 1200px !important; z-index: 10000 !important;
+      position: fixed !important;
+      top: 1.25rem !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin-inline: auto !important;
+      width: 94% !important;
+      max-width: 1200px !important;
+      z-index: 10000 !important;
       background: linear-gradient(135deg, rgba(10,20,15,0.78) 0%, rgba(10,20,15,0.66) 70%, rgba(12,24,18,0.64) 100%) !important;
-      backdrop-filter: blur(18px) saturate(130%) !important; -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
-      border-radius: 999px !important; border: 1px solid rgba(255,255,255,0.07) !important;
+      backdrop-filter: blur(18px) saturate(130%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(255,255,255,0.07) !important;
       box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05) !important;
-      transition: width 0.5s cubic-bezier(0.4,0,0.2,1), max-width 0.5s cubic-bezier(0.4,0,0.2,1), background 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1) !important;
+      transition:
+        width 0.5s cubic-bezier(0.4,0,0.2,1),
+        max-width 0.5s cubic-bezier(0.4,0,0.2,1),
+        padding 0.5s cubic-bezier(0.4,0,0.2,1),
+        background 0.5s cubic-bezier(0.4,0,0.2,1),
+        box-shadow 0.5s cubic-bezier(0.4,0,0.2,1) !important;
     }
+    
+    /* Subtle inner glow */
     #lsfs-header::after {
-      content: '' !important; position: absolute !important; inset: 0 !important; border-radius: inherit !important;
-      background: radial-gradient(circle at 20% 50%, rgba(100,211,138,0.12), transparent 40%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%) !important;
-      pointer-events: none !important; opacity: 0.9 !important;
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      border-radius: inherit !important;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(100,211,138,0.12), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%) !important;
+      pointer-events: none !important;
+      opacity: 0.9 !important;
     }
+    
+    /* ===== SCROLLED STATE - CONDENSED PILL ===== */
     #lsfs-header.scrolled {
-      width: 74% !important; max-width: 900px !important;
       background: linear-gradient(135deg, rgba(8,16,12,0.88) 0%, rgba(8,16,12,0.76) 70%, rgba(10,20,15,0.74) 100%) !important;
       box-shadow: 0 14px 36px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.08) !important;
+      backdrop-filter: blur(18px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
     }
+    
+    /* ===== NAV CONTAINER ===== */
     #lsfs-nav {
-      display: flex !important; align-items: center !important; justify-content: space-between !important;
-      height: 52px !important; min-height: 52px !important; padding: 0 1.25rem !important;
-      width: 100% !important; position: relative !important; z-index: 1 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      padding: 0 1.25rem !important;
+      width: 100% !important;
+      position: relative !important;
+      z-index: 1 !important;
       transition: height 0.5s cubic-bezier(0.4,0,0.2,1), padding 0.5s cubic-bezier(0.4,0,0.2,1) !important;
     }
-    #lsfs-header.scrolled #lsfs-nav { height: 44px !important; min-height: 44px !important; padding: 0 0.5rem !important; }
+    
+    #lsfs-header.scrolled #lsfs-nav {
+      height: 44px !important;
+      min-height: 44px !important;
+      padding: 0 0.5rem !important;
+    }
+    
+    /* ===== LOGO ===== */
     #lsfs-logo {
-      font-size: 0.95rem !important; font-weight: 800 !important; color: #fff !important;
-      text-transform: uppercase !important; letter-spacing: 0.08em !important; white-space: nowrap !important;
-      flex-shrink: 0 !important; margin-right: 1.5rem !important;
-      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), max-width 0.4s cubic-bezier(0.4,0,0.2,1), margin 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      color: #fff !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      transition:
+        opacity 0.4s cubic-bezier(0.4,0,0.2,1),
+        max-width 0.4s cubic-bezier(0.4,0,0.2,1),
+        margin 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+      margin-right: 1.5rem !important;
     }
+    
+    /* Logo hides on scroll (DESKTOP ONLY) */
     @media (min-width: 992px) {
-      #lsfs-header.scrolled #lsfs-logo { opacity: 0 !important; max-width: 0 !important; margin: 0 !important; overflow: hidden !important; pointer-events: none !important; }
+      #lsfs-header.scrolled #lsfs-logo {
+        opacity: 0 !important;
+        max-width: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+      }
     }
+    
+    /* ===== DESKTOP LINKS ===== */
     #lsfs-desktop-links {
-      display: none !important; align-items: center !important; gap: 1.5rem !important;
-      transition: gap 0.5s cubic-bezier(0.4,0,0.2,1), justify-content 0.5s cubic-bezier(0.4,0,0.2,1) !important;
+      display: none !important;
+      align-items: center !important;
+      gap: 1.5rem !important;
+      transition:
+        gap 0.5s cubic-bezier(0.4,0,0.2,1),
+        justify-content 0.5s cubic-bezier(0.4,0,0.2,1) !important;
     }
+    
     @media (min-width: 992px) {
-      #lsfs-desktop-links { display: flex !important; flex: 1 !important; justify-content: center !important; }
-      #lsfs-header.scrolled #lsfs-desktop-links { justify-content: space-between !important; width: 100% !important; padding: 0 1rem !important; }
+      #lsfs-desktop-links {
+        display: flex !important;
+        flex: 1 !important;
+        justify-content: center !important;
+      }
+    
+      /* Scrolled: links spread to fill pill */
+      #lsfs-header.scrolled #lsfs-desktop-links {
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 0 1rem !important;
+      }
     }
+    
     .lsfs-link {
-      font-size: 0.78rem !important; font-weight: 600 !important; color: rgba(255,255,255,0.75) !important;
-      text-transform: uppercase !important; letter-spacing: 0.04em !important; white-space: nowrap !important;
-      line-height: 1 !important; transition: color 0.2s ease !important; position: relative !important;
-      transform: translateZ(0) !important; -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important; backface-visibility: hidden !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      color: rgba(255,255,255,0.75) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+      transition: color 0.2s ease !important;
+      position: relative !important;
+      /* GPU layer + consistent font rendering to prevent shake */
+      transform: translateZ(0) !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      backface-visibility: hidden !important;
     }
-    .lsfs-link:hover { color: #4caf50 !important; }
+    
+    .lsfs-link:hover {
+      color: #4caf50 !important;
+    }
+    
+    /* Underline effect - GPU accelerated */
     .lsfs-link::after {
-      content: '' !important; position: absolute !important; left: 0 !important; right: 0 !important; bottom: -4px !important;
-      height: 2px !important; background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)) !important;
-      transform: scaleX(0) translateZ(0) !important; transform-origin: center !important; transition: transform 0.2s ease !important;
-      pointer-events: none !important; will-change: transform !important; backface-visibility: hidden !important;
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: -4px !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, rgba(76,175,80,0.9), rgba(76,175,80,0.5)) !important;
+      transform: scaleX(0) translateZ(0) !important;
+      transform-origin: center !important;
+      transition: transform 0.2s ease !important;
+      pointer-events: none !important;
+      will-change: transform !important;
+      backface-visibility: hidden !important;
     }
-    .lsfs-link:hover::after { transform: scaleX(1) translateZ(0) !important; }
+    
+    .lsfs-link:hover::after {
+      transform: scaleX(1) translateZ(0) !important;
+    }
+    
+    /* CTA Button */
     .lsfs-cta {
-      padding: 0.5rem 1.1rem !important; background: rgba(255,255,255,0.08) !important;
-      border: 1px solid rgba(255,255,255,0.15) !important; border-radius: 999px !important; color: #fff !important; margin-left: 0.5rem !important;
+      padding: 0.5rem 1.1rem !important;
+      background: rgba(255,255,255,0.08) !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 999px !important;
+      color: #fff !important;
+      margin-left: 0.5rem !important;
     }
-    .lsfs-cta:hover { background: rgba(255,255,255,0.15) !important; }
-    .lsfs-cta::after { display: none !important; }
-    .lsfs-dropdown { position: relative !important; display: inline-flex !important; transform: translateZ(0) !important; backface-visibility: hidden !important; }
-    .lsfs-caret { font-size: 0.65rem !important; margin-left: 0.2rem !important; transition: transform 0.2s ease !important; opacity: 0.7 !important; display: inline-block !important; transform-origin: center !important; will-change: transform !important; }
-    .lsfs-dropdown:hover .lsfs-caret { transform: rotate(180deg) translateZ(0) !important; }
-    .lsfs-dropdown-menu {
-      position: absolute !important; top: 100% !important; left: 50% !important;
-      transform: translateX(-50%) translateY(-10px) !important; margin-top: 0.5rem !important; min-width: 240px !important;
-      background: rgba(5, 10, 7, 0.95) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 14px !important; padding: 0.75rem 0 !important;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4) !important; opacity: 0 !important; visibility: hidden !important;
-      transition: all 0.25s ease !important; z-index: 1000 !important;
+    
+    .lsfs-cta:hover {
+      background: rgba(255,255,255,0.15) !important;
     }
-    .lsfs-dropdown:hover .lsfs-dropdown-menu { opacity: 1 !important; visibility: visible !important; transform: translateX(-50%) translateY(0) !important; }
+    
+    .lsfs-cta::after {
+      display: none !important;
+    }
+    
+    /* ===== DROPDOWN - GPU accelerated ===== */
+    .lsfs-dropdown {
+      position: relative !important;
+      display: inline-flex !important;
+      transform: translateZ(0) !important;
+      backface-visibility: hidden !important;
+    }
+    
+    .lsfs-caret {
+      font-size: 0.65rem !important;
+      margin-left: 0.2rem !important;
+      transition: transform 0.2s ease !important;
+      opacity: 0.7 !important;
+      display: inline-block !important;
+      transform-origin: center !important;
+      will-change: transform !important;
+    }
+    
+    .lsfs-dropdown:hover .lsfs-caret {
+      transform: rotate(180deg) translateZ(0) !important;
+    }
+    
+    #lsfs-header .lsfs-dropdown-menu {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      transform: translateY(-10px) !important;
+      margin-top: 0.75rem !important;
+      min-width: 220px !important;
+      background: rgb(8, 14, 10) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 16px !important;
+      padding: 0.75rem !important;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(100,211,138,0.1) !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: 280ms all 120ms ease-out !important;
+      z-index: 1000 !important;
+    }
+    
+    /* Invisible bridge to prevent hover gap */
+    .lsfs-dropdown-menu::before {
+      content: '' !important;
+      position: absolute !important;
+      top: -0.75rem !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 0.75rem !important;
+    }
+    
+    #lsfs-header .lsfs-dropdown:hover .lsfs-dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      transition: 180ms all 0ms ease-out !important;
+    }
+    
     .lsfs-dropdown-menu a {
-      display: block !important; padding: 0.75rem 1.25rem !important; font-size: 0.85rem !important;
-      color: rgba(255,255,255,0.75) !important; transition: all 0.2s ease !important; text-align: center !important;
+      display: block !important;
+      padding: 0.9rem 1.15rem !important;
+      font-size: 0.82rem !important;
+      font-weight: 500 !important;
+      color: rgba(255,255,255,0.8) !important;
+      transition: all 0.2s ease !important;
+      text-align: left !important;
+      border-radius: 10px !important;
+      margin-bottom: 4px !important;
     }
-    .lsfs-dropdown-menu a:hover { color: #4caf50 !important; background: rgba(255,255,255,0.05) !important; }
+    
+    .lsfs-dropdown-menu a:last-child {
+      margin-bottom: 0 !important;
+    }
+    
+    .lsfs-dropdown-menu a:hover {
+      color: #fff !important;
+      background: rgba(100,211,138,0.15) !important;
+      padding-left: 1.25rem !important;
+    }
+    /* LSFS DROPDOWN GLASS OVERRIDES */
+    #lsfs-header .lsfs-dropdown-menu {
+      position: absolute !important;
+      top: 100% !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-10px) !important;
+      margin-top: 1rem !important;
+      min-width: 200px !important;
+      background: linear-gradient(135deg, rgba(10, 18, 14, 0.72), rgba(6, 12, 9, 0.58)) !important;
+      backdrop-filter: blur(22px) saturate(150%) !important;
+      -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      border-radius: 14px !important;
+      padding: 0.75rem !important;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: all 0.2s ease !important;
+      z-index: 1000 !important;
+    }
+    
+    .lsfs-dropdown-menu.lsfs-dropdown-wide {
+      display: flex !important;
+      gap: 0.5rem !important;
+      min-width: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-10px) !important;
+    }
+    
+    .lsfs-dropdown-section {
+      display: flex !important;
+      flex-direction: column !important;
+      min-width: 160px !important;
+      padding: 0.25rem !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+    
+    .lsfs-dropdown-section:last-child {
+      border-right: none !important;
+    }
+    
+    .lsfs-dropdown-label {
+      display: block !important;
+      padding: 0.5rem 0.75rem 0.4rem !important;
+      font-size: 0.7rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: rgba(255, 255, 255, 0.75) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      margin-bottom: 0.4rem !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+    }
+    
+    .lsfs-dropdown-menu a {
+      display: block !important;
+      padding: 0.65rem 0.75rem !important;
+      font-size: 0.85rem !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      text-align: left !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+      transition: all 0.15s ease !important;
+    }
+    
+    .lsfs-mobile-subhead {
+      display: block !important;
+      margin-top: 1rem !important;
+      font-size: 0.75rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+    /* LSFS DROPDOWN GLASS HOVER */
+    #lsfs-header .lsfs-dropdown:hover .lsfs-dropdown-menu,
+    #lsfs-header .lsfs-dropdown:focus-within .lsfs-dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    
+    
+    
+    /* ===== HAMBURGER BUTTON ===== */
     #lsfs-hamburger {
-      display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important;
-      gap: 5px !important; width: 44px !important; height: 44px !important; cursor: pointer !important;
-      background: transparent !important; border: none !important; padding: 10px !important; margin-left: auto !important; flex-shrink: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 5px !important;
+      width: 44px !important;
+      height: 44px !important;
+      cursor: pointer !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 10px !important;
+      margin-left: auto !important;
+      flex-shrink: 0 !important;
     }
-    #lsfs-hamburger span { display: block !important; width: 22px !important; height: 2px !important; background: #fff !important; border-radius: 2px !important; transition: all 0.3s ease !important; }
-    @media (min-width: 992px) { #lsfs-hamburger { display: none !important; } }
+    
+    #lsfs-hamburger span {
+      display: block !important;
+      width: 22px !important;
+      height: 2px !important;
+      background: #fff !important;
+      border-radius: 2px !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    @media (min-width: 992px) {
+      #lsfs-hamburger {
+        display: none !important;
+      }
+    }
+    
+    /* ===== MOBILE OVERRIDES ===== */
     @media (max-width: 991px) {
-      #lsfs-header { width: 94% !important; max-width: none !important; border-radius: 20px !important; }
-      #lsfs-header.scrolled { width: 94% !important; max-width: none !important; }
-      #lsfs-header.scrolled #lsfs-logo { opacity: 1 !important; max-width: none !important; margin-right: 1rem !important; pointer-events: auto !important; }
-      #lsfs-nav { height: 56px !important; min-height: 56px !important; padding: 0 1rem !important; }
-      #lsfs-header.scrolled #lsfs-nav { height: 52px !important; min-height: 52px !important; padding: 0 1rem !important; }
+      #lsfs-header {
+        width: 94% !important;
+        max-width: none !important;
+        border-radius: 20px !important;
+      }
+    
+      #lsfs-header.scrolled {
+        width: 94% !important;
+        max-width: none !important;
+      }
+    
+      /* Logo stays visible on mobile */
+      #lsfs-header.scrolled #lsfs-logo {
+        opacity: 1 !important;
+        max-width: none !important;
+        margin-right: 1rem !important;
+        pointer-events: auto !important;
+      }
+    
+      #lsfs-nav {
+        padding: 0.75rem 1rem !important;
+      }
+    
+      #lsfs-header.scrolled #lsfs-nav {
+        padding: 0.6rem 1rem !important;
+      }
     }
+    
+    /* ===== MOBILE MENU ===== */
     #lsfs-mobile-menu {
-      position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-      width: 100vw !important; height: 100vh !important; height: 100dvh !important;
-      background: rgba(5, 10, 7, 0.98) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
-      z-index: 99999 !important; display: flex !important; flex-direction: column !important; align-items: center !important;
-      justify-content: center !important; gap: 0.25rem !important; padding: 2rem !important;
-      opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease !important; contain: layout style paint !important; isolation: isolate !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background: rgba(5, 10, 7, 0.98) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      z-index: 99999 !important;
+    
+      /* Layout - centered */
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.25rem !important;
+      padding: 2rem !important;
+    
+      /* Hidden by default */
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    
+      /* Isolation - NOTHING can break this */
+      contain: layout style paint !important;
+      isolation: isolate !important;
     }
-    #lsfs-mobile-menu.open { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+    
+    #lsfs-mobile-menu.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    
+    /* Close button */
     #lsfs-close {
-      position: absolute !important; top: 1.5rem !important; right: 1.5rem !important; width: 44px !important; height: 44px !important;
-      font-size: 2.5rem !important; color: #fff !important; cursor: pointer !important; display: flex !important;
-      align-items: center !important; justify-content: center !important; background: transparent !important; border: none !important; line-height: 1 !important;
+      position: absolute !important;
+      top: 1.5rem !important;
+      right: 1.5rem !important;
+      width: 44px !important;
+      height: 44px !important;
+      font-size: 2.5rem !important;
+      color: #fff !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: transparent !important;
+      border: none !important;
+      line-height: 1 !important;
     }
+    
+    /* Mobile links */
     .lsfs-mobile-link {
-      font-size: 1.5rem !important; font-weight: 700 !important; color: rgba(255,255,255,0.9) !important;
-      padding: 0.6rem 0 !important; text-align: center !important; transition: color 0.2s ease !important;
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      color: rgba(255,255,255,0.9) !important;
+      padding: 0.6rem 0 !important;
+      text-align: center !important;
+      transition: color 0.2s ease !important;
     }
-    .lsfs-mobile-link:hover { color: #4caf50 !important; }
-    .lsfs-mobile-link.lsfs-sub { font-size: 1rem !important; font-weight: 500 !important; color: rgba(255,255,255,0.5) !important; padding: 0.4rem 0 !important; }
-    .lsfs-mobile-link.lsfs-sub:hover { color: rgba(255,255,255,0.9) !important; }
-    .lsfs-mobile-link.lsfs-mobile-cta { color: #4caf50 !important; margin-top: 1rem !important; }
-    @media (min-width: 992px) { #lsfs-mobile-menu { display: none !important; } }
+    
+    .lsfs-mobile-link:hover {
+      color: #4caf50 !important;
+    }
+    
+    /* Sub-links (indented/smaller) */
+    .lsfs-mobile-link.lsfs-sub {
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      color: rgba(255,255,255,0.5) !important;
+      padding: 0.4rem 0 !important;
+    }
+    
+    .lsfs-mobile-link.lsfs-sub:hover {
+      color: rgba(255,255,255,0.9) !important;
+    }
+    
+    /* CTA link */
+    .lsfs-mobile-link.lsfs-mobile-cta {
+      color: #4caf50 !important;
+      margin-top: 1rem !important;
+    }
+    
+    /* Hide mobile menu on desktop */
+    @media (min-width: 992px) {
+      #lsfs-mobile-menu {
+        display: none !important;
+      }
+    }
 
     /* Article Hero */
     .article-hero {
@@ -516,61 +915,86 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <link rel="stylesheet" href="/enhancements.css">
 </head>
 <body>
-  <!-- UNIVERSAL NAVBAR -->
+    <!-- UNIVERSAL NAVBAR -->
   <header id="lsfs-header">
     <nav id="lsfs-nav">
       <a href="/index.html" id="lsfs-logo">Lone Star Faux Scapes</a>
+  
+      <!-- Desktop Navigation -->
       <div id="lsfs-desktop-links">
         <a href="/index.html" class="lsfs-link">Home</a>
-        <div class="lsfs-dropdown">
+  
+        <!-- Products Dropdown -->
+              <div class="lsfs-dropdown">
           <a href="/products.html" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/living-wall.html">Living Wall</a>
-            <a href="/commercial-wall.html">Commercial Wall</a>
-            <a href="/fence-extensions.html">Fence Extensions</a>
-            <a href="/artificial-hedge.html">Artificial Hedge</a>
+          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+            <div class="lsfs-dropdown-section">
+              <span class="lsfs-dropdown-label">Hedges</span>
+              <a href="/artificial-hedge.html">Artificial Hedge</a>
+              <a href="/artificial-boxwood-hedge.html">Boxwood Hedge</a>
+              <a href="/fire-rated-artificial-hedge.html">Fire-Rated</a>
+              <a href="/hoa-approved-artificial-hedge.html">HOA-Approved</a>
+              <a href="/pool-privacy-hedge.html">Pool Privacy</a>
+              <a href="/vallum-frx.html">Vallum FRX</a>
+            </div>
+            <div class="lsfs-dropdown-section">
+              <span class="lsfs-dropdown-label">Walls</span>
+              <a href="/living-wall.html">Living Wall</a>
+              <a href="/commercial-wall.html">Commercial Wall</a>
+              <a href="/fence-extensions.html">Fence Extensions</a>
+            </div>
           </div>
         </div>
+  
         <a href="/installation.html" class="lsfs-link">Installation</a>
-        <div class="lsfs-dropdown">
-          <a href="/commercial.html" class="lsfs-link">Commercial <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/hedge-builder-commercial.html">Hedge Builder</a>
-          </div>
-        </div>
-        <div class="lsfs-dropdown">
-          <a href="/residential.html" class="lsfs-link">Residential <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu">
-            <a href="/hedge-builder-residential.html">Hedge Builder</a>
-          </div>
-        </div>
+  
+        <a href="/commercial.html" class="lsfs-link">Commercial</a>
+        <a href="/residential.html" class="lsfs-link">Residential</a>
+  
         <a href="/gallery.html" class="lsfs-link">Gallery</a>
         <a href="/blog.html" class="lsfs-link">Blog</a>
-        <a href="/index.html#contact" class="lsfs-link lsfs-cta">Get Quote</a>
+        <a href="/contact.html" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
-      <button id="lsfs-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  
+      <!-- Mobile Hamburger -->
+      <button id="lsfs-hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
-
+  
+  <!-- MOBILE MENU (separate from header) -->
   <div id="lsfs-mobile-menu">
     <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+  
     <a href="/index.html" class="lsfs-mobile-link">Home</a>
-    <a href="/products.html" class="lsfs-mobile-link">Products</a>
+  
+    <!-- Products Section -->
+    <span class="lsfs-mobile-label">Products</span>
+    <span class="lsfs-mobile-subhead">Hedges</span>
+    <a href="/artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+    <a href="/artificial-boxwood-hedge.html" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+    <a href="/fire-rated-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+    <a href="/hoa-approved-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+    <a href="/pool-privacy-hedge.html" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+    <a href="/vallum-frx.html" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+    <span class="lsfs-mobile-subhead">Walls</span>
     <a href="/living-wall.html" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
     <a href="/commercial-wall.html" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
     <a href="/fence-extensions.html" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <a href="/artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
     <a href="/installation.html" class="lsfs-mobile-link">Installation</a>
+  
     <a href="/commercial.html" class="lsfs-mobile-link">Commercial</a>
-    <a href="/hedge-builder-commercial.html" class="lsfs-mobile-link lsfs-sub">Hedge Builder</a>
     <a href="/residential.html" class="lsfs-mobile-link">Residential</a>
-    <a href="/hedge-builder-residential.html" class="lsfs-mobile-link lsfs-sub">Hedge Builder</a>
+  
     <a href="/gallery.html" class="lsfs-mobile-link">Gallery</a>
     <a href="/blog.html" class="lsfs-mobile-link">Blog</a>
-    <a href="/index.html#contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+    <a href="/contact.html" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
   </div>
 
-  <main>
+<main>
     <section class="article-hero">
       <div class="container">
         <nav class="breadcrumb">
