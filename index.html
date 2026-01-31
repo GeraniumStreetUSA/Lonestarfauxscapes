@@ -194,6 +194,9 @@
     }
     </script>
 
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
     <!-- Styles -->
     <style>
         :root {
@@ -3144,6 +3147,8 @@
                       <textarea class="form-textarea" id="scope" name="scope" rows="4" placeholder="Briefly describe the area dimensions and goals..." required></textarea>
                       <div class="input-hint" data-hint="scope"></div>
                   </div>
+                  <!-- Cloudflare Turnstile - Replace YOUR_SITE_KEY with actual key from Cloudflare dashboard -->
+                  <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY" data-theme="dark" style="margin-bottom: 1rem;"></div>
                   <button type="submit" class="btn btn-cta">Request Estimate</button>
                   <div class="form-status" id="form-status" aria-live="polite"></div>
               </form>
@@ -3281,6 +3286,7 @@
             phone: form.querySelector('#location')?.value.trim() || '',
             service: form.querySelector('#type')?.value || '',
             message: form.querySelector('#scope').value.trim(),
+            'cf-turnstile-response': form.querySelector('[name="cf-turnstile-response"]')?.value || '',
         };
 
         try {

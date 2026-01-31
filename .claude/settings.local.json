@@ -198,7 +198,8 @@
       "WebFetch(domain:www.smashingmagazine.com)",
       "WebFetch(domain:css-tricks.com)",
       "WebFetch(domain:moderncss.dev)",
-      "Bash(del fix-navbar.ps1 fix-navbar-border.ps1 fix-border.ps1)"
+      "Bash(del fix-navbar.ps1 fix-navbar-border.ps1 fix-border.ps1)",
+      "WebFetch(domain:developers.cloudflare.com)"
     ],
     "deny": [],
     "ask": []

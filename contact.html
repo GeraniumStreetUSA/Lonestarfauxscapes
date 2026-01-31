@@ -46,6 +46,9 @@
   }
   </script>
 
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <style>
     html { overflow-y: scroll; }
     :root {
@@ -918,6 +921,9 @@
             <input type="text" name="website" tabindex="-1" autocomplete="off">
           </div>
 
+          <!-- Cloudflare Turnstile - Replace YOUR_SITE_KEY with actual key from Cloudflare dashboard -->
+          <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY" data-theme="dark"></div>
+
           <button type="submit" class="form-submit">Get My Free Quote</button>
 
           <div class="form-footer">
@@ -964,7 +970,8 @@
           phone: form.phone.value.trim(),
           service: form.service.value + (projectType ? ` (${projectType})` : ''),
           message: (city ? `Location: ${city}\n\n` : '') + form.message.value.trim(),
-          website: form.website.value // honeypot
+          website: form.website.value, // honeypot
+          'cf-turnstile-response': form.querySelector('[name="cf-turnstile-response"]')?.value || ''
         };
 
         try {

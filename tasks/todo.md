@@ -1,3 +1,35 @@
+# Add Cloudflare Turnstile Spam Protection
+
+## Problem
+Contact forms receiving spam submissions.
+
+## Solution
+Add Cloudflare Turnstile widget to forms and validate tokens server-side.
+
+## Todo Items
+- [x] Add Turnstile script to contact.html head
+- [x] Add Turnstile widget to contact form
+- [x] Update contact.html form JS to include token
+- [x] Add Turnstile to index.html form
+- [ ] User: Create Turnstile widget in Cloudflare dashboard
+- [ ] User: Replace YOUR_SITE_KEY with actual site key
+- [ ] User: Update Worker with validation code
+
+## Review Section
+
+### Changes Made
+| File | Change |
+|------|--------|
+| contact.html | Added Turnstile script + widget + token in formData |
+| index.html | Added Turnstile script + widget + token in formData |
+
+### User Action Required
+1. Go to Cloudflare Dashboard → Turnstile → Add Site
+2. Copy Site Key and replace `YOUR_SITE_KEY` in both files
+3. Update Worker with validation code (see below)
+
+---
+
 # Fix Contact Form JSON Parsing Error
 
 ## Problem
