@@ -128,13 +128,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lonestarfauxscapes.com/locations.html</loc>
+    <loc>https://lonestarfauxscapes.com/lighthouse-report.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://lonestarfauxscapes.com/living-wall.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lonestarfauxscapes.com/locations.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -214,8 +220,8 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://lonestarfauxscapes.com/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main.html</loc>
-    <lastmod>2026-01-03</lastmod>
+    <loc>https://lonestarfauxscapes.com/blog/2026-01-31-artificial-living-walls-for-the-texas-summers.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
