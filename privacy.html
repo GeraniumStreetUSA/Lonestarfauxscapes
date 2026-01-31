@@ -478,7 +478,7 @@
   transform: translateX(-50%) translateY(-10px) !important;
   margin-top: 1rem !important;
   min-width: 200px !important;
-  background: rgba(10, 18, 14, 0.97) !important;
+  background: rgb(10, 18, 14) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(100, 211, 138, 0.15) !important;
@@ -517,6 +517,11 @@
   flex-direction: column !important;
   min-width: 160px !important;
   padding: 0.25rem !important;
+  border-right: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.lsfs-dropdown-section:last-child {
+  border-right: none !important;
 }
 
 .lsfs-dropdown-label {
