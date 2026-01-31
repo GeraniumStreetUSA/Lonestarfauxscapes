@@ -317,14 +317,25 @@
   box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(100,211,138,0.1) !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  transition: all 0.25s ease !important;
+  transition: opacity 0.2s ease 0.15s, visibility 0.2s ease 0.15s, transform 0.2s ease 0.15s !important;
   z-index: 1000 !important;
+}
+
+/* Invisible bridge to prevent hover gap */
+.lsfs-dropdown-menu::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -0.75rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 0.75rem !important;
 }
 
 .lsfs-dropdown:hover .lsfs-dropdown-menu {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0) !important;
+  transition-delay: 0s !important;
 }
 
 .lsfs-dropdown-menu a {
