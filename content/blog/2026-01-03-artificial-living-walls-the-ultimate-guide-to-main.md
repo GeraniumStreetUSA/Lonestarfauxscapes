@@ -11,20 +11,6 @@ tags:
 draft: false
 ---
 
-```markdown
----
-title: "Artificial Living Walls: Maintenance-Free Greenery That Doesn't Look Fake"
-summary: "Artificial living walls give you instant greenery without watering, pruning or sunlight. See realistic designs for homes & businesses that even fool horticulturists."
-date: 2026-01-03
-image: "/images/artificial-living-wall-hotel-lobby.jpg"
-category: "Guides"
-tags:
-  - vertical gardens
-  - biophilic design
-  - commercial greenery
-draft: false
----
-
 # Artificial Living Walls: The Ultimate Guide to Maintenance-Free Greenery
 
 The lobby of the Marriott Marquis in Times Square has a 10,000 square foot "living wall" that's survived 8 years without a single dead leaf. Here's their dirty secret: it's completely fake. And unless you touch it, you'd never know. 
@@ -141,8 +127,7 @@ Johns Hopkins uses antimicrobial panels impregnated with Microban® protection. 
 1. https://www.sciencedirect.com/science/article/pii/S0160412023002578  
 2. https://www.usgbc.org/resources/water-use-indoor-plants-vs-artificial-alternatives  
 3. https://www.trex.com/commercial/why-trex/performance-data/  
-4. https://scholarsbank.uoregon.edu/xmlui/handle/1794/25372  
-```
+4. https://scholarsbank.uoregon.edu/xmlui/handle/1794/25372
 
 <!-- Article Images -->
 <!-- image: /images/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main-image.png -->

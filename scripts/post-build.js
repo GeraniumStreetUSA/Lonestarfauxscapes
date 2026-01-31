@@ -26,6 +26,7 @@ const filesToCopy = [
   { src: './style.css', dest: 'style.css' },
   { src: './navbar.css', dest: 'navbar.css' },
   { src: './enhancements.css', dest: 'enhancements.css' },
+  { src: './navbar-universal.css', dest: 'navbar-universal.css' },
 ];
 
 // Directories to copy recursively
