@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
-const ALLOW_INDEXING = process.env.ALLOW_INDEXING === 'true';
+const ALLOW_INDEXING = process.env.ALLOW_INDEXING !== 'false';
 const POSTS_JSON = './content/posts.json';
 
 function generateSitemap() {
