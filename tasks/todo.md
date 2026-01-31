@@ -179,3 +179,94 @@ The site has excellent on-page SEO and structured data, but **the robots.txt is 
 
 - `navbar-universal.css` → `dist/navbar-universal.css`
 - All 7 blog HTML files → `dist/blog/`
+
+---
+
+## Root Cause Fix (January 31, 2026)
+
+### Issues Found
+
+Two root causes were preventing the previous fixes from working:
+
+#### 1. navbar-universal.css Not Deploying
+- **Issue**: `navbar-universal.css` was created but not included in `scripts/post-build.js` filesToCopy array
+- **Result**: CSS file existed in repo but never copied to dist/ during builds
+- **Fix**: Added `{ src: './navbar-universal.css', dest: 'navbar-universal.css' }` to filesToCopy array in post-build.js
+
+#### 2. Blog Post Source Markdown Broken
+- **Issue**: The markdown source file `content/blog/2026-01-03-*.md` had its content wrapped in a code block
+- **Structure**: Had duplicate YAML frontmatter inside a ` ```markdown ` code fence
+- **Result**: Blog generator saw code block and output `<pre><code>` instead of HTML
+- **Fix**: Removed the ` ```markdown ` wrapper and duplicate frontmatter from source
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `scripts/post-build.js` | Added navbar-universal.css to filesToCopy array (line 29) |
+| `content/blog/2026-01-03-*.md` | Removed code block wrapper and duplicate frontmatter |
+
+### Verification
+
+- ✅ `dist/navbar-universal.css` now exists after build
+- ✅ Blog post HTML now renders proper `<h1>` tags instead of `<pre><code>` wrapper
+
+---
+
+## Double-Slash Image URLs Fix (January 31, 2026)
+
+### Issue
+ALL blog posts had broken image URLs in meta tags with double slashes:
+- `https://lonestarfauxscapes.com//images/...` (wrong)
+- Should be: `https://lonestarfauxscapes.com/images/...`
+
+Affected tags:
+- og:image meta tag (line 14)
+- twitter:image meta tag (line 22)
+- JSON-LD schema image (line 31)
+
+### Root Cause
+In `scripts/build-blog.js`, the template used `${SITE_URL}/${post.image}` but `post.image` already starts with `/` (e.g., `/images/foo.png`), resulting in double slashes.
+
+### Fix
+Changed 3 lines in `scripts/build-blog.js`:
+- Line 97: `${SITE_URL}/${post.image}` → `${SITE_URL}${post.image}`
+- Line 105: `${SITE_URL}/${post.image}` → `${SITE_URL}${post.image}`
+- Line 114: `${SITE_URL}/${post.image}` → `${SITE_URL}${post.image}`
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `scripts/build-blog.js` | Removed extra `/` in 3 template string concatenations (lines 97, 105, 114) |
+
+### Verification
+
+- ✅ No double-slash URLs found in `dist/blog/*.html` files
+- ✅ og:image, twitter:image, and JSON-LD image URLs now correct with single slashes
+
+---
+
+## Missing Navbar CSS Fix (January 31, 2026)
+
+### Issue
+ALL blog posts had broken navigation - navbar HTML used `lsfs-*` classes but `navbar-universal.css` was not linked in the blog template.
+
+### Root Cause
+In `scripts/build-blog.js`, the template only linked `enhancements.css` but not `navbar-universal.css`.
+
+### Fix
+Added CSS link in `scripts/build-blog.js` line 2040:
+```html
+<link rel="stylesheet" href="/navbar-universal.css">
+```
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `scripts/build-blog.js` | Added navbar-universal.css link after enhancements.css |
+
+### Verification
+
+- ✅ All 8 blog posts now link `/assets/css/navbar-universal-*.css`

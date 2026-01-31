@@ -94,7 +94,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <!-- Open Graph -->
   <meta property="og:title" content="${post.title}">
   <meta property="og:description" content="${post.summary}">
-  <meta property="og:image" content="${SITE_URL}/${post.image}">
+  <meta property="og:image" content="${SITE_URL}${post.image}">
   <meta property="og:url" content="${SITE_URL}/blog/${post.slug}.html">
   <meta property="og:type" content="article">
 
@@ -102,7 +102,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${post.title}">
   <meta name="twitter:description" content="${post.summary}">
-  <meta name="twitter:image" content="${SITE_URL}/${post.image}">
+  <meta name="twitter:image" content="${SITE_URL}${post.image}">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -111,7 +111,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     "@type": "BlogPosting",
     "headline": "${post.title}",
     "description": "${post.summary}",
-    "image": "${SITE_URL}/${post.image}",
+    "image": "${SITE_URL}${post.image}",
     "datePublished": "${post.date}",
     "dateModified": "${post.date}",
     "author": {
@@ -2037,6 +2037,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     }
   </style>
   <link rel="stylesheet" href="/enhancements.css">
+  <link rel="stylesheet" href="/navbar-universal.css">
 </head>
 <body>
       <!-- UNIVERSAL NAVBAR -->
