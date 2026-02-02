@@ -270,3 +270,109 @@ Added CSS link in `scripts/build-blog.js` line 2040:
 ### Verification
 
 - ✅ All 8 blog posts now link `/assets/css/navbar-universal-*.css`
+
+---
+
+# Internal Linking SEO Implementation (February 1, 2026)
+
+## Goal
+Add ~100-130 contextual internal links to improve SEO and user navigation.
+
+---
+
+## Phase 1: Blog Posts → Product Pages (Highest Impact) ✅ COMPLETED
+Add "Related Products" section before `</article>` tag in each blog post.
+
+- [x] blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is.html
+  - Links: artificial-hedge.html, artificial-boxwood-hedge.html
+- [x] blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes.html
+  - Links: living-wall.html, commercial-wall.html
+- [x] blog/2025-12-11-artificial-vs-real-boxwood-texas.html
+  - Links: artificial-boxwood-hedge.html, artificial-hedge.html
+- [x] blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes.html
+  - Links: living-wall.html, pool-living-wall.html
+- [x] blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex.html
+  - Links: fire-rated-artificial-hedge.html, commercial.html
+- [x] blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces.html
+  - Links: living-wall.html, commercial.html
+- [x] blog/2026-01-31-artificial-living-walls-for-the-texas-summers.html
+  - Links: living-wall.html, pool-living-wall.html, pool-privacy-hedge.html
+
+---
+
+## Phase 2: Location Pages → Product Pages (High Impact) ✅ COMPLETED
+Add "Our Services" section before the FAQ section with product links.
+
+- [x] dallas.html
+- [x] houston.html
+- [x] austin.html
+- [x] san-antonio.html
+- [x] fort-worth.html
+- [x] arlington.html
+- [x] frisco.html
+- [x] plano.html
+- [x] irving.html
+- [x] sugar-land.html
+- [x] the-woodlands.html
+
+Products linked from each location:
+- artificial-hedge.html
+- living-wall.html
+- fence-extensions.html
+- fire-rated-artificial-hedge.html
+- pool-privacy-hedge.html
+
+---
+
+## Phase 3: Product Pages → Related Products (Medium Impact) ✅ COMPLETED
+Add "Related Products" section before footer.
+
+- [x] artificial-hedge.html → living-wall.html, fence-extensions.html, fire-rated-artificial-hedge.html
+- [x] living-wall.html → artificial-hedge.html, pool-living-wall.html, commercial-wall.html
+- [x] artificial-boxwood-hedge.html → artificial-hedge.html, hoa-approved-artificial-hedge.html
+- [x] fire-rated-artificial-hedge.html → artificial-hedge.html, commercial.html
+- [x] pool-privacy-hedge.html → artificial-hedge.html, fence-extensions.html
+- [x] pool-living-wall.html → (already had "Related Solutions" section)
+- [x] fence-extensions.html → artificial-hedge.html, hoa-approved-artificial-hedge.html
+- [x] hoa-approved-artificial-hedge.html → artificial-hedge.html, fence-extensions.html
+- [x] vallum-frx.html → living-wall.html, fire-rated-artificial-hedge.html
+
+---
+
+## Verification ✅ COMPLETED
+- [x] Verified all linked pages exist
+- [x] Build completed successfully (`npm run build`)
+- [x] No broken links found
+
+---
+
+## Review Summary (February 1, 2026)
+
+### What Was Done
+Added ~90+ new internal links across 26 files to improve SEO and user navigation.
+
+### Files Modified
+
+**Phase 1 - Blog Posts (7 files):**
+- Added "Related Products" card sections before article tags
+- Each blog now links to 2-3 relevant product pages
+
+**Phase 2 - Location Pages (11 files):**
+- Added "Our Services in [City]" section with 5 product cards
+- Inserted before FAQ sections (or footer for pages without FAQ)
+
+**Phase 3 - Product Pages (8 files):**
+- Added "Related Products" section before footer
+- Each product page links to 2-3 related products
+- Note: pool-living-wall.html already had related links
+
+### Link Count Summary
+| Section | Files | Links Added |
+|---------|-------|-------------|
+| Blog Posts | 7 | ~18 links |
+| Location Pages | 11 | ~55 links |
+| Product Pages | 8 | ~20 links |
+| **Total** | **26** | **~93 links** |
+
+### Build Status
+✅ Site builds successfully with all changes
