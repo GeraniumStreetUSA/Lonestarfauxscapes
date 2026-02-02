@@ -89,13 +89,13 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <title>${post.title} | Lone Star Faux Scapes Blog</title>
   <meta name="description" content="${post.summary}">
   <meta name="keywords" content="${post.tags.join(', ')}">
-  <link rel="canonical" href="${SITE_URL}/blog/${post.slug}.html">
+  <link rel="canonical" href="${SITE_URL}/blog/${post.slug}">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${post.title}">
   <meta property="og:description" content="${post.summary}">
   <meta property="og:image" content="${SITE_URL}${post.image}">
-  <meta property="og:url" content="${SITE_URL}/blog/${post.slug}.html">
+  <meta property="og:url" content="${SITE_URL}/blog/${post.slug}">
   <meta property="og:type" content="article">
 
   <!-- Twitter Card -->
@@ -128,7 +128,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "${SITE_URL}/blog/${post.slug}.html"
+      "@id": "${SITE_URL}/blog/${post.slug}"
     }
   }
   </script>

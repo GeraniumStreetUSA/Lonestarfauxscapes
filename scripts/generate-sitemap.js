@@ -34,8 +34,8 @@ function generateSitemap() {
 
   // Add static pages
   for (const file of staticHtmlFiles) {
-    const url = file === 'index.html' ? `${SITE_URL}/` : `${SITE_URL}/${file}`;
     const pageKey = file.replace('.html', '');
+    const url = file === 'index.html' ? `${SITE_URL}/` : `${SITE_URL}/${pageKey}`;
     const priority = pageKey === 'index' ? '1.0' : pageKey === 'products' ? '0.9' : '0.8';
     const lastmod = isoDateOnly(fs.statSync(path.resolve(file)).mtime);
     sitemap += `  <url>
@@ -55,7 +55,7 @@ function generateSitemap() {
     for (const post of blogPosts) {
       const postDate = new Date(post.date).toISOString().split('T')[0];
       sitemap += `  <url>
-    <loc>${SITE_URL}/blog/${post.slug}.html</loc>
+    <loc>${SITE_URL}/blog/${post.slug}</loc>
     <lastmod>${postDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
