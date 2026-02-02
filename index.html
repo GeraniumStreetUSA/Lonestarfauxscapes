@@ -1516,6 +1516,9 @@
             --spotlight-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0,0,0,0.35);
             isolation: isolate;
+            /* Flexbox for button alignment */
+            display: flex;
+            flex-direction: column;
         }
         .live-card::before {
             content: '';
@@ -2739,7 +2742,7 @@
                         <li>Modular Grid System</li>
                         <li>Acoustic Dampening</li>
                     </ul>
-                    <div style="margin-top:1rem;"><a class="btn btn-outline" href="living-wall.html">Learn more about Living Walls</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="living-wall.html">Learn more about Living Walls</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2757,7 +2760,7 @@
                         <li>UV Stabilized</li>
                         <li>Fire Rated (NFPA 701)</li>
                     </ul>
-                    <div style="margin-top:1rem;"><a class="btn btn-outline" href="artificial-hedge.html">Learn more about Artificial Hedges</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="artificial-hedge.html">Learn more about Artificial Hedges</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2775,7 +2778,7 @@
                         <li>Optional Noise Blocking</li>
                         <li>Instant Obscurity</li>
                     </ul>
-                    <div style="margin-top:1rem;"><a class="btn btn-outline" href="fence-extensions.html">Learn more about Fence Extensions</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="fence-extensions.html">Learn more about Fence Extensions</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2793,7 +2796,7 @@
                         <li>Brand Integration</li>
                         <li>UV Stabilized</li>
                     </ul>
-                    <div style="margin-top:1rem;"><a class="btn btn-outline" href="commercial-wall.html">Learn more about Commercial Walls</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="commercial-wall.html">Learn more about Commercial Walls</a></div>
                 </div>
             </div>
         </div>
@@ -2971,50 +2974,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Preview -->
-    <section id="gallery" class="section">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
-                <h2 class="gs-reveal">Selected Works</h2>
-                <a href="#" class="btn-outline gs-reveal">Full Archive</a>
-            </div>
-            <div class="grid-4">
-                <div class="live-card gs-reveal" data-reveal>
-                    <div class="gallery-meta"><span>Commercial</span><span>Austin, TX</span></div>
-                    <picture>
-                <source srcset="images/living_walls/living-wall-2-400w.webp 400w, images/living_walls/living-wall-2-800w.webp 800w, images/living_walls/living-wall-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/living_walls/living-wall-2-400w.jpg 400w, images/living_walls/living-wall-2-800w.jpg 800w, images/living_walls/living-wall-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/living_walls/living-wall-2.jpg" alt="Commercial lobby living wall" class="gallery-img" loading="lazy" decoding="async" width="600" height="400">
-              </picture>
-                    <h4>Tech HQ Lobby</h4>
-                </div>
-                <div class="live-card gs-reveal" data-reveal>
-                    <div class="gallery-meta"><span>Residential</span><span>Dallas, TX</span></div>
-                    <picture>
-                <source srcset="images/hedges/hedge-privacy-3-400w.webp 400w, images/hedges/hedge-privacy-3-800w.webp 800w, images/hedges/hedge-privacy-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-3-400w.jpg 400w, images/hedges/hedge-privacy-3-800w.jpg 800w, images/hedges/hedge-privacy-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-3.jpg" alt="Residential privacy wall" class="gallery-img" loading="lazy" decoding="async" width="600" height="400">
-              </picture>
-                    <h4>Estate Privacy Wall</h4>
-                </div>
-                <div class="live-card gs-reveal" data-reveal>
-                    <div class="gallery-meta"><span>Hospitality</span><span>Houston, TX</span></div>
-                    <img src="images/commercial/commercial-3.jpg" class="gallery-img" alt="Hospitality rooftop greenery" loading="lazy" width="600" height="400" decoding="async">
-                    <h4>Rooftop Lounge</h4>
-                </div>
-                <div class="live-card gs-reveal" data-reveal>
-                    <div class="gallery-meta"><span>Residential</span><span>San Antonio</span></div>
-                    <picture>
-                <source srcset="images/fence/fence-2-400w.webp 400w, images/fence/fence-2-800w.webp 800w, images/fence/fence-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/fence/fence-2-400w.jpg 400w, images/fence/fence-2-800w.jpg 800w, images/fence/fence-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/fence/fence-2.jpg" alt="Pool enclosure privacy wall" class="gallery-img" loading="lazy" decoding="async" width="600" height="400">
-              </picture>
-                    <h4>Pool Enclosure</h4>
                 </div>
             </div>
         </div>
