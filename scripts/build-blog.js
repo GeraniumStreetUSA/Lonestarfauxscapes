@@ -28,6 +28,82 @@ const buildImageAbsolute = (imagePath) => {
   return `${SITE_URL}${relative}`;
 };
 
+const IMAGE_COMMENT_REGEX = /<!--\s*image:\s*([^>]+?)\s*-->/gi;
+
+const escapeHtmlAttribute = (value) => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('"', '&quot;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;');
+
+const buildAltFromPath = (imagePath) => {
+  const cleaned = String(imagePath || '').split('?')[0].split('#')[0];
+  const filename = cleaned.split('/').pop() || '';
+  const noExtension = filename.replace(/\.[^.]+$/, '');
+  const alt = noExtension.replace(/[-_]+/g, ' ').trim();
+  return alt || 'Blog image';
+};
+
+const buildInlineImageTag = (imagePath) => {
+  const src = buildImageSrc(imagePath);
+  const alt = escapeHtmlAttribute(buildAltFromPath(imagePath));
+  return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+};
+
+const extractCommentImages = (markdown) => {
+  const images = [];
+  const cleaned = markdown.replace(IMAGE_COMMENT_REGEX, (_, rawPath) => {
+    const value = typeof rawPath === 'string' ? rawPath.trim() : '';
+    if (value) images.push(value);
+    return '';
+  });
+
+  return { cleaned, images };
+};
+
+const insertImagesAfterHeadings = (html, imagePaths, maxInsertions = 3) => {
+  if (!imagePaths || imagePaths.length === 0) return html;
+
+  let result = '';
+  let cursor = 0;
+  let inserted = 0;
+  const limit = Math.min(maxInsertions, imagePaths.length);
+
+  while (inserted < limit) {
+    const h2Start = html.indexOf('<h2', cursor);
+    if (h2Start === -1) break;
+
+    const h2Close = html.indexOf('</h2>', h2Start);
+    if (h2Close === -1) break;
+
+    const h2End = h2Close + '</h2>'.length;
+    const nextH2Start = html.indexOf('<h2', h2End);
+
+    let insertPos = h2End;
+    const pStart = html.indexOf('<p', h2End);
+    if (pStart !== -1 && (nextH2Start === -1 || pStart < nextH2Start)) {
+      const pEnd = html.indexOf('</p>', pStart);
+      if (pEnd !== -1 && (nextH2Start === -1 || pEnd < nextH2Start)) {
+        insertPos = pEnd + '</p>'.length;
+      }
+    }
+
+    result += html.slice(cursor, insertPos);
+    result += `\n${buildInlineImageTag(imagePaths[inserted])}\n`;
+    cursor = insertPos;
+    inserted += 1;
+  }
+
+  result += html.slice(cursor);
+
+  if (inserted < imagePaths.length) {
+    const remainingImages = imagePaths.slice(inserted).map(buildInlineImageTag).join('\n');
+    result += `\n${remainingImages}\n`;
+  }
+
+  return result;
+};
+
 // Generate Table of Contents from HTML content
 const generateTableOfContents = (htmlContent) => {
   const headingRegex = /<h([23])>(.*?)<\/h\1>/gi;
@@ -2350,13 +2426,16 @@ async function buildBlog() {
       continue; // Skip generating HTML for future posts
     }
 
+    const { cleaned: cleanedContent, images: commentImages } = extractCommentImages(content);
+
     // Convert markdown to HTML for published posts
-    const htmlContent = marked(content);
+    const htmlContent = marked(cleanedContent);
 
     // Generate table of contents
     const { toc, content: contentWithIds } = generateTableOfContents(htmlContent);
+    const contentWithImages = insertImagesAfterHeadings(contentWithIds, commentImages, 3);
     post.toc = toc;
-    post.content = contentWithIds;
+    post.content = contentWithImages;
 
     posts.push(post);
 
