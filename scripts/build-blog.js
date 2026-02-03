@@ -8,6 +8,26 @@ const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
 
+const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
+const isProtocolRelativeUrl = (value) => value.startsWith('//');
+
+const normalizeImagePath = (value) => {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  return raw || 'images/hedges/hedge-privacy-1.jpg';
+};
+
+const buildImageSrc = (imagePath) => {
+  if (isAbsoluteUrl(imagePath) || isProtocolRelativeUrl(imagePath)) return imagePath;
+  return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+};
+
+const buildImageAbsolute = (imagePath) => {
+  if (isAbsoluteUrl(imagePath)) return imagePath;
+  if (isProtocolRelativeUrl(imagePath)) return `https:${imagePath}`;
+  const relative = buildImageSrc(imagePath);
+  return `${SITE_URL}${relative}`;
+};
+
 // Generate Table of Contents from HTML content
 const generateTableOfContents = (htmlContent) => {
   const headingRegex = /<h([23])>(.*?)<\/h\1>/gi;
@@ -81,7 +101,12 @@ const generateFAQSchema = (faq) => {
 };
 
 // Blog post page template - matches your existing site styling
-const generatePostHTML = (post) => `<!DOCTYPE html>
+const generatePostHTML = (post) => {
+  const imagePath = normalizeImagePath(post.image);
+  const imageSrc = buildImageSrc(imagePath);
+  const imageAbsolute = buildImageAbsolute(imagePath);
+
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -94,7 +119,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <!-- Open Graph -->
   <meta property="og:title" content="${post.title}">
   <meta property="og:description" content="${post.summary}">
-  <meta property="og:image" content="${SITE_URL}${post.image}">
+  <meta property="og:image" content="${imageAbsolute}">
   <meta property="og:url" content="${SITE_URL}/blog/${post.slug}">
   <meta property="og:type" content="article">
 
@@ -102,7 +127,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${post.title}">
   <meta name="twitter:description" content="${post.summary}">
-  <meta name="twitter:image" content="${SITE_URL}${post.image}">
+  <meta name="twitter:image" content="${imageAbsolute}">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -111,7 +136,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     "@type": "BlogPosting",
     "headline": "${post.title}",
     "description": "${post.summary}",
-    "image": "${SITE_URL}${post.image}",
+    "image": "${imageAbsolute}",
     "datePublished": "${post.date}",
     "dateModified": "${post.date}",
     "author": {
@@ -2169,7 +2194,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
     </section>
 
     <div class="featured-image">
-      <img src="/${post.image}" alt="${post.title}" loading="eager">
+      <img src="${imageSrc}" alt="${post.title}" loading="eager">
     </div>
 
     <article class="article-content">
@@ -2244,6 +2269,7 @@ const generatePostHTML = (post) => `<!DOCTYPE html>
   </script>
 </body>
 </html>`;
+};
 
 // Build the blog
 async function buildBlog() {
