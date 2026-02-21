@@ -2,7 +2,7 @@
 title: "Artificial living walls and hedges in Houston: a local guide from LoneStar Fauxscapes"
 summary: "Houston artificial living walls and faux hedges that stay green in heat and humidity. See options, safety notes, and get a quote from LoneStar Fauxscapes."
 date: 2026-02-21
-image: images/local-seo-default.jpg
+image: images/houston-artificial-living-walls-hedges.webp
 category: "Local Updates"
 tags:
   - artificial-living-walls
