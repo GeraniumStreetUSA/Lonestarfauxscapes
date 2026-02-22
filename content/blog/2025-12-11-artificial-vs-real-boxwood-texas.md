@@ -3,7 +3,7 @@ title: "Artificial vs. Real Boxwood in Texas: Water, Maintenance, and Long-Term 
 date: 2025-12-11
 image: images/blog/hero-artificial-vs-real-boxwood-texas.webp
 summary: "Weighing artificial fire resistant boxwood hedges against real plants? Explore drought tolerance, maintenance, and long-term value for Texas properties."
-category: "Guides"
+category: "Artificial Hedges"
 tags:
   - artificial boxwood hedge
   - fire resistant boxwood
@@ -58,4 +58,14 @@ The goal of Texas landscaping is adapting beautifully to our challenging environ
 
 ---
 
-Want help spec’ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html) or [request a free quote](/index.html#contact).
+## Related articles
+
+This article is part of our [complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, HOA approval, and more.
+
+You might also find these useful:
+- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
+- [Faux green walls vs. real plants for Texas homes](/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes)
+
+---
+
+Want help spec'ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html) or [request a free quote](/index.html#contact).

@@ -3,7 +3,7 @@ title: "Artificial living walls for Texas summers: what holds up when it’s 105
 summary: "A hands-on guide to picking and installing artificial living walls that can take Texas heat—UV, wind, mounting, cleaning, and fire-rated options for homes and commercial spaces."
 date: 2026-01-31
 image: /images/2026-01-31-artificial-living-walls-for-the-texas-summers-image.png
-category: "Guides"
+category: "Living Walls"
 tags:
   - artificial living walls
   - texas outdoor design
@@ -162,3 +162,13 @@ Often for interiors, yes—many commercial spaces need documentation for decorat
 
 ### What's the easiest way to clean an outdoor artificial living wall in Texas?
 A hose rinse is usually enough. For heavier buildup (pollen, pool chemical residue, city dust), use mild soap and water and rinse well. If you're cleaning near a pool deck or outdoor kitchen, test a small spot first—some cleaners can dull the finish on certain plastics.
+
+---
+
+## Related articles
+
+This article is part of our [complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas), which covers materials, indoor vs outdoor, commercial applications, installation, and more.
+
+You might also find these useful:
+- [Artificial vs. real living walls for Texas homes](/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes)
+- [Faux living walls transforming Texas office spaces](/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces)

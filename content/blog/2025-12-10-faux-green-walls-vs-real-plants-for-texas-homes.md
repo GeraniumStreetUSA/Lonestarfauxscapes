@@ -3,7 +3,7 @@ title: "Faux Green Walls vs. Real Plants for Texas Homes"
 summary: "Comparing faux green walls and live plants for Texas businesses—cost, maintenance, and design impact."
 date: 2025-12-10
 image: images/blog/artificial-living-walls-002.jpg
-category: "Guides"
+category: "Artificial Hedges"
 tags:
   - faux-green-walls
 draft: false
@@ -137,6 +137,14 @@ As Texas climates become more unpredictable and water resources more constrained
 
 Ready to see options? [Browse our commercial-grade faux walls](https://lonestarfauxscapes.com/) designed for Texas conditions. No plant casualties guaranteed.  
 
-## References  
-[1] NFPA 701 Fire Test Standards: https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701  
+## Related articles
+
+This article is part of our [complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, HOA approval, and more.
+
+You might also find these useful:
+- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
+- [Artificial vs. real boxwood in Texas: water, maintenance, and long-term value](/blog/2025-12-11-artificial-vs-real-boxwood-texas)
+
+## References
+[1] NFPA 701 Fire Test Standards: https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701
 [2] Texas Water Restrictions Guidelines: https://www.tceq.texas.gov/response/drought/water-restrictions

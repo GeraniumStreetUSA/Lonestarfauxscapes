@@ -3,7 +3,7 @@ title: "Why Fire Rated Artificial Hedges Are Ideal for Texas High-Rises"
 summary: "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes."
 date: 2025-12-13
 image: images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png
-category: "Guides"
+category: "Compliance"
 tags:
   - fire rated artificial hedges
   - Texas high-rises
@@ -121,6 +121,14 @@ The initial investment in quality fire-rated artificial hedging pays off through
 
 If you're tired of staring at a barren balcony, this might be the only solution that works long-term. Consult with a specialty supplier who understands local code requirements to ensure you get a system that looks great and meets all safety regulations.  
 
-## References  
-[1] https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701  
+## Related articles
+
+This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties), which covers fire test standards, documentation, and compliance for commercial projects.
+
+You might also find these useful:
+- [Firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units)
+- [The complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas)
+
+## References
+[1] https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701
 [2] https://www.dgs.ca.gov/BSC/Codes

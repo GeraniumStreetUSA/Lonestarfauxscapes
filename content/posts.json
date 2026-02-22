@@ -1,11 +1,59 @@
 [
   {
+    "slug": "2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties",
+    "title": "Fire-rated artificial greenery for Texas commercial properties: the complete guide",
+    "date": "2026-02-21T00:00:00.000Z",
+    "image": "/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
+    "summary": "A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies.",
+    "category": "Compliance",
+    "tags": [
+      "fire-rated artificial greenery",
+      "NFPA 701",
+      "commercial fire compliance",
+      "Texas fire code",
+      "multifamily artificial hedge"
+    ],
+    "relatedUrl": ""
+  },
+  {
+    "slug": "2026-02-21-the-complete-guide-to-artificial-hedges-in-texas",
+    "title": "The complete guide to artificial hedges in Texas",
+    "date": "2026-02-21T00:00:00.000Z",
+    "image": "/images/hedges/hedge-privacy-1.webp",
+    "summary": "Everything Texas homeowners and property managers need to know about artificial hedges—types, materials, climate performance, costs, HOA approval, pool privacy, installation, and maintenance.",
+    "category": "Guides",
+    "tags": [
+      "artificial hedges Texas",
+      "artificial hedge guide",
+      "Texas landscaping",
+      "privacy hedge",
+      "UV resistant hedge"
+    ],
+    "relatedUrl": ""
+  },
+  {
+    "slug": "2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas",
+    "title": "The complete guide to artificial living walls in Texas",
+    "date": "2026-02-21T00:00:00.000Z",
+    "image": "/images/blog/artificial-living-walls-001.jpg",
+    "summary": "A practical guide to artificial living walls for Texas homes and businesses—materials, climate performance, indoor vs outdoor, commercial fire compliance, installation, and maintenance.",
+    "category": "Design",
+    "tags": [
+      "artificial living walls",
+      "living wall guide",
+      "Texas outdoor design",
+      "faux living wall",
+      "commercial living wall"
+    ],
+    "relatedUrl": ""
+  },
+  {
     "slug": "2026-02-03-firewise-artificial-hedges-for-multi-family-units",
     "title": "Firewise artificial hedges for multifamily properties: what property managers should actually look for",
     "date": "2026-02-03T00:00:00.000Z",
     "image": "/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png",
     "summary": "A nuts-and-bolts guide for property managers choosing firewise, code-friendly artificial hedge systems for apartments and multifamily buildings—what “fire-rated” actually means, what documentation to ask for, and the install mistakes that cause problems later.",
-    "category": "Guides",
+    "category": "Compliance",
     "tags": [
       "multifamily",
       "fire-rated",
@@ -19,7 +67,7 @@
     "date": "2026-01-31T00:00:00.000Z",
     "image": "/images/2026-01-31-artificial-living-walls-for-the-texas-summers-image.png",
     "summary": "A hands-on guide to picking and installing artificial living walls that can take Texas heat—UV, wind, mounting, cleaning, and fire-rated options for homes and commercial spaces.",
-    "category": "Guides",
+    "category": "Living Walls",
     "tags": [
       "artificial living walls",
       "texas outdoor design"
@@ -32,7 +80,7 @@
     "date": "2025-12-14T00:00:00.000Z",
     "image": "images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg",
     "summary": "Discover how faux living walls enhance Texas offices with low-maintenance beauty, fire-rated safety, and custom design flexibility for business owners.",
-    "category": "Commercial Design",
+    "category": "Living Walls",
     "tags": [
       "faux-living-wall",
       "texas-office-design",
@@ -46,7 +94,7 @@
     "date": "2025-12-13T00:00:00.000Z",
     "image": "images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
     "summary": "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes.",
-    "category": "Guides",
+    "category": "Compliance",
     "tags": [
       "fire rated artificial hedges",
       "Texas high-rises",
@@ -60,7 +108,7 @@
     "date": "2025-12-12T00:00:00.000Z",
     "image": "images/blog/artificial-living-walls-001.jpg",
     "summary": "Comparing artificial and real living walls for Texas homeowners. Learn which option suits your climate, budget, and maintenance preferences.",
-    "category": "Guides",
+    "category": "Living Walls",
     "tags": [
       "artificial-living-walls"
     ],
@@ -72,7 +120,7 @@
     "date": "2025-12-11T00:00:00.000Z",
     "image": "images/blog/hero-artificial-vs-real-boxwood-texas.webp",
     "summary": "Weighing artificial fire resistant boxwood hedges against real plants? Explore drought tolerance, maintenance, and long-term value for Texas properties.",
-    "category": "Guides",
+    "category": "Artificial Hedges",
     "tags": [
       "artificial boxwood hedge",
       "fire resistant boxwood",
@@ -88,7 +136,7 @@
     "date": "2025-12-10T00:00:00.000Z",
     "image": "images/blog/artificial-living-walls-002.jpg",
     "summary": "Comparing faux green walls and live plants for Texas businesses—cost, maintenance, and design impact.",
-    "category": "Guides",
+    "category": "Artificial Hedges",
     "tags": [
       "faux-green-walls"
     ],
@@ -100,7 +148,7 @@
     "date": "2025-12-09T00:00:00.000Z",
     "image": "images/blog/hero-artificial-vs-real-hedges-cost-texas.webp",
     "summary": "We compare upfront & long-term costs of artificial vs real hedges in Texas. See which saves more money with drought & maintenance.",
-    "category": "Guides",
+    "category": "Artificial Hedges",
     "tags": [
       "artificial hedge cost Texas",
       "real vs artificial hedge cost",

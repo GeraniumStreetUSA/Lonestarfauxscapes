@@ -3,7 +3,7 @@ title: "Faux Living Walls Transforming Texas Office Spaces"
 summary: "Discover how faux living walls enhance Texas offices with low-maintenance beauty, fire-rated safety, and custom design flexibility for business owners."
 date: 2025-12-14
 image: images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg
-category: "Commercial Design"
+category: "Living Walls"
 tags:
   - faux-living-wall
   - texas-office-design
@@ -212,6 +212,14 @@ Ready to explore options for your space? [LoneStar FauxScapes](https://lonestarf
 - Full-service installation with certified technicians  
 - Custom maintenance programs tailored to your environment  
 
-## References  
-[1] https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701  
+## Related articles
+
+This article is part of our [complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas), which covers materials, indoor vs outdoor, commercial applications, installation, and more.
+
+You might also find these useful:
+- [Artificial living walls for Texas summers: what holds up when it's 105°F](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
+- [Artificial vs. real living walls for Texas homes](/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes)
+
+## References
+[1] https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701
 [2] https://www.austintexas.gov/department/codes-and-standards

@@ -3,7 +3,7 @@ title: "Artificial vs. Real Living Walls for Texas Homes"
 summary: "Comparing artificial and real living walls for Texas homeowners. Learn which option suits your climate, budget, and maintenance preferences."
 date: 2025-12-12
 image: images/blog/artificial-living-walls-001.jpg
-category: "Guides"
+category: "Living Walls"
 tags:
   - artificial-living-walls
 draft: false
@@ -156,5 +156,13 @@ Before deciding, consider:
 
 Request samples of UV-stabilized artificial plants to see the quality difference. Or visit our Austin showroom to compare both types side-by-side under simulated Texas weather conditions. For personalized advice, consult with a landscape architect who specializes in both living wall types—they can assess your specific microclimate and structural requirements.  
 
-## References  
+## Related articles
+
+This article is part of our [complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas), which covers materials, indoor vs outdoor, commercial applications, installation, and more.
+
+You might also find these useful:
+- [Artificial living walls for Texas summers: what holds up when it's 105°F](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
+- [Faux living walls transforming Texas office spaces](/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces)
+
+## References
 [1] https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=701

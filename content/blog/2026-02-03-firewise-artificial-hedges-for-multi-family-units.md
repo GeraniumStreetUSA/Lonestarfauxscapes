@@ -3,7 +3,7 @@ title: "Firewise artificial hedges for multifamily properties: what property man
 summary: "A nuts-and-bolts guide for property managers choosing firewise, code-friendly artificial hedge systems for apartments and multifamily buildings—what “fire-rated” actually means, what documentation to ask for, and the install mistakes that cause problems later."
 date: 2026-02-03
 image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png
-category: "Guides"
+category: "Compliance"
 tags:
   - multifamily
   - fire-rated
@@ -162,6 +162,14 @@ Some do. If the fire performance comes from a topical treatment, harsh cleaning 
 --- 
 
 If you want, tell me the city (or at least the metro) and the main install locations (pool fence, courtyard walls, trash enclosure, etc.). I can tighten this into a version that lines up with what inspectors and owners usually focus on in that area.
+
+## Related articles
+
+This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties), which covers fire test standards, documentation, and compliance for commercial projects.
+
+You might also find these useful:
+- [Why fire-rated artificial hedges are ideal for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex)
+- [The complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas)
 
 <!-- Article Images -->
 <!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
