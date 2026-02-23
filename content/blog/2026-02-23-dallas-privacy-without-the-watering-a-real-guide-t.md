@@ -2,7 +2,7 @@
 title: "Dallas privacy without the watering: a real guide to artificial living walls and hedges"
 summary: "Looking for artificial living walls and artificial hedges in Dallas? Learn what materials, fire ratings, and installs to ask for. Get a quote."
 date: 2026-02-23
-image: images/local-seo-default.jpg
+image: /images/blog/artificial-living-walls-001.jpg
 category: "Local Updates"
 tags:
   - artificial-living-walls

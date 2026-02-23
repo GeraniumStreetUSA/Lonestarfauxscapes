@@ -7,13 +7,40 @@ const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').repl
 const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
+const DEFAULT_BLOG_IMAGE = 'images/hedges/hedge-privacy-1.jpg';
 
 const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
 const isProtocolRelativeUrl = (value) => value.startsWith('//');
 
 const normalizeImagePath = (value) => {
   const raw = typeof value === 'string' ? value.trim() : '';
-  return raw || 'images/hedges/hedge-privacy-1.jpg';
+  return raw || DEFAULT_BLOG_IMAGE;
+};
+
+const toLocalImagePath = (imagePath) => {
+  if (typeof imagePath !== 'string') return null;
+  const clean = imagePath.trim().split('?')[0].split('#')[0];
+  if (!clean || isAbsoluteUrl(clean) || isProtocolRelativeUrl(clean)) return null;
+
+  // Normalize "/images/foo.jpg" and "images/foo.jpg" to a local workspace path.
+  const normalized = clean.startsWith('/') ? clean.slice(1) : clean;
+  return path.join('.', normalized);
+};
+
+const imageExists = (imagePath) => {
+  const localPath = toLocalImagePath(imagePath);
+  if (!localPath) return true;
+  return fs.existsSync(localPath);
+};
+
+const resolvePostImage = (imagePath, slug) => {
+  const normalized = normalizeImagePath(imagePath);
+  if (imageExists(normalized)) {
+    return normalized;
+  }
+
+  console.warn(`  Missing image for ${slug}: ${normalized}. Falling back to ${DEFAULT_BLOG_IMAGE}`);
+  return DEFAULT_BLOG_IMAGE;
 };
 
 const buildImageSrc = (imagePath) => {
@@ -2411,7 +2438,7 @@ async function buildBlog() {
       slug,
       title,
       date: data.date || now.toISOString(),
-      image: data.image || 'images/hedges/hedge-privacy-1.jpg',
+      image: resolvePostImage(data.image, slug),
       summary,
       category: data.category || 'Guides',
       tags: data.tags || [],
