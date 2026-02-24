@@ -16,6 +16,8 @@ jobs:
   publish:
     name: Publish scheduled posts
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_BUILD_HOOK: ${{ secrets.CLOUDFLARE_BUILD_HOOK }}
 
     steps:
       - name: Checkout repo
@@ -49,15 +51,15 @@ jobs:
           git push
 
       - name: Trigger Cloudflare Pages build
-        if: steps.publish.outputs.published != '0' && secrets.CLOUDFLARE_BUILD_HOOK != ''
+        if: steps.publish.outputs.published != '0' && env.CLOUDFLARE_BUILD_HOOK != ''
         run: |
-          curl -s -X POST "${{ secrets.CLOUDFLARE_BUILD_HOOK }}" \
+          curl -s -X POST "${CLOUDFLARE_BUILD_HOOK}" \
             -H "Content-Type: application/json" \
             --connect-timeout 30 \
             --max-time 60
 
       - name: Skip Cloudflare trigger (missing secret)
-        if: steps.publish.outputs.published != '0' && secrets.CLOUDFLARE_BUILD_HOOK == ''
+        if: steps.publish.outputs.published != '0' && env.CLOUDFLARE_BUILD_HOOK == ''
         run: |
           echo "CLOUDFLARE_BUILD_HOOK secret is not set; skipping Cloudflare trigger."
 
