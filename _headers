@@ -27,9 +27,25 @@
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # Security headers for all pages
-/*
+/* 
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Strict-Transport-Security: max-age=31536000
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Explicit noindex-only routes
+/terms
+  X-Robots-Tag: noindex, follow
+
+/terms.html
+  X-Robots-Tag: noindex, follow
+
+/privacy
+  X-Robots-Tag: noindex, follow
+
+/privacy.html
+  X-Robots-Tag: noindex, follow
+
+/sample-page/feed/
+  X-Robots-Tag: noindex, nofollow

@@ -2228,7 +2228,7 @@ const generatePostHTML = (post) => {
   
         <a href="/installation.html" class="lsfs-link">Installation</a>
         <a href="/gallery.html" class="lsfs-link">Gallery</a>
-        <a href="/blog.html" class="lsfs-link">Blog</a>
+        <a href="/blog" class="lsfs-link">Blog</a>
         <a href="/pricing.html" class="lsfs-link">Pricing</a>
         <a href="/contact.html" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
@@ -2273,7 +2273,7 @@ const generatePostHTML = (post) => {
   
     <a href="/installation.html" class="lsfs-mobile-link">Installation</a>
     <a href="/gallery.html" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog.html" class="lsfs-mobile-link">Blog</a>
+    <a href="/blog" class="lsfs-mobile-link">Blog</a>
     <a href="/pricing.html" class="lsfs-mobile-link">Pricing</a>
     <a href="/contact.html" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
   </div>
@@ -2284,7 +2284,7 @@ const generatePostHTML = (post) => {
         <nav class="breadcrumb">
           <a href="/index.html">Home</a>
           <span>/</span>
-          <a href="/blog.html">Blog</a>
+          <a href="/blog">Blog</a>
           <span>/</span>
           <span>${post.title}</span>
         </nav>
@@ -2308,7 +2308,7 @@ const generatePostHTML = (post) => {
         ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
       </div>
 
-      <a href="/blog.html" class="back-link">
+      <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
       </a>
     </article>

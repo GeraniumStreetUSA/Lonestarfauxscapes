@@ -1,9 +1,20 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const ALLOW_INDEXING = process.env.ALLOW_INDEXING !== 'false';
-const POSTS_JSON = './content/posts.json';
+const CONTENT_DIR = './content/blog';
+const EXCLUDED_STATIC_PAGES = new Set([
+  '404.html',
+  'hero-backup.html',
+  'lighthouse-report.html',
+  'navbar-component.html',
+  'navbar-universal.html',
+  'privacy.html',
+  'roadmap.html',
+  'terms.html',
+]);
 
 function generateSitemap() {
   console.log('Generating sitemap...');
@@ -13,13 +24,29 @@ function generateSitemap() {
     .readdirSync('.')
     .filter(f => f.endsWith('.html') && !f.includes('backup'))
     // Not public pages (or should never be indexed)
-    .filter(f => !['roadmap.html', 'navbar-component.html', 'navbar-universal.html', '404.html', 'lighthouse-report.html'].includes(f));
+    .filter(f => !EXCLUDED_STATIC_PAGES.has(f));
 
-  // Get blog posts if they exist
+  // Build blog post URLs directly from markdown to avoid stale posts.json.
   let blogPosts = [];
-  if (fs.existsSync(POSTS_JSON)) {
+  if (fs.existsSync(CONTENT_DIR)) {
     try {
-      blogPosts = JSON.parse(fs.readFileSync(POSTS_JSON, 'utf-8'));
+      blogPosts = fs
+        .readdirSync(CONTENT_DIR)
+        .filter(file => file.endsWith('.md'))
+        .map(file => {
+          const fullPath = path.join(CONTENT_DIR, file);
+          const raw = fs.readFileSync(fullPath, 'utf-8');
+          const { data } = matter(raw);
+          const isDraft = data.draft === true || data.published === false;
+
+          return {
+            slug: file.replace(/\.md$/, ''),
+            date: data.date || fs.statSync(fullPath).mtime.toISOString(),
+            isDraft,
+          };
+        })
+        .filter(post => !post.isDraft)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
     } catch (e) {
       console.log('No blog posts found');
     }

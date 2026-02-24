@@ -2,13 +2,15 @@ import fs from 'fs';
 import path from 'path';
 
 const DIST_DIR = './dist';
-const allowIndexing = process.env.ALLOW_INDEXING === 'true';
+// Indexing is enabled by default. Set ALLOW_INDEXING=false for temporary blocks.
+const allowIndexing = process.env.ALLOW_INDEXING !== 'false';
 
 // Files to copy to dist after vite build
 const filesToCopy = [
   { src: './sitemap.xml', dest: 'sitemap.xml' },
   { src: './robots.txt', dest: 'robots.txt' },
   { src: './_headers', dest: '_headers' },
+  { src: './_redirects', dest: '_redirects' },
   { src: './admin/config.yml', dest: 'admin/config.yml' },
   { src: './content/posts.json', dest: 'content/posts.json' },
   // JavaScript files (not bundled due to missing type="module")

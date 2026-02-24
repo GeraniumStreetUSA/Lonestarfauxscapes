@@ -1,0 +1,11 @@
+# Host/protocol canonicalization
+http://lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
+https://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
+
+# Legacy high-value pages restored via permanent redirects
+/privacy-wall /residential 301
+/privacy-wall/ /residential 301
+/commercial-fire-retardant-tested-artificial-solutions /commercial 301
+/commercial-fire-retardant-tested-artificial-solutions/ /commercial 301
+/residential-fire-retardant-tested-artificial-solutions /commercial 301
+/residential-fire-retardant-tested-artificial-solutions/ /commercial 301

@@ -1276,7 +1276,7 @@
           if (idx % 3 === 2) card.setAttribute('data-delay', '2');
 
           const imageSrc = (post.image || '').startsWith('/') ? post.image : `/${post.image || ''}`;
-          const postUrl = `/blog/${post.slug}.html`;
+          const postUrl = `/blog/${post.slug}`;
 
           card.innerHTML = `
             <div class="card-media">
