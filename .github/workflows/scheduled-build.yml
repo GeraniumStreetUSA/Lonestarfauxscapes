@@ -2,7 +2,10 @@ name: Publish Scheduled Blog Posts
 
 on:
   schedule:
-    - cron: '0 14 * * *'  # 8am Central (14:00 UTC)
+    - cron: '0 13 * * *'   # 8:00 AM Central during daylight time (CDT)
+    - cron: '10 13 * * *'  # Retry for scheduler drift (CDT)
+    - cron: '0 14 * * *'   # 8:00 AM Central during standard time (CST)
+    - cron: '10 14 * * *'  # Retry for scheduler drift (CST)
   workflow_dispatch:
 
 permissions:
@@ -46,12 +49,17 @@ jobs:
           git push
 
       - name: Trigger Cloudflare Pages build
-        if: steps.publish.outputs.published != '0'
+        if: steps.publish.outputs.published != '0' && secrets.CLOUDFLARE_BUILD_HOOK != ''
         run: |
           curl -s -X POST "${{ secrets.CLOUDFLARE_BUILD_HOOK }}" \
             -H "Content-Type: application/json" \
             --connect-timeout 30 \
             --max-time 60
+
+      - name: Skip Cloudflare trigger (missing secret)
+        if: steps.publish.outputs.published != '0' && secrets.CLOUDFLARE_BUILD_HOOK == ''
+        run: |
+          echo "CLOUDFLARE_BUILD_HOOK secret is not set; skipping Cloudflare trigger."
 
       - name: Disable workflow if no posts remaining
         if: steps.publish.outputs.remaining == '0'

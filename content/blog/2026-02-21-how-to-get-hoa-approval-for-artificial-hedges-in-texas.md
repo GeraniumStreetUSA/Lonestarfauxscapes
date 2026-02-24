@@ -9,7 +9,7 @@ tags:
   - Texas HOA fence rules
   - artificial hedge approval
   - Texas Property Code
-draft: true
+draft: false
 faq:
   - question: "Can my HOA ban artificial hedges in Texas?"
     answer: "HOAs can regulate the appearance and type of landscaping through their CC&Rs, including artificial elements. However, Texas Property Code Section 202.007 prohibits HOAs from unreasonably denying drought-resistant landscaping. Whether artificial hedges fall under this protection depends on how your HOA and the courts interpret the statute. The safest approach is to submit a well-documented application rather than argue the legal question."
