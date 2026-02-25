@@ -5,6 +5,8 @@ import matter from 'gray-matter';
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const ALLOW_INDEXING = process.env.ALLOW_INDEXING !== 'false';
 const CONTENT_DIR = './content/blog';
+const POSTS_JSON = './content/posts.json';
+const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
 const EXCLUDED_STATIC_PAGES = new Set([
   '404.html',
   'hero-backup.html',
@@ -16,8 +18,73 @@ const EXCLUDED_STATIC_PAGES = new Set([
   'terms.html',
 ]);
 
+const sanitizeFrontmatterSlug = (value) => {
+  if (typeof value !== 'string') return '';
+
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
+const stripDatePrefixFromSlug = (slug) => {
+  const match = String(slug || '').match(DATE_PREFIX_SLUG_REGEX);
+  return match ? match[1] : String(slug || '');
+};
+
+const loadLegacySlugSet = () => {
+  const slugs = new Set();
+  if (!fs.existsSync(POSTS_JSON)) return slugs;
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(POSTS_JSON, 'utf-8'));
+    if (!Array.isArray(parsed)) return slugs;
+
+    for (const post of parsed) {
+      const slug = typeof post?.slug === 'string' ? post.slug.trim() : '';
+      if (slug) slugs.add(slug);
+    }
+  } catch (error) {
+    console.warn(`Could not parse legacy slugs from ${POSTS_JSON}: ${error.message}`);
+  }
+
+  return slugs;
+};
+
+const resolvePostSlug = ({ frontmatterSlug, fileSlug, legacySlugSet }) => {
+  const explicitSlug = sanitizeFrontmatterSlug(frontmatterSlug);
+  if (explicitSlug) return explicitSlug;
+  if (legacySlugSet.has(fileSlug)) return fileSlug;
+
+  const timelessSlug = stripDatePrefixFromSlug(fileSlug);
+  return timelessSlug || fileSlug;
+};
+
+const toIsoDateKey = (value, fallbackDate = new Date()) => {
+  if (typeof value === 'string') {
+    const dateMatch = value.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (dateMatch) return `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
+  }
+
+  const parsed = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    return fallbackDate.toISOString().slice(0, 10);
+  }
+
+  const year = parsed.getUTCFullYear();
+  const month = String(parsed.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(parsed.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 function generateSitemap() {
   console.log('Generating sitemap...');
+  const legacySlugSet = loadLegacySlugSet();
+  const todayIsoDate = new Date().toISOString().slice(0, 10);
 
   // Get all HTML files in root (static pages)
   const staticHtmlFiles = fs
@@ -38,15 +105,23 @@ function generateSitemap() {
           const raw = fs.readFileSync(fullPath, 'utf-8');
           const { data } = matter(raw);
           const isDraft = data.draft === true || data.published === false;
+          const fileSlug = file.replace(/\.md$/, '');
+          const slug = resolvePostSlug({
+            frontmatterSlug: data.slug,
+            fileSlug,
+            legacySlugSet,
+          });
+          const dateKey = toIsoDateKey(data.date || fs.statSync(fullPath).mtime);
+          const isPublished = !isDraft && dateKey <= todayIsoDate;
 
           return {
-            slug: file.replace(/\.md$/, ''),
-            date: data.date || fs.statSync(fullPath).mtime.toISOString(),
-            isDraft,
+            slug,
+            date: dateKey,
+            isPublished,
           };
         })
-        .filter(post => !post.isDraft)
-        .sort((a, b) => new Date(b.date) - new Date(a.date));
+        .filter(post => post.isPublished)
+        .sort((a, b) => b.date.localeCompare(a.date));
     } catch (e) {
       console.log('No blog posts found');
     }

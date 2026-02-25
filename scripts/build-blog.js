@@ -7,11 +7,12 @@ const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').repl
 const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
-const DEFAULT_BLOG_IMAGE = 'images/hedges/hedge-privacy-1.jpg';
-const BRAND_NAME = 'Lone Star Faux Scapes';
-const MAX_META_TITLE_LENGTH = 60;
-const MAX_META_DESCRIPTION_LENGTH = 155;
-const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const DEFAULT_BLOG_IMAGE = 'images/hedges/hedge-privacy-1.jpg'; 
+const BRAND_NAME = 'Lone Star Faux Scapes'; 
+const MAX_META_TITLE_LENGTH = 60; 
+const MAX_META_DESCRIPTION_LENGTH = 155; 
+const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
+const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
 
 const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
 const isProtocolRelativeUrl = (value) => value.startsWith('//');
@@ -98,7 +99,70 @@ const buildSeoTitle = (title) => {
   return truncateAtWordBoundary(baseTitle, MAX_META_TITLE_LENGTH);
 };
 
-const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH);
+const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH); 
+
+const sanitizeFrontmatterSlug = (value) => {
+  if (typeof value !== 'string') return '';
+
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
+const stripDatePrefixFromSlug = (slug) => {
+  const match = String(slug || '').match(DATE_PREFIX_SLUG_REGEX);
+  return match ? match[1] : String(slug || '');
+};
+
+const loadLegacySlugSet = () => {
+  const slugs = new Set();
+  if (!fs.existsSync(POSTS_JSON)) return slugs;
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(POSTS_JSON, 'utf-8'));
+    if (!Array.isArray(parsed)) return slugs;
+
+    for (const post of parsed) {
+      const slug = typeof post?.slug === 'string' ? post.slug.trim() : '';
+      if (slug) slugs.add(slug);
+    }
+  } catch (error) {
+    console.warn(`  Could not parse legacy slugs from ${POSTS_JSON}: ${error.message}`);
+  }
+
+  return slugs;
+};
+
+const loadExistingOutputSlugSet = () => {
+  const slugs = new Set();
+  if (!fs.existsSync(OUTPUT_DIR)) return slugs;
+
+  for (const entry of fs.readdirSync(OUTPUT_DIR)) {
+    if (!entry.endsWith('.html')) continue;
+    const slug = entry.replace(/\.html$/, '');
+    if (slug) slugs.add(slug);
+  }
+
+  return slugs;
+};
+
+const resolvePostSlug = ({ frontmatterSlug, fileSlug, legacySlugSet, existingOutputSlugSet }) => {
+  const explicitSlug = sanitizeFrontmatterSlug(frontmatterSlug);
+  if (explicitSlug) return explicitSlug;
+
+  // Preserve legacy URLs for posts that already exist in the site/history.
+  if (legacySlugSet.has(fileSlug) || existingOutputSlugSet.has(fileSlug)) {
+    return fileSlug;
+  }
+
+  const timelessSlug = stripDatePrefixFromSlug(fileSlug);
+  return timelessSlug || fileSlug;
+};
 
 const toIsoDateKey = (value, fallbackDate = new Date()) => {
   if (typeof value === 'string') {
@@ -2460,6 +2524,10 @@ async function buildBlog() {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
+  const legacySlugSet = loadLegacySlugSet();
+  const existingOutputSlugSet = loadExistingOutputSlugSet();
+  const seenSlugs = new Set();
+
   // Clean out previously generated HTML posts to avoid stale pages shipping.
   for (const entry of fs.readdirSync(OUTPUT_DIR)) {
     if (entry.endsWith('.html')) {
@@ -2510,7 +2578,28 @@ async function buildBlog() {
     }
 
     // Create post object
-    const slug = file.replace('.md', '');
+    const fileSlug = file.replace('.md', '');
+    const slug = resolvePostSlug({
+      frontmatterSlug: data.slug,
+      fileSlug,
+      legacySlugSet,
+      existingOutputSlugSet,
+    });
+
+    if (!slug) {
+      console.log(`  Skipped: ${file} (slug could not be resolved)`);
+      continue;
+    }
+
+    if (seenSlugs.has(slug)) {
+      throw new Error(`Duplicate blog slug detected: "${slug}" from ${file}`);
+    }
+    seenSlugs.add(slug);
+
+    if (slug !== fileSlug) {
+      console.log(`  Timeless slug: ${fileSlug} -> ${slug}`);
+    }
+
     const publishDate = toIsoDateKey(data.date, now);
     const modifiedDate = toIsoDateKey(data.updated ?? data.date, now);
     const post = {
