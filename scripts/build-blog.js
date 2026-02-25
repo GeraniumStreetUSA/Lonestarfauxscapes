@@ -8,6 +8,10 @@ const CONTENT_DIR = './content/blog';
 const OUTPUT_DIR = './blog';
 const POSTS_JSON = './content/posts.json';
 const DEFAULT_BLOG_IMAGE = 'images/hedges/hedge-privacy-1.jpg';
+const BRAND_NAME = 'Lone Star Faux Scapes';
+const MAX_META_TITLE_LENGTH = 60;
+const MAX_META_DESCRIPTION_LENGTH = 155;
+const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
 const isProtocolRelativeUrl = (value) => value.startsWith('//');
@@ -62,6 +66,68 @@ const escapeHtmlAttribute = (value) => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll('<', '&lt;')
   .replaceAll('>', '&gt;');
+
+const escapeJsonString = (value) => JSON.stringify(String(value ?? '')).slice(1, -1);
+
+const repairCommonEncodingIssues = (value) => String(value ?? '')
+  .replace(/â€™|â€˜/g, "'")
+  .replace(/â€œ|â€/g, '"')
+  .replace(/â€“|â€”/g, '-')
+  .replace(/Â°F/g, '°F')
+  .replace(/Â/g, '');
+
+const normalizeText = (value) => repairCommonEncodingIssues(value).replace(/\s+/g, ' ').trim();
+
+const truncateAtWordBoundary = (value, maxLength) => {
+  const normalized = normalizeText(value);
+  if (normalized.length <= maxLength) return normalized;
+
+  const clipped = normalized.slice(0, maxLength - 1);
+  const lastSpace = clipped.lastIndexOf(' ');
+  const safeText = (lastSpace > Math.floor(maxLength * 0.6) ? clipped.slice(0, lastSpace) : clipped).trim();
+  return `${safeText}…`;
+};
+
+const buildSeoTitle = (title) => {
+  const baseTitle = normalizeText(title);
+  if (!baseTitle) return BRAND_NAME;
+
+  const withBrand = `${baseTitle} | ${BRAND_NAME}`;
+  if (withBrand.length <= MAX_META_TITLE_LENGTH) return withBrand;
+  if (baseTitle.length <= MAX_META_TITLE_LENGTH) return baseTitle;
+  return truncateAtWordBoundary(baseTitle, MAX_META_TITLE_LENGTH);
+};
+
+const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH);
+
+const toIsoDateKey = (value, fallbackDate = new Date()) => {
+  if (typeof value === 'string') {
+    const dateMatch = value.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (dateMatch) return `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
+  }
+
+  const parsed = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    return fallbackDate.toISOString().slice(0, 10);
+  }
+
+  const year = parsed.getUTCFullYear();
+  const month = String(parsed.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(parsed.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+const formatDisplayDate = (isoDateKey) => {
+  const match = String(isoDateKey || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return String(isoDateKey || '');
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (!Number.isFinite(year) || month < 1 || month > 12 || day < 1 || day > 31) return String(isoDateKey || '');
+
+  return `${MONTHS_SHORT[month - 1]} ${day}, ${year}`;
+};
 
 const buildAltFromPath = (imagePath) => {
   const cleaned = String(imagePath || '').split('?')[0].split('#')[0];
@@ -208,28 +274,39 @@ const generatePostHTML = (post) => {
   const imagePath = normalizeImagePath(post.image);
   const imageSrc = buildImageSrc(imagePath);
   const imageAbsolute = buildImageAbsolute(imagePath);
+  const seoTitle = buildSeoTitle(post.seoTitle || post.title);
+  const seoDescription = buildSeoDescription(post.seoDescription || post.summary);
+  const escapedSeoTitle = escapeHtmlAttribute(seoTitle);
+  const escapedSeoDescription = escapeHtmlAttribute(seoDescription);
+  const escapedTitle = escapeHtmlAttribute(post.title);
+  const escapedSummary = escapeHtmlAttribute(post.summary);
+  const escapedDisplayDate = escapeHtmlAttribute(post.displayDate);
+  const escapedCategory = escapeHtmlAttribute(post.category || 'Guides');
+  const escapedKeywords = escapeHtmlAttribute((post.tags || []).join(', '));
+  const jsonTitle = escapeJsonString(post.title);
+  const jsonSummary = escapeJsonString(post.summary);
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${post.title} | Lone Star Faux Scapes Blog</title>
-  <meta name="description" content="${post.summary}">
-  <meta name="keywords" content="${post.tags.join(', ')}">
+  <title>${escapedSeoTitle}</title>
+  <meta name="description" content="${escapedSeoDescription}">
+  <meta name="keywords" content="${escapedKeywords}">
   <link rel="canonical" href="${SITE_URL}/blog/${post.slug}">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="${post.title}">
-  <meta property="og:description" content="${post.summary}">
+  <meta property="og:title" content="${escapedSeoTitle}">
+  <meta property="og:description" content="${escapedSeoDescription}">
   <meta property="og:image" content="${imageAbsolute}">
   <meta property="og:url" content="${SITE_URL}/blog/${post.slug}">
   <meta property="og:type" content="article">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${post.title}">
-  <meta name="twitter:description" content="${post.summary}">
+  <meta name="twitter:title" content="${escapedSeoTitle}">
+  <meta name="twitter:description" content="${escapedSeoDescription}">
   <meta name="twitter:image" content="${imageAbsolute}">
 
   <!-- JSON-LD Structured Data -->
@@ -237,11 +314,11 @@ const generatePostHTML = (post) => {
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "${post.title}",
-    "description": "${post.summary}",
+    "headline": "${jsonTitle}",
+    "description": "${jsonSummary}",
     "image": "${imageAbsolute}",
-    "datePublished": "${post.date}",
-    "dateModified": "${post.date}",
+    "datePublished": "${post.datePublished}",
+    "dateModified": "${post.dateModified}",
     "author": {
       "@type": "Organization",
       "name": "Lone Star Faux Scapes"
@@ -2286,18 +2363,18 @@ const generatePostHTML = (post) => {
           <span>/</span>
           <a href="/blog">Blog</a>
           <span>/</span>
-          <span>${post.title}</span>
+          <span>${escapedTitle}</span>
         </nav>
-        <h1>${post.title}</h1>
+        <h1>${escapedTitle}</h1>
         <div class="article-meta">
-          <span class="date-pill">${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-          <span class="category-pill">${post.category}</span>
+          <span class="date-pill">${escapedDisplayDate}</span>
+          <span class="category-pill">${escapedCategory}</span>
         </div>
       </div>
     </section>
 
     <div class="featured-image">
-      <img src="${imageSrc}" alt="${post.title}" loading="eager">
+      <img src="${imageSrc}" alt="${escapedTitle}" loading="eager">
     </div>
 
     <article class="article-content">
@@ -2409,6 +2486,7 @@ async function buildBlog() {
   const posts = [];
   const scheduledPosts = [];
   const now = new Date();
+  const todayIsoDate = now.toISOString().slice(0, 10);
 
   for (const file of files) {
     const filePath = path.join(CONTENT_DIR, file);
@@ -2433,23 +2511,29 @@ async function buildBlog() {
 
     // Create post object
     const slug = file.replace('.md', '');
-    const postDate = new Date(data.date || now);
+    const publishDate = toIsoDateKey(data.date, now);
+    const modifiedDate = toIsoDateKey(data.updated ?? data.date, now);
     const post = {
       slug,
       title,
-      date: data.date || now.toISOString(),
+      date: publishDate,
+      datePublished: publishDate,
+      dateModified: modifiedDate,
+      displayDate: formatDisplayDate(publishDate),
       image: resolvePostImage(data.image, slug),
       summary,
       category: data.category || 'Guides',
       tags: data.tags || [],
       relatedUrl: data.relatedUrl || '',
       faq: data.faq || [],
+      seoTitle: data.seoTitle || '',
+      seoDescription: data.seoDescription || '',
     };
 
     // Check if post is scheduled for the future
-    if (postDate > now) {
-      scheduledPosts.push({ ...post, publishDate: postDate });
-      console.log(`  Scheduled: ${slug} (publishes ${postDate.toLocaleDateString()})`);
+    if (publishDate > todayIsoDate) {
+      scheduledPosts.push({ ...post, publishDate });
+      console.log(`  Scheduled: ${slug} (publishes ${publishDate})`);
       continue; // Skip generating HTML for future posts
     }
 
@@ -2474,7 +2558,7 @@ async function buildBlog() {
   }
 
   // Sort posts by date (newest first)
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts.sort((a, b) => b.date.localeCompare(a.date));
 
   // Save posts data for blog listing (without full content, faq, or toc)
   const postsData = posts.map(({ content, faq, toc, ...rest }) => rest);
@@ -2503,9 +2587,9 @@ async function buildBlog() {
   if (scheduledPosts.length > 0) {
     console.log('\nUpcoming scheduled posts:');
     scheduledPosts
-      .sort((a, b) => a.publishDate - b.publishDate)
+      .sort((a, b) => a.publishDate.localeCompare(b.publishDate))
       .forEach(post => {
-        console.log(`  - ${post.title} (${post.publishDate.toLocaleDateString()})`);
+        console.log(`  - ${post.title} (${post.publishDate})`);
       });
   }
 }
