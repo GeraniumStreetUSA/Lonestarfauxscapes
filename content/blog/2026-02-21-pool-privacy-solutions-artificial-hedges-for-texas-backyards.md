@@ -2,7 +2,7 @@
 title: "Pool privacy solutions: artificial hedges for Texas backyards"
 summary: "A practical guide to using artificial hedges for pool privacy in Texas—code requirements, material considerations for chlorine and UV, installation approaches, and what works around pool equipment."
 date: 2026-02-26
-image: /images/hedges/hedge-privacy-2.webp
+image: /images/blog/pool-privacy/pool-privacy-07.webp
 category: "Artificial Hedges"
 tags:
   - pool privacy artificial hedge
@@ -137,6 +137,6 @@ No. Artificial hedges do not hold standing water and do not create the moist soi
 - International Residential Code, Chapter 42 (Swimming Pools): https://codes.iccsafe.org/content/IRC2018/chapter-42-swimming-pools
 - EPA Mosquito Control: https://www.epa.gov/mosquitocontrol
 
-<!-- image: /images/hedges/hedge-privacy-1.webp -->
-<!-- image: /images/hedges/hedge-privacy-3.webp -->
-<!-- image: /images/hedges/hedge-banner.webp -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-08.webp -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-10.webp -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-11.webp -->
