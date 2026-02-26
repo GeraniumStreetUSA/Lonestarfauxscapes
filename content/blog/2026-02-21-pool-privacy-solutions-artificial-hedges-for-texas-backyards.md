@@ -9,7 +9,7 @@ tags:
   - Texas pool fence
   - backyard privacy hedge
   - pool deck screening
-draft: true
+draft: false
 faq:
   - question: "Can artificial hedges serve as a pool barrier fence in Texas?"
     answer: "Artificial hedge panels alone typically do not meet pool barrier code requirements because they may not provide the structural rigidity, climb resistance, and gate latching that building codes require. However, artificial hedges can be added to an existing code-compliant fence to increase privacy and improve appearance. The underlying fence structure must still meet all applicable barrier requirements."
