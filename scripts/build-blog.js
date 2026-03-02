@@ -13,6 +13,7 @@ const MAX_META_TITLE_LENGTH = 60;
 const MAX_META_DESCRIPTION_LENGTH = 155; 
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
 const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
+const INTERNAL_HREF_REGEX = /href=(["'])([^"']+)\1/gi;
 
 const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
 const isProtocolRelativeUrl = (value) => value.startsWith('//');
@@ -100,6 +101,54 @@ const buildSeoTitle = (title) => {
 };
 
 const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH); 
+
+const canonicalizeInternalHref = (href) => {
+  const raw = typeof href === 'string' ? href.trim() : '';
+  if (!raw) return href;
+
+  // Ignore external/special protocols and in-page anchors.
+  if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(raw)) return href;
+  if (raw.includes('${')) return href;
+
+  const match = raw.match(/^([^?#]*)([?#].*)?$/);
+  if (!match) return href;
+
+  let pathname = match[1] || '';
+  const suffix = match[2] || '';
+  const lowerPath = pathname.toLowerCase();
+
+  if (lowerPath === '/admin/index.html' || lowerPath === 'admin/index.html') {
+    return `/admin/${suffix}`;
+  }
+
+  if (lowerPath === '/index.html' || lowerPath === 'index.html') {
+    return `/${suffix}`;
+  }
+
+  if (lowerPath === '/blog.html' || lowerPath === 'blog.html') {
+    return `/blog${suffix}`;
+  }
+
+  if (lowerPath.endsWith('.html')) {
+    pathname = pathname.slice(0, -5);
+  }
+
+  if (!pathname.startsWith('/') && !pathname.startsWith('./') && !pathname.startsWith('../')) {
+    pathname = `/${pathname}`;
+  }
+
+  if (pathname.length > 1 && pathname.endsWith('/') && pathname !== '/admin/') {
+    pathname = pathname.replace(/\/+$/, '');
+  }
+
+  pathname = pathname.replace(/\/{2,}/g, '/');
+  return `${pathname}${suffix}`;
+};
+
+const normalizeInternalLinksInHtml = (html) => html.replace(
+  INTERNAL_HREF_REGEX,
+  (fullMatch, quote, href) => `href=${quote}${canonicalizeInternalHref(href)}${quote}`,
+);
 
 const sanitizeFrontmatterSlug = (value) => {
   if (typeof value !== 'string') return '';
@@ -2640,7 +2689,7 @@ async function buildBlog() {
     posts.push(post);
 
     // Generate individual post HTML
-    const postHTML = generatePostHTML(post);
+    const postHTML = normalizeInternalLinksInHtml(generatePostHTML(post)); 
     const outputPath = path.join(OUTPUT_DIR, `${slug}.html`);
     fs.writeFileSync(outputPath, postHTML);
     console.log(`  Generated: ${outputPath}`);

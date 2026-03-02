@@ -151,10 +151,10 @@ If you want to go deeper on a specific topic, we've covered these in detail:
 
 Product pages:
 
-- [Living wall panels](/living-wall.html)
-- [Commercial living walls](/commercial-wall.html)
-- [Pool living walls](/pool-living-wall.html)
-- [Vallum FRX architectural wall system](/vallum-frx.html)
+- [Living wall panels](/living-wall)
+- [Commercial living walls](/commercial-wall)
+- [Pool living walls](/pool-living-wall)
+- [Vallum FRX architectural wall system](/vallum-frx)
 
 ## FAQ
 
@@ -178,7 +178,7 @@ Indoors, a quality artificial living wall can last well over a decade with minim
 
 ---
 
-Ready to explore options? [See our living wall products](/living-wall.html) or [request a free quote](/index.html#contact).
+Ready to explore options? [See our living wall products](/living-wall) or [request a free quote](/#contact).
 
 ## References
 - NFPA 701, Standard Methods of Fire Tests for Flame Propagation of Textiles and Films: https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701

@@ -22,6 +22,12 @@ const LEGACY_REDIRECTS = new Map([
     '/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main.html',
     '/blog/2026-01-31-artificial-living-walls-for-the-texas-summers',
   ],
+  ['/commercial-wall-covering', '/commercial-wall'],
+  ['/commercial-wall-covering/', '/commercial-wall'],
+  ['/commercial-wall-covering.html', '/commercial-wall'],
+  ['/artificial-living-wall', '/living-wall'],
+  ['/artificial-living-wall/', '/living-wall'],
+  ['/artificial-living-wall.html', '/living-wall'],
 ]);
 
 function redirectTo(url, pathname) {

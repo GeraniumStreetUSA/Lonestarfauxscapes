@@ -90,7 +90,7 @@ If 6 feet of fence isn't enough, a hedge topper adds height without building a t
 
 Check your city's fence height ordinance and your HOA's CC&Rs before adding height. Many Texas cities allow 8-foot fences in backyards. For guidance on HOA approval, see our [HOA approval guide for artificial hedges](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas).
 
-For product options, see our [fence extension page](/fence-extensions.html).
+For product options, see our [fence extension page](/fence-extensions).
 
 ### Pool equipment screening
 Pool pumps, filters, heaters, and automation panels are functional but ugly. An artificial hedge screen hides them from view while keeping the area accessible for maintenance.
@@ -117,7 +117,7 @@ You might also find these useful:
 - [How to get HOA approval for artificial hedges in Texas](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas)
 - [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
 
-For pool-specific products, see our [pool privacy hedge page](/pool-privacy-hedge.html) or [pool living wall page](/pool-living-wall.html).
+For pool-specific products, see our [pool privacy hedge page](/pool-privacy-hedge) or [pool living wall page](/pool-living-wall).
 
 ## FAQ
 

@@ -101,7 +101,7 @@ If your HOA requires an application:
 3. **Provide photos of completed installations.** Real project photos showing the finished look help reviewers understand what they're approving.
 4. **Describe the installation method.** If it's going on a fence, explain how panels attach and how the finished installation will look from the street.
 
-For more detail on HOA-friendly options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge.html).
+For more detail on HOA-friendly options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge).
 
 ## Pool privacy: a natural fit
 
@@ -113,7 +113,7 @@ Artificial hedges around pools avoid all of that. They provide instant, consiste
 - **Ground-level mounting.** Pool deck fencing is usually low enough that wind is less of a concern, but make sure drainage isn't blocked if panels sit at grade level.
 - **Proximity to equipment.** Keep clearance around pool pumps, filters, and heaters. Screening them from view is fine; blocking airflow is not.
 
-We cover pool-specific options in more detail on our [pool privacy hedge page](/pool-privacy-hedge.html).
+We cover pool-specific options in more detail on our [pool privacy hedge page](/pool-privacy-hedge).
 
 ## Fence extensions and toppers
 
@@ -121,7 +121,7 @@ One of the most practical uses for artificial hedges in Texas is extending the e
 
 This is especially relevant where local codes or HOA rules limit fence height. An artificial hedge topper mounted on top of an existing fence often falls into a different category than the fence itself, making it easier to add height without a variance.
 
-We have a full page on [fence extension options](/fence-extensions.html) if this is your primary interest.
+We have a full page on [fence extension options](/fence-extensions) if this is your primary interest.
 
 ## Installation: what matters most
 
@@ -173,11 +173,11 @@ We've written detailed articles on the topics this guide touches on. Each one go
 
 And for specific product options:
 
-- [Artificial hedge panels](/artificial-hedge.html)
-- [Artificial boxwood hedges](/artificial-boxwood-hedge.html)
-- [Pool privacy hedges](/pool-privacy-hedge.html)
-- [HOA-approved hedges](/hoa-approved-artificial-hedge.html)
-- [Fence extensions](/fence-extensions.html)
+- [Artificial hedge panels](/artificial-hedge)
+- [Artificial boxwood hedges](/artificial-boxwood-hedge)
+- [Pool privacy hedges](/pool-privacy-hedge)
+- [HOA-approved hedges](/hoa-approved-artificial-hedge)
+- [Fence extensions](/fence-extensions)
 
 ## FAQ
 
@@ -201,7 +201,7 @@ Costs vary based on product quality, project size, and installation method. Prem
 
 ---
 
-Have a specific project in mind? [Request a free quote](/index.html#contact) or explore our [full product lineup](/products.html).
+Have a specific project in mind? [Request a free quote](/#contact) or explore our [full product lineup](/products).
 
 ## References
 - Texas Water Development Board: https://www.twdb.texas.gov/

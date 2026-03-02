@@ -145,11 +145,11 @@ If artificial greenery is being used to screen one of these areas, treat the pla
 
 We offer several product lines suited for commercial fire compliance:
 
-- [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge.html) — NFPA 701 tested options for fences, screens, and balcony applications
-- [Commercial living wall systems](/commercial-wall.html) — Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces
-- [Vallum FRX architectural wall system](/vallum-frx.html) — Our premium modular system for large-scale commercial and architectural installations
+- [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge) — NFPA 701 tested options for fences, screens, and balcony applications
+- [Commercial living wall systems](/commercial-wall) — Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces
+- [Vallum FRX architectural wall system](/vallum-frx) — Our premium modular system for large-scale commercial and architectural installations
 
-Each product page includes material specifications. For fire test documentation specific to a product you're considering, [contact us directly](/index.html#contact).
+Each product page includes material specifications. For fire test documentation specific to a product you're considering, [contact us directly](/#contact).
 
 ## Working with inspectors and the AHJ
 
@@ -197,7 +197,7 @@ Keep the fire test report or certificate that names the exact product installed,
 
 ---
 
-Need fire-rated product specifications for a commercial project? [Contact us for documentation and quotes](/index.html#contact).
+Need fire-rated product specifications for a commercial project? [Contact us for documentation and quotes](/#contact).
 
 ## References
 - NFPA 701, Standard Methods of Fire Tests for Flame Propagation of Textiles and Films: https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701

@@ -136,7 +136,7 @@ You might also find these useful:
 - [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
 - [Artificial vs. real boxwood in Texas](/blog/2025-12-11-artificial-vs-real-boxwood-texas)
 
-For HOA-friendly product options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge.html) or [request a free quote](/index.html#contact).
+For HOA-friendly product options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge) or [request a free quote](/#contact).
 
 ## FAQ
 

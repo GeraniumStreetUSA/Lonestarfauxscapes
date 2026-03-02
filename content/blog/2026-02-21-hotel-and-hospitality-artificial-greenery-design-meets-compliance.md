@@ -138,7 +138,7 @@ You might also find these useful:
 - [Texas fire code requirements for artificial plants in commercial buildings](/blog/2026-02-21-texas-fire-code-requirements-for-artificial-plants-in-commercial-buildings)
 - [Artificial greenery ROI for multifamily property managers](/blog/2026-02-21-artificial-greenery-roi-for-multifamily-property-managers)
 
-For commercial products, see our [commercial living wall page](/commercial-wall.html), [fire-rated hedge page](/fire-rated-artificial-hedge.html), or [Vallum FRX system](/vallum-frx.html).
+For commercial products, see our [commercial living wall page](/commercial-wall), [fire-rated hedge page](/fire-rated-artificial-hedge), or [Vallum FRX system](/vallum-frx).
 
 ## FAQ
 

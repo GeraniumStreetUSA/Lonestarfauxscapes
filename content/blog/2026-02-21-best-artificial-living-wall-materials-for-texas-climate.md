@@ -165,7 +165,7 @@ You might also find these useful:
 - [Indoor vs outdoor artificial living walls](/blog/2026-02-21-indoor-vs-outdoor-artificial-living-walls-materials-and-design)
 - [Artificial living walls for Texas summers](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
 
-For product options, see our [living wall page](/living-wall.html) or [commercial living wall page](/commercial-wall.html).
+For product options, see our [living wall page](/living-wall) or [commercial living wall page](/commercial-wall).
 
 ## FAQ
 

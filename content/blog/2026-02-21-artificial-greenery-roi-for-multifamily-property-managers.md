@@ -132,7 +132,7 @@ You might also find these useful:
 - [Firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units)
 - [NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained](/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery)
 
-For product options, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html), [commercial living wall page](/commercial-wall.html), or [Vallum FRX system](/vallum-frx.html).
+For product options, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge), [commercial living wall page](/commercial-wall), or [Vallum FRX system](/vallum-frx).
 
 ## FAQ
 

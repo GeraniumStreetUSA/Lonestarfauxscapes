@@ -142,7 +142,7 @@ You might also find these useful:
 - [Artificial living walls for Texas summers](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
 - [Fire-rated artificial greenery for commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties)
 
-For commercial living wall products, see our [commercial living wall page](/commercial-wall.html) or [Vallum FRX system](/vallum-frx.html).
+For commercial living wall products, see our [commercial living wall page](/commercial-wall) or [Vallum FRX system](/vallum-frx).
 
 ## FAQ
 

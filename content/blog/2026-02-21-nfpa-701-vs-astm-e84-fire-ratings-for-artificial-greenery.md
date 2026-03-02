@@ -148,7 +148,7 @@ You might also find these useful:
 - [Firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units)
 - [Why fire-rated artificial hedges are ideal for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex)
 
-For fire-rated product options, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html) or [commercial living wall page](/commercial-wall.html).
+For fire-rated product options, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [commercial living wall page](/commercial-wall).
 
 ## FAQ
 

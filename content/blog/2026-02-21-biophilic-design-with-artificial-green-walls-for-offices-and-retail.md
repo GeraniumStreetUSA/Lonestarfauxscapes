@@ -136,7 +136,7 @@ You might also find these useful:
 - [Faux living walls transforming Texas office spaces](/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces)
 - [Indoor vs outdoor artificial living walls](/blog/2026-02-21-indoor-vs-outdoor-artificial-living-walls-materials-and-design)
 
-For commercial products, see our [commercial living wall page](/commercial-wall.html) or [Vallum FRX system](/vallum-frx.html).
+For commercial products, see our [commercial living wall page](/commercial-wall) or [Vallum FRX system](/vallum-frx).
 
 ## FAQ
 

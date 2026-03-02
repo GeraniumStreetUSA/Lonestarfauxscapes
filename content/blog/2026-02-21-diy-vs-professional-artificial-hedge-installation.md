@@ -151,7 +151,7 @@ You might also find these useful:
 - [How long do artificial hedges last in Texas heat?](/blog/2026-02-21-how-long-do-artificial-hedges-last-in-texas-heat)
 - [Pool privacy solutions: artificial hedges for Texas backyards](/blog/2026-02-21-pool-privacy-solutions-artificial-hedges-for-texas-backyards)
 
-For product options, see our [artificial hedge page](/artificial-hedge.html) or [fence extensions page](/fence-extensions.html). For professional installation, see our [installation page](/installation.html).
+For product options, see our [artificial hedge page](/artificial-hedge) or [fence extensions page](/fence-extensions). For professional installation, see our [installation page](/installation).
 
 ## FAQ
 

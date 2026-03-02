@@ -144,7 +144,7 @@ You might also find these useful:
 - [Artificial hedge maintenance and care for Texas homeowners](/blog/2026-02-21-artificial-hedge-maintenance-and-care-for-texas-homeowners)
 - [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
 
-For product options, see our [artificial hedge page](/artificial-hedge.html) or [UV-resistant boxwood hedge page](/artificial-boxwood-hedge.html).
+For product options, see our [artificial hedge page](/artificial-hedge) or [UV-resistant boxwood hedge page](/artificial-boxwood-hedge).
 
 ## FAQ
 

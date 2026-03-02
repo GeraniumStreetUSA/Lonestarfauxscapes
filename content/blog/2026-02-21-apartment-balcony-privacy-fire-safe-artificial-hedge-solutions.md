@@ -149,7 +149,7 @@ You might also find these useful:
 - [Why fire-rated artificial hedges are ideal for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex)
 - [How to get HOA approval for artificial hedges in Texas](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas)
 
-For fire-rated balcony products, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html) or [contact us for a quote](/index.html#contact).
+For fire-rated balcony products, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [contact us for a quote](/#contact).
 
 ## FAQ
 

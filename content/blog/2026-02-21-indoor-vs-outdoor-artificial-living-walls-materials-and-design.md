@@ -141,7 +141,7 @@ You might also find these useful:
 - [Best artificial living wall materials for Texas climate](/blog/2026-02-21-best-artificial-living-wall-materials-for-texas-climate)
 - [Artificial living walls for Texas summers](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
 
-For product options, see our [living wall page](/living-wall.html) or [commercial living wall page](/commercial-wall.html).
+For product options, see our [living wall page](/living-wall) or [commercial living wall page](/commercial-wall).
 
 ## FAQ
 

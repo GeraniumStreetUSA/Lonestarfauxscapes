@@ -68,4 +68,4 @@ You might also find these useful:
 
 ---
 
-Want help spec'ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge.html) or [request a free quote](/index.html#contact).
+Want help spec'ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [request a free quote](/#contact).

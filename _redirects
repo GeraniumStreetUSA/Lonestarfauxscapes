@@ -1,4 +1,5 @@
 # Host/protocol canonicalization
+http://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 http://lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 https://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 
@@ -9,3 +10,9 @@ https://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 /commercial-fire-retardant-tested-artificial-solutions/ /commercial 301
 /residential-fire-retardant-tested-artificial-solutions /commercial 301
 /residential-fire-retardant-tested-artificial-solutions/ /commercial 301
+/commercial-wall-covering /commercial-wall 301
+/commercial-wall-covering/ /commercial-wall 301
+/commercial-wall-covering.html /commercial-wall 301
+/artificial-living-wall /living-wall 301
+/artificial-living-wall/ /living-wall 301
+/artificial-living-wall.html /living-wall 301

@@ -152,7 +152,7 @@ You might also find these useful:
 - [How long do artificial hedges last in Texas heat?](/blog/2026-02-21-how-long-do-artificial-hedges-last-in-texas-heat)
 - [DIY vs professional artificial hedge installation](/blog/2026-02-21-diy-vs-professional-artificial-hedge-installation)
 
-For product options, see our [artificial hedge page](/artificial-hedge.html) or [boxwood hedge page](/artificial-boxwood-hedge.html).
+For product options, see our [artificial hedge page](/artificial-hedge) or [boxwood hedge page](/artificial-boxwood-hedge).
 
 ## FAQ
 
