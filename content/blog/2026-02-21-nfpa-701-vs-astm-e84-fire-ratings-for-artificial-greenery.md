@@ -10,7 +10,7 @@ tags:
   - fire rated artificial greenery
   - fire test standards
   - commercial fire compliance
-draft: true
+draft: false
 faq:
   - question: "Which fire test standard should I specify for artificial greenery?"
     answer: "For decorative artificial greenery in commercial interiors, NFPA 701 is the most commonly referenced standard. If your project involves artificial greenery being treated as an interior wall finish or ceiling material, ASTM E84 may apply. The correct standard depends on how the greenery is classified under your local building code and the occupancy type. Check with your Authority Having Jurisdiction."
