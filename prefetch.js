@@ -8,6 +8,8 @@
 
   // Kill switch
   if (window.LSFS_DISABLE_PREFETCH) return;
+  // Mobile performance mode kill switch (set in index.html)
+  if (window.__LSFS_MOBILE_PERF_MODE) return;
 
   // Respect data saver mode
   if (navigator.connection?.saveData) return;

@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+    (function() {
+      const isMobileViewport = window.matchMedia('(max-width: 991px)').matches;
+      const saveData = !!(navigator.connection && navigator.connection.saveData);
+      // Optional global rollback: set window.LSFS_DISABLE_MOBILE_PERF_MODE = true before this script.
+      window.__LSFS_MOBILE_PERF_MODE = !window.LSFS_DISABLE_MOBILE_PERF_MODE && (isMobileViewport || saveData);
+    })();
+    </script>
 
     <!-- Preconnect to third-party origins for faster resource loading -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -208,8 +216,7 @@
     }
     </script>
 
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cloudflare Turnstile is loaded on desktop immediately and lazily on mobile near the form -->
 
     <!-- Styles -->
     <style>
@@ -281,6 +288,11 @@
         @media (max-width: 991px) {
             /* Remove body::before fixed pseudo-element texture */
             body::before {
+                display: none !important;
+            }
+            .grain,
+            .bg-glow,
+            .contact-lines {
                 display: none !important;
             }
             /* Hero container needs high z-index to be above WebGL canvas */
@@ -3173,6 +3185,78 @@
 <script src="nav.js" defer></script>
 <script src="reveal.js" defer></script>
 <script>
+(function() {
+    const turnstileSrc = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    let turnstilePromise = null;
+
+    function loadTurnstileScript() {
+        if (turnstilePromise) return turnstilePromise;
+        turnstilePromise = new Promise((resolve, reject) => {
+            const existing = document.querySelector('script[data-lsfs-turnstile="1"]');
+            if (existing) {
+                if (window.turnstile) {
+                    resolve();
+                    return;
+                }
+                existing.addEventListener('load', resolve, { once: true });
+                existing.addEventListener('error', reject, { once: true });
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = turnstileSrc;
+            script.async = true;
+            script.defer = true;
+            script.dataset.lsfsTurnstile = '1';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+        return turnstilePromise;
+    }
+
+    window.loadTurnstileScript = loadTurnstileScript;
+
+    if (!window.__LSFS_MOBILE_PERF_MODE) {
+        loadTurnstileScript().catch(() => {});
+        return;
+    }
+
+    const contactSection = document.getElementById('contact');
+    const form = document.getElementById('cta-form');
+    if (!contactSection) {
+        loadTurnstileScript().catch(() => {});
+        return;
+    }
+
+    let loaded = false;
+    let observer = null;
+    const loadNow = () => {
+        if (loaded) return;
+        loaded = true;
+        if (observer) observer.disconnect();
+        loadTurnstileScript().catch(() => {});
+    };
+
+    if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) loadNow();
+            });
+        }, { rootMargin: '500px 0px' });
+        observer.observe(contactSection);
+    } else {
+        loadNow();
+    }
+
+    if (form) {
+        form.addEventListener('focusin', loadNow, { once: true });
+        form.addEventListener('pointerdown', loadNow, { once: true });
+        form.addEventListener('touchstart', loadNow, { once: true, passive: true });
+    }
+})();
+</script>
+<script>
 /* Hero parallax DISABLED - was causing scroll jank on all touch devices */
 
 (function() {
@@ -3339,10 +3423,19 @@
     <a href="#contact" class="btn">Get Free Quote</a>
 </div>
 
-<script defer src="magnetic.js"></script>
-<script defer src="split-text.js"></script>
-<script defer src="card-effects.js"></script>
-<script defer src="prefetch.js"></script>
+<script>
+(function() {
+  if (window.__LSFS_MOBILE_PERF_MODE) return;
+  const enhancementScripts = ['magnetic.js', 'split-text.js', 'card-effects.js', 'prefetch.js'];
+  enhancementScripts.forEach(function(src) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    script.async = false;
+    document.body.appendChild(script);
+  });
+})();
+</script>
 <script>
 // Sticky CTA visibility control
 (function() {
