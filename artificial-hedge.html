@@ -333,10 +333,54 @@
     .option-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .option-btn { border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--text); border-radius: 12px; padding: 0.55rem 0.85rem; cursor: pointer; font-weight: 700; transition: all 0.2s var(--ease); }
     .option-btn[aria-pressed="true"] { background: rgba(100,211,138,0.15); border-color: rgba(100,211,138,0.5); color: var(--accent-2); box-shadow: 0 0 0 1px rgba(100,211,138,0.25); }
-    .preview { background: linear-gradient(135deg, rgba(100,211,138,0.1), rgba(5,8,6,0.92)); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; box-shadow: 0 18px 45px rgba(0,0,0,0.32); }
-    .preview h3 { margin: 0 0 0.5rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
-    .preview p { margin: 0 0 0.4rem; }
-    .highlight-box { padding: 1rem 1.1rem; border-radius: 14px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.25); color: var(--text); box-shadow: 0 14px 32px rgba(0,0,0,0.28); }
+    .preview { background: linear-gradient(135deg, rgba(100,211,138,0.1), rgba(5,8,6,0.92)); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; box-shadow: 0 18px 45px rgba(0,0,0,0.32); } 
+    .preview h3 { margin: 0 0 0.5rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; } 
+    .preview p { margin: 0 0 0.4rem; } 
+    .design-meter { margin: 0.2rem 0 0.3rem; }
+    .design-meter-label { margin: 0 0 0.45rem; color: var(--muted); font-size: 0.92rem; font-weight: 600; }
+    .design-meter-track { width: 100%; height: 10px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); overflow: hidden; }
+    .design-meter-bar { display: block; width: 52%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #4caf50, #8be6aa); transition: width 0.35s var(--ease); box-shadow: 0 0 14px rgba(100,211,138,0.45); }
+    .config-helper { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.94rem; }
+    .range-step { display: grid; gap: 0.6rem; }
+    .range-step input[type="range"] { width: 100%; accent-color: #64d38a; }
+    .range-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.92rem; color: var(--muted); }
+    .range-value { color: var(--text); font-weight: 700; font-size: 1rem; }
+    .preview--interactive { position: relative; overflow: hidden; }
+    .preview-stage { position: relative; margin: 0.35rem 0 0.9rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: linear-gradient(160deg, rgba(12,19,16,0.95), rgba(7,12,10,0.92)); padding: 0.65rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .preview-stage svg { width: 100%; height: auto; display: block; }
+    .preview-lottie-orb { position: absolute; width: 16px; height: 16px; border-radius: 50%; pointer-events: none; opacity: 0.6; background: radial-gradient(circle at 30% 30%, #b8ffcf, #64d38a 60%, rgba(100,211,138,0)); filter: blur(0.25px); }
+    .preview-lottie-orb.orb-a { top: 14%; right: 12%; animation: orb-float-a 4.8s ease-in-out infinite; }
+    .preview-lottie-orb.orb-b { bottom: 12%; left: 14%; animation: orb-float-b 5.3s ease-in-out infinite; }
+    .preview-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; margin: 0.55rem 0 0.8rem; }
+    .preview-metric { border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: rgba(255,255,255,0.03); padding: 0.5rem 0.6rem; }
+    .preview-metric-label { display: block; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.1rem; }
+    .preview-metric-value { display: block; color: #fff; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+    .preview-note { margin-top: 0.6rem; color: var(--muted); font-size: 0.92rem; }
+    .preview--interactive.is-animating #hedgePanel { animation: panel-pop 420ms var(--ease); transform-origin: center bottom; }
+    .leaf-node { animation: leaf-sway 3.4s ease-in-out infinite; transform-origin: center; }
+    .leaf-node:nth-child(odd) { animation-delay: 0.25s; }
+    .leaf-node:nth-child(3n) { animation-delay: 0.5s; }
+    @keyframes panel-pop {
+      0% { transform: scaleY(0.94); opacity: 0.85; }
+      50% { transform: scaleY(1.03); opacity: 1; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+    @keyframes leaf-sway {
+      0%, 100% { transform: translateY(0px) rotate(-1.2deg); }
+      50% { transform: translateY(-1px) rotate(1.2deg); }
+    }
+    @keyframes orb-float-a {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+      50% { transform: translate3d(10px,-8px,0) scale(1.18); opacity: 0.9; }
+    }
+    @keyframes orb-float-b {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+      50% { transform: translate3d(-9px,7px,0) scale(1.15); opacity: 0.85; }
+    }
+    @media (max-width: 640px) {
+      .preview-metrics { grid-template-columns: 1fr; }
+    }
+    .highlight-box { padding: 1rem 1.1rem; border-radius: 14px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.25); color: var(--text); box-shadow: 0 14px 32px rgba(0,0,0,0.28); } 
     .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
     table { width: 100%; border-collapse: collapse; color: var(--text); }
     th, td { padding: 0.85rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line); }
@@ -1226,54 +1270,123 @@
           <h2>Design Your Custom Artificial Hedge</h2>
           <p>Panels are built to order for height, span, foliage type, and upgrades. Tell us what fence or facade you have and we design a hedge system around it.</p>
         </div>
-        <div class="config-grid">
-          <div class="config-card" aria-label="Hedge configurator">
-            <div class="config-step">
-              <h3>Step 1: Choose your goal</h3>
-              <div class="option-row" role="group" aria-label="Hedge goal">
-                <button class="option-btn" data-goal="Privacy" aria-pressed="true">Privacy</button>
-                <button class="option-btn" data-goal="Noise reduction" aria-pressed="false">Noise reduction</button>
-                <button class="option-btn" data-goal="Facade upgrade" aria-pressed="false">Facade upgrade</button>
-                <button class="option-btn" data-goal="Equipment screen" aria-pressed="false">Equipment screen</button>
-              </div>
-            </div>
-            <div class="config-step">
-              <h3>Step 2: Choose your height</h3>
-              <div class="option-row" role="group" aria-label="Hedge height">
-                <button class="option-btn" data-height="4 ft" aria-pressed="false">4 ft</button>
-                <button class="option-btn" data-height="6 ft" aria-pressed="true">6 ft</button>
-                <button class="option-btn" data-height="8 ft" aria-pressed="false">8 ft</button>
-                <button class="option-btn" data-height="Custom" aria-pressed="false">Custom</button>
-              </div>
-            </div>
-            <div class="config-step">
-              <h3>Step 3: Choose foliage style</h3>
-              <div class="option-row" role="group" aria-label="Foliage style">
-                <button class="option-btn" data-foliage="Boxwood" aria-pressed="true">Boxwood</button>
-                <button class="option-btn" data-foliage="Mixed foliage" aria-pressed="false">Mixed foliage</button>
-                <button class="option-btn" data-foliage="Milan grass" aria-pressed="false">Milan grass</button>
-                <button class="option-btn" data-foliage="Ivy blend" aria-pressed="false">Ivy blend</button>
-                <button class="option-btn" data-foliage="Not sure yet" aria-pressed="false">I am not sure yet</button>
-              </div>
-            </div>
-            <div class="config-step">
-              <h3>Step 4: Choose upgrades</h3>
-              <div class="option-row" role="group" aria-label="Hedge upgrades">
-                <button class="option-btn" data-upgrade="Fire-rated (NFPA 701 Method 2)" aria-pressed="false">Fire-rated (NFPA 701)</button>
-                <button class="option-btn" data-upgrade="Acoustic backing" aria-pressed="false">Acoustic backing</button>
-                <button class="option-btn" data-upgrade="HOA documentation" aria-pressed="false">HOA documentation</button>
-              </div>
-            </div>
-          </div>
-          <div class="preview" aria-live="polite">
-            <h3>Preview your custom hedge</h3>
-            <p id="previewSummary">6 ft Boxwood hedge for Privacy with no upgrades selected yet.</p>
-            <p class="muted">This is a visual guide. We confirm measurements, mounting surfaces, and HOA-friendly finishes when we quote.</p>
-            <p class="muted">Custom heights, mixed foliage, acoustic upgrades, and fire-rated options are available for fences, perimeters, facades, and equipment screens.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="config-grid"> 
+          <div class="config-card" id="hedgeConfigurator" aria-label="Hedge configurator"> 
+            <div class="design-meter" aria-live="polite"> 
+              <p class="design-meter-label" id="designMeterLabel">Quote readiness: 52%</p> 
+              <div class="design-meter-track" role="progressbar" aria-label="Quote readiness" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"> 
+                <span class="design-meter-bar" id="designMeterBar"></span> 
+              </div> 
+            </div> 
+            <div class="config-step"> 
+              <h3>Step 1: Choose your goal</h3> 
+              <div class="option-row" role="group" aria-label="Hedge goal"> 
+                <button class="option-btn" data-goal="Privacy" aria-pressed="true">Privacy</button> 
+                <button class="option-btn" data-goal="Noise reduction" aria-pressed="false">Noise reduction</button> 
+                <button class="option-btn" data-goal="Facade upgrade" aria-pressed="false">Facade upgrade</button> 
+                <button class="option-btn" data-goal="Equipment screen" aria-pressed="false">Equipment screen</button> 
+              </div> 
+            </div> 
+            <div class="config-step"> 
+              <h3>Step 2: Choose your height</h3> 
+              <div class="option-row" role="group" aria-label="Hedge height"> 
+                <button class="option-btn" data-height="4 ft" aria-pressed="false">4 ft</button> 
+                <button class="option-btn" data-height="6 ft" aria-pressed="true">6 ft</button> 
+                <button class="option-btn" data-height="8 ft" aria-pressed="false">8 ft</button> 
+                <button class="option-btn" data-height="Custom" aria-pressed="false">Custom</button> 
+              </div> 
+            </div> 
+            <div class="config-step range-step"> 
+              <h3>Step 3: Select your run length</h3> 
+              <input id="linearFeetInput" type="range" min="8" max="220" step="2" value="36" aria-label="Linear footage range"> 
+              <div class="range-meta"> 
+                <span>8 ft</span> 
+                <span class="range-value" id="linearFeetValue">36 linear ft</span> 
+                <span>220 ft</span> 
+              </div> 
+            </div> 
+            <div class="config-step"> 
+              <h3>Step 4: Choose foliage style</h3> 
+              <div class="option-row" role="group" aria-label="Foliage style"> 
+                <button class="option-btn" data-foliage="Boxwood" aria-pressed="true">Boxwood</button> 
+                <button class="option-btn" data-foliage="Mixed foliage" aria-pressed="false">Mixed foliage</button> 
+                <button class="option-btn" data-foliage="Milan grass" aria-pressed="false">Milan grass</button> 
+                <button class="option-btn" data-foliage="Ivy blend" aria-pressed="false">Ivy blend</button> 
+                <button class="option-btn" data-foliage="Not sure yet" aria-pressed="false">I am not sure yet</button> 
+              </div> 
+            </div> 
+            <div class="config-step"> 
+              <h3>Step 5: Choose upgrades</h3> 
+              <div class="option-row" role="group" aria-label="Hedge upgrades"> 
+                <button class="option-btn" data-upgrade="Fire-rated (NFPA 701 Method 2)" aria-pressed="false">Fire-rated (NFPA 701)</button> 
+                <button class="option-btn" data-upgrade="Acoustic backing" aria-pressed="false">Acoustic backing</button> 
+                <button class="option-btn" data-upgrade="HOA documentation" aria-pressed="false">HOA documentation</button> 
+              </div> 
+            </div> 
+            <p class="config-helper">Tap options to animate the live concept preview on the right.</p> 
+          </div> 
+          <div class="preview preview--interactive" id="hedgePreviewCard" aria-live="polite"> 
+            <h3>Live concept preview</h3> 
+            <div class="preview-stage"> 
+              <span class="preview-lottie-orb orb-a" aria-hidden="true"></span> 
+              <span class="preview-lottie-orb orb-b" aria-hidden="true"></span> 
+              <svg viewBox="0 0 420 260" role="img" aria-label="Animated artificial hedge concept preview"> 
+                <defs> 
+                  <linearGradient id="panelBaseGradient" x1="0%" y1="0%" x2="0%" y2="100%"> 
+                    <stop offset="0%" stop-color="#3f7c52"></stop> 
+                    <stop offset="100%" stop-color="#1c3826"></stop> 
+                  </linearGradient> 
+                </defs> 
+                <rect x="35" y="212" width="350" height="18" rx="8" fill="#0d1512"></rect> 
+                <rect x="86" y="96" width="12" height="116" rx="5" fill="#24372d"></rect> 
+                <rect x="322" y="96" width="12" height="116" rx="5" fill="#24372d"></rect> 
+                <line id="hedgeHeightGuide" x1="62" y1="212" x2="62" y2="90" stroke="#9fe4b7" stroke-width="2" stroke-dasharray="4 5"></line> 
+                <text id="previewHeightText" x="32" y="88" fill="#c7f2d6" font-size="14" font-weight="700">6 ft</text> 
+                <g id="hedgePanelGroup"> 
+                  <rect id="hedgePanel" x="104" y="90" width="212" height="122" rx="12" fill="url(#panelBaseGradient)" stroke="#7bd99f" stroke-opacity="0.35"></rect> 
+                  <circle class="leaf-node" cx="126" cy="118" r="11" fill="#75da99"></circle> 
+                  <circle class="leaf-node" cx="154" cy="137" r="12" fill="#5fc688"></circle> 
+                  <circle class="leaf-node" cx="184" cy="116" r="11" fill="#79dfa0"></circle> 
+                  <circle class="leaf-node" cx="214" cy="142" r="13" fill="#66d18f"></circle> 
+                  <circle class="leaf-node" cx="246" cy="116" r="12" fill="#7de0a2"></circle> 
+                  <circle class="leaf-node" cx="278" cy="138" r="12" fill="#6acb90"></circle> 
+                  <circle class="leaf-node" cx="302" cy="120" r="10" fill="#78dc9f"></circle> 
+                  <circle class="leaf-node" cx="136" cy="164" r="11" fill="#6ccf90"></circle> 
+                  <circle class="leaf-node" cx="166" cy="183" r="12" fill="#7de0a2"></circle> 
+                  <circle class="leaf-node" cx="198" cy="162" r="11" fill="#66ca8c"></circle> 
+                  <circle class="leaf-node" cx="228" cy="184" r="12" fill="#73d698"></circle> 
+                  <circle class="leaf-node" cx="258" cy="162" r="11" fill="#63c486"></circle> 
+                  <circle class="leaf-node" cx="288" cy="182" r="12" fill="#7bdca0"></circle> 
+                </g> 
+                <text id="previewGoalText" x="104" y="243" fill="#d7f5e2" font-size="14" font-weight="700">Privacy</text> 
+                <text id="previewFoliageText" x="315" y="243" text-anchor="end" fill="#9fc8ae" font-size="13" font-weight="600">Boxwood</text> 
+              </svg> 
+            </div> 
+            <p id="previewSummary">6 ft Boxwood hedge for Privacy over 36 linear ft with no upgrades selected yet.</p> 
+            <div class="preview-metrics"> 
+              <div class="preview-metric"> 
+                <span class="preview-metric-label">Height</span> 
+                <span class="preview-metric-value" id="previewHeightValue">6 ft</span> 
+              </div> 
+              <div class="preview-metric"> 
+                <span class="preview-metric-label">Foliage</span> 
+                <span class="preview-metric-value" id="previewFoliageValue">Boxwood</span> 
+              </div> 
+              <div class="preview-metric"> 
+                <span class="preview-metric-label">Run Length</span> 
+                <span class="preview-metric-value" id="previewLengthValue">36 linear ft</span> 
+              </div> 
+              <div class="preview-metric"> 
+                <span class="preview-metric-label">Estimated Panels</span> 
+                <span class="preview-metric-value" id="previewPanelsValue">11 panels</span> 
+              </div> 
+            </div> 
+            <p class="preview-note" id="previewUpgradeNote">Upgrades: none selected yet.</p> 
+            <p class="muted">This is a visual guide. We confirm measurements, mounting surfaces, and HOA-friendly finishes during your quote.</p> 
+          </div> 
+        </div> 
+      </div> 
+    </section> 
 
     <section class="section" id="why">
       <div class="container">
@@ -1527,8 +1640,23 @@
       const header = document.getElementById('main-header');
       const menuToggle = document.getElementById('mobile-toggle-btn');
       const navDrawer = document.getElementById('mobile-menu');
-      const optionButtons = document.querySelectorAll('.option-btn');
+      const configurator = document.getElementById('hedgeConfigurator');
       const preview = document.getElementById('previewSummary');
+      const previewCard = document.getElementById('hedgePreviewCard');
+      const panelRect = document.getElementById('hedgePanel');
+      const panelGuide = document.getElementById('hedgeHeightGuide');
+      const previewHeightText = document.getElementById('previewHeightText');
+      const previewGoalText = document.getElementById('previewGoalText');
+      const previewFoliageText = document.getElementById('previewFoliageText');
+      const previewHeightValue = document.getElementById('previewHeightValue');
+      const previewFoliageValue = document.getElementById('previewFoliageValue');
+      const previewLengthValue = document.getElementById('previewLengthValue');
+      const previewPanelsValue = document.getElementById('previewPanelsValue');
+      const previewUpgradeNote = document.getElementById('previewUpgradeNote');
+      const designMeterBar = document.getElementById('designMeterBar');
+      const designMeterLabel = document.getElementById('designMeterLabel');
+      const linearFeetInput = document.getElementById('linearFeetInput');
+      const linearFeetValue = document.getElementById('linearFeetValue');
       const accordionButtons = document.querySelectorAll('.accordion');
       const yearEl = document.getElementById('year');
 
@@ -1536,7 +1664,23 @@
         goal: 'Privacy',
         height: '6 ft',
         foliage: 'Boxwood',
-        upgrades: []
+        upgrades: [],
+        linearFeet: 36
+      };
+
+      const foliageStyles = {
+        'Boxwood': { panel: '#376a45', border: '#7bd99f', text: 'Boxwood', tones: ['#75da99', '#63c988', '#82e0a5'] },
+        'Mixed foliage': { panel: '#325f49', border: '#8be6aa', text: 'Mixed foliage', tones: ['#8be6aa', '#6ece96', '#9be9b7'] },
+        'Milan grass': { panel: '#3a6742', border: '#94e3ad', text: 'Milan grass', tones: ['#a4e8be', '#87d9a5', '#78ca96'] },
+        'Ivy blend': { panel: '#2f5745', border: '#78d6a0', text: 'Ivy blend', tones: ['#70d19a', '#5db988', '#82dca7'] },
+        'Not sure yet': { panel: '#425a4c', border: '#a3d8bc', text: 'Style pending', tones: ['#a8dabc', '#8bc8a8', '#b7e3cb'] }
+      };
+
+      const heightToPixels = {
+        '4 ft': 88,
+        '6 ft': 122,
+        '8 ft': 156,
+        'Custom': 140
       };
 
       const setHeaderState = () => {
@@ -1545,9 +1689,66 @@
         else header.classList.remove('scrolled');
       };
 
+      const estimatePanels = (linearFeet) => {
+        return Math.max(3, Math.ceil(linearFeet / 3.25));
+      };
+
+      const updateMeter = () => {
+        const upgradeBoost = selections.upgrades.length * 12;
+        const heightBoost = selections.height === 'Custom' ? 10 : 5;
+        const lengthBoost = selections.linearFeet >= 80 ? 12 : selections.linearFeet >= 36 ? 8 : 4;
+        const readiness = Math.min(96, 40 + upgradeBoost + heightBoost + lengthBoost);
+
+        if (designMeterBar) designMeterBar.style.width = `${readiness}%`;
+        const track = designMeterBar?.closest('.design-meter-track');
+        if (track) track.setAttribute('aria-valuenow', String(readiness));
+        if (designMeterLabel) designMeterLabel.textContent = `Quote readiness: ${readiness}%`;
+      };
+
+      const animatePreview = () => {
+        if (!previewCard) return;
+        previewCard.classList.remove('is-animating');
+        // Force reflow so animation retriggers on each selection change.
+        void previewCard.offsetWidth;
+        previewCard.classList.add('is-animating');
+      };
+
       const updatePreview = () => {
         const upgrades = selections.upgrades.length ? selections.upgrades.join(', ') : 'no upgrades selected yet';
-        if (preview) preview.textContent = `${selections.height} ${selections.foliage} hedge for ${selections.goal} with ${upgrades}.`;
+        if (preview) {
+          preview.textContent = `${selections.height} ${selections.foliage} hedge for ${selections.goal} over ${selections.linearFeet} linear ft with ${upgrades}.`;
+        }
+        if (previewHeightValue) previewHeightValue.textContent = selections.height;
+        if (previewFoliageValue) previewFoliageValue.textContent = selections.foliage;
+        if (previewLengthValue) previewLengthValue.textContent = `${selections.linearFeet} linear ft`;
+        if (previewPanelsValue) previewPanelsValue.textContent = `${estimatePanels(selections.linearFeet)} panels`;
+        if (previewUpgradeNote) previewUpgradeNote.textContent = `Upgrades: ${upgrades}.`;
+        if (previewGoalText) previewGoalText.textContent = selections.goal;
+
+        const foliageStyle = foliageStyles[selections.foliage] || foliageStyles['Boxwood'];
+        if (previewFoliageText) previewFoliageText.textContent = foliageStyle.text;
+
+        const leafNodes = document.querySelectorAll('.leaf-node');
+        leafNodes.forEach((leaf, index) => {
+          const tone = foliageStyle.tones[index % foliageStyle.tones.length];
+          leaf.setAttribute('fill', tone);
+        });
+
+        if (panelRect) {
+          const panelHeight = heightToPixels[selections.height] || 122;
+          const panelY = 212 - panelHeight;
+          panelRect.setAttribute('y', String(panelY));
+          panelRect.setAttribute('height', String(panelHeight));
+          panelRect.setAttribute('fill', foliageStyle.panel);
+          panelRect.setAttribute('stroke', foliageStyle.border);
+          if (panelGuide) panelGuide.setAttribute('y2', String(panelY));
+        }
+
+        if (previewHeightText) previewHeightText.textContent = selections.height === 'Custom' ? 'Custom H' : selections.height;
+
+        if (linearFeetValue) linearFeetValue.textContent = `${selections.linearFeet} linear ft`;
+        updateMeter();
+        animatePreview();
       };
 
       if (menuToggle && navDrawer) {
@@ -1572,37 +1773,57 @@
         });
       });
 
-      optionButtons.forEach((btn) => {
-        const goal = btn.dataset.goal;
-        const height = btn.dataset.height;
-        const foliage = btn.dataset.foliage;
-        const upgrade = btn.dataset.upgrade;
+      if (configurator) {
+        configurator.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const btn = target.closest('.option-btn');
+          if (!btn || !configurator.contains(btn)) return;
 
-        btn.addEventListener('click', () => {
+          const goal = btn.getAttribute('data-goal');
+          const height = btn.getAttribute('data-height');
+          const foliage = btn.getAttribute('data-foliage');
+          const upgrade = btn.getAttribute('data-upgrade');
+
           if (goal) {
-            optionButtons.forEach(b => { if (b.dataset.goal) b.setAttribute('aria-pressed', 'false'); });
+            configurator.querySelectorAll('[data-goal]').forEach((el) => el.setAttribute('aria-pressed', 'false'));
             btn.setAttribute('aria-pressed', 'true');
             selections.goal = goal;
           }
+
           if (height) {
-            optionButtons.forEach(b => { if (b.dataset.height) b.setAttribute('aria-pressed', 'false'); });
+            configurator.querySelectorAll('[data-height]').forEach((el) => el.setAttribute('aria-pressed', 'false'));
             btn.setAttribute('aria-pressed', 'true');
             selections.height = height;
           }
+
           if (foliage) {
-            optionButtons.forEach(b => { if (b.dataset.foliage) b.setAttribute('aria-pressed', 'false'); });
+            configurator.querySelectorAll('[data-foliage]').forEach((el) => el.setAttribute('aria-pressed', 'false'));
             btn.setAttribute('aria-pressed', 'true');
             selections.foliage = foliage;
           }
+
           if (upgrade) {
             const isOn = btn.getAttribute('aria-pressed') === 'true';
-            btn.setAttribute('aria-pressed', (!isOn).toString());
-            if (isOn) selections.upgrades = selections.upgrades.filter(u => u !== upgrade);
-            else selections.upgrades.push(upgrade);
+            btn.setAttribute('aria-pressed', String(!isOn));
+            if (isOn) {
+              selections.upgrades = selections.upgrades.filter((item) => item !== upgrade);
+            } else {
+              selections.upgrades.push(upgrade);
+            }
           }
+
           updatePreview();
         });
-      });
+      }
+
+      if (linearFeetInput) {
+        linearFeetInput.addEventListener('input', () => {
+          const value = parseInt(linearFeetInput.value, 10);
+          selections.linearFeet = Number.isFinite(value) ? value : 36;
+          updatePreview();
+        });
+      }
 
       accordionButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
