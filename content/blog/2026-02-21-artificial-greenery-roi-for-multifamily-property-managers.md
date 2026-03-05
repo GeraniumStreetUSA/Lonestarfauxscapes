@@ -10,7 +10,7 @@ tags:
   - artificial hedge ROI
   - water conservation Texas
   - multifamily curb appeal
-draft: true
+draft: false
 faq:
   - question: "How much water do artificial hedges save on a multifamily property?"
     answer: "Artificial hedges use zero water. According to the EPA, outdoor water use accounts for roughly 30 percent of residential consumption nationally, and that share can reach 60 percent in arid and semi-arid climates. On a multifamily property where hedges, shrubs, and accent plantings require regular irrigation, the water savings from switching those areas to artificial greenery depends on the size of the planted area, the irrigation schedule, and local water rates."
