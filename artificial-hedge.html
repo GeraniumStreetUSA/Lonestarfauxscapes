@@ -316,10 +316,13 @@
     .card h3 { margin: 0 0 0.35rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.15rem; letter-spacing: -0.01em; }
     .card p { margin: 0; color: var(--muted); }
     .nfpa-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.55rem; border-radius: 12px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.3); color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-top: 0.35rem; }
-    .foliage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .foliage-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; display: grid; gap: 0.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
-    .foliage-swatch { width: 100%; height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(100,211,138,0.3), rgba(17,26,22,0.9)); border: 1px solid var(--line); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
-    .foliage-note { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 8px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.3); color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+    .foliage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; align-items: stretch; } 
+    .foliage-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.28); display: flex; flex-direction: column; height: 100%; } 
+    .foliage-card--boxwood, .foliage-card--ficus, .foliage-card--oasis, .foliage-card--other { grid-column: span 1; grid-row: auto; } 
+    .foliage-media { position: relative; aspect-ratio: 4 / 3; min-height: 0; overflow: hidden; } 
+    .foliage-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .foliage-body { padding: 0.85rem 0.95rem 1rem; display: grid; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .foliage-note { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 8px; background: rgba(100,211,138,0.12); border: 1px solid rgba(100,211,138,0.3); color: var(--accent); font-weight: 700; font-size: 0.86rem; }
     .stepper { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
     .step-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; position: relative; padding-top: 1.3rem; box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
     .step-number { position: absolute; top: 0.75rem; right: 0.75rem; width: 26px; height: 26px; border-radius: 50%; background: rgba(100,211,138,0.15); color: var(--accent); font-weight: 800; display: grid; place-items: center; border: 1px solid rgba(100,211,138,0.35); font-size: 0.9rem; }
@@ -340,7 +343,9 @@
     .design-meter-label { margin: 0 0 0.45rem; color: var(--muted); font-size: 0.92rem; font-weight: 600; }
     .design-meter-track { width: 100%; height: 10px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); overflow: hidden; }
     .design-meter-bar { display: block; width: 52%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #4caf50, #8be6aa); transition: width 0.35s var(--ease); box-shadow: 0 0 14px rgba(100,211,138,0.45); }
-    .config-helper { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.94rem; }
+    .config-helper { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.94rem; } 
+    .config-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.2rem; } 
+    .config-action-note { margin: 0; color: var(--muted); font-size: 0.84rem; } 
     .range-step { display: grid; gap: 0.6rem; }
     .range-step input[type="range"] { width: 100%; accent-color: #64d38a; }
     .range-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.92rem; color: var(--muted); }
@@ -406,6 +411,13 @@
     .final-cta h3 { margin: 0 0 0.6rem; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.6rem, 2.7vw, 2rem); }
     .final-cta p { margin: 0 0 1.2rem; color: var(--muted); }
     .footer { padding: 3rem 0; border-top: 1px solid var(--line); background: #000; color: var(--muted); text-align: center; font-size: 0.95rem; }
+    @media (max-width: 1024px) { 
+      .foliage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+    } 
+    @media (max-width: 640px) {
+      .foliage-grid { grid-template-columns: 1fr; }
+      .foliage-card--boxwood, .foliage-card--ficus, .foliage-card--oasis, .foliage-card--other { grid-column: span 1; }
+    }
     @media (max-width: 820px) {
       .nav-links { display: none; }
       .menu-toggle { display: inline-flex; }
@@ -1259,7 +1271,7 @@
           <h3>Specs <span class="spec-badge">Fire-rated available</span></h3>
           <div class="spec-row"><span class="spec-label">Use</span><span>Fences, perimeters, facades, equipment screens</span></div>
           <div class="spec-row"><span class="spec-label">Structure</span><span>Custom panels with framed or grid backing</span></div>
-          <div class="spec-row"><span class="spec-label">Options</span><span>Mixed foliage, acoustic backing, logo recesses</span></div>
+          <div class="spec-row"><span class="spec-label">Options</span><span>Boxwood, Ficus, Oasis, custom selections, acoustic backing, logo recesses</span></div>
           <div class="spec-row"><span class="spec-label">Install</span><span>Pre-fabricated panels for fast on-site mounting</span></div>
         </aside>
       </div>
@@ -1305,16 +1317,15 @@
                 <span>220 ft</span> 
               </div> 
             </div> 
-            <div class="config-step"> 
-              <h3>Step 4: Choose foliage style</h3> 
-              <div class="option-row" role="group" aria-label="Foliage style"> 
-                <button class="option-btn" data-foliage="Boxwood" aria-pressed="true">Boxwood</button> 
-                <button class="option-btn" data-foliage="Mixed foliage" aria-pressed="false">Mixed foliage</button> 
-                <button class="option-btn" data-foliage="Milan grass" aria-pressed="false">Milan grass</button> 
-                <button class="option-btn" data-foliage="Ivy blend" aria-pressed="false">Ivy blend</button> 
-                <button class="option-btn" data-foliage="Not sure yet" aria-pressed="false">I am not sure yet</button> 
-              </div> 
-            </div> 
+            <div class="config-step">
+              <h3>Step 4: Choose material</h3>
+              <div class="option-row" role="group" aria-label="Hedge material">
+                <button class="option-btn" data-foliage="Boxwood" aria-pressed="true">Boxwood</button>
+                <button class="option-btn" data-foliage="Ficus" aria-pressed="false">Ficus</button>
+                <button class="option-btn" data-foliage="Oasis" aria-pressed="false">Oasis</button>
+                <button class="option-btn" data-foliage="Other" aria-pressed="false">Other</button>
+              </div>
+            </div>
             <div class="config-step"> 
               <h3>Step 5: Choose upgrades</h3> 
               <div class="option-row" role="group" aria-label="Hedge upgrades"> 
@@ -1323,8 +1334,12 @@
                 <button class="option-btn" data-upgrade="HOA documentation" aria-pressed="false">HOA documentation</button> 
               </div> 
             </div> 
-            <p class="config-helper">Tap options to animate the live concept preview on the right.</p> 
-          </div> 
+            <p class="config-helper">Tap options to animate the live concept preview on the right.</p>  
+            <div class="config-actions">
+              <button class="btn btn-secondary" type="button" id="emailConfigBtn">Email This Configuration</button>
+            </div>
+            <p class="config-action-note">Opens your default email app with this setup pre-filled.</p>
+          </div>  
           <div class="preview preview--interactive" id="hedgePreviewCard" aria-live="polite"> 
             <h3>Live concept preview</h3> 
             <div class="preview-stage"> 
@@ -1368,10 +1383,10 @@
                 <span class="preview-metric-label">Height</span> 
                 <span class="preview-metric-value" id="previewHeightValue">6 ft</span> 
               </div> 
-              <div class="preview-metric"> 
-                <span class="preview-metric-label">Foliage</span> 
-                <span class="preview-metric-value" id="previewFoliageValue">Boxwood</span> 
-              </div> 
+              <div class="preview-metric">
+                <span class="preview-metric-label">Material</span>
+                <span class="preview-metric-value" id="previewFoliageValue">Boxwood</span>
+              </div>
               <div class="preview-metric"> 
                 <span class="preview-metric-label">Run Length</span> 
                 <span class="preview-metric-value" id="previewLengthValue">36 linear ft</span> 
@@ -1421,32 +1436,48 @@
     <section class="section" id="foliage">
       <div class="container">
         <div class="section-header">
-          <h2>Foliage Styles To Match Your Property</h2>
-          <p>We offer multiple foliage styles to match your property's aesthetic. All options are UV-stabilized for Texas conditions and available with fire-rated treatments.</p>
+          <h2>Material Options To Match Your Property</h2>
+          <p>Choose from our core material families below. All options are UV-stabilized for Texas conditions and available with fire-rated treatments.</p>
           <span class="muted" style="position:absolute; left:-9999px; top:auto; height:1px; width:1px; overflow:hidden;">Artificial Hedge Types</span>
         </div>
         <div class="foliage-grid">
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Boxwood</h3>
-            <p>The most popular choice for a classic, manicured hedge look. Dense, small leaves create a formal appearance ideal for residential perimeters and commercial facades.</p>
-          </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Milan Grass</h3>
-            <p>Soft, wispy foliage with a more natural, organic appearance. Works well in contemporary settings and blends naturally with existing landscaping.</p>
-          </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Mixed Foliage</h3>
-            <p>Combines multiple plant types for visual interest and texture. We customize the mix to complement your property's style, from tropical to traditional.</p>
-            <span class="foliage-note">We customize the mix to complement your property's style.</span>
-          </div>
-          <div class="foliage-card">
-            <div class="foliage-swatch" aria-hidden="true"></div>
-            <h3>Ivy Blend</h3>
-            <p>Trailing ivy leaves create a softer, cascading effect. Popular for covering walls, fences, and areas where a more relaxed aesthetic is desired.</p>
-          </div>
+          <article class="foliage-card foliage-card--boxwood">
+            <div class="foliage-media">
+              <img src="/mats/artificial%20fr%20boxwood.jpg" alt="Boxwood-inspired artificial hedge material sample" loading="lazy" decoding="async">
+            </div>
+            <div class="foliage-body">
+              <h3>Boxwood</h3>
+              <p>The most popular choice for a classic, manicured hedge look. Dense, small leaves create a formal appearance ideal for residential perimeters and commercial facades.</p>
+            </div>
+          </article>
+          <article class="foliage-card foliage-card--ficus">
+            <div class="foliage-media">
+              <img src="/mats/fr%20ficus%20mat.webp" alt="Ficus-style artificial hedge material sample" loading="lazy" decoding="async">
+            </div>
+            <div class="foliage-body">
+              <h3>Ficus</h3>
+              <p>Broader leaf profile with a softer organic look. A strong fit for modern residential projects and hospitality applications that want natural texture.</p>
+            </div>
+          </article>
+          <article class="foliage-card foliage-card--oasis">
+            <div class="foliage-media">
+              <img src="/mats/oasis%20mat.jpg" alt="Oasis artificial hedge material sample" loading="lazy" decoding="async">
+            </div>
+            <div class="foliage-body">
+              <h3>Oasis</h3>
+              <p>Layered greenery mix with depth and tonal variation. Great when you want a fuller designer look for statement walls and premium privacy runs.</p>
+              <span class="foliage-note">Popular for feature walls and elevated landscape designs.</span>
+            </div>
+          </article>
+          <article class="foliage-card foliage-card--other">
+            <div class="foliage-media">
+              <img src="/mats/artificial%20dragon%20mat.jpg" alt="Custom artificial hedge material options" loading="lazy" decoding="async">
+            </div>
+            <div class="foliage-body">
+              <h3>Other</h3>
+              <p>Need a different profile? We can source additional styles and review samples with you during design so the final hedge matches your exact vision.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1565,6 +1596,7 @@
           </table>
         </div>
         <p class="muted" style="margin-top:1rem;">We provide itemized quotes so you can see exactly where your budget goes. Contact us for a free site assessment and estimate.</p>
+        <p class="muted" style="margin-top:0.5rem;">Percentages above are planning references, not binding quotes. Final pricing depends on site measurements, mounting conditions, and selected materials.</p>
       </div>
     </section>
     <section class="section" id="faq">
@@ -1653,12 +1685,13 @@
       const previewLengthValue = document.getElementById('previewLengthValue');
       const previewPanelsValue = document.getElementById('previewPanelsValue');
       const previewUpgradeNote = document.getElementById('previewUpgradeNote');
-      const designMeterBar = document.getElementById('designMeterBar');
-      const designMeterLabel = document.getElementById('designMeterLabel');
-      const linearFeetInput = document.getElementById('linearFeetInput');
-      const linearFeetValue = document.getElementById('linearFeetValue');
-      const accordionButtons = document.querySelectorAll('.accordion');
-      const yearEl = document.getElementById('year');
+      const designMeterBar = document.getElementById('designMeterBar'); 
+      const designMeterLabel = document.getElementById('designMeterLabel'); 
+      const linearFeetInput = document.getElementById('linearFeetInput'); 
+      const linearFeetValue = document.getElementById('linearFeetValue'); 
+      const emailConfigBtn = document.getElementById('emailConfigBtn');
+      const accordionButtons = document.querySelectorAll('.accordion'); 
+      const yearEl = document.getElementById('year'); 
 
       const selections = {
         goal: 'Privacy',
@@ -1670,10 +1703,9 @@
 
       const foliageStyles = {
         'Boxwood': { panel: '#376a45', border: '#7bd99f', text: 'Boxwood', tones: ['#75da99', '#63c988', '#82e0a5'] },
-        'Mixed foliage': { panel: '#325f49', border: '#8be6aa', text: 'Mixed foliage', tones: ['#8be6aa', '#6ece96', '#9be9b7'] },
-        'Milan grass': { panel: '#3a6742', border: '#94e3ad', text: 'Milan grass', tones: ['#a4e8be', '#87d9a5', '#78ca96'] },
-        'Ivy blend': { panel: '#2f5745', border: '#78d6a0', text: 'Ivy blend', tones: ['#70d19a', '#5db988', '#82dca7'] },
-        'Not sure yet': { panel: '#425a4c', border: '#a3d8bc', text: 'Style pending', tones: ['#a8dabc', '#8bc8a8', '#b7e3cb'] }
+        'Ficus': { panel: '#356a4b', border: '#89ddaf', text: 'Ficus', tones: ['#8fe2b3', '#6fcf95', '#9de7be'] },
+        'Oasis': { panel: '#305f4f', border: '#86dfbf', text: 'Oasis', tones: ['#91e3c6', '#6ec9a8', '#9fe8cf'] },
+        'Other': { panel: '#425a4c', border: '#a3d8bc', text: 'Other material', tones: ['#a8dabc', '#8bc8a8', '#b7e3cb'] }
       };
 
       const heightToPixels = {
@@ -1689,8 +1721,35 @@
         else header.classList.remove('scrolled');
       };
 
-      const estimatePanels = (linearFeet) => {
-        return Math.max(3, Math.ceil(linearFeet / 3.25));
+      const estimatePanels = (linearFeet) => { 
+        return Math.max(3, Math.ceil(linearFeet / 3.25)); 
+      }; 
+
+      const openConfiguredEmailDraft = () => {
+        const recipient = 'info@lonestarfauxscapes.com';
+        const upgrades = selections.upgrades.length ? selections.upgrades.join(', ') : 'None';
+        const panelEstimate = estimatePanels(selections.linearFeet);
+        const subject = `Configured hedge request: ${selections.goal} (${selections.foliage})`;
+        const bodyLines = [
+          'Hello Lone Star Faux Scapes team,',
+          '',
+          'Please send me a quote for this configured hedge:',
+          `Goal: ${selections.goal}`,
+          `Height: ${selections.height}`,
+          `Material: ${selections.foliage}`,
+          `Linear feet: ${selections.linearFeet}`,
+          `Estimated panels: ${panelEstimate}`,
+          `Upgrades: ${upgrades}`,
+          '',
+          `Source page: ${window.location.href}`,
+          `Configured at: ${new Date().toLocaleString()}`,
+          '',
+          'Best contact name:',
+          'Phone:',
+          'Project city/address:'
+        ];
+        const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        window.location.href = mailtoUrl;
       };
 
       const updateMeter = () => {
@@ -1817,12 +1876,16 @@
         });
       }
 
-      if (linearFeetInput) {
-        linearFeetInput.addEventListener('input', () => {
-          const value = parseInt(linearFeetInput.value, 10);
-          selections.linearFeet = Number.isFinite(value) ? value : 36;
-          updatePreview();
-        });
+      if (linearFeetInput) { 
+        linearFeetInput.addEventListener('input', () => { 
+          const value = parseInt(linearFeetInput.value, 10); 
+          selections.linearFeet = Number.isFinite(value) ? value : 36; 
+          updatePreview(); 
+        }); 
+      } 
+
+      if (emailConfigBtn) {
+        emailConfigBtn.addEventListener('click', openConfiguredEmailDraft);
       }
 
       accordionButtons.forEach((btn) => {
