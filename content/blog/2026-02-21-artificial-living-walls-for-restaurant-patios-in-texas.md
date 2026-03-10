@@ -10,7 +10,7 @@ tags:
   - Texas restaurant design
   - commercial living wall
   - outdoor dining design
-draft: true
+draft: false
 faq:
   - question: "Do restaurant patios need fire-rated artificial living walls?"
     answer: "It depends on your jurisdiction and the patio configuration. Restaurants fall under assembly occupancy classifications in the International Building Code, which Texas adopts. Covered patios, enclosed patios, and indoor dining rooms face stricter requirements for decorative materials than fully open-air spaces. Check with your local fire marshal or building official early in the project."
