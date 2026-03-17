@@ -9,7 +9,7 @@ tags:
   - professional hedge installer
   - artificial hedge mounting
   - fence hedge installation
-draft: true
+draft: false
 faq:
   - question: "Can I install artificial hedges myself?"
     answer: "Yes, for straightforward fence-line installations. If you are attaching panels to an existing fence using zip ties, clips, or screws, the work is manageable for most homeowners with basic tools. Larger projects, structural frames, tall walls, and commercial installations benefit from professional installation."
