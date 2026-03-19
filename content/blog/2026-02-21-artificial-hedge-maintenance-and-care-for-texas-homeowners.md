@@ -9,7 +9,7 @@ tags:
   - cleaning artificial hedges
   - artificial hedge care Texas
   - hedge panel cleaning
-draft: true
+draft: false
 faq:
   - question: "How often should I clean artificial hedges in Texas?"
     answer: "For most outdoor installations, a garden hose rinse every 2 to 3 months is sufficient. Near pools, increase to monthly because of chlorine and sunscreen buildup. Near roads or construction, rinse more often due to dust. Indoor artificial hedges only need dusting every few months."
