@@ -110,13 +110,11 @@
       );
     });
 
-    // ─── Homepage Elevation: GSAP Scroll Choreography ───
-
-    // Hero parallax — background moves slower than scroll
+    // Hero parallax — background moves slower than scroll (scrub, no from())
     const parallaxBg = document.querySelector('.hm-parallax-bg');
     if (parallaxBg) {
       gsapLib.to(parallaxBg, {
-        y: 200,
+        y: 150,
         ease: 'none',
         scrollTrigger: {
           trigger: '#hero',
@@ -126,62 +124,6 @@
         }
       });
     }
-
-    // Hero headline reveal is handled by CSS animations (slideUp keyframes)
-    // GSAP not used here to avoid double-animation conflict
-
-    // Staggered card group reveals — skip elements already handled by gs-reveal
-    gsapLib.utils.toArray('.hm-stagger-group').forEach(function(group) {
-      var cards = group.querySelectorAll('.live-card');
-      if (!cards.length) return;
-      // Remove gs-reveal from these cards to avoid double animation
-      cards.forEach(function(c) { c.classList.remove('gs-reveal'); });
-      gsapLib.from(cards, {
-        y: 24,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.12,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: group,
-          start: 'top 80%',
-          once: true
-        }
-      });
-    });
-
-    // SVG icon draw-in on scroll
-    gsapLib.utils.toArray('.hm-card-icon').forEach(function(icon) {
-      gsapLib.to(icon, {
-        strokeDashoffset: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: icon,
-          start: 'top 85%',
-          once: true
-        }
-      });
-    });
-
-    // FAQ stagger reveal
-    var faqItems = document.querySelectorAll('#faq details');
-    if (faqItems.length) {
-      gsapLib.from(faqItems, {
-        y: 12,
-        opacity: 0,
-        stagger: 0.06,
-        duration: 0.4,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '#faq',
-          start: 'top 75%',
-          once: true
-        }
-      });
-    }
-
-    // Hero animations removed - now handled by CSS-only animations
     };
 
     const initParallaxMedia = () => {

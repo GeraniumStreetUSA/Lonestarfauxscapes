@@ -109,11 +109,7 @@
   stroke: #4caf50;
   stroke-width: 1.5;
   fill: none;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.8s ease;
 }
-.hm-card-icon.hm-drawn { stroke-dashoffset: 0; }
 
 /* Card hover border glow — uses border-color transition (no pseudo needed) */
 .live-card {
@@ -203,11 +199,11 @@
 
 /* ─── Map Pin Highlight ─── */
 .map-pin {
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition: fill 0.2s ease, opacity 0.2s ease;
 }
 .map-pin.hm-highlight {
-  transform: scale(1.5);
-  filter: drop-shadow(0 0 8px rgba(76,175,80,0.6));
+  fill: #4caf50;
+  opacity: 1;
 }
 
 /* ─── Mobile: Keep It Fast ─── */
@@ -218,7 +214,6 @@
   .hm-scroll-cue { display: none; }
   .hm-progress-bar { display: none; }
   .hm-card-number { display: none; }
-  .hm-card-icon { stroke-dashoffset: 0; }
   .live-card:hover {
     box-shadow: none;
     border-color: rgba(255,255,255,0.08);
