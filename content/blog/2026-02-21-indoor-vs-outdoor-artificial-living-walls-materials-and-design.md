@@ -9,7 +9,7 @@ tags:
   - outdoor living wall Texas
   - living wall materials
   - UV stabilized living wall
-draft: true
+draft: false
 faq:
   - question: "Can I use the same artificial living wall panels indoors and outdoors?"
     answer: "Outdoor-rated panels can be used indoors, but indoor-only panels should not be used outdoors. Outdoor panels include UV stabilization that indoor panels lack. Using indoor panels outdoors results in rapid fading and material degradation. If you are unsure about the rating, check the product spec sheet for UV stabilization."
