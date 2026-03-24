@@ -120,7 +120,16 @@
   border-color: rgba(76,175,80,0.25);
 }
 
-/* Product card image zoom already in main styles — no duplication needed */
+/* ─── Visual Rhythm: Alternate Section Feel ─── */
+/* Case studies / proof section — slightly lighter to break monotony */
+#products + .hm-section-divider + section {
+  background: linear-gradient(180deg, rgba(16,28,20,1) 0%, rgba(10,20,14,1) 100%);
+}
+
+/* Solutions path — subtle top highlight to differentiate */
+#solutions {
+  border-top: 1px solid rgba(76,175,80,0.08);
+}
 
 /* ─── CTA Arrow Animation ─── */
 .btn .arrow-icon,
@@ -204,6 +213,64 @@
 .map-pin.hm-highlight {
   fill: #4caf50;
   opacity: 1;
+}
+
+/* ─── Guides Grid ─── */
+.hm-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.hm-guide-card {
+  display: block;
+  padding: 1.5rem;
+  background: rgba(76,175,80,0.04);
+  border: 1px solid rgba(76,175,80,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.hm-guide-card:hover {
+  border-color: rgba(76,175,80,0.35);
+  background: rgba(76,175,80,0.07);
+}
+.hm-guide-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4caf50;
+  background: rgba(76,175,80,0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+.hm-guide-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+.hm-guide-card p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Case Studies: Image-First, Less Text ─── */
+.lsfs-proof-card__facts {
+  display: none;
+}
+.lsfs-proof-card__meta {
+  margin-bottom: 0.5rem;
+}
+.lsfs-proof-card__body {
+  padding: 1rem 0 0;
 }
 
 /* ─── Mobile: Keep It Fast ─── */
