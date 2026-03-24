@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artificial living walls and hedges in Houston: a local…</title>
   <meta name="description" content="Houston artificial living walls and faux hedges that stay green in heat and humidity. See options, safety notes, and get a quote from LoneStar Fauxscapes.">
+  <meta name="robots" content="index, follow">
   <meta name="keywords" content="artificial-living-walls, artificial-hedges-houston, houston, fire-rated, living-walls">
   <link rel="canonical" href="https://lonestarfauxscapes.com/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo">
 
@@ -1914,20 +1915,156 @@
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .tag {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .tag { 
+      padding: 0.4rem 0.8rem; 
+      border-radius: 999px; 
+      background: rgba(255,255,255,0.04); 
+      border: 1px solid rgba(255,255,255,0.08); 
+      color: #fff; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.02em; 
+    } 
+
+    .estimate-note {
+      margin-top: 2rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(76,175,80,0.24);
+      background: rgba(76,175,80,0.08);
+      color: rgba(245,245,245,0.9);
+      font-size: 0.92rem;
+    }
+    .estimate-note strong {
       color: #fff;
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
-    /* Back to Blog */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
+    .article-support {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+    .article-support--mid {
+      margin: 2.75rem 0;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+    }
+    .article-support__intro {
+      margin-bottom: 1.25rem;
+    }
+    .article-support__intro h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    .article-support__intro p {
+      margin: 0;
+      max-width: 62ch;
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+    }
+    .article-support__eyebrow {
+      margin-bottom: 0.5rem !important;
+      color: var(--color-accent) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem !important;
+      font-weight: 700;
+    }
+    .article-support__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    @media (min-width: 760px) {
+      .article-support__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .article-support__card {
+      display: block;
+      padding: 1rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,10,7,0.65);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .article-support__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(8,16,11,0.9);
+    }
+    .article-support__label {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .article-support__copy {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .related-posts {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .related-posts__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 760px) {
+      .related-posts__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .related-posts__card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .related-posts__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .related-posts__meta {
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .related-posts__card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .related-posts__card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.74);
+    }
+    .related-posts__cta {
+      margin-top: auto;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Back to Blog */ 
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
       gap: 0.5rem;
       margin-top: 2rem;
       padding: 0.75rem 1.25rem;
@@ -1955,117 +2092,118 @@
   </style>
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/navbar-universal.css">
+  <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
-      <!-- UNIVERSAL NAVBAR -->
-  <header id="lsfs-header">
-    <nav id="lsfs-nav">
-      <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
-  
-      <!-- Desktop Navigation -->
-      <div id="lsfs-desktop-links">
-        <a href="/" class="lsfs-link">Home</a>
-  
-        <!-- Products Dropdown -->
-              <div class="lsfs-dropdown">
-          <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Hedges</span>
-              <a href="/artificial-hedge">Artificial Hedge</a>
-              <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
-              <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
-              <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
-              <a href="/pool-privacy-hedge">Pool Privacy</a>
-              <a href="/vallum-frx">Vallum FRX</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Walls</span>
-              <a href="/living-wall">Living Wall</a>
-              <a href="/commercial-wall">Commercial Wall</a>
-              <a href="/fence-extensions">Fence Extensions</a>
-            </div>
+<!-- NAVBAR HTML -->
+<header id="lsfs-header">
+  <nav id="lsfs-nav">
+    <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
+    <div id="lsfs-desktop-links">
+      <a href="/" class="lsfs-link">Home</a>
+
+      <!-- Products Dropdown -->
+            <div class="lsfs-dropdown">
+        <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Hedges</span>
+            <a href="/artificial-hedge">Artificial Hedge</a>
+            <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
+            <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
+            <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
+            <a href="/pool-privacy-hedge">Pool Privacy</a>
+            <a href="/vallum-frx">Vallum FRX</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Walls</span>
+            <a href="/living-wall">Living Wall</a>
+            <a href="/commercial-wall">Commercial Wall</a>
+            <a href="/fence-extensions">Fence Extensions</a>
           </div>
         </div>
-  
-        <!-- Locations Dropdown -->
-        <div class="lsfs-dropdown">
-          <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Major Cities</span>
-              <a href="/dallas">Dallas</a>
-              <a href="/houston">Houston</a>
-              <a href="/austin">Austin</a>
-              <a href="/san-antonio">San Antonio</a>
-              <a href="/fort-worth">Fort Worth</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">DFW Metro</span>
-              <a href="/plano">Plano</a>
-              <a href="/frisco">Frisco</a>
-              <a href="/irving">Irving</a>
-              <a href="/arlington">Arlington</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Houston Metro</span>
-              <a href="/sugar-land">Sugar Land</a>
-              <a href="/the-woodlands">The Woodlands</a>
-            </div>
-          </div>
-        </div>
-  
-        <a href="/installation" class="lsfs-link">Installation</a>
-        <a href="/gallery" class="lsfs-link">Gallery</a>
-        <a href="/blog" class="lsfs-link">Blog</a>
-        <a href="/pricing" class="lsfs-link">Pricing</a>
-        <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
-  
-      <!-- Mobile Hamburger -->
-      <button id="lsfs-hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-  
-  <!-- MOBILE MENU (separate from header) -->
-  <div id="lsfs-mobile-menu">
-    <button id="lsfs-close" aria-label="Close menu">&#215;</button>
-  
-    <a href="/" class="lsfs-mobile-link">Home</a>
-  
-    <!-- Products Section -->
-    <span class="lsfs-mobile-label">Products</span>
-    <span class="lsfs-mobile-subhead">Hedges</span>
-    <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
-    <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
-    <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
-    <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
-    <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-    <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
-    <span class="lsfs-mobile-subhead">Walls</span>
-    <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
-    <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
-    <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <!-- Locations Section -->
-    <span class="lsfs-mobile-label">Locations</span>
-    <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
-    <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
-    <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
-    <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
-    <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
-    <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
-    <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
-  
-    <a href="/installation" class="lsfs-mobile-link">Installation</a>
-    <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog" class="lsfs-mobile-link">Blog</a>
-    <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
-    <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
-  </div>
+
+      <!-- Locations Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Major Cities</span>
+            <a href="/dallas">Dallas</a>
+            <a href="/houston">Houston</a>
+            <a href="/austin">Austin</a>
+            <a href="/san-antonio">San Antonio</a>
+            <a href="/fort-worth">Fort Worth</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">DFW Metro</span>
+            <a href="/plano">Plano</a>
+            <a href="/frisco">Frisco</a>
+            <a href="/irving">Irving</a>
+            <a href="/arlington">Arlington</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Houston Metro</span>
+            <a href="/sugar-land">Sugar Land</a>
+            <a href="/the-woodlands">The Woodlands</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/installation" class="lsfs-link">Installation</a>
+      <a href="/gallery" class="lsfs-link">Gallery</a>
+      <a href="/blog" class="lsfs-link">Blog</a>
+      <a href="/pricing" class="lsfs-link">Pricing</a>
+      <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="lsfs-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE MENU (separate from header) -->
+<div id="lsfs-mobile-menu">
+  <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+
+  <a href="/" class="lsfs-mobile-link">Home</a>
+
+  <!-- Products Section -->
+  <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
+  <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+  <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+  <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
+  <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
+  <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
+  <!-- Locations Section -->
+  <span class="lsfs-mobile-label">Locations</span>
+  <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
+  <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
+  <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
+  <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
+  <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
+  <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
+  <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
+
+  <a href="/installation" class="lsfs-mobile-link">Installation</a>
+  <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
+  <a href="/blog" class="lsfs-mobile-link">Blog</a>
+  <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
+  <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+</div>
 
 <main>
     <section class="article-hero">
@@ -2089,7 +2227,7 @@
       <img src="/images/houston-artificial-living-walls-hedges.webp" alt="Artificial living walls and hedges in Houston: a local guide from LoneStar Fauxscapes" loading="eager">
     </div>
 
-    <article class="article-content">
+    <article class="article-content"> 
       
       <nav class="table-of-contents">
         <div class="toc-header">
@@ -2119,12 +2257,45 @@
         <li><a href="#5-getting-started-with-artificial-living-walls-and">5. Getting started with artificial living walls and artificial hedges in Houston</a></li>
         <li><a href="#conclusion-a-houston-ready-green-wall-that-doesnt-">Conclusion: a Houston-ready green wall that doesn’t become a project</a></li>
         </ol>
-      </nav>
+      </nav> 
       <h2 id="introduction">Introduction</h2>
 <p>If you’ve tried to keep a real plant wall alive in Houston, you know how it goes: the heat ramps up, the humidity never really leaves, and one small irrigation issue can turn a “lush moment” into a brown mess in a week. That’s why more property owners are looking at <strong>Artificial living walls and Artificial hedges in Houston</strong>—something that looks green from day one and still looks tidy after a July heat wave.</p>
 <p>This guide is written for Houston, not “any city.” You’ll learn where faux living walls and fake hedges actually make sense here (homes, restaurants, offices, patios), what “fire rated” usually means in real projects, and what to ask a provider before you pay. I’ll also get into Houston-specific stuff like UV exposure, hurricane season prep, and where people are putting these in places like The Heights, River Oaks, and Midtown.</p>
 <p>You’ll see LoneStar Fauxscapes mentioned throughout because that’s the business this post is about—but the point is simple: help you make a smart choice that holds up in Houston.</p>
 <h2 id="1-the-artificial-living-wall-and-hedge-scene-in-ho">1. The artificial living wall and hedge scene in Houston</h2>
+
+      <section class="article-support article-support--mid">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Planning a similar project?</p>
+          <h2>Use these next pages while you read</h2>
+          <p>They cover pricing, service details, and the next planning step without making you leave the article blind.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/artificial-hedge">
+              <span class="article-support__label">See artificial hedge installs</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/houston">
+              <span class="article-support__label">See the Houston city page</span>
+              <span class="article-support__copy">Use the local page for city-specific planning, FAQs, and service details.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
 <p>Houston has always leaned indoor-outdoor, but keeping real greenery looking good here is a different job than it is in somewhere like San Diego. Intense sun, heavy rain bursts, and long humid stretches make live walls and live hedges high-maintenance. So a lot of people end up choosing materials that can take the climate without needing constant care.</p>
 <p>A few places where <strong>faux living walls</strong> and <strong>artificial hedges</strong> show up a lot around Houston:</p>
 <p>In restaurant and bar buildouts, a green wall is a straightforward way to soften hard surfaces—brick, concrete, tile—without building your schedule around watering and plant drop. You see this around entertainment-heavy areas near Washington Ave and into Midtown, where patios and indoor seating need privacy and something easier on the eyes.</p>
@@ -2152,7 +2323,7 @@
 <p>Two practical notes:</p>
 <p>First, “fire rated” isn’t a vibe—it needs paperwork. You want product specs, the test standard used, and clear installation guidance.</p>
 <p>Second, fire ratings don’t override code compliance for the space. Sprinklers, exits, clearances, and the local AHJ (authority having jurisdiction) still decide what’s allowed. But if you’re shopping for <strong>faux living walls</strong> in Houston for a commercial buildout, fire-rated materials can save you from expensive last-minute changes.</p>
-<p>That’s one reason LoneStar Fauxscapes gets work locally: businesses don’t want a decorative feature that turns into a permit problem.</p>
+<p>That’s one reason buyers often look for local help: they don’t want a decorative feature that turns into a permit problem.</p>
 <h2 id="3-what-to-look-for-in-a-houston-provider-so-you-do">3. What to look for in a Houston provider (so you don’t regret it)</h2>
 <p>There are plenty of “panel in a box” options online. Some are fine for a short-term event backdrop. But if you want something that still looks good under Houston sun and humidity, who you buy from (and who installs it) matters.</p>
 <h3 id="ask-about-uv-resistance-in-plain-language">Ask about UV resistance in plain language</h3>
@@ -2214,11 +2385,106 @@
 <h2 id="conclusion-a-houston-ready-green-wall-that-doesnt-">Conclusion: a Houston-ready green wall that doesn’t become a project</h2>
 <p>If you want greenery that stays consistent through Houston heat, humidity, and the messy realities of outdoor living, artificial living walls and artificial hedges are a practical option. The difference-maker is materials that won’t fade quickly and an install that won’t peel, gap, or trap moisture.</p>
 <p>If you’re in Houston and weighing options, reach out to <strong>LoneStar Fauxscapes</strong> for a recommendation based on your site. Share your wall size, a few photos, and whether you need <strong>fire rated living walls</strong> for a commercial space. You’ll get guidance that fits Houston conditions instead of generic advice.</p>
+<p>See our full <a href="/houston">Houston artificial hedges and living walls</a> page for project photos and local details, or explore options in <a href="/dallas">Dallas</a>, <a href="/san-antonio">San Antonio</a>, and <a href="/sugar-land">Sugar Land</a>.</p>
+ 
 
-
-      <div class="article-tags">
-        <span class="tag">artificial-living-walls</span><span class="tag">artificial-hedges-houston</span><span class="tag">houston</span><span class="tag">fire-rated</span><span class="tag">living-walls</span>
+      <div class="estimate-note">
+        <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
       </div>
+
+      
+      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
+        <div>
+          <p class="lsfs-cro-eyebrow">Need a next step?</p>
+          <h2 class="lsfs-cro-title">Need fire-rated options or documentation?</h2>
+          <p class="lsfs-cro-copy">Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.</p>
+          <div class="lsfs-cro-actions">
+            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request" data-lsfs-cta="blog_fire_docs">Request fire-doc info</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
+          </div>
+          <div class="lsfs-cro-context">
+            <span class="lsfs-cro-pill">Fast install planning</span><span class="lsfs-cro-pill">Houston relevance</span><span class="lsfs-cro-pill">Fire-rated options available</span>
+          </div>
+          <div class="lsfs-cro-links">
+            <a href="/commercial-resources" data-lsfs-cta="blog_commercial_resource_hub">Use the commercial resource hub</a>
+            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
+          </div>
+        </div>
+        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="Living wall project" data-lsfs-location="Houston" data-lsfs-button="Request Pricing"></div>
+      </div>
+  
+      
+      <section class="article-support article-support--end">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Ready for the next step?</p>
+          <h2>Use the page that fits your project best</h2>
+          <p>Pick the shortest path based on whether you need pricing, a service page, or a local planning page.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/artificial-hedge">
+              <span class="article-support__label">See artificial hedge installs</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/houston">
+              <span class="article-support__label">See the Houston city page</span>
+              <span class="article-support__copy">Use the local page for city-specific planning, FAQs, and service details.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+      
+      <section class="related-posts">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Keep reading</p>
+          <h2>Related guides</h2>
+          <p>These articles answer the next questions readers usually have after this topic.</p>
+        </div>
+        <div class="related-posts__grid">
+          
+            <a class="related-posts__card" href="/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-">
+              <span class="related-posts__meta">Texas city guides</span>
+              <h3>Artificial living walls and hedges in San Antonio, TX: a practical guide from LoneStar Fauxscapes</h3>
+              <p>Get artificial living walls and faux hedges in San Antonio, TX—clean, low-maintenance greenery for homes and businesses. Ask LoneStar Fauxscapes.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia">
+              <span class="related-posts__meta">Texas city guides</span>
+              <h3>Houston’s no-water greenery fix: choosing artificial living walls and hedges that still look real in August</h3>
+              <p>Get artificial living walls and artificial hedges in Houston, TX for privacy and year-round green—without watering. See what to check, then book a site visit.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t">
+              <span class="related-posts__meta">Texas city guides</span>
+              <h3>Dallas privacy without the watering: a real guide to artificial living walls and hedges</h3>
+              <p>Looking for artificial living walls and artificial hedges in Dallas? Learn what materials, fire ratings, and installs to ask for. Get a quote.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
+      
+      <div class="article-tags"> 
+        <span class="tag">artificial-living-walls</span><span class="tag">artificial-hedges-houston</span><span class="tag">houston</span><span class="tag">fire-rated</span><span class="tag">living-walls</span> 
+      </div> 
 
       <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
@@ -2234,53 +2500,37 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Universal navbar JS
+  </script>
+  <script>
     (function() {
-      const header = document.getElementById('lsfs-header');
       const hamburger = document.getElementById('lsfs-hamburger');
       const mobileMenu = document.getElementById('lsfs-mobile-menu');
       const closeBtn = document.getElementById('lsfs-close');
       const mobileLinks = document.querySelectorAll('.lsfs-mobile-link');
 
-      let ticking = false;
-      function updateHeader() {
-        if (window.scrollY > 80) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-        ticking = false;
-      }
+      if (!hamburger || !mobileMenu || !closeBtn) return;
 
-      window.addEventListener('scroll', function() {
-        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
-      }, { passive: true });
-      updateHeader();
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      };
 
-      hamburger.addEventListener('click', function() {
+      hamburger.addEventListener('click', () => {
         mobileMenu.classList.add('open');
         document.body.style.overflow = 'hidden';
       });
 
-      function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      closeBtn.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
-      closeBtn.addEventListener('click', closeMobileMenu);
-      mobileLinks.forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-      });
-
-      // Highlight active link
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.lsfs-link, .lsfs-mobile-link').forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (href && (href.endsWith(currentPage) || href === '/' + currentPage)) {
-          link.style.color = '#4caf50';
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
         }
       });
     })();
   </script>
+  <script defer src="/nav.js"></script>
+  <script src="/cro.js"></script>
 </body>
 </html>

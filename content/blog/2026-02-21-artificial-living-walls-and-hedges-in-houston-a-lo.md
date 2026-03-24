@@ -67,7 +67,7 @@ First, “fire rated” isn’t a vibe—it needs paperwork. You want product sp
 
 Second, fire ratings don’t override code compliance for the space. Sprinklers, exits, clearances, and the local AHJ (authority having jurisdiction) still decide what’s allowed. But if you’re shopping for **faux living walls** in Houston for a commercial buildout, fire-rated materials can save you from expensive last-minute changes.
 
-That’s one reason LoneStar Fauxscapes gets work locally: businesses don’t want a decorative feature that turns into a permit problem.
+That’s one reason buyers often look for local help: they don’t want a decorative feature that turns into a permit problem.
 
 ## 3. What to look for in a Houston provider (so you don’t regret it)
 There are plenty of “panel in a box” options online. Some are fine for a short-term event backdrop. But if you want something that still looks good under Houston sun and humidity, who you buy from (and who installs it) matters.
@@ -162,3 +162,5 @@ For homeowners in The Heights or River Oaks, it’s often a patio privacy wall o
 If you want greenery that stays consistent through Houston heat, humidity, and the messy realities of outdoor living, artificial living walls and artificial hedges are a practical option. The difference-maker is materials that won’t fade quickly and an install that won’t peel, gap, or trap moisture.
 
 If you’re in Houston and weighing options, reach out to **LoneStar Fauxscapes** for a recommendation based on your site. Share your wall size, a few photos, and whether you need **fire rated living walls** for a commercial space. You’ll get guidance that fits Houston conditions instead of generic advice.
+
+See our full [Houston artificial hedges and living walls](/houston) page for project photos and local details, or explore options in [Dallas](/dallas), [San Antonio](/san-antonio), and [Sugar Land](/sugar-land).

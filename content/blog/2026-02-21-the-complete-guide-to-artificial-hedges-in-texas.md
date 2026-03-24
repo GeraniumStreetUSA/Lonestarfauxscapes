@@ -13,7 +13,7 @@ tags:
 draft: false
 faq:
   - question: "How long do artificial hedges last in Texas?"
-    answer: "With UV-stabilized materials and proper installation, most commercial-grade artificial hedges last 7 to 10 years or more in direct Texas sun before showing noticeable fading. Cheaper imports without UV treatment can deteriorate in as little as 1 to 2 years."
+    answer: "With UV-stabilized materials and proper installation, commercial-grade artificial hedges can hold their appearance for years in direct Texas sun, but performance still depends on product quality, placement, and maintenance."
   - question: "Do artificial hedges look fake?"
     answer: "Not the good ones. Premium panels use multiple shades of polyethylene, varied leaf sizes, and randomized patterns to mimic natural growth. From a few feet away, most people cannot tell the difference. The key is avoiding the cheapest options, which tend to use uniform color and shiny plastic."
   - question: "Are artificial hedges allowed by Texas HOAs?"
@@ -109,7 +109,7 @@ Pool areas are one of the most common applications for artificial hedges in Texa
 
 Artificial hedges around pools avoid all of that. They provide instant, consistent privacy screening with zero debris in the water. The key considerations for pool installations:
 
-- **Chlorine exposure.** Pool chemicals can land on nearby surfaces as mist. Quality PE panels handle this without issue—just rinse periodically.
+- **Chlorine exposure.** Pool chemicals can land on nearby surfaces as mist. Outdoor-rated panels can still work well there, but product quality and periodic rinsing matter.
 - **Ground-level mounting.** Pool deck fencing is usually low enough that wind is less of a concern, but make sure drainage isn't blocked if panels sit at grade level.
 - **Proximity to equipment.** Keep clearance around pool pumps, filters, and heaters. Screening them from view is fine; blocking airflow is not.
 
@@ -179,10 +179,12 @@ And for specific product options:
 - [HOA-approved hedges](/hoa-approved-artificial-hedge)
 - [Fence extensions](/fence-extensions)
 
+We install in every major Texas metro. See local pages for [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), and [Sugar Land](/sugar-land).
+
 ## FAQ
 
 ### How long do artificial hedges last in Texas?
-With UV-stabilized materials and proper installation, most commercial-grade artificial hedges last 7 to 10 years or more in direct Texas sun before showing noticeable fading. Cheaper imports without UV treatment can deteriorate in as little as 1 to 2 years.
+With UV-stabilized materials and proper installation, commercial-grade artificial hedges can hold their appearance for years in direct Texas sun, but performance still depends on product quality, placement, and maintenance.
 
 ### Do artificial hedges look fake?
 Not the good ones. Premium panels use multiple shades of polyethylene, varied leaf sizes, and randomized patterns to mimic natural growth. From a few feet away, most people cannot tell the difference. The key is avoiding the cheapest options, which tend to use uniform color and shiny plastic.

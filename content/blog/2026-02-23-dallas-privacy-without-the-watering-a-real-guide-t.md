@@ -137,3 +137,5 @@ If you want a local team that installs artificial living wall Texas and artifici
 Artificial living walls and artificial hedges aren’t for everyone. But in Dallas—where heat, sun, and busy schedules stack up—they solve a pretty specific set of problems: steady privacy, a consistent look, and less routine maintenance than living plants.
 
 If you’re in **Uptown**, **Lakewood**, **Knox/Henderson**, or nearby and you’re deciding between a faux living wall and hedge panels, the next step is straightforward: get a site-specific plan for materials, attachment, and (when needed) fire-rating documentation that matches the exact product being installed. That’s how you end up with a wall that still looks like you meant it to, even after a couple of Dallas summers.
+
+Visit our [Dallas artificial hedges and living walls](/dallas) page for project photos and pricing details. We also serve [Houston](/houston), [San Antonio](/san-antonio), and [Sugar Land](/sugar-land).

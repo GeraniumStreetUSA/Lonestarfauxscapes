@@ -139,3 +139,5 @@ From there, **LoneStar Fauxscapes** can help you narrow down panel style, instal
 San Antonio patios, storefronts, and interiors ask a lot from anything green. Heat, sun, dust, and busy schedules don’t mix well with living walls that need constant attention. Artificial living walls and faux hedges are a practical way to get privacy and a finished look without turning your weekend into plant duty.
 
 If you’re looking for **Artificial living walls and Artificial hedges San Antonio TX**, reach out to **LoneStar Fauxscapes** with your photos, rough measurements, and where the wall will sit (Alamo Heights, Stone Oak, near The Pearl—wherever). We’ll point you toward a setup that fits the space and doesn’t look like repeating plastic panels.
+
+See our full [San Antonio artificial hedges and living walls](/san-antonio) page for project details. We also install in [Dallas](/dallas), [Houston](/houston), and [Sugar Land](/sugar-land).

@@ -23,7 +23,7 @@ faq:
   - question: "Are fire-rated artificial living walls available?"
     answer: "Yes. Some products are manufactured with fire-retardant materials and tested to standards like NFPA 701. This is often required for commercial interior installations. Ask for the specific test report tied to the product you are purchasing."
   - question: "How long do artificial living walls last?"
-    answer: "Indoors, a quality artificial living wall can last well over a decade with minimal care. Outdoors in Texas, UV-stabilized panels typically hold their appearance for 7 to 10 years depending on sun exposure. Lifespan depends on material quality and how much direct sun the wall receives."
+    answer: "Indoors, a quality artificial living wall can hold its appearance for many years with minimal care. Outdoors in Texas, lifespan depends on sun exposure, material quality, and maintenance, and indoor installs generally last longer than full-sun outdoor ones."
 ---
 
 A living wall—sometimes called a green wall or vertical garden—is one of those ideas that sounds perfect until you try to keep it alive in Texas. Real planted walls are beautiful when everything is working: the irrigation, the light levels, the temperature, the pest control. But the moment any one of those systems slips, you're staring at brown patches and a maintenance bill.
@@ -62,7 +62,7 @@ In Texas homes, artificial living walls tend to land in a few predictable spots:
 
 **Backyard privacy walls and patio backdrops.** A living wall behind an outdoor seating area or kitchen creates a lush backdrop that doesn't need irrigation. It softens hardscape (stone, concrete, stucco) and looks finished immediately—no waiting for vines to grow in.
 
-**Pool surrounds.** The pool area is tough on real plants: reflected UV from the water, chlorine mist, and splashing. Artificial living walls handle all of that without dropping leaves into the pool or attracting insects.
+**Pool surrounds.** The pool area is tough on real plants: reflected UV from the water, chlorine mist, and splashing. Outdoor-rated artificial living walls can be a strong fit there without dropping leaves into the pool or attracting insects.
 
 **Utility and equipment screening.** Pool pumps, AC units, gas meters—anything you'd rather not see. A living wall panel can screen the view while still allowing airflow if mounted on a frame with clearance.
 
@@ -156,6 +156,8 @@ Product pages:
 - [Pool living walls](/pool-living-wall)
 - [Vallum FRX architectural wall system](/vallum-frx)
 
+We install living walls in every major Texas metro. See local pages for [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), and [Sugar Land](/sugar-land).
+
 ## FAQ
 
 ### What is the difference between an artificial hedge and an artificial living wall?
@@ -174,7 +176,7 @@ Most commercial-grade panels weigh between 2 and 5 pounds per square foot, depen
 Yes. Some products are manufactured with fire-retardant materials and tested to standards like NFPA 701. This is often required for commercial interior installations. Ask for the specific test report tied to the product you are purchasing.
 
 ### How long do artificial living walls last?
-Indoors, a quality artificial living wall can last well over a decade with minimal care. Outdoors in Texas, UV-stabilized panels typically hold their appearance for 7 to 10 years depending on sun exposure. Lifespan depends on material quality and how much direct sun the wall receives.
+Indoors, a quality artificial living wall can hold its appearance for many years with minimal care. Outdoors in Texas, lifespan depends on sun exposure, material quality, and maintenance, and indoor installs generally last longer than full-sun outdoor ones.
 
 ---
 

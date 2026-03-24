@@ -18,7 +18,7 @@ faq:
   - question: "What if my HOA denies my artificial hedge application?"
     answer: "Under Texas Property Code Section 209.00505, the denial must describe the basis in reasonable detail and any changes required for approval. You have the right to request a hearing within 30 days. The board must hold the hearing and can affirm, modify, or reverse the decision."
   - question: "Do I need a permit for an artificial hedge in Texas?"
-    answer: "Artificial hedges are generally considered a decorative landscape feature, not a structure, so building permits are typically not required. However, if you are adding a new fence or extending fence height, check your city's fence ordinances. HOA approval is separate from municipal permits."
+    answer: "Permit requirements depend on the city, fence height, mounting method, and whether structural work is involved. HOA approval is separate from municipal requirements, so check both before installing."
 ---
 
 If you live in a deed-restricted community in Texas—and most newer subdivisions are—you probably need architectural review approval before installing an artificial hedge. That's not a reason to avoid the project. It's just a process, and one that goes smoothly when you understand what your HOA is actually looking for and what the law says about your rights.
@@ -138,6 +138,8 @@ You might also find these useful:
 
 For HOA-friendly product options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge) or [request a free quote](/#contact).
 
+We help homeowners navigate HOA approvals in [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), [Sugar Land](/sugar-land), and across Texas.
+
 ## FAQ
 
 ### Can my HOA ban artificial hedges in Texas?
@@ -150,7 +152,7 @@ Most Texas HOA architectural review committees are required to respond within 30
 Under Texas Property Code Section 209.00505, the denial must describe the basis in reasonable detail and any changes required for approval. You have the right to request a hearing within 30 days. The board must hold the hearing and can affirm, modify, or reverse the decision.
 
 ### Do I need a permit for an artificial hedge in Texas?
-Artificial hedges are generally considered a decorative landscape feature, not a structure, so building permits are typically not required. However, if you are adding a new fence or extending fence height, check your city's fence ordinances. HOA approval is separate from municipal permits.
+Permit requirements depend on the city, fence height, mounting method, and whether structural work is involved. HOA approval is separate from municipal requirements, so check both before installing.
 
 ## References
 - Texas Property Code Chapter 209 (Texas Residential Property Owners Protection Act): https://statutes.capitol.texas.gov/Docs/PR/htm/PR.209.htm

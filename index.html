@@ -31,8 +31,8 @@
     <link rel="preload" as="image" href="/images/hero/hero-main-800w.avif" type="image/avif" media="(min-width: 601px)">
 
     <!-- SEO Metadata -->
-    <title>Texas Artificial Hedges & Living Walls</title>
-    <meta name="description" content="Get custom artificial hedges and living walls installed across Texas. Fire-rated, UV-stable, HOA-friendly options for homes and commercial properties.">
+    <title>Texas Artificial Hedges & Living Walls — Zero Maintenance Privacy</title>
+    <meta name="description" content="Custom artificial hedges and living walls installed across Texas. No watering, no trimming, fire-rated and HOA-friendly. Instant privacy for homes and businesses. Free quotes.">
     <meta name="keywords" content="artificial hedges, artificial living wall, faux living wall, privacy hedge, fence extensions, commercial wall covering, Texas, faux plant installation">
     <meta name="author" content="Lone Star Faux Scapes">
     <meta name="robots" content="index, follow">
@@ -47,16 +47,16 @@
     <meta name="theme-color" content="#050a07">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Texas Artificial Hedges & Living Walls">
-    <meta property="og:description" content="Get custom artificial hedges and living walls installed across Texas. Fire-rated, UV-stable, HOA-friendly options for homes and commercial properties.">
+    <meta property="og:title" content="Artificial Hedges and Living Walls Installed Across Texas">
+    <meta property="og:description" content="Artificial hedges, living walls, fence extensions, and privacy screens installed across Texas. Fire-rated, UV-stable, HOA-friendly options for residential and commercial projects.">
     <meta property="og:type" content="business.business">
     <meta property="og:url" content="https://lonestarfauxscapes.com/">
     <meta property="og:image" content="https://lonestarfauxscapes.com/images/hero/hero-main-1200w.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="800">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Texas Artificial Hedges & Living Walls">
-    <meta name="twitter:description" content="Get custom artificial hedges and living walls installed across Texas. Fire-rated, UV-stable, HOA-friendly options for homes and commercial properties.">
+    <meta name="twitter:title" content="Artificial Hedges and Living Walls Installed Across Texas">
+    <meta name="twitter:description" content="Artificial hedges, living walls, fence extensions, and privacy screens installed across Texas. Fire-rated, UV-stable, HOA-friendly options for residential and commercial projects.">
     <meta name="twitter:image" content="https://lonestarfauxscapes.com/images/hero/hero-main-1200w.jpg">
     <!-- Hero image is marked fetchpriority="high" in markup -->
 
@@ -202,7 +202,7 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "What is the lifespan of artificial hedge foliage?", "acceptedAnswer": { "@type": "Answer", "text": "Our UV-stabilized polymers are rated for 5-8 years of direct Texas sun exposure with minimal degradation, and 10+ years for shaded or indoor applications." } },
+        { "@type": "Question", "name": "What is the lifespan of artificial hedge foliage?", "acceptedAnswer": { "@type": "Answer", "text": "Our UV-stabilized foliage is built for long-term indoor and outdoor use. Lifespan depends on sun exposure, placement, and the specific product system, with indoor and shaded installations typically holding appearance longer than full-sun exposures." } },
         { "@type": "Question", "name": "Are artificial hedges fire safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer commercial-grade, fire-retardant foliage that meets NFPA 701 Method 2 certification, essential for hotel lobbies, restaurants, and high-density housing." } },
         { "@type": "Question", "name": "How are artificial hedges installed?", "acceptedAnswer": { "@type": "Answer", "text": "We use a proprietary grid system anchored to your existing wall or a custom-fabricated steel frame. The process is clean, rapid, and non-intrusive." } },
         { "@type": "Question", "name": "Do artificial hedges require maintenance?", "acceptedAnswer": { "@type": "Answer", "text": "Zero organic maintenance. No water, no fertilizer, no trimming. A simple rinse with water once or twice a year is all that is needed to keep dust at bay." } },
@@ -1746,8 +1746,25 @@
         .floating-field .form-textarea {
             padding-top: 1.8rem;
         }
+        .floating-field .form-input::placeholder,
+        .floating-field .form-textarea::placeholder {
+            color: transparent;
+            opacity: 1;
+            transition: color 0.18s ease;
+        }
+        .floating-field .form-input:focus::placeholder,
+        .floating-field .form-textarea:focus::placeholder,
+        .floating-field.filled .form-input::placeholder,
+        .floating-field.filled .form-textarea::placeholder {
+            color: rgba(245,242,235,0.36);
+        }
         .floating-field:focus-within label,
         .floating-field.filled label {
+            transform: translateY(-0.9rem) scale(0.85);
+            color: #fff;
+            opacity: 0.95;
+        }
+        .floating-field--select label {
             transform: translateY(-0.9rem) scale(0.85);
             color: #fff;
             opacity: 0.95;
@@ -1833,6 +1850,333 @@
             filter: drop-shadow(0 18px 36px rgba(0,0,0,0.4));
         }
 
+        /* Homepage rewrite: clearer message hierarchy and stronger conversion paths */
+        #hero {
+            min-height: auto;
+            padding: clamp(8rem, 13vw, 9.75rem) 0 4.75rem;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+        }
+        .hero__overlay {
+            background:
+                linear-gradient(90deg, rgba(5,10,7,0.86) 0%, rgba(5,10,7,0.68) 30%, rgba(5,10,7,0.38) 58%, rgba(5,10,7,0.62) 100%),
+                linear-gradient(180deg, rgba(10,22,18,0.52) 0%, rgba(10,22,18,0.18) 40%, rgba(10,22,18,0.64) 100%);
+        }
+        .botanical-mark {
+            display: none;
+        }
+        .hero__content {
+            display: block;
+            max-width: 1200px;
+            padding: 0 4%;
+        }
+        .hero__text {
+            max-width: 640px;
+        }
+        .hero__eyebrow {
+            display: none;
+        }
+        .hero__headline {
+            max-width: 12.25ch;
+            margin-bottom: 1rem;
+            font-size: clamp(3rem, 6vw, 4.75rem);
+            line-height: 1.02;
+            text-wrap: balance;
+            text-transform: none;
+        }
+        .hero__supporting {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+            max-width: 33rem;
+        }
+        #hero .hero__text > .hero__headline + .hero__subhead,
+        #hero .hero__badge {
+            display: none;
+        }
+        .hero__subhead {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+            max-width: 34rem;
+            margin-bottom: 0;
+            color: rgba(245,242,235,0.82);
+            font-size: clamp(1rem, 1.7vw, 1.12rem);
+            line-height: 1.55;
+        }
+        .hero__actions,
+        .section-actions,
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .hero__actions {
+            margin-bottom: 0;
+        }
+        .hero__actions .btn-outline,
+        .section-actions .btn-outline,
+        .contact-actions .btn-outline {
+            margin-left: 0;
+        }
+        .hero__cta,
+        .hero__cta-secondary {
+            min-width: 190px;
+        }
+        .hero__cta-secondary {
+            color: rgba(245,242,235,0.96);
+            background: rgba(5,10,7,0.56);
+            border: 1px solid rgba(255,255,255,0.16);
+            box-shadow: none;
+        }
+        .hero__cta-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            box-shadow: none;
+        }
+        .hero__support,
+        .section-intro,
+        .quote-note {
+            color: var(--color-text-muted);
+            max-width: 64ch;
+            font-size: 1rem;
+        }
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+            align-items: center;
+            padding-top: 0.95rem;
+            margin-top: 0.1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .trust-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(245,242,235,0.84);
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .trust-chip::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(76,175,80,0.9);
+            box-shadow: 0 0 0 4px rgba(76,175,80,0.14);
+        }
+        .authority-note {
+            margin-top: 0;
+            max-width: 31rem;
+            font-size: 0.88rem;
+            color: rgba(245,242,235,0.72);
+        }
+        .authority-note a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .hero__cities {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            justify-content: flex-start;
+            gap: 0.4rem 0.95rem;
+            width: 100%;
+            max-width: 620px;
+            margin-top: 1.65rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            flex-wrap: wrap;
+        }
+        .hero__cities-label {
+            color: rgba(245,242,235,0.58);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .hero__cities-divider {
+            display: none;
+        }
+        .hero__cities a {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: rgba(245,242,235,0.8);
+            font-size: 0.92rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        .hero__cities a:hover {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+        .section-header {
+            max-width: 820px;
+            margin-bottom: 3rem;
+        }
+        .section-header p {
+            margin-bottom: 0;
+        }
+        .proof-grid,
+        .path-grid,
+        .coverage-grid,
+        .coverage-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+        .proof-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .proof-card {
+            padding: 1.35rem;
+        }
+        .proof-card strong {
+            color: #fff;
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+            letter-spacing: -0.01em;
+        }
+        .path-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .path-card {
+            gap: 1.1rem;
+            padding: 2rem;
+        }
+        .path-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(76,175,80,0.12);
+            border: 1px solid rgba(76,175,80,0.26);
+            color: #d7f5de;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            width: fit-content;
+        }
+        .path-card h3 {
+            margin-bottom: 0.1rem;
+        }
+        .path-card p {
+            margin-bottom: 0;
+        }
+        .path-card .product-list {
+            margin: 0;
+        }
+        .path-card .btn {
+            margin-top: auto;
+        }
+        .coverage-grid {
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            align-items: start;
+        }
+        #coverage .city-mission {
+            display: none;
+        }
+        .coverage-list {
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            margin: 2rem 0 2.25rem;
+        }
+        .coverage-list a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(245,245,245,0.9);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .coverage-list a:hover {
+            color: #fff;
+            border-color: rgba(76,175,80,0.5);
+            background: rgba(76,175,80,0.08);
+        }
+        .contact-actions {
+            justify-content: center;
+            margin-top: 1.75rem;
+        }
+        .contact-trust {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.8rem;
+            margin: 1.75rem 0 0;
+        }
+        .contact-trust .proof-pill {
+            justify-content: center;
+            min-height: 44px;
+        }
+        .quote-note {
+            margin: 1.25rem auto 0;
+            text-align: center;
+        }
+        .quote-note a {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 991px) {
+            #hero {
+                padding: 7.5rem 0 4rem;
+            }
+            .hero__content {
+                padding: 0 6%;
+            }
+            .hero__headline {
+                max-width: none;
+            }
+            .hero__supporting {
+                max-width: none;
+            }
+            .hero__actions,
+            .section-actions,
+            .contact-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .hero__cta,
+            .hero__cta-secondary,
+            .section-actions .btn,
+            .contact-actions .btn {
+                width: 100%;
+            }
+            .path-grid,
+            .coverage-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero__cities {
+                margin-top: 1.5rem;
+                gap: 0.4rem 0.75rem;
+            }
+            .hero__cities-label {
+                width: 100%;
+            }
+        }
+
         /* Mobile Menu */
         #mobile-menu {
             position: fixed;
@@ -1874,6 +2218,7 @@
 
     </style>
     <link rel="stylesheet" href="/enhancements.css">
+    <link rel="stylesheet" href="/cro.css">
     </head>
 <body>
 <div class="grain"></div>
@@ -2673,7 +3018,7 @@
                   type="image/jpeg">
                 <img
                   src="images/hero/hero-main-800w.jpg"
-                  alt="Lush artificial greenery wall installation in Texas"
+                  alt="Artificial hedge and living wall installation in Texas"
                   fetchpriority="high"
                   decoding="async"
                   loading="eager"
@@ -2717,18 +3062,31 @@
 
             <!-- Text Content - wrapped for grid layout -->
             <div class="hero__text">
-                <p class="hero__eyebrow">Texas's Premier Artificial Greenery</p>
                 <h1 id="hero-heading" class="hero__headline">
-                    <span class="hero__headline-line"><span>Custom Greenery.</span></span>
-                    <span class="hero__headline-line"><span>Perfected.</span></span>
+                    <span class="hero__headline-line"><span>Artificial hedges and living walls</span></span>
+                    <span class="hero__headline-line"><span>installed across Texas</span></span>
                 </h1>
-                <p class="hero__subhead">Fire-Rated · UV-Stable · Low Maintenance</p>
-                <a href="#contact" class="hero__cta">Start Your Project</a>
+                <div class="hero__supporting">
+                    <p class="hero__subhead">Artificial privacy screens, living walls, fence extensions, and fire-rated greenery for homes, commercial properties, and spec-driven projects.</p>
+                    <div class="hero__actions">
+                        <a href="#contact" class="hero__cta">Request a Quote</a>
+                        <a href="tel:+17609787335" class="hero__cta hero__cta-secondary">Call (760) 978-7335</a>
+                    </div>
+                    
+                    <div class="trust-bar" aria-label="Key service highlights">
+                        <span class="trust-chip">Fire-rated options</span>
+                        <span class="trust-chip">UV-stable materials</span>
+                        <span class="trust-chip">Commercial-ready options</span>
+                        
+                    </div>
+                    <p class="authority-note">Fast installs across Texas. Lone Star Faux Scapes is a <a href="https://geraniumstreet.com" target="_blank" rel="noopener">Geranium Street USA</a> brand.</p>
+                </div>
             </div>
         </div>
 
         <!-- City Navigation - centered at bottom -->
         <nav class="hero__cities" aria-label="Service areas">
+            <span class="hero__cities-label">Serving</span>
             <a href="/austin">Austin</a>
             <span class="hero__cities-divider" aria-hidden="true"></span>
             <a href="/dallas">Dallas</a>
@@ -2736,6 +3094,10 @@
             <a href="/houston">Houston</a>
             <span class="hero__cities-divider" aria-hidden="true"></span>
             <a href="/san-antonio">San Antonio</a>
+            <span class="hero__cities-divider" aria-hidden="true"></span>
+            <a href="/fort-worth">Fort Worth</a>
+            <span class="hero__cities-divider" aria-hidden="true"></span>
+            <a href="/locations">More Texas Cities</a>
         </nav>
 
         <!-- Texas Identity Badge -->
@@ -2746,9 +3108,31 @@
     <section id="products" class="section section-alt">
         <div class="container">
             <div style="margin-bottom: 4rem;">
-                <h2 class="gs-reveal">Engineered Flora</h2>
-                <p class="gs-reveal">High-fidelity botanical simulations for privacy and aesthetic impact.</p>
-                <p class="gs-reveal" style="color: var(--color-text-muted); margin-top: -0.5rem;">Artificial hedges, faux living walls, fence extensions, and custom privacy walls installed across Texas, including Austin, Dallas, Houston, and San Antonio.</p>
+                <p class="section-kicker gs-reveal" data-reveal>Why people call us</p>
+                <h2 class="gs-reveal" data-reveal>Clear scope, custom fabrication, and fast installs.</h2>
+                <p class="gs-reveal section-intro" data-reveal>Most clients need privacy, coverage, or a feature wall without the maintenance that comes with live plant material. We help them choose the right system, price it clearly, and install it quickly.</p>
+                <div class="proof-grid" style="margin-top: 2rem;">
+                    <div class="live-card gs-reveal" data-reveal>
+                        <h3>Installed in days, not weeks</h3>
+                        <p>Panels are prepared before install so most jobs move quickly once the scope is approved.</p>
+                    </div>
+                    <div class="live-card gs-reveal" data-reveal>
+                        <h3>Built for Texas conditions</h3>
+                        <p>UV-stable materials and low-maintenance systems are a better fit for heat, drought, and harsh sun exposure.</p>
+                    </div>
+                    <div class="live-card gs-reveal" data-reveal>
+                        <h3>Fire-rated options available</h3>
+                        <p>Commercial projects can use fire-rated foliage that meets NFPA 701 Method 2 requirements when needed.</p>
+                    </div>
+                    <div class="live-card gs-reveal" data-reveal>
+                        <h3>Custom fit for the space</h3>
+                        <p>We fabricate frames and panels to fit fences, walls, screening areas, and spec-driven layouts.</p>
+                    </div>
+                </div>
+                <div class="section-actions" style="margin-top: 1.5rem;">
+                    <a href="/pricing" class="btn">See Pricing</a>
+                    <a href="/case-studies" class="btn btn-outline">View Case Studies</a>
+                </div>
             </div>
             
               <div class="grid-4">
@@ -2762,13 +3146,13 @@
               </picture>
                       </div>
                       <h3>Artificial Living Walls</h3>
-                      <p>Vertical artificial biophilic systems for facades and lobbies.</p>
+                      <p>Artificial living walls for lobbies, patios, amenities, and feature walls that need year-round greenery without irrigation.</p>
                     <ul class="product-list">
-                        <li>Zero Irrigation</li>
-                        <li>Modular Grid System</li>
-                        <li>Acoustic Dampening</li>
+                        <li>Low maintenance</li>
+                        <li>Custom foliage layouts</li>
+                        <li>Optional acoustic backing</li>
                     </ul>
-                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/living-wall">Learn more about Living Walls</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/living-wall">See living wall options</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2780,13 +3164,13 @@
               </picture>
                       </div>
                       <h3>Artificial Hedges</h3>
-                      <p>Dense artificial hedge panels for commercial facades and retail.</p>
+                      <p>Dense artificial hedge panels for privacy, perimeter coverage, screening, and branded commercial greenery.</p>
                     <ul class="product-list">
-                        <li>Brand Backgrounds</li>
-                        <li>UV Stabilized</li>
-                        <li>Fire Rated (NFPA 701)</li>
+                        <li>UV-stable materials</li>
+                        <li>Fire-rated options</li>
+                        <li>Residential and commercial use</li>
                     </ul>
-                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/artificial-hedge">Learn more about Artificial Hedges</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/artificial-hedge">See artificial hedge options</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2798,13 +3182,13 @@
               </picture>
                       </div>
                       <h3>Fence Extensions</h3>
-                      <p>Seamless privacy additives for existing structures.</p>
+                      <p>Fence toppers and privacy extensions for backyards, pools, patios, and property lines that need more coverage fast.</p>
                     <ul class="product-list">
-                        <li>Height Expansion</li>
-                        <li>Optional Noise Blocking</li>
-                        <li>Instant Obscurity</li>
+                        <li>More privacy without new planting</li>
+                        <li>HOA-friendly options</li>
+                        <li>Optional acoustic upgrades</li>
                     </ul>
-                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/fence-extensions">Learn more about Fence Extensions</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/fence-extensions">See fence extension options</a></div>
                 </div>
                   <div class="live-card gs-reveal" data-reveal>
                       <div class="card-media">
@@ -2816,74 +3200,102 @@
               </picture>
                       </div>
                       <h3>Commercial Wall Covering</h3>
-                      <p>Hedge cladding for hospitality, retail, and branded facades.</p>
+                      <p>Commercial walls and screens for hospitality, retail, office, and multifamily projects that need a polished finish.</p>
                     <ul class="product-list">
-                        <li>Fire Rated (NFPA 701)</li>
-                        <li>Brand Integration</li>
-                        <li>UV Stabilized</li>
+                        <li>Fire-rated options</li>
+                        <li>Custom frames and panels</li>
+                        <li>Fast install scheduling</li>
                     </ul>
-                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/commercial-wall">Learn more about Commercial Walls</a></div>
+                    <div style="margin-top:auto;"><a class="btn btn-outline" href="/commercial-wall">See commercial wall options</a></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="section">
+        <div class="container" data-lsfs-case-studies="austin-high-end-residential-privacy,houston-restaurant-hedges,houston-storefront-hedges" data-lsfs-proof-title="Recent Texas install snapshots" data-lsfs-proof-copy="These are real project profiles pulled from published work, so you can see what the site needed, how the install was handled, and what changed after completion." data-lsfs-proof-layout="three" data-lsfs-proof-context="homepage_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="Browse all project profiles"></div>
+    </section>
+
     <!-- Solutions Split -->
     <section id="solutions" class="section">
         <div class="container">
-            <div class="grid-2">
-                <div id="commercial" class="gs-reveal">
-                    <div style="font-size: 0.9rem; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Sector 01</div>
-                    <h2 style="font-size: 4rem; margin-bottom: 2rem;">Commercial<br>Applications</h2>
-                    <p>For architects, developers, and property managers. Enhance asset value with sustainable, evergreen aesthetics that require zero water overhead.</p>
-                    
-                    <div class="stat-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">15+</div>
-                            <p>Years Exp.</p>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">Custom</div>
-                            <p>Creations</p>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">Tx</div>
-                            <p>Statewide</p>
-                        </div>
-                    </div>
-                    <br><br>
-                    <a href="#gallery" class="btn-outline" style="margin-left: 0;">View Case Studies</a>
+            <div style="margin-bottom: 3rem;">
+                <p class="section-kicker gs-reveal" data-reveal>Who we work with</p>
+                <h2 class="gs-reveal" data-reveal>Choose the path that fits your project.</h2>
+                <p class="gs-reveal section-intro" data-reveal>Some projects need backyard privacy. Others need commercial compliance, submittals, or a cleaner install plan for a design team. Start where you fit best.</p>
+            </div>
+            <div class="path-grid">
+                <div id="commercial" class="live-card gs-reveal path-card" data-reveal>
+                    <span class="path-label">Commercial</span>
+                    <h3>Fire-rated greenery and privacy systems for active properties.</h3>
+                    <p>For multifamily, hospitality, retail, office, and amenity spaces that need a polished look, fast installation, and materials that can handle Texas conditions.</p>
+                    <ul class="product-list">
+                        <li>Lobby and amenity walls</li>
+                        <li>Restaurant and patio screening</li>
+                        <li>Fire-rated options available</li>
+                    </ul>
+                    <div style="margin-top:auto;"><a href="/commercial" class="btn btn-outline">Explore commercial projects</a></div>
                 </div>
-                
-                <div id="residential" class="gs-reveal" style="padding-top: 2rem;">
-                    <div class="live-card" style="background: linear-gradient(to bottom right, #111, #050505); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="font-size: 0.9rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Sector 02</div>
-                        <h2 style="font-size: 3rem;">Residential<br>Sanctuaries</h2>
-                        <p>Reclaim your privacy. We transform backyards, pools, and balconies into secluded retreats instantly, bypassing the years required for natural growth.</p>
-                        <ul style="margin-top: 2rem;">
-                            <li style="display: flex; align-items: center; margin-bottom: 1rem; color: #fff;">
-                                <span style="color: var(--color-accent); margin-right: 1rem; font-size: 1.2rem;">&#10003;</span> Immediate Privacy
-                            </li>
-                            <li style="display: flex; align-items: center; margin-bottom: 1rem; color: #fff;">
-                                <span style="color: var(--color-accent); margin-right: 1rem; font-size: 1.2rem;">&#10003;</span> Pet & Child Safe
-                            </li>
-                            <li style="display: flex; align-items: center; margin-bottom: 1rem; color: #fff;">
-                                <span style="color: var(--color-accent); margin-right: 1rem; font-size: 1.2rem;">&#10003;</span> HOA Friendly
-                            </li>
-                        </ul>
-                    </div>
+                <div class="live-card gs-reveal path-card" data-reveal>
+                    <span class="path-label">Architects / Designers / GCs</span>
+                    <h3>Custom layouts, submittals, and early scope help for spec-driven work.</h3>
+                    <p>Bring us in when you need custom frames, material direction, fire-rated options, CAD support, or a cleaner path from concept to install.</p>
+                    <ul class="product-list">
+                        <li>Custom frame fabrication</li>
+                        <li>CAD and shop drawing support</li>
+                        <li>Coordination before install day</li>
+                    </ul>
+                    <div style="margin-top:auto;"><a href="/contact" class="btn btn-outline">Talk through a project</a></div>
+                </div>
+                <div id="residential" class="live-card gs-reveal path-card" data-reveal>
+                    <span class="path-label">Residential</span>
+                    <h3>Privacy, screening, and low-upkeep upgrades for homes.</h3>
+                    <p>For backyards, pools, patios, balconies, and fence lines that need immediate coverage without watering, trimming, or waiting for plants to grow in.</p>
+                    <ul class="product-list">
+                        <li>Backyard privacy walls</li>
+                        <li>Fence extensions and toppers</li>
+                        <li>HOA-friendly options</li>
+                    </ul>
+                    <div style="margin-top:auto;"><a href="/residential" class="btn btn-outline">Explore residential projects</a></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Trust / Map -->
-    <section class="section section-alt" style="overflow: hidden;">
+    <section id="coverage" class="section section-alt" style="overflow: hidden;">
         <div class="container">
             <div class="grid-2">
-                <div class="gs-reveal">
-                    <h2>Texas Operations</h2>
-                    <p>Based in Texas, serving the major metropolitan hubs with precision installation teams.</p>
+                <div class="gs-reveal" data-reveal>
+                    <p class="section-kicker">Texas coverage</p>
+                    <h2>Serving major Texas metros and statewide projects.</h2>
+                    <p>We install artificial hedges, living walls, privacy screens, and fence extensions across Texas. If your project is outside the main metros, send the address and project type so we can confirm scope and timing.</p>
+                    <div class="coverage-grid">
+                        <div>
+                            <div class="coverage-list">
+                                <a href="/austin">Austin</a>
+                                <a href="/dallas">Dallas</a>
+                                <a href="/houston">Houston</a>
+                                <a href="/san-antonio">San Antonio</a>
+                                <a href="/fort-worth">Fort Worth</a>
+                            </div>
+                            <div class="section-actions">
+                                <a href="#contact" class="btn">Request a Quote</a>
+                                <a href="/locations" class="btn btn-outline">See All Texas Cities</a>
+                            </div>
+                        </div>
+                        <div class="live-card">
+                            <h3>Common jobs we handle</h3>
+                            <ul class="product-list">
+                                <li>Backyard privacy and pool screening</li>
+                                <li>Rooftop, balcony, and patio screening</li>
+                                <li>Lobby, amenity, and branded feature walls</li>
+                                <li>Restaurant, retail, and multifamily greenery installs</li>
+                                <li>Fence extensions and perimeter coverage</li>
+                                <li>Architect and GC coordination for spec-driven work</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="city-mission">
                         <div class="city-links" style="margin-top: 0;">
                             <a class="city-link" href="/austin">Austin</a><span class="city-link" style="pointer-events:none;" aria-hidden="true">/</span>
@@ -2937,7 +3349,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="gs-reveal">
+                <div class="gs-reveal" data-reveal>
                     <div class="map-stack">
                         <div class="texas-map-card" aria-hidden="true">
                             <div class="texas-map-heading">Statewide Coverage</div>
@@ -2983,19 +3395,19 @@
                             <div class="map-legend"><span></span>Active install crews</div>
                         </div>
                         <div class="live-card">
-                            <h3>Why Choose Us?</h3>
+                            <h3>Why clients move forward</h3>
                             <div style="margin-top: 2rem; display: grid; gap: 1.5rem;">
                                 <div>
-                                    <h4 style="color: #fff;">In-House Fabrication</h4>
-                                    <p style="margin: 0; font-size: 0.9rem;">We build custom frames and panels in our workshop, ensuring perfect fit.</p>
+                                    <h4 style="color: #fff;">Custom fabrication</h4>
+                                    <p style="margin: 0; font-size: 0.9rem;">We build custom frames and panels so the install fits the wall, fence, or screening area correctly.</p>
                                 </div>
                                 <div>
-                                    <h4 style="color: #fff;">Code Compliance</h4>
-                                    <p style="margin: 0; font-size: 0.9rem;">Fire-rated foliage options available for strict commercial codes.</p>
+                                    <h4 style="color: #fff;">Commercial-ready options</h4>
+                                    <p style="margin: 0; font-size: 0.9rem;">Fire-rated foliage options are available for projects that need stricter commercial compliance.</p>
                                 </div>
                                 <div>
-                                    <h4 style="color: #fff;">Turnkey Service</h4>
-                                    <p style="margin: 0; font-size: 0.9rem;">Design, build, and install. One point of contact.</p>
+                                    <h4 style="color: #fff;">One team from scope to install</h4>
+                                    <p style="margin: 0; font-size: 0.9rem;">You get one point of contact for planning, fabrication, and installation instead of juggling separate vendors.</p>
                                 </div>
                             </div>
                         </div>
@@ -3008,13 +3420,14 @@
     <!-- FAQ -->
     <section id="faq" class="section section-alt">
         <div class="container" style="max-width: 900px;">
-            <h2 class="gs-reveal">Intelligence</h2>
+            <h2 class="gs-reveal" data-reveal>Common questions</h2>
+            <p class="gs-reveal section-intro" data-reveal>These are the questions we hear most often before someone asks for pricing or sends project details.</p>
             
-            <div class="gs-reveal">
+            <div class="gs-reveal" data-reveal>
                 <details>
                     <summary>What is the lifespan of the foliage?</summary>
                     <div class="faq-answer">
-                        Engineered for longevity. Our UV-stabilized polymers are rated for 5-8 years of direct Texas sun exposure with minimal degradation, and 10+ years for shaded or indoor applications.
+                        Engineered for longevity. Our UV-stabilized foliage is built for long-term indoor and outdoor use. Lifespan depends on sun exposure, placement, and the specific product system, with indoor and shaded installations typically holding appearance longer than full-sun exposures.
                     </div>
                 </details>
                 <details>
@@ -3038,7 +3451,7 @@
                 <details>
                     <summary>Do you install artificial hedges and living walls in Texas?</summary>
                     <div class="faq-answer">
-                        Yes. We install artificial hedges, faux hedges, and artificial living walls statewide in Texas, including Austin, Dallas, Houston, and San Antonio.
+                        Yes. We install artificial hedges, faux hedges, and artificial living walls statewide in Texas, including Austin, <a href="/dallas">Dallas</a>, <a href="/houston">Houston</a>, <a href="/san-antonio">San Antonio</a>, and <a href="/sugar-land">Sugar Land</a>.
                     </div>
                 </details>
                 <details>
@@ -3093,52 +3506,68 @@
         </div>
         <div class="container" style="max-width: 800px;">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <div class="eyebrow">Initiate</div>
-                <h2>Start Your Transformation</h2>
+                <div class="eyebrow">Get a quote</div>
+                <h2>Call us or send the project details.</h2>
+                <p class="section-intro" style="margin: 1rem auto 0;">Share your city, project type, rough measurements, and what needs privacy or coverage. We can usually point you in the right direction quickly.</p>
+                <div class="contact-actions">
+                    <a href="tel:+17609787335" class="btn" data-lsfs-cta="homepage_call">Call (760) 978-7335</a>
+                    <a href="/pricing" class="btn btn-outline" data-lsfs-cta="homepage_ballpark_pricing">Review Pricing</a>
+                </div>
+                <div class="lsfs-cro-links" style="justify-content:center; margin-top: 1rem;" data-lsfs-context="homepage_contact_links">
+                    <a href="mailto:info@lonestarfauxscapes.com?subject=Texas%20Project%20Inquiry" data-lsfs-cta="homepage_email_project">Email your project</a>
+                    <a href="/case-studies" data-lsfs-cta="homepage_recent_local_work">See recent local work</a>
+                    <a href="/hoa-approved-artificial-hedge" data-lsfs-cta="homepage_hoa_options">Ask about HOA-friendly options</a>
+                </div>
+                <div class="contact-trust">
+                    <div class="proof-pill">Statewide Texas service</div>
+                    <div class="proof-pill">Fire-rated options available</div>
+                    <div class="proof-pill">Commercial-ready options</div>
+                    <div class="proof-pill">Geranium Street USA brand</div>
+                </div>
             </div>
             
-              <form class="live-card" style="padding: 3rem;" id="cta-form" novalidate>
+              <form class="live-card" style="padding: 3rem;" id="cta-form" data-lsfs-track-form="homepage_quote" data-lsfs-form-context="homepage_contact" novalidate>
                   <div class="grid-2" style="gap: 2rem; margin-bottom: 2rem;">
                       <div class="floating-field">
-                          <label for="name">Identification</label>
-                          <input type="text" class="form-input" id="name" name="name" placeholder="Name" autocomplete="name" required>
+                          <label for="name">Name</label>
+                          <input type="text" class="form-input" id="name" name="name" placeholder="Your name" autocomplete="name" required>
                           <div class="input-hint" data-hint="name"></div>
                       </div>
                       <div class="floating-field">
-                          <label for="email">Contact</label>
-                          <input type="email" class="form-input" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
+                          <label for="email">Email</label>
+                          <input type="email" class="form-input" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
                           <div class="input-hint" data-hint="email"></div>
                       </div>
                   </div>
                   <div class="grid-2" style="gap: 2rem; margin-bottom: 2rem;">
                       <div class="floating-field">
-                          <label for="location">Location</label>
-                          <input type="text" class="form-input" id="location" name="location" placeholder="City, Zip" autocomplete="postal-code">
+                          <label for="location">Project location</label>
+                          <input type="text" class="form-input" id="location" name="location" placeholder="City, ZIP, or project address" autocomplete="postal-code">
                           <div class="input-hint" data-hint="location"></div>
                       </div>
-                      <div class="floating-field">
-                          <label for="type">Type</label>
+                      <div class="floating-field floating-field--select">
+                          <label for="type">Project type</label>
                           <select class="form-select" id="type" name="type">
                               <option value="">Select a project type</option>
                               <option>Residential Project</option>
-                              <option>Commercial Development</option>
-                              <option>Architectural Spec</option>
+                              <option>Commercial Project</option>
+                              <option>Architect / Designer / GC</option>
                           </select>
                           <div class="input-hint" data-hint="type"></div>
                       </div>
                   </div>
                   <div class="floating-field" style="margin-bottom: 2rem;">
-                      <label for="scope">Scope</label>
-                      <textarea class="form-textarea" id="scope" name="scope" rows="4" placeholder="Briefly describe the area dimensions and goals..." required></textarea>
+                      <label for="scope">Project details</label>
+                      <textarea class="form-textarea" id="scope" name="scope" rows="4" placeholder="What needs privacy or coverage? Add rough dimensions, photos available, and any fire-rated or project requirements." required></textarea>
                       <div class="input-hint" data-hint="scope"></div>
                   </div>
                   <!-- Cloudflare Turnstile - Replace YOUR_SITE_KEY with actual key from Cloudflare dashboard -->
                   <div class="cf-turnstile" data-sitekey="0x4AAAAAACV8gs7CEDMYDaQu" data-theme="dark" style="margin-bottom: 1rem;"></div>
-                  <button type="submit" class="btn btn-cta">Request Estimate</button>
+                  <button type="submit" class="btn btn-cta">Request a Quote</button>
                   <div class="form-status" id="form-status" aria-live="polite"></div>
               </form>
               <div style="text-align: center; margin-top: 2rem; color: var(--color-text-muted);">
-                  Direct Line: <strong style="color: #fff;">(760) 978-7335</strong>
+                  Prefer to talk first? <a href="tel:+17609787335" style="color: #fff; font-weight: 700;">Call (760) 978-7335</a>.
             </div>
         </div>
     </section>
@@ -3150,16 +3579,22 @@
             <div class="grid-4" style="border-top: 1px solid #222; padding-top: 2rem; gap: 4rem;">
                 <div>
                     <div style="font-weight: 700; color: #fff; margin-bottom: 1rem;">Lone Star Faux Scapes</div>
-                    <p style="font-size: 0.9rem;">Future-proofing Texas landscapes with premium artificial biophilia.</p>
+                    <p style="font-size: 0.9rem;">Artificial hedges, living walls, fence extensions, and privacy systems installed across Texas.</p>
                 </div>
                 <div>
-                    <div style="font-weight: 700; color: #fff; margin-bottom: 1rem;">Sitemap</div>
-                    <ul style="font-size: 0.9rem; color: #777; line-height: 2;">
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#commercial">Commercial</a></li>
-                        <li><a href="#residential">Residential</a></li>
-                    </ul>
-                </div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 1rem;">Sitemap</div> 
+                    <ul style="font-size: 0.9rem; color: #777; line-height: 2;"> 
+                        <li><a href="#products">Products</a></li> 
+                        <li><a href="#commercial">Commercial</a></li> 
+                        <li><a href="#residential">Residential</a></li> 
+                        <li><a href="/installation">Installation</a></li>
+                        <li><a href="/locations">Locations</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/sitemap">HTML Sitemap</a></li>
+                    </ul> 
+                </div> 
                 <div>
                     <div style="font-weight: 700; color: #fff; margin-bottom: 1rem;">Connect</div>
                     <ul style="font-size: 0.9rem; color: #777; line-height: 2;">
@@ -3184,6 +3619,8 @@
 <script src="./index.js" defer></script>
 <script src="nav.js" defer></script>
 <script src="reveal.js" defer></script>
+<script src="/case-study-proofs.js"></script>
+<script src="/cro.js"></script>
 <script>
 (function() {
     const turnstileSrc = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
@@ -3340,10 +3777,11 @@
         const formData = {
             name: form.querySelector('#name').value.trim(),
             email: form.querySelector('#email').value.trim(),
-            phone: form.querySelector('#location')?.value.trim() || '',
+            phone: '',
+            location: form.querySelector('#location')?.value.trim() || '',
             service: form.querySelector('#type')?.value || '',
             message: form.querySelector('#scope').value.trim(),
-            'cf-turnstile-response': form.querySelector('[name="cf-turnstile-response"]')?.value || '',
+            turnstileToken: form.querySelector('[name="cf-turnstile-response"]')?.value || '',
         };
 
         try {
@@ -3369,6 +3807,11 @@
                     statusEl.textContent = 'Thanks! We received your request. Expect a reply within one business day.';
                     statusEl.className = 'form-status success';
                 }
+                window.LSFSCRO?.trackFormSuccess(form, {
+                    form_name: 'homepage_quote',
+                    form_context: 'homepage_contact',
+                    service_interest: formData.service || 'unspecified',
+                });
                 launchConfetti();
                 form.reset();
                 form.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
@@ -3382,6 +3825,12 @@
                 statusEl.textContent = 'Something went wrong. Please call (760) 978-7335 or try again.';
                 statusEl.className = 'form-status error';
             }
+            window.LSFSCRO?.trackFormError(form, {
+                form_name: 'homepage_quote',
+                form_context: 'homepage_contact',
+                reason: 'request_failed',
+                service_interest: formData.service || 'unspecified',
+            });
         } finally {
             ctaButton.disabled = false;
             ctaButton.textContent = originalText;
@@ -3417,12 +3866,6 @@
     update();
 })();
 </script>
-<!-- Sticky CTA -->
-<div class="sticky-cta" id="sticky-cta">
-    <span class="sticky-cta-text">Ready to transform your space?</span>
-    <a href="#contact" class="btn">Get Free Quote</a>
-</div>
-
 <script>
 (function() {
   if (window.__LSFS_MOBILE_PERF_MODE) return;
@@ -3437,34 +3880,6 @@
 })();
 </script>
 <script>
-// Sticky CTA visibility control
-(function() {
-  var stickyCta = document.getElementById('sticky-cta');
-  var heroSection = document.getElementById('hero');
-  var contactSection = document.getElementById('contact');
-  var ticking = false;
-
-  function updateStickyCta() {
-    var scrollY = window.scrollY;
-    var heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
-    var contactTop = contactSection ? contactSection.offsetTop - window.innerHeight : document.body.scrollHeight;
-
-    if (scrollY > heroBottom && scrollY < contactTop) {
-      stickyCta.classList.add('visible');
-    } else {
-      stickyCta.classList.remove('visible');
-    }
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateStickyCta);
-      ticking = true;
-    }
-  }, { passive: true });
-})();
-
 // Load GSAP after page is interactive (non-blocking)
 if (window.innerWidth >= 768 && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   requestIdleCallback ? requestIdleCallback(loadGSAP) : setTimeout(loadGSAP, 100);

@@ -229,9 +229,89 @@
       -webkit-text-fill-color: var(--color-accent, var(--accent, #4caf50));
     }
     .hero { padding: clamp(7rem, 10vw, 9rem) 0 3.5rem; background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(5,10,7,0.95)); position: relative; }
+    .hero--blog { padding-bottom: 4.5rem; }
     .hero h1 { font-family: var(--font-heading); font-size: clamp(2.8rem, 4vw, 3.6rem); letter-spacing: -0.03em; }
     .hero .container { position: relative; z-index: 2; }
     .hero p { color: var(--color-text-muted); max-width: 760px; margin-top: 1rem; font-size: 1.05rem; }
+    .hero-eyebrow, .section-eyebrow { color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 700; }
+    .hero-layout { display: grid; gap: 1.5rem; margin-top: 1rem; }
+    @media(min-width: 980px) { .hero-layout { grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr); align-items: start; } }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.5rem; }
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .hero-button:hover { transform: translateY(-2px); }
+    .hero-button--solid {
+      background: #fff;
+      color: #050a07;
+      border-color: transparent;
+    }
+    .hero-button--ghost {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.35rem;
+    }
+    .hero-chip {
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.84rem;
+    }
+    .hero-panel {
+      padding: 1.35rem;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+    }
+    .hero-panel h2 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-panel p { margin-top: 0; margin-bottom: 1rem; font-size: 0.96rem; }
+    .hero-panel__list { display: grid; gap: 0.85rem; }
+    .hero-panel__link {
+      display: block;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: rgba(5,10,7,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .hero-panel__link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(76,175,80,0.3);
+      background: rgba(8,16,11,0.88);
+    }
+    .hero-panel__label {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .hero-panel__copy {
+      display: block;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
     .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
     @media(min-width: 820px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media(min-width: 620px) and (max-width: 819px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -251,6 +331,75 @@
     .arrow-cta span { width: 40px; height: 40px; border-radius: 50%; background: rgba(76,175,80,0.12); border: 1px solid rgba(76,175,80,0.4); display: grid; place-items: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .card:hover .arrow-cta span { transform: translateX(6px); box-shadow: 0 0 14px rgba(76,175,80,0.35); }
     .section { padding: 4rem 0 5rem; }
+    .section-alt { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .section--compact { padding-top: 3rem; padding-bottom: 3rem; }
+    .section-head { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .section-head h2 { font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.6rem); letter-spacing: -0.03em; }
+    .section-head p { margin: 0; max-width: 64ch; }
+    .topic-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media(min-width: 860px) { .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .topic-card {
+      padding: 1.3rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+    }
+    .topic-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.45rem;
+    }
+    .topic-card p { margin: 0 0 1rem; font-size: 0.98rem; }
+    .topic-card__count {
+      margin-bottom: 0.45rem;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .topic-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .topic-card__link, .topic-card__sub {
+      font-weight: 700;
+      color: #fff;
+    }
+    .topic-card__sub { color: rgba(255,255,255,0.72); }
+    .quick-link-layout { display: grid; gap: 1rem; }
+    @media(min-width: 920px) { .quick-link-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .quick-links-card {
+      padding: 1.35rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+    .quick-links-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .quick-links-card p { margin-top: 0; margin-bottom: 1rem; font-size: 0.96rem; }
+    .quick-links-list { display: grid; gap: 0.75rem; }
+    .quick-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: rgba(5,10,7,0.55);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 700;
+    }
+    .quick-link span { color: rgba(255,255,255,0.64); font-weight: 500; font-size: 0.9rem; text-align: right; }
+    .muted { color: var(--color-text-muted); }
     .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
     [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     [data-reveal].reveal-in { opacity: 1; transform: translateY(0); }
@@ -1033,18 +1182,362 @@
 
 
 <main>
-    <section id="main-content" class="hero">
+    <section id="main-content" class="hero hero--blog">
       <div class="container">
-        <h1>Insights on Artificial Hedges & Living Walls</h1>
-        <p>Guides, installs, and best practices for artificial hedge installation, faux living walls, and acoustic greenery across Texas. Fresh looks straight from the field.</p>
+        <p class="hero-eyebrow">Texas guides and planning help</p>
+        <div class="hero-layout">
+          <div>
+            <h1>Practical guides for artificial hedges, living walls, and commercial greenery across Texas</h1>
+            <p>Use the blog to answer the next question faster: pricing, fire ratings, living wall planning, HOA concerns, or city-specific installs. Then move straight into the service page, city page, or quote flow that fits your project.</p>
+            <div class="hero-actions">
+              <a class="hero-button hero-button--solid" href="/pricing">See ballpark pricing</a>
+              <a class="hero-button hero-button--ghost" href="/contact">Request a quote</a>
+            </div>
+            <div class="hero-chip-row">
+              <span class="hero-chip">Featured planning guides</span>
+              <span class="hero-chip">Major city pages</span>
+              <span class="hero-chip">Commercial documentation help</span>
+              <span class="hero-chip">Recent local work</span>
+            </div>
+          </div>
+          <aside class="hero-panel" data-reveal>
+            <h2>Start with the page that matches your job</h2>
+            <p>Skip the archive feeling. These are the fastest paths into the main buying pages.</p>
+            <div class="hero-panel__list">
+              <a class="hero-panel__link" href="/artificial-hedge">
+                <span class="hero-panel__label">Artificial hedge installs</span>
+                <span class="hero-panel__copy">Privacy screens, fence toppers, backyard coverage, and low-maintenance greenery.</span>
+              </a>
+              <a class="hero-panel__link" href="/living-wall">
+                <span class="hero-panel__label">Living wall installs</span>
+                <span class="hero-panel__copy">Interior and exterior wall coverage for homes, hospitality, offices, and retail.</span>
+              </a>
+              <a class="hero-panel__link" href="/commercial-resources">
+                <span class="hero-panel__label">Commercial resource hub</span>
+                <span class="hero-panel__copy">Fire-rated options, documentation workflow, and planning help for architects, GCs, and property teams.</span>
+              </a>
+              <a class="hero-panel__link" href="/case-studies">
+                <span class="hero-panel__label">Recent local work</span>
+                <span class="hero-panel__copy">Browse project snapshots and proof from installs already seeded in the site.</span>
+              </a>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
-        <div class="grid grid-3" id="blog-grid"></div>
+        <div class="section-head">
+          <p class="section-eyebrow">Featured guides</p>
+          <h2>Start with the strongest planning articles</h2>
+          <p>These are the evergreen posts most likely to answer pricing, compliance, or installation questions before you contact us.</p>
+        </div>
+        <div class="grid grid-3" id="featured-guides-grid">
+          <!-- BLOG_FEATURED_START -->
+          <article class="card" data-reveal>
+            <div class="card-media">
+              <img src="/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png" alt="Fire-rated artificial greenery for Texas commercial properties: the complete guide" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Compliance</span>
+              </div>
+              <h3>Fire-rated artificial greenery for Texas commercial properties: the complete guide</h3>
+              <p>A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies.</p>
+              <div class="pill-row">
+                <span class="pill">fire-rated artificial greenery</span><span class="pill">NFPA 701</span><span class="pill">commercial fire compliance</span><span class="pill">Texas fire code</span><span class="pill">multifamily artificial hedge</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <div class="card-media">
+              <img src="/images/hedges/hedge-privacy-1.webp" alt="The complete guide to artificial hedges in Texas" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Guides</span>
+              </div>
+              <h3>The complete guide to artificial hedges in Texas</h3>
+              <p>Everything Texas homeowners and property managers need to know about artificial hedges—types, materials, climate performance, costs, HOA approval, pool privacy, installation, and maintenance.</p>
+              <div class="pill-row">
+                <span class="pill">artificial hedges Texas</span><span class="pill">artificial hedge guide</span><span class="pill">Texas landscaping</span><span class="pill">privacy hedge</span><span class="pill">UV resistant hedge</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <div class="card-media">
+              <img src="/images/blog/artificial-living-walls-001.jpg" alt="The complete guide to artificial living walls in Texas" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Design</span>
+              </div>
+              <h3>The complete guide to artificial living walls in Texas</h3>
+              <p>A practical guide to artificial living walls for Texas homes and businesses—materials, climate performance, indoor vs outdoor, commercial fire compliance, installation, and maintenance.</p>
+              <div class="pill-row">
+                <span class="pill">artificial living walls</span><span class="pill">living wall guide</span><span class="pill">Texas outdoor design</span><span class="pill">faux living wall</span><span class="pill">commercial living wall</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <!-- BLOG_FEATURED_END -->
+        </div>
       </div>
     </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Browse by topic</p>
+          <h2>Use the blog like a topical hub, not an archive</h2>
+          <p>Each topic clusters related articles and points you to the matching service or planning page.</p>
+        </div>
+        <div class="topic-grid" id="topic-grid">
+          <!-- BLOG_TOPICS_START -->
+          <article class="topic-card" data-reveal>
+            <p class="topic-card__count">3 guides</p>
+            <h3>Artificial hedge guides</h3>
+            <p>Privacy screens, pool privacy, HOA planning, durability, and installation advice.</p>
+            <div class="topic-card__actions">
+              <a class="topic-card__link" href="/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas">Start with "The complete guide to artificial hedges in Texas"</a>
+              <a class="topic-card__sub" href="/artificial-hedge">Explore hedge installs</a>
+            </div>
+          </article>
+          <article class="topic-card" data-reveal data-delay="1">
+            <p class="topic-card__count">4 guides</p>
+            <h3>Living wall guides</h3>
+            <p>Design, materials, outdoor performance, and maintenance planning for artificial living walls.</p>
+            <div class="topic-card__actions">
+              <a class="topic-card__link" href="/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas">Start with "The complete guide to artificial living walls in Texas"</a>
+              <a class="topic-card__sub" href="/living-wall">Explore living walls</a>
+            </div>
+          </article>
+          <article class="topic-card" data-reveal data-delay="2">
+            <p class="topic-card__count">8 guides</p>
+            <h3>Commercial planning</h3>
+            <p>Fire-rated options, documentation, sequencing, and buying guidance for teams specifying greenery.</p>
+            <div class="topic-card__actions">
+              <a class="topic-card__link" href="/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties">Start with "Fire-rated artificial greenery for Texas commercial properties: the complete guide"</a>
+              <a class="topic-card__sub" href="/commercial-resources">Use the resource hub</a>
+            </div>
+          </article>
+          <article class="topic-card" data-reveal>
+            <p class="topic-card__count">4 guides</p>
+            <h3>Texas city guides</h3>
+            <p>Planning help for Austin, Dallas, Houston, San Antonio, and Fort Worth projects.</p>
+            <div class="topic-card__actions">
+              <a class="topic-card__link" href="/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t">Start with "Dallas privacy without the watering: a real guide to artificial living walls and hedges"</a>
+              <a class="topic-card__sub" href="/locations">See Texas coverage</a>
+            </div>
+          </article>
+          <!-- BLOG_TOPICS_END -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container">
+        <div class="quick-link-layout">
+          <article class="quick-links-card" data-reveal>
+            <p class="section-eyebrow">Money pages</p>
+            <h3>Go straight to the service page</h3>
+            <p>Use these when you already know the type of project you’re planning.</p>
+            <div class="quick-links-list">
+              <a class="quick-link" href="/pricing">Pricing <span>Ballpark ranges and quote prep</span></a>
+              <a class="quick-link" href="/artificial-hedge">Artificial Hedges <span>Privacy screens, hedge walls, and fence toppers</span></a>
+              <a class="quick-link" href="/living-wall">Living Walls <span>Interior and exterior greenery walls</span></a>
+              <a class="quick-link" href="/residential">Residential <span>Backyards, pools, patios, and HOA-friendly installs</span></a>
+              <a class="quick-link" href="/commercial">Commercial <span>Hospitality, retail, office, multifamily, and branded walls</span></a>
+            </div>
+          </article>
+          <article class="quick-links-card" data-reveal data-delay="1">
+            <p class="section-eyebrow">Major city pages</p>
+            <h3>Use the local page that matches your market</h3>
+            <p>These pages carry the strongest city-specific planning and conversion content.</p>
+            <div class="quick-links-list">
+              <a class="quick-link" href="/austin">Austin <span>Residential privacy and commercial design</span></a>
+              <a class="quick-link" href="/dallas">Dallas <span>Commercial screens, privacy, and DFW coverage</span></a>
+              <a class="quick-link" href="/houston">Houston <span>Heat, humidity, hospitality, and multifamily use cases</span></a>
+              <a class="quick-link" href="/san-antonio">San Antonio <span>Residential and mixed-use installs</span></a>
+              <a class="quick-link" href="/fort-worth">Fort Worth <span>Regional planning and service coverage</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section"> 
+      <div class="container"> 
+        <div class="section-head">
+          <p class="section-eyebrow">Recent posts</p>
+          <h2>The latest articles in the hub</h2>
+          <p>Newer posts stay connected to pricing, service pages, city pages, and the commercial resource flow instead of living as one-off articles.</p>
+        </div>
+        <div class="grid grid-3" id="blog-grid"> 
+          <!-- BLOG_CARDS_START -->
+          <article class="card" data-reveal>
+            <div class="card-media">
+              <img src="/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png" alt="Artificial greenery ROI for multifamily property managers" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Mar 5, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Compliance</span>
+              </div>
+              <h3>Artificial greenery ROI for multifamily property managers</h3>
+              <p>A practical breakdown of the financial case for artificial hedges and living walls on multifamily properties in Texas—water savings, maintenance reduction, leasing impact, and what the numbers actually look like.</p>
+              <div class="pill-row">
+                <span class="pill">multifamily artificial greenery</span><span class="pill">property management landscaping</span><span class="pill">artificial hedge ROI</span><span class="pill">water conservation Texas</span><span class="pill">multifamily curb appeal</span>
+              </div>
+              <a class="arrow-cta" href="/blog/artificial-greenery-roi-for-multifamily-property-managers">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <div class="card-media">
+              <img src="/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png" alt="NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Mar 3, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Compliance</span>
+              </div>
+              <h3>NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained</h3>
+              <p>A clear explanation of the two fire test standards most commonly applied to artificial hedges and living walls—what each one measures, how they differ, and which one your project needs.</p>
+              <div class="pill-row">
+                <span class="pill">NFPA 701</span><span class="pill">ASTM E84</span><span class="pill">fire rated artificial greenery</span><span class="pill">fire test standards</span><span class="pill">commercial fire compliance</span>
+              </div>
+              <a class="arrow-cta" href="/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <div class="card-media">
+              <img src="/images/blog/pool-privacy/pool-privacy-07.webp" alt="Pool privacy solutions: artificial hedges for Texas backyards" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 26, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Artificial Hedges</span>
+              </div>
+              <h3>Pool privacy solutions: artificial hedges for Texas backyards</h3>
+              <p>A practical guide to using artificial hedges for pool privacy in Texas—code requirements, material considerations for chlorine and UV, installation approaches, and what works around pool equipment.</p>
+              <div class="pill-row">
+                <span class="pill">pool privacy artificial hedge</span><span class="pill">Texas pool fence</span><span class="pill">backyard privacy hedge</span><span class="pill">pool deck screening</span>
+              </div>
+              <a class="arrow-cta" href="/blog/pool-privacy-solutions-artificial-hedges-for-texas-backyards">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-media">
+              <img src="/images/hedges/hedge-privacy-1.webp" alt="How to get HOA approval for artificial hedges in Texas" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 24, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Artificial Hedges</span>
+              </div>
+              <h3>How to get HOA approval for artificial hedges in Texas</h3>
+              <p>A step-by-step guide for Texas homeowners navigating HOA architectural review for artificial hedge installations—what the law says, what to submit, and how to handle pushback.</p>
+              <div class="pill-row">
+                <span class="pill">HOA approved artificial hedge</span><span class="pill">Texas HOA fence rules</span><span class="pill">artificial hedge approval</span><span class="pill">Texas Property Code</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <div class="card-media">
+              <img src="/images/blog/artificial-living-walls-001.jpg" alt="Dallas privacy without the watering: a real guide to artificial living walls and hedges" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 23, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Local Updates</span>
+              </div>
+              <h3>Dallas privacy without the watering: a real guide to artificial living walls and hedges</h3>
+              <p>Looking for artificial living walls and artificial hedges in Dallas? Learn what materials, fire ratings, and installs to ask for. Get a quote.</p>
+              <div class="pill-row">
+                <span class="pill">artificial-living-walls</span><span class="pill">artificial-hedges</span><span class="pill">dallas</span><span class="pill">artificial-living</span><span class="pill">wall-texas</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <div class="card-media">
+              <img src="/images/blog/artificial-living-walls-001.jpg" alt="Houston’s no-water greenery fix: choosing artificial living walls and hedges that still look real in August" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 23, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Local Updates</span>
+              </div>
+              <h3>Houston’s no-water greenery fix: choosing artificial living walls and hedges that still look real in August</h3>
+              <p>Get artificial living walls and artificial hedges in Houston, TX for privacy and year-round green—without watering. See what to check, then book a site visit.</p>
+              <div class="pill-row">
+                <span class="pill">artificial-living-walls</span><span class="pill">artificial-hedges</span><span class="pill">houston</span><span class="pill">artificial-hedge</span><span class="pill">panels-houston</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-media">
+              <img src="/images/houston-artificial-living-walls-hedges.webp" alt="Artificial living walls and hedges in Houston: a local guide from LoneStar Fauxscapes" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Local Updates</span>
+              </div>
+              <h3>Artificial living walls and hedges in Houston: a local guide from LoneStar Fauxscapes</h3>
+              <p>Houston artificial living walls and faux hedges that stay green in heat and humidity. See options, safety notes, and get a quote from LoneStar Fauxscapes.</p>
+              <div class="pill-row">
+                <span class="pill">artificial-living-walls</span><span class="pill">artificial-hedges-houston</span><span class="pill">houston</span><span class="pill">fire-rated</span><span class="pill">living-walls</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <div class="card-media">
+              <img src="/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png" alt="Fire-rated artificial greenery for Texas commercial properties: the complete guide" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Compliance</span>
+              </div>
+              <h3>Fire-rated artificial greenery for Texas commercial properties: the complete guide</h3>
+              <p>A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies.</p>
+              <div class="pill-row">
+                <span class="pill">fire-rated artificial greenery</span><span class="pill">NFPA 701</span><span class="pill">commercial fire compliance</span><span class="pill">Texas fire code</span><span class="pill">multifamily artificial hedge</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <div class="card-media">
+              <img src="/images/hedges/hedge-privacy-1.webp" alt="The complete guide to artificial hedges in Texas" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">Feb 21, 2026</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">Guides</span>
+              </div>
+              <h3>The complete guide to artificial hedges in Texas</h3>
+              <p>Everything Texas homeowners and property managers need to know about artificial hedges—types, materials, climate performance, costs, HOA approval, pool privacy, installation, and maintenance.</p>
+              <div class="pill-row">
+                <span class="pill">artificial hedges Texas</span><span class="pill">artificial hedge guide</span><span class="pill">Texas landscaping</span><span class="pill">privacy hedge</span><span class="pill">UV resistant hedge</span>
+              </div>
+              <a class="arrow-cta" href="/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>
+          <!-- BLOG_CARDS_END --> 
+        </div> 
+      </div> 
+    </section> 
   </main>
 
   <footer class="footer">
@@ -1103,11 +1596,83 @@
       const grid = document.getElementById('blog-grid');
       const yearSpan = document.getElementById('year');
       if (yearSpan) yearSpan.textContent = new Date().getFullYear().toString();
-      if (!grid) return;
+      if (!grid) return; 
+      if (grid.querySelector('article')) return; 
 
       // Posts data embedded at build time - no fetch needed
       const posts = [
                 {
+                        "fileSlug": "2026-02-21-artificial-greenery-roi-for-multifamily-property-managers",
+                        "slug": "artificial-greenery-roi-for-multifamily-property-managers",
+                        "title": "Artificial greenery ROI for multifamily property managers",
+                        "date": "2026-03-05",
+                        "datePublished": "2026-03-05",
+                        "dateModified": "2026-03-05",
+                        "displayDate": "Mar 5, 2026",
+                        "image": "/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png",
+                        "socialImage": "/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png",
+                        "summary": "A practical breakdown of the financial case for artificial hedges and living walls on multifamily properties in Texas—water savings, maintenance reduction, leasing impact, and what the numbers actually look like.",
+                        "category": "Compliance",
+                        "tags": [
+                                "multifamily artificial greenery",
+                                "property management landscaping",
+                                "artificial hedge ROI",
+                                "water conservation Texas",
+                                "multifamily curb appeal"
+                        ],
+                        "relatedUrl": "",
+                        "seoTitle": "",
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/artificial-greenery-roi-for-multifamily-property-managers",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/commercial",
+                        "primaryServiceLabel": "See commercial greenery installs",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 50
+                },
+                {
+                        "fileSlug": "2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery",
+                        "slug": "nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery",
+                        "title": "NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained",
+                        "date": "2026-03-03",
+                        "datePublished": "2026-03-03",
+                        "dateModified": "2026-03-03",
+                        "displayDate": "Mar 3, 2026",
+                        "image": "/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
+                        "socialImage": "/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
+                        "summary": "A clear explanation of the two fire test standards most commonly applied to artificial hedges and living walls—what each one measures, how they differ, and which one your project needs.",
+                        "category": "Compliance",
+                        "tags": [
+                                "NFPA 701",
+                                "ASTM E84",
+                                "fire rated artificial greenery",
+                                "fire test standards",
+                                "commercial fire compliance"
+                        ],
+                        "relatedUrl": "",
+                        "seoTitle": "",
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/commercial",
+                        "primaryServiceLabel": "See commercial greenery installs",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 50
+                },
+                {
+                        "fileSlug": "2026-02-21-pool-privacy-solutions-artificial-hedges-for-texas-backyards",
                         "slug": "pool-privacy-solutions-artificial-hedges-for-texas-backyards",
                         "title": "Pool privacy solutions: artificial hedges for Texas backyards",
                         "date": "2026-02-26",
@@ -1115,6 +1680,7 @@
                         "dateModified": "2026-02-26",
                         "displayDate": "Feb 26, 2026",
                         "image": "/images/blog/pool-privacy/pool-privacy-07.webp",
+                        "socialImage": "/images/blog/pool-privacy/pool-privacy-07.webp",
                         "summary": "A practical guide to using artificial hedges for pool privacy in Texas—code requirements, material considerations for chlorine and UV, installation approaches, and what works around pool equipment.",
                         "category": "Artificial Hedges",
                         "tags": [
@@ -1125,9 +1691,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/pool-privacy-solutions-artificial-hedges-for-texas-backyards",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/pool-privacy-hedge",
+                        "primaryServiceLabel": "See pool privacy screens",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 10
                 },
                 {
+                        "fileSlug": "2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas",
                         "slug": "2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas",
                         "title": "How to get HOA approval for artificial hedges in Texas",
                         "date": "2026-02-24",
@@ -1135,6 +1714,7 @@
                         "dateModified": "2026-02-24",
                         "displayDate": "Feb 24, 2026",
                         "image": "/images/hedges/hedge-privacy-1.webp",
+                        "socialImage": "/images/hedges/hedge-privacy-1.webp",
                         "summary": "A step-by-step guide for Texas homeowners navigating HOA architectural review for artificial hedge installations—what the law says, what to submit, and how to handle pushback.",
                         "category": "Artificial Hedges",
                         "tags": [
@@ -1145,9 +1725,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/hoa-approved-artificial-hedge",
+                        "primaryServiceLabel": "See HOA-friendly hedge options",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 50
                 },
                 {
+                        "fileSlug": "2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t",
                         "slug": "2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t",
                         "title": "Dallas privacy without the watering: a real guide to artificial living walls and hedges",
                         "date": "2026-02-23",
@@ -1155,6 +1748,7 @@
                         "dateModified": "2026-02-23",
                         "displayDate": "Feb 23, 2026",
                         "image": "/images/blog/artificial-living-walls-001.jpg",
+                        "socialImage": "/images/blog/artificial-living-walls-001.jpg",
                         "summary": "Looking for artificial living walls and artificial hedges in Dallas? Learn what materials, fire ratings, and installs to ask for. Get a quote.",
                         "category": "Local Updates",
                         "tags": [
@@ -1166,9 +1760,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t",
+                        "robots": "index, follow",
+                        "city": "Dallas",
+                        "topic": "local-guides",
+                        "audience": "residential",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "dallas",
+                        "primaryServiceHref": "/living-wall",
+                        "primaryServiceLabel": "See artificial living wall installs",
+                        "topicLabel": "Texas city guides",
+                        "featuredScore": 50
                 },
                 {
+                        "fileSlug": "2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia",
                         "slug": "2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia",
                         "title": "Houston’s no-water greenery fix: choosing artificial living walls and hedges that still look real in August",
                         "date": "2026-02-23",
@@ -1176,6 +1783,7 @@
                         "dateModified": "2026-02-23",
                         "displayDate": "Feb 23, 2026",
                         "image": "/images/blog/artificial-living-walls-001.jpg",
+                        "socialImage": "/images/blog/artificial-living-walls-001.jpg",
                         "summary": "Get artificial living walls and artificial hedges in Houston, TX for privacy and year-round green—without watering. See what to check, then book a site visit.",
                         "category": "Local Updates",
                         "tags": [
@@ -1187,9 +1795,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia",
+                        "robots": "index, follow",
+                        "city": "Houston",
+                        "topic": "local-guides",
+                        "audience": "residential",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "houston",
+                        "primaryServiceHref": "/residential",
+                        "primaryServiceLabel": "See residential privacy installs",
+                        "topicLabel": "Texas city guides",
+                        "featuredScore": 10
                 },
                 {
+                        "fileSlug": "2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo",
                         "slug": "2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo",
                         "title": "Artificial living walls and hedges in Houston: a local guide from LoneStar Fauxscapes",
                         "date": "2026-02-21",
@@ -1197,6 +1818,7 @@
                         "dateModified": "2026-02-21",
                         "displayDate": "Feb 21, 2026",
                         "image": "images/houston-artificial-living-walls-hedges.webp",
+                        "socialImage": "images/houston-artificial-living-walls-hedges.webp",
                         "summary": "Houston artificial living walls and faux hedges that stay green in heat and humidity. See options, safety notes, and get a quote from LoneStar Fauxscapes.",
                         "category": "Local Updates",
                         "tags": [
@@ -1208,9 +1830,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo",
+                        "robots": "index, follow",
+                        "city": "Houston",
+                        "topic": "local-guides",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "houston",
+                        "primaryServiceHref": "/artificial-hedge",
+                        "primaryServiceLabel": "See artificial hedge installs",
+                        "topicLabel": "Texas city guides",
+                        "featuredScore": 10
                 },
                 {
+                        "fileSlug": "2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties",
                         "slug": "2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties",
                         "title": "Fire-rated artificial greenery for Texas commercial properties: the complete guide",
                         "date": "2026-02-21",
@@ -1218,6 +1853,7 @@
                         "dateModified": "2026-02-21",
                         "displayDate": "Feb 21, 2026",
                         "image": "/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
+                        "socialImage": "/images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
                         "summary": "A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies.",
                         "category": "Compliance",
                         "tags": [
@@ -1229,9 +1865,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/fire-rated-artificial-hedge",
+                        "primaryServiceLabel": "See fire-rated hedge options",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 130
                 },
                 {
+                        "fileSlug": "2026-02-21-the-complete-guide-to-artificial-hedges-in-texas",
                         "slug": "2026-02-21-the-complete-guide-to-artificial-hedges-in-texas",
                         "title": "The complete guide to artificial hedges in Texas",
                         "date": "2026-02-21",
@@ -1239,6 +1888,7 @@
                         "dateModified": "2026-02-21",
                         "displayDate": "Feb 21, 2026",
                         "image": "/images/hedges/hedge-privacy-1.webp",
+                        "socialImage": "/images/hedges/hedge-privacy-1.webp",
                         "summary": "Everything Texas homeowners and property managers need to know about artificial hedges—types, materials, climate performance, costs, HOA approval, pool privacy, installation, and maintenance.",
                         "category": "Guides",
                         "tags": [
@@ -1250,9 +1900,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "artificial-hedges",
+                        "audience": "residential",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/pool-privacy-hedge",
+                        "primaryServiceLabel": "See pool privacy screens",
+                        "topicLabel": "Artificial hedge guides",
+                        "featuredScore": 130
                 },
                 {
+                        "fileSlug": "2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas",
                         "slug": "2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas",
                         "title": "The complete guide to artificial living walls in Texas",
                         "date": "2026-02-21",
@@ -1260,6 +1923,7 @@
                         "dateModified": "2026-02-21",
                         "displayDate": "Feb 21, 2026",
                         "image": "/images/blog/artificial-living-walls-001.jpg",
+                        "socialImage": "/images/blog/artificial-living-walls-001.jpg",
                         "summary": "A practical guide to artificial living walls for Texas homes and businesses—materials, climate performance, indoor vs outdoor, commercial fire compliance, installation, and maintenance.",
                         "category": "Design",
                         "tags": [
@@ -1271,9 +1935,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "living-walls",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/living-wall",
+                        "primaryServiceLabel": "See artificial living wall installs",
+                        "topicLabel": "Living wall guides",
+                        "featuredScore": 130
                 },
                 {
+                        "fileSlug": "2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-",
                         "slug": "2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-",
                         "title": "Artificial living walls and hedges in San Antonio, TX: a practical guide from LoneStar Fauxscapes",
                         "date": "2026-02-20",
@@ -1281,6 +1958,7 @@
                         "dateModified": "2026-02-20",
                         "displayDate": "Feb 20, 2026",
                         "image": "images/hedges/hedge-privacy-1.jpg",
+                        "socialImage": "images/hedges/hedge-privacy-1.jpg",
                         "summary": "Get artificial living walls and faux hedges in San Antonio, TX—clean, low-maintenance greenery for homes and businesses. Ask LoneStar Fauxscapes.",
                         "category": "Local Updates",
                         "tags": [
@@ -1292,9 +1970,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-",
+                        "robots": "index, follow",
+                        "city": "San Antonio",
+                        "topic": "local-guides",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "san-antonio",
+                        "primaryServiceHref": "/artificial-hedge",
+                        "primaryServiceLabel": "See artificial hedge installs",
+                        "topicLabel": "Texas city guides",
+                        "featuredScore": 10
                 },
                 {
+                        "fileSlug": "2026-02-03-firewise-artificial-hedges-for-multi-family-units",
                         "slug": "2026-02-03-firewise-artificial-hedges-for-multi-family-units",
                         "title": "Firewise artificial hedges for multifamily properties: what property managers should actually look for",
                         "date": "2026-02-03",
@@ -1302,6 +1993,7 @@
                         "dateModified": "2026-02-03",
                         "displayDate": "Feb 3, 2026",
                         "image": "/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png",
+                        "socialImage": "/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png",
                         "summary": "A nuts-and-bolts guide for property managers choosing firewise, code-friendly artificial hedge systems for apartments and multifamily buildings—what “fire-rated” actually means, what documentation to ask for, and the install mistakes that cause problems later.",
                         "category": "Compliance",
                         "tags": [
@@ -1311,9 +2003,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": false,
+                        "citySlug": "",
+                        "primaryServiceHref": "/fire-rated-artificial-hedge",
+                        "primaryServiceLabel": "See fire-rated hedge options",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 0
                 },
                 {
+                        "fileSlug": "2026-01-31-artificial-living-walls-for-the-texas-summers",
                         "slug": "2026-01-31-artificial-living-walls-for-the-texas-summers",
                         "title": "Artificial living walls for Texas summers: what holds up when it’s 105°F",
                         "date": "2026-01-31",
@@ -1321,6 +2026,7 @@
                         "dateModified": "2026-01-31",
                         "displayDate": "Jan 31, 2026",
                         "image": "/images/2026-01-31-artificial-living-walls-for-the-texas-summers-image.png",
+                        "socialImage": "/images/2026-01-31-artificial-living-walls-for-the-texas-summers-image.png",
                         "summary": "A hands-on guide to picking and installing artificial living walls that can take Texas heat—UV, wind, mounting, cleaning, and fire-rated options for homes and commercial spaces.",
                         "category": "Living Walls",
                         "tags": [
@@ -1329,9 +2035,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2026-01-31-artificial-living-walls-for-the-texas-summers",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "living-walls",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": false,
+                        "citySlug": "",
+                        "primaryServiceHref": "/commercial",
+                        "primaryServiceLabel": "See commercial greenery installs",
+                        "topicLabel": "Living wall guides",
+                        "featuredScore": 0
                 },
                 {
+                        "fileSlug": "2025-12-14-faux-living-walls-transforming-texas-office-spaces",
                         "slug": "2025-12-14-faux-living-walls-transforming-texas-office-spaces",
                         "title": "Faux Living Walls Transforming Texas Office Spaces",
                         "date": "2025-12-14",
@@ -1339,6 +2058,7 @@
                         "dateModified": "2025-12-14",
                         "displayDate": "Dec 14, 2025",
                         "image": "images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg",
+                        "socialImage": "images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg",
                         "summary": "Discover how faux living walls enhance Texas offices with low-maintenance beauty, fire-rated safety, and custom design flexibility for business owners.",
                         "category": "Living Walls",
                         "tags": [
@@ -1348,9 +2068,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "living-walls",
+                        "audience": "commercial",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/commercial",
+                        "primaryServiceLabel": "See commercial greenery installs",
+                        "topicLabel": "Living wall guides",
+                        "featuredScore": 40
                 },
                 {
+                        "fileSlug": "2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex",
                         "slug": "2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex",
                         "title": "Why Fire Rated Artificial Hedges Are Ideal for Texas High-Rises",
                         "date": "2025-12-13",
@@ -1358,6 +2091,7 @@
                         "dateModified": "2025-12-13",
                         "displayDate": "Dec 13, 2025",
                         "image": "images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
+                        "socialImage": "images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png",
                         "summary": "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes.",
                         "category": "Compliance",
                         "tags": [
@@ -1367,9 +2101,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": false,
+                        "citySlug": "",
+                        "primaryServiceHref": "/commercial",
+                        "primaryServiceLabel": "See commercial greenery installs",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 0
                 },
                 {
+                        "fileSlug": "2025-12-12-artificial-vs-real-living-walls-for-texas-homes",
                         "slug": "2025-12-12-artificial-vs-real-living-walls-for-texas-homes",
                         "title": "Artificial vs. Real Living Walls for Texas Homes",
                         "date": "2025-12-12",
@@ -1377,6 +2124,7 @@
                         "dateModified": "2025-12-12",
                         "displayDate": "Dec 12, 2025",
                         "image": "images/blog/artificial-living-walls-001.jpg",
+                        "socialImage": "images/blog/artificial-living-walls-001.jpg",
                         "summary": "Comparing artificial and real living walls for Texas homeowners. Learn which option suits your climate, budget, and maintenance preferences.",
                         "category": "Living Walls",
                         "tags": [
@@ -1384,9 +2132,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "living-walls",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": false,
+                        "citySlug": "",
+                        "primaryServiceHref": "/artificial-hedge",
+                        "primaryServiceLabel": "See artificial hedge installs",
+                        "topicLabel": "Living wall guides",
+                        "featuredScore": 0
                 },
                 {
+                        "fileSlug": "2025-12-11-artificial-vs-real-boxwood-texas",
                         "slug": "2025-12-11-artificial-vs-real-boxwood-texas",
                         "title": "Artificial vs. Real Boxwood in Texas: Water, Maintenance, and Long-Term Value",
                         "date": "2025-12-11",
@@ -1394,6 +2155,7 @@
                         "dateModified": "2025-12-11",
                         "displayDate": "Dec 11, 2025",
                         "image": "images/blog/hero-artificial-vs-real-boxwood-texas.webp",
+                        "socialImage": "images/blog/hero-artificial-vs-real-boxwood-texas.webp",
                         "summary": "Weighing artificial fire resistant boxwood hedges against real plants? Explore drought tolerance, maintenance, and long-term value for Texas properties.",
                         "category": "Artificial Hedges",
                         "tags": [
@@ -1405,9 +2167,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-11-artificial-vs-real-boxwood-texas",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "commercial-planning",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/fire-rated-artificial-hedge",
+                        "primaryServiceLabel": "See fire-rated hedge options",
+                        "topicLabel": "Commercial planning",
+                        "featuredScore": 10
                 },
                 {
+                        "fileSlug": "2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes",
                         "slug": "2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes",
                         "title": "Faux Green Walls vs. Real Plants for Texas Homes",
                         "date": "2025-12-10",
@@ -1415,6 +2190,7 @@
                         "dateModified": "2025-12-10",
                         "displayDate": "Dec 10, 2025",
                         "image": "images/blog/artificial-living-walls-002.jpg",
+                        "socialImage": "images/blog/artificial-living-walls-002.jpg",
                         "summary": "Comparing faux green walls and live plants for Texas businesses—cost, maintenance, and design impact.",
                         "category": "Artificial Hedges",
                         "tags": [
@@ -1422,9 +2198,22 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "artificial-hedges",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/artificial-hedge",
+                        "primaryServiceLabel": "See artificial hedge installs",
+                        "topicLabel": "Artificial hedge guides",
+                        "featuredScore": 40
                 },
                 {
+                        "fileSlug": "2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is",
                         "slug": "2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is",
                         "title": "Artificial Hedges vs. Real Plants in Texas: Which is Cheaper?",
                         "date": "2025-12-09",
@@ -1432,6 +2221,7 @@
                         "dateModified": "2025-12-09",
                         "displayDate": "Dec 9, 2025",
                         "image": "images/blog/hero-artificial-vs-real-hedges-cost-texas.webp",
+                        "socialImage": "images/blog/hero-artificial-vs-real-hedges-cost-texas.webp",
                         "summary": "We compare upfront & long-term costs of artificial vs real hedges in Texas. See which saves more money with drought & maintenance.",
                         "category": "Artificial Hedges",
                         "tags": [
@@ -1442,7 +2232,19 @@
                         ],
                         "relatedUrl": "",
                         "seoTitle": "",
-                        "seoDescription": ""
+                        "seoDescription": "",
+                        "canonical": "https://lonestarfauxscapes.com/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is",
+                        "robots": "index, follow",
+                        "city": "",
+                        "topic": "artificial-hedges",
+                        "audience": "mixed",
+                        "servicePage": "",
+                        "featured": true,
+                        "citySlug": "",
+                        "primaryServiceHref": "/artificial-hedge",
+                        "primaryServiceLabel": "See artificial hedge installs",
+                        "topicLabel": "Artificial hedge guides",
+                        "featuredScore": 50
                 }
         ];
 
