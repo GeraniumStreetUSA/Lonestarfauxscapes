@@ -110,6 +110,86 @@
       );
     });
 
+    // ─── Homepage Elevation: GSAP Scroll Choreography ───
+
+    // Hero parallax — background moves slower than scroll
+    const parallaxBg = document.querySelector('.hm-parallax-bg');
+    if (parallaxBg) {
+      gsapLib.to(parallaxBg, {
+        y: 200,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+
+    // Hero headline word-by-word blur reveal
+    const words = document.querySelectorAll('#hero-heading .word');
+    if (words.length && !prefersReducedMotion()) {
+      gsapLib.from(words, {
+        filter: 'blur(4px)',
+        opacity: 0,
+        y: 8,
+        duration: 0.5,
+        stagger: 0.08,
+        delay: 1.4,
+        ease: 'power2.out'
+      });
+    }
+
+    // Staggered card group reveals
+    gsapLib.utils.toArray('.hm-stagger-group').forEach(function(group) {
+      var cards = group.querySelectorAll('.live-card, [data-reveal]');
+      if (!cards.length) return;
+      gsapLib.from(cards, {
+        y: 24,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.12,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: group,
+          start: 'top 80%',
+          once: true
+        }
+      });
+    });
+
+    // SVG icon draw-in on scroll
+    gsapLib.utils.toArray('.hm-card-icon').forEach(function(icon) {
+      gsapLib.to(icon, {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: icon,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    // FAQ stagger reveal
+    var faqItems = document.querySelectorAll('#faq details');
+    if (faqItems.length) {
+      gsapLib.from(faqItems, {
+        y: 12,
+        opacity: 0,
+        stagger: 0.06,
+        duration: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '#faq',
+          start: 'top 75%',
+          once: true
+        }
+      });
+    }
+
     // Hero animations removed - now handled by CSS-only animations
     };
 
@@ -187,10 +267,24 @@
 
     // Three.js WebGL removed - "The Stillness" hero uses CSS-only animations
 
+  const initCityMapHover = () => {
+    if (window.__LSFS_MOBILE_PERF_MODE) return;
+    document.querySelectorAll('#coverage a[href*="/"]').forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (!href) return;
+      var city = href.replace(/^\//, '').replace(/\/$/, '');
+      var pin = document.querySelector('.map-pin[data-city="' + city + '"]');
+      if (!pin) return;
+      link.addEventListener('mouseenter', function() { pin.classList.add('hm-highlight'); });
+      link.addEventListener('mouseleave', function() { pin.classList.remove('hm-highlight'); });
+    });
+  };
+
   const init = () => {
         initLiveCards();
         initYear();
         initMobileMenu();
+        initCityMapHover();
         // Delay GSAP scroll animations by 3 seconds to reduce TBT
         setTimeout(initAnimations, 3000);
         setTimeout(initTexasMap, 3000);

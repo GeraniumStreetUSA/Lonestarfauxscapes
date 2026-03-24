@@ -57,4 +57,14 @@
       card.style.transform = '';
     });
   });
+
+  // Cursor glow — ambient green glow follows cursor (desktop only)
+  const glow = document.querySelector('.hm-cursor-glow');
+  if (glow) {
+    const moveGlow = throttleRAF((e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+    document.addEventListener('mousemove', moveGlow, { passive: true });
+  }
 })();

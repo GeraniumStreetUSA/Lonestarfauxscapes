@@ -1,0 +1,258 @@
+/* homepage-motion.css — Layer 0: Static premium (no JS required) */
+
+/* ─── Reduced Motion Gate ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hm-parallax-bg, .hm-parallax-mid, .hm-scroll-cue,
+  .hm-ken-burns, .hm-counter-draw, .hm-progress-bar {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── Hero Parallax Layers ─── */
+.hm-parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+.hm-parallax-mid {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(5,10,7,0) 0%,
+    rgba(5,10,7,0.3) 40%,
+    rgba(5,10,7,0.7) 100%);
+  pointer-events: none;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* ─── Hero Ken Burns ─── */
+@keyframes hm-ken-burns {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.06) translate(-1%, -0.5%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+.hm-ken-burns {
+  animation: hm-ken-burns 25s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+/* ─── Scroll Cue ─── */
+@keyframes hm-scroll-cue-pulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50%      { opacity: 0.8; transform: translateY(4px); }
+}
+.hm-scroll-cue {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 32px;
+  background: rgba(76,175,80,0.5);
+  animation: hm-scroll-cue-pulse 2s ease-in-out infinite;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+.hm-scroll-cue.hm-hidden { opacity: 0; pointer-events: none; }
+
+/* ─── CTA Micro-Pulse ─── */
+@keyframes hm-cta-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+.hm-cta-pulse {
+  animation: hm-cta-pulse 0.6s ease-in-out 1;
+  animation-delay: 2s;
+}
+
+/* ─── Section Gradient Dividers ─── */
+.hm-section-divider {
+  height: 64px;
+  background: linear-gradient(180deg, var(--from, transparent), var(--to, transparent));
+  pointer-events: none;
+}
+
+/* ─── Scroll Progress Bar ─── */
+.hm-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 10000;
+  pointer-events: none;
+  transition: transform 0.05s linear;
+}
+
+/* ─── Value Card Enhancements ─── */
+.hm-card-number {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 4rem;
+  font-weight: 800;
+  opacity: 0.04;
+  color: #fff;
+  line-height: 1;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.hm-card-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.75rem;
+  stroke: #4caf50;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.8s ease;
+}
+.hm-card-icon.hm-drawn { stroke-dashoffset: 0; }
+
+/* Card border-top wipe on hover */
+.live-card {
+  position: relative;
+}
+.live-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 2;
+  border-radius: inherit;
+}
+.live-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ─── Product Card Image Zoom ─── */
+.live-card .card-media {
+  overflow: hidden;
+}
+.live-card .card-media img,
+.live-card .card-media picture {
+  transition: transform 0.5s ease;
+}
+.live-card:hover .card-media img,
+.live-card:hover .card-media picture {
+  transform: scale(1.05);
+}
+
+/* ─── CTA Arrow Animation ─── */
+.btn .arrow-icon,
+.arrow-cta span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.btn:hover .arrow-icon,
+.arrow-cta:hover span {
+  transform: translateX(4px);
+}
+
+/* ─── Button Press Depth ─── */
+.btn:active {
+  transform: translateY(1px) !important;
+  transition: transform 0.05s ease;
+}
+
+/* ─── Link Underline Grow ─── */
+.hm-underline-grow {
+  background-image: linear-gradient(#4caf50, #4caf50);
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.hm-underline-grow:hover {
+  background-size: 100% 1px;
+}
+
+/* ─── FAQ Smooth Transition ─── */
+#faq details {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease;
+  padding-left: 0.75rem;
+}
+#faq details[open] {
+  border-left-color: #4caf50;
+}
+#faq .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+#faq details[open] .faq-answer {
+  grid-template-rows: 1fr;
+}
+#faq .faq-answer > div {
+  overflow: hidden;
+}
+
+/* ─── Form Focus Glow ─── */
+#cta-form input:focus,
+#cta-form select:focus,
+#cta-form textarea:focus {
+  border-color: #4caf50 !important;
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.12);
+  outline: none;
+}
+
+/* ─── Solutions Path Accent Colors ─── */
+#commercial { --path-accent: #d4a054; }
+#commercial .pill { background: var(--path-accent) !important; color: #111 !important; }
+
+/* Architect path (2nd card) */
+.path-card-architect { --path-accent: #7b9eb8; }
+.path-card-architect .pill { background: var(--path-accent) !important; color: #111 !important; }
+
+/* ─── Card Hover Lift ─── */
+.live-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.live-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* ─── Map Pin Highlight ─── */
+.map-pin {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.map-pin.hm-highlight {
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 8px rgba(76,175,80,0.6));
+}
+
+/* ─── Mobile: Keep It Fast ─── */
+@media (max-width: 991px) {
+  .hm-ken-burns { animation: none; }
+  .hm-parallax-bg,
+  .hm-parallax-mid { transform: none !important; }
+  .hm-scroll-cue { display: none; }
+  .hm-progress-bar { display: none; }
+  .hm-card-number { display: none; }
+  .hm-card-icon { stroke-dashoffset: 0; }
+  .live-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .live-card:hover::before {
+    transform: scaleX(0);
+  }
+  .live-card:hover .card-media img,
+  .live-card:hover .card-media picture {
+    transform: none;
+  }
+}

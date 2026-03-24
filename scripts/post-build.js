@@ -4,6 +4,16 @@ import path from 'path';
 const DIST_DIR = './dist';
 // Indexing is enabled by default. Set ALLOW_INDEXING=false for temporary blocks.
 const allowIndexing = process.env.ALLOW_INDEXING !== 'false';
+const MANAGED_GLOBAL_NOINDEX_START = '# BEGIN managed-global-noindex';
+const MANAGED_GLOBAL_NOINDEX_END = '# END managed-global-noindex';
+const MANAGED_GLOBAL_NOINDEX_BLOCK = `${MANAGED_GLOBAL_NOINDEX_START}
+/*
+  X-Robots-Tag: noindex, nofollow
+${MANAGED_GLOBAL_NOINDEX_END}`;
+const MANAGED_GLOBAL_NOINDEX_REGEX = new RegExp(
+  `\\n?${MANAGED_GLOBAL_NOINDEX_START}[\\s\\S]*?${MANAGED_GLOBAL_NOINDEX_END}\\n?`,
+  'g',
+);
 
 // Files to copy to dist after vite build
 const filesToCopy = [
@@ -13,22 +23,28 @@ const filesToCopy = [
   { src: './_redirects', dest: '_redirects' },
   { src: './admin/config.yml', dest: 'admin/config.yml' },
   { src: './content/posts.json', dest: 'content/posts.json' },
+  { src: './content/case-studies.json', dest: 'content/case-studies.json' },
   // JavaScript files (not bundled due to missing type="module")
   { src: './utils.js', dest: 'utils.js' },
   { src: './index.js', dest: 'index.js' },
   { src: './nav.js', dest: 'nav.js' },
   { src: './reveal.js', dest: 'reveal.js' },
+  { src: './scroll-progress.js', dest: 'scroll-progress.js' },
   { src: './magnetic.js', dest: 'magnetic.js' },
   { src: './split-text.js', dest: 'split-text.js' },
   { src: './card-effects.js', dest: 'card-effects.js' },
   { src: './reactive-effects.js', dest: 'reactive-effects.js' },
   { src: './prefetch.js', dest: 'prefetch.js' },
   { src: './script.js', dest: 'script.js' },
+  { src: './case-study-proofs.js', dest: 'case-study-proofs.js' },
+  { src: './cro.js', dest: 'cro.js' },
   // CSS files
   { src: './style.css', dest: 'style.css' },
   { src: './navbar.css', dest: 'navbar.css' },
   { src: './enhancements.css', dest: 'enhancements.css' },
   { src: './navbar-universal.css', dest: 'navbar-universal.css' },
+  { src: './cro.css', dest: 'cro.css' },
+  { src: './homepage-motion.css', dest: 'homepage-motion.css' },
 ];
 
 // Directories to copy recursively
@@ -58,26 +74,13 @@ function copyDirRecursive(src, dest) {
 }
 
 function applyRobotsHeader(content) {
-  const robotsLine = '  X-Robots-Tag: noindex, nofollow';
-  const lines = content.split(/\r?\n/);
+  const cleaned = content.replace(MANAGED_GLOBAL_NOINDEX_REGEX, '').replace(/\n{3,}/g, '\n\n').trimEnd();
 
   if (allowIndexing) {
-    return lines.filter(line => line.trim().toLowerCase() !== 'x-robots-tag: noindex, nofollow').join('\n');
+    return `${cleaned}\n`;
   }
 
-  const hasRobotsLine = lines.some(
-    line => line.trim().toLowerCase() === 'x-robots-tag: noindex, nofollow',
-  );
-  if (hasRobotsLine) return lines.join('\n');
-
-  const blockIndex = lines.findIndex(line => line.trim() === '/*');
-  if (blockIndex === -1) {
-    lines.push('', '/*', robotsLine);
-  } else {
-    lines.splice(blockIndex + 1, 0, robotsLine);
-  }
-
-  return lines.join('\n');
+  return `${cleaned}\n\n${MANAGED_GLOBAL_NOINDEX_BLOCK}\n`;
 }
 
 console.log('Running post-build tasks...');
