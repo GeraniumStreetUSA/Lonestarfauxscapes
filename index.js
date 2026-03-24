@@ -127,24 +127,15 @@
       });
     }
 
-    // Hero headline word-by-word blur reveal
-    const words = document.querySelectorAll('#hero-heading .word');
-    if (words.length && !prefersReducedMotion()) {
-      gsapLib.from(words, {
-        filter: 'blur(4px)',
-        opacity: 0,
-        y: 8,
-        duration: 0.5,
-        stagger: 0.08,
-        delay: 1.4,
-        ease: 'power2.out'
-      });
-    }
+    // Hero headline reveal is handled by CSS animations (slideUp keyframes)
+    // GSAP not used here to avoid double-animation conflict
 
-    // Staggered card group reveals
+    // Staggered card group reveals — skip elements already handled by gs-reveal
     gsapLib.utils.toArray('.hm-stagger-group').forEach(function(group) {
-      var cards = group.querySelectorAll('.live-card, [data-reveal]');
+      var cards = group.querySelectorAll('.live-card');
       if (!cards.length) return;
+      // Remove gs-reveal from these cards to avoid double animation
+      cards.forEach(function(c) { c.classList.remove('gs-reveal'); });
       gsapLib.from(cards, {
         y: 24,
         opacity: 0,

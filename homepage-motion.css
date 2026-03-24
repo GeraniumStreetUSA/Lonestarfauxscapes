@@ -115,40 +115,16 @@
 }
 .hm-card-icon.hm-drawn { stroke-dashoffset: 0; }
 
-/* Card border-top wipe on hover */
+/* Card hover border glow — uses border-color transition (no pseudo needed) */
 .live-card {
   position: relative;
+  border: 1px solid rgba(255,255,255,0.08);
 }
-.live-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #4caf50, #81c784);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-  z-index: 2;
-  border-radius: inherit;
-}
-.live-card:hover::before {
-  transform: scaleX(1);
+.live-card:hover {
+  border-color: rgba(76,175,80,0.25);
 }
 
-/* ─── Product Card Image Zoom ─── */
-.live-card .card-media {
-  overflow: hidden;
-}
-.live-card .card-media img,
-.live-card .card-media picture {
-  transition: transform 0.5s ease;
-}
-.live-card:hover .card-media img,
-.live-card:hover .card-media picture {
-  transform: scale(1.05);
-}
+/* Product card image zoom already in main styles — no duplication needed */
 
 /* ─── CTA Arrow Animation ─── */
 .btn .arrow-icon,
@@ -217,13 +193,12 @@
 .path-card-architect { --path-accent: #7b9eb8; }
 .path-card-architect .pill { background: var(--path-accent) !important; color: #111 !important; }
 
-/* ─── Card Hover Lift ─── */
+/* ─── Card Hover Enhancement ─── */
 .live-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .live-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
 /* ─── Map Pin Highlight ─── */
@@ -245,11 +220,8 @@
   .hm-card-number { display: none; }
   .hm-card-icon { stroke-dashoffset: 0; }
   .live-card:hover {
-    transform: none;
     box-shadow: none;
-  }
-  .live-card:hover::before {
-    transform: scaleX(0);
+    border-color: rgba(255,255,255,0.08);
   }
   .live-card:hover .card-media img,
   .live-card:hover .card-media picture {
