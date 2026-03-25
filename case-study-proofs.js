@@ -489,8 +489,9 @@
     setActive(0, { force: true, scroll: false });
 
     // Stabilize height: measure all entries to find the tallest, then lock the content panel
+    // Deferred to avoid forced reflow during initial paint
     if (entries.length > 1 && spotlight) {
-      requestAnimationFrame(() => {
+      const stabilize = () => {
         let maxHeight = 0;
         for (let i = 0; i < entries.length; i++) {
           setActive(i, { force: true, scroll: false });
@@ -501,7 +502,12 @@
           spotlight.style.minHeight = `${maxHeight}px`;
         }
         setActive(0, { force: true, scroll: false });
-      });
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(stabilize);
+      } else {
+        setTimeout(stabilize, 200);
+      }
     }
   }
 

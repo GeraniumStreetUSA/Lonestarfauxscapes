@@ -13,15 +13,11 @@
     })();
     </script>
 
-    <!-- Preconnect to third-party origins for faster resource loading -->
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
     <!-- Fraunces + DM Sans - Warm, characterful typography for Texas craftsmanship -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap"></noscript>
 
     <!-- Preload hero image (LCP element) for faster mobile performance -->
     <link rel="preload" as="image" href="/images/hero/hero-main-400w.avif" type="image/avif" media="(max-width: 600px)">
@@ -1687,9 +1683,8 @@
 <script src="./index.js" defer></script>
 <script src="nav.js" defer></script>
 <script src="reveal.js" defer></script>
-<script src="scroll-progress.js" defer></script>
-<script src="/case-study-proofs.js"></script>
-<script src="/cro.js"></script>
+<script src="/case-study-proofs.js" defer></script>
+<script src="/cro.js" defer></script>
 <script>
 (function() {
     const turnstileSrc = 'https://challenges.cloudflare.com/turnstile/v0/api.js';

@@ -617,9 +617,11 @@
       sticky.classList.toggle('is-visible', passedHero && !footerNear && !targetVisible);
     }
 
-    updateSticky();
-    window.addEventListener('scroll', updateSticky, { passive: true });
-    window.addEventListener('resize', updateSticky);
+    requestAnimationFrame(() => {
+      updateSticky();
+      window.addEventListener('scroll', updateSticky, { passive: true });
+      window.addEventListener('resize', updateSticky);
+    });
   }
 
   function init() {
