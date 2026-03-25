@@ -1,0 +1,125 @@
+:root {
+  --font-heading: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "DM Sans", "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #bcebc3;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #74d482, #4fa861);
+  box-shadow: 0 0 0 6px rgba(116, 212, 130, 0.12);
+}
+
+#products .container,
+#solutions .container,
+#coverage .container,
+#guides .container {
+  position: relative;
+}
+
+#products .container::before,
+#solutions .container::before,
+#coverage .container::before,
+#guides .container::before {
+  content: "";
+  position: absolute;
+  inset: -1rem;
+  border-radius: 32px;
+  border: 1px solid rgba(188, 235, 195, 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(116, 212, 130, 0.09), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
+  z-index: 0;
+  pointer-events: none;
+}
+
+#products .container > *,
+#solutions .container > *,
+#coverage .container > *,
+#guides .container > * {
+  position: relative;
+  z-index: 1;
+}
+
+#products h2,
+#solutions h2,
+#coverage h2,
+#guides h2 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.live-card,
+.hm-guide-card,
+.texas-map-card,
+.map-stack > .live-card {
+  border-radius: 24px;
+  border-color: rgba(188, 235, 195, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(10, 18, 13, 0.92);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.path-grid .live-card,
+.coverage-grid .live-card,
+.hm-guide-card {
+  overflow: hidden;
+}
+
+.path-label,
+.hm-guide-tag {
+  border-radius: 999px;
+}
+
+#coverage .city-mission,
+#coverage .water-saver {
+  border: 1px solid rgba(188, 235, 195, 0.1);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    rgba(9, 16, 11, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+#guides .hm-guide-card {
+  padding: 1.35rem;
+}
+
+#guides .hm-guide-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+#guides .hm-guide-card p,
+#products .live-card p,
+#solutions .live-card p,
+#coverage p {
+  color: rgba(236, 244, 238, 0.76);
+}
+
+@media (max-width: 991px) {
+  #products .container::before,
+  #solutions .container::before,
+  #coverage .container::before,
+  #guides .container::before {
+    inset: -0.6rem;
+    border-radius: 24px;
+  }
+}
