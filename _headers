@@ -35,6 +35,18 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
 # Explicit noindex-only routes
+/admin
+  X-Robots-Tag: noindex, nofollow
+
+/admin/
+  X-Robots-Tag: noindex, nofollow
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
+/admin/config.yml
+  X-Robots-Tag: noindex, nofollow
+
 /terms
   X-Robots-Tag: noindex, follow
 
@@ -47,5 +59,56 @@
 /privacy.html
   X-Robots-Tag: noindex, follow
 
-/sample-page/feed/
-  X-Robots-Tag: noindex, nofollow
+/sitemap
+  X-Robots-Tag: noindex, follow
+
+/sitemap.html
+  X-Robots-Tag: noindex, follow
+
+/hedge-builder-commercial
+  X-Robots-Tag: noindex, follow
+
+/hedge-builder-commercial.html
+  X-Robots-Tag: noindex, follow
+
+/hedge-builder-residential
+  X-Robots-Tag: noindex, follow
+
+/hedge-builder-residential.html
+  X-Robots-Tag: noindex, follow
+
+/arlington
+  X-Robots-Tag: noindex, follow
+
+/arlington.html
+  X-Robots-Tag: noindex, follow
+
+/frisco
+  X-Robots-Tag: noindex, follow
+
+/frisco.html
+  X-Robots-Tag: noindex, follow
+
+/irving
+  X-Robots-Tag: noindex, follow
+
+/irving.html
+  X-Robots-Tag: noindex, follow
+
+/plano
+  X-Robots-Tag: noindex, follow
+
+/plano.html
+  X-Robots-Tag: noindex, follow
+
+/sugar-land
+  X-Robots-Tag: noindex, follow
+
+/sugar-land.html
+  X-Robots-Tag: noindex, follow
+
+/the-woodlands
+  X-Robots-Tag: noindex, follow
+
+/the-woodlands.html
+  X-Robots-Tag: noindex, follow

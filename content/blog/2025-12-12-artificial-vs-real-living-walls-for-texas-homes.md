@@ -13,7 +13,7 @@ faq:
   - question: "Can I install these myself?"
     answer: "Artificial panels under 50 sq ft are DIY-friendly with mounting clips. Real living walls require professional design due to irrigation and weight considerations. For artificial walls, ensure your wall surface can support the weight (typically 3-5 lbs per sq ft) and use corrosion-resistant fasteners for outdoor installations. Real walls need structural assessments since saturated soil can weigh 15-20 lbs per sq ft."
   - question: "How long do they last outdoors?"
-    answer: "Premium artificial walls last 8-12 years in Texas sun. Real walls need complete replanting every 3-5 years as plants outgrow their space. For artificial walls, lifespan depends on material quality—polyethylene lasts longer than PVC in UV exposure. Real walls may require partial plant replacements annually as some species struggle with temperature extremes."
+    answer: "Artificial wall lifespan depends on material quality, sun exposure, and maintenance. Outdoor installations in Texas generally show wear sooner than indoor ones, while real walls often need ongoing plant replacement as growing conditions change."
   - question: "Do living walls attract pests?"
     answer: "Real living walls can harbor aphids, spider mites, and other insects, especially when stressed by heat. Artificial walls avoid this but may collect cobwebs. For real walls, integrate pest-resistant plants like rosemary or lavender. For both types, maintain at least 6 inches of clearance from your home's exterior to prevent pest migration."
   - question: "Which option stays cooler in summer?"
@@ -133,7 +133,7 @@ Higher-end options use silk leaves with veining and color variation. At conversa
 Artificial panels under 50 sq ft are DIY-friendly with mounting clips. Real living walls require professional design due to irrigation and weight considerations. For artificial walls, ensure your wall surface can support the weight (typically 3-5 lbs per sq ft) and use corrosion-resistant fasteners for outdoor installations. Real walls need structural assessments since saturated soil can weigh 15-20 lbs per sq ft.  
 
 ### How long do they last outdoors?  
-Premium artificial walls last 8-12 years in Texas sun. Real walls need complete replanting every 3-5 years as plants outgrow their space. For artificial walls, lifespan depends on material quality—polyethylene lasts longer than PVC in UV exposure. Real walls may require partial plant replacements annually as some species struggle with temperature extremes.  
+Artificial wall lifespan depends on material quality, sun exposure, and maintenance. Outdoor installations in Texas generally show wear sooner than indoor ones, while real walls often need ongoing plant replacement as growing conditions change.
 
 ### Do living walls attract pests?  
 Real living walls can harbor aphids, spider mites, and other insects, especially when stressed by heat. Artificial walls avoid this but may collect cobwebs. For real walls, integrate pest-resistant plants like rosemary or lavender. For both types, maintain at least 6 inches of clearance from your home's exterior to prevent pest migration.  

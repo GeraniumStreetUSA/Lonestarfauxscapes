@@ -14,7 +14,7 @@ faq:
   - question: "Can artificial hedges serve as a pool barrier fence in Texas?"
     answer: "Artificial hedge panels alone typically do not meet pool barrier code requirements because they may not provide the structural rigidity, climb resistance, and gate latching that building codes require. However, artificial hedges can be added to an existing code-compliant fence to increase privacy and improve appearance. The underlying fence structure must still meet all applicable barrier requirements."
   - question: "Will chlorine damage artificial hedges?"
-    answer: "Quality polyethylene panels handle chlorine mist from pools without issue. The bigger concern is the film that builds up over time from a mix of chlorine, sunscreen, and dust. A periodic rinse with mild soap and water keeps the panels looking clean. Avoid leaving chemical concentrate in direct contact with the panels."
+    answer: "Pool areas add chlorine mist, sunscreen, and dust to nearby surfaces. Outdoor-rated hedge panels can still be a good fit there, but product quality and routine rinsing matter. Avoid leaving chemical concentrate in direct contact with the panels."
   - question: "How close to the pool can I install artificial hedges?"
     answer: "There is no specific setback requirement for decorative elements near pools, but keep panels far enough away that they do not interfere with pool circulation, equipment access, or the required pool barrier. A few feet of clearance between the hedge and the water's edge also makes cleaning easier."
   - question: "Do artificial hedges attract mosquitoes near pools?"
@@ -125,7 +125,7 @@ For pool-specific products, see our [pool privacy hedge page](/pool-privacy-hedg
 Artificial hedge panels alone typically do not meet pool barrier code requirements because they may not provide the structural rigidity, climb resistance, and gate latching that building codes require. However, artificial hedges can be added to an existing code-compliant fence to increase privacy and improve appearance. The underlying fence structure must still meet all applicable barrier requirements.
 
 ### Will chlorine damage artificial hedges?
-Quality polyethylene panels handle chlorine mist from pools without issue. The bigger concern is the film that builds up over time from a mix of chlorine, sunscreen, and dust. A periodic rinse with mild soap and water keeps the panels looking clean. Avoid leaving chemical concentrate in direct contact with the panels.
+Pool areas add chlorine mist, sunscreen, and dust to nearby surfaces. Outdoor-rated hedge panels can still be a good fit there, but product quality and routine rinsing matter. Avoid leaving chemical concentrate in direct contact with the panels.
 
 ### How close to the pool can I install artificial hedges?
 There is no specific setback requirement for decorative elements near pools, but keep panels far enough away that they do not interfere with pool circulation, equipment access, or the required pool barrier. A few feet of clearance between the hedge and the water's edge also makes cleaning easier.

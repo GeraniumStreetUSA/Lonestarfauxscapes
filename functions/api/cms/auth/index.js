@@ -1,9 +1,14 @@
+const NOINDEX_HEADERS = {
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 function htmlResponse(html, { status = 200, headers = {} } = {}) {
   return new Response(html, {
     status,
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
       'Cache-Control': 'no-store',
+      ...NOINDEX_HEADERS,
       ...headers,
     },
   });
@@ -206,6 +211,7 @@ export async function onRequestGet({ request, env }) {
       status: 302,
       headers: {
         Location: authorizeUrl.toString(),
+        ...NOINDEX_HEADERS,
         'Set-Cookie': `decap_cms_oauth_nonce=${encodeURIComponent(
           nonce,
         )}; HttpOnly; Secure; SameSite=Lax; Path=${url.pathname}; Max-Age=600`,

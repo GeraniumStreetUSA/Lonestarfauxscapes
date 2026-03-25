@@ -23,7 +23,7 @@ Let's start with what you pay at the register and to get it in the ground.
 
 **Artificial Hedges (Premium Quality):** A commercial-grade, UV-stabilized artificial hedge panel (typically 1'x1' or 2'x4') ranges from **$40-$120 per panel**. For that same 10-foot span, you might need 5-10 panels, costing **$400-$1,200**. Professional installation by a specialist like Lonestar Fauxcapes ensures a seamless, secure fit and typically costs **$300-$800** for a project of this size. Total Day-1 outlay: **$700-$2,000**.
 
-![Comparison of live hedge vs artificial hedge installation cost in Texas](/images/after-artificial-hedge-replacing-live-hedge.webp)
+![Comparison of live hedge vs artificial hedge installation cost in Texas](/images/hedges/hedge-privacy-1.webp)
 
 **Verdict:** The initial costs are surprisingly comparable. A cheap live hedge can *seem* less expensive, but a proper installation with good soil amendments and healthy plants brings the price close to a premium artificial solution right from the start.
 
@@ -45,7 +45,7 @@ This is where artificial hedges pull decisively ahead. The Texas sun, sporadic d
 *   **Trimming:** $0. It never grows.
 *   **Maintenance:** Occasional rinsing with a hose to remove dust (minimal water use). High-quality products come with 5-10 year UV warranties against fading.
 
-![Low maintenance artificial hedge wall in a Texas setting](/images/3f0abdc2-0acf-443a-be7b-3a45492b385d.avif)
+![Low maintenance artificial hedge wall in a Texas setting](/images/hedges/hedge-privacy-2.webp)
 
 **10-Year Cost Comparison (10-Foot Hedge):**
 
@@ -65,7 +65,7 @@ The math is stark. The artificial hedge pays for itself in saved maintenance cos
 ## Answering Your Top Questions: Real vs. Artificial in Texas
 
 ### How long do artificial hedges last in the Texas sun?
-Premium artificial hedges made with UV-inhibited materials can last **10-15 years or more** in direct Texas sun without significant fading. At Lonestar Fauxcapes, our products carry extensive warranties specifically because they are engineered to withstand harsh UV exposure, a critical factor cheaper online imports often fail at.
+Premium artificial hedges made with UV-inhibited materials can hold their appearance for years in Texas conditions, but the real lifespan depends on sun exposure, product quality, installation method, and upkeep. Better outdoor products generally perform more consistently than cheap imports that were never built for full-time sun exposure.
 
 ### Is a "drought-tolerant" real hedge actually cheaper?
 No, not when you factor in total cost of ownership. While plants like Cenizo or Mountain Laurel survive on less water, they still require:
@@ -88,7 +88,7 @@ Both can enhance curb appeal. Artificial hedges offer a unique, **permanently pe
 *   **Soil Challenges:** Clay soil, caliche rock, and alkaline conditions limit what will thrive and add to amendment costs. Artificial hedges eliminate soil problems entirely.
 *   **Extreme Weather Resilience:** A well-installed artificial hedge will look perfect the day after a hail storm or a hard freeze that devastates live plants. This reliability saves money and stress.
 
-![Professional artificial hedge installation at a large Texas property](/images/hotel-del-coronado-artificial-hedge.webp)
+![Professional artificial hedge installation at a large Texas property](/images/hedges/rooftop-hedge-ac-1.webp)
 
 ## The Bottom Line for Texas Homeowners
 
@@ -114,7 +114,7 @@ You might also find these useful:
 A: For premium, UV-protected artificial hedge panels, expect to pay **$12-$25 per square foot**, including materials. Professional installation adds to this but is recommended for a durable, seamless result.
 
 **Q: Do I need a permit to install an artificial hedge fence in Texas?**
-A: Typically, no. Artificial hedges are considered a decorative landscape feature or screen, not a structural fence. However, always check with your local HOA for any aesthetic guidelines.
+A: Permit requirements depend on the city, how the hedge is mounted, and whether you are modifying an existing fence or adding structural elements. Check local requirements and HOA rules before installing.
 
 **Q: Can I install an artificial hedge myself to save money?**
 A: While DIY kits exist, professional installation is highly advised in Texas. Experts ensure proper waterproofing, wind resistance, and a seamless look that lasts, avoiding costly mistakes or flimsy installations that fail in high winds.

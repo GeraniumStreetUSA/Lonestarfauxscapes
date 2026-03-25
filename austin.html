@@ -70,58 +70,12 @@
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <meta name="theme-color" content="#050a07">
-  <style>
-    html { overflow-y: scroll !important; }
-    :root {
-      --color-bg: #050a07;
-      --color-bg-alt: #0a140f;
-      --color-accent: #4caf50;
-      --color-text: #f5f5f5;
-      --color-text-muted: #889990;
-      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --container-width: 1200px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 5rem; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
-    .hero { padding: 4rem 0 3rem; background: linear-gradient(140deg, rgba(76,175,80,0.12), rgba(5,10,7,0.94)); }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-    @media(min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
-    h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.7rem, 4vw, 3.6rem); }
-    h2 { font-size: clamp(2rem, 3vw, 2.6rem); }
-    h3 { font-size: 1.35rem; }
-    p.lede { font-size: 1.05rem; color: var(--color-text-muted); }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    .pill { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 0.85rem; color: #fff; letter-spacing: 0.01em; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.6rem; border-radius: 999px; background: var(--color-accent); color: #051007; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border: none; box-shadow: 0 12px 30px rgba(76,175,80,0.35); transition: transform 0.2s, box-shadow 0.2s; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(76,175,80,0.4); }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; padding: 0.85rem 1.4rem; border-radius: 999px; font-weight: 700; letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s; }
-    .btn-outline:hover { color: var(--color-accent); border-color: rgba(76,175,80,0.7); }
-    .section { padding: 4rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-    @media(min-width: 860px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media(min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.4rem; box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
-    .card h3 { margin-bottom: 0.4rem; }
-    .muted { color: var(--color-text-muted); }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-    .gallery img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); object-fit: cover; aspect-ratio: 4/3; transition: transform 0.25s ease, filter 0.25s ease; filter: saturate(0.95) brightness(0.95); }
-    .gallery img:hover { transform: scale(1.03); filter: saturate(1.05) brightness(1); }
-    details { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    summary { padding: 1rem 0; cursor: pointer; font-weight: 600; letter-spacing: 0.01em; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    .faq-answer { padding-bottom: 1rem; color: var(--color-text-muted); }
-    .stat { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.8rem; border-radius: 12px; background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.25); font-weight: 700; color: #b5e3bf; }
-    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
-  </style>
+  <link rel="stylesheet" href="/city-page-base.css">
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/cro.css">
+  <link rel="stylesheet" href="/city-editions.css">
   </head>
-<body>
+<body class="city-page city-austin">
 <!--
   ============================================================================
   UNIVERSAL NAVBAR COMPONENT - DROP IN AND FORGET
@@ -893,136 +847,158 @@
 </script>
 
 
-<main>
-    <section id="main-content" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="pill" style="display:inline-flex;">City Installations</p>
-          <h1>Artificial hedges & living walls — Austin, TX</h1>
-          <p class="lede">Commercial feature walls, rooftop privacy hedges, and living walls installed across Austin with fire-rated options, acoustic backers, and fast install planning.</p>
-          <div class="pill-row">
-            <span class="pill">NFPA 701 Method 2</span>
-            <span class="pill">Acoustic backers</span>
-            <span class="pill">Custom frames</span>
-            <span class="pill">Fast rooftop installs</span>
+<main class="city-main">
+    <section id="main-content" class="city-hero">
+      <div class="container city-hero__grid city-shell">
+        <div class="city-hero__content">
+          <p class="city-kicker">Austin local edition</p>
+          <h1>Artificial greenery built for Austin rooftops, amenities, and privacy screens.</h1>
+          <p class="city-hero__lede">Austin projects usually need the same thing at once: fast visual impact, cleaner maintenance, and a finish that still works with rooftop access, hospitality traffic, and neighborhood expectations. We handle living walls, privacy hedges, and branded greenery systems across the city with fire-rated and acoustic-ready options when the scope needs them.</p>
+          <div class="city-pill-row">
+            <span class="city-pill">NFPA 701 Method 2 options</span>
+            <span class="city-pill">Rooftop-friendly planning</span>
+            <span class="city-pill">Acoustic backers available</span>
+            <span class="city-pill">Custom frames and reveals</span>
           </div>
-          <div style="margin-top:1.2rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a class="btn" href="/#contact">Plan an Austin project</a>
-            <a class="btn-outline" href="/products">View products</a>
+          <div class="city-actions">
+            <a class="city-btn" href="/#contact">Plan an Austin project</a>
+            <a class="city-btn--secondary" href="/products">View products</a>
           </div>
-          <div class="pill-row" style="margin-top:1rem;">
-            <span class="pill">Downtown / Domain / East Austin</span>
-            <span class="pill">Hospitality & multifamily</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom:0.4rem;">Austin install profile</h3>
-          <p class="muted" style="margin-bottom:0.7rem;">Designed for wind, shade, and rooftop loading limits.</p>
-        <div class="stat">Scope-based install planning</div>
-          <p style="margin-top:0.6rem;">Prefabricated panels with hidden seams, rooftop-safe anchoring, and LED-friendly layouts for signage or lighting.</p>
-          <div class="gallery" style="margin-top:1rem; grid-template-columns: repeat(2, minmax(0, 1fr));">
-            <picture>
-                <source srcset="images/living_walls/living-wall-2-400w.webp 400w, images/living_walls/living-wall-2-800w.webp 800w, images/living_walls/living-wall-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/living_walls/living-wall-2-400w.jpg 400w, images/living_walls/living-wall-2-800w.jpg 800w, images/living_walls/living-wall-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/living_walls/living-wall-2.jpg" alt="Austin faux living wall lobby" loading="lazy">
-              </picture>
-            <picture>
-                <source srcset="images/hedges/hedge-privacy-2-400w.webp 400w, images/hedges/hedge-privacy-2-800w.webp 800w, images/hedges/hedge-privacy-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-2-400w.jpg 400w, images/hedges/hedge-privacy-2-800w.jpg 800w, images/hedges/hedge-privacy-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-2.jpg" alt="Austin rooftop artificial hedge" loading="lazy">
-              </picture>
+          <div class="city-stat-row" style="margin-top:1rem;">
+            <span class="city-stat">Downtown, Domain, South Congress, East Austin</span>
+            <span class="city-stat">Hospitality, multifamily, and residential privacy</span>
           </div>
         </div>
+        <aside class="city-hero__panel">
+          <div class="city-hero__panel-copy">
+            <span class="city-panel-flag">Field notes</span>
+            <h2>Where Austin buyers usually need help first</h2>
+            <p>Rooftop rails that need privacy without looking heavy, amenity walls that need a more designed finish, and live screens that are no longer staying full through heat and irrigation fatigue.</p>
+          </div>
+          <div class="city-mosaic">
+            <div class="city-mosaic__hero">
+              <figure>
+                <picture>
+                  <source srcset="images/living_walls/living-wall-2-400w.webp 400w, images/living_walls/living-wall-2-800w.webp 800w, images/living_walls/living-wall-2-1200w.webp 1200w" sizes="(max-width: 820px) 100vw, 40vw" type="image/webp">
+                  <source srcset="images/living_walls/living-wall-2-400w.jpg 400w, images/living_walls/living-wall-2-800w.jpg 800w, images/living_walls/living-wall-2-1200w.jpg 1200w" sizes="(max-width: 820px) 100vw, 40vw">
+                  <img src="images/living_walls/living-wall-2.jpg" alt="Austin amenity living wall" loading="lazy">
+                </picture>
+                <figcaption>Amenity and lobby walls</figcaption>
+              </figure>
+            </div>
+            <div class="city-mosaic__stack">
+              <figure>
+                <picture>
+                  <source srcset="images/hedges/hedge-privacy-2-400w.webp 400w, images/hedges/hedge-privacy-2-800w.webp 800w, images/hedges/hedge-privacy-2-1200w.webp 1200w" sizes="(max-width: 820px) 100vw, 20vw" type="image/webp">
+                  <source srcset="images/hedges/hedge-privacy-2-400w.jpg 400w, images/hedges/hedge-privacy-2-800w.jpg 800w, images/hedges/hedge-privacy-2-1200w.jpg 1200w" sizes="(max-width: 820px) 100vw, 20vw">
+                  <img src="images/hedges/hedge-privacy-2.jpg" alt="Austin rooftop privacy hedge" loading="lazy">
+                </picture>
+                <figcaption>Rooftop privacy hedges</figcaption>
+              </figure>
+              <figure>
+                <img src="images/fence/fence-1.jpg" alt="Austin fence extension greenery" loading="lazy">
+                <figcaption>Backyard and fence extensions</figcaption>
+              </figure>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section city-section">
       <div class="container">
-        <h2>What we install in Austin</h2>
-        <div class="grid grid-3" style="margin-top:1.4rem;">
-          <div class="card">
-            <h3>Mixed-tone living walls</h3>
-            <p class="muted">Feature walls for lobbies, amenities, and coworking lounges with multi-depth foliage and acoustic options.</p>
-          </div>
-          <div class="card">
-            <h3>Privacy hedges</h3>
-            <p class="muted">Dense hedge panels for rooftop rails, patios, and pool decks—UV stabilized and fire-rated options available.</p>
-          </div>
-          <div class="card">
-            <h3>Brand-safe cladding</h3>
-            <p class="muted">Frame-mounted greenery for hospitality entries and retail facades, ready for signage and lighting.</p>
-          </div>
+        <div class="city-section__header">
+          <h2>Why Austin buyers move away from ordinary screens</h2>
+          <p>Most Austin projects are balancing design expectations with site realities. The strongest local pages are the ones that show why the system fits how Austin properties actually get used.</p>
+        </div>
+        <div class="city-grid city-grid--three">
+          <article class="city-card">
+            <span class="city-card__label">Rooftops</span>
+            <h3>Privacy without dead visual weight</h3>
+            <p>Dense hedge runs and framed greenery can soften rails and edges without making the deck feel boxed in or improvised.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Amenities</span>
+            <h3>Feature walls that feel finished</h3>
+            <p>Mixed-depth foliage, concealed seams, and acoustic upgrades work well in coworking lounges, lobbies, and hospitality common areas.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Residential</span>
+            <h3>Immediate screening when live planting fails</h3>
+            <p>For homeowners dealing with exposed lots or remodel activity nearby, artificial greenery solves the privacy problem immediately instead of waiting on growth.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: rgba(255,255,255,0.02);">
+    <section class="section city-section">
+      <div class="container city-grid city-grid--two">
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>Where Austin projects usually show up</h2>
+          </div>
+          <ul class="city-list">
+            <li><strong>Downtown and the Domain</strong><span>Multifamily, rooftop, and hospitality installs that need cleaner sightlines and fast coordination.</span></li>
+            <li><strong>South Congress and East Austin</strong><span>Restaurant patios, branded entries, and privacy barriers that need to feel more designed than temporary.</span></li>
+            <li><strong>Zilker and nearby residential pockets</strong><span>Backyard privacy walls, fence extensions, and pool-area screening that cut maintenance.</span></li>
+          </ul>
+        </div>
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>What tends to matter first</h2>
+          </div>
+          <ul class="city-list">
+            <li><strong>Wind, access, and mounting logic</strong><span>Especially on decks, terraces, and existing structures.</span></li>
+            <li><strong>Code and documentation support</strong><span>Useful for amenity, hospitality, and spec-driven commercial work.</span></li>
+            <li><strong>Visual consistency</strong><span>Panels need to read as one composed surface, not a row of separate pieces.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section city-section" id="services">
       <div class="container">
-        <h2>What We Can Create in Austin</h2>
-        <div class="gallery">
-          <picture>
-                <source srcset="images/living_walls/living-wall-2-400w.webp 400w, images/living_walls/living-wall-2-800w.webp 800w, images/living_walls/living-wall-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/living_walls/living-wall-2-400w.jpg 400w, images/living_walls/living-wall-2-800w.jpg 800w, images/living_walls/living-wall-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/living_walls/living-wall-2.jpg" alt="Austin amenity faux living wall" loading="lazy">
-              </picture>
-          <picture>
-                <source srcset="images/hedges/hedge-privacy-1-400w.webp 400w, images/hedges/hedge-privacy-1-800w.webp 800w, images/hedges/hedge-privacy-1-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-1-400w.jpg 400w, images/hedges/hedge-privacy-1-800w.jpg 800w, images/hedges/hedge-privacy-1-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-1.jpg" alt="Austin privacy hedge install" loading="lazy">
-              </picture>
-          <img src="images/fence/fence-1.jpg" alt="Fence extension greenery in Austin" loading="lazy">
+        <div class="city-section__header">
+          <h2>Services Austin buyers actually browse first</h2>
+          <p>These are the service paths that fit most Austin-area hedge, wall, and privacy requests.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid grid-3">
-        <div class="card">
-          <h3>Code compliance</h3>
-          <p class="muted">NFPA 701 Method 2 foliage, shop drawings on request, and coordination support for amenity and lobby installs.</p>
-        </div>
-        <div class="card">
-          <h3>Timelines</h3>
-          <p class="muted">Install timing depends on scope, access, and mounting conditions. Prefabrication in our shop helps keep onsite work quiet and efficient.</p>
-        </div>
-        <div class="card">
-          <h3>Service areas</h3>
-          <p class="muted">Downtown, Domain, East Austin, South Congress, Zilker, and surrounding metro.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <h2>Our Services in Austin</h2>
-        <p class="muted" style="margin-bottom: 1.5rem;">We install a full range of artificial greenery solutions throughout the Austin area.</p>
-        <div class="grid grid-3" style="gap: 1rem;">
-          <a href="/artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Artificial Hedges</h3>
-            <p class="muted">Privacy screens and perimeter hedges for homes and businesses.</p>
+        <div class="city-grid city-grid--three">
+          <a href="/living-wall" class="city-service-card">
+            <span>Living walls</span>
+            <h3>Amenity, lobby, and feature greenery walls</h3>
+            <p>Designed for hospitality, multifamily, and workplaces that need a more composed finish.</p>
           </a>
-          <a href="/living-wall" class="card" style="text-decoration: none;">
-            <h3>Living Walls</h3>
-            <p class="muted">Vertical green walls for lobbies, patios, and feature walls.</p>
+          <a href="/artificial-hedge" class="city-service-card">
+            <span>Artificial hedges</span>
+            <h3>Privacy rails, rooftop runs, and perimeter screening</h3>
+            <p>Dense coverage with cleaner maintenance than live plant systems.</p>
           </a>
-          <a href="/fence-extensions" class="card" style="text-decoration: none;">
-            <h3>Fence Extensions</h3>
-            <p class="muted">Add height and privacy to existing fences.</p>
+          <a href="/fence-extensions" class="city-service-card">
+            <span>Fence extensions</span>
+            <h3>Extra height and screening without a full rebuild</h3>
+            <p>Useful when the property needs immediate privacy and the base fence can stay.</p>
           </a>
-          <a href="/fire-rated-artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Fire-Rated Hedges</h3>
-            <p class="muted">NFPA 701 certified for commercial projects.</p>
+          <a href="/fire-rated-artificial-hedge" class="city-service-card">
+            <span>Fire-rated</span>
+            <h3>Commercial greenery for spec-driven projects</h3>
+            <p>NFPA 701 Method 2 options for buyers who need documentation support.</p>
           </a>
-          <a href="/pool-privacy-hedge" class="card" style="text-decoration: none;">
-            <h3>Pool Privacy</h3>
-            <p class="muted">Chlorine and UV resistant pool area screens.</p>
+          <a href="/pool-privacy-hedge" class="city-service-card">
+            <span>Pool privacy</span>
+            <h3>Cleaner pool-edge screening with no irrigation</h3>
+            <p>Works well for residential decks and shared outdoor amenities.</p>
+          </a>
+          <a href="/pricing" class="city-service-card">
+            <span>Pricing</span>
+            <h3>Ballpark numbers before you start drawings</h3>
+            <p>Useful when the next question is budget, timing, and likely scope.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container" data-lsfs-case-studies="austin-high-end-residential-privacy" data-lsfs-proof-title="Austin project profile" data-lsfs-proof-copy="This Austin residential privacy wall shows how we reused a tall existing structure, installed artificial greenery quickly, and replaced a failing live screen with a cleaner long-term finish." data-lsfs-proof-context="austin_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
+    <section class="section city-section">
+      <div class="container city-proof-wrap" data-lsfs-case-studies="austin-high-end-residential-privacy" data-lsfs-proof-title="Austin project profile" data-lsfs-proof-copy="This Austin residential privacy wall shows how we reused a tall existing structure, installed artificial greenery quickly, and replaced a failing live screen with a cleaner long-term finish." data-lsfs-proof-context="austin_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
     </section>
 
     <section class="section" id="faq">
@@ -1120,3 +1096,4 @@
   <script src="/cro.js"></script>
 </body>
 </html>
+

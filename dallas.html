@@ -70,58 +70,12 @@
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <meta name="theme-color" content="#050a07">
-  <style>
-    html { overflow-y: scroll !important; }
-    :root {
-      --color-bg: #050a07;
-      --color-bg-alt: #0a140f;
-      --color-accent: #4caf50;
-      --color-text: #f5f5f5;
-      --color-text-muted: #889990;
-      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --container-width: 1200px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 5rem; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
-    .hero { padding: 4rem 0 3rem; background: linear-gradient(140deg, rgba(76,175,80,0.12), rgba(5,10,7,0.94)); }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-    @media(min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
-    h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.7rem, 4vw, 3.6rem); }
-    h2 { font-size: clamp(2rem, 3vw, 2.6rem); }
-    h3 { font-size: 1.35rem; }
-    p.lede { font-size: 1.05rem; color: var(--color-text-muted); }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    .pill { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 0.85rem; color: #fff; letter-spacing: 0.01em; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.6rem; border-radius: 999px; background: var(--color-accent); color: #051007; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border: none; box-shadow: 0 12px 30px rgba(76,175,80,0.35); transition: transform 0.2s, box-shadow 0.2s; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(76,175,80,0.4); }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; padding: 0.85rem 1.4rem; border-radius: 999px; font-weight: 700; letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s; }
-    .btn-outline:hover { color: var(--color-accent); border-color: rgba(76,175,80,0.7); }
-    .section { padding: 4rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-    @media(min-width: 860px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media(min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.4rem; box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
-    .card h3 { margin-bottom: 0.4rem; }
-    .muted { color: var(--color-text-muted); }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-    .gallery img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); object-fit: cover; aspect-ratio: 4/3; transition: transform 0.25s ease, filter 0.25s ease; filter: saturate(0.95) brightness(0.95); }
-    .gallery img:hover { transform: scale(1.03); filter: saturate(1.05) brightness(1); }
-    details { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    summary { padding: 1rem 0; cursor: pointer; font-weight: 600; letter-spacing: 0.01em; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    .faq-answer { padding-bottom: 1rem; color: var(--color-text-muted); }
-    .stat { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.8rem; border-radius: 12px; background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.25); font-weight: 700; color: #b5e3bf; }
-    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
-  </style>
+  <link rel="stylesheet" href="/city-page-base.css">
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/cro.css">
+  <link rel="stylesheet" href="/city-editions.css">
   </head>
-<body>
+<body class="city-page city-dallas">
 <!--
   ============================================================================
   UNIVERSAL NAVBAR COMPONENT - DROP IN AND FORGET
@@ -893,165 +847,150 @@
 </script>
 
 
-<main>
-    <section id="main-content" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="pill" style="display:inline-flex;">City Installations</p>
-          <h1>Artificial hedges & living walls — Dallas, TX</h1>
-          <p class="lede">Retail greenery walls, estate privacy hedges, and hospitality installs across Dallas with UV-stable materials, clean framing, and fire-rated options when needed.</p>
-          <div class="pill-row">
-            <span class="pill">NFPA 701 Method 2</span>
-            <span class="pill">UV stabilized</span>
-            <span class="pill">Brand-ready frames</span>
-            <span class="pill">Fast estate installs</span>
+<main class="city-main">
+    <section id="main-content" class="city-hero">
+      <div class="container city-hero__grid city-shell">
+        <div class="city-hero__content">
+          <p class="city-kicker">Dallas local edition</p>
+          <h1>Artificial greenery for Dallas frontage, amenity spaces, and polished privacy screens.</h1>
+          <p class="city-hero__lede">Dallas buyers usually care about presentation first: cleaner frontage, stronger screening, and a result that feels expensive instead of improvised. We install living walls, hedge cladding, privacy systems, and fire-rated greenery for residential, retail, hospitality, and spec-driven commercial work across Dallas.</p>
+          <div class="city-pill-row">
+            <span class="city-pill">Fire-rated options</span>
+            <span class="city-pill">UV-stable materials</span>
+            <span class="city-pill">Retail and hospitality-ready</span>
+            <span class="city-pill">Custom frames and panels</span>
           </div>
-          <div style="margin-top:1.2rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a class="btn" href="/#contact">Plan a Dallas project</a>
-            <a class="btn-outline" href="/products">View products</a>
+          <div class="city-actions">
+            <a class="city-btn" href="/#contact">Plan a Dallas project</a>
+            <a class="city-btn--secondary" href="/products">View products</a>
           </div>
-          <div class="pill-row" style="margin-top:1rem;">
-            <span class="pill">Uptown / Design District / Frisco</span>
-            <span class="pill">Hospitality & retail</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom:0.4rem;">Dallas install profile</h3>
-          <p class="muted" style="margin-bottom:0.7rem;">Built for heat, sun, and clean brand presentation.</p>
-          <div class="stat">Shop-built seams</div>
-          <p style="margin-top:0.6rem;">We pre-frame panels with hidden seams and logo recesses so brand marks, uplighting, and millwork align perfectly onsite.</p>
-          <div class="gallery" style="margin-top:1rem; grid-template-columns: repeat(2, minmax(0, 1fr));">
-            <picture>
-                <source srcset="images/commercial/commercial-2-400w.webp 400w, images/commercial/commercial-2-800w.webp 800w, images/commercial/commercial-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/commercial/commercial-2-400w.jpg 400w, images/commercial/commercial-2-800w.jpg 800w, images/commercial/commercial-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/commercial/commercial-2.jpg" alt="Dallas commercial wall covering" loading="lazy">
-              </picture>
-            <picture>
-                <source srcset="images/hedges/hedge-privacy-3-400w.webp 400w, images/hedges/hedge-privacy-3-800w.webp 800w, images/hedges/hedge-privacy-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-3-400w.jpg 400w, images/hedges/hedge-privacy-3-800w.jpg 800w, images/hedges/hedge-privacy-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-3.jpg" alt="Dallas estate artificial hedge" loading="lazy">
-              </picture>
+          <div class="city-stat-row" style="margin-top:1rem;">
+            <span class="city-stat">Uptown, Highland Park, Deep Ellum, Preston Hollow</span>
+            <span class="city-stat">Retail, hospitality, and estate privacy work</span>
           </div>
         </div>
+        <aside class="city-hero__panel">
+          <div class="city-hero__panel-copy">
+            <span class="city-panel-flag">Field notes</span>
+            <h2>What Dallas projects usually need first</h2>
+            <p>More finished frontage, better perimeter privacy, and greenery systems that look custom rather than catalog-like in prominent visual settings.</p>
+          </div>
+          <div class="city-mosaic">
+            <div class="city-mosaic__hero">
+              <figure>
+                <img src="images/commercial/commercial-2.jpg" alt="Dallas commercial greenery" loading="lazy">
+                <figcaption>Storefront and frontage upgrades</figcaption>
+              </figure>
+            </div>
+            <div class="city-mosaic__stack">
+              <figure>
+                <img src="images/hedges/hedge-privacy-1.jpg" alt="Dallas privacy hedge" loading="lazy">
+                <figcaption>High-privacy perimeter screens</figcaption>
+              </figure>
+              <figure>
+                <img src="images/living_walls/living-wall-1.jpg" alt="Dallas living wall" loading="lazy">
+                <figcaption>Feature walls with brand presence</figcaption>
+              </figure>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section city-section">
       <div class="container">
-        <h2>What we install in Dallas</h2>
-        <div class="grid grid-3" style="margin-top:1.4rem;">
-          <div class="card">
-            <h3>Retail & hospitality cladding</h3>
-            <p class="muted">Brand-safe hedge cladding with UV-stable foliage and signage-ready framing for entries and patios.</p>
+        <div class="city-section__header">
+          <h2>Why Dallas buyers care so much about finish quality</h2>
+          <p>In Dallas, these systems often sit in high-visibility settings. The work needs to look intentional from the street, from the pool deck, and from inside the property looking out.</p>
+        </div>
+        <div class="city-grid city-grid--three">
+          <article class="city-card">
+            <span class="city-card__label">Frontage</span>
+            <h3>Visual upgrades over existing hardscape</h3>
+            <p>Mounted hedge cladding can soften concrete barriers and entry lines without replacing the structure underneath.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Hospitality</span>
+            <h3>Polished greenery for guest-facing spaces</h3>
+            <p>Restaurant patios, hotel entries, and amenity decks need a cleaner visual edge that still holds up operationally.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Residential</span>
+            <h3>Privacy that reads custom, not temporary</h3>
+            <p>For estates and backyard projects, the finish matters just as much as the screening itself.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section city-section">
+      <div class="container city-grid city-grid--two">
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>Where Dallas projects usually land</h2>
           </div>
-          <div class="card">
-            <h3>Estate privacy hedges</h3>
-            <p class="muted">Tall privacy hedges for yards, pools, and perimeter walls without irrigation or shedding.</p>
+          <ul class="city-list">
+            <li><strong>Uptown and Deep Ellum</strong><span>Retail, restaurant, and hospitality installs with high street visibility.</span></li>
+            <li><strong>Highland Park and Preston Hollow</strong><span>Residential privacy walls and fence extensions where finish quality is non-negotiable.</span></li>
+            <li><strong>Mixed-use and amenity properties</strong><span>Decks, entries, and shared spaces that need privacy and polish together.</span></li>
+          </ul>
+        </div>
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>What tends to matter first</h2>
           </div>
-          <div class="card">
-            <h3>Feature living walls</h3>
-            <p class="muted">Mixed-tone living walls for lobbies and amenity lounges with acoustic options and concealed lighting paths.</p>
-          </div>
+          <ul class="city-list">
+            <li><strong>Presentation from the street</strong><span>Many Dallas scopes start with making an existing frontage feel more expensive.</span></li>
+            <li><strong>Fire-rated commercial options</strong><span>Retail and hospitality buyers often need stronger documentation support.</span></li>
+            <li><strong>Custom fit</strong><span>The greenery has to look designed for the site, not dropped onto it.</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: rgba(255,255,255,0.02);">
+    <section class="section city-section" id="services">
       <div class="container">
-        <h2>What We Can Create in Dallas</h2>
-        <div class="gallery">
-          <picture>
-                <source srcset="images/commercial/commercial-1-400w.webp 400w, images/commercial/commercial-1-800w.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/commercial/commercial-1-400w.png 400w, images/commercial/commercial-1-800w.png 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/commercial/commercial-1.png" alt="Dallas hospitality greenery" loading="lazy">
-              </picture>
-          <picture>
-                <source srcset="images/living_walls/living-wall-1-400w.webp 400w, images/living_walls/living-wall-1-800w.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/living_walls/living-wall-1-400w.jpg 400w, images/living_walls/living-wall-1-800w.jpg 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/living_walls/living-wall-1.jpg" alt="Dallas lobby living wall" loading="lazy">
-              </picture>
-          <picture>
-                <source srcset="images/fence/fence-3-400w.webp 400w, images/fence/fence-3-800w.webp 800w, images/fence/fence-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/fence/fence-3-400w.jpg 400w, images/fence/fence-3-800w.jpg 800w, images/fence/fence-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/fence/fence-3.jpg" alt="Dallas fence extension greenery" loading="lazy">
-              </picture>
+        <div class="city-section__header">
+          <h2>Services Dallas buyers usually compare</h2>
+          <p>These are the main entry points for Dallas-area commercial frontage, privacy, and feature-wall work.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid grid-3">
-        <div class="card">
-          <h3>Code & brand compliance</h3>
-          <p class="muted">NFPA 701 Method 2 foliage with documentation, clean edges, and logo-friendly mounting for retail and hospitality.</p>
-        </div>
-        <div class="card">
-          <h3>Timelines</h3>
-          <p class="muted">Most Dallas installs complete in 2–4 days. Prefab keeps onsite work minimal for active properties.</p>
-        </div>
-        <div class="card">
-          <h3>Service areas</h3>
-          <p class="muted">Uptown, Design District, Frisco, Plano, Highland Park, and greater DFW.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Planning a DFW project outside Dallas?</h2>
-        <p class="muted" style="margin-bottom: 1.5rem;">Use Dallas as the main pricing and proof page for DFW projects. If the install is in a nearby suburb, these service-area pages add local context without splitting the main planning path.</p>
-        <div class="grid grid-3" style="gap: 1rem;">
-          <a href="/plano" class="card" style="text-decoration: none;">
-            <h3>Plano service area</h3>
-            <p class="muted">Legacy, Willow Bend, and nearby corporate or residential installs.</p>
+        <div class="city-grid city-grid--three">
+          <a href="/artificial-hedge" class="city-service-card">
+            <span>Artificial hedges</span>
+            <h3>Frontage cladding, privacy runs, and mounted screening</h3>
+            <p>Good for commercial edges and residential privacy where the finish has to feel deliberate.</p>
           </a>
-          <a href="/frisco" class="card" style="text-decoration: none;">
-            <h3>Frisco service area</h3>
-            <p class="muted">The Star, Stonebriar, and fast-growing north DFW projects.</p>
+          <a href="/living-wall" class="city-service-card">
+            <span>Living walls</span>
+            <h3>Feature greenery for lobbies, restaurants, and branded spaces</h3>
+            <p>Useful when the wall has to carry more visual weight and feel more premium.</p>
           </a>
-          <a href="/irving" class="card" style="text-decoration: none;">
-            <h3>Irving service area</h3>
-            <p class="muted">Las Colinas service area, airport-adjacent properties, and mixed-use projects.</p>
+          <a href="/fence-extensions" class="city-service-card">
+            <span>Fence extensions</span>
+            <h3>Privacy upgrades without replacing the whole perimeter</h3>
+            <p>Strong fit for backyard and estate privacy problems that need a fast finish.</p>
           </a>
-          <a href="/arlington" class="card" style="text-decoration: none;">
-            <h3>Arlington service area</h3>
-            <p class="muted">Entertainment District, hospitality, and high-traffic installs.</p>
+          <a href="/fire-rated-artificial-hedge" class="city-service-card">
+            <span>Fire-rated</span>
+            <h3>Commercial greenery with code-ready options</h3>
+            <p>For hospitality and retail buyers who need documentation before install.</p>
+          </a>
+          <a href="/pool-privacy-hedge" class="city-service-card">
+            <span>Pool privacy</span>
+            <h3>Deck and backyard screening with cleaner maintenance</h3>
+            <p>Useful where visual polish and no-irrigation upkeep are equally important.</p>
+          </a>
+          <a href="/pricing" class="city-service-card">
+            <span>Pricing</span>
+            <h3>Ballpark ranges before a full review</h3>
+            <p>Best when the next question is budget and likely scope, not product browsing.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <h2>Our Services in Dallas</h2>
-        <p class="muted" style="margin-bottom: 1.5rem;">We install a full range of artificial greenery solutions throughout the Dallas area.</p>
-        <div class="grid grid-3" style="gap: 1rem;">
-          <a href="/artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Artificial Hedges</h3>
-            <p class="muted">Privacy screens and perimeter hedges for homes and businesses.</p>
-          </a>
-          <a href="/living-wall" class="card" style="text-decoration: none;">
-            <h3>Living Walls</h3>
-            <p class="muted">Vertical green walls for lobbies, patios, and feature walls.</p>
-          </a>
-          <a href="/fence-extensions" class="card" style="text-decoration: none;">
-            <h3>Fence Extensions</h3>
-            <p class="muted">Add height and privacy to existing fences.</p>
-          </a>
-          <a href="/fire-rated-artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Fire-Rated Hedges</h3>
-            <p class="muted">NFPA 701 certified for commercial projects.</p>
-          </a>
-          <a href="/pool-privacy-hedge" class="card" style="text-decoration: none;">
-            <h3>Pool Privacy</h3>
-            <p class="muted">Chlorine and UV resistant pool area screens.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container" data-lsfs-case-studies="houston-storefront-hedges" data-lsfs-proof-title="Recent Texas commercial project profile" data-lsfs-proof-copy="We do not publish a Dallas-specific project profile yet. This Houston storefront install shows the kind of mounted hedge screening and finished frontage work we bring to commercial sites across Texas." data-lsfs-proof-context="dallas_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
+    <section class="section city-section">
+      <div class="container city-proof-wrap" data-lsfs-case-studies="houston-storefront-hedges" data-lsfs-proof-title="Recent Texas commercial project profile" data-lsfs-proof-copy="We do not publish a Dallas-specific project profile yet. This Houston storefront install shows the kind of mounted hedge screening and finished frontage work we bring to commercial sites across Texas." data-lsfs-proof-context="dallas_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
     </section>
 
     <section class="section" id="faq">
@@ -1147,3 +1086,4 @@
   <script src="/cro.js"></script>
 </body>
 </html>
+

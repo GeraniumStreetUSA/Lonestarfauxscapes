@@ -16,7 +16,7 @@ faq:
   - question: "How do I know if a living wall panel is UV-stabilized?"
     answer: "Check the product specification sheet. It should explicitly state UV stabilization or UV resistance. If the spec sheet does not mention UV treatment, ask the manufacturer directly. Products without UV stabilization should only be used indoors."
   - question: "Do the fasteners and hardware matter for the lifespan of a living wall?"
-    answer: "Yes. The foliage panels may last 7 to 10 years, but cheap fasteners can fail in 1 to 2 years. Use stainless steel screws, coated hardware, and UV-rated zip ties. Standard nylon zip ties and bare steel screws corrode and break quickly in Texas conditions."
+    answer: "Yes. Foliage and hardware can age at different rates, so use corrosion-resistant fasteners and outdoor-rated attachment methods. Cheap hardware often fails long before the foliage is ready to be replaced."
   - question: "Can I mix different panel types on the same wall?"
     answer: "Yes, mixing panel types is a common design technique for creating visual variety. Make sure all panels share the same outdoor rating (UV-stabilized, weather-rated) and that the backing systems are compatible for consistent mounting."
 ---
@@ -176,7 +176,7 @@ UV-stabilized polyethylene (PE) is the best material for outdoor use in Texas. I
 Check the product specification sheet. It should explicitly state UV stabilization or UV resistance. If the spec sheet does not mention UV treatment, ask the manufacturer directly. Products without UV stabilization should only be used indoors.
 
 ### Do the fasteners and hardware matter for the lifespan of a living wall?
-Yes. The foliage panels may last 7 to 10 years, but cheap fasteners can fail in 1 to 2 years. Use stainless steel screws, coated hardware, and UV-rated zip ties. Standard nylon zip ties and bare steel screws corrode and break quickly in Texas conditions.
+Yes. Foliage and hardware can age at different rates, so use corrosion-resistant fasteners and outdoor-rated attachment methods. Cheap hardware often fails long before the foliage is ready to be replaced.
 
 ### Can I mix different panel types on the same wall?
 Yes, mixing panel types is a common design technique for creating visual variety. Make sure all panels share the same outdoor rating (UV-stabilized, weather-rated) and that the backing systems are compatible for consistent mounting.

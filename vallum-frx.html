@@ -56,7 +56,7 @@
       right: 0;
       width: 60%;
       height: 100%;
-      background: url('images/vallum/vallum-hero.webp') center/cover no-repeat;
+      background: url('/images/vallum/vallum-hero.webp') center/cover no-repeat;
       opacity: 0.25;
       mask-image: linear-gradient(to left, black, transparent);
       -webkit-mask-image: linear-gradient(to left, black, transparent);
@@ -273,9 +273,12 @@
   UNIVERSAL NAVBAR COMPONENT
   ============================================================================
 -->
+<!-- NAVBAR HTML -->
 <header id="lsfs-header">
   <nav id="lsfs-nav">
     <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
     <div id="lsfs-desktop-links">
       <a href="/" class="lsfs-link">Home</a>
 
@@ -335,6 +338,7 @@
       <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
     </div>
 
+    <!-- Mobile Hamburger -->
     <button id="lsfs-hamburger" aria-label="Open menu">
       <span></span>
       <span></span>
@@ -343,6 +347,7 @@
   </nav>
 </header>
 
+<!-- MOBILE MENU (separate from header) -->
 <div id="lsfs-mobile-menu">
   <button id="lsfs-close" aria-label="Close menu">&#215;</button>
 

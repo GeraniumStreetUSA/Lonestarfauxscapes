@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firewise artificial hedges for multifamily properties:…</title>
   <meta name="description" content="A nuts-and-bolts guide for property managers choosing firewise, code-friendly artificial hedge systems for apartments and multifamily buildings—what…">
+  <meta name="robots" content="index, follow">
   <meta name="keywords" content="multifamily, fire-rated, artificial-hedges">
   <link rel="canonical" href="https://lonestarfauxscapes.com/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units">
 
@@ -1914,20 +1915,156 @@
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .tag {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .tag { 
+      padding: 0.4rem 0.8rem; 
+      border-radius: 999px; 
+      background: rgba(255,255,255,0.04); 
+      border: 1px solid rgba(255,255,255,0.08); 
+      color: #fff; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.02em; 
+    } 
+
+    .estimate-note {
+      margin-top: 2rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(76,175,80,0.24);
+      background: rgba(76,175,80,0.08);
+      color: rgba(245,245,245,0.9);
+      font-size: 0.92rem;
+    }
+    .estimate-note strong {
       color: #fff;
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
-    /* Back to Blog */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
+    .article-support {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+    .article-support--mid {
+      margin: 2.75rem 0;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+    }
+    .article-support__intro {
+      margin-bottom: 1.25rem;
+    }
+    .article-support__intro h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    .article-support__intro p {
+      margin: 0;
+      max-width: 62ch;
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+    }
+    .article-support__eyebrow {
+      margin-bottom: 0.5rem !important;
+      color: var(--color-accent) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem !important;
+      font-weight: 700;
+    }
+    .article-support__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    @media (min-width: 760px) {
+      .article-support__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .article-support__card {
+      display: block;
+      padding: 1rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,10,7,0.65);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .article-support__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(8,16,11,0.9);
+    }
+    .article-support__label {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .article-support__copy {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .related-posts {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .related-posts__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 760px) {
+      .related-posts__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .related-posts__card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .related-posts__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .related-posts__meta {
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .related-posts__card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .related-posts__card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.74);
+    }
+    .related-posts__cta {
+      margin-top: auto;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Back to Blog */ 
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
       gap: 0.5rem;
       margin-top: 2rem;
       padding: 0.75rem 1.25rem;
@@ -1955,117 +2092,118 @@
   </style>
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/navbar-universal.css">
+  <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
-      <!-- UNIVERSAL NAVBAR -->
-  <header id="lsfs-header">
-    <nav id="lsfs-nav">
-      <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
-  
-      <!-- Desktop Navigation -->
-      <div id="lsfs-desktop-links">
-        <a href="/" class="lsfs-link">Home</a>
-  
-        <!-- Products Dropdown -->
-              <div class="lsfs-dropdown">
-          <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Hedges</span>
-              <a href="/artificial-hedge">Artificial Hedge</a>
-              <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
-              <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
-              <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
-              <a href="/pool-privacy-hedge">Pool Privacy</a>
-              <a href="/vallum-frx">Vallum FRX</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Walls</span>
-              <a href="/living-wall">Living Wall</a>
-              <a href="/commercial-wall">Commercial Wall</a>
-              <a href="/fence-extensions">Fence Extensions</a>
-            </div>
+<!-- NAVBAR HTML -->
+<header id="lsfs-header">
+  <nav id="lsfs-nav">
+    <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
+    <div id="lsfs-desktop-links">
+      <a href="/" class="lsfs-link">Home</a>
+
+      <!-- Products Dropdown -->
+            <div class="lsfs-dropdown">
+        <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Hedges</span>
+            <a href="/artificial-hedge">Artificial Hedge</a>
+            <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
+            <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
+            <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
+            <a href="/pool-privacy-hedge">Pool Privacy</a>
+            <a href="/vallum-frx">Vallum FRX</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Walls</span>
+            <a href="/living-wall">Living Wall</a>
+            <a href="/commercial-wall">Commercial Wall</a>
+            <a href="/fence-extensions">Fence Extensions</a>
           </div>
         </div>
-  
-        <!-- Locations Dropdown -->
-        <div class="lsfs-dropdown">
-          <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Major Cities</span>
-              <a href="/dallas">Dallas</a>
-              <a href="/houston">Houston</a>
-              <a href="/austin">Austin</a>
-              <a href="/san-antonio">San Antonio</a>
-              <a href="/fort-worth">Fort Worth</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">DFW Metro</span>
-              <a href="/plano">Plano</a>
-              <a href="/frisco">Frisco</a>
-              <a href="/irving">Irving</a>
-              <a href="/arlington">Arlington</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Houston Metro</span>
-              <a href="/sugar-land">Sugar Land</a>
-              <a href="/the-woodlands">The Woodlands</a>
-            </div>
-          </div>
-        </div>
-  
-        <a href="/installation" class="lsfs-link">Installation</a>
-        <a href="/gallery" class="lsfs-link">Gallery</a>
-        <a href="/blog" class="lsfs-link">Blog</a>
-        <a href="/pricing" class="lsfs-link">Pricing</a>
-        <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
-  
-      <!-- Mobile Hamburger -->
-      <button id="lsfs-hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-  
-  <!-- MOBILE MENU (separate from header) -->
-  <div id="lsfs-mobile-menu">
-    <button id="lsfs-close" aria-label="Close menu">&#215;</button>
-  
-    <a href="/" class="lsfs-mobile-link">Home</a>
-  
-    <!-- Products Section -->
-    <span class="lsfs-mobile-label">Products</span>
-    <span class="lsfs-mobile-subhead">Hedges</span>
-    <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
-    <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
-    <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
-    <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
-    <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-    <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
-    <span class="lsfs-mobile-subhead">Walls</span>
-    <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
-    <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
-    <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <!-- Locations Section -->
-    <span class="lsfs-mobile-label">Locations</span>
-    <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
-    <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
-    <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
-    <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
-    <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
-    <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
-    <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
-  
-    <a href="/installation" class="lsfs-mobile-link">Installation</a>
-    <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog" class="lsfs-mobile-link">Blog</a>
-    <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
-    <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
-  </div>
+
+      <!-- Locations Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Major Cities</span>
+            <a href="/dallas">Dallas</a>
+            <a href="/houston">Houston</a>
+            <a href="/austin">Austin</a>
+            <a href="/san-antonio">San Antonio</a>
+            <a href="/fort-worth">Fort Worth</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">DFW Metro</span>
+            <a href="/plano">Plano</a>
+            <a href="/frisco">Frisco</a>
+            <a href="/irving">Irving</a>
+            <a href="/arlington">Arlington</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Houston Metro</span>
+            <a href="/sugar-land">Sugar Land</a>
+            <a href="/the-woodlands">The Woodlands</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/installation" class="lsfs-link">Installation</a>
+      <a href="/gallery" class="lsfs-link">Gallery</a>
+      <a href="/blog" class="lsfs-link">Blog</a>
+      <a href="/pricing" class="lsfs-link">Pricing</a>
+      <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="lsfs-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE MENU (separate from header) -->
+<div id="lsfs-mobile-menu">
+  <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+
+  <a href="/" class="lsfs-mobile-link">Home</a>
+
+  <!-- Products Section -->
+  <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
+  <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+  <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+  <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
+  <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
+  <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
+  <!-- Locations Section -->
+  <span class="lsfs-mobile-label">Locations</span>
+  <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
+  <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
+  <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
+  <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
+  <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
+  <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
+  <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
+
+  <a href="/installation" class="lsfs-mobile-link">Installation</a>
+  <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
+  <a href="/blog" class="lsfs-mobile-link">Blog</a>
+  <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
+  <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+</div>
 
 <main>
     <section class="article-hero">
@@ -2089,7 +2227,7 @@
       <img src="/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png" alt="Firewise artificial hedges for multifamily properties: what property managers should actually look for" loading="eager">
     </div>
 
-    <article class="article-content">
+    <article class="article-content"> 
       
       <nav class="table-of-contents">
         <div class="toc-header">
@@ -2112,7 +2250,7 @@
         <li class="toc-sub"><a href="#do-fire-rated-panels-need-special-maintenance-to-k">Do fire-rated panels need special maintenance to keep their rating?</a></li>
         <li><a href="#related-articles">Related articles</a></li>
         </ol>
-      </nav>
+      </nav> 
       <p>If you manage a multifamily property, you’ve probably had this conversation on repeat: residents want more privacy and a nicer-looking courtyard, leasing wants something that looks good in photos, and ownership wants fewer headaches than real landscaping. Artificial hedges can solve a lot of that quickly.</p>
 <p>But there’s one piece you can’t gloss over: how it behaves in a fire—and whether you can prove what you installed.</p>
 <p>“Green wall” and “faux hedge” are marketing labels. Firewise decisions come down to what the product is made of, how it was tested, where it’s going, and what you can hand a city inspector or risk consultant without scrambling.</p>
@@ -2136,6 +2274,39 @@
 </ul>
 <p>So let’s get clear on what the labels do and don’t mean.</p>
 <h2 id="what-fire-rated-means-and-what-it-doesnt">What “fire-rated” means (and what it doesn’t)</h2>
+
+      <section class="article-support article-support--mid">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Planning a similar project?</p>
+          <h2>Use these next pages while you read</h2>
+          <p>They cover pricing, service details, and the next planning step without making you leave the article blind.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/fire-rated-artificial-hedge">
+              <span class="article-support__label">See fire-rated hedge options</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for lobbies, retail, hospitality, multifamily, and other commercial scopes.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial-resources">
+              <span class="article-support__label">Request fire-doc and spec help</span>
+              <span class="article-support__copy">Use the resource hub when you need documentation, sequencing, or submittal support.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
 <p>When a vendor says <em>fire-rated artificial hedges</em>, translate that into something you can verify.</p>
 <img src="/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png" alt="2026 02 03 firewise artificial hedges for multi family units image" loading="lazy" decoding="async">
 
@@ -2236,11 +2407,105 @@ This feels minor until someone power-washes the hedge with a degreaser and you�
 
 
 <img src="/images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png" alt="2026 02 03 firewise artificial hedges for multi family units image" loading="lazy" decoding="async">
+ 
 
-
-      <div class="article-tags">
-        <span class="tag">multifamily</span><span class="tag">fire-rated</span><span class="tag">artificial-hedges</span>
+      <div class="estimate-note">
+        <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
       </div>
+
+      
+      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
+        <div>
+          <p class="lsfs-cro-eyebrow">Need a next step?</p>
+          <h2 class="lsfs-cro-title">Need fire-rated options or documentation?</h2>
+          <p class="lsfs-cro-copy">Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.</p>
+          <div class="lsfs-cro-actions">
+            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request" data-lsfs-cta="blog_fire_docs">Request fire-doc info</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
+          </div>
+          <div class="lsfs-cro-context">
+            <span class="lsfs-cro-pill">Fast install planning</span><span class="lsfs-cro-pill">Texas-wide project coverage</span><span class="lsfs-cro-pill">Fire-rated options available</span>
+          </div>
+          <div class="lsfs-cro-links">
+            <a href="/commercial-resources" data-lsfs-cta="blog_commercial_resource_hub">Use the commercial resource hub</a>
+            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
+          </div>
+        </div>
+        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="Artificial hedge project" data-lsfs-location="" data-lsfs-button="Request Pricing"></div>
+      </div>
+  
+      
+      <section class="article-support article-support--end">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Ready for the next step?</p>
+          <h2>Use the page that fits your project best</h2>
+          <p>Pick the shortest path based on whether you need pricing, a service page, or a local planning page.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/fire-rated-artificial-hedge">
+              <span class="article-support__label">See fire-rated hedge options</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for lobbies, retail, hospitality, multifamily, and other commercial scopes.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial-resources">
+              <span class="article-support__label">Request fire-doc and spec help</span>
+              <span class="article-support__copy">Use the resource hub when you need documentation, sequencing, or submittal support.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+      
+      <section class="related-posts">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Keep reading</p>
+          <h2>Related guides</h2>
+          <p>These articles answer the next questions readers usually have after this topic.</p>
+        </div>
+        <div class="related-posts__grid">
+          
+            <a class="related-posts__card" href="/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>Fire-rated artificial greenery for Texas commercial properties: the complete guide</h3>
+              <p>A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/artificial-greenery-roi-for-multifamily-property-managers">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>Artificial greenery ROI for multifamily property managers</h3>
+              <p>A practical breakdown of the financial case for artificial hedges and living walls on multifamily properties in Texas—water savings, maintenance reduction, leasing impact, and what the numbers actually look like.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained</h3>
+              <p>A clear explanation of the two fire test standards most commonly applied to artificial hedges and living walls—what each one measures, how they differ, and which one your project needs.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
+      
+      <div class="article-tags"> 
+        <span class="tag">multifamily</span><span class="tag">fire-rated</span><span class="tag">artificial-hedges</span> 
+      </div> 
 
       <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
@@ -2256,53 +2521,37 @@ This feels minor until someone power-washes the hedge with a degreaser and you�
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Universal navbar JS
+  </script>
+  <script>
     (function() {
-      const header = document.getElementById('lsfs-header');
       const hamburger = document.getElementById('lsfs-hamburger');
       const mobileMenu = document.getElementById('lsfs-mobile-menu');
       const closeBtn = document.getElementById('lsfs-close');
       const mobileLinks = document.querySelectorAll('.lsfs-mobile-link');
 
-      let ticking = false;
-      function updateHeader() {
-        if (window.scrollY > 80) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-        ticking = false;
-      }
+      if (!hamburger || !mobileMenu || !closeBtn) return;
 
-      window.addEventListener('scroll', function() {
-        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
-      }, { passive: true });
-      updateHeader();
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      };
 
-      hamburger.addEventListener('click', function() {
+      hamburger.addEventListener('click', () => {
         mobileMenu.classList.add('open');
         document.body.style.overflow = 'hidden';
       });
 
-      function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      closeBtn.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
-      closeBtn.addEventListener('click', closeMobileMenu);
-      mobileLinks.forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-      });
-
-      // Highlight active link
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.lsfs-link, .lsfs-mobile-link').forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (href && (href.endsWith(currentPage) || href === '/' + currentPage)) {
-          link.style.color = '#4caf50';
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
         }
       });
     })();
   </script>
+  <script defer src="/nav.js"></script>
+  <script src="/cro.js"></script>
 </body>
 </html>

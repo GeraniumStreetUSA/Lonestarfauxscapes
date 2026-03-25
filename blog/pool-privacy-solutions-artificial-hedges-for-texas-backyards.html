@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pool privacy solutions: artificial hedges for Texas…</title>
   <meta name="description" content="A practical guide to using artificial hedges for pool privacy in Texas—code requirements, material considerations for chlorine and UV, installation…">
+  <meta name="robots" content="index, follow">
   <meta name="keywords" content="pool privacy artificial hedge, Texas pool fence, backyard privacy hedge, pool deck screening">
   <link rel="canonical" href="https://lonestarfauxscapes.com/blog/pool-privacy-solutions-artificial-hedges-for-texas-backyards">
 
@@ -68,7 +69,7 @@
       "name": "Will chlorine damage artificial hedges?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Quality polyethylene panels handle chlorine mist from pools without issue. The bigger concern is the film that builds up over time from a mix of chlorine, sunscreen, and dust. A periodic rinse with mild soap and water keeps the panels looking clean. Avoid leaving chemical concentrate in direct contact with the panels."
+        "text": "Pool areas add chlorine mist, sunscreen, and dust to nearby surfaces. Outdoor-rated hedge panels can still be a good fit there, but product quality and routine rinsing matter. Avoid leaving chemical concentrate in direct contact with the panels."
       }
     },
     {
@@ -1954,20 +1955,156 @@
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .tag {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .tag { 
+      padding: 0.4rem 0.8rem; 
+      border-radius: 999px; 
+      background: rgba(255,255,255,0.04); 
+      border: 1px solid rgba(255,255,255,0.08); 
+      color: #fff; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.02em; 
+    } 
+
+    .estimate-note {
+      margin-top: 2rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(76,175,80,0.24);
+      background: rgba(76,175,80,0.08);
+      color: rgba(245,245,245,0.9);
+      font-size: 0.92rem;
+    }
+    .estimate-note strong {
       color: #fff;
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
-    /* Back to Blog */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
+    .article-support {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+    .article-support--mid {
+      margin: 2.75rem 0;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+    }
+    .article-support__intro {
+      margin-bottom: 1.25rem;
+    }
+    .article-support__intro h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    .article-support__intro p {
+      margin: 0;
+      max-width: 62ch;
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+    }
+    .article-support__eyebrow {
+      margin-bottom: 0.5rem !important;
+      color: var(--color-accent) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem !important;
+      font-weight: 700;
+    }
+    .article-support__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    @media (min-width: 760px) {
+      .article-support__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .article-support__card {
+      display: block;
+      padding: 1rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,10,7,0.65);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .article-support__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(8,16,11,0.9);
+    }
+    .article-support__label {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .article-support__copy {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .related-posts {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .related-posts__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 760px) {
+      .related-posts__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .related-posts__card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .related-posts__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .related-posts__meta {
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .related-posts__card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .related-posts__card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.74);
+    }
+    .related-posts__cta {
+      margin-top: auto;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Back to Blog */ 
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
       gap: 0.5rem;
       margin-top: 2rem;
       padding: 0.75rem 1.25rem;
@@ -1995,117 +2132,118 @@
   </style>
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/navbar-universal.css">
+  <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
-      <!-- UNIVERSAL NAVBAR -->
-  <header id="lsfs-header">
-    <nav id="lsfs-nav">
-      <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
-  
-      <!-- Desktop Navigation -->
-      <div id="lsfs-desktop-links">
-        <a href="/" class="lsfs-link">Home</a>
-  
-        <!-- Products Dropdown -->
-              <div class="lsfs-dropdown">
-          <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Hedges</span>
-              <a href="/artificial-hedge">Artificial Hedge</a>
-              <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
-              <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
-              <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
-              <a href="/pool-privacy-hedge">Pool Privacy</a>
-              <a href="/vallum-frx">Vallum FRX</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Walls</span>
-              <a href="/living-wall">Living Wall</a>
-              <a href="/commercial-wall">Commercial Wall</a>
-              <a href="/fence-extensions">Fence Extensions</a>
-            </div>
+<!-- NAVBAR HTML -->
+<header id="lsfs-header">
+  <nav id="lsfs-nav">
+    <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
+    <div id="lsfs-desktop-links">
+      <a href="/" class="lsfs-link">Home</a>
+
+      <!-- Products Dropdown -->
+            <div class="lsfs-dropdown">
+        <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Hedges</span>
+            <a href="/artificial-hedge">Artificial Hedge</a>
+            <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
+            <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
+            <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
+            <a href="/pool-privacy-hedge">Pool Privacy</a>
+            <a href="/vallum-frx">Vallum FRX</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Walls</span>
+            <a href="/living-wall">Living Wall</a>
+            <a href="/commercial-wall">Commercial Wall</a>
+            <a href="/fence-extensions">Fence Extensions</a>
           </div>
         </div>
-  
-        <!-- Locations Dropdown -->
-        <div class="lsfs-dropdown">
-          <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Major Cities</span>
-              <a href="/dallas">Dallas</a>
-              <a href="/houston">Houston</a>
-              <a href="/austin">Austin</a>
-              <a href="/san-antonio">San Antonio</a>
-              <a href="/fort-worth">Fort Worth</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">DFW Metro</span>
-              <a href="/plano">Plano</a>
-              <a href="/frisco">Frisco</a>
-              <a href="/irving">Irving</a>
-              <a href="/arlington">Arlington</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Houston Metro</span>
-              <a href="/sugar-land">Sugar Land</a>
-              <a href="/the-woodlands">The Woodlands</a>
-            </div>
-          </div>
-        </div>
-  
-        <a href="/installation" class="lsfs-link">Installation</a>
-        <a href="/gallery" class="lsfs-link">Gallery</a>
-        <a href="/blog" class="lsfs-link">Blog</a>
-        <a href="/pricing" class="lsfs-link">Pricing</a>
-        <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
       </div>
-  
-      <!-- Mobile Hamburger -->
-      <button id="lsfs-hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-  
-  <!-- MOBILE MENU (separate from header) -->
-  <div id="lsfs-mobile-menu">
-    <button id="lsfs-close" aria-label="Close menu">&#215;</button>
-  
-    <a href="/" class="lsfs-mobile-link">Home</a>
-  
-    <!-- Products Section -->
-    <span class="lsfs-mobile-label">Products</span>
-    <span class="lsfs-mobile-subhead">Hedges</span>
-    <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
-    <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
-    <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
-    <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
-    <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-    <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
-    <span class="lsfs-mobile-subhead">Walls</span>
-    <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
-    <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
-    <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <!-- Locations Section -->
-    <span class="lsfs-mobile-label">Locations</span>
-    <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
-    <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
-    <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
-    <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
-    <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
-    <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
-    <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
-  
-    <a href="/installation" class="lsfs-mobile-link">Installation</a>
-    <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog" class="lsfs-mobile-link">Blog</a>
-    <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
-    <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
-  </div>
+
+      <!-- Locations Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Major Cities</span>
+            <a href="/dallas">Dallas</a>
+            <a href="/houston">Houston</a>
+            <a href="/austin">Austin</a>
+            <a href="/san-antonio">San Antonio</a>
+            <a href="/fort-worth">Fort Worth</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">DFW Metro</span>
+            <a href="/plano">Plano</a>
+            <a href="/frisco">Frisco</a>
+            <a href="/irving">Irving</a>
+            <a href="/arlington">Arlington</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Houston Metro</span>
+            <a href="/sugar-land">Sugar Land</a>
+            <a href="/the-woodlands">The Woodlands</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/installation" class="lsfs-link">Installation</a>
+      <a href="/gallery" class="lsfs-link">Gallery</a>
+      <a href="/blog" class="lsfs-link">Blog</a>
+      <a href="/pricing" class="lsfs-link">Pricing</a>
+      <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="lsfs-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE MENU (separate from header) -->
+<div id="lsfs-mobile-menu">
+  <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+
+  <a href="/" class="lsfs-mobile-link">Home</a>
+
+  <!-- Products Section -->
+  <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
+  <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+  <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+  <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
+  <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
+  <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
+  <!-- Locations Section -->
+  <span class="lsfs-mobile-label">Locations</span>
+  <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
+  <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
+  <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
+  <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
+  <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
+  <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
+  <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
+
+  <a href="/installation" class="lsfs-mobile-link">Installation</a>
+  <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
+  <a href="/blog" class="lsfs-mobile-link">Blog</a>
+  <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
+  <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+</div>
 
 <main>
     <section class="article-hero">
@@ -2129,7 +2267,7 @@
       <img src="/images/blog/pool-privacy/pool-privacy-07.webp" alt="Pool privacy solutions: artificial hedges for Texas backyards" loading="eager">
     </div>
 
-    <article class="article-content">
+    <article class="article-content"> 
       
       <nav class="table-of-contents">
         <div class="toc-header">
@@ -2158,7 +2296,7 @@
         <li class="toc-sub"><a href="#do-artificial-hedges-attract-mosquitoes-near-pools">Do artificial hedges attract mosquitoes near pools?</a></li>
         <li><a href="#references">References</a></li>
         </ol>
-      </nav>
+      </nav> 
       <p>Pool privacy is one of the most common reasons Texas homeowners look into artificial hedges. The backyard pool is supposed to be a retreat, but between close neighbors, two-story houses, and fences that top out at six feet, the privacy often isn&#39;t there.</p>
 <p>Real hedges around pools come with a long list of problems: leaves in the water, root systems that can damage pool plumbing, insects, constant watering during months when the pool is in daily use, and the reality that anything planted next to a pool deck gets hammered by reflected UV and chlorine mist. Most live hedges don&#39;t hold up.</p>
 <p>Artificial hedges solve the privacy problem instantly—full coverage on day one, no debris in the water, and no irrigation. But there are specific considerations for pool installations that don&#39;t apply to a standard fence-line hedge. This guide covers what you need to know.</p>
@@ -2177,6 +2315,39 @@
 <p>Texas cities adopt these codes with local amendments, so requirements may vary. Check with your city&#39;s building inspection department for the exact standards in your jurisdiction.</p>
 <p><strong>The key point:</strong> your pool fence must meet barrier code requirements on its own. Artificial hedge panels are a <strong>privacy enhancement added to a compliant fence</strong>, not a replacement for the fence itself.</p>
 <h2 id="why-artificial-hedges-work-well-around-pools">Why artificial hedges work well around pools</h2>
+
+      <section class="article-support article-support--mid">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Planning a similar project?</p>
+          <h2>Use these next pages while you read</h2>
+          <p>They cover pricing, service details, and the next planning step without making you leave the article blind.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/pool-privacy-hedge">
+              <span class="article-support__label">See pool privacy screens</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
 <p>Once the fence is handled, the privacy screening conversation becomes simpler. Here&#39;s why artificial hedges are a natural fit for pool areas:</p>
 <img src="/images/blog/pool-privacy/pool-privacy-10.webp" alt="pool privacy 10" loading="lazy" decoding="async">
 
@@ -2236,7 +2407,7 @@
 <h3 id="can-artificial-hedges-serve-as-a-pool-barrier-fenc">Can artificial hedges serve as a pool barrier fence in Texas?</h3>
 <p>Artificial hedge panels alone typically do not meet pool barrier code requirements because they may not provide the structural rigidity, climb resistance, and gate latching that building codes require. However, artificial hedges can be added to an existing code-compliant fence to increase privacy and improve appearance. The underlying fence structure must still meet all applicable barrier requirements.</p>
 <h3 id="will-chlorine-damage-artificial-hedges">Will chlorine damage artificial hedges?</h3>
-<p>Quality polyethylene panels handle chlorine mist from pools without issue. The bigger concern is the film that builds up over time from a mix of chlorine, sunscreen, and dust. A periodic rinse with mild soap and water keeps the panels looking clean. Avoid leaving chemical concentrate in direct contact with the panels.</p>
+<p>Pool areas add chlorine mist, sunscreen, and dust to nearby surfaces. Outdoor-rated hedge panels can still be a good fit there, but product quality and routine rinsing matter. Avoid leaving chemical concentrate in direct contact with the panels.</p>
 <h3 id="how-close-to-the-pool-can-i-install-artificial-hed">How close to the pool can I install artificial hedges?</h3>
 <p>There is no specific setback requirement for decorative elements near pools, but keep panels far enough away that they do not interfere with pool circulation, equipment access, or the required pool barrier. A few feet of clearance between the hedge and the water&#39;s edge also makes cleaning easier.</p>
 <h3 id="do-artificial-hedges-attract-mosquitoes-near-pools">Do artificial hedges attract mosquitoes near pools?</h3>
@@ -2246,11 +2417,105 @@
 <li>International Residential Code, Chapter 42 (Swimming Pools): <a href="https://codes.iccsafe.org/content/IRC2018/chapter-42-swimming-pools">https://codes.iccsafe.org/content/IRC2018/chapter-42-swimming-pools</a></li>
 <li>EPA Mosquito Control: <a href="https://www.epa.gov/mosquitocontrol">https://www.epa.gov/mosquitocontrol</a></li>
 </ul>
+ 
 
-
-      <div class="article-tags">
-        <span class="tag">pool privacy artificial hedge</span><span class="tag">Texas pool fence</span><span class="tag">backyard privacy hedge</span><span class="tag">pool deck screening</span>
+      <div class="estimate-note">
+        <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
       </div>
+
+      
+      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
+        <div>
+          <p class="lsfs-cro-eyebrow">Need a next step?</p>
+          <h2 class="lsfs-cro-title">Need fire-rated options or documentation?</h2>
+          <p class="lsfs-cro-copy">Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.</p>
+          <div class="lsfs-cro-actions">
+            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request" data-lsfs-cta="blog_fire_docs">Request fire-doc info</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
+          </div>
+          <div class="lsfs-cro-context">
+            <span class="lsfs-cro-pill">Fast install planning</span><span class="lsfs-cro-pill">Texas-wide project coverage</span><span class="lsfs-cro-pill">Fire-rated options available</span>
+          </div>
+          <div class="lsfs-cro-links">
+            
+            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
+          </div>
+        </div>
+        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="Artificial hedge project" data-lsfs-location="" data-lsfs-button="Request Pricing"></div>
+      </div>
+  
+      
+      <section class="article-support article-support--end">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Ready for the next step?</p>
+          <h2>Use the page that fits your project best</h2>
+          <p>Pick the shortest path based on whether you need pricing, a service page, or a local planning page.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/pool-privacy-hedge">
+              <span class="article-support__label">See pool privacy screens</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+      
+      <section class="related-posts">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Keep reading</p>
+          <h2>Related guides</h2>
+          <p>These articles answer the next questions readers usually have after this topic.</p>
+        </div>
+        <div class="related-posts__grid">
+          
+            <a class="related-posts__card" href="/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>How to get HOA approval for artificial hedges in Texas</h3>
+              <p>A step-by-step guide for Texas homeowners navigating HOA architectural review for artificial hedge installations—what the law says, what to submit, and how to handle pushback.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/2025-12-11-artificial-vs-real-boxwood-texas">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>Artificial vs. Real Boxwood in Texas: Water, Maintenance, and Long-Term Value</h3>
+              <p>Weighing artificial fire resistant boxwood hedges against real plants? Explore drought tolerance, maintenance, and long-term value for Texas properties.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/artificial-greenery-roi-for-multifamily-property-managers">
+              <span class="related-posts__meta">Commercial planning</span>
+              <h3>Artificial greenery ROI for multifamily property managers</h3>
+              <p>A practical breakdown of the financial case for artificial hedges and living walls on multifamily properties in Texas—water savings, maintenance reduction, leasing impact, and what the numbers actually look like.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
+      
+      <div class="article-tags"> 
+        <span class="tag">pool privacy artificial hedge</span><span class="tag">Texas pool fence</span><span class="tag">backyard privacy hedge</span><span class="tag">pool deck screening</span> 
+      </div> 
 
       <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
@@ -2266,53 +2531,37 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Universal navbar JS
+  </script>
+  <script>
     (function() {
-      const header = document.getElementById('lsfs-header');
       const hamburger = document.getElementById('lsfs-hamburger');
       const mobileMenu = document.getElementById('lsfs-mobile-menu');
       const closeBtn = document.getElementById('lsfs-close');
       const mobileLinks = document.querySelectorAll('.lsfs-mobile-link');
 
-      let ticking = false;
-      function updateHeader() {
-        if (window.scrollY > 80) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-        ticking = false;
-      }
+      if (!hamburger || !mobileMenu || !closeBtn) return;
 
-      window.addEventListener('scroll', function() {
-        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
-      }, { passive: true });
-      updateHeader();
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      };
 
-      hamburger.addEventListener('click', function() {
+      hamburger.addEventListener('click', () => {
         mobileMenu.classList.add('open');
         document.body.style.overflow = 'hidden';
       });
 
-      function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      closeBtn.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
-      closeBtn.addEventListener('click', closeMobileMenu);
-      mobileLinks.forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-      });
-
-      // Highlight active link
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.lsfs-link, .lsfs-mobile-link').forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (href && (href.endsWith(currentPage) || href === '/' + currentPage)) {
-          link.style.color = '#4caf50';
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
         }
       });
     })();
   </script>
+  <script defer src="/nav.js"></script>
+  <script src="/cro.js"></script>
 </body>
 </html>

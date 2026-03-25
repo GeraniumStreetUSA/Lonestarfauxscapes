@@ -1,22 +1,44 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { SITEMAP_EXCLUDED_STATIC_PAGES } from '../config/indexing-rules.js';
+import {
+  buildCanonicalUrl,
+  normalizeRoutePath,
+  resolveCanonicalValue,
+  resolveRobotsDirective,
+  routeFromFilename,
+  shouldIncludeGeneratedRouteInSitemap,
+  shouldIncludeStaticRouteInSitemap,
+} from '../seo/foundation.js';
 
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const ALLOW_INDEXING = process.env.ALLOW_INDEXING !== 'false';
 const CONTENT_DIR = './content/blog';
+const CASE_STUDIES_CONTENT_DIR = './content/case-studies';
 const POSTS_JSON = './content/posts.json';
 const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
-const EXCLUDED_STATIC_PAGES = new Set([
-  '404.html',
-  'hero-backup.html',
-  'lighthouse-report.html',
-  'navbar-component.html',
-  'navbar-universal.html',
-  'privacy.html',
-  'roadmap.html',
-  'terms.html',
-]);
+const EXCLUDED_STATIC_PAGES = new Set(SITEMAP_EXCLUDED_STATIC_PAGES);
+
+const resolveContentRobots = (frontmatter) =>
+  resolveRobotsDirective(frontmatter?.robots, {
+    noindex: frontmatter?.noindex === true,
+  });
+
+const shouldIncludeContentEntry = ({ routePath, frontmatter }) =>
+  shouldIncludeGeneratedRouteInSitemap(routePath, {
+    robots: resolveContentRobots(frontmatter),
+    noindex: frontmatter?.noindex === true,
+    canonical: frontmatter?.canonical,
+  });
+
+const getStaticPagePriority = (routePath) => {
+  const route = normalizeRoutePath(routePath);
+  if (route === '/') return '1.0';
+  if (route === '/products' || route === '/locations') return '0.9';
+  if (route === '/blog' || route === '/case-studies') return '0.8';
+  return '0.8';
+};
 
 const sanitizeFrontmatterSlug = (value) => {
   if (typeof value !== 'string') return '';
@@ -92,6 +114,15 @@ function generateSitemap() {
     .filter(f => f.endsWith('.html') && !f.includes('backup'))
     // Not public pages (or should never be indexed)
     .filter(f => !EXCLUDED_STATIC_PAGES.has(f));
+  const staticPages = staticHtmlFiles
+    .map(file => {
+      const route = routeFromFilename(path.resolve(file));
+      return {
+        file,
+        route,
+      };
+    })
+    .filter(page => shouldIncludeStaticRouteInSitemap(page.route));
 
   // Build blog post URLs directly from markdown to avoid stale posts.json.
   let blogPosts = [];
@@ -113,17 +144,61 @@ function generateSitemap() {
           });
           const dateKey = toIsoDateKey(data.date || fs.statSync(fullPath).mtime);
           const isPublished = !isDraft && dateKey <= todayIsoDate;
+          const routePath = `/blog/${slug}`;
 
           return {
             slug,
             date: dateKey,
             isPublished,
+            updated: toIsoDateKey(data.updated || data.date || fs.statSync(fullPath).mtime),
+            includeInSitemap: shouldIncludeContentEntry({
+              routePath,
+              frontmatter: data,
+            }),
+            canonical: resolveCanonicalValue(data.canonical, routePath),
           };
         })
-        .filter(post => post.isPublished)
+        .filter(post => post.isPublished && post.includeInSitemap)
         .sort((a, b) => b.date.localeCompare(a.date));
     } catch (e) {
       console.log('No blog posts found');
+    }
+  }
+
+  // Build case study URLs directly from markdown source.
+  let caseStudies = [];
+  if (fs.existsSync(CASE_STUDIES_CONTENT_DIR)) {
+    try {
+      caseStudies = fs
+        .readdirSync(CASE_STUDIES_CONTENT_DIR)
+        .filter(file => file.endsWith('.md') && !file.startsWith('_'))
+        .map(file => {
+          const fullPath = path.join(CASE_STUDIES_CONTENT_DIR, file);
+          const raw = fs.readFileSync(fullPath, 'utf-8');
+          const { data } = matter(raw);
+          const isDraft = data.draft === true || data.published === false;
+          const fileSlug = file.replace(/\.md$/, '');
+          const slug = sanitizeFrontmatterSlug(data.slug) || fileSlug;
+          const dateKey = toIsoDateKey(data.date || fs.statSync(fullPath).mtime);
+          const isPublished = !isDraft && dateKey <= todayIsoDate;
+          const routePath = `/case-studies/${slug}`;
+
+          return {
+            slug,
+            date: dateKey,
+            isPublished,
+            updated: toIsoDateKey(data.updated || data.date || fs.statSync(fullPath).mtime),
+            includeInSitemap: shouldIncludeContentEntry({
+              routePath,
+              frontmatter: data,
+            }),
+            canonical: resolveCanonicalValue(data.canonical, routePath),
+          };
+        })
+        .filter(entry => entry.isPublished && entry.slug && entry.includeInSitemap)
+        .sort((a, b) => b.date.localeCompare(a.date));
+    } catch (e) {
+      console.log('No case studies found');
     }
   }
 
@@ -135,11 +210,10 @@ function generateSitemap() {
 `;
 
   // Add static pages
-  for (const file of staticHtmlFiles) {
-    const pageKey = file.replace('.html', '');
-    const url = file === 'index.html' ? `${SITE_URL}/` : `${SITE_URL}/${pageKey}`;
-    const priority = pageKey === 'index' ? '1.0' : pageKey === 'products' ? '0.9' : '0.8';
-    const lastmod = isoDateOnly(fs.statSync(path.resolve(file)).mtime);
+  for (const page of staticPages) {
+    const url = buildCanonicalUrl(page.route);
+    const priority = getStaticPagePriority(page.route);
+    const lastmod = isoDateOnly(fs.statSync(path.resolve(page.file)).mtime);
     sitemap += `  <url>
     <loc>${url}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -155,10 +229,27 @@ function generateSitemap() {
   <!-- Blog Posts -->
 `;
     for (const post of blogPosts) {
-      const postDate = new Date(post.date).toISOString().split('T')[0];
+      const postDate = new Date(post.updated || post.date).toISOString().split('T')[0];
       sitemap += `  <url>
-    <loc>${SITE_URL}/blog/${post.slug}</loc>
+    <loc>${post.canonical}</loc>
     <lastmod>${postDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+`;
+    }
+  }
+
+  // Add case studies
+  if (caseStudies.length > 0) {
+    sitemap += `
+  <!-- Case Studies -->
+`;
+    for (const study of caseStudies) {
+      const studyDate = new Date(study.updated || study.date).toISOString().split('T')[0];
+      sitemap += `  <url>
+    <loc>${study.canonical}</loc>
+    <lastmod>${studyDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

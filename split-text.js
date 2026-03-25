@@ -1,29 +1,34 @@
 /**
  * Split Text Hero Animation
- * Letter-by-letter reveal for hero headlines
- * DESKTOP ONLY - transforms cause scroll jank on mobile
+ *
+ * Launch-safe default:
+ * this effect is opt-in only because letter-by-letter DOM transforms can
+ * compromise readability on long headlines, city pages, and generated content.
+ *
+ * To enable the effect on a specific heading, add:
+ *   data-split-text="letters"
  */
-(function() {
-  // Skip on mobile - transforms cause scroll jank
-  const isMobile = window.innerWidth < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+(function () {
+  const isMobile =
+    window.innerWidth < 992 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
   if (isMobile) return;
 
-  // Respect reduced motion preference
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Only target simple hero h1 elements, not the homepage hero-content which has its own GSAP animation
-  const heroHeadings = document.querySelectorAll('.hero h1');
+  const heroHeadings = document.querySelectorAll('.hero h1[data-split-text="letters"]');
+  if (!heroHeadings.length) return;
 
-  // Skip if this is the homepage (has hero-content with WebGL)
-  if (document.querySelector('.hero-content h1')) return;
+  heroHeadings.forEach((heading) => {
+    const text = heading.textContent || '';
+    if (!text.trim()) return;
 
-  heroHeadings.forEach(heading => {
-    const text = heading.textContent;
     heading.innerHTML = '';
     heading.style.opacity = '1';
 
-    // Split into words, then letters
-    const words = text.split(' ');
+    const words = text.split(/\s+/);
 
     words.forEach((word, wordIndex) => {
       const wordSpan = document.createElement('span');
@@ -35,33 +40,24 @@
         span.textContent = letter;
         span.style.display = 'inline-block';
         span.style.opacity = '0';
-        span.style.transform = 'translateY(40px) rotateX(-20deg)';
-        span.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
-
-        // Stagger delay based on position
-        const delay = (wordIndex * 3 + letterIndex) * 30;
-        span.style.transitionDelay = `${delay}ms`;
-
+        span.style.transform = 'translateY(24px)';
+        span.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        span.style.transitionDelay = `${(wordIndex * 3 + letterIndex) * 24}ms`;
         wordSpan.appendChild(span);
       });
 
       heading.appendChild(wordSpan);
 
-      // Add space between words
       if (wordIndex < words.length - 1) {
-        const space = document.createElement('span');
-        space.innerHTML = '&nbsp;';
-        space.style.display = 'inline-block';
-        heading.appendChild(space);
+        heading.appendChild(document.createTextNode(' '));
       }
     });
 
-    // Trigger animation after small delay
-    setTimeout(() => {
-      heading.querySelectorAll('span > span').forEach(span => {
+    window.setTimeout(() => {
+      heading.querySelectorAll('span > span').forEach((span) => {
         span.style.opacity = '1';
-        span.style.transform = 'translateY(0) rotateX(0)';
+        span.style.transform = 'translateY(0)';
       });
-    }, 100);
+    }, 80);
   });
 })();

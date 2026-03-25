@@ -17,7 +17,7 @@ faq:
   - question: "Will HOA rules allow faux plants?"
     answer: "Texas HOAs often regulate “visible artificial elements.” Check covenants for terms like “natural landscaping only.” Commercial properties face fewer restrictions. When dealing with HOAs, provide samples demonstrating the realism of modern faux plants. Some boards may grant exceptions for high-quality installations that enhance property values."
   - question: "What’s the lifespan of a quality faux wall?"
-    answer: "7–10 years outdoors with UV-protected materials. Indoors, 15+ years is common before fading becomes noticeable. Lifespan depends on material quality, sun exposure, and maintenance. Some commercial-grade products come with fading warranties guaranteeing performance for specific periods."
+    answer: "Outdoor longevity depends on material quality, sun exposure, placement, and maintenance. Indoor installations usually hold their appearance longer because they avoid direct UV exposure. Some commercial-grade products also come with product-specific warranty coverage."
   - question: "Do faux green walls require special installation?"
     answer: "Yes. Proper framing and waterproof backing are critical, especially outdoors. Improper installation can lead to sagging or water damage behind the panels. Professional installers use aircraft-grade aluminum frames and moisture barriers to ensure longevity. DIY installations often fail within months due to inadequate support systems."
   - question: "Can faux walls be repaired if damaged?"
@@ -119,7 +119,7 @@ Compressed air for dust, or a mild soap solution for sticky residues. Avoid pres
 Texas HOAs often regulate “visible artificial elements.” Check covenants for terms like “natural landscaping only.” Commercial properties face fewer restrictions. When dealing with HOAs, provide samples demonstrating the realism of modern faux plants. Some boards may grant exceptions for high-quality installations that enhance property values.  
 
 ### What’s the lifespan of a quality faux wall?  
-7–10 years outdoors with UV-protected materials. Indoors, 15+ years is common before fading becomes noticeable. Lifespan depends on material quality, sun exposure, and maintenance. Some commercial-grade products come with fading warranties guaranteeing performance for specific periods.  
+Outdoor longevity depends on material quality, sun exposure, placement, and maintenance. Indoor installations usually hold their appearance longer because they avoid direct UV exposure. Some commercial-grade products also come with product-specific warranty coverage.
 
 ### Do faux green walls require special installation?  
 Yes. Proper framing and waterproof backing are critical, especially outdoors. Improper installation can lead to sagging or water damage behind the panels. Professional installers use aircraft-grade aluminum frames and moisture barriers to ensure longevity. DIY installations often fail within months due to inadequate support systems.  

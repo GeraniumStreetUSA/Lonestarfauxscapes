@@ -1,3 +1,7 @@
+const NOINDEX_HEADERS = {
+  'X-Robots-Tag': 'noindex, nofollow',
+};
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -19,6 +23,7 @@ function htmlResponse(html, { status = 200, headers = {} } = {}) {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
       'Cache-Control': 'no-store',
+      ...NOINDEX_HEADERS,
       ...headers,
     },
   });
@@ -200,4 +205,3 @@ export function onRequestGet() {
     { status: 404 },
   );
 }
-

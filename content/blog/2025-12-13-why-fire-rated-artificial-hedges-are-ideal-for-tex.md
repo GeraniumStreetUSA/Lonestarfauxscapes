@@ -12,7 +12,7 @@ faq:
   - question: "Do fire rated hedges look cheap?"
     answer: "Not the high-end ones. Premium artificial hedges use varied leaf patterns and color gradients to mimic real plants. Up close, you might see the difference—but from a neighbor’s balcony or street view, they’re indistinguishable."
   - question: "How long do they last outdoors?"
-    answer: "Expect 7–10 years in Texas weather if they’re UV-treated. Cheaper options might fade or crack in 2–3 years."
+    answer: "Outdoor longevity depends on the product, UV treatment, exposure, and maintenance. Higher-quality materials generally hold up better than cheaper imports."
   - question: "Can I install them myself?"
     answer: "Yes, if you’re comfortable drilling into balcony rails. For rentals or complex layouts, professional installation ensures compliance with building codes."
   - question: "Will they blow away?"
@@ -97,7 +97,7 @@ Spacing matters too. Leave a 1-inch gap between panels and walls to prevent heat
 Not the high-end ones. Premium artificial hedges use varied leaf patterns and color gradients to mimic real plants. Up close, you might see the difference—but from a neighbor’s balcony or street view, they’re indistinguishable.  
 
 ### How long do they last outdoors?  
-Expect 7–10 years in Texas weather if they’re UV-treated. Cheaper options might fade or crack in 2–3 years.  
+Outdoor longevity depends on the product, UV treatment, exposure, and maintenance. Higher-quality materials generally hold up better than cheaper imports.
 
 ### Can I install them myself?  
 Yes, if you’re comfortable drilling into balcony rails. For rentals or complex layouts, professional installation ensures compliance with building codes.  

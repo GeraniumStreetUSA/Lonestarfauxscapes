@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal audit/report exports
+lighthouse-report.html
+lighthouse-report.json
+lh-scores.json

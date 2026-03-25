@@ -19,7 +19,7 @@ faq:
   - question: "Can artificial living walls pass a health inspection?"
     answer: "Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests—which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this."
   - question: "How long do artificial living walls last on a restaurant patio?"
-    answer: "Outdoors in Texas with UV-stabilized panels, 7 to 10 years is a reasonable expectation depending on sun exposure and maintenance. Indoor installations last longer because they are not exposed to UV. Near kitchens, more frequent cleaning extends the life and appearance of the wall."
+    answer: "Outdoors in Texas, lifespan depends on sun exposure, product quality, and maintenance. Indoor installations usually hold appearance longer because they avoid direct UV exposure. Near kitchens, more frequent cleaning helps preserve the wall."
 ---
 
 Texas restaurant patios run most of the year. In Austin, San Antonio, Houston, and Dallas, outdoor dining isn't seasonal—it's the default for a large share of the calendar. And for most restaurants, the patio is where the photos happen, where the ambiance matters most, and where the competition for a customer's attention plays out.
@@ -156,7 +156,7 @@ Grease and smoke create a film on artificial foliage over time, especially on wa
 Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests—which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this.
 
 ### How long do artificial living walls last on a restaurant patio?
-Outdoors in Texas with UV-stabilized panels, 7 to 10 years is a reasonable expectation depending on sun exposure and maintenance. Indoor installations last longer because they are not exposed to UV. Near kitchens, more frequent cleaning extends the life and appearance of the wall.
+Outdoors in Texas, lifespan depends on sun exposure, product quality, and maintenance. Indoor installations usually hold appearance longer because they avoid direct UV exposure. Near kitchens, more frequent cleaning helps preserve the wall.
 
 ## References
 - International Code Council (IBC): https://www.iccsafe.org/

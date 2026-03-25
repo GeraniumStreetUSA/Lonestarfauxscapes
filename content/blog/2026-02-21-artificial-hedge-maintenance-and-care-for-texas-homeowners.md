@@ -61,7 +61,7 @@ If dust and grime have built up beyond what a hose rinse handles—or if you're 
 
 ### Cleaning near pools
 
-Pool-adjacent hedges collect a film from chlorine mist, sunscreen, body oils, and airborne dust. This film doesn't damage quality polyethylene panels, but it dulls the color and makes the foliage look flat.
+Pool-adjacent hedges collect a film from chlorine mist, sunscreen, body oils, and airborne dust. On many outdoor-rated panels, that buildup affects appearance more than anything else, but product quality varies and routine cleaning still matters.
 
 Clean pool-area hedges **monthly** during swimming season. The soap-and-water method above handles the buildup. If you stay on top of it, the film never gets heavy enough to be a problem.
 

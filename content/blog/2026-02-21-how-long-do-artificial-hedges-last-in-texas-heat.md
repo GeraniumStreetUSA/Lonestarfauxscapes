@@ -12,7 +12,7 @@ tags:
 draft: false
 faq:
   - question: "How many years do artificial hedges last outdoors in Texas?"
-    answer: "Quality UV-stabilized artificial hedges typically maintain their appearance for 7 to 10 years in Texas outdoor conditions. Lifespan depends primarily on sun exposure—a north-facing fence line lasts longer than a west-facing wall in direct afternoon sun. Material quality, mounting method, and basic maintenance also affect how long the panels look good."
+    answer: "Quality UV-stabilized artificial hedges can hold their appearance for years in Texas outdoor conditions. Lifespan depends primarily on sun exposure, material quality, mounting method, and basic maintenance."
   - question: "Do artificial hedges fade in the sun?"
     answer: "All artificial greenery will experience some degree of color shift over years of direct UV exposure. UV-stabilized polyethylene panels resist fading significantly longer than unstabilized or PVC-based products. The rate of fading depends on the intensity and duration of sun exposure, which is why placement and material quality matter so much in Texas."
   - question: "Can you replace individual panels instead of the whole hedge?"
@@ -23,7 +23,7 @@ faq:
 
 It's the first question most Texas homeowners ask before buying artificial hedges: how long will they actually last? And it's a fair question, because Texas isn't gentle on anything you put outside. The UV exposure here is aggressive, the heat is relentless for months at a time, and the temperature swings between seasons stress every material differently.
 
-The short answer: a quality UV-stabilized artificial hedge installed in Texas typically holds its appearance for **7 to 10 years** outdoors. Some last longer. Some don't make it that far. The difference comes down to four things: the material, the UV treatment, where you put it, and whether you do basic maintenance.
+The short answer: a quality UV-stabilized artificial hedge installed in Texas can hold its appearance for years outdoors, but the result varies with sun exposure, product quality, placement, and maintenance. The difference comes down to four things: the material, the UV treatment, where you put it, and whether you do basic maintenance.
 
 This article breaks down each factor so you know what to expect—and what to look for when choosing a product.
 
@@ -149,7 +149,7 @@ For product options, see our [artificial hedge page](/artificial-hedge) or [UV-r
 ## FAQ
 
 ### How many years do artificial hedges last outdoors in Texas?
-Quality UV-stabilized artificial hedges typically maintain their appearance for 7 to 10 years in Texas outdoor conditions. Lifespan depends primarily on sun exposure—a north-facing fence line lasts longer than a west-facing wall in direct afternoon sun. Material quality, mounting method, and basic maintenance also affect how long the panels look good.
+Quality UV-stabilized artificial hedges can hold their appearance for years in Texas outdoor conditions. Lifespan depends primarily on sun exposure, material quality, mounting method, and basic maintenance.
 
 ### Do artificial hedges fade in the sun?
 All artificial greenery will experience some degree of color shift over years of direct UV exposure. UV-stabilized polyethylene panels resist fading significantly longer than unstabilized or PVC-based products. The rate of fading depends on the intensity and duration of sun exposure, which is why placement and material quality matter so much in Texas.

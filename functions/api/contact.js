@@ -1,4 +1,7 @@
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NOINDEX_HEADERS = {
+  'X-Robots-Tag': 'noindex, nofollow',
+};
 
 function jsonResponse(body, { status = 200, headers = {} } = {}) {
   return new Response(JSON.stringify(body), {
@@ -6,6 +9,7 @@ function jsonResponse(body, { status = 200, headers = {} } = {}) {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store',
+      ...NOINDEX_HEADERS,
       ...headers,
     },
   });
@@ -17,12 +21,22 @@ function normalizeText(value, { maxLength }) {
   return text.length > maxLength ? text.slice(0, maxLength) : text;
 }
 
+function buildLocalPreviewOrigins() {
+  const hosts = ['http://localhost', 'http://127.0.0.1'];
+  const ports = [3000, 5173];
+
+  for (let port = 4173; port <= 4190; port += 1) {
+    ports.push(port);
+  }
+
+  return hosts.flatMap(origin => ports.map(port => `${origin}:${port}`));
+}
+
 function parseAllowedOrigins(env) {
   const fallback = [
     'https://lonestarfauxscapes.com',
     'https://www.lonestarfauxscapes.com',
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
+    ...buildLocalPreviewOrigins(),
   ];
 
   const raw = typeof env.ALLOWED_ORIGINS === 'string' ? env.ALLOWED_ORIGINS : '';
@@ -81,12 +95,16 @@ export function onRequestOptions({ request, env }) {
   const cors = corsHeadersForRequest(request, allowedOrigins);
 
   if (cors.__corsDenied) {
-    return new Response(null, { status: 403 });
+    return new Response(null, {
+      status: 403,
+      headers: NOINDEX_HEADERS,
+    });
   }
 
   return new Response(null, {
     status: 204,
     headers: {
+      ...NOINDEX_HEADERS,
       ...cors,
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
@@ -127,6 +145,7 @@ export async function onRequestPost({ request, env }) {
   const name = normalizeText(payload?.name, { maxLength: 80 });
   const email = normalizeText(payload?.email, { maxLength: 254 });
   const phone = normalizeText(payload?.phone, { maxLength: 40 });
+  const location = normalizeText(payload?.location, { maxLength: 200 });
   const service = normalizeText(payload?.service, { maxLength: 120 });
   const message = normalizeText(payload?.message, { maxLength: 5000 });
   const turnstileToken = normalizeText(payload?.turnstileToken, { maxLength: 2048 });
@@ -155,6 +174,7 @@ New contact form submission from Lone Star Faux Scapes website:
 Name: ${name}
 Email: ${email}
 Phone: ${phone || 'Not provided'}
+Project Location: ${location || 'Not provided'}
 Service Interest: ${service || 'Not specified'}
 
 Message:
@@ -199,4 +219,3 @@ Referer: ${referer}
 
   return jsonResponse({ success: true, message: 'Message sent successfully!' }, { headers: cors });
 }
-

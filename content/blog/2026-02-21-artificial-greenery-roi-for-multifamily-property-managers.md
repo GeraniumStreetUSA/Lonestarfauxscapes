@@ -15,7 +15,7 @@ faq:
   - question: "How much water do artificial hedges save on a multifamily property?"
     answer: "Artificial hedges use zero water. According to the EPA, outdoor water use accounts for roughly 30 percent of residential consumption nationally, and that share can reach 60 percent in arid and semi-arid climates. On a multifamily property where hedges, shrubs, and accent plantings require regular irrigation, the water savings from switching those areas to artificial greenery depends on the size of the planted area, the irrigation schedule, and local water rates."
   - question: "What is the lifespan of artificial greenery on a multifamily property?"
-    answer: "Indoors, quality artificial greenery can last well over a decade. Outdoors in Texas, UV-stabilized products typically maintain their appearance for 7 to 10 years depending on sun exposure and placement. That compares favorably to live plants that often need partial or full replacement after freezes, drought, or seasonal die-off."
+    answer: "Indoors, quality artificial greenery can hold its appearance for many years. Outdoors in Texas, performance depends on sun exposure, placement, product quality, and maintenance. That still compares favorably to live plants that often need partial or full replacement after freezes, drought, or seasonal die-off."
   - question: "Do artificial hedges improve occupancy or leasing?"
     answer: "There is no published study isolating artificial hedges as a leasing driver. However, the National Apartment Association consistently identifies curb appeal and amenity appearance as factors in prospect decision-making. Artificial greenery provides consistent year-round appearance regardless of season, drought, or freeze events—which eliminates the seasonal dips in curb appeal that affect live landscaping in Texas."
   - question: "Are artificial hedges a capital expense or operating expense?"
@@ -56,7 +56,7 @@ This is the cost category that often gets underestimated in live landscaping bud
 
 **Seasonal die-off.** Some accent plantings are seasonal by nature. Properties that install seasonal color beds or tender perennials budget for replacement two to four times per year.
 
-Artificial greenery doesn't freeze, doesn't drought-stress, and doesn't need seasonal replacement. A quality UV-stabilized installation lasts 7 to 10 years outdoors in Texas depending on sun exposure, with no interim replacement cost.
+Artificial greenery doesn't freeze, doesn't drought-stress, and doesn't need seasonal replacement. A quality UV-stabilized installation can hold its appearance for years outdoors in Texas, depending on sun exposure, placement, and maintenance, without the recurring replacement cycle of live plants.
 
 ### Pest and chemical treatment
 
@@ -140,7 +140,7 @@ For product options, see our [fire-rated artificial hedge page](/fire-rated-arti
 Artificial hedges use zero water. According to the EPA, outdoor water use accounts for roughly 30 percent of residential consumption nationally, and that share can reach 60 percent in arid and semi-arid climates. On a multifamily property where hedges, shrubs, and accent plantings require regular irrigation, the water savings from switching those areas to artificial greenery depends on the size of the planted area, the irrigation schedule, and local water rates.
 
 ### What is the lifespan of artificial greenery on a multifamily property?
-Indoors, quality artificial greenery can last well over a decade. Outdoors in Texas, UV-stabilized products typically maintain their appearance for 7 to 10 years depending on sun exposure and placement. That compares favorably to live plants that often need partial or full replacement after freezes, drought, or seasonal die-off.
+Indoors, quality artificial greenery can hold its appearance for many years. Outdoors in Texas, performance depends on sun exposure, placement, product quality, and maintenance. That still compares favorably to live plants that often need partial or full replacement after freezes, drought, or seasonal die-off.
 
 ### Do artificial hedges improve occupancy or leasing?
 There is no published study isolating artificial hedges as a leasing driver. However, the National Apartment Association consistently identifies curb appeal and amenity appearance as factors in prospect decision-making. Artificial greenery provides consistent year-round appearance regardless of season, drought, or freeze events—which eliminates the seasonal dips in curb appeal that affect live landscaping in Texas.

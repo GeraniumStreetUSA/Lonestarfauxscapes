@@ -70,58 +70,12 @@
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <meta name="theme-color" content="#050a07">
-  <style>
-    html { overflow-y: scroll !important; }
-    :root {
-      --color-bg: #050a07;
-      --color-bg-alt: #0a140f;
-      --color-accent: #4caf50;
-      --color-text: #f5f5f5;
-      --color-text-muted: #889990;
-      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --container-width: 1200px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 5rem; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: 92%; max-width: var(--container-width); margin: 0 auto; }
-    .hero { padding: 4rem 0 3rem; background: linear-gradient(140deg, rgba(76,175,80,0.12), rgba(5,10,7,0.94)); }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-    @media(min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
-    h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.7rem, 4vw, 3.6rem); }
-    h2 { font-size: clamp(2rem, 3vw, 2.6rem); }
-    h3 { font-size: 1.35rem; }
-    p.lede { font-size: 1.05rem; color: var(--color-text-muted); }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    .pill { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); font-size: 0.85rem; color: #fff; letter-spacing: 0.01em; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.6rem; border-radius: 999px; background: var(--color-accent); color: #051007; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border: none; box-shadow: 0 12px 30px rgba(76,175,80,0.35); transition: transform 0.2s, box-shadow 0.2s; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(76,175,80,0.4); }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; padding: 0.85rem 1.4rem; border-radius: 999px; font-weight: 700; letter-spacing: 0.05em; transition: color 0.2s, border-color 0.2s; }
-    .btn-outline:hover { color: var(--color-accent); border-color: rgba(76,175,80,0.7); }
-    .section { padding: 4rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-    @media(min-width: 860px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media(min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.4rem; box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
-    .card h3 { margin-bottom: 0.4rem; }
-    .muted { color: var(--color-text-muted); }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-    .gallery img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); object-fit: cover; aspect-ratio: 4/3; transition: transform 0.25s ease, filter 0.25s ease; filter: saturate(0.95) brightness(0.95); }
-    .gallery img:hover { transform: scale(1.03); filter: saturate(1.05) brightness(1); }
-    details { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    summary { padding: 1rem 0; cursor: pointer; font-weight: 600; letter-spacing: 0.01em; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    .faq-answer { padding-bottom: 1rem; color: var(--color-text-muted); }
-    .stat { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.8rem; border-radius: 12px; background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.25); font-weight: 700; color: #b5e3bf; }
-    .footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); background: #000; text-align: center; color: var(--color-text-muted); font-size: 0.9rem; }
-  </style>
+  <link rel="stylesheet" href="/city-page-base.css">
   <link rel="stylesheet" href="/enhancements.css">
   <link rel="stylesheet" href="/cro.css">
+  <link rel="stylesheet" href="/city-editions.css">
   </head>
-<body>
+<body class="city-page city-san-antonio">
 <!--
   ============================================================================
   UNIVERSAL NAVBAR COMPONENT - DROP IN AND FORGET
@@ -893,140 +847,150 @@
 </script>
 
 
-<main>
-    <section id="main-content" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="pill" style="display:inline-flex;">City Installations</p>
-          <h1>Artificial hedges & living walls — San Antonio, TX</h1>
-          <p class="lede">Privacy hedges, living walls, and pool-area screens installed across San Antonio with fast, low-maintenance builds for homes, hotels, and amenity spaces.</p>
-          <div class="pill-row">
-            <span class="pill">NFPA 701 Method 2</span>
-            <span class="pill">Acoustic-friendly</span>
-            <span class="pill">Pool & patio ready</span>
-            <span class="pill">Turnkey install</span>
+<main class="city-main">
+    <section id="main-content" class="city-hero">
+      <div class="container city-hero__grid city-shell">
+        <div class="city-hero__content">
+          <p class="city-kicker">San Antonio local edition</p>
+          <h1>Artificial greenery for San Antonio pools, patios, hospitality spaces, and privacy walls.</h1>
+          <p class="city-hero__lede">San Antonio buyers usually want two things together: outdoor-ready screening and a cleaner visual finish that does not bring irrigation, shedding, or live-plant decline with it. We build privacy hedges, living walls, and pool-friendly greenery systems across the city with fire-rated options when the project needs them.</p>
+          <div class="city-pill-row">
+            <span class="city-pill">Pool and patio-ready assemblies</span>
+            <span class="city-pill">NFPA 701 Method 2 options</span>
+            <span class="city-pill">Fast install windows</span>
+            <span class="city-pill">Custom fit for hospitality and residential</span>
           </div>
-          <div style="margin-top:1.2rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a class="btn" href="/#contact">Plan a San Antonio project</a>
-            <a class="btn-outline" href="/products">View products</a>
+          <div class="city-actions">
+            <a class="city-btn" href="/#contact">Plan a San Antonio project</a>
+            <a class="city-btn--secondary" href="/products">View products</a>
           </div>
-          <div class="pill-row" style="margin-top:1rem;">
-            <span class="pill">Downtown / Pearl / Hill Country</span>
-            <span class="pill">Hospitality & residential</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom:0.4rem;">San Antonio install profile</h3>
-          <p class="muted" style="margin-bottom:0.7rem;">Built for heat, sun, and fast poolside upgrades.</p>
-          <div class="stat">Pool-safe builds</div>
-          <p style="margin-top:0.6rem;">Water-friendly framing, UV-stable foliage, and concealed hardware keep pool and patio installs clean and low maintenance.</p>
-          <div class="gallery" style="margin-top:1rem; grid-template-columns: repeat(2, minmax(0, 1fr));">
-            <picture>
-                <source srcset="images/fence/fence-2-400w.webp 400w, images/fence/fence-2-800w.webp 800w, images/fence/fence-2-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/fence/fence-2-400w.jpg 400w, images/fence/fence-2-800w.jpg 800w, images/fence/fence-2-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/fence/fence-2.jpg" alt="San Antonio privacy hedge at pool" loading="lazy">
-              </picture>
-            <picture>
-                <source srcset="images/hedges/hedge-privacy-1-400w.webp 400w, images/hedges/hedge-privacy-1-800w.webp 800w, images/hedges/hedge-privacy-1-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-1-400w.jpg 400w, images/hedges/hedge-privacy-1-800w.jpg 800w, images/hedges/hedge-privacy-1-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-1.jpg" alt="San Antonio artificial hedge" loading="lazy">
-              </picture>
+          <div class="city-stat-row" style="margin-top:1rem;">
+            <span class="city-stat">Pearl, Alamo Heights, Stone Oak, Southtown</span>
+            <span class="city-stat">Pools, patios, hospitality, and backyard privacy</span>
           </div>
         </div>
+        <aside class="city-hero__panel">
+          <div class="city-hero__panel-copy">
+            <span class="city-panel-flag">Field notes</span>
+            <h2>What San Antonio projects usually need first</h2>
+            <p>More privacy around pools and patios, greener hospitality settings without irrigation upkeep, and walls that can stay consistent through heat and heavy outdoor use.</p>
+          </div>
+          <div class="city-mosaic">
+            <div class="city-mosaic__hero">
+              <figure>
+                <img src="images/hedges/hedge-privacy-3.jpg" alt="San Antonio privacy hedge" loading="lazy">
+                <figcaption>Pool and backyard privacy</figcaption>
+              </figure>
+            </div>
+            <div class="city-mosaic__stack">
+              <figure>
+                <img src="images/living_walls/living-wall-1.jpg" alt="San Antonio living wall" loading="lazy">
+                <figcaption>Feature walls and branded greenery</figcaption>
+              </figure>
+              <figure>
+                <img src="images/fence/fence-1.jpg" alt="San Antonio fence extension" loading="lazy">
+                <figcaption>Perimeter and fence upgrades</figcaption>
+              </figure>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section city-section">
       <div class="container">
-        <h2>What we install in San Antonio</h2>
-        <div class="grid grid-3" style="margin-top:1.4rem;">
-          <div class="card">
-            <h3>Privacy hedges</h3>
-            <p class="muted">Dense hedges for pools, patios, and equipment screening—no irrigation, no shedding.</p>
-          </div>
-          <div class="card">
-            <h3>Living walls</h3>
-            <p class="muted">Feature walls for lobbies and courtyards with acoustic options and backlit logo integration.</p>
-          </div>
-          <div class="card">
-            <h3>Fence extensions</h3>
-            <p class="muted">Height and privacy boosters with optional noise mitigation for tight lot lines.</p>
-          </div>
+        <div class="city-section__header">
+          <h2>Why San Antonio buyers replace live solutions around pools and patios</h2>
+          <p>In San Antonio, privacy and outdoor livability usually drive the decision. The system has to stay full, reduce upkeep, and still look intentional in spaces people use every day.</p>
+        </div>
+        <div class="city-grid city-grid--three">
+          <article class="city-card">
+            <span class="city-card__label">Pools</span>
+            <h3>Privacy without debris or irrigation</h3>
+            <p>Pool-edge and deck screening works best when it stays clean, dense, and low-maintenance year-round.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Patios</span>
+            <h3>Shade-adjacent screening that still feels finished</h3>
+            <p>Patio barriers and greenery walls can define the space without looking temporary or overbuilt.</p>
+          </article>
+          <article class="city-card">
+            <span class="city-card__label">Hospitality</span>
+            <h3>Outdoor-facing greenery that holds up operationally</h3>
+            <p>For hotels, amenity areas, and guest spaces, visual softness matters, but maintenance discipline matters more.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background: rgba(255,255,255,0.02);">
+    <section class="section city-section">
+      <div class="container city-grid city-grid--two">
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>Where San Antonio projects usually land</h2>
+          </div>
+          <ul class="city-list">
+            <li><strong>Pearl and central hospitality zones</strong><span>Patio, amenity, and guest-facing greenery that needs to feel more designed than decorative.</span></li>
+            <li><strong>Stone Oak and residential pool areas</strong><span>Privacy screens, fence extensions, and pool-adjacent screening with cleaner upkeep.</span></li>
+            <li><strong>Alamo Heights and backyard projects</strong><span>Perimeter coverage that needs immediate screening without waiting on plant growth.</span></li>
+          </ul>
+        </div>
+        <div class="city-band">
+          <div class="city-section__header">
+            <h2>What tends to matter first</h2>
+          </div>
+          <ul class="city-list">
+            <li><strong>Heat and exterior exposure</strong><span>Materials and attachments need to suit intense outdoor conditions.</span></li>
+            <li><strong>Pool and patio practicality</strong><span>Low debris, low irrigation, and simple maintenance are usually major drivers.</span></li>
+            <li><strong>Hospitality-ready documentation</strong><span>Commercial buyers still need a clean path for fire-rated options and coordination.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section city-section" id="services">
       <div class="container">
-        <h2>What We Can Create in San Antonio</h2>
-        <div class="gallery">
-          <picture>
-                <source srcset="images/fence/fence-3-400w.webp 400w, images/fence/fence-3-800w.webp 800w, images/fence/fence-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/fence/fence-3-400w.jpg 400w, images/fence/fence-3-800w.jpg 800w, images/fence/fence-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/fence/fence-3.jpg" alt="San Antonio fence extension greenery" loading="lazy">
-              </picture>
-          <picture>
-                <source srcset="images/living_walls/living-wall-1-400w.webp 400w, images/living_walls/living-wall-1-800w.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/living_walls/living-wall-1-400w.jpg 400w, images/living_walls/living-wall-1-800w.jpg 800w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/living_walls/living-wall-1.jpg" alt="San Antonio living wall install" loading="lazy">
-              </picture>
-          <picture>
-                <source srcset="images/hedges/hedge-privacy-3-400w.webp 400w, images/hedges/hedge-privacy-3-800w.webp 800w, images/hedges/hedge-privacy-3-1200w.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px" type="image/webp">
-                <source srcset="images/hedges/hedge-privacy-3-400w.jpg 400w, images/hedges/hedge-privacy-3-800w.jpg 800w, images/hedges/hedge-privacy-3-1200w.jpg 1200w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1200px">
-                <img src="images/hedges/hedge-privacy-3.jpg" alt="San Antonio privacy hedge project" loading="lazy">
-              </picture>
+        <div class="city-section__header">
+          <h2>Services San Antonio buyers usually compare</h2>
+          <p>These are the main entry points for pool privacy, patio screening, and living wall installs across San Antonio.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid grid-3">
-        <div class="card">
-          <h3>Code & documentation</h3>
-          <p class="muted">NFPA 701 Method 2 foliage with documentation for hospitality and multifamily projects.</p>
-        </div>
-        <div class="card">
-          <h3>Timelines</h3>
-          <p class="muted">2–4 day installs in most cases. Prefabricated panels keep onsite time minimal.</p>
-        </div>
-        <div class="card">
-          <h3>Service areas</h3>
-          <p class="muted">Downtown, Pearl, Alamo Heights, Stone Oak, Hill Country resorts, and surrounding metro.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <h2>Our Services in San Antonio</h2>
-        <p class="muted" style="margin-bottom: 1.5rem;">We install a full range of artificial greenery solutions throughout the San Antonio area.</p>
-        <div class="grid grid-3" style="gap: 1rem;">
-          <a href="/artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Artificial Hedges</h3>
-            <p class="muted">Privacy screens and perimeter hedges for homes and businesses.</p>
+        <div class="city-grid city-grid--three">
+          <a href="/pool-privacy-hedge" class="city-service-card">
+            <span>Pool privacy</span>
+            <h3>Deck and pool-edge screening that stays clean</h3>
+            <p>Useful for residential and amenity spaces where privacy and maintenance both matter.</p>
           </a>
-          <a href="/living-wall" class="card" style="text-decoration: none;">
-            <h3>Living Walls</h3>
-            <p class="muted">Vertical green walls for lobbies, patios, and feature walls.</p>
+          <a href="/artificial-hedge" class="city-service-card">
+            <span>Artificial hedges</span>
+            <h3>Perimeter coverage, patio barriers, and privacy screens</h3>
+            <p>Dense artificial hedge systems for outdoor-facing spaces that need year-round consistency.</p>
           </a>
-          <a href="/fence-extensions" class="card" style="text-decoration: none;">
-            <h3>Fence Extensions</h3>
-            <p class="muted">Add height and privacy to existing fences.</p>
+          <a href="/living-wall" class="city-service-card">
+            <span>Living walls</span>
+            <h3>Feature greenery for patios, lobbies, and amenities</h3>
+            <p>Best when the space needs a stronger visual destination.</p>
           </a>
-          <a href="/fire-rated-artificial-hedge" class="card" style="text-decoration: none;">
-            <h3>Fire-Rated Hedges</h3>
-            <p class="muted">NFPA 701 certified for commercial projects.</p>
+          <a href="/fence-extensions" class="city-service-card">
+            <span>Fence extensions</span>
+            <h3>More privacy where the base fence can stay</h3>
+            <p>A clean fit for backyard privacy issues and perimeter upgrades.</p>
           </a>
-          <a href="/pool-privacy-hedge" class="card" style="text-decoration: none;">
-            <h3>Pool Privacy</h3>
-            <p class="muted">Chlorine and UV resistant pool area screens.</p>
+          <a href="/fire-rated-artificial-hedge" class="city-service-card">
+            <span>Fire-rated</span>
+            <h3>Commercial-ready greenery with documentation support</h3>
+            <p>Useful for hospitality and multifamily scopes that need code-conscious options.</p>
+          </a>
+          <a href="/pricing" class="city-service-card">
+            <span>Pricing</span>
+            <h3>Ballpark numbers before the full review</h3>
+            <p>Helpful when you need the likely cost range and next step quickly.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container" data-lsfs-case-studies="austin-high-end-residential-privacy,houston-restaurant-hedges" data-lsfs-proof-title="Recent Texas install snapshots" data-lsfs-proof-copy="We do not publish a San Antonio-specific project profile yet, so these Austin and Houston projects are shown as transparent Texas examples of privacy screening and circulation planning." data-lsfs-proof-context="san_antonio_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
+    <section class="section city-section">
+      <div class="container city-proof-wrap" data-lsfs-case-studies="austin-high-end-residential-privacy,houston-restaurant-hedges" data-lsfs-proof-title="Recent Texas install snapshots" data-lsfs-proof-copy="We do not publish a San Antonio-specific project profile yet, so these Austin and Houston projects are shown as transparent Texas examples of privacy screening and circulation planning." data-lsfs-proof-context="san_antonio_proof_section" data-lsfs-proof-secondary-href="/case-studies" data-lsfs-proof-secondary-label="See all project profiles"></div>
     </section>
 
     <section class="section" id="faq">
@@ -1122,3 +1086,4 @@
   <script src="/cro.js"></script>
 </body>
 </html>
+

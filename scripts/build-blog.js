@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
 import matter from 'gray-matter';
+import { resolveCanonicalValue, resolveRobotsDirective } from '../seo/foundation.js';
+import { UNIVERSAL_NAV_MARKUP, UNIVERSAL_NAV_SCRIPT, UNIVERSAL_NAV_STYLESHEET } from './shared-nav.js';
 
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const CONTENT_DIR = './content/blog';
@@ -14,6 +16,50 @@ const MAX_META_DESCRIPTION_LENGTH = 155;
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
 const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
 const INTERNAL_HREF_REGEX = /href=(["'])([^"']+)\1/gi;
+const LEGACY_BLOG_ROUTE_REGEX = /^(\/blog\/)([^/?#]+)([?#].*)?$/i;
+const TOPIC_CONFIG = {
+  'artificial-hedges': {
+    label: 'Artificial hedge guides',
+    description: 'Privacy screens, pool privacy, HOA planning, durability, and installation advice.',
+    href: '/artificial-hedge',
+    actionLabel: 'Explore hedge installs',
+  },
+  'living-walls': {
+    label: 'Living wall guides',
+    description: 'Design, materials, outdoor performance, and maintenance planning for artificial living walls.',
+    href: '/living-wall',
+    actionLabel: 'Explore living walls',
+  },
+  'commercial-planning': {
+    label: 'Commercial planning',
+    description: 'Fire-rated options, documentation, sequencing, and buying guidance for teams specifying greenery.',
+    href: '/commercial-resources',
+    actionLabel: 'Use the resource hub',
+  },
+  'local-guides': {
+    label: 'Texas city guides',
+    description: 'Planning help for Austin, Dallas, Houston, San Antonio, and Fort Worth projects.',
+    href: '/locations',
+    actionLabel: 'See Texas coverage',
+  },
+};
+const CITY_PAGE_MAP = {
+  austin: { slug: 'austin', label: 'Austin', href: '/austin' },
+  dallas: { slug: 'dallas', label: 'Dallas', href: '/dallas' },
+  houston: { slug: 'houston', label: 'Houston', href: '/houston' },
+  'san antonio': { slug: 'san-antonio', label: 'San Antonio', href: '/san-antonio' },
+  'fort worth': { slug: 'fort-worth', label: 'Fort Worth', href: '/fort-worth' },
+};
+const CITY_MATCHERS = Object.entries(CITY_PAGE_MAP).map(([key, meta]) => ({
+  key,
+  meta,
+  regex: new RegExp(`\\b${key.replace(/\s+/g, '\\s+')}\\b`, 'i'),
+}));
+const FEATURED_KEYWORDS = /\b(complete guide|pricing|cost|roi|nfpa|astm|fire code|fire-rated artificial greenery|hoa approval|materials)\b/i;
+const COMMERCIAL_SIGNAL_REGEX = /\b(commercial|multifamily|property manager|office|retail|restaurant|hotel|hospitality|architect|designer|general contractor|\bgc\b|specifier|submittal|shop drawing|acoustic|fire code|code|compliance|ahj)\b/i;
+const RESIDENTIAL_SIGNAL_REGEX = /\b(home|homeowner|residential|backyard|pool|privacy|hoa|balcony|patio|fence)\b/i;
+const LIVING_WALL_SIGNAL_REGEX = /\b(living wall|green wall)\b/i;
+const FIRE_SIGNAL_REGEX = /\b(fire|nfpa|astm|submittal|code|documentation)\b/i;
 
 const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
 const isProtocolRelativeUrl = (value) => value.startsWith('//');
@@ -69,6 +115,11 @@ const escapeHtmlAttribute = (value) => String(value)
   .replaceAll('<', '&lt;')
   .replaceAll('>', '&gt;');
 
+const escapeHtmlText = (value) => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;');
+
 const escapeJsonString = (value) => JSON.stringify(String(value ?? '')).slice(1, -1);
 
 const repairCommonEncodingIssues = (value) => String(value ?? '')
@@ -102,7 +153,7 @@ const buildSeoTitle = (title) => {
 
 const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH); 
 
-const canonicalizeInternalHref = (href) => {
+const canonicalizeInternalHref = (href, slugAliasMap = new Map()) => {
   const raw = typeof href === 'string' ? href.trim() : '';
   if (!raw) return href;
 
@@ -129,6 +180,15 @@ const canonicalizeInternalHref = (href) => {
     return `/blog${suffix}`;
   }
 
+  const legacyBlogMatch = pathname.match(LEGACY_BLOG_ROUTE_REGEX);
+  if (legacyBlogMatch) {
+    const legacySlug = legacyBlogMatch[2];
+    const resolvedSlug = slugAliasMap.get(legacySlug);
+    if (resolvedSlug) {
+      return `${legacyBlogMatch[1]}${resolvedSlug}${suffix || legacyBlogMatch[3] || ''}`;
+    }
+  }
+
   if (lowerPath.endsWith('.html')) {
     pathname = pathname.slice(0, -5);
   }
@@ -145,10 +205,96 @@ const canonicalizeInternalHref = (href) => {
   return `${pathname}${suffix}`;
 };
 
-const normalizeInternalLinksInHtml = (html) => html.replace(
+const normalizeInternalLinksInHtml = (html, slugAliasMap = new Map()) => html.replace(
   INTERNAL_HREF_REGEX,
-  (fullMatch, quote, href) => `href=${quote}${canonicalizeInternalHref(href)}${quote}`,
+  (fullMatch, quote, href) => `href=${quote}${canonicalizeInternalHref(href, slugAliasMap)}${quote}`,
 );
+
+const inferBlogCtaConfig = (post) => {
+  const text = normalizeText([
+    post?.title,
+    post?.summary,
+    Array.isArray(post?.tags) ? post.tags.join(' ') : '',
+    post?.category,
+  ].join(' ')).toLowerCase();
+
+  const cityMatch = text.match(/\b(austin|dallas|houston|san antonio|fort worth)\b/);
+  const service = /living wall|green wall/.test(text) ? 'Living wall project' : 'Artificial hedge project';
+  const fireTopic = /fire|nfpa|astm|submittal|code/.test(text);
+  const hoaTopic = /\bhoa\b/.test(text);
+  const pricingTopic = /price|pricing|cost|budget|roi/.test(text);
+  const commercialTopic = /commercial|multifamily|hospitality|hotel|retail|office|restaurant|property manager|architect|designer|general contractor|\bgc\b|submittal|shop drawing|ahj|acoustic|fire|nfpa/.test(text);
+
+  let title = 'Planning a similar Texas project?';
+  let description = 'Use this article for research, then send your dimensions, city, and photos if you want a useful next step.';
+  let primaryHref = '/pricing';
+  let primaryLabel = 'Get ballpark pricing';
+  let primaryEvent = 'blog_ballpark_pricing';
+
+  if (fireTopic) {
+    title = 'Need fire-rated options or documentation?';
+    description = 'Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.';
+    primaryHref = 'mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request';
+    primaryLabel = 'Request fire-doc info';
+    primaryEvent = 'blog_fire_docs';
+  } else if (hoaTopic) {
+    title = 'Need an HOA-friendly privacy option?';
+    description = 'Send the fence length, target height, and photos. We can point you to the cleanest path for backyard privacy without live-plant upkeep.';
+    primaryHref = '/hoa-approved-artificial-hedge';
+    primaryLabel = 'Ask about HOA-friendly options';
+    primaryEvent = 'blog_hoa_options';
+  } else if (pricingTopic) {
+    title = 'Need a real starting number for your project?';
+    description = 'Use the pricing page for quick benchmarks, then send dimensions and photos for a tighter range.';
+  }
+
+  const trustPoints = [
+    'Fast install planning',
+    cityMatch ? `${cityMatch[1][0].toUpperCase()}${cityMatch[1].slice(1)} relevance` : 'Texas-wide project coverage',
+    fireTopic ? 'Fire-rated options available' : 'Custom fit for the space',
+  ];
+
+  return {
+    title,
+    description,
+    primaryHref,
+    primaryLabel,
+    primaryEvent,
+    service,
+    location: cityMatch ? cityMatch[1].replace(/\b\w/g, (char) => char.toUpperCase()) : '',
+    trustPoints,
+    resourceHref: commercialTopic ? '/commercial-resources' : '',
+    resourceLabel: commercialTopic ? 'Use the commercial resource hub' : '',
+  };
+};
+
+const renderBlogArticleCta = (post) => {
+  const cta = inferBlogCtaConfig(post);
+
+  return `
+      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
+        <div>
+          <p class="lsfs-cro-eyebrow">Need a next step?</p>
+          <h2 class="lsfs-cro-title">${escapeHtmlText(cta.title)}</h2>
+          <p class="lsfs-cro-copy">${escapeHtmlText(cta.description)}</p>
+          <div class="lsfs-cro-actions">
+            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="${escapeHtmlAttribute(cta.primaryHref)}" data-lsfs-cta="${escapeHtmlAttribute(cta.primaryEvent)}">${escapeHtmlText(cta.primaryLabel)}</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
+          </div>
+          <div class="lsfs-cro-context">
+            ${cta.trustPoints.map((item) => `<span class="lsfs-cro-pill">${escapeHtmlText(item)}</span>`).join('')}
+          </div>
+          <div class="lsfs-cro-links">
+            ${cta.resourceHref ? `<a href="${escapeHtmlAttribute(cta.resourceHref)}" data-lsfs-cta="blog_commercial_resource_hub">${escapeHtmlText(cta.resourceLabel)}</a>` : ''}
+            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
+          </div>
+        </div>
+        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="${escapeHtmlAttribute(cta.service)}" data-lsfs-location="${escapeHtmlAttribute(cta.location)}" data-lsfs-button="Request Pricing"></div>
+      </div>
+  `;
+};
 
 const sanitizeFrontmatterSlug = (value) => {
   if (typeof value !== 'string') return '';
@@ -254,6 +400,396 @@ const buildInlineImageTag = (imagePath) => {
   const src = buildImageSrc(imagePath);
   const alt = escapeHtmlAttribute(buildAltFromPath(imagePath));
   return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+};
+
+const renderBlogCard = (post, idx) => {
+  const imagePath = normalizeImagePath(post.image);
+  const imageSrc = buildImageSrc(imagePath);
+  const title = escapeHtmlText(repairCommonEncodingIssues(post.title || ''));
+  const summary = escapeHtmlText(repairCommonEncodingIssues(post.summary || ''));
+  const category = escapeHtmlText(repairCommonEncodingIssues(post.category || 'Guides'));
+  const displayDate = escapeHtmlText(post.displayDate || formatDisplayDate(post.date));
+  const tags = Array.isArray(post.tags) ? post.tags.slice(0, 5) : [];
+  const postUrl = `/blog/${post.slug}`;
+  const revealDelay = idx % 3 === 1 ? ' data-delay="1"' : idx % 3 === 2 ? ' data-delay="2"' : '';
+
+  return `          <article class="card" data-reveal${revealDelay}>
+            <div class="card-media">
+              <img src="${imageSrc}" alt="${title}" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="date-pill">${displayDate}</span>
+                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">${category}</span>
+              </div>
+              <h3>${title}</h3>
+              <p>${summary}</p>
+              <div class="pill-row">
+                ${tags.map((tag) => `<span class="pill">${escapeHtmlText(repairCommonEncodingIssues(tag))}</span>`).join('')}
+              </div>
+              <a class="arrow-cta" href="${postUrl}">Read Article <span>&rarr;</span></a>
+            </div>
+          </article>`;
+};
+
+const renderBlogCards = (postsData) => {
+  if (!Array.isArray(postsData) || postsData.length === 0) {
+    return '          <p class="muted">New guides are on the way. Check back soon.</p>';
+  }
+  return postsData.map((post, idx) => renderBlogCard(post, idx)).join('\n');
+};
+
+const normalizeStringArray = (value) => (
+  Array.isArray(value)
+    ? value
+      .map((item) => normalizeText(item))
+      .filter(Boolean)
+    : []
+);
+
+const normalizeAudienceValue = (value) => {
+  const normalized = normalizeText(value).toLowerCase();
+  if (!normalized) return '';
+  if (/(mixed|both|all|residential and commercial)/.test(normalized)) return 'mixed';
+  if (/(commercial|architect|designer|contractor|property manager|multifamily)/.test(normalized)) return 'commercial';
+  if (/(residential|homeowner|home)/.test(normalized)) return 'residential';
+  return '';
+};
+
+const inferCityMeta = (post) => {
+  const explicitCity = normalizeText(post.city).toLowerCase().replace(/,\s*tx\b/i, '');
+  if (explicitCity) {
+    const directMatch = CITY_MATCHERS.find(({ key }) => explicitCity.includes(key));
+    if (directMatch) return directMatch.meta;
+  }
+
+  const searchableText = normalizeText([
+    post.title,
+    post.summary,
+    Array.isArray(post.tags) ? post.tags.join(' ') : '',
+  ].join(' ')).toLowerCase();
+
+  const inferred = CITY_MATCHERS.find(({ regex }) => regex.test(searchableText));
+  return inferred ? inferred.meta : null;
+};
+
+const inferAudience = (post) => {
+  const explicitAudience = normalizeAudienceValue(post.audience);
+  if (explicitAudience) return explicitAudience;
+
+  const searchableText = normalizeText([
+    post.title,
+    post.summary,
+    post.category,
+    Array.isArray(post.tags) ? post.tags.join(' ') : '',
+  ].join(' '));
+
+  const isCommercial = COMMERCIAL_SIGNAL_REGEX.test(searchableText);
+  const isResidential = RESIDENTIAL_SIGNAL_REGEX.test(searchableText);
+
+  if (isCommercial && isResidential) return 'mixed';
+  if (isCommercial) return 'commercial';
+  if (isResidential) return 'residential';
+  return 'mixed';
+};
+
+const inferPrimaryService = (post) => {
+  const explicitServicePage = canonicalizeInternalHref(post.servicePage || '');
+  if (explicitServicePage) {
+    return {
+      href: explicitServicePage,
+      label: 'See the matching service page',
+    };
+  }
+
+  const searchableText = normalizeText([
+    post.title,
+    post.summary,
+    post.category,
+    Array.isArray(post.tags) ? post.tags.join(' ') : '',
+  ].join(' '));
+
+  if (/\bpool\b/i.test(searchableText)) {
+    return { href: '/pool-privacy-hedge', label: 'See pool privacy screens' };
+  }
+
+  if (/\bhoa\b/i.test(searchableText)) {
+    return { href: '/hoa-approved-artificial-hedge', label: 'See HOA-friendly hedge options' };
+  }
+
+  if (LIVING_WALL_SIGNAL_REGEX.test(searchableText)) {
+    return { href: '/living-wall', label: 'See artificial living wall installs' };
+  }
+
+  if (FIRE_SIGNAL_REGEX.test(searchableText) && /\bhedge\b/i.test(searchableText)) {
+    return { href: '/fire-rated-artificial-hedge', label: 'See fire-rated hedge options' };
+  }
+
+  if (COMMERCIAL_SIGNAL_REGEX.test(searchableText)) {
+    return { href: '/commercial', label: 'See commercial greenery installs' };
+  }
+
+  if (RESIDENTIAL_SIGNAL_REGEX.test(searchableText)) {
+    return { href: '/residential', label: 'See residential privacy installs' };
+  }
+
+  return { href: '/artificial-hedge', label: 'See artificial hedge installs' };
+};
+
+const inferTopicId = (post) => {
+  const explicitTopic = sanitizeFrontmatterSlug(post.topic);
+  if (explicitTopic && TOPIC_CONFIG[explicitTopic]) {
+    return explicitTopic;
+  }
+
+  const searchableText = normalizeText([
+    post.title,
+    post.summary,
+    post.category,
+    Array.isArray(post.tags) ? post.tags.join(' ') : '',
+  ].join(' '));
+
+  if (post.cityMeta || /local updates/i.test(post.category || '')) {
+    return 'local-guides';
+  }
+
+  if (/living walls|design/i.test(post.category || '')) {
+    return 'living-walls';
+  }
+
+  if (LIVING_WALL_SIGNAL_REGEX.test(searchableText)) {
+    if (/compliance/i.test(post.category || '')) {
+      return 'commercial-planning';
+    }
+    return 'living-walls';
+  }
+
+  if (/compliance/i.test(post.category || '') || COMMERCIAL_SIGNAL_REGEX.test(searchableText) || FIRE_SIGNAL_REGEX.test(searchableText)) {
+    return 'commercial-planning';
+  }
+
+  return 'artificial-hedges';
+};
+
+const inferFeaturedScore = (post) => {
+  if (post.featured === true) return 120;
+
+  const searchableText = normalizeText([
+    post.title,
+    post.summary,
+    post.category,
+    Array.isArray(post.tags) ? post.tags.join(' ') : '',
+  ].join(' '));
+
+  let score = 0;
+  if (/complete guide/i.test(post.title)) score += 80;
+  if (FEATURED_KEYWORDS.test(searchableText)) score += 40;
+  if ((post.tags || []).length >= 4) score += 10;
+  return score;
+};
+
+const buildPostSupportLinks = (post) => {
+  const links = [];
+  const seen = new Set();
+
+  const pushLink = (href, label, description) => {
+    const normalizedHref = canonicalizeInternalHref(href || '');
+    if (!normalizedHref || seen.has(normalizedHref)) return;
+    seen.add(normalizedHref);
+    links.push({ href: normalizedHref, label, description });
+  };
+
+  pushLink(post.primaryServiceHref, post.primaryServiceLabel, 'Go straight to the service page that matches this article.');
+
+  if (post.cityMeta) {
+    pushLink(post.cityMeta.href, `See the ${post.cityMeta.label} city page`, 'Use the local page for city-specific planning, FAQs, and service details.');
+  }
+
+  if (post.audience === 'commercial') {
+    pushLink('/commercial', 'See commercial installs', 'Use this page for lobbies, retail, hospitality, multifamily, and other commercial scopes.');
+    pushLink('/commercial-resources', 'Request fire-doc and spec help', 'Use the resource hub when you need documentation, sequencing, or submittal support.');
+  } else if (post.audience === 'residential') {
+    pushLink('/residential', 'See residential installs', 'Use this page for backyard privacy, pool screening, and homeowner planning.');
+  } else {
+    pushLink('/commercial', 'See commercial installs', 'Use this page for offices, retail, hospitality, and property teams.');
+    pushLink('/residential', 'See residential installs', 'Use this page for backyard privacy, pool screening, and homeowner planning.');
+  }
+
+  pushLink('/pricing', 'See ballpark pricing', 'Get a quick starting point before you reach out with measurements.');
+
+  pushLink('/case-studies', 'See recent local work', 'Browse project snapshots and proof from recent installs.');
+
+  return links.slice(0, 4);
+};
+
+const enrichPost = (post) => {
+  const cityMeta = inferCityMeta(post);
+  const audience = inferAudience(post);
+  const primaryService = inferPrimaryService(post);
+  const topicId = inferTopicId({ ...post, cityMeta });
+  const topicMeta = TOPIC_CONFIG[topicId] || TOPIC_CONFIG['artificial-hedges'];
+  const featuredScore = inferFeaturedScore(post);
+
+  const enrichedPost = {
+    ...post,
+    cityMeta,
+    city: cityMeta?.label || normalizeText(post.city),
+    citySlug: cityMeta?.slug || '',
+    audience,
+    primaryServiceHref: primaryService.href,
+    primaryServiceLabel: primaryService.label,
+    topic: topicId,
+    topicLabel: topicMeta.label,
+    featured: post.featured === true || featuredScore > 0,
+    featuredScore,
+  };
+
+  return {
+    ...enrichedPost,
+    supportLinks: buildPostSupportLinks(enrichedPost),
+  };
+};
+
+const renderArticleSupportLinks = (post, options = {}) => {
+  const links = Array.isArray(post.supportLinks) ? post.supportLinks : [];
+  if (links.length === 0) return '';
+
+  const eyebrow = escapeHtmlText(options.eyebrow || 'Helpful next pages');
+  const title = escapeHtmlText(options.title || 'Keep planning from here');
+  const copy = escapeHtmlText(options.copy || 'These pages answer the next questions readers usually have after this article.');
+  const modifier = options.modifier ? ` article-support--${escapeHtmlAttribute(options.modifier)}` : '';
+
+  return `
+      <section class="article-support${modifier}">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">${eyebrow}</p>
+          <h2>${title}</h2>
+          <p>${copy}</p>
+        </div>
+        <div class="article-support__grid">
+          ${links.map((link) => `
+            <a class="article-support__card" href="${escapeHtmlAttribute(link.href)}">
+              <span class="article-support__label">${escapeHtmlText(link.label)}</span>
+              <span class="article-support__copy">${escapeHtmlText(link.description)}</span>
+            </a>
+          `).join('')}
+        </div>
+      </section>
+  `;
+};
+
+const injectMidArticleBlock = (html, blockHtml) => {
+  if (!html || !blockHtml) return html;
+
+  const h2Matches = [...html.matchAll(/<\/h2>/gi)];
+  const paragraphMatches = [...html.matchAll(/<\/p>/gi)];
+  const preferredMatch = h2Matches[1] || h2Matches[0] || paragraphMatches[2] || paragraphMatches[1];
+
+  if (!preferredMatch) {
+    return `${html}\n${blockHtml}`;
+  }
+
+  const insertAt = preferredMatch.index + preferredMatch[0].length;
+  return `${html.slice(0, insertAt)}\n${blockHtml}\n${html.slice(insertAt)}`;
+};
+
+const scoreRelatedPost = (currentPost, candidatePost) => {
+  if (!candidatePost || currentPost.slug === candidatePost.slug) return -Infinity;
+
+  let score = 0;
+  if (currentPost.topic && currentPost.topic === candidatePost.topic) score += 40;
+  if (normalizeText(currentPost.category).toLowerCase() === normalizeText(candidatePost.category).toLowerCase()) score += 25;
+  if (currentPost.citySlug && currentPost.citySlug === candidatePost.citySlug) score += 25;
+  if (currentPost.primaryServiceHref && currentPost.primaryServiceHref === candidatePost.primaryServiceHref) score += 18;
+  if (currentPost.audience && currentPost.audience === candidatePost.audience) score += 12;
+
+  const currentTags = new Set((currentPost.tags || []).map((tag) => normalizeText(tag).toLowerCase()).filter(Boolean));
+  const candidateTags = (candidatePost.tags || []).map((tag) => normalizeText(tag).toLowerCase()).filter(Boolean);
+  const sharedTags = candidateTags.filter((tag) => currentTags.has(tag)).length;
+  score += Math.min(sharedTags * 6, 18);
+
+  score += Math.min(candidatePost.featuredScore || 0, 18);
+  return score;
+};
+
+const selectRelatedPosts = (posts, currentPost, limit = 3) => posts
+  .filter((candidatePost) => candidatePost.slug !== currentPost.slug)
+  .map((candidatePost) => ({ candidatePost, score: scoreRelatedPost(currentPost, candidatePost) }))
+  .sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.candidatePost.date.localeCompare(a.candidatePost.date);
+  })
+  .slice(0, limit)
+  .map(({ candidatePost }) => candidatePost);
+
+const renderRelatedPosts = (relatedPosts) => {
+  if (!Array.isArray(relatedPosts) || relatedPosts.length === 0) return '';
+
+  return `
+      <section class="related-posts">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Keep reading</p>
+          <h2>Related guides</h2>
+          <p>These articles answer the next questions readers usually have after this topic.</p>
+        </div>
+        <div class="related-posts__grid">
+          ${relatedPosts.map((post) => `
+            <a class="related-posts__card" href="/blog/${escapeHtmlAttribute(post.slug)}">
+              <span class="related-posts__meta">${escapeHtmlText(post.topicLabel || post.category || 'Guides')}</span>
+              <h3>${escapeHtmlText(repairCommonEncodingIssues(post.title || ''))}</h3>
+              <p>${escapeHtmlText(repairCommonEncodingIssues(post.summary || ''))}</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          `).join('')}
+        </div>
+      </section>
+  `;
+};
+
+const renderFeaturedBlogCards = (postsData) => {
+  const featuredPosts = [...postsData]
+    .filter((post) => (post.featuredScore || 0) > 0)
+    .sort((a, b) => {
+      if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
+      return b.date.localeCompare(a.date);
+    })
+    .slice(0, 3);
+
+  return renderBlogCards(featuredPosts.length > 0 ? featuredPosts : postsData.slice(0, 3));
+};
+
+const renderTopicHubCards = (postsData) => {
+  const topicEntries = Object.entries(TOPIC_CONFIG).map(([topicId, config]) => {
+    const matchingPosts = postsData.filter((post) => post.topic === topicId);
+    const leadPost = matchingPosts
+      .slice()
+      .sort((a, b) => {
+        if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
+        return b.date.localeCompare(a.date);
+      })[0];
+
+    return { topicId, config, count: matchingPosts.length, leadPost };
+  }).filter(({ count }) => count > 0);
+
+  if (topicEntries.length === 0) {
+    return '          <p class="muted">Topic hubs will appear here as new posts are published.</p>';
+  }
+
+  return topicEntries.map(({ topicId, config, count, leadPost }, idx) => {
+    const revealDelay = idx % 3 === 1 ? ' data-delay="1"' : idx % 3 === 2 ? ' data-delay="2"' : '';
+    const leadHref = leadPost ? `/blog/${leadPost.slug}` : config.href;
+    const leadLabel = leadPost ? `Start with "${escapeHtmlText(repairCommonEncodingIssues(leadPost.title || ''))}"` : config.actionLabel;
+
+    return `          <article class="topic-card" data-reveal${revealDelay}>
+            <p class="topic-card__count">${count} ${count === 1 ? 'guide' : 'guides'}</p>
+            <h3>${escapeHtmlText(config.label)}</h3>
+            <p>${escapeHtmlText(config.description)}</p>
+            <div class="topic-card__actions">
+              <a class="topic-card__link" href="${escapeHtmlAttribute(leadHref)}">${leadLabel}</a>
+              <a class="topic-card__sub" href="${escapeHtmlAttribute(config.href)}">${escapeHtmlText(config.actionLabel)}</a>
+            </div>
+          </article>`;
+  }).join('\n');
 };
 
 const extractCommentImages = (markdown) => {
@@ -386,7 +922,8 @@ const generateFAQSchema = (faq) => {
 const generatePostHTML = (post) => {
   const imagePath = normalizeImagePath(post.image);
   const imageSrc = buildImageSrc(imagePath);
-  const imageAbsolute = buildImageAbsolute(imagePath);
+  const socialImagePath = normalizeImagePath(post.socialImage || post.image);
+  const imageAbsolute = buildImageAbsolute(socialImagePath);
   const seoTitle = buildSeoTitle(post.seoTitle || post.title);
   const seoDescription = buildSeoDescription(post.seoDescription || post.summary);
   const escapedSeoTitle = escapeHtmlAttribute(seoTitle);
@@ -396,8 +933,24 @@ const generatePostHTML = (post) => {
   const escapedDisplayDate = escapeHtmlAttribute(post.displayDate);
   const escapedCategory = escapeHtmlAttribute(post.category || 'Guides');
   const escapedKeywords = escapeHtmlAttribute((post.tags || []).join(', '));
+  const escapedRobots = escapeHtmlAttribute(post.robots || 'index, follow');
+  const escapedCanonical = escapeHtmlAttribute(post.canonical || `${SITE_URL}/blog/${post.slug}`);
   const jsonTitle = escapeJsonString(post.title);
   const jsonSummary = escapeJsonString(post.summary);
+  const midArticleSupport = renderArticleSupportLinks(post, {
+    eyebrow: 'Planning a similar project?',
+    title: 'Use these next pages while you read',
+    copy: 'They cover pricing, service details, and the next planning step without making you leave the article blind.',
+    modifier: 'mid',
+  });
+  const articleBody = injectMidArticleBlock(post.content, midArticleSupport);
+  const endArticleSupport = renderArticleSupportLinks(post, {
+    eyebrow: 'Ready for the next step?',
+    title: 'Use the page that fits your project best',
+    copy: 'Pick the shortest path based on whether you need pricing, a service page, or a local planning page.',
+    modifier: 'end',
+  });
+  const relatedPostsSection = renderRelatedPosts(post.relatedPosts);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -406,14 +959,15 @@ const generatePostHTML = (post) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapedSeoTitle}</title>
   <meta name="description" content="${escapedSeoDescription}">
+  <meta name="robots" content="${escapedRobots}">
   <meta name="keywords" content="${escapedKeywords}">
-  <link rel="canonical" href="${SITE_URL}/blog/${post.slug}">
+  <link rel="canonical" href="${escapedCanonical}">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${escapedSeoTitle}">
   <meta property="og:description" content="${escapedSeoDescription}">
   <meta property="og:image" content="${imageAbsolute}">
-  <meta property="og:url" content="${SITE_URL}/blog/${post.slug}">
+  <meta property="og:url" content="${escapedCanonical}">
   <meta property="og:type" content="article">
 
   <!-- Twitter Card -->
@@ -446,7 +1000,7 @@ const generatePostHTML = (post) => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "${SITE_URL}/blog/${post.slug}"
+      "@id": "${post.canonical || `${SITE_URL}/blog/${post.slug}`}"
     }
   }
   </script>
@@ -2315,20 +2869,156 @@ const generatePostHTML = (post) => {
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .tag {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .tag { 
+      padding: 0.4rem 0.8rem; 
+      border-radius: 999px; 
+      background: rgba(255,255,255,0.04); 
+      border: 1px solid rgba(255,255,255,0.08); 
+      color: #fff; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.02em; 
+    } 
+
+    .estimate-note {
+      margin-top: 2rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(76,175,80,0.24);
+      background: rgba(76,175,80,0.08);
+      color: rgba(245,245,245,0.9);
+      font-size: 0.92rem;
+    }
+    .estimate-note strong {
       color: #fff;
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
-    /* Back to Blog */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
+    .article-support {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+    .article-support--mid {
+      margin: 2.75rem 0;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+    }
+    .article-support__intro {
+      margin-bottom: 1.25rem;
+    }
+    .article-support__intro h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    .article-support__intro p {
+      margin: 0;
+      max-width: 62ch;
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+    }
+    .article-support__eyebrow {
+      margin-bottom: 0.5rem !important;
+      color: var(--color-accent) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem !important;
+      font-weight: 700;
+    }
+    .article-support__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    @media (min-width: 760px) {
+      .article-support__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .article-support__card {
+      display: block;
+      padding: 1rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,10,7,0.65);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .article-support__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(8,16,11,0.9);
+    }
+    .article-support__label {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .article-support__copy {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .related-posts {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .related-posts__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 760px) {
+      .related-posts__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .related-posts__card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .related-posts__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76,175,80,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .related-posts__meta {
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .related-posts__card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .related-posts__card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.74);
+    }
+    .related-posts__cta {
+      margin-top: auto;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Back to Blog */ 
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
       gap: 0.5rem;
       margin-top: 2rem;
       padding: 0.75rem 1.25rem;
@@ -2355,118 +3045,11 @@ const generatePostHTML = (post) => {
     }
   </style>
   <link rel="stylesheet" href="/enhancements.css">
-  <link rel="stylesheet" href="/navbar-universal.css">
+${UNIVERSAL_NAV_STYLESHEET}
+  <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
-      <!-- UNIVERSAL NAVBAR -->
-  <header id="lsfs-header">
-    <nav id="lsfs-nav">
-      <a href="/index.html" id="lsfs-logo">Lone Star Faux Scapes</a>
-  
-      <!-- Desktop Navigation -->
-      <div id="lsfs-desktop-links">
-        <a href="/index.html" class="lsfs-link">Home</a>
-  
-        <!-- Products Dropdown -->
-              <div class="lsfs-dropdown">
-          <a href="/products.html" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Hedges</span>
-              <a href="/artificial-hedge.html">Artificial Hedge</a>
-              <a href="/artificial-boxwood-hedge.html">Boxwood Hedge</a>
-              <a href="/fire-rated-artificial-hedge.html">Fire-Rated</a>
-              <a href="/hoa-approved-artificial-hedge.html">HOA-Approved</a>
-              <a href="/pool-privacy-hedge.html">Pool Privacy</a>
-              <a href="/vallum-frx.html">Vallum FRX</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Walls</span>
-              <a href="/living-wall.html">Living Wall</a>
-              <a href="/commercial-wall.html">Commercial Wall</a>
-              <a href="/fence-extensions.html">Fence Extensions</a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Locations Dropdown -->
-        <div class="lsfs-dropdown">
-          <a href="/locations.html" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
-          <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Major Cities</span>
-              <a href="/dallas.html">Dallas</a>
-              <a href="/houston.html">Houston</a>
-              <a href="/austin.html">Austin</a>
-              <a href="/san-antonio.html">San Antonio</a>
-              <a href="/fort-worth.html">Fort Worth</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">DFW Metro</span>
-              <a href="/plano.html">Plano</a>
-              <a href="/frisco.html">Frisco</a>
-              <a href="/irving.html">Irving</a>
-              <a href="/arlington.html">Arlington</a>
-            </div>
-            <div class="lsfs-dropdown-section">
-              <span class="lsfs-dropdown-label">Houston Metro</span>
-              <a href="/sugar-land.html">Sugar Land</a>
-              <a href="/the-woodlands.html">The Woodlands</a>
-            </div>
-          </div>
-        </div>
-  
-        <a href="/installation.html" class="lsfs-link">Installation</a>
-        <a href="/gallery.html" class="lsfs-link">Gallery</a>
-        <a href="/blog" class="lsfs-link">Blog</a>
-        <a href="/pricing.html" class="lsfs-link">Pricing</a>
-        <a href="/contact.html" class="lsfs-link lsfs-cta">Get Quote</a>
-      </div>
-  
-      <!-- Mobile Hamburger -->
-      <button id="lsfs-hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-  
-  <!-- MOBILE MENU (separate from header) -->
-  <div id="lsfs-mobile-menu">
-    <button id="lsfs-close" aria-label="Close menu">&#215;</button>
-  
-    <a href="/index.html" class="lsfs-mobile-link">Home</a>
-  
-    <!-- Products Section -->
-    <span class="lsfs-mobile-label">Products</span>
-    <span class="lsfs-mobile-subhead">Hedges</span>
-    <a href="/artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
-    <a href="/artificial-boxwood-hedge.html" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
-    <a href="/fire-rated-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
-    <a href="/hoa-approved-artificial-hedge.html" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
-    <a href="/pool-privacy-hedge.html" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-    <a href="/vallum-frx.html" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
-    <span class="lsfs-mobile-subhead">Walls</span>
-    <a href="/living-wall.html" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
-    <a href="/commercial-wall.html" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
-    <a href="/fence-extensions.html" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <!-- Locations Section -->
-    <span class="lsfs-mobile-label">Locations</span>
-    <a href="/dallas.html" class="lsfs-mobile-link lsfs-sub">Dallas</a>
-    <a href="/houston.html" class="lsfs-mobile-link lsfs-sub">Houston</a>
-    <a href="/austin.html" class="lsfs-mobile-link lsfs-sub">Austin</a>
-    <a href="/san-antonio.html" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
-    <a href="/fort-worth.html" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
-    <a href="/plano.html" class="lsfs-mobile-link lsfs-sub">Plano</a>
-    <a href="/frisco.html" class="lsfs-mobile-link lsfs-sub">Frisco</a>
-  
-    <a href="/installation.html" class="lsfs-mobile-link">Installation</a>
-    <a href="/gallery.html" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog" class="lsfs-mobile-link">Blog</a>
-    <a href="/pricing.html" class="lsfs-mobile-link">Pricing</a>
-    <a href="/contact.html" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
-  </div>
+${UNIVERSAL_NAV_MARKUP}
 
 <main>
     <section class="article-hero">
@@ -2490,13 +3073,22 @@ const generatePostHTML = (post) => {
       <img src="${imageSrc}" alt="${escapedTitle}" loading="eager">
     </div>
 
-    <article class="article-content">
-      ${post.toc}
-      ${post.content}
+    <article class="article-content"> 
+      ${post.toc} 
+      ${articleBody} 
 
-      <div class="article-tags">
-        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      <div class="estimate-note">
+        <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
       </div>
+
+      ${renderBlogArticleCta(post)}
+      ${endArticleSupport}
+      ${relatedPostsSection}
+
+      ${post.tags.length > 0 ? `
+      <div class="article-tags"> 
+        ${post.tags.map((tag) => `<span class="tag">${escapeHtmlText(repairCommonEncodingIssues(tag))}</span>`).join('')} 
+      </div>` : ''} 
 
       <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
@@ -2512,54 +3104,9 @@ const generatePostHTML = (post) => {
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Universal navbar JS
-    (function() {
-      const header = document.getElementById('lsfs-header');
-      const hamburger = document.getElementById('lsfs-hamburger');
-      const mobileMenu = document.getElementById('lsfs-mobile-menu');
-      const closeBtn = document.getElementById('lsfs-close');
-      const mobileLinks = document.querySelectorAll('.lsfs-mobile-link');
-
-      let ticking = false;
-      function updateHeader() {
-        if (window.scrollY > 80) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-        ticking = false;
-      }
-
-      window.addEventListener('scroll', function() {
-        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
-      }, { passive: true });
-      updateHeader();
-
-      hamburger.addEventListener('click', function() {
-        mobileMenu.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-
-      function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      closeBtn.addEventListener('click', closeMobileMenu);
-      mobileLinks.forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
-      });
-
-      // Highlight active link
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.lsfs-link, .lsfs-mobile-link').forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (href && (href.endsWith(currentPage) || href === '/' + currentPage)) {
-          link.style.color = '#4caf50';
-        }
-      });
-    })();
   </script>
+${UNIVERSAL_NAV_SCRIPT}
+  <script src="/cro.js"></script>
 </body>
 </html>`;
 };
@@ -2651,7 +3198,9 @@ async function buildBlog() {
 
     const publishDate = toIsoDateKey(data.date, now);
     const modifiedDate = toIsoDateKey(data.updated ?? data.date, now);
+    const defaultRoute = `/blog/${slug}`;
     const post = {
+      fileSlug,
       slug,
       title,
       date: publishDate,
@@ -2659,13 +3208,21 @@ async function buildBlog() {
       dateModified: modifiedDate,
       displayDate: formatDisplayDate(publishDate),
       image: resolvePostImage(data.image, slug),
+      socialImage: resolvePostImage(data.socialImage || data.image, slug),
       summary,
       category: data.category || 'Guides',
-      tags: data.tags || [],
+      tags: normalizeStringArray(data.tags),
       relatedUrl: data.relatedUrl || '',
       faq: data.faq || [],
       seoTitle: data.seoTitle || '',
       seoDescription: data.seoDescription || '',
+      canonical: resolveCanonicalValue(data.canonical, defaultRoute),
+      robots: resolveRobotsDirective(data.robots, { noindex: data.noindex === true }),
+      city: typeof data.city === 'string' ? data.city.trim() : '',
+      topic: typeof data.topic === 'string' ? data.topic.trim() : '',
+      audience: typeof data.audience === 'string' ? data.audience.trim() : '',
+      servicePage: typeof data.servicePage === 'string' ? data.servicePage.trim() : '',
+      featured: data.featured === true,
     };
 
     // Check if post is scheduled for the future
@@ -2686,28 +3243,43 @@ async function buildBlog() {
     post.toc = toc;
     post.content = contentWithImages;
 
-    posts.push(post);
-
-    // Generate individual post HTML
-    const postHTML = normalizeInternalLinksInHtml(generatePostHTML(post)); 
-    const outputPath = path.join(OUTPUT_DIR, `${slug}.html`);
-    fs.writeFileSync(outputPath, postHTML);
-    console.log(`  Generated: ${outputPath}`);
+    posts.push(enrichPost(post));
   }
 
   // Sort posts by date (newest first)
   posts.sort((a, b) => b.date.localeCompare(a.date));
 
+  const slugAliasMap = new Map();
+  for (const post of posts) {
+    if (post.slug && post.slug !== post.fileSlug) {
+      slugAliasMap.set(post.fileSlug, post.slug);
+    }
+  }
+
+  for (const post of posts) {
+    post.relatedPosts = selectRelatedPosts(posts, post, 3);
+  }
+
   // Save posts data for blog listing (without full content, faq, or toc)
-  const postsData = posts.map(({ content, faq, toc, ...rest }) => rest);
+  const postsData = posts.map(({ content, faq, toc, relatedPosts, supportLinks, cityMeta, ...rest }) => rest);
   fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
   console.log(`  Generated: ${POSTS_JSON}`);
+
+  for (const post of posts) {
+    const postHTML = normalizeInternalLinksInHtml(generatePostHTML(post), slugAliasMap);
+    const outputPath = path.join(OUTPUT_DIR, `${post.slug}.html`);
+    fs.writeFileSync(outputPath, postHTML);
+    console.log(`  Generated: ${outputPath}`);
+  }
 
   // Update blog.html with embedded posts data
   const BLOG_HTML = './blog.html';
   if (fs.existsSync(BLOG_HTML)) {
     let blogHtml = fs.readFileSync(BLOG_HTML, 'utf-8');
     const postsJson = JSON.stringify(postsData, null, 8).replace(/^/gm, '        ').trim();
+    const featuredMarkup = renderFeaturedBlogCards(postsData);
+    const topicMarkup = renderTopicHubCards(postsData);
+    const cardsMarkup = renderBlogCards(postsData.slice(0, 9));
 
     // Replace the posts array in the script
     blogHtml = blogHtml.replace(
@@ -2715,8 +3287,23 @@ async function buildBlog() {
       `// Posts data embedded at build time - no fetch needed\n      const posts = ${postsJson};`
     );
 
+    blogHtml = blogHtml.replace(
+      /<!-- BLOG_FEATURED_START -->[\s\S]*?<!-- BLOG_FEATURED_END -->/,
+      `<!-- BLOG_FEATURED_START -->\n${featuredMarkup}\n          <!-- BLOG_FEATURED_END -->`,
+    );
+
+    blogHtml = blogHtml.replace(
+      /<!-- BLOG_TOPICS_START -->[\s\S]*?<!-- BLOG_TOPICS_END -->/,
+      `<!-- BLOG_TOPICS_START -->\n${topicMarkup}\n          <!-- BLOG_TOPICS_END -->`,
+    );
+
+    blogHtml = blogHtml.replace(
+      /<!-- BLOG_CARDS_START -->[\s\S]*?<!-- BLOG_CARDS_END -->/,
+      `<!-- BLOG_CARDS_START -->\n${cardsMarkup}\n          <!-- BLOG_CARDS_END -->`,
+    );
+
     fs.writeFileSync(BLOG_HTML, blogHtml);
-    console.log(`  Updated: ${BLOG_HTML} with ${postsData.length} posts`);
+    console.log(`  Updated: ${BLOG_HTML} with ${postsData.length} posts and static blog cards`);
   }
 
   console.log(`Blog build complete! ${posts.length} posts published, ${scheduledPosts.length} scheduled.`);

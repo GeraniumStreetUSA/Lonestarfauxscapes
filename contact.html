@@ -47,6 +47,18 @@
   </script>
 
   <!-- Cloudflare Turnstile -->
+  <script>
+    (function () {
+      const prodSitekey = '0x4AAAAAACV8gs7CEDMYDaQu';
+      const testSitekey = '1x00000000000000000000AA';
+      const hostname = window.location.hostname;
+      const isLocalPreview = hostname === 'localhost' || hostname === '127.0.0.1';
+
+      if (!window.__LSFS_TURNSTILE_SITEKEY) {
+        window.__LSFS_TURNSTILE_SITEKEY = isLocalPreview ? testSitekey : prodSitekey;
+      }
+    })();
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <style>
@@ -644,13 +656,17 @@
       font-size: 0.9rem;
     }
   </style>
+  <link rel="stylesheet" href="/cro.css">
 </head>
-<body>
+<body data-lsfs-sticky-cta="off">
 <!-- UNIVERSAL NAVBAR -->
-  <header id="lsfs-header">
-    <nav id="lsfs-nav">
-      <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
-      <div id="lsfs-desktop-links">
+  <!-- NAVBAR HTML -->
+<header id="lsfs-header">
+  <nav id="lsfs-nav">
+    <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
+    <div id="lsfs-desktop-links">
       <a href="/" class="lsfs-link">Home</a>
 
       <!-- Products Dropdown -->
@@ -709,33 +725,50 @@
       <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
     </div>
 
-    <button id="lsfs-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </nav>
-  </header>
+    <!-- Mobile Hamburger -->
+    <button id="lsfs-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
 
-  <div id="lsfs-mobile-menu">
-    <button id="lsfs-close" aria-label="Close menu">&#215;</button>
-    <a href="/" class="lsfs-mobile-link">Home</a>
-    <!-- Products Section -->
-    <span class="lsfs-mobile-label">Products</span>
-    <span class="lsfs-mobile-subhead">Hedges</span>
-    <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
-    <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
-    <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
-    <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
-    <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
-    <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
-    <span class="lsfs-mobile-subhead">Walls</span>
-    <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
-    <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
-    <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
-    <a href="/installation" class="lsfs-mobile-link">Installation</a>
-    <a href="/commercial" class="lsfs-mobile-link">Commercial</a>
-    <a href="/residential" class="lsfs-mobile-link">Residential</a>
-    <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
-    <a href="/blog" class="lsfs-mobile-link">Blog</a>
-    <a href="/contact" class="lsfs-mobile-link" style="color: #fff !important;">Contact</a>
-  </div>
+<!-- MOBILE MENU (separate from header) -->
+<div id="lsfs-mobile-menu">
+  <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+
+  <a href="/" class="lsfs-mobile-link">Home</a>
+
+  <!-- Products Section -->
+  <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
+  <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+  <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+  <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
+  <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
+  <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
+  <!-- Locations Section -->
+  <span class="lsfs-mobile-label">Locations</span>
+  <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
+  <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
+  <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
+  <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
+  <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
+  <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
+  <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
+
+  <a href="/installation" class="lsfs-mobile-link">Installation</a>
+  <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
+  <a href="/blog" class="lsfs-mobile-link">Blog</a>
+  <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
+  <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+</div>
 
   <main id="main-content">
     <!-- Hero -->
@@ -854,13 +887,18 @@
     <!-- Contact Form Section -->
     <section class="contact-form-section">
       <div class="container">
-        <div class="form-header">
+        <div class="form-header" data-lsfs-context="contact_page_form">
           <span class="badge">Free Quote</span>
-          <h2>Let's Bring Your Vision to Life</h2>
-          <p>Tell us about your project and we'll get back to you within 24 hours with ideas and pricing.</p>
+          <h2>Tell us about the project</h2>
+          <p>Share the basics and we will reply with the clearest next step, pricing guidance, or spec help.</p>
+          <div class="lsfs-cro-links" style="justify-content:center; margin-top: 1rem;">
+            <a href="tel:+17609787335" data-lsfs-cta="contact_page_call">Call (760) 978-7335</a>
+            <a href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="contact_page_email">Email your project</a>
+            <a href="/pricing" data-lsfs-cta="contact_page_ballpark_pricing">Get ballpark pricing</a>
+          </div>
         </div>
 
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form" data-lsfs-track-form="contact_page_quote" data-lsfs-form-context="contact_page_form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name <span class="required">*</span></label>
@@ -880,34 +918,34 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label for="service">What Are You Looking For?</label>
+              <label for="service">Project Focus</label>
               <select id="service" name="service">
-                <option value="">Select a product...</option>
+                <option value="">Select one...</option>
                 <option value="Artificial Hedge">Artificial Hedge Panels</option>
                 <option value="Living Wall">Living Wall / Green Wall</option>
                 <option value="Commercial Wall">Commercial Wall Covering</option>
                 <option value="Fence Extension">Fence Extension / Privacy</option>
                 <option value="Pool Privacy">Pool Area Privacy</option>
                 <option value="Fire-Rated Hedge">Fire-Rated (Commercial)</option>
-                <option value="Multiple Products">Multiple Products</option>
                 <option value="Not Sure">Not Sure - Need Guidance</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="project-type">Project Type</label>
+              <label for="project-type">Who Is This For?</label>
               <select id="project-type" name="project-type">
-                <option value="">Select type...</option>
-                <option value="Residential">Residential / Home</option>
-                <option value="Commercial">Commercial / Business</option>
-                <option value="HOA/Multi-Family">HOA / Multi-Family</option>
-                <option value="Event/Rental">Event / Rental</option>
+                <option value="">Select one...</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Architect / Designer / GC">Architect / Designer / GC</option>
+                <option value="HOA / Multi-Family">HOA / Multi-Family</option>
+                <option value="Not Sure Yet">Not sure yet</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="city">City / Area</label>
+            <label for="city">Project Location</label>
             <input type="text" id="city" name="city" placeholder="Dallas, Austin, Houston...">
           </div>
 
@@ -921,10 +959,17 @@
             <input type="text" name="website" tabindex="-1" autocomplete="off">
           </div>
 
-          <!-- Cloudflare Turnstile - Replace YOUR_SITE_KEY with actual key from Cloudflare dashboard -->
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAACV8gs7CEDMYDaQu" data-theme="dark"></div>
+          <!-- Cloudflare Turnstile -->
+          <div id="contact-turnstile" class="cf-turnstile" data-theme="dark"></div>
+          <script>
+            (function () {
+              const slot = document.getElementById('contact-turnstile');
+              if (!slot) return;
+              slot.setAttribute('data-sitekey', window.__LSFS_TURNSTILE_SITEKEY || '');
+            })();
+          </script>
 
-          <button type="submit" class="form-submit">Get My Free Quote</button>
+          <button type="submit" class="form-submit" data-lsfs-cta="contact_page_submit">Get My Free Quote</button>
 
           <div class="form-footer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
@@ -943,6 +988,7 @@
     </div>
   </footer>
 
+  <script src="/cro.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -968,10 +1014,11 @@
           name: form.name.value.trim(),
           email: form.email.value.trim(),
           phone: form.phone.value.trim(),
+          location: city,
           service: form.service.value + (projectType ? ` (${projectType})` : ''),
-          message: (city ? `Location: ${city}\n\n` : '') + form.message.value.trim(),
+          message: form.message.value.trim(),
           website: form.website.value, // honeypot
-          'cf-turnstile-response': form.querySelector('[name="cf-turnstile-response"]')?.value || ''
+          turnstileToken: form.querySelector('[name="cf-turnstile-response"]')?.value || ''
         };
 
         try {
@@ -993,6 +1040,11 @@
           if (response.ok && data.success) {
             status.className = 'form-status success';
             status.textContent = 'Request sent! We\'ll review your project and get back to you within 24 hours.';
+            window.LSFSCRO?.trackFormSuccess(form, {
+              form_name: 'contact_page_quote',
+              form_context: 'contact_page_form',
+              service_interest: formData.service || 'unspecified',
+            });
             form.reset();
           } else {
             throw new Error(data.error || 'Failed to send message');
@@ -1000,6 +1052,12 @@
         } catch (err) {
           status.className = 'form-status error';
           status.textContent = err.message || 'Something went wrong. Please try again or call us.';
+          window.LSFSCRO?.trackFormError(form, {
+            form_name: 'contact_page_quote',
+            form_context: 'contact_page_form',
+            reason: 'request_failed',
+            service_interest: formData.service || 'unspecified',
+          });
         } finally {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Get My Free Quote';

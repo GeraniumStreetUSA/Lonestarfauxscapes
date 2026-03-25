@@ -17,7 +17,18 @@ export default {
   async fetch(request, env) {
     const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://lonestarfauxscapes.com,https://www.lonestarfauxscapes.com')
+    const buildLocalPreviewOrigins = () => {
+      const hosts = ['http://localhost', 'http://127.0.0.1'];
+      const ports = [3000, 5173];
+
+      for (let port = 4173; port <= 4190; port += 1) {
+        ports.push(port);
+      }
+
+      return hosts.flatMap(origin => ports.map(port => `${origin}:${port}`));
+    };
+
+    const allowedOrigins = (env.ALLOWED_ORIGINS || ['https://lonestarfauxscapes.com', 'https://www.lonestarfauxscapes.com', ...buildLocalPreviewOrigins()].join(','))
       .split(',')
       .map(s => s.trim())
       .filter(Boolean);
@@ -79,6 +90,7 @@ export default {
       const name = String(body.name || '').trim().slice(0, 80);
       const email = String(body.email || '').trim().slice(0, 254);
       const phone = String(body.phone || '').trim().slice(0, 40);
+      const location = String(body.location || '').trim().slice(0, 200);
       const service = String(body.service || '').trim().slice(0, 120);
       const message = String(body.message || '').trim().slice(0, 5000);
       const turnstileToken = String(body.turnstileToken || '').trim().slice(0, 2048);
@@ -153,6 +165,7 @@ New contact form submission from Lone Star Faux Scapes website:
 Name: ${name}
 Email: ${email}
 Phone: ${phone || 'Not provided'}
+Project Location: ${location || 'Not provided'}
 Service Interest: ${service || 'Not specified'}
 
 Message:

@@ -1,4 +1,7 @@
+import { GONE_ROUTE_PATHS } from '../config/indexing-rules.js';
+
 const PERMANENT_REDIRECT = 301;
+const GONE_ROUTES = new Set(GONE_ROUTE_PATHS.map(pathname => pathname.toLowerCase()));
 
 const LEGACY_REDIRECTS = new Map([
   ['/privacy-wall', '/residential'],
@@ -36,9 +39,36 @@ function redirectTo(url, pathname) {
   return Response.redirect(nextUrl.toString(), PERMANENT_REDIRECT);
 }
 
+function normalizePathname(pathname) {
+  const lowerPath = pathname.toLowerCase();
+  if (lowerPath.length <= 1) return lowerPath;
+  return lowerPath.replace(/\/+$/, '');
+}
+
+function shouldReturnGone(pathname) {
+  const normalizedPath = normalizePathname(pathname);
+  return GONE_ROUTES.has(pathname.toLowerCase()) || GONE_ROUTES.has(normalizedPath);
+}
+
+function goneResponse(pathname) {
+  return new Response(`Gone: ${pathname}\n`, {
+    status: 410,
+    headers: {
+      'Cache-Control': 'no-store',
+      'Content-Type': 'text/plain; charset=utf-8',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
+  });
+}
+
 export async function onRequest(context) {
   const { request, next } = context;
   const url = new URL(request.url);
+
+  if (shouldReturnGone(url.pathname)) {
+    return goneResponse(url.pathname);
+  }
+
   const canonical = new URL(url.toString());
   let changed = false;
 

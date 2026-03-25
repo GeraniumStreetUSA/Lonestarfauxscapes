@@ -11,7 +11,7 @@ tags:
 draft: false
 faq:
   - question: "How long do faux living walls last in direct sunlight?"
-    answer: "Premium UV-stabilized materials maintain color for 7-10 years even in south-facing windows. Cheaper imports fade noticeably within 24 months. Look for polyethylene-based foliage rather than PVC for best results."
+    answer: "Premium UV-stabilized materials usually hold color longer than cheaper imports, but performance still depends on product quality, placement, and light exposure. Look for polyethylene-based foliage rather than PVC for better outdoor durability."
   - question: "Can these walls help with noise reduction?"
     answer: "They're not soundproof, but dense foliage panels can absorb mid-range frequencies. Pair them with acoustic backing foam for a 20-30% reduction in echo—helpful in open-plan offices."
   - question: "What's the weight difference versus real plant walls?"
@@ -19,7 +19,7 @@ faq:
   - question: "How do you clean faux living walls?"
     answer: "Use compressed air for monthly dust removal and a damp microfiber cloth for deeper cleaning every 3-6 months. Avoid harsh chemicals that could degrade UV coatings. For textured surfaces, soft-bristle brushes prevent particle buildup."
   - question: "Can faux walls be installed outdoors in Texas?"
-    answer: "While possible, direct UV exposure and extreme weather accelerate wear. For outdoor applications, specify marine-grade stainless steel frames and UV-protected foliage rated for 10+ years. Partial shade locations yield best longevity."
+    answer: "While possible, direct UV exposure and extreme weather accelerate wear. For outdoor applications, use corrosion-resistant framing and UV-rated foliage, and match the system to the amount of sun and weather exposure it will see."
   - question: "Do faux living walls affect indoor air quality?"
     answer: "They don't actively purify air like live plants, but high-quality materials won't off-gas VOCs. Look for GREENGUARD Gold certified products that meet strict chemical emission standards for sensitive environments."
 ---
@@ -154,7 +154,7 @@ Professional installation teams should provide:
 <details>  
 <summary>How long do faux living walls last in direct sunlight?</summary>  
 
-Premium UV-stabilized materials maintain color for 7-10 years even in south-facing windows. Cheaper imports fade noticeably within 24 months. Look for polyethylene-based foliage rather than PVC for best results.  
+Premium UV-stabilized materials usually hold color longer than cheaper imports, but performance still depends on product quality, placement, and light exposure. Look for polyethylene-based foliage rather than PVC for better outdoor durability.
 
 </details>  
 
@@ -182,7 +182,7 @@ Use compressed air for monthly dust removal and a damp microfiber cloth for deep
 <details>  
 <summary>Can faux walls be installed outdoors in Texas?</summary>  
 
-While possible, direct UV exposure and extreme weather accelerate wear. For outdoor applications, specify marine-grade stainless steel frames and UV-protected foliage rated for 10+ years. Partial shade locations yield best longevity.  
+While possible, direct UV exposure and extreme weather accelerate wear. For outdoor applications, use corrosion-resistant framing and UV-rated foliage, and match the system to the amount of sun and weather exposure it will see.
 
 </details>  
 
