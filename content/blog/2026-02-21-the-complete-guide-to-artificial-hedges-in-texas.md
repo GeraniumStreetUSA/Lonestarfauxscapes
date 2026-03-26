@@ -1,5 +1,6 @@
 ---
 title: "The complete guide to artificial hedges in Texas"
+slug: "the-complete-guide-to-artificial-hedges-in-texas"
 summary: "Everything Texas homeowners and property managers need to know about artificial hedges—types, materials, climate performance, costs, HOA approval, pool privacy, installation, and maintenance."
 date: 2026-02-21
 image: /images/hedges/hedge-privacy-1.webp

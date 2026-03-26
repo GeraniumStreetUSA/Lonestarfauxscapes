@@ -1,5 +1,6 @@
 ---
 title: "Fire-rated artificial greenery for Texas commercial properties: the complete guide"
+slug: "fire-rated-artificial-greenery-for-texas-commercial-properties"
 summary: "A practical guide for property managers, architects, and building owners on fire-rated artificial hedges and living walls for Texas commercial projects—what the standards mean, what documentation matters, and where fire compliance applies."
 date: 2026-02-21
 image: /images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png

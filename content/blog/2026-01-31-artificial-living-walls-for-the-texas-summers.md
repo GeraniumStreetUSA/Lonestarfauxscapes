@@ -1,5 +1,6 @@
 ---
 title: "Artificial living walls for Texas summers: what holds up when it’s 105°F"
+slug: "artificial-living-walls-for-the-texas-summers"
 summary: "A hands-on guide to picking and installing artificial living walls that can take Texas heat—UV, wind, mounting, cleaning, and fire-rated options for homes and commercial spaces."
 date: 2026-01-31
 image: /images/2026-01-31-artificial-living-walls-for-the-texas-summers-image.png

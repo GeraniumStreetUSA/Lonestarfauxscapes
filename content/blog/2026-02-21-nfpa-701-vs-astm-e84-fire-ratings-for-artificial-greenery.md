@@ -1,5 +1,6 @@
 ---
 title: "NFPA 701 vs ASTM E84: fire ratings for artificial greenery explained"
+slug: "nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery"
 summary: "A clear explanation of the two fire test standards most commonly applied to artificial hedges and living walls—what each one measures, how they differ, and which one your project needs."
 date: 2026-03-03
 image: /images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png

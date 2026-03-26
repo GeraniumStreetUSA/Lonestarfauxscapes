@@ -1,5 +1,6 @@
 ---
 title: "Faux Living Walls Transforming Texas Office Spaces"
+slug: "faux-living-walls-transforming-texas-office-spaces"
 summary: "Discover how faux living walls enhance Texas offices with low-maintenance beauty, fire-rated safety, and custom design flexibility for business owners."
 date: 2025-12-14
 image: images/blog/c4508ed6-4ebf-4981-b89a-a0c2e5924b59.jpg

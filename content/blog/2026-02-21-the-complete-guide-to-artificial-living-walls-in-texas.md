@@ -1,5 +1,6 @@
 ---
 title: "The complete guide to artificial living walls in Texas"
+slug: "the-complete-guide-to-artificial-living-walls-in-texas"
 summary: "A practical guide to artificial living walls for Texas homes and businesses—materials, climate performance, indoor vs outdoor, commercial fire compliance, installation, and maintenance."
 date: 2026-02-21
 image: /images/blog/artificial-living-walls-001.jpg

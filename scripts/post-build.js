@@ -20,7 +20,7 @@ const filesToCopy = [
   { src: './sitemap.xml', dest: 'sitemap.xml' },
   { src: './robots.txt', dest: 'robots.txt' },
   { src: './_headers', dest: '_headers' },
-  { src: './_redirects', dest: '_redirects' },
+  { src: './public/_redirects', dest: '_redirects' },
   { src: './admin/config.yml', dest: 'admin/config.yml' },
   { src: './content/posts.json', dest: 'content/posts.json' },
   { src: './content/case-studies.json', dest: 'content/case-studies.json' },

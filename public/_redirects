@@ -1,4 +1,4 @@
-# Source of truth mirrors public/_redirects.
+# Source of truth for Cloudflare Pages redirects.
 # Also verify the host-level redirects in Cloudflare DNS / Redirect Rules.
 http://lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 http://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301

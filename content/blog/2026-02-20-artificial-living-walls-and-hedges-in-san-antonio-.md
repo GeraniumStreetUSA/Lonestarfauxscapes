@@ -1,5 +1,6 @@
 ---
 title: "Artificial living walls and hedges in San Antonio, TX: a practical guide from LoneStar Fauxscapes"
+slug: "artificial-living-walls-and-hedges-in-san-antonio"
 summary: "Get artificial living walls and faux hedges in San Antonio, TX—clean, low-maintenance greenery for homes and businesses. Ask LoneStar Fauxscapes."
 date: 2026-02-20
 category: "Local Updates"

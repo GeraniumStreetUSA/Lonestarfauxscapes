@@ -1,5 +1,6 @@
 ---
 title: "Firewise artificial hedges for multifamily properties: what property managers should actually look for"
+slug: "firewise-artificial-hedges-for-multi-family-units"
 summary: "A nuts-and-bolts guide for property managers choosing firewise, code-friendly artificial hedge systems for apartments and multifamily buildings—what “fire-rated” actually means, what documentation to ask for, and the install mistakes that cause problems later."
 date: 2026-02-03
 image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png

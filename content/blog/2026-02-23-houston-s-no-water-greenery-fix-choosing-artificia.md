@@ -1,5 +1,6 @@
 ---
 title: "Houston’s no-water greenery fix: choosing artificial living walls and hedges that still look real in August"
+slug: "houston-no-water-greenery-fix-choosing-artificial-hedges"
 summary: "Get artificial living walls and artificial hedges in Houston, TX for privacy and year-round green—without watering. See what to check, then book a site visit."
 date: 2026-02-23
 image: /images/blog/artificial-living-walls-001.jpg

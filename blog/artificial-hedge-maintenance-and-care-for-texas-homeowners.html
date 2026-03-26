@@ -1,1021 +1,37 @@
-import fs from 'fs';
-import path from 'path';
-import { marked } from 'marked';
-import matter from 'gray-matter';
-import { resolveCanonicalValue, resolveRobotsDirective } from '../seo/foundation.js';
-import { UNIVERSAL_NAV_MARKUP, UNIVERSAL_NAV_SCRIPT, UNIVERSAL_NAV_STYLESHEET } from './shared-nav.js';
-
-const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
-const CONTENT_DIR = './content/blog';
-const OUTPUT_DIR = './blog';
-const POSTS_JSON = './content/posts.json';
-const DEFAULT_BLOG_IMAGE = 'images/hedges/hedge-privacy-1.jpg'; 
-const BRAND_NAME = 'Lone Star Faux Scapes'; 
-const MAX_META_TITLE_LENGTH = 60; 
-const MAX_META_DESCRIPTION_LENGTH = 155; 
-const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
-const DATE_PREFIX_SLUG_REGEX = /^\d{4}-\d{2}-\d{2}-(.+)$/;
-const INTERNAL_HREF_REGEX = /href=(["'])([^"']+)\1/gi;
-const LEGACY_BLOG_ROUTE_REGEX = /^(\/blog\/)([^/?#]+)([?#].*)?$/i;
-const TOPIC_CONFIG = {
-  'artificial-hedges': {
-    label: 'Artificial hedge guides',
-    description: 'Privacy screens, pool privacy, HOA planning, durability, and installation advice.',
-    href: '/artificial-hedge',
-    actionLabel: 'Explore hedge installs',
-  },
-  'living-walls': {
-    label: 'Living wall guides',
-    description: 'Design, materials, outdoor performance, and maintenance planning for artificial living walls.',
-    href: '/living-wall',
-    actionLabel: 'Explore living walls',
-  },
-  'commercial-planning': {
-    label: 'Commercial planning',
-    description: 'Fire-rated options, documentation, sequencing, and buying guidance for teams specifying greenery.',
-    href: '/commercial-resources',
-    actionLabel: 'Use the resource hub',
-  },
-  'local-guides': {
-    label: 'Texas city guides',
-    description: 'Planning help for Austin, Dallas, Houston, San Antonio, and Fort Worth projects.',
-    href: '/locations',
-    actionLabel: 'See Texas coverage',
-  },
-};
-const CITY_PAGE_MAP = {
-  austin: { slug: 'austin', label: 'Austin', href: '/austin' },
-  dallas: { slug: 'dallas', label: 'Dallas', href: '/dallas' },
-  houston: { slug: 'houston', label: 'Houston', href: '/houston' },
-  'san antonio': { slug: 'san-antonio', label: 'San Antonio', href: '/san-antonio' },
-  'fort worth': { slug: 'fort-worth', label: 'Fort Worth', href: '/fort-worth' },
-};
-const CITY_MATCHERS = Object.entries(CITY_PAGE_MAP).map(([key, meta]) => ({
-  key,
-  meta,
-  regex: new RegExp(`\\b${key.replace(/\s+/g, '\\s+')}\\b`, 'i'),
-}));
-const FEATURED_KEYWORDS = /\b(complete guide|pricing|cost|roi|nfpa|astm|fire code|fire-rated artificial greenery|hoa approval|materials)\b/i;
-const COMMERCIAL_SIGNAL_REGEX = /\b(commercial|multifamily|property manager|office|retail|restaurant|hotel|hospitality|architect|designer|general contractor|\bgc\b|specifier|submittal|shop drawing|acoustic|fire code|code|compliance|ahj)\b/i;
-const RESIDENTIAL_SIGNAL_REGEX = /\b(home|homeowner|residential|backyard|pool|privacy|hoa|balcony|patio|fence)\b/i;
-const LIVING_WALL_SIGNAL_REGEX = /\b(living wall|green wall)\b/i;
-const FIRE_SIGNAL_REGEX = /\b(fire|nfpa|astm|submittal|code|documentation)\b/i;
-
-const isAbsoluteUrl = (value) => /^https?:\/\//i.test(value);
-const isProtocolRelativeUrl = (value) => value.startsWith('//');
-
-const normalizeImagePath = (value) => {
-  const raw = typeof value === 'string' ? value.trim() : '';
-  return raw || DEFAULT_BLOG_IMAGE;
-};
-
-const toLocalImagePath = (imagePath) => {
-  if (typeof imagePath !== 'string') return null;
-  const clean = imagePath.trim().split('?')[0].split('#')[0];
-  if (!clean || isAbsoluteUrl(clean) || isProtocolRelativeUrl(clean)) return null;
-
-  // Normalize "/images/foo.jpg" and "images/foo.jpg" to a local workspace path.
-  const normalized = clean.startsWith('/') ? clean.slice(1) : clean;
-  return path.join('.', normalized);
-};
-
-const imageExists = (imagePath) => {
-  const localPath = toLocalImagePath(imagePath);
-  if (!localPath) return true;
-  return fs.existsSync(localPath);
-};
-
-const resolvePostImage = (imagePath, slug) => {
-  const normalized = normalizeImagePath(imagePath);
-  if (imageExists(normalized)) {
-    return normalized;
-  }
-
-  console.warn(`  Missing image for ${slug}: ${normalized}. Falling back to ${DEFAULT_BLOG_IMAGE}`);
-  return DEFAULT_BLOG_IMAGE;
-};
-
-const buildImageSrc = (imagePath) => {
-  if (isAbsoluteUrl(imagePath) || isProtocolRelativeUrl(imagePath)) return imagePath;
-  return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-};
-
-const buildImageAbsolute = (imagePath) => {
-  if (isAbsoluteUrl(imagePath)) return imagePath;
-  if (isProtocolRelativeUrl(imagePath)) return `https:${imagePath}`;
-  const relative = buildImageSrc(imagePath);
-  return `${SITE_URL}${relative}`;
-};
-
-const IMAGE_COMMENT_REGEX = /<!--\s*image:\s*([^>]+?)\s*-->/gi;
-
-const escapeHtmlAttribute = (value) => String(value)
-  .replaceAll('&', '&amp;')
-  .replaceAll('"', '&quot;')
-  .replaceAll('<', '&lt;')
-  .replaceAll('>', '&gt;');
-
-const escapeHtmlText = (value) => String(value)
-  .replaceAll('&', '&amp;')
-  .replaceAll('<', '&lt;')
-  .replaceAll('>', '&gt;');
-
-const escapeJsonString = (value) => JSON.stringify(String(value ?? '')).slice(1, -1);
-
-const repairCommonEncodingIssues = (value) => String(value ?? '')
-  .replace(/â€™|â€˜/g, "'")
-  .replace(/â€œ|â€/g, '"')
-  .replace(/â€“|â€”/g, '-')
-  .replace(/Â°F/g, '°F')
-  .replace(/Â/g, '');
-
-const normalizeText = (value) => repairCommonEncodingIssues(value).replace(/\s+/g, ' ').trim();
-
-const truncateAtWordBoundary = (value, maxLength) => {
-  const normalized = normalizeText(value);
-  if (normalized.length <= maxLength) return normalized;
-
-  const clipped = normalized.slice(0, maxLength - 1);
-  const lastSpace = clipped.lastIndexOf(' ');
-  const safeText = (lastSpace > Math.floor(maxLength * 0.6) ? clipped.slice(0, lastSpace) : clipped).trim();
-  return `${safeText}…`;
-};
-
-const buildSeoTitle = (title) => {
-  const baseTitle = normalizeText(title);
-  if (!baseTitle) return BRAND_NAME;
-
-  const withBrand = `${baseTitle} | ${BRAND_NAME}`;
-  if (withBrand.length <= MAX_META_TITLE_LENGTH) return withBrand;
-  if (baseTitle.length <= MAX_META_TITLE_LENGTH) return baseTitle;
-  return truncateAtWordBoundary(baseTitle, MAX_META_TITLE_LENGTH);
-};
-
-const buildSeoDescription = (description) => truncateAtWordBoundary(description, MAX_META_DESCRIPTION_LENGTH); 
-
-const canonicalizeInternalHref = (href, slugAliasMap = new Map()) => {
-  const raw = typeof href === 'string' ? href.trim() : '';
-  if (!raw) return href;
-
-  // Ignore external/special protocols and in-page anchors.
-  if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(raw)) return href;
-  if (raw.includes('${')) return href;
-
-  const match = raw.match(/^([^?#]*)([?#].*)?$/);
-  if (!match) return href;
-
-  let pathname = match[1] || '';
-  const suffix = match[2] || '';
-  const lowerPath = pathname.toLowerCase();
-
-  if (lowerPath === '/admin/index.html' || lowerPath === 'admin/index.html') {
-    return `/admin/${suffix}`;
-  }
-
-  if (lowerPath === '/index.html' || lowerPath === 'index.html') {
-    return `/${suffix}`;
-  }
-
-  if (lowerPath === '/blog.html' || lowerPath === 'blog.html') {
-    return `/blog${suffix}`;
-  }
-
-  const legacyBlogMatch = pathname.match(LEGACY_BLOG_ROUTE_REGEX);
-  if (legacyBlogMatch) {
-    const legacySlug = legacyBlogMatch[2];
-    const resolvedSlug = slugAliasMap.get(legacySlug);
-    if (resolvedSlug) {
-      return `${legacyBlogMatch[1]}${resolvedSlug}${suffix || legacyBlogMatch[3] || ''}`;
-    }
-  }
-
-  if (lowerPath.endsWith('.html')) {
-    pathname = pathname.slice(0, -5);
-  }
-
-  if (!pathname.startsWith('/') && !pathname.startsWith('./') && !pathname.startsWith('../')) {
-    pathname = `/${pathname}`;
-  }
-
-  if (pathname.length > 1 && pathname.endsWith('/') && pathname !== '/admin/') {
-    pathname = pathname.replace(/\/+$/, '');
-  }
-
-  pathname = pathname.replace(/\/{2,}/g, '/');
-  return `${pathname}${suffix}`;
-};
-
-const normalizeInternalLinksInHtml = (html, slugAliasMap = new Map()) => html.replace(
-  INTERNAL_HREF_REGEX,
-  (fullMatch, quote, href) => `href=${quote}${canonicalizeInternalHref(href, slugAliasMap)}${quote}`,
-);
-
-const inferBlogCtaConfig = (post) => {
-  const text = normalizeText([
-    post?.title,
-    post?.summary,
-    Array.isArray(post?.tags) ? post.tags.join(' ') : '',
-    post?.category,
-  ].join(' ')).toLowerCase();
-
-  const cityMatch = text.match(/\b(austin|dallas|houston|san antonio|fort worth)\b/);
-  const service = /living wall|green wall/.test(text) ? 'Living wall project' : 'Artificial hedge project';
-  const fireTopic = /fire|nfpa|astm|submittal|code/.test(text);
-  const hoaTopic = /\bhoa\b/.test(text);
-  const pricingTopic = /price|pricing|cost|budget|roi/.test(text);
-  const commercialTopic = /commercial|multifamily|hospitality|hotel|retail|office|restaurant|property manager|architect|designer|general contractor|\bgc\b|submittal|shop drawing|ahj|acoustic|fire|nfpa/.test(text);
-
-  let title = 'Planning a similar Texas project?';
-  let description = 'Use this article for research, then send your dimensions, city, and photos if you want a useful next step.';
-  let primaryHref = '/pricing';
-  let primaryLabel = 'Get ballpark pricing';
-  let primaryEvent = 'blog_ballpark_pricing';
-
-  if (fireTopic) {
-    title = 'Need fire-rated options or documentation?';
-    description = 'Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.';
-    primaryHref = 'mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request';
-    primaryLabel = 'Request fire-doc info';
-    primaryEvent = 'blog_fire_docs';
-  } else if (hoaTopic) {
-    title = 'Need an HOA-friendly privacy option?';
-    description = 'Send the fence length, target height, and photos. We can point you to the cleanest path for backyard privacy without live-plant upkeep.';
-    primaryHref = '/hoa-approved-artificial-hedge';
-    primaryLabel = 'Ask about HOA-friendly options';
-    primaryEvent = 'blog_hoa_options';
-  } else if (pricingTopic) {
-    title = 'Need a real starting number for your project?';
-    description = 'Use the pricing page for quick benchmarks, then send dimensions and photos for a tighter range.';
-  }
-
-  const trustPoints = [
-    'Fast install planning',
-    cityMatch ? `${cityMatch[1][0].toUpperCase()}${cityMatch[1].slice(1)} relevance` : 'Texas-wide project coverage',
-    fireTopic ? 'Fire-rated options available' : 'Custom fit for the space',
-  ];
-
-  return {
-    title,
-    description,
-    primaryHref,
-    primaryLabel,
-    primaryEvent,
-    service,
-    location: cityMatch ? cityMatch[1].replace(/\b\w/g, (char) => char.toUpperCase()) : '',
-    trustPoints,
-    resourceHref: commercialTopic ? '/commercial-resources' : '',
-    resourceLabel: commercialTopic ? 'Use the commercial resource hub' : '',
-  };
-};
-
-const renderBlogArticleCta = (post) => {
-  const cta = inferBlogCtaConfig(post);
-
-  return `
-      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
-        <div>
-          <p class="lsfs-cro-eyebrow">Need a next step?</p>
-          <h2 class="lsfs-cro-title">${escapeHtmlText(cta.title)}</h2>
-          <p class="lsfs-cro-copy">${escapeHtmlText(cta.description)}</p>
-          <div class="lsfs-cro-actions">
-            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="${escapeHtmlAttribute(cta.primaryHref)}" data-lsfs-cta="${escapeHtmlAttribute(cta.primaryEvent)}">${escapeHtmlText(cta.primaryLabel)}</a>
-            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
-            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
-          </div>
-          <div class="lsfs-cro-context">
-            ${cta.trustPoints.map((item) => `<span class="lsfs-cro-pill">${escapeHtmlText(item)}</span>`).join('')}
-          </div>
-          <div class="lsfs-cro-links">
-            ${cta.resourceHref ? `<a href="${escapeHtmlAttribute(cta.resourceHref)}" data-lsfs-cta="blog_commercial_resource_hub">${escapeHtmlText(cta.resourceLabel)}</a>` : ''}
-            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
-            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
-          </div>
-        </div>
-        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="${escapeHtmlAttribute(cta.service)}" data-lsfs-location="${escapeHtmlAttribute(cta.location)}" data-lsfs-button="Request Pricing"></div>
-      </div>
-  `;
-};
-
-const sanitizeFrontmatterSlug = (value) => {
-  if (typeof value !== 'string') return '';
-
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/^\/+|\/+$/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
-const stripDatePrefixFromSlug = (slug) => {
-  const match = String(slug || '').match(DATE_PREFIX_SLUG_REGEX);
-  return match ? match[1] : String(slug || '');
-};
-
-const loadLegacySlugSet = () => {
-  const slugs = new Set();
-  if (!fs.existsSync(POSTS_JSON)) return slugs;
-
-  try {
-    const parsed = JSON.parse(fs.readFileSync(POSTS_JSON, 'utf-8'));
-    if (!Array.isArray(parsed)) return slugs;
-
-    for (const post of parsed) {
-      const slug = typeof post?.slug === 'string' ? post.slug.trim() : '';
-      if (slug) slugs.add(slug);
-    }
-  } catch (error) {
-    console.warn(`  Could not parse legacy slugs from ${POSTS_JSON}: ${error.message}`);
-  }
-
-  return slugs;
-};
-
-const loadExistingOutputSlugSet = () => {
-  const slugs = new Set();
-  if (!fs.existsSync(OUTPUT_DIR)) return slugs;
-
-  for (const entry of fs.readdirSync(OUTPUT_DIR)) {
-    if (!entry.endsWith('.html')) continue;
-    const slug = entry.replace(/\.html$/, '');
-    if (slug) slugs.add(slug);
-  }
-
-  return slugs;
-};
-
-const resolvePostSlug = ({ frontmatterSlug, fileSlug, legacySlugSet, existingOutputSlugSet }) => {
-  const explicitSlug = sanitizeFrontmatterSlug(frontmatterSlug);
-  if (explicitSlug) return explicitSlug;
-
-  // Preserve legacy URLs for posts that already exist in the site/history.
-  if (legacySlugSet.has(fileSlug) || existingOutputSlugSet.has(fileSlug)) {
-    return fileSlug;
-  }
-
-  const timelessSlug = stripDatePrefixFromSlug(fileSlug);
-  return timelessSlug || fileSlug;
-};
-
-const toIsoDateKey = (value, fallbackDate = new Date()) => {
-  if (typeof value === 'string') {
-    const dateMatch = value.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (dateMatch) return `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
-  }
-
-  const parsed = value instanceof Date ? value : new Date(value);
-  if (Number.isNaN(parsed.getTime())) {
-    return fallbackDate.toISOString().slice(0, 10);
-  }
-
-  const year = parsed.getUTCFullYear();
-  const month = String(parsed.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(parsed.getUTCDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-};
-
-const formatDisplayDate = (isoDateKey) => {
-  const match = String(isoDateKey || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!match) return String(isoDateKey || '');
-
-  const year = Number(match[1]);
-  const month = Number(match[2]);
-  const day = Number(match[3]);
-  if (!Number.isFinite(year) || month < 1 || month > 12 || day < 1 || day > 31) return String(isoDateKey || '');
-
-  return `${MONTHS_SHORT[month - 1]} ${day}, ${year}`;
-};
-
-const buildAltFromPath = (imagePath) => {
-  const cleaned = String(imagePath || '').split('?')[0].split('#')[0];
-  const filename = cleaned.split('/').pop() || '';
-  const noExtension = filename.replace(/\.[^.]+$/, '');
-  const alt = noExtension.replace(/[-_]+/g, ' ').trim();
-  return alt || 'Blog image';
-};
-
-const buildInlineImageTag = (imagePath) => {
-  const src = buildImageSrc(imagePath);
-  const alt = escapeHtmlAttribute(buildAltFromPath(imagePath));
-  return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
-};
-
-const renderBlogCard = (post, idx) => {
-  const imagePath = normalizeImagePath(post.image);
-  const imageSrc = buildImageSrc(imagePath);
-  const title = escapeHtmlText(repairCommonEncodingIssues(post.title || ''));
-  const summary = escapeHtmlText(repairCommonEncodingIssues(post.summary || ''));
-  const category = escapeHtmlText(repairCommonEncodingIssues(post.category || 'Guides'));
-  const displayDate = escapeHtmlText(post.displayDate || formatDisplayDate(post.date));
-  const tags = Array.isArray(post.tags) ? post.tags.slice(0, 5) : [];
-  const postUrl = `/blog/${post.slug}`;
-  const revealDelay = idx % 3 === 1 ? ' data-delay="1"' : idx % 3 === 2 ? ' data-delay="2"' : '';
-
-  return `          <article class="card" data-reveal${revealDelay}>
-            <div class="card-media">
-              <img src="${imageSrc}" alt="${title}" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <div class="meta-row">
-                <span class="date-pill">${displayDate}</span>
-                <span style="color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.02em;">${category}</span>
-              </div>
-              <h3>${title}</h3>
-              <p>${summary}</p>
-              <div class="pill-row">
-                ${tags.map((tag) => `<span class="pill">${escapeHtmlText(repairCommonEncodingIssues(tag))}</span>`).join('')}
-              </div>
-              <a class="arrow-cta" href="${postUrl}">Read Article <span>&rarr;</span></a>
-            </div>
-          </article>`;
-};
-
-const renderBlogCards = (postsData) => {
-  if (!Array.isArray(postsData) || postsData.length === 0) {
-    return '          <p class="muted">New guides are on the way. Check back soon.</p>';
-  }
-  return postsData.map((post, idx) => renderBlogCard(post, idx)).join('\n');
-};
-
-const normalizeStringArray = (value) => (
-  Array.isArray(value)
-    ? value
-      .map((item) => normalizeText(item))
-      .filter(Boolean)
-    : []
-);
-
-const normalizeAudienceValue = (value) => {
-  const normalized = normalizeText(value).toLowerCase();
-  if (!normalized) return '';
-  if (/(mixed|both|all|residential and commercial)/.test(normalized)) return 'mixed';
-  if (/(commercial|architect|designer|contractor|property manager|multifamily)/.test(normalized)) return 'commercial';
-  if (/(residential|homeowner|home)/.test(normalized)) return 'residential';
-  return '';
-};
-
-const inferCityMeta = (post) => {
-  const explicitCity = normalizeText(post.city).toLowerCase().replace(/,\s*tx\b/i, '');
-  if (explicitCity) {
-    const directMatch = CITY_MATCHERS.find(({ key }) => explicitCity.includes(key));
-    if (directMatch) return directMatch.meta;
-  }
-
-  const searchableText = normalizeText([
-    post.title,
-    post.summary,
-    Array.isArray(post.tags) ? post.tags.join(' ') : '',
-  ].join(' ')).toLowerCase();
-
-  const inferred = CITY_MATCHERS.find(({ regex }) => regex.test(searchableText));
-  return inferred ? inferred.meta : null;
-};
-
-const inferAudience = (post) => {
-  const explicitAudience = normalizeAudienceValue(post.audience);
-  if (explicitAudience) return explicitAudience;
-
-  const searchableText = normalizeText([
-    post.title,
-    post.summary,
-    post.category,
-    Array.isArray(post.tags) ? post.tags.join(' ') : '',
-  ].join(' '));
-
-  const isCommercial = COMMERCIAL_SIGNAL_REGEX.test(searchableText);
-  const isResidential = RESIDENTIAL_SIGNAL_REGEX.test(searchableText);
-
-  if (isCommercial && isResidential) return 'mixed';
-  if (isCommercial) return 'commercial';
-  if (isResidential) return 'residential';
-  return 'mixed';
-};
-
-const inferPrimaryService = (post) => {
-  const explicitServicePage = canonicalizeInternalHref(post.servicePage || '');
-  if (explicitServicePage) {
-    return {
-      href: explicitServicePage,
-      label: 'See the matching service page',
-    };
-  }
-
-  const searchableText = normalizeText([
-    post.title,
-    post.summary,
-    post.category,
-    Array.isArray(post.tags) ? post.tags.join(' ') : '',
-  ].join(' '));
-
-  if (/\bpool\b/i.test(searchableText)) {
-    return { href: '/pool-privacy-hedge', label: 'See pool privacy screens' };
-  }
-
-  if (/\bhoa\b/i.test(searchableText)) {
-    return { href: '/hoa-approved-artificial-hedge', label: 'See HOA-friendly hedge options' };
-  }
-
-  if (LIVING_WALL_SIGNAL_REGEX.test(searchableText)) {
-    return { href: '/living-wall', label: 'See artificial living wall installs' };
-  }
-
-  if (FIRE_SIGNAL_REGEX.test(searchableText) && /\bhedge\b/i.test(searchableText)) {
-    return { href: '/fire-rated-artificial-hedge', label: 'See fire-rated hedge options' };
-  }
-
-  if (COMMERCIAL_SIGNAL_REGEX.test(searchableText)) {
-    return { href: '/commercial', label: 'See commercial greenery installs' };
-  }
-
-  if (RESIDENTIAL_SIGNAL_REGEX.test(searchableText)) {
-    return { href: '/residential', label: 'See residential privacy installs' };
-  }
-
-  return { href: '/artificial-hedge', label: 'See artificial hedge installs' };
-};
-
-const inferTopicId = (post) => {
-  const explicitTopic = sanitizeFrontmatterSlug(post.topic);
-  if (explicitTopic && TOPIC_CONFIG[explicitTopic]) {
-    return explicitTopic;
-  }
-
-  const searchableText = normalizeText([
-    post.title,
-    post.summary,
-    post.category,
-    Array.isArray(post.tags) ? post.tags.join(' ') : '',
-  ].join(' '));
-
-  if (post.cityMeta || /local updates/i.test(post.category || '')) {
-    return 'local-guides';
-  }
-
-  if (/living walls|design/i.test(post.category || '')) {
-    return 'living-walls';
-  }
-
-  if (LIVING_WALL_SIGNAL_REGEX.test(searchableText)) {
-    if (/compliance/i.test(post.category || '')) {
-      return 'commercial-planning';
-    }
-    return 'living-walls';
-  }
-
-  if (/compliance/i.test(post.category || '') || COMMERCIAL_SIGNAL_REGEX.test(searchableText) || FIRE_SIGNAL_REGEX.test(searchableText)) {
-    return 'commercial-planning';
-  }
-
-  return 'artificial-hedges';
-};
-
-const inferFeaturedScore = (post) => {
-  if (post.featured === true) return 120;
-
-  const searchableText = normalizeText([
-    post.title,
-    post.summary,
-    post.category,
-    Array.isArray(post.tags) ? post.tags.join(' ') : '',
-  ].join(' '));
-
-  let score = 0;
-  if (/complete guide/i.test(post.title)) score += 80;
-  if (FEATURED_KEYWORDS.test(searchableText)) score += 40;
-  if ((post.tags || []).length >= 4) score += 10;
-  return score;
-};
-
-const buildPostSupportLinks = (post) => {
-  const links = [];
-  const seen = new Set();
-
-  const pushLink = (href, label, description) => {
-    const normalizedHref = canonicalizeInternalHref(href || '');
-    if (!normalizedHref || seen.has(normalizedHref)) return;
-    seen.add(normalizedHref);
-    links.push({ href: normalizedHref, label, description });
-  };
-
-  pushLink(post.primaryServiceHref, post.primaryServiceLabel, 'Go straight to the service page that matches this article.');
-
-  if (post.cityMeta) {
-    pushLink(post.cityMeta.href, `See the ${post.cityMeta.label} city page`, 'Use the local page for city-specific planning, FAQs, and service details.');
-  }
-
-  if (post.audience === 'commercial') {
-    pushLink('/commercial', 'See commercial installs', 'Use this page for lobbies, retail, hospitality, multifamily, and other commercial scopes.');
-    pushLink('/commercial-resources', 'Request fire-doc and spec help', 'Use the resource hub when you need documentation, sequencing, or submittal support.');
-  } else if (post.audience === 'residential') {
-    pushLink('/residential', 'See residential installs', 'Use this page for backyard privacy, pool screening, and homeowner planning.');
-  } else {
-    pushLink('/commercial', 'See commercial installs', 'Use this page for offices, retail, hospitality, and property teams.');
-    pushLink('/residential', 'See residential installs', 'Use this page for backyard privacy, pool screening, and homeowner planning.');
-  }
-
-  pushLink('/pricing', 'See ballpark pricing', 'Get a quick starting point before you reach out with measurements.');
-
-  pushLink('/case-studies', 'See recent local work', 'Browse project snapshots and proof from recent installs.');
-
-  return links.slice(0, 4);
-};
-
-const enrichPost = (post) => {
-  const cityMeta = inferCityMeta(post);
-  const audience = inferAudience(post);
-  const primaryService = inferPrimaryService(post);
-  const topicId = inferTopicId({ ...post, cityMeta });
-  const topicMeta = TOPIC_CONFIG[topicId] || TOPIC_CONFIG['artificial-hedges'];
-  const featuredScore = inferFeaturedScore(post);
-
-  const enrichedPost = {
-    ...post,
-    cityMeta,
-    city: cityMeta?.label || normalizeText(post.city),
-    citySlug: cityMeta?.slug || '',
-    audience,
-    primaryServiceHref: primaryService.href,
-    primaryServiceLabel: primaryService.label,
-    topic: topicId,
-    topicLabel: topicMeta.label,
-    featured: post.featured === true || featuredScore > 0,
-    featuredScore,
-  };
-
-  return {
-    ...enrichedPost,
-    supportLinks: buildPostSupportLinks(enrichedPost),
-  };
-};
-
-const renderArticleSupportLinks = (post, options = {}) => {
-  const links = Array.isArray(post.supportLinks) ? post.supportLinks : [];
-  if (links.length === 0) return '';
-
-  const eyebrow = escapeHtmlText(options.eyebrow || 'Helpful next pages');
-  const title = escapeHtmlText(options.title || 'Keep planning from here');
-  const copy = escapeHtmlText(options.copy || 'These pages answer the next questions readers usually have after this article.');
-  const modifier = options.modifier ? ` article-support--${escapeHtmlAttribute(options.modifier)}` : '';
-
-  return `
-      <section class="article-support${modifier}">
-        <div class="article-support__intro">
-          <p class="article-support__eyebrow">${eyebrow}</p>
-          <h2>${title}</h2>
-          <p>${copy}</p>
-        </div>
-        <div class="article-support__grid">
-          ${links.map((link) => `
-            <a class="article-support__card" href="${escapeHtmlAttribute(link.href)}">
-              <span class="article-support__label">${escapeHtmlText(link.label)}</span>
-              <span class="article-support__copy">${escapeHtmlText(link.description)}</span>
-            </a>
-          `).join('')}
-        </div>
-      </section>
-  `;
-};
-
-const renderEarlyArticleNote = (post) => {
-  const primaryHref = escapeHtmlAttribute(post.primaryServiceHref || '/artificial-hedge');
-  const primaryLabel = escapeHtmlText(post.primaryServiceLabel || 'See the matching service page');
-  const cityLink = post.cityMeta
-    ? ` and the <a href="${escapeHtmlAttribute(post.cityMeta.href)}">${escapeHtmlText(post.cityMeta.label)} city page</a>`
-    : '';
-
-  return `
-      <div class="article-inline-note" style="margin: 1.25rem 0; padding: 1rem 1.1rem; border: 1px solid rgba(76, 175, 80, 0.24); background: rgba(255,255,255,0.03); border-radius: 16px;">
-        <p style="margin: 0; color: rgba(245,245,245,0.92);"><strong style="color: #fff;">Planning a similar project?</strong> <a href="${primaryHref}">${primaryLabel} &rarr;</a>${cityLink}.</p>
-      </div>
-  `;
-};
-
-const injectEarlyArticleBlock = (html, blockHtml) => {
-  if (!html || !blockHtml) return html;
-
-  const paragraphMatches = [...html.matchAll(/<\/p>/gi)];
-  const preferredMatch = paragraphMatches[1] || paragraphMatches[0];
-
-  if (!preferredMatch) {
-    return `${blockHtml}\n${html}`;
-  }
-
-  const insertAt = preferredMatch.index + preferredMatch[0].length;
-  return `${html.slice(0, insertAt)}\n${blockHtml}\n${html.slice(insertAt)}`;
-};
-
-const injectMidArticleBlock = (html, blockHtml) => {
-  if (!html || !blockHtml) return html;
-
-  const h2Matches = [...html.matchAll(/<\/h2>/gi)];
-  const paragraphMatches = [...html.matchAll(/<\/p>/gi)];
-  const preferredMatch = h2Matches[1] || h2Matches[0] || paragraphMatches[2] || paragraphMatches[1];
-
-  if (!preferredMatch) {
-    return `${html}\n${blockHtml}`;
-  }
-
-  const insertAt = preferredMatch.index + preferredMatch[0].length;
-  return `${html.slice(0, insertAt)}\n${blockHtml}\n${html.slice(insertAt)}`;
-};
-
-const scoreRelatedPost = (currentPost, candidatePost) => {
-  if (!candidatePost || currentPost.slug === candidatePost.slug) return -Infinity;
-
-  let score = 0;
-  if (currentPost.topic && currentPost.topic === candidatePost.topic) score += 40;
-  if (normalizeText(currentPost.category).toLowerCase() === normalizeText(candidatePost.category).toLowerCase()) score += 25;
-  if (currentPost.citySlug && currentPost.citySlug === candidatePost.citySlug) score += 25;
-  if (currentPost.primaryServiceHref && currentPost.primaryServiceHref === candidatePost.primaryServiceHref) score += 18;
-  if (currentPost.audience && currentPost.audience === candidatePost.audience) score += 12;
-
-  const currentTags = new Set((currentPost.tags || []).map((tag) => normalizeText(tag).toLowerCase()).filter(Boolean));
-  const candidateTags = (candidatePost.tags || []).map((tag) => normalizeText(tag).toLowerCase()).filter(Boolean);
-  const sharedTags = candidateTags.filter((tag) => currentTags.has(tag)).length;
-  score += Math.min(sharedTags * 6, 18);
-
-  score += Math.min(candidatePost.featuredScore || 0, 18);
-  return score;
-};
-
-const selectRelatedPosts = (posts, currentPost, limit = 3) => posts
-  .filter((candidatePost) => candidatePost.slug !== currentPost.slug)
-  .map((candidatePost) => ({ candidatePost, score: scoreRelatedPost(currentPost, candidatePost) }))
-  .sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    return b.candidatePost.date.localeCompare(a.candidatePost.date);
-  })
-  .slice(0, limit)
-  .map(({ candidatePost }) => candidatePost);
-
-const renderRelatedPosts = (relatedPosts) => {
-  if (!Array.isArray(relatedPosts) || relatedPosts.length === 0) return '';
-
-  return `
-      <section class="related-posts">
-        <div class="article-support__intro">
-          <p class="article-support__eyebrow">Keep reading</p>
-          <h2>Related guides</h2>
-          <p>These articles answer the next questions readers usually have after this topic.</p>
-        </div>
-        <div class="related-posts__grid">
-          ${relatedPosts.map((post) => `
-            <a class="related-posts__card" href="/blog/${escapeHtmlAttribute(post.slug)}">
-              <span class="related-posts__meta">${escapeHtmlText(post.topicLabel || post.category || 'Guides')}</span>
-              <h3>${escapeHtmlText(repairCommonEncodingIssues(post.title || ''))}</h3>
-              <p>${escapeHtmlText(repairCommonEncodingIssues(post.summary || ''))}</p>
-              <span class="related-posts__cta">Read article &rarr;</span>
-            </a>
-          `).join('')}
-        </div>
-      </section>
-  `;
-};
-
-const renderFeaturedBlogCards = (postsData) => {
-  const featuredPosts = [...postsData]
-    .filter((post) => (post.featuredScore || 0) > 0)
-    .sort((a, b) => {
-      if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
-      return b.date.localeCompare(a.date);
-    })
-    .slice(0, 3);
-
-  return renderBlogCards(featuredPosts.length > 0 ? featuredPosts : postsData.slice(0, 3));
-};
-
-const renderTopicHubCards = (postsData) => {
-  const topicEntries = Object.entries(TOPIC_CONFIG).map(([topicId, config]) => {
-    const matchingPosts = postsData.filter((post) => post.topic === topicId);
-    const leadPost = matchingPosts
-      .slice()
-      .sort((a, b) => {
-        if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
-        return b.date.localeCompare(a.date);
-      })[0];
-
-    return { topicId, config, count: matchingPosts.length, leadPost };
-  }).filter(({ count }) => count > 0);
-
-  if (topicEntries.length === 0) {
-    return '          <p class="muted">Topic hubs will appear here as new posts are published.</p>';
-  }
-
-  return topicEntries.map(({ topicId, config, count, leadPost }, idx) => {
-    const revealDelay = idx % 3 === 1 ? ' data-delay="1"' : idx % 3 === 2 ? ' data-delay="2"' : '';
-    const leadHref = leadPost ? `/blog/${leadPost.slug}` : config.href;
-    const leadLabel = leadPost ? `Start with "${escapeHtmlText(repairCommonEncodingIssues(leadPost.title || ''))}"` : config.actionLabel;
-
-    return `          <article class="topic-card" data-reveal${revealDelay}>
-            <p class="topic-card__count">${count} ${count === 1 ? 'guide' : 'guides'}</p>
-            <h3>${escapeHtmlText(config.label)}</h3>
-            <p>${escapeHtmlText(config.description)}</p>
-            <div class="topic-card__actions">
-              <a class="topic-card__link" href="${escapeHtmlAttribute(leadHref)}">${leadLabel}</a>
-              <a class="topic-card__sub" href="${escapeHtmlAttribute(config.href)}">${escapeHtmlText(config.actionLabel)}</a>
-            </div>
-          </article>`;
-  }).join('\n');
-};
-
-const extractCommentImages = (markdown) => {
-  const images = [];
-  const cleaned = markdown.replace(IMAGE_COMMENT_REGEX, (_, rawPath) => {
-    const value = typeof rawPath === 'string' ? rawPath.trim() : '';
-    if (value) images.push(value);
-    return '';
-  });
-
-  return { cleaned, images };
-};
-
-const insertImagesAfterHeadings = (html, imagePaths, maxInsertions = 3) => {
-  if (!imagePaths || imagePaths.length === 0) return html;
-
-  let result = '';
-  let cursor = 0;
-  let inserted = 0;
-  const limit = Math.min(maxInsertions, imagePaths.length);
-
-  while (inserted < limit) {
-    const h2Start = html.indexOf('<h2', cursor);
-    if (h2Start === -1) break;
-
-    const h2Close = html.indexOf('</h2>', h2Start);
-    if (h2Close === -1) break;
-
-    const h2End = h2Close + '</h2>'.length;
-    const nextH2Start = html.indexOf('<h2', h2End);
-
-    let insertPos = h2End;
-    const pStart = html.indexOf('<p', h2End);
-    if (pStart !== -1 && (nextH2Start === -1 || pStart < nextH2Start)) {
-      const pEnd = html.indexOf('</p>', pStart);
-      if (pEnd !== -1 && (nextH2Start === -1 || pEnd < nextH2Start)) {
-        insertPos = pEnd + '</p>'.length;
-      }
-    }
-
-    result += html.slice(cursor, insertPos);
-    result += `\n${buildInlineImageTag(imagePaths[inserted])}\n`;
-    cursor = insertPos;
-    inserted += 1;
-  }
-
-  result += html.slice(cursor);
-
-  if (inserted < imagePaths.length) {
-    const remainingImages = imagePaths.slice(inserted).map(buildInlineImageTag).join('\n');
-    result += `\n${remainingImages}\n`;
-  }
-
-  return result;
-};
-
-// Generate Table of Contents from HTML content
-const generateTableOfContents = (htmlContent) => {
-  const headingRegex = /<h([23])>(.*?)<\/h\1>/gi;
-  const headings = [];
-  let match;
-
-  while ((match = headingRegex.exec(htmlContent)) !== null) {
-    const level = parseInt(match[1]);
-    const text = match[2].replace(/<[^>]*>/g, ''); // Strip any HTML tags from heading text
-    const id = text
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .substring(0, 50);
-
-    headings.push({ level, text, id });
-  }
-
-  if (headings.length < 3) {
-    return { toc: '', content: htmlContent }; // Don't show TOC for short articles
-  }
-
-  // Add IDs to headings in content
-  let modifiedContent = htmlContent;
-  headings.forEach(({ level, text, id }) => {
-    const originalHeading = new RegExp(`<h${level}>${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h${level}>`, 'i');
-    modifiedContent = modifiedContent.replace(originalHeading, `<h${level} id="${id}">${text}</h${level}>`);
-  });
-
-  // Generate TOC HTML
-  const tocItems = headings.map(({ level, text, id }) => {
-    const indent = level === 3 ? ' class="toc-sub"' : '';
-    return `<li${indent}><a href="#${id}">${text}</a></li>`;
-  }).join('\n        ');
-
-  const toc = `
-      <nav class="table-of-contents">
-        <div class="toc-header">
-          <span class="toc-icon">📑</span>
-          <span>Table of Contents</span>
-        </div>
-        <ol>
-        ${tocItems}
-        </ol>
-      </nav>`;
-
-  return { toc, content: modifiedContent };
-};
-
-// Generate FAQ schema if FAQs exist
-const generateFAQSchema = (faq) => {
-  if (!faq || !Array.isArray(faq) || faq.length === 0) return '';
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faq.map(item => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  };
-
-  return `
-  <script type="application/ld+json">
-  ${JSON.stringify(faqSchema, null, 2)}
-  </script>`;
-};
-
-// Blog post page template - matches your existing site styling
-const generatePostHTML = (post) => {
-  const imagePath = normalizeImagePath(post.image);
-  const imageSrc = buildImageSrc(imagePath);
-  const socialImagePath = normalizeImagePath(post.socialImage || post.image);
-  const imageAbsolute = buildImageAbsolute(socialImagePath);
-  const seoTitle = buildSeoTitle(post.seoTitle || post.title);
-  const seoDescription = buildSeoDescription(post.seoDescription || post.summary);
-  const escapedSeoTitle = escapeHtmlAttribute(seoTitle);
-  const escapedSeoDescription = escapeHtmlAttribute(seoDescription);
-  const escapedTitle = escapeHtmlAttribute(post.title);
-  const escapedSummary = escapeHtmlAttribute(post.summary);
-  const escapedDisplayDate = escapeHtmlAttribute(post.displayDate);
-  const escapedCategory = escapeHtmlAttribute(post.category || 'Guides');
-  const escapedKeywords = escapeHtmlAttribute((post.tags || []).join(', '));
-  const escapedRobots = escapeHtmlAttribute(post.robots || 'index, follow');
-  const escapedCanonical = escapeHtmlAttribute(post.canonical || `${SITE_URL}/blog/${post.slug}`);
-  const jsonTitle = escapeJsonString(post.title);
-  const jsonSummary = escapeJsonString(post.summary);
-  const midArticleSupport = renderArticleSupportLinks(post, {
-    eyebrow: 'Planning a similar project?',
-    title: 'Use these next pages while you read',
-    copy: 'They cover pricing, service details, and the next planning step without making you leave the article blind.',
-    modifier: 'mid',
-  });
-  const introSupportNote = renderEarlyArticleNote(post);
-  const articleBodyWithIntro = injectEarlyArticleBlock(post.content, introSupportNote);
-  const articleBody = injectMidArticleBlock(articleBodyWithIntro, midArticleSupport);
-  const endArticleSupport = renderArticleSupportLinks(post, {
-    eyebrow: 'Ready for the next step?',
-    title: 'Use the page that fits your project best',
-    copy: 'Pick the shortest path based on whether you need pricing, a service page, or a local planning page.',
-    modifier: 'end',
-  });
-  const relatedPostsSection = renderRelatedPosts(post.relatedPosts);
-
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapedSeoTitle}</title>
-  <meta name="description" content="${escapedSeoDescription}">
-  <meta name="robots" content="${escapedRobots}">
-  <meta name="keywords" content="${escapedKeywords}">
-  <link rel="canonical" href="${escapedCanonical}">
+  <title>Artificial hedge maintenance and care for Texas homeowners</title>
+  <meta name="description" content="How to keep artificial hedges looking good in Texas—cleaning schedules, seasonal inspections, what products to use, what to avoid, and when panels need…">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="artificial hedge maintenance, cleaning artificial hedges, artificial hedge care Texas, hedge panel cleaning">
+  <link rel="canonical" href="https://lonestarfauxscapes.com/blog/artificial-hedge-maintenance-and-care-for-texas-homeowners">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="${escapedSeoTitle}">
-  <meta property="og:description" content="${escapedSeoDescription}">
-  <meta property="og:image" content="${imageAbsolute}">
-  <meta property="og:url" content="${escapedCanonical}">
+  <meta property="og:title" content="Artificial hedge maintenance and care for Texas homeowners">
+  <meta property="og:description" content="How to keep artificial hedges looking good in Texas—cleaning schedules, seasonal inspections, what products to use, what to avoid, and when panels need…">
+  <meta property="og:image" content="https://lonestarfauxscapes.com/images/hedges/hedge-banner.webp">
+  <meta property="og:url" content="https://lonestarfauxscapes.com/blog/artificial-hedge-maintenance-and-care-for-texas-homeowners">
   <meta property="og:type" content="article">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${escapedSeoTitle}">
-  <meta name="twitter:description" content="${escapedSeoDescription}">
-  <meta name="twitter:image" content="${imageAbsolute}">
+  <meta name="twitter:title" content="Artificial hedge maintenance and care for Texas homeowners">
+  <meta name="twitter:description" content="How to keep artificial hedges looking good in Texas—cleaning schedules, seasonal inspections, what products to use, what to avoid, and when panels need…">
+  <meta name="twitter:image" content="https://lonestarfauxscapes.com/images/hedges/hedge-banner.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "${jsonTitle}",
-    "description": "${jsonSummary}",
-    "image": "${imageAbsolute}",
-    "datePublished": "${post.datePublished}",
-    "dateModified": "${post.dateModified}",
+    "headline": "Artificial hedge maintenance and care for Texas homeowners",
+    "description": "How to keep artificial hedges looking good in Texas—cleaning schedules, seasonal inspections, what products to use, what to avoid, and when panels need attention.",
+    "image": "https://lonestarfauxscapes.com/images/hedges/hedge-banner.webp",
+    "datePublished": "2026-03-19",
+    "dateModified": "2026-03-19",
     "author": {
       "@type": "Organization",
       "name": "Lone Star Faux Scapes"
@@ -1025,16 +41,56 @@ const generatePostHTML = (post) => {
       "name": "Lone Star Faux Scapes",
       "logo": {
         "@type": "ImageObject",
-        "url": "${SITE_URL}/favicon/web-app-manifest-512x512.png"
+        "url": "https://lonestarfauxscapes.com/favicon/web-app-manifest-512x512.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "${post.canonical || `${SITE_URL}/blog/${post.slug}`}"
+      "@id": "https://lonestarfauxscapes.com/blog/artificial-hedge-maintenance-and-care-for-texas-homeowners"
     }
   }
   </script>
-  ${generateFAQSchema(post.faq)}
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often should I clean artificial hedges in Texas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most outdoor installations, a garden hose rinse every 2 to 3 months is sufficient. Near pools, increase to monthly because of chlorine and sunscreen buildup. Near roads or construction, rinse more often due to dust. Indoor artificial hedges only need dusting every few months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pressure wash artificial hedges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pressure washers can strip UV coatings, damage foliage texture, and force water behind panels where it can cause mold on the mounting surface. A garden hose with a standard spray nozzle provides plenty of cleaning power."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What cleaning products are safe for artificial hedges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mild dish soap diluted in water is the safest and most effective cleaner. Avoid bleach, solvents, ammonia-based cleaners, and abrasive products. These can degrade the polymer surface, strip UV stabilizers, and shorten the lifespan of the panels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do artificial hedges need any seasonal maintenance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An annual inspection of fasteners and panel condition is the main seasonal task. Check for loose zip ties or screws, panels that have shifted, and any sections showing early signs of wear. In Texas, the best time for this is early spring before the intense summer UV and heat season."
+      }
+    }
+  ]
+}
+  </script>
 
   <style>
     :root {
@@ -3075,50 +2131,415 @@ const generatePostHTML = (post) => {
     }
   </style>
   <link rel="stylesheet" href="/enhancements.css">
-${UNIVERSAL_NAV_STYLESHEET}
+  <link rel="stylesheet" href="/navbar-universal.css">
   <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
-${UNIVERSAL_NAV_MARKUP}
+<!-- NAVBAR HTML -->
+<header id="lsfs-header">
+  <nav id="lsfs-nav">
+    <a href="/" id="lsfs-logo">Lone Star Faux Scapes</a>
+
+    <!-- Desktop Navigation -->
+    <div id="lsfs-desktop-links">
+      <a href="/" class="lsfs-link">Home</a>
+
+      <!-- Products Dropdown -->
+            <div class="lsfs-dropdown">
+        <a href="/products" class="lsfs-link">Products <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Hedges</span>
+            <a href="/artificial-hedge">Artificial Hedge</a>
+            <a href="/artificial-boxwood-hedge">Boxwood Hedge</a>
+            <a href="/fire-rated-artificial-hedge">Fire-Rated</a>
+            <a href="/hoa-approved-artificial-hedge">HOA-Approved</a>
+            <a href="/pool-privacy-hedge">Pool Privacy</a>
+            <a href="/vallum-frx">Vallum FRX</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Walls</span>
+            <a href="/living-wall">Living Wall</a>
+            <a href="/commercial-wall">Commercial Wall</a>
+            <a href="/fence-extensions">Fence Extensions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Locations Dropdown -->
+      <div class="lsfs-dropdown">
+        <a href="/locations" class="lsfs-link">Locations <span class="lsfs-caret">&#9662;</span></a>
+        <div class="lsfs-dropdown-menu lsfs-dropdown-wide">
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Major Cities</span>
+            <a href="/dallas">Dallas</a>
+            <a href="/houston">Houston</a>
+            <a href="/austin">Austin</a>
+            <a href="/san-antonio">San Antonio</a>
+            <a href="/fort-worth">Fort Worth</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">DFW Metro</span>
+            <a href="/plano">Plano</a>
+            <a href="/frisco">Frisco</a>
+            <a href="/irving">Irving</a>
+            <a href="/arlington">Arlington</a>
+          </div>
+          <div class="lsfs-dropdown-section">
+            <span class="lsfs-dropdown-label">Houston Metro</span>
+            <a href="/sugar-land">Sugar Land</a>
+            <a href="/the-woodlands">The Woodlands</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/installation" class="lsfs-link">Installation</a>
+      <a href="/gallery" class="lsfs-link">Gallery</a>
+      <a href="/blog" class="lsfs-link">Blog</a>
+      <a href="/pricing" class="lsfs-link">Pricing</a>
+      <a href="/contact" class="lsfs-link lsfs-cta">Get Quote</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="lsfs-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- MOBILE MENU (separate from header) -->
+<div id="lsfs-mobile-menu">
+  <button id="lsfs-close" aria-label="Close menu">&#215;</button>
+
+  <a href="/" class="lsfs-mobile-link">Home</a>
+
+  <!-- Products Section -->
+  <span class="lsfs-mobile-label">Products</span>
+  <span class="lsfs-mobile-subhead">Hedges</span>
+  <a href="/artificial-hedge" class="lsfs-mobile-link lsfs-sub">Artificial Hedge</a>
+  <a href="/artificial-boxwood-hedge" class="lsfs-mobile-link lsfs-sub">Boxwood Hedge</a>
+  <a href="/fire-rated-artificial-hedge" class="lsfs-mobile-link lsfs-sub">Fire-Rated</a>
+  <a href="/hoa-approved-artificial-hedge" class="lsfs-mobile-link lsfs-sub">HOA-Approved</a>
+  <a href="/pool-privacy-hedge" class="lsfs-mobile-link lsfs-sub">Pool Privacy</a>
+  <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
+  <span class="lsfs-mobile-subhead">Walls</span>
+  <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
+  <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
+  <!-- Locations Section -->
+  <span class="lsfs-mobile-label">Locations</span>
+  <a href="/dallas" class="lsfs-mobile-link lsfs-sub">Dallas</a>
+  <a href="/houston" class="lsfs-mobile-link lsfs-sub">Houston</a>
+  <a href="/austin" class="lsfs-mobile-link lsfs-sub">Austin</a>
+  <a href="/san-antonio" class="lsfs-mobile-link lsfs-sub">San Antonio</a>
+  <a href="/fort-worth" class="lsfs-mobile-link lsfs-sub">Fort Worth</a>
+  <a href="/plano" class="lsfs-mobile-link lsfs-sub">Plano</a>
+  <a href="/frisco" class="lsfs-mobile-link lsfs-sub">Frisco</a>
+
+  <a href="/installation" class="lsfs-mobile-link">Installation</a>
+  <a href="/gallery" class="lsfs-mobile-link">Gallery</a>
+  <a href="/blog" class="lsfs-mobile-link">Blog</a>
+  <a href="/pricing" class="lsfs-mobile-link">Pricing</a>
+  <a href="/contact" class="lsfs-mobile-link lsfs-mobile-cta">Get Quote</a>
+</div>
 
 <main>
     <section class="article-hero">
       <div class="container">
         <nav class="breadcrumb">
-          <a href="/index.html">Home</a>
+          <a href="/">Home</a>
           <span>/</span>
           <a href="/blog">Blog</a>
           <span>/</span>
-          <span>${escapedTitle}</span>
+          <span>Artificial hedge maintenance and care for Texas homeowners</span>
         </nav>
-        <h1>${escapedTitle}</h1>
+        <h1>Artificial hedge maintenance and care for Texas homeowners</h1>
         <div class="article-meta">
-          <span class="date-pill">${escapedDisplayDate}</span>
-          <span class="category-pill">${escapedCategory}</span>
+          <span class="date-pill">Mar 19, 2026</span>
+          <span class="category-pill">Artificial Hedges</span>
         </div>
       </div>
     </section>
 
     <div class="featured-image">
-      <img src="${imageSrc}" alt="${escapedTitle}" loading="eager">
+      <img src="/images/hedges/hedge-banner.webp" alt="Artificial hedge maintenance and care for Texas homeowners" loading="eager">
     </div>
 
     <article class="article-content"> 
-      ${post.toc} 
-      ${articleBody} 
+      
+      <nav class="table-of-contents">
+        <div class="toc-header">
+          <span class="toc-icon">📑</span>
+          <span>Table of Contents</span>
+        </div>
+        <ol>
+        <li><a href="#routine-cleaning">Routine cleaning</a></li>
+        <li class="toc-sub"><a href="#the-basic-rinse">The basic rinse</a></li>
+        <li class="toc-sub"><a href="#deeper-cleaning-with-soap">Deeper cleaning with soap</a></li>
+        <li class="toc-sub"><a href="#cleaning-near-pools">Cleaning near pools</a></li>
+        <li class="toc-sub"><a href="#cleaning-near-kitchens-and-grills">Cleaning near kitchens and grills</a></li>
+        <li><a href="#what-not-to-use">What NOT to use</a></li>
+        <li><a href="#seasonal-inspection">Seasonal inspection</a></li>
+        <li class="toc-sub"><a href="#what-to-check">What to check</a></li>
+        <li class="toc-sub"><a href="#after-storms">After storms</a></li>
+        <li><a href="#dealing-with-specific-texas-conditions">Dealing with specific Texas conditions</a></li>
+        <li class="toc-sub"><a href="#cedar-pollen-central-texas">Cedar pollen (Central Texas)</a></li>
+        <li class="toc-sub"><a href="#red-clay-dust-east-texas">Red clay dust (East Texas)</a></li>
+        <li class="toc-sub"><a href="#salt-air-gulf-coast">Salt air (Gulf Coast)</a></li>
+        <li class="toc-sub"><a href="#hard-water-mineral-deposits">Hard water mineral deposits</a></li>
+        <li><a href="#when-to-replace-panels">When to replace panels</a></li>
+        <li><a href="#related-articles">Related articles</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="toc-sub"><a href="#how-often-should-i-clean-artificial-hedges-in-texa">How often should I clean artificial hedges in Texas?</a></li>
+        <li class="toc-sub"><a href="#can-i-pressure-wash-artificial-hedges">Can I pressure wash artificial hedges?</a></li>
+        <li class="toc-sub"><a href="#what-cleaning-products-are-safe-for-artificial-hed">What cleaning products are safe for artificial hedges?</a></li>
+        <li class="toc-sub"><a href="#do-artificial-hedges-need-any-seasonal-maintenance">Do artificial hedges need any seasonal maintenance?</a></li>
+        </ol>
+      </nav> 
+      <p>One of the biggest selling points of artificial hedges is low maintenance. And that&#39;s true—compared to a live hedge that needs trimming, watering, fertilizing, and pest treatment, artificial panels are dramatically easier to care for.</p>
+<p>But low maintenance isn&#39;t zero maintenance. Texas outdoor conditions—dust, pollen, UV, pool chemicals, and heat—do affect artificial hedges over time. A small amount of regular care keeps them looking good and extends their lifespan significantly.</p>
+
+      <div class="article-inline-note" style="margin: 1.25rem 0; padding: 1rem 1.1rem; border: 1px solid rgba(76, 175, 80, 0.24); background: rgba(255,255,255,0.03); border-radius: 16px;">
+        <p style="margin: 0; color: rgba(245,245,245,0.92);"><strong style="color: #fff;">Planning a similar project?</strong> <a href="/artificial-hedge">See artificial hedge installs &rarr;</a>.</p>
+      </div>
+  
+
+<p>This is the complete care guide for Texas homeowners.</p>
+<h2 id="routine-cleaning">Routine cleaning</h2>
+<h3 id="the-basic-rinse">The basic rinse</h3>
+<p>The simplest and most important maintenance task: rinse your artificial hedges with a garden hose every 2 to 3 months. This removes the dust, pollen, and airborne debris that settle on the foliage and can dull the appearance over time.</p>
+<img src="/images/hedges/hedge-privacy-1.webp" alt="hedge privacy 1" loading="lazy" decoding="async">
+
+<p>In Central Texas, cedar pollen season (December through March) deposits a visible yellow film on outdoor surfaces. A hose rinse after the worst of pollen season clears the buildup.</p>
+<p><strong>How to do it:</strong></p>
+<ul>
+<li>Use a standard garden hose with a spray nozzle</li>
+<li>Spray top to bottom so debris washes downward</li>
+<li>Work in sections along the fence or wall</li>
+<li>Pay attention to the lower sections where dirt splashes up from the ground</li>
+</ul>
+<p>That&#39;s it for routine cleaning. Most of the time, water alone is sufficient.</p>
+<h3 id="deeper-cleaning-with-soap">Deeper cleaning with soap</h3>
+<p>If dust and grime have built up beyond what a hose rinse handles—or if you&#39;re dealing with specific residue like pool chemicals, sunscreen, or cooking grease—a mild soap wash does the job.</p>
+<p><strong>What to use:</strong></p>
+<ul>
+<li>A few drops of mild dish soap in a bucket of warm water</li>
+<li>A soft-bristle brush (a car wash brush works well) or a soft cloth</li>
+<li>A garden hose for rinsing</li>
+</ul>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Rinse the section with the hose first to remove loose debris</li>
+<li>Apply the soap solution with the brush, working it gently into the foliage</li>
+<li>Let it sit for a minute or two on stubborn spots</li>
+<li>Rinse thoroughly with the hose</li>
+<li>Allow to air dry</li>
+</ol>
+<h3 id="cleaning-near-pools">Cleaning near pools</h3>
+<p>Pool-adjacent hedges collect a film from chlorine mist, sunscreen, body oils, and airborne dust. On many outdoor-rated panels, that buildup affects appearance more than anything else, but product quality varies and routine cleaning still matters.</p>
+<p>Clean pool-area hedges <strong>monthly</strong> during swimming season. The soap-and-water method above handles the buildup. If you stay on top of it, the film never gets heavy enough to be a problem.</p>
+<p>For more on pool-area hedge care, see our <a href="/blog/pool-privacy-solutions-artificial-hedges-for-texas-backyards">pool privacy guide</a>.</p>
+<h3 id="cleaning-near-kitchens-and-grills">Cleaning near kitchens and grills</h3>
+<p>Outdoor kitchens and grills produce grease and smoke that coat nearby surfaces. If your artificial hedge is near a cooking area, expect to clean it more frequently—monthly or after heavy use.</p>
+<p>The soap-and-water method works for grease buildup. For stubborn grease spots, apply the soap solution directly, let it sit for 5 minutes, and scrub gently with a soft brush before rinsing.</p>
+<h2 id="what-not-to-use">What NOT to use</h2>
+
+      <section class="article-support article-support--mid">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Planning a similar project?</p>
+          <h2>Use these next pages while you read</h2>
+          <p>They cover pricing, service details, and the next planning step without making you leave the article blind.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/artificial-hedge">
+              <span class="article-support__label">See artificial hedge installs</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+
+<p><strong>Pressure washers.</strong> The high-pressure spray strips UV coatings from the foliage, damages the texture that makes panels look realistic, and can force water behind the panels where it causes mold on the mounting surface. A garden hose is all you need.</p>
+<img src="/images/hedges/hedge-privacy-2.webp" alt="hedge privacy 2" loading="lazy" decoding="async">
+
+<p><strong>Bleach.</strong> Bleach degrades polyethylene and can cause discoloration. It also strips UV stabilizers, which shortens lifespan.</p>
+<p><strong>Ammonia-based cleaners.</strong> Similar issues to bleach—polymer degradation and UV stabilizer damage.</p>
+<p><strong>Solvents and degreasers.</strong> Industrial cleaners, acetone, and harsh degreasers attack the polymer surface. Mild dish soap handles anything you&#39;ll encounter on residential hedges.</p>
+<p><strong>Abrasive pads or wire brushes.</strong> These scratch the foliage surface, creating dull spots and accelerating UV damage where the surface is compromised.</p>
+<p><strong>WD-40 or silicone sprays.</strong> Sometimes suggested online as a way to &quot;restore&quot; faded panels. These create a temporary sheen but attract more dust, leave a residue, and don&#39;t address the underlying UV degradation.</p>
+<h2 id="seasonal-inspection">Seasonal inspection</h2>
+<p>Once a year—early spring is ideal, before the intense Texas summer—do a walk-along inspection of your hedge installation.</p>
+<img src="/images/hedges/hedge-banner.webp" alt="hedge banner" loading="lazy" decoding="async">
+
+<h3 id="what-to-check">What to check</h3>
+<p><strong>Fasteners.</strong> Look for loose, broken, or missing zip ties and screws. Texas heat causes thermal expansion and contraction that can loosen fasteners over time. UV-rated zip ties last longer than standard ones, but even UV-rated ties eventually degrade. Replace any that are cracked, stretched, or broken.</p>
+<p><strong>Panel alignment.</strong> Have any panels shifted? High winds, impacts from lawn equipment, or thermal movement can push panels out of alignment. Straighten any sections that have gaps or overlap unevenly.</p>
+<p><strong>Panel condition.</strong> Look for early signs of wear: color fading, brittleness (leaves that snap instead of flex), or leaf shedding. If one section is noticeably more faded than the rest—usually the section that gets the most direct sun—plan to replace that panel before it affects the overall look. See our <a href="/blog/how-long-do-artificial-hedges-last-in-texas-heat">durability guide</a> for more on what to expect.</p>
+<p><strong>Mounting surface.</strong> Check the fence or wall behind the panels. Is it still solid? Any new leaning, rot, or damage? The hedge panels can mask problems developing in the fence underneath.</p>
+<p><strong>Drainage.</strong> Make sure the bottom edge of the panels isn&#39;t sitting in standing water or blocking drainage paths. Pooled water against the base of the panels promotes mold and can undermine the mounting surface.</p>
+<p><strong>Access points.</strong> Verify that panels near hose bibs, electrical panels, cleanouts, and gates still provide the access they&#39;re supposed to. If a panel has shifted to block an access point, reposition it.</p>
+<h3 id="after-storms">After storms</h3>
+<p>Texas sees significant wind events, hail, and occasionally ice storms. After any major weather event, do a quick visual check:</p>
+<ul>
+<li>Panels still secure and aligned?</li>
+<li>Any foliage damage from hail or debris?</li>
+<li>Fasteners intact?</li>
+<li>Mounting surface still stable?</li>
+</ul>
+<p>Most of the time, properly installed panels weather storms without issues. But a 5-minute check after a storm catches problems early.</p>
+<h2 id="dealing-with-specific-texas-conditions">Dealing with specific Texas conditions</h2>
+<h3 id="cedar-pollen-central-texas">Cedar pollen (Central Texas)</h3>
+<p>The yellow-green film from mountain cedar pollen coats everything outdoors from December through March. It washes off easily with a hose—just wait until the worst of the season passes so you&#39;re not cleaning every week.</p>
+<h3 id="red-clay-dust-east-texas">Red clay dust (East Texas)</h3>
+<p>Red clay dust can stain lighter foliage if left to sit for extended periods. Rinse more frequently if you&#39;re in a red clay area, especially after dry windy stretches.</p>
+<h3 id="salt-air-gulf-coast">Salt air (Gulf Coast)</h3>
+<p>Properties near the Gulf Coast deal with salt in the air, which can leave a residue on outdoor surfaces. Salt residue washes off with a hose rinse. The bigger concern is corrosion on metal fasteners—use stainless steel hardware in coastal areas.</p>
+<h3 id="hard-water-mineral-deposits">Hard water mineral deposits</h3>
+<p>If your hose water is hard (high mineral content, common in many Texas areas), you may notice white mineral spots after cleaning. These are cosmetic and wash off with a vinegar-water solution (one part white vinegar to four parts water). Rinse with clean water afterward.</p>
+<h2 id="when-to-replace-panels">When to replace panels</h2>
+<p>Artificial hedges don&#39;t fail all at once. Degradation is gradual and usually affects the most sun-exposed sections first. Here&#39;s when to act:</p>
+<ul>
+<li><strong>Minor fading on one section:</strong> Not urgent. Monitor it and plan replacement when the contrast with adjacent panels becomes noticeable.</li>
+<li><strong>Leaves becoming brittle and snapping:</strong> The UV stabilizers are spent. Replace that panel before leaves start shedding onto the ground.</li>
+<li><strong>Active leaf shedding:</strong> Replace promptly. Loose leaves create debris and the bare spots are visible.</li>
+<li><strong>Backing grid softening or crumbling:</strong> End of life for that panel. Replace it.</li>
+</ul>
+<p>The good news: modular panel systems allow individual panel replacement without disturbing the rest of the installation.</p>
+<h2 id="related-articles">Related articles</h2>
+<p>This article is part of our <a href="/blog/the-complete-guide-to-artificial-hedges-in-texas">complete guide to artificial hedges in Texas</a>, which covers types, materials, climate performance, costs, and more.</p>
+<p>You might also find these useful:</p>
+<ul>
+<li><a href="/blog/how-long-do-artificial-hedges-last-in-texas-heat">How long do artificial hedges last in Texas heat?</a></li>
+<li><a href="/blog/diy-vs-professional-artificial-hedge-installation">DIY vs professional artificial hedge installation</a></li>
+</ul>
+<p>For product options, see our <a href="/artificial-hedge">artificial hedge page</a> or <a href="/artificial-boxwood-hedge">boxwood hedge page</a>.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-often-should-i-clean-artificial-hedges-in-texa">How often should I clean artificial hedges in Texas?</h3>
+<p>For most outdoor installations, a garden hose rinse every 2 to 3 months is sufficient. Near pools, increase to monthly because of chlorine and sunscreen buildup. Near roads or construction, rinse more often due to dust. Indoor artificial hedges only need dusting every few months.</p>
+<h3 id="can-i-pressure-wash-artificial-hedges">Can I pressure wash artificial hedges?</h3>
+<p>No. Pressure washers can strip UV coatings, damage foliage texture, and force water behind panels where it can cause mold on the mounting surface. A garden hose with a standard spray nozzle provides plenty of cleaning power.</p>
+<h3 id="what-cleaning-products-are-safe-for-artificial-hed">What cleaning products are safe for artificial hedges?</h3>
+<p>Mild dish soap diluted in water is the safest and most effective cleaner. Avoid bleach, solvents, ammonia-based cleaners, and abrasive products. These can degrade the polymer surface, strip UV stabilizers, and shorten the lifespan of the panels.</p>
+<h3 id="do-artificial-hedges-need-any-seasonal-maintenance">Do artificial hedges need any seasonal maintenance?</h3>
+<p>An annual inspection of fasteners and panel condition is the main seasonal task. Check for loose zip ties or screws, panels that have shifted, and any sections showing early signs of wear. In Texas, the best time for this is early spring before the intense summer UV and heat season.</p>
+ 
 
       <div class="estimate-note">
         <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
       </div>
 
-      ${renderBlogArticleCta(post)}
-      ${endArticleSupport}
-      ${relatedPostsSection}
+      
+      <div class="lsfs-cro-card lsfs-cro-card--article" data-lsfs-context="blog_post_cta">
+        <div>
+          <p class="lsfs-cro-eyebrow">Need a next step?</p>
+          <h2 class="lsfs-cro-title">Planning a similar Texas project?</h2>
+          <p class="lsfs-cro-copy">Use this article for research, then send your dimensions, city, and photos if you want a useful next step.</p>
+          <div class="lsfs-cro-actions">
+            <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="/pricing" data-lsfs-cta="blog_ballpark_pricing">Get ballpark pricing</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
+            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
+          </div>
+          <div class="lsfs-cro-context">
+            <span class="lsfs-cro-pill">Fast install planning</span><span class="lsfs-cro-pill">Texas-wide project coverage</span><span class="lsfs-cro-pill">Custom fit for the space</span>
+          </div>
+          <div class="lsfs-cro-links">
+            
+            <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
+          </div>
+        </div>
+        <div data-lsfs-quote-widget data-lsfs-form-context="blog_post_quote" data-lsfs-form-title="Short quote form" data-lsfs-form-copy="Share the basics and we can tell you the clearest next step." data-lsfs-service="Artificial hedge project" data-lsfs-location="" data-lsfs-button="Request Pricing"></div>
+      </div>
+  
+      
+      <section class="article-support article-support--end">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Ready for the next step?</p>
+          <h2>Use the page that fits your project best</h2>
+          <p>Pick the shortest path based on whether you need pricing, a service page, or a local planning page.</p>
+        </div>
+        <div class="article-support__grid">
+          
+            <a class="article-support__card" href="/artificial-hedge">
+              <span class="article-support__label">See artificial hedge installs</span>
+              <span class="article-support__copy">Go straight to the service page that matches this article.</span>
+            </a>
+          
+            <a class="article-support__card" href="/commercial">
+              <span class="article-support__label">See commercial installs</span>
+              <span class="article-support__copy">Use this page for offices, retail, hospitality, and property teams.</span>
+            </a>
+          
+            <a class="article-support__card" href="/residential">
+              <span class="article-support__label">See residential installs</span>
+              <span class="article-support__copy">Use this page for backyard privacy, pool screening, and homeowner planning.</span>
+            </a>
+          
+            <a class="article-support__card" href="/pricing">
+              <span class="article-support__label">See ballpark pricing</span>
+              <span class="article-support__copy">Get a quick starting point before you reach out with measurements.</span>
+            </a>
+          
+        </div>
+      </section>
+  
+      
+      <section class="related-posts">
+        <div class="article-support__intro">
+          <p class="article-support__eyebrow">Keep reading</p>
+          <h2>Related guides</h2>
+          <p>These articles answer the next questions readers usually have after this topic.</p>
+        </div>
+        <div class="related-posts__grid">
+          
+            <a class="related-posts__card" href="/blog/faux-green-walls-vs-real-plants-for-texas-homes">
+              <span class="related-posts__meta">Artificial hedge guides</span>
+              <h3>Faux Green Walls vs. Real Plants for Texas Homes</h3>
+              <p>Comparing faux green walls and live plants for Texas businesses—cost, maintenance, and design impact.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/artificial-hedges-vs-real-plants-in-texas">
+              <span class="related-posts__meta">Artificial hedge guides</span>
+              <h3>Artificial Hedges vs. Real Plants in Texas: Which is Cheaper?</h3>
+              <p>We compare upfront &amp; long-term costs of artificial vs real hedges in Texas. See which saves more money with drought &amp; maintenance.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+            <a class="related-posts__card" href="/blog/how-long-do-artificial-hedges-last-in-texas-heat">
+              <span class="related-posts__meta">Artificial hedge guides</span>
+              <h3>How long do artificial hedges last in Texas heat?</h3>
+              <p>What determines the lifespan of artificial hedges in Texas—UV exposure, material quality, placement, and what to expect from a quality installation in real-world conditions.</p>
+              <span class="related-posts__cta">Read article &rarr;</span>
+            </a>
+          
+        </div>
+      </section>
+  
 
-      ${post.tags.length > 0 ? `
+      
       <div class="article-tags"> 
-        ${post.tags.map((tag) => `<span class="tag">${escapeHtmlText(repairCommonEncodingIssues(tag))}</span>`).join('')} 
-      </div>` : ''} 
+        <span class="tag">artificial hedge maintenance</span><span class="tag">cleaning artificial hedges</span><span class="tag">artificial hedge care Texas</span><span class="tag">hedge panel cleaning</span> 
+      </div> 
 
       <a href="/blog" class="back-link">
         <span>&larr;</span> Back to Blog
@@ -3135,218 +2556,36 @@ ${UNIVERSAL_NAV_MARKUP}
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-${UNIVERSAL_NAV_SCRIPT}
+  <script>
+    (function() {
+      const hamburger = document.getElementById('lsfs-hamburger');
+      const mobileMenu = document.getElementById('lsfs-mobile-menu');
+      const closeBtn = document.getElementById('lsfs-close');
+      const mobileLinks = document.querySelectorAll('.lsfs-mobile-link');
+
+      if (!hamburger || !mobileMenu || !closeBtn) return;
+
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeBtn.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+  <script defer src="/nav.js"></script>
   <script src="/cro.js"></script>
 </body>
-</html>`;
-};
-
-// Build the blog
-async function buildBlog() {
-  console.log('Building blog...');
-
-  // Create output directory if it doesn't exist
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  const legacySlugSet = loadLegacySlugSet();
-  const existingOutputSlugSet = loadExistingOutputSlugSet();
-  const seenSlugs = new Set();
-
-  // Clean out previously generated HTML posts to avoid stale pages shipping.
-  for (const entry of fs.readdirSync(OUTPUT_DIR)) {
-    if (entry.endsWith('.html')) {
-      fs.unlinkSync(path.join(OUTPUT_DIR, entry));
-    }
-  }
-
-  // Check if content directory exists
-  if (!fs.existsSync(CONTENT_DIR)) {
-    console.log('No blog content directory found. Creating empty posts.json');
-    fs.writeFileSync(POSTS_JSON, JSON.stringify([], null, 2));
-    return;
-  }
-
-  // Get all markdown files
-  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
-
-  if (files.length === 0) {
-    console.log('No blog posts found. Creating empty posts.json');
-    fs.writeFileSync(POSTS_JSON, JSON.stringify([], null, 2));
-    return;
-  }
-
-  const posts = [];
-  const scheduledPosts = [];
-  const now = new Date();
-  const todayIsoDate = now.toISOString().slice(0, 10);
-
-  for (const file of files) {
-    const filePath = path.join(CONTENT_DIR, file);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-
-    // Parse frontmatter and content
-    const { data, content } = matter(fileContent);
-
-    const isDraft = data.draft === true || data.published === false;
-    const title = typeof data.title === 'string' ? data.title.trim() : '';
-    const summary = typeof data.summary === 'string' ? data.summary.trim() : '';
-
-    if (isDraft) {
-      console.log(`  Draft: ${file} (skipped)`);
-      continue;
-    }
-
-    if (!title || !summary) {
-      console.log(`  Skipped: ${file} (missing title or summary)`);
-      continue;
-    }
-
-    // Create post object
-    const fileSlug = file.replace('.md', '');
-    const slug = resolvePostSlug({
-      frontmatterSlug: data.slug,
-      fileSlug,
-      legacySlugSet,
-      existingOutputSlugSet,
-    });
-
-    if (!slug) {
-      console.log(`  Skipped: ${file} (slug could not be resolved)`);
-      continue;
-    }
-
-    if (seenSlugs.has(slug)) {
-      throw new Error(`Duplicate blog slug detected: "${slug}" from ${file}`);
-    }
-    seenSlugs.add(slug);
-
-    if (slug !== fileSlug) {
-      console.log(`  Timeless slug: ${fileSlug} -> ${slug}`);
-    }
-
-    const publishDate = toIsoDateKey(data.date, now);
-    const modifiedDate = toIsoDateKey(data.updated ?? data.date, now);
-    const defaultRoute = `/blog/${slug}`;
-    const post = {
-      fileSlug,
-      slug,
-      title,
-      date: publishDate,
-      datePublished: publishDate,
-      dateModified: modifiedDate,
-      displayDate: formatDisplayDate(publishDate),
-      image: resolvePostImage(data.image, slug),
-      socialImage: resolvePostImage(data.socialImage || data.image, slug),
-      summary,
-      category: data.category || 'Guides',
-      tags: normalizeStringArray(data.tags),
-      relatedUrl: data.relatedUrl || '',
-      faq: data.faq || [],
-      seoTitle: data.seoTitle || '',
-      seoDescription: data.seoDescription || '',
-      canonical: resolveCanonicalValue(data.canonical, defaultRoute),
-      robots: resolveRobotsDirective(data.robots, { noindex: data.noindex === true }),
-      city: typeof data.city === 'string' ? data.city.trim() : '',
-      topic: typeof data.topic === 'string' ? data.topic.trim() : '',
-      audience: typeof data.audience === 'string' ? data.audience.trim() : '',
-      servicePage: typeof data.servicePage === 'string' ? data.servicePage.trim() : '',
-      featured: data.featured === true,
-    };
-
-    // Check if post is scheduled for the future
-    if (publishDate > todayIsoDate) {
-      scheduledPosts.push({ ...post, publishDate });
-      console.log(`  Scheduled: ${slug} (publishes ${publishDate})`);
-      continue; // Skip generating HTML for future posts
-    }
-
-    const { cleaned: cleanedContent, images: commentImages } = extractCommentImages(content);
-
-    // Convert markdown to HTML for published posts
-    const htmlContent = marked(cleanedContent);
-
-    // Generate table of contents
-    const { toc, content: contentWithIds } = generateTableOfContents(htmlContent);
-    const contentWithImages = insertImagesAfterHeadings(contentWithIds, commentImages, 3);
-    post.toc = toc;
-    post.content = contentWithImages;
-
-    posts.push(enrichPost(post));
-  }
-
-  // Sort posts by date (newest first)
-  posts.sort((a, b) => b.date.localeCompare(a.date));
-
-  const slugAliasMap = new Map();
-  for (const post of posts) {
-    if (post.slug && post.slug !== post.fileSlug) {
-      slugAliasMap.set(post.fileSlug, post.slug);
-    }
-  }
-
-  for (const post of posts) {
-    post.relatedPosts = selectRelatedPosts(posts, post, 3);
-  }
-
-  // Save posts data for blog listing (without full content, faq, or toc)
-  const postsData = posts.map(({ content, faq, toc, relatedPosts, supportLinks, cityMeta, ...rest }) => rest);
-  fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
-  console.log(`  Generated: ${POSTS_JSON}`);
-
-  for (const post of posts) {
-    const postHTML = normalizeInternalLinksInHtml(generatePostHTML(post), slugAliasMap);
-    const outputPath = path.join(OUTPUT_DIR, `${post.slug}.html`);
-    fs.writeFileSync(outputPath, postHTML);
-    console.log(`  Generated: ${outputPath}`);
-  }
-
-  // Update blog.html with embedded posts data
-  const BLOG_HTML = './blog.html';
-  if (fs.existsSync(BLOG_HTML)) {
-    let blogHtml = fs.readFileSync(BLOG_HTML, 'utf-8');
-    const postsJson = JSON.stringify(postsData, null, 8).replace(/^/gm, '        ').trim();
-    const featuredMarkup = renderFeaturedBlogCards(postsData);
-    const topicMarkup = renderTopicHubCards(postsData);
-    const cardsMarkup = renderBlogCards(postsData.slice(0, 9));
-
-    // Replace the posts array in the script
-    blogHtml = blogHtml.replace(
-      /\/\/ Posts data embedded at build time[^;]*const posts = \[[\s\S]*?\];/,
-      `// Posts data embedded at build time - no fetch needed\n      const posts = ${postsJson};`
-    );
-
-    blogHtml = blogHtml.replace(
-      /<!-- BLOG_FEATURED_START -->[\s\S]*?<!-- BLOG_FEATURED_END -->/,
-      `<!-- BLOG_FEATURED_START -->\n${featuredMarkup}\n          <!-- BLOG_FEATURED_END -->`,
-    );
-
-    blogHtml = blogHtml.replace(
-      /<!-- BLOG_TOPICS_START -->[\s\S]*?<!-- BLOG_TOPICS_END -->/,
-      `<!-- BLOG_TOPICS_START -->\n${topicMarkup}\n          <!-- BLOG_TOPICS_END -->`,
-    );
-
-    blogHtml = blogHtml.replace(
-      /<!-- BLOG_CARDS_START -->[\s\S]*?<!-- BLOG_CARDS_END -->/,
-      `<!-- BLOG_CARDS_START -->\n${cardsMarkup}\n          <!-- BLOG_CARDS_END -->`,
-    );
-
-    fs.writeFileSync(BLOG_HTML, blogHtml);
-    console.log(`  Updated: ${BLOG_HTML} with ${postsData.length} posts and static blog cards`);
-  }
-
-  console.log(`Blog build complete! ${posts.length} posts published, ${scheduledPosts.length} scheduled.`);
-
-  // Log upcoming scheduled posts
-  if (scheduledPosts.length > 0) {
-    console.log('\nUpcoming scheduled posts:');
-    scheduledPosts
-      .sort((a, b) => a.publishDate.localeCompare(b.publishDate))
-      .forEach(post => {
-        console.log(`  - ${post.title} (${post.publishDate})`);
-      });
-  }
-}
-
-buildBlog().catch(console.error);
+</html>

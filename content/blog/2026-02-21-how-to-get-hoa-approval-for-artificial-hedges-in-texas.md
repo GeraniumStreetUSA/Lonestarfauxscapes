@@ -1,5 +1,6 @@
 ---
 title: "How to get HOA approval for artificial hedges in Texas"
+slug: "how-to-get-hoa-approval-for-artificial-hedges-in-texas"
 summary: "A step-by-step guide for Texas homeowners navigating HOA architectural review for artificial hedge installations—what the law says, what to submit, and how to handle pushback."
 date: 2026-02-24
 image: /images/hedges/hedge-privacy-1.webp
