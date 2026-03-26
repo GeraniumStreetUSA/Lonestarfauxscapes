@@ -1,10 +1,10 @@
 /**
- * Card Spotlight/Tilt Effects
- * Cursor-tracking spotlight and subtle 3D tilt on cards
+ * Card spotlight effects
+ * Cursor-tracking illumination without hover movement
  * DESKTOP ONLY - transforms cause scroll jank on mobile
  */
 (function() {
-  // Skip on mobile - transforms cause scroll jank
+  // Skip on mobile - cursor-tracking effects are not useful on touch
   const isMobile = window.innerWidth < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   if (isMobile) return;
 
@@ -37,24 +37,18 @@
       card.style.setProperty('--mouse-x', `${x}px`);
       card.style.setProperty('--mouse-y', `${y}px`);
 
-      // Subtle 3D tilt effect
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-
-      card.style.transform = `
-        perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-8px)
-      `;
+      // Some card styles use --x/--y instead of --mouse-x/--mouse-y.
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
     });
 
     card.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+      card.style.removeProperty('--mouse-x');
+      card.style.removeProperty('--mouse-y');
+      card.style.removeProperty('--x');
+      card.style.removeProperty('--y');
     });
   });
 

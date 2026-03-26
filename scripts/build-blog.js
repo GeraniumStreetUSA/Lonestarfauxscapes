@@ -2367,8 +2367,8 @@ const generatePostHTML = (post) => {
                   -webkit-backdrop-filter: blur(20px);
                   border: 1px solid rgba(255,255,255,0.08);
                   box-shadow: 0 0 60px rgba(var(--color-accent-rgb), 0.18), 0 0 40px rgba(0,0,0,0.7);
-                  transition: transform 0.1s linear; /* Fast for tilt */
-                  will-change: transform;
+                  transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+                  will-change: auto;
                   /* For spotlight positioning */
                   --x: 0px;
                   --y: 0px;
@@ -2443,7 +2443,6 @@ const generatePostHTML = (post) => {
                 z-index: -1;
             }
             .live-card:hover::after { opacity: 1; }
-            .live-card:hover { transform: translateY(-5px); }
     
             .product-list li {
                 position: relative;

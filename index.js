@@ -43,18 +43,13 @@
         el.style.setProperty('--x', `${x}px`);
         el.style.setProperty('--y', `${y}px`);
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -2;
-        const rotateY = ((x - centerX) / centerX) * 2;
-
-        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
       });
 
       el.addEventListener('mousemove', handleMouseMove, { passive: true });
 
       el.addEventListener('mouseleave', () => {
-        el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        el.style.removeProperty('--x');
+        el.style.removeProperty('--y');
       });
     });
   };

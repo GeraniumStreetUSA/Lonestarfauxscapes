@@ -17,7 +17,7 @@
   // Desktop only from here
   const isMobile = false; // We already returned if mobile
 
-  // ===== 1. CURSOR-REACTIVE SPOTLIGHT & TILT =====
+  // ===== 1. CURSOR-REACTIVE SPOTLIGHT =====
   const initCardEffects = () => {
     // Skip on mobile - these effects don't work well with touch
     if (isMobile) return;
@@ -44,19 +44,13 @@
         card.style.setProperty('--spot-x', `${x}px`);
         card.style.setProperty('--spot-y', `${y}px`);
 
-        // 3D tilt effect
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -3;
-        const rotateY = ((x - centerX) / centerX) * 3;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
       });
 
       card.addEventListener('mousemove', handleMouseMove, { passive: true });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        card.style.removeProperty('--spot-x');
+        card.style.removeProperty('--spot-y');
       });
     });
   };
