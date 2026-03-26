@@ -9,7 +9,7 @@ tags:
   - office green wall
   - retail living wall
   - commercial artificial greenery
-draft: true
+draft: false
 faq:
   - question: "What is biophilic design?"
     answer: "Biophilic design is an approach to architecture and interior design that incorporates natural elements—plants, water, natural light, natural materials, and organic shapes—into built environments. The goal is to maintain a connection to nature in spaces where people spend most of their time, based on research showing that exposure to natural elements improves wellbeing and cognitive performance."
