@@ -11,6 +11,62 @@ tags:
   - artificial hedge approval
   - Texas Property Code
 draft: false
+guideType: flagship
+guideEyebrow: "Homeowner approval guide"
+guideAudience: "For Texas homeowners navigating HOA review before installing artificial hedges"
+guidePromise: "Know what to submit, what the HOA is likely to care about, and what to verify before you treat a denial as final."
+quickAnswers:
+  - question: "Do most homeowners need HOA approval first?"
+    answer: "Yes, if the property sits in a deed-restricted community with architectural review."
+  - question: "What makes approval smoother?"
+    answer: "A complete submission with a sample, photos, site plan, and a clear water-conservation argument."
+  - question: "What is the biggest mistake?"
+    answer: "Submitting too little detail and waiting until denial to clarify scope."
+decisionSnapshot:
+  - label: "What to do first"
+    value: "Read the CC&Rs and architectural guidelines before choosing a product."
+  - label: "What most boards want"
+    value: "A clean visual result, clear placement, and enough documentation to understand the request."
+  - label: "Where projects stall"
+    value: "When the homeowner assumes the hedge will be understood without a complete package."
+guideModules:
+  - key: "approval-planning-grid"
+    type: "planningGrid"
+    title: "What To Lock Down Before You Submit"
+    intro: "Use this planning grid before you send the application package."
+    rows:
+      - label: "Scope"
+        value: "Where the hedge goes, total height, and whether the project changes the fence line."
+      - label: "Appearance"
+        value: "The exact product, color, realism level, and supporting photos."
+      - label: "Submission package"
+        value: "Spec sheet, physical sample, photos, and a simple site sketch."
+      - label: "Parallel approvals"
+        value: "Municipal permit needs, if the project changes structure or height."
+  - key: "submission-checklist"
+    type: "checklist"
+    title: "Application Checklist"
+    intro: "Use this to make the HOA review easier, faster, and less emotional."
+    items:
+      - "Completed application form or written request."
+      - "Product spec sheet with dimensions and material description."
+      - "A physical sample panel if possible."
+      - "Completed-install photos using the same or similar product."
+      - "A simple site plan or fence sketch."
+verifyItems:
+  - "Whether the CC&Rs speak directly about artificial landscaping."
+  - "Whether height changes trigger a city or HOA issue."
+  - "Whether your application clearly shows the finished appearance, not just the product name."
+nextSteps:
+  - href: "/hoa-approved-artificial-hedge"
+    label: "See HOA-friendly hedge options"
+    description: "Move from process into products that fit this conversation."
+  - href: "/case-studies/austin-high-end-residential-privacy"
+    label: "See a real privacy-wall project"
+    description: "Use a published install as visual proof when discussing appearance."
+  - href: "/pricing"
+    label: "Get ballpark pricing"
+    description: "Move into budget planning once the approval path looks realistic."
 faq:
   - question: "Can my HOA ban artificial hedges in Texas?"
     answer: "HOAs can regulate the appearance and type of landscaping through their CC&Rs, including artificial elements. However, Texas Property Code Section 202.007 prohibits HOAs from unreasonably denying drought-resistant landscaping. Whether artificial hedges fall under this protection depends on how your HOA and the courts interpret the statute. The safest approach is to submit a well-documented application rather than argue the legal question."
@@ -56,6 +112,8 @@ Whether artificial hedges are covered directly by Section 202.007 has not been d
 
 ## Before you apply: read your CC&Rs
 
+<!-- guide-module:approval-planning-grid -->
+
 Your HOA's CC&Rs (Covenants, Conditions & Restrictions) and architectural guidelines are the first documents to check. Look for language about:
 
 - **"Artificial landscaping"** or **"artificial plants"** — Some CC&Rs explicitly allow or prohibit these. If yours are silent on the topic, that's usually a good sign.
@@ -69,6 +127,8 @@ If you can't find your CC&Rs, request a copy from your HOA management company. T
 ## What to include in your application
 
 A strong application removes the guesswork for the review committee. Here's what to submit:
+
+<!-- guide-module:submission-checklist -->
 
 ### 1. Completed application form
 Use whatever form your HOA provides. If there's no standard form, write a clear letter describing the modification.

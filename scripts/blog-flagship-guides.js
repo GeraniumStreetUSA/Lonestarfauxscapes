@@ -1,4 +1,11 @@
 const GUIDE_MODULE_COMMENT_REGEX = /<!--\s*guide-module:\s*([a-z0-9-]+)\s*-->/gi;
+const GUIDE_MODULE_META = Object.freeze({
+  comparisonMatrix: { token: 'comparison-matrix', eyebrow: 'Comparison Matrix' },
+  checklist: { token: 'checklist', eyebrow: 'Checklist' },
+  timeline: { token: 'timeline', eyebrow: 'Timeline' },
+  pathCards: { token: 'path-cards', eyebrow: 'Path Cards' },
+  planningGrid: { token: 'planning-grid', eyebrow: 'Planning Grid' },
+});
 
 const cleanText = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 
@@ -65,7 +72,9 @@ const normalizeModules = (value) =>
         rows: Array.isArray(item?.rows) ? item.rows : [],
         items: normalizeStringList(item?.items),
         steps: normalizeTimelineSteps(item?.steps),
+        stepsSourceCount: Array.isArray(item?.steps) ? item.steps.length : 0,
         cards: normalizePathCards(item?.cards),
+        cardsSourceCount: Array.isArray(item?.cards) ? item.cards.length : 0,
       }))
       .filter((item) => item.key && item.type && item.title)
     : [];
@@ -88,8 +97,7 @@ export function normalizeFlagshipGuide(data, post) {
   const seenModuleKeys = new Set();
   for (const module of modules) {
     if (seenModuleKeys.has(module.key)) {
-      console.warn(`[flagship-guides] Duplicate module key "${module.key}" detected while normalizing frontmatter`);
-      continue;
+      throw new Error(`[flagship-guides] Duplicate module key "${module.key}" in guide "${cleanText(post?.slug) || 'unknown'}"`);
     }
     seenModuleKeys.add(module.key);
   }
@@ -119,30 +127,51 @@ function renderDecisionSnapshot(guide) {
   return `<section class="flagship-block flagship-block--snapshot"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Decision Snapshot</p><h2>The shortest practical summary</h2></div><div class="flagship-snapshot-grid">${guide.decisionSnapshot.map((item) => `<article class="flagship-snapshot-card"><span>${escapeHtml(item.label)}</span><p>${escapeHtml(item.value)}</p></article>`).join('')}</div></section>`;
 }
 
+function getGuideModuleMeta(moduleType) {
+  return GUIDE_MODULE_META[moduleType] || null;
+}
+
+function getRequiredGuideModuleMeta(module) {
+  const moduleMeta = getGuideModuleMeta(module?.type);
+  if (!moduleMeta) {
+    throw new Error(`[flagship-guides] Unsupported module type "${cleanText(module?.type)}" for key "${cleanText(module?.key)}"`);
+  }
+  return moduleMeta;
+}
+
 function renderComparisonMatrix(module) {
+  const moduleMeta = getRequiredGuideModuleMeta(module);
   const [leftLabel = 'Option A', rightLabel = 'Option B'] = module.columns;
 
-  return `<section class="flagship-block" data-guide-module="comparison-matrix"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Comparison Matrix</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-matrix"><div class="flagship-matrix__row flagship-matrix__row--head"><span>Decision Point</span><span>${escapeHtml(leftLabel)}</span><span>${escapeHtml(rightLabel)}</span></div>${module.rows.map((row) => `<div class="flagship-matrix__row"><span>${escapeHtml(cleanText(row?.label))}</span><span>${escapeHtml(cleanText(row?.left))}</span><span>${escapeHtml(cleanText(row?.right))}</span></div>`).join('')}</div></section>`;
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-matrix"><div class="flagship-matrix__row flagship-matrix__row--head"><span>Decision Point</span><span>${escapeHtml(leftLabel)}</span><span>${escapeHtml(rightLabel)}</span></div>${module.rows.map((row) => `<div class="flagship-matrix__row"><span>${escapeHtml(cleanText(row?.label))}</span><span>${escapeHtml(cleanText(row?.left))}</span><span>${escapeHtml(cleanText(row?.right))}</span></div>`).join('')}</div></section>`;
 }
 
 function renderChecklist(module) {
-  return `<section class="flagship-block" data-guide-module="checklist"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Checklist</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ul class="flagship-checklist">${module.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
+  const moduleMeta = getRequiredGuideModuleMeta(module);
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ul class="flagship-checklist">${module.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
 }
 
 function renderTimeline(module) {
+  const moduleMeta = getRequiredGuideModuleMeta(module);
   const steps = module.steps.length > 0
     ? module.steps
     : module.items.map((item) => ({ title: item, description: '' }));
 
-  return `<section class="flagship-block" data-guide-module="timeline"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Timeline</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ol class="flagship-timeline">${steps.map((step, index) => `<li class="flagship-timeline__item"><span class="flagship-timeline__step">Step ${index + 1}</span><div><h3>${escapeHtml(step.title)}</h3>${step.description ? `<p>${escapeHtml(step.description)}</p>` : ''}</div></li>`).join('')}</ol></section>`;
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ol class="flagship-timeline">${steps.map((step, index) => `<li class="flagship-timeline__item"><span class="flagship-timeline__step">Step ${index + 1}</span><div><h3>${escapeHtml(step.title)}</h3>${step.description ? `<p>${escapeHtml(step.description)}</p>` : ''}</div></li>`).join('')}</ol></section>`;
 }
 
 function renderPathCards(module) {
+  const moduleMeta = getRequiredGuideModuleMeta(module);
   const cards = module.cards.length > 0
     ? module.cards
     : module.items.map((item) => ({ title: item, summary: '', bestFor: '' }));
 
-  return `<section class="flagship-block" data-guide-module="path-cards"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Path Cards</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-path-grid">${cards.map((card) => `<article class="flagship-path-card"><h3>${escapeHtml(card.title)}</h3>${card.summary ? `<p>${escapeHtml(card.summary)}</p>` : ''}${card.bestFor ? `<p><strong>Best for:</strong> ${escapeHtml(card.bestFor)}</p>` : ''}</article>`).join('')}</div></section>`;
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-path-grid">${cards.map((card) => `<article class="flagship-path-card"><h3>${escapeHtml(card.title)}</h3>${card.summary ? `<p>${escapeHtml(card.summary)}</p>` : ''}${card.bestFor ? `<p><strong>Best for:</strong> ${escapeHtml(card.bestFor)}</p>` : ''}</article>`).join('')}</div></section>`;
+}
+
+function renderPlanningGrid(module) {
+  const moduleMeta = getRequiredGuideModuleMeta(module);
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-snapshot-grid">${module.rows.map((row) => `<article class="flagship-snapshot-card"><span>${escapeHtml(cleanText(row?.label))}</span><p>${escapeHtml(cleanText(row?.value))}</p></article>`).join('')}</div></section>`;
 }
 
 const moduleRenderers = {
@@ -150,6 +179,7 @@ const moduleRenderers = {
   checklist: renderChecklist,
   timeline: renderTimeline,
   pathCards: renderPathCards,
+  planningGrid: renderPlanningGrid,
 };
 
 function warnMalformedModule(module, reason) {
@@ -184,12 +214,38 @@ function validateGuideModulePayload(module) {
     warnMalformedModule(module, 'missing items');
   }
 
-  if (module.type === 'timeline' && module.steps.length === 0 && module.items.length === 0) {
-    warnMalformedModule(module, 'missing steps');
+  if (module.type === 'timeline') {
+    if (module.stepsSourceCount > 0 && module.steps.length < module.stepsSourceCount) {
+      warnMalformedModule(module, `${module.stepsSourceCount - module.steps.length} step(s) ignored because each step must include both title and description`);
+    }
+    if (module.steps.length === 0 && module.items.length === 0) {
+      warnMalformedModule(module, 'missing steps');
+    }
   }
 
-  if (module.type === 'pathCards' && module.cards.length === 0 && module.items.length === 0) {
-    warnMalformedModule(module, 'missing cards');
+  if (module.type === 'pathCards') {
+    if (module.cardsSourceCount > 0 && module.cards.length < module.cardsSourceCount) {
+      warnMalformedModule(module, `${module.cardsSourceCount - module.cards.length} card(s) ignored because each card must include title and summary or bestFor`);
+    }
+    if (module.cards.length === 0 && module.items.length === 0) {
+      warnMalformedModule(module, 'missing cards');
+    }
+  }
+
+  if (module.type === 'planningGrid') {
+    if (module.rows.length === 0) {
+      warnMalformedModule(module, 'missing rows');
+    }
+    module.rows.forEach((row, index) => {
+      const rowLabel = cleanText(row?.label);
+      const rowValue = cleanText(row?.value);
+      const missingFields = [];
+      if (!rowLabel) missingFields.push('label');
+      if (!rowValue) missingFields.push('value');
+      if (missingFields.length > 0) {
+        warnMalformedModule(module, `row ${index + 1} is missing ${missingFields.join(', ')}`);
+      }
+    });
   }
 }
 
@@ -208,10 +264,10 @@ export function injectFlagshipGuideModules(htmlContent, guide) {
   const modulesByKey = new Map();
   for (const module of guide.modules) {
     if (modulesByKey.has(module.key)) {
-      console.warn(`[flagship-guides] Duplicate module key "${module.key}" detected during injection; using last definition`);
+      throw new Error(`[flagship-guides] Duplicate module key "${module.key}" detected during injection`);
     }
     modulesByKey.set(module.key, module);
-    if (!moduleRenderers[module.type]) {
+    if (!getGuideModuleMeta(module.type) || !moduleRenderers[module.type]) {
       console.warn(`[flagship-guides] Unsupported module type "${module.type}" for key "${module.key}"`);
     }
     validateGuideModulePayload(module);

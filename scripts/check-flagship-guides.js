@@ -38,6 +38,18 @@ const checks = [
       'Where to go next',
     ],
   },
+  {
+    slug: 'how-to-get-hoa-approval-for-artificial-hedges-in-texas',
+    required: [
+      'data-guide-template="flagship"',
+      'Quick Answers',
+      'Decision Snapshot',
+      'data-guide-module="planning-grid"',
+      'data-guide-module="checklist"',
+      'What To Verify',
+      'Where to go next',
+    ],
+  },
 ];
 
 const failures = [];
