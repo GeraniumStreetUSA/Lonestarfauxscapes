@@ -69,7 +69,7 @@ const normalizeModules = (value) =>
         cards: normalizePathCards(item?.cards),
         cardsSourceCount: Array.isArray(item?.cards) ? item.cards.length : 0,
       }))
-      .filter((item) => item.key && item.type && item.title)
+      .filter((item) => item.key && item.type)
     : [];
 
 const normalizeNextSteps = (value) =>
@@ -187,6 +187,9 @@ function renderDecisionTree(module) {
 
 function renderProofInsert(module) {
   const moduleMeta = getRequiredGuideModuleConfig(module);
+  if (module.rows.length !== 1) {
+    throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): expected exactly 1 proof row, got ${module.rows.length}`);
+  }
   const row = module.rows[0];
   const href = cleanText(row?.href);
   const title = cleanText(row?.title);
@@ -293,7 +296,7 @@ function validateGuideModulePayload(module) {
       throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): missing proof row`);
     }
     if (module.rows.length > 1) {
-      warnMalformedModule(module, `${module.rows.length - 1} extra proof row(s) ignored`);
+      throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): expected exactly 1 proof row, got ${module.rows.length}`);
     }
     const row = module.rows[0];
     const missingFields = [];
