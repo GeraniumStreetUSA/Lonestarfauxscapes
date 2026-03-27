@@ -37,7 +37,15 @@ for (const check of checks) {
     continue;
   }
 
-  const html = read(relativePath);
+  let html;
+  try {
+    html = read(relativePath);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    failures.push(`${check.slug}: could not read generated file (${message})`);
+    continue;
+  }
+
   check.required.forEach((needle) => {
     assertContains(html, needle, check.slug, failures);
   });

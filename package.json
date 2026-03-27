@@ -11,6 +11,7 @@
     "build:blog": "node scripts/build-blog.js",
     "build:case-studies": "node scripts/build-case-studies.js",
     "build:sitemap": "node scripts/generate-sitemap.js",
+    "verify:flagship-guides": "node scripts/check-flagship-guides.js",
     "build": "npm run sync:nav && npm run build:pricing && npm run build:blog && npm run build:case-studies && npm run build:sitemap && vite build && node scripts/post-build.js",
     "preview": "vite preview"
   },
