@@ -12,6 +12,66 @@ tags:
   - fire test standards
   - commercial fire compliance
 draft: false
+guideType: flagship
+guideEyebrow: "Commercial planning guide"
+guideAudience: "For architects, designers, GCs, property managers, and owners comparing fire documentation paths"
+guidePromise: "Understand which fire standard usually matters, what to verify, and what to ask for before submittals."
+quickAnswers:
+  - question: "Which standard is most common for decorative greenery?"
+    answer: "NFPA 701 is the most common starting point when artificial greenery is treated as a decorative material."
+  - question: "When does ASTM E84 usually enter the conversation?"
+    answer: "When the installation may be treated as an interior finish or wall-surface system."
+  - question: "Should you assume one standard covers every project?"
+    answer: "No. The right answer depends on classification, occupancy, and AHJ review."
+decisionSnapshot:
+  - label: "Fastest starting point"
+    value: "Treat decorative greenery and interior finish questions separately before asking for submittals."
+  - label: "Most common mistake"
+    value: "Requesting one test report without confirming how the project will be classified."
+  - label: "What to decide first"
+    value: "Whether the installation is being reviewed as a decorative material or a finish system."
+guideModules:
+  - key: "comparison-matrix"
+    type: "comparisonMatrix"
+    title: "NFPA 701 vs ASTM E84"
+    intro: "Use this matrix when you need the shortest side-by-side explanation before you ask a manufacturer or AHJ for documentation."
+    columns:
+      - "NFPA 701"
+      - "ASTM E84"
+    rows:
+      - label: "Designed for"
+        left: "Decorative textiles and films"
+        right: "Interior finish materials"
+      - label: "Measures"
+        left: "Flame propagation and afterflame response"
+        right: "Flame spread index and smoke-developed index"
+      - label: "Typical use"
+        left: "Decorative greenery and freestanding materials"
+        right: "Wall and ceiling finish discussions"
+  - key: "submittal-checklist"
+    type: "checklist"
+    title: "What to verify before submittals"
+    intro: "Use this before anyone treats a generic fire report like project-ready documentation."
+    items:
+      - "The report names the actual product line being installed."
+      - "The test method is stated explicitly."
+      - "The report is current enough for the project team and AHJ."
+      - "The documentation matches how the greenery is being classified."
+verifyTitle: "What To Verify"
+verifyItems:
+  - "How the local jurisdiction is likely to classify the installation."
+  - "Whether the project team needs decorative-material documentation, interior-finish documentation, or both."
+  - "Whether the quoted product is the exact tested product line."
+nextSteps:
+  - href: "/commercial-resources"
+    label: "Use the commercial resource hub"
+    description: "Move into spec help, documentation workflow, and project coordination."
+  - href: "/case-studies/houston-storefront-hedges"
+    label: "See a related commercial project"
+    description: "Use a real install to ground the planning conversation."
+  - href: "/blog/fire-rated-artificial-greenery-for-texas-commercial-properties"
+    label: "Read the broader fire-rated guide"
+    description: "Step up into the larger commercial fire-planning resource."
 faq:
   - question: "Which fire test standard should I specify for artificial greenery?"
     answer: "For decorative artificial greenery in commercial interiors, NFPA 701 is the most commonly referenced standard. If your project involves artificial greenery being treated as an interior wall finish or ceiling material, ASTM E84 may apply. The correct standard depends on how the greenery is classified under your local building code and the occupancy type. Check with your Authority Having Jurisdiction."
@@ -97,14 +157,7 @@ The IBC specifies which class is required based on the building's occupancy type
 
 ## How the two standards differ
 
-| | NFPA 701 | ASTM E84 |
-|---|---|---|
-| **Designed for** | Decorative textiles and films | Building interior finishes |
-| **Test method** | Vertical burn, direct flame exposure | Horizontal tunnel, surface flame spread |
-| **Measures** | Weight loss, afterflame, drip burn | Flame Spread Index, Smoke-Developed Index |
-| **Classification** | Pass/fail | Class A, B, or C |
-| **Most relevant for** | Curtains, banners, decorative materials, artificial greenery | Wall coverings, ceiling finishes, insulation, interior surfaces |
-| **Referenced by** | Fire codes for decorative materials; NFPA 1 (Fire Code) | IBC Chapter 8 (Interior Finishes) |
+<!-- guide-module:comparison-matrix -->
 
 The critical distinction: **NFPA 701 tests how a freestanding decorative material responds to direct ignition.** ASTM E84 tests how a material behaves as an **applied surface finish** when flame spreads across it.
 
@@ -135,11 +188,7 @@ Assembly occupancies (restaurants, event venues, hotels), high-rise buildings, h
 
 When reviewing a fire test report or certificate for artificial greenery, verify:
 
-1. **The product name matches what you're installing.** A generic "artificial plant sample" report is not the same as a report naming the specific panel or product line.
-2. **The test standard is clearly stated.** "NFPA 701 Method 2" or "ASTM E84" should be explicitly named.
-3. **The testing laboratory is accredited.** Look for accreditation by a recognized body such as NVLAP (National Voluntary Laboratory Accreditation Program) or A2LA (American Association for Laboratory Accreditation).
-4. **The test result is clearly pass or fail (NFPA 701) or includes the FSI and SDI values (ASTM E84).**
-5. **The report date is reasonably current.** Testing standards get updated, and very old reports may reference outdated editions.
+<!-- guide-module:submittal-checklist -->
 
 ## Related articles
 

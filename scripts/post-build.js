@@ -44,6 +44,7 @@ const filesToCopy = [
   { src: './enhancements.css', dest: 'enhancements.css' },
   { src: './navbar-universal.css', dest: 'navbar-universal.css' },
   { src: './cro.css', dest: 'cro.css' },
+  { src: './flagship-guides.css', dest: 'flagship-guides.css' },
   { src: './homepage-motion.css', dest: 'homepage-motion.css' },
 ];
 

@@ -4,6 +4,12 @@ import { marked } from 'marked';
 import matter from 'gray-matter';
 import { resolveCanonicalValue, resolveRobotsDirective } from '../seo/foundation.js';
 import { UNIVERSAL_NAV_MARKUP, UNIVERSAL_NAV_SCRIPT, UNIVERSAL_NAV_STYLESHEET } from './shared-nav.js';
+import {
+  injectFlagshipGuideModules,
+  normalizeFlagshipGuide,
+  renderFlagshipGuideIntro,
+  renderFlagshipGuideOutro,
+} from './blog-flagship-guides.js';
 
 const SITE_URL = (process.env.SITE_URL || 'https://lonestarfauxscapes.com').replace(/\/+$/, '');
 const CONTENT_DIR = './content/blog';
@@ -1007,6 +1013,9 @@ const generatePostHTML = (post) => {
     modifier: 'end',
   });
   const relatedPostsSection = renderRelatedPosts(post.relatedPosts);
+  const guideIntro = post.guide ? renderFlagshipGuideIntro(post, post.guide) : '';
+  const guideOutro = post.guide ? renderFlagshipGuideOutro(post.guide) : '';
+  const guideStylesheet = post.guide ? '  <link rel="stylesheet" href="/flagship-guides.css">\n' : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -3101,7 +3110,7 @@ const generatePostHTML = (post) => {
   </style>
   <link rel="stylesheet" href="/enhancements.css">
 ${UNIVERSAL_NAV_STYLESHEET}
-  <link rel="stylesheet" href="/cro.css">
+${guideStylesheet}  <link rel="stylesheet" href="/cro.css">
 </head>
 <body>
 ${UNIVERSAL_NAV_MARKUP}
@@ -3128,9 +3137,11 @@ ${UNIVERSAL_NAV_MARKUP}
       <img src="${imageSrc}" alt="${escapedTitle}" loading="eager">
     </div>
 
-    <article class="article-content"> 
+    <article class="article-content"${post.guide ? ' data-guide-template="flagship"' : ''}> 
+      ${guideIntro}
       ${post.toc} 
-      ${articleBody} 
+      ${articleBody}
+      ${guideOutro}
 
       <div class="estimate-note">
         <strong>Planning note:</strong> Any price or percentage figures in this article are non-binding educational estimates. Final pricing is itemized after site measurements, substrate review, and scope confirmation.
@@ -3279,6 +3290,7 @@ async function buildBlog() {
       servicePage: typeof data.servicePage === 'string' ? data.servicePage.trim() : '',
       featured: data.featured === true,
     };
+    post.guide = normalizeFlagshipGuide(data, post);
 
     // Check if post is scheduled for the future
     if (publishDate > todayIsoDate) {
@@ -3295,8 +3307,11 @@ async function buildBlog() {
     // Generate table of contents
     const { toc, content: contentWithIds } = generateTableOfContents(htmlContent);
     const contentWithImages = insertImagesAfterHeadings(contentWithIds, commentImages, 3);
+    const contentWithGuideModules = post.guide
+      ? injectFlagshipGuideModules(contentWithImages, post.guide)
+      : contentWithImages;
     post.toc = toc;
-    post.content = contentWithImages;
+    post.content = contentWithGuideModules;
 
     posts.push(enrichPost(post));
   }
@@ -3316,7 +3331,7 @@ async function buildBlog() {
   }
 
   // Save posts data for blog listing (without full content, faq, or toc)
-  const postsData = posts.map(({ content, faq, toc, relatedPosts, supportLinks, cityMeta, ...rest }) => rest);
+  const postsData = posts.map(({ content, faq, toc, relatedPosts, supportLinks, cityMeta, guide, ...rest }) => rest);
   fs.writeFileSync(POSTS_JSON, JSON.stringify(postsData, null, 2));
   console.log(`  Generated: ${POSTS_JSON}`);
 
