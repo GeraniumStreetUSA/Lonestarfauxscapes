@@ -96,18 +96,59 @@ function renderChecklist(module) {
   return `<section class="flagship-block" data-guide-module="checklist"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Checklist</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ul class="flagship-checklist">${module.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
 }
 
+const moduleRenderers = {
+  comparisonMatrix: renderComparisonMatrix,
+  checklist: renderChecklist,
+};
+
+function warnMalformedModule(module, reason) {
+  console.warn(`[flagship-guides] Malformed module "${module.key}" (${module.type}): ${reason}`);
+}
+
+function validateGuideModulePayload(module) {
+  if (!module) return;
+
+  if (module.type === 'comparisonMatrix') {
+    if (module.columns.length === 0) {
+      warnMalformedModule(module, 'missing columns');
+    }
+    if (module.rows.length === 0) {
+      warnMalformedModule(module, 'missing rows');
+    }
+  }
+
+  if (module.type === 'checklist' && module.items.length === 0) {
+    warnMalformedModule(module, 'missing items');
+  }
+}
+
 function renderGuideModule(module) {
   if (!module) return '';
-  if (module.type === 'comparisonMatrix') return renderComparisonMatrix(module);
-  if (module.type === 'checklist') return renderChecklist(module);
-  return '';
+  const renderer = moduleRenderers[module.type];
+  if (!renderer) {
+    return `<!-- unsupported guide module: ${module.key} (${module.type}) -->`;
+  }
+  return renderer(module);
 }
 
 export function injectFlagshipGuideModules(htmlContent, guide) {
   if (!guide) return htmlContent;
 
+  const modulesByKey = new Map(guide.modules.map((module) => [module.key, module]));
+  for (const module of guide.modules) {
+    if (!moduleRenderers[module.type]) {
+      console.warn(`[flagship-guides] Unsupported module type "${module.type}" for key "${module.key}"`);
+    }
+    validateGuideModulePayload(module);
+  }
+
   return htmlContent.replace(GUIDE_MODULE_COMMENT_REGEX, (_, key) => {
-    const module = guide.modules.find((entry) => entry.key === cleanText(key));
+    const normalizedKey = cleanText(key);
+    const module = modulesByKey.get(normalizedKey);
+    if (!module) {
+      console.warn(`[flagship-guides] Missing guide module for placeholder "${normalizedKey}"`);
+      return `<!-- missing guide module: ${normalizedKey} -->`;
+    }
     return renderGuideModule(module);
   });
 }
