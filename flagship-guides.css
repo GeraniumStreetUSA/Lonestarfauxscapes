@@ -81,6 +81,15 @@
   }
 }
 
+@media (min-width: 1120px) {
+  .flagship-answer-grid,
+  .flagship-snapshot-grid,
+  .flagship-next-grid,
+  .flagship-path-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .flagship-answer-card,
 .flagship-snapshot-card,
 .flagship-next-card,

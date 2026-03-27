@@ -2788,7 +2788,7 @@ const generatePostHTML = (post) => {
     /* Featured Image */
     .featured-image {
       margin: -1rem auto 0;
-      max-width: 900px;
+      max-width: 1080px;
       padding: 0 4%;
     }
     .featured-image img {
@@ -2799,7 +2799,7 @@ const generatePostHTML = (post) => {
 
     /* Article Content - Optimized for desktop reading (2025 best practices) */
     .article-content {
-      max-width: 750px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 3rem 4% 4rem;
       font-size: 1.25rem;
@@ -2819,10 +2819,12 @@ const generatePostHTML = (post) => {
     .article-content p {
       margin-bottom: 1.75rem;
       color: rgba(255,255,255,0.9);
+      max-width: 76ch;
     }
     .article-content ul, .article-content ol {
       margin: 1.25rem 0 1.75rem 1.5rem;
       color: rgba(255,255,255,0.9);
+      max-width: 76ch;
     }
     .article-content li { margin-bottom: 0.65rem; line-height: 1.7; }
     .article-content a {
@@ -2996,6 +2998,11 @@ const generatePostHTML = (post) => {
     @media (min-width: 760px) {
       .article-support__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1080px) {
+      .article-support__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
     .article-support__card {
