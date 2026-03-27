@@ -10,6 +10,77 @@ tags:
   - living wall materials
   - UV stabilized living wall
 draft: false
+guideType: flagship
+guideEyebrow: "Living wall comparison guide"
+guideAudience: "For homeowners, designers, and commercial buyers deciding between indoor and outdoor living wall systems"
+guidePromise: "Choose the right materials, mounting path, and planning route for the environment you are actually building in."
+quickAnswers:
+  - question: "Can the same panel be used indoors and outdoors?"
+    answer: "Outdoor-rated panels can go indoors, but indoor-only panels should not go outside."
+  - question: "Where do the biggest cost differences come from?"
+    answer: "Outdoor-rated materials, structural mounting, and weather-rated hardware."
+  - question: "What changes the decision fastest?"
+    answer: "Exposure, mounting surface, fire-review context, and visual distance."
+decisionSnapshot:
+  - label: "Indoor priority"
+    value: "Appearance, texture, lighting, and close-up realism."
+  - label: "Outdoor priority"
+    value: "UV performance, weather-rated mounting, and long-term durability."
+  - label: "What to decide first"
+    value: "Whether the project is truly indoors, truly outdoors, or in a gray zone like a covered patio."
+guideModules:
+  - key: "environment-comparison"
+    type: "comparisonMatrix"
+    title: "Indoor vs Outdoor Living Walls"
+    intro: "Use this matrix to avoid choosing an indoor visual solution for an outdoor performance problem."
+    columns:
+      - "Indoor"
+      - "Outdoor"
+    rows:
+      - label: "Material priority"
+        left: "Realism and texture"
+        right: "UV stability and weather performance"
+      - label: "Mounting priority"
+        left: "Flat attachment and clean interior finish"
+        right: "Ventilation, structure, and corrosion resistance"
+      - label: "Code pressure"
+        left: "Commercial interiors may trigger fire-review"
+        right: "Usually lower, but not zero near egress or covered spaces"
+  - key: "environment-decision-tree"
+    type: "decisionTree"
+    title: "Which path fits your project?"
+    intro: "Use the actual environment, not the design mood board, to choose the system."
+    rows:
+      - label: "Interior feature wall"
+        value: "Prioritize realism, lighting, and close-up finish quality."
+      - label: "Covered patio or balcony"
+        value: "Treat this as an exposure and code-review question before you choose product."
+      - label: "Fully exterior wall"
+        value: "Choose UV-rated materials and weather-rated mounting from the start."
+  - key: "living-wall-proof"
+    type: "proofInsert"
+    title: "How this looks in a real project"
+    intro: "Use a published Texas install to connect the guide to a real site condition."
+    rows:
+      - title: "Austin residential privacy wall"
+        href: "/case-studies/austin-high-end-residential-privacy"
+        image: "/case-studies/austin-high-end-residential-privacy/artificial%20boxwood%20privacy%20austin-05.avif"
+        summary: "A real project showing how an exterior privacy wall changes once structure, exposure, and maintenance reality are taken seriously."
+verifyTitle: "What To Verify"
+verifyItems:
+  - "Whether the wall is truly indoor, fully outdoor, or a mixed condition."
+  - "Whether the mounting surface can support the chosen system."
+  - "Whether commercial fire-review applies based on occupancy and jurisdiction."
+nextSteps:
+  - href: "/living-wall"
+    label: "See living wall options"
+    description: "Move from comparison into the service page."
+  - href: "/case-studies/austin-high-end-residential-privacy"
+    label: "See the published project profile"
+    description: "Ground the comparison in a real installed example."
+  - href: "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery"
+    label: "Read the fire standards guide"
+    description: "Use this if the project might face commercial documentation review."
 faq:
   - question: "Can I use the same artificial living wall panels indoors and outdoors?"
     answer: "Outdoor-rated panels can be used indoors, but indoor-only panels should not be used outdoors. Outdoor panels include UV stabilization that indoor panels lack. Using indoor panels outdoors results in rapid fading and material degradation. If you are unsure about the rating, check the product spec sheet for UV stabilization."
@@ -26,6 +97,18 @@ An artificial living wall can go almost anywhere—a restaurant patio, an office
 This matters because choosing the wrong materials for the environment shortens the lifespan dramatically. An indoor panel on an outdoor wall in Texas can fade and deteriorate within a year. And an outdoor-rated panel indoors, while it works fine, means you're paying for UV treatment you don't need.
 
 This article covers what's different between indoor and outdoor installations so you can specify the right product and approach for your project.
+
+## Fast environment comparison
+
+<!-- guide-module:environment-comparison -->
+
+## Decision path by environment
+
+<!-- guide-module:environment-decision-tree -->
+
+## Real project proof
+
+<!-- guide-module:living-wall-proof -->
 
 ## Materials: what changes
 

@@ -50,6 +50,19 @@ const checks = [
       'Where to go next',
     ],
   },
+  {
+    slug: 'indoor-vs-outdoor-artificial-living-walls-materials-and-design',
+    required: [
+      'data-guide-template="flagship"',
+      'Quick Answers',
+      'Decision Snapshot',
+      'data-guide-module="comparison-matrix"',
+      'data-guide-module="decision-tree"',
+      'data-guide-module="proof-insert"',
+      'What To Verify',
+      'Where to go next',
+    ],
+  },
 ];
 
 const failures = [];

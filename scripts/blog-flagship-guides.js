@@ -1,11 +1,4 @@
 const GUIDE_MODULE_COMMENT_REGEX = /<!--\s*guide-module:\s*([a-z0-9-]+)\s*-->/gi;
-const GUIDE_MODULE_META = Object.freeze({
-  comparisonMatrix: { token: 'comparison-matrix', eyebrow: 'Comparison Matrix' },
-  checklist: { token: 'checklist', eyebrow: 'Checklist' },
-  timeline: { token: 'timeline', eyebrow: 'Timeline' },
-  pathCards: { token: 'path-cards', eyebrow: 'Path Cards' },
-  planningGrid: { token: 'planning-grid', eyebrow: 'Planning Grid' },
-});
 
 const cleanText = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 
@@ -127,32 +120,35 @@ function renderDecisionSnapshot(guide) {
   return `<section class="flagship-block flagship-block--snapshot"><div class="flagship-block__head"><p class="flagship-block__eyebrow">Decision Snapshot</p><h2>The shortest practical summary</h2></div><div class="flagship-snapshot-grid">${guide.decisionSnapshot.map((item) => `<article class="flagship-snapshot-card"><span>${escapeHtml(item.label)}</span><p>${escapeHtml(item.value)}</p></article>`).join('')}</div></section>`;
 }
 
-function getGuideModuleMeta(moduleType) {
-  return GUIDE_MODULE_META[moduleType] || null;
+function getGuideModuleConfig(moduleType) {
+  return GUIDE_MODULE_REGISTRY[moduleType] || null;
 }
 
-function getRequiredGuideModuleMeta(module) {
-  const moduleMeta = getGuideModuleMeta(module?.type);
-  if (!moduleMeta) {
+function getRequiredGuideModuleConfig(module) {
+  const moduleConfig = getGuideModuleConfig(cleanText(module?.type));
+  if (!moduleConfig) {
     throw new Error(`[flagship-guides] Unsupported module type "${cleanText(module?.type)}" for key "${cleanText(module?.key)}"`);
   }
-  return moduleMeta;
+  if (typeof moduleConfig.render !== 'function') {
+    throw new Error(`[flagship-guides] Missing renderer for module type "${cleanText(module?.type)}"`);
+  }
+  return moduleConfig;
 }
 
 function renderComparisonMatrix(module) {
-  const moduleMeta = getRequiredGuideModuleMeta(module);
+  const moduleMeta = getRequiredGuideModuleConfig(module);
   const [leftLabel = 'Option A', rightLabel = 'Option B'] = module.columns;
 
   return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-matrix"><div class="flagship-matrix__row flagship-matrix__row--head"><span>Decision Point</span><span>${escapeHtml(leftLabel)}</span><span>${escapeHtml(rightLabel)}</span></div>${module.rows.map((row) => `<div class="flagship-matrix__row"><span>${escapeHtml(cleanText(row?.label))}</span><span>${escapeHtml(cleanText(row?.left))}</span><span>${escapeHtml(cleanText(row?.right))}</span></div>`).join('')}</div></section>`;
 }
 
 function renderChecklist(module) {
-  const moduleMeta = getRequiredGuideModuleMeta(module);
+  const moduleMeta = getRequiredGuideModuleConfig(module);
   return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><ul class="flagship-checklist">${module.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
 }
 
 function renderTimeline(module) {
-  const moduleMeta = getRequiredGuideModuleMeta(module);
+  const moduleMeta = getRequiredGuideModuleConfig(module);
   const steps = module.steps.length > 0
     ? module.steps
     : module.items.map((item) => ({ title: item, description: '' }));
@@ -161,7 +157,7 @@ function renderTimeline(module) {
 }
 
 function renderPathCards(module) {
-  const moduleMeta = getRequiredGuideModuleMeta(module);
+  const moduleMeta = getRequiredGuideModuleConfig(module);
   const cards = module.cards.length > 0
     ? module.cards
     : module.items.map((item) => ({ title: item, summary: '', bestFor: '' }));
@@ -170,17 +166,35 @@ function renderPathCards(module) {
 }
 
 function renderPlanningGrid(module) {
-  const moduleMeta = getRequiredGuideModuleMeta(module);
+  const moduleMeta = getRequiredGuideModuleConfig(module);
   return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-snapshot-grid">${module.rows.map((row) => `<article class="flagship-snapshot-card"><span>${escapeHtml(cleanText(row?.label))}</span><p>${escapeHtml(cleanText(row?.value))}</p></article>`).join('')}</div></section>`;
 }
 
-const moduleRenderers = {
-  comparisonMatrix: renderComparisonMatrix,
-  checklist: renderChecklist,
-  timeline: renderTimeline,
-  pathCards: renderPathCards,
-  planningGrid: renderPlanningGrid,
-};
+function renderDecisionTree(module) {
+  const moduleMeta = getRequiredGuideModuleConfig(module);
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-next-grid">${module.rows.map((row) => `<article class="flagship-next-card"><strong>${escapeHtml(cleanText(row?.label))}</strong><p>${escapeHtml(cleanText(row?.value))}</p></article>`).join('')}</div></section>`;
+}
+
+function renderProofInsert(module) {
+  const moduleMeta = getRequiredGuideModuleConfig(module);
+  const row = module.rows[0] || {};
+  const href = cleanText(row?.href) || '#';
+  const title = cleanText(row?.title) || 'Project proof';
+  const summary = cleanText(row?.summary);
+  const image = cleanText(row?.image);
+
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><a class="flagship-next-card" href="${escapeHtml(href)}">${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}">` : ''}<strong>${escapeHtml(title)}</strong>${summary ? `<p>${escapeHtml(summary)}</p>` : ''}</a></section>`;
+}
+
+const GUIDE_MODULE_REGISTRY = Object.freeze({
+  comparisonMatrix: { token: 'comparison-matrix', eyebrow: 'Comparison Matrix', render: renderComparisonMatrix },
+  checklist: { token: 'checklist', eyebrow: 'Checklist', render: renderChecklist },
+  timeline: { token: 'timeline', eyebrow: 'Timeline', render: renderTimeline },
+  pathCards: { token: 'path-cards', eyebrow: 'Path Cards', render: renderPathCards },
+  planningGrid: { token: 'planning-grid', eyebrow: 'Planning Grid', render: renderPlanningGrid },
+  decisionTree: { token: 'decision-tree', eyebrow: 'Decision Tree', render: renderDecisionTree },
+  proofInsert: { token: 'proof-insert', eyebrow: 'Project Proof', render: renderProofInsert },
+});
 
 function warnMalformedModule(module, reason) {
   console.warn(`[flagship-guides] Malformed module "${module.key}" (${module.type}): ${reason}`);
@@ -247,15 +261,46 @@ function validateGuideModulePayload(module) {
       }
     });
   }
+
+  if (module.type === 'decisionTree') {
+    if (module.rows.length === 0) {
+      warnMalformedModule(module, 'missing rows');
+    }
+    module.rows.forEach((row, index) => {
+      const rowLabel = cleanText(row?.label);
+      const rowValue = cleanText(row?.value);
+      const missingFields = [];
+      if (!rowLabel) missingFields.push('label');
+      if (!rowValue) missingFields.push('value');
+      if (missingFields.length > 0) {
+        warnMalformedModule(module, `row ${index + 1} is missing ${missingFields.join(', ')}`);
+      }
+    });
+  }
+
+  if (module.type === 'proofInsert') {
+    if (module.rows.length === 0) {
+      warnMalformedModule(module, 'missing proof row');
+      return;
+    }
+    if (module.rows.length > 1) {
+      warnMalformedModule(module, `${module.rows.length - 1} extra proof row(s) ignored`);
+    }
+    const row = module.rows[0];
+    const missingFields = [];
+    if (!cleanText(row?.href)) missingFields.push('href');
+    if (!cleanText(row?.title)) missingFields.push('title');
+    if (!cleanText(row?.summary)) missingFields.push('summary');
+    if (missingFields.length > 0) {
+      warnMalformedModule(module, `proof row is missing ${missingFields.join(', ')}`);
+    }
+  }
 }
 
 function renderGuideModule(module) {
   if (!module) return '';
-  const renderer = moduleRenderers[module.type];
-  if (!renderer) {
-    return `<!-- unsupported guide module: ${module.key} (${module.type}) -->`;
-  }
-  return renderer(module);
+  const moduleConfig = getRequiredGuideModuleConfig(module);
+  return moduleConfig.render(module);
 }
 
 export function injectFlagshipGuideModules(htmlContent, guide) {
@@ -267,9 +312,7 @@ export function injectFlagshipGuideModules(htmlContent, guide) {
       throw new Error(`[flagship-guides] Duplicate module key "${module.key}" detected during injection`);
     }
     modulesByKey.set(module.key, module);
-    if (!getGuideModuleMeta(module.type) || !moduleRenderers[module.type]) {
-      console.warn(`[flagship-guides] Unsupported module type "${module.type}" for key "${module.key}"`);
-    }
+    getRequiredGuideModuleConfig(module);
     validateGuideModulePayload(module);
   }
 
