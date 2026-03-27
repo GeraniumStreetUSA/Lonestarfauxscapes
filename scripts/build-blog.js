@@ -3393,4 +3393,8 @@ async function buildBlog() {
   }
 }
 
-buildBlog().catch(console.error);
+buildBlog().catch((error) => {
+  console.error('Blog build failed.');
+  console.error(error);
+  process.exitCode = 1;
+});
