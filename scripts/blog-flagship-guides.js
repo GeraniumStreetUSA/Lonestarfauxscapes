@@ -172,18 +172,31 @@ function renderPlanningGrid(module) {
 
 function renderDecisionTree(module) {
   const moduleMeta = getRequiredGuideModuleConfig(module);
+  if (module.rows.length === 0) {
+    throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): missing rows`);
+  }
+  module.rows.forEach((row, index) => {
+    const rowLabel = cleanText(row?.label);
+    const rowValue = cleanText(row?.value);
+    if (!rowLabel || !rowValue) {
+      throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): row ${index + 1} is missing label or value`);
+    }
+  });
   return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><div class="flagship-next-grid">${module.rows.map((row) => `<article class="flagship-next-card"><strong>${escapeHtml(cleanText(row?.label))}</strong><p>${escapeHtml(cleanText(row?.value))}</p></article>`).join('')}</div></section>`;
 }
 
 function renderProofInsert(module) {
   const moduleMeta = getRequiredGuideModuleConfig(module);
-  const row = module.rows[0] || {};
-  const href = cleanText(row?.href) || '#';
-  const title = cleanText(row?.title) || 'Project proof';
+  const row = module.rows[0];
+  const href = cleanText(row?.href);
+  const title = cleanText(row?.title);
   const summary = cleanText(row?.summary);
   const image = cleanText(row?.image);
+  if (!href || !title || !summary) {
+    throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): proof row is missing href, title, or summary`);
+  }
 
-  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><a class="flagship-next-card" href="${escapeHtml(href)}">${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}">` : ''}<strong>${escapeHtml(title)}</strong>${summary ? `<p>${escapeHtml(summary)}</p>` : ''}</a></section>`;
+  return `<section class="flagship-block" data-guide-module="${moduleMeta.token}"><div class="flagship-block__head"><p class="flagship-block__eyebrow">${moduleMeta.eyebrow}</p><h2>${escapeHtml(module.title)}</h2><p>${escapeHtml(module.intro)}</p></div><a class="flagship-next-card" href="${escapeHtml(href)}">${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}">` : ''}<strong>${escapeHtml(title)}</strong><p>${escapeHtml(summary)}</p></a></section>`;
 }
 
 const GUIDE_MODULE_REGISTRY = Object.freeze({
@@ -264,24 +277,20 @@ function validateGuideModulePayload(module) {
 
   if (module.type === 'decisionTree') {
     if (module.rows.length === 0) {
-      warnMalformedModule(module, 'missing rows');
+      throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): missing rows`);
     }
     module.rows.forEach((row, index) => {
       const rowLabel = cleanText(row?.label);
       const rowValue = cleanText(row?.value);
-      const missingFields = [];
-      if (!rowLabel) missingFields.push('label');
-      if (!rowValue) missingFields.push('value');
-      if (missingFields.length > 0) {
-        warnMalformedModule(module, `row ${index + 1} is missing ${missingFields.join(', ')}`);
+      if (!rowLabel || !rowValue) {
+        throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): row ${index + 1} is missing label or value`);
       }
     });
   }
 
   if (module.type === 'proofInsert') {
     if (module.rows.length === 0) {
-      warnMalformedModule(module, 'missing proof row');
-      return;
+      throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): missing proof row`);
     }
     if (module.rows.length > 1) {
       warnMalformedModule(module, `${module.rows.length - 1} extra proof row(s) ignored`);
@@ -292,7 +301,7 @@ function validateGuideModulePayload(module) {
     if (!cleanText(row?.title)) missingFields.push('title');
     if (!cleanText(row?.summary)) missingFields.push('summary');
     if (missingFields.length > 0) {
-      warnMalformedModule(module, `proof row is missing ${missingFields.join(', ')}`);
+      throw new Error(`[flagship-guides] Malformed module "${module.key}" (${module.type}): proof row is missing ${missingFields.join(', ')}`);
     }
   }
 }
