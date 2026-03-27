@@ -26,6 +26,18 @@ const checks = [
       'Where to go next',
     ],
   },
+  {
+    slug: 'diy-vs-professional-artificial-hedge-installation',
+    required: [
+      'data-guide-template="flagship"',
+      'Quick Answers',
+      'Decision Snapshot',
+      'data-guide-module="timeline"',
+      'data-guide-module="path-cards"',
+      'What To Verify',
+      'Where to go next',
+    ],
+  },
 ];
 
 const failures = [];

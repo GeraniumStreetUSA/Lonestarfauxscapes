@@ -10,6 +10,66 @@ tags:
   - artificial hedge mounting
   - fence hedge installation
 draft: false
+guideType: flagship
+guideEyebrow: "Installation planning guide"
+guideAudience: "For homeowners deciding whether to handle a hedge install themselves or hire a pro"
+guidePromise: "Know when DIY is realistic, where professional help changes the outcome, and what usually goes wrong."
+quickAnswers:
+  - question: "Is DIY realistic for most hedge installs?"
+    answer: "DIY is realistic for short fence-line installs on stable surfaces with straightforward access and no custom framing."
+  - question: "When does this stop being a DIY project?"
+    answer: "It usually stops being DIY when height, structural framing, masonry anchoring, or large-area coordination enters the scope."
+  - question: "What is the biggest DIY risk?"
+    answer: "The biggest risk is mounting to an unstable or unsuitable surface, which can shorten lifespan and cause early panel failure."
+decisionSnapshot:
+  - label: "DIY is strongest when"
+    value: "You are attaching panels to a sound existing fence under 8 feet with simple tools."
+  - label: "Professional help matters most when"
+    value: "The install needs structural framing, high-access work, masonry anchoring, or commercial compliance steps."
+  - label: "What to decide first"
+    value: "Confirm whether your mounting surface and project scope stay inside basic panel attachment."
+guideModules:
+  - key: "project-timeline"
+    type: "timeline"
+    title: "How to decide in the right order"
+    intro: "Use this order so you do not buy materials before checking constraints that can force a redesign."
+    steps:
+      - title: "Validate the mounting surface first"
+        description: "Inspect fence or wall condition before any measurements. Fix structural issues before panel planning."
+      - title: "Confirm constraints before ordering"
+        description: "Check HOA rules, local height limits, and warranty requirements before locking in attachment methods."
+      - title: "Match scope to labor path"
+        description: "Decide between DIY, hybrid help, or full-service install based on height, framing, and total run length."
+      - title: "Sequence tools, materials, and install day"
+        description: "Only after scope is clear should you finalize panel quantities, fasteners, and installation schedule."
+  - key: "cost-paths"
+    type: "pathCards"
+    title: "Three practical installation paths"
+    intro: "These paths help you choose execution style based on risk, complexity, and time."
+    cards:
+      - title: "Path 1: Full DIY panel attachment"
+        summary: "Best for short, reachable fence runs where attachment is straightforward and no structural changes are required."
+        bestFor: "Homeowners comfortable with measuring, aligning, and fastening panels."
+      - title: "Path 2: Hybrid install"
+        summary: "Handle preparation and simple sections yourself, then bring in pros for framing, masonry, or high sections."
+        bestFor: "Projects that are mostly simple but include one technical risk area."
+      - title: "Path 3: Professional install"
+        summary: "Use a professional crew end-to-end when the project includes scale, elevation, structural work, or compliance needs."
+        bestFor: "Large perimeters, commercial settings, or installs where rework risk is expensive."
+verifyItems:
+  - "Confirm the mounting surface is stable enough for long-term attachment before buying materials."
+  - "Verify whether warranty coverage depends on approved fastening methods or professional installation."
+  - "Define the threshold where scope leaves DIY territory, especially for framing, masonry, and elevated work."
+nextSteps:
+  - href: "/installation"
+    label: "Review professional installation options"
+    description: "See how scope, site conditions, and crew planning are handled for full-service installs."
+  - href: "/case-studies/austin-high-end-residential-privacy"
+    label: "See a residential privacy project example"
+    description: "Use a real project to benchmark what clean execution looks like."
+  - href: "/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas"
+    label: "Read the HOA approval guide"
+    description: "Prepare documentation and approvals before you commit to installation timing."
 faq:
   - question: "Can I install artificial hedges myself?"
     answer: "Yes, for straightforward fence-line installations. If you are attaching panels to an existing fence using zip ties, clips, or screws, the work is manageable for most homeowners with basic tools. Larger projects, structural frames, tall walls, and commercial installations benefit from professional installation."
@@ -26,6 +86,10 @@ Artificial hedge panels are designed to be relatively simple to install. That's 
 But "relatively simple" doesn't mean every project is a DIY job. The difficulty depends on the scale, the height, the mounting surface, and whether you need structural framing. Some installations are genuinely easy weekend projects. Others need tools, experience, and sometimes a crew.
 
 This article covers what each approach involves so you can make the right call for your project.
+
+## Decide in the right order
+
+<!-- guide-module:project-timeline -->
 
 ## When DIY makes sense
 
@@ -142,6 +206,10 @@ Ask yourself these questions:
 4. **How much area are you covering?** A single fence section is a weekend project. An entire perimeter is a bigger commitment.
 5. **Is this a commercial project?** If fire-rated documentation, permits, or building management coordination is involved, go professional.
 6. **Are you comfortable with the tools?** If you own a drill and have done basic home projects, fence-line installation is within reach.
+
+## Three practical installation paths
+
+<!-- guide-module:cost-paths -->
 
 ## Related articles
 
