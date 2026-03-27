@@ -43,6 +43,17 @@ const TOPIC_CONFIG = {
     actionLabel: 'See Texas coverage',
   },
 };
+const GUIDE_HUB_FEATURED_SLUGS = [
+  'nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery',
+  'indoor-vs-outdoor-artificial-living-walls-materials-and-design',
+  'diy-vs-professional-artificial-hedge-installation',
+];
+const TOPIC_LEAD_SLUGS = {
+  'artificial-hedges': 'diy-vs-professional-artificial-hedge-installation',
+  'living-walls': 'indoor-vs-outdoor-artificial-living-walls-materials-and-design',
+  'commercial-planning': 'nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery',
+  'local-guides': 'dallas-privacy-without-the-watering-a-real-guide',
+};
 const CITY_PAGE_MAP = {
   austin: { slug: 'austin', label: 'Austin', href: '/austin' },
   dallas: { slug: 'dallas', label: 'Dallas', href: '/dallas' },
@@ -775,13 +786,24 @@ const renderRelatedPosts = (relatedPosts) => {
 };
 
 const renderFeaturedBlogCards = (postsData) => {
-  const featuredPosts = [...postsData]
-    .filter((post) => (post.featuredScore || 0) > 0)
+  const selected = [];
+  const selectedSlugs = new Set();
+
+  GUIDE_HUB_FEATURED_SLUGS.forEach((slug) => {
+    const post = postsData.find((entry) => entry.slug === slug);
+    if (!post || selectedSlugs.has(post.slug)) return;
+    selected.push(post);
+    selectedSlugs.add(post.slug);
+  });
+
+  const fallbackPosts = [...postsData]
+    .filter((post) => !selectedSlugs.has(post.slug) && (post.featuredScore || 0) > 0)
     .sort((a, b) => {
       if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
       return b.date.localeCompare(a.date);
-    })
-    .slice(0, 3);
+    });
+
+  const featuredPosts = [...selected, ...fallbackPosts].slice(0, 3);
 
   return renderBlogCards(featuredPosts.length > 0 ? featuredPosts : postsData.slice(0, 3));
 };
@@ -789,7 +811,11 @@ const renderFeaturedBlogCards = (postsData) => {
 const renderTopicHubCards = (postsData) => {
   const topicEntries = Object.entries(TOPIC_CONFIG).map(([topicId, config]) => {
     const matchingPosts = postsData.filter((post) => post.topic === topicId);
-    const leadPost = matchingPosts
+    const preferredLeadSlug = TOPIC_LEAD_SLUGS[topicId];
+    const preferredLead = preferredLeadSlug
+      ? matchingPosts.find((post) => post.slug === preferredLeadSlug)
+      : null;
+    const leadPost = preferredLead || matchingPosts
       .slice()
       .sort((a, b) => {
         if ((b.featuredScore || 0) !== (a.featuredScore || 0)) return (b.featuredScore || 0) - (a.featuredScore || 0);
@@ -3301,39 +3327,43 @@ async function buildBlog() {
     console.log(`  Generated: ${outputPath}`);
   }
 
-  // Update blog.html with embedded posts data
-  const BLOG_HTML = './blog.html';
-  if (fs.existsSync(BLOG_HTML)) {
-    let blogHtml = fs.readFileSync(BLOG_HTML, 'utf-8');
+  const updateIndexPage = (pagePath, { includeHubSections }) => {
+    if (!fs.existsSync(pagePath)) return;
+
+    let pageHtml = fs.readFileSync(pagePath, 'utf-8');
     const postsJson = JSON.stringify(postsData, null, 8).replace(/^/gm, '        ').trim();
     const featuredMarkup = renderFeaturedBlogCards(postsData);
     const topicMarkup = renderTopicHubCards(postsData);
     const cardsMarkup = renderBlogCards(postsData.slice(0, 9));
 
-    // Replace the posts array in the script
-    blogHtml = blogHtml.replace(
+    pageHtml = pageHtml.replace(
       /\/\/ Posts data embedded at build time[^;]*const posts = \[[\s\S]*?\];/,
-      `// Posts data embedded at build time - no fetch needed\n      const posts = ${postsJson};`
+      `// Posts data embedded at build time - no fetch needed\n      const posts = ${postsJson};`,
     );
 
-    blogHtml = blogHtml.replace(
-      /<!-- BLOG_FEATURED_START -->[\s\S]*?<!-- BLOG_FEATURED_END -->/,
-      `<!-- BLOG_FEATURED_START -->\n${featuredMarkup}\n          <!-- BLOG_FEATURED_END -->`,
-    );
+    if (includeHubSections) {
+      pageHtml = pageHtml.replace(
+        /<!-- BLOG_FEATURED_START -->[\s\S]*?<!-- BLOG_FEATURED_END -->/,
+        `<!-- BLOG_FEATURED_START -->\n${featuredMarkup}\n          <!-- BLOG_FEATURED_END -->`,
+      );
 
-    blogHtml = blogHtml.replace(
-      /<!-- BLOG_TOPICS_START -->[\s\S]*?<!-- BLOG_TOPICS_END -->/,
-      `<!-- BLOG_TOPICS_START -->\n${topicMarkup}\n          <!-- BLOG_TOPICS_END -->`,
-    );
+      pageHtml = pageHtml.replace(
+        /<!-- BLOG_TOPICS_START -->[\s\S]*?<!-- BLOG_TOPICS_END -->/,
+        `<!-- BLOG_TOPICS_START -->\n${topicMarkup}\n          <!-- BLOG_TOPICS_END -->`,
+      );
+    }
 
-    blogHtml = blogHtml.replace(
+    pageHtml = pageHtml.replace(
       /<!-- BLOG_CARDS_START -->[\s\S]*?<!-- BLOG_CARDS_END -->/,
       `<!-- BLOG_CARDS_START -->\n${cardsMarkup}\n          <!-- BLOG_CARDS_END -->`,
     );
 
-    fs.writeFileSync(BLOG_HTML, blogHtml);
-    console.log(`  Updated: ${BLOG_HTML} with ${postsData.length} posts and static blog cards`);
-  }
+    fs.writeFileSync(pagePath, pageHtml);
+    console.log(`  Updated: ${pagePath} with ${postsData.length} posts`);
+  };
+
+  updateIndexPage('./blog.html', { includeHubSections: false });
+  updateIndexPage('./guides.html', { includeHubSections: true });
 
   console.log(`Blog build complete! ${posts.length} posts published, ${scheduledPosts.length} scheduled.`);
 
