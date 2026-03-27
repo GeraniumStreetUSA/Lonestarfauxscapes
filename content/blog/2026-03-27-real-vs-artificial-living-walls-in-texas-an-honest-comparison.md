@@ -4,14 +4,16 @@ summary: "A side-by-side breakdown of real and artificial living walls for Texas
 date: 2026-03-27
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
+topic: "living-walls"
+audience: "mixed"
 tags:
   - real vs fake plant wall
   - artificial living walls
   - living wall comparison
   - Texas landscaping
   - green wall cost
-  - living walls Dallas
-  - living walls Houston
+  - living walls Texas
+  - real vs artificial living walls
 draft: false
 faq:
   - question: "Is a real or artificial living wall cheaper in Texas?"
