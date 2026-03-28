@@ -1776,6 +1776,14 @@
         .path-card .btn {
             margin-top: auto;
         }
+        #products .product-card-cta {
+            inline-size: min(100%, 12rem);
+            min-block-size: 5.75rem;
+            margin-left: 0;
+            padding: 1rem 1.35rem;
+            white-space: normal;
+            line-height: 1.2;
+        }
         .coverage-grid {
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
             align-items: start;

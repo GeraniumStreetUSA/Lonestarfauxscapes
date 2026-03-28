@@ -23,7 +23,7 @@
     };
   });
 
-  const magneticElements = document.querySelectorAll('.btn, .nav-cta, .arrow-cta span');
+  const magneticElements = document.querySelectorAll('.btn:not([data-magnetic="false"]), .nav-cta:not([data-magnetic="false"]), .arrow-cta span:not([data-magnetic="false"])');
 
   magneticElements.forEach(el => {
     el.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
