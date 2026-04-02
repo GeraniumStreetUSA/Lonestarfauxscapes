@@ -10,7 +10,7 @@ tags:
   - IBC interior finishes
   - fire marshal inspection
   - artificial greenery compliance
-draft: true
+draft: false
 faq:
   - question: "Does Texas have a statewide fire code for artificial plants?"
     answer: "Texas does not have a single statewide fire code that specifically addresses artificial plants. Texas adopts the International Building Code and International Fire Code as base codes, but enforcement happens at the local level through city and county jurisdictions. Requirements vary by location, building type, and the Authority Having Jurisdiction."
