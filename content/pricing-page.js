@@ -1,6 +1,6 @@
 export const pricingPageConfig = {
   meta: {
-    title: 'Artificial Hedge & Living Wall Pricing in Texas',
+    title: 'Artificial Hedge & Living Wall Pricing in Texas | Lone Star Faux Scapes',
     description:
       'See starting prices for a 10 ft x 6 ft artificial hedge and a 10 ft x 10 ft artificial living wall in Texas, plus what changes the number for custom projects.',
     canonical: '/pricing',

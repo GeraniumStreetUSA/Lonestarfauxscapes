@@ -1,3 +1,19 @@
+# Current Task: SEO Stabilization (April 4, 2026)
+
+- [x] Add missing redirect aliases for `/projects`, `/get-quote`, `/privacy-policy`, and `/fire-rated` in both redirect files.
+- [x] Keep `/gallery`, `/blog`, and `/residential` live in this phase.
+- [x] Normalize titles on `artificial-hedge.html`, `living-wall.html`, `pricing.html`, `pool-privacy-hedge.html`, and `artificial-boxwood-hedge.html`.
+- [x] Build the site and verify updated titles in `dist/`.
+- [x] Verify support-city pages still emit `noindex, follow` and stay out of the sitemap.
+
+## Review: SEO Stabilization (April 4, 2026)
+
+- Added the missing public alias redirects to [_redirects](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/_redirects) and [public/_redirects](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/public/_redirects) without redirecting `/gallery`, `/blog`, or `/residential`.
+- Updated the live service-page titles in [artificial-hedge.html](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/artificial-hedge.html), [living-wall.html](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/living-wall.html), [pool-privacy-hedge.html](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/pool-privacy-hedge.html), [artificial-boxwood-hedge.html](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/artificial-boxwood-hedge.html), and the pricing source config in [content/pricing-page.js](/C:/Users/geran/.config/superpowers/worktrees/loanstar/seo-stabilization-2026-04-04/content/pricing-page.js) so the build keeps the pricing title change.
+- Verified with a fresh `npm run build` that the generated pages use the new titles, and that support-city pages in `dist/` still output `noindex, follow` while `sitemap.xml` still excludes those support-city routes.
+
+---
+
 # SEO & GEO Gap Analysis — Lone Star Faux Scapes
 
 ## Analysis Date: March 23, 2026

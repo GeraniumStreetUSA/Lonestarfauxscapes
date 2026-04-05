@@ -18,6 +18,16 @@ https://www.lonestarfauxscapes.com/* https://lonestarfauxscapes.com/:splat 301
 /*.html /:splat 301
 
 # Legacy service/page paths
+# Do not redirect /gallery, /blog, or /residential in phase 1.
+# Brave still shows them publicly and GSC is required before consolidation.
+/projects /case-studies 301
+/projects/ /case-studies 301
+/get-quote /contact 301
+/get-quote/ /contact 301
+/privacy-policy /privacy 301
+/privacy-policy/ /privacy 301
+/fire-rated /fire-rated-artificial-hedge 301
+/fire-rated/ /fire-rated-artificial-hedge 301
 /privacy-wall /residential 301
 /lighthouse-report /installation 301
 /commercial-wall-covering /commercial-wall 301
