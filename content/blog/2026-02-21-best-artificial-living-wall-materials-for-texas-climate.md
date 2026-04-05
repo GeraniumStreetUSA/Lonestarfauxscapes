@@ -9,7 +9,7 @@ tags:
   - UV stabilized living wall
   - Texas outdoor living wall
   - polyethylene artificial plants
-draft: true
+draft: false
 faq:
   - question: "What material is best for outdoor artificial living walls in Texas?"
     answer: "UV-stabilized polyethylene (PE) is the best material for outdoor use in Texas. It resists UV degradation, handles heat without becoming brittle, holds color longer than alternatives, and feels realistic. Avoid PVC for outdoor applications—it degrades faster under UV and heat."
