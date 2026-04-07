@@ -10,7 +10,7 @@ tags:
   - fire rated hotel decor
   - hotel lobby design
   - commercial artificial hedge
-draft: true
+draft: false
 faq:
   - question: "Do hotels need fire-rated artificial greenery?"
     answer: "In most cases, yes—particularly in interior spaces. Hotels contain multiple occupancy types: R-1 (residential) for guest rooms, A-2 (assembly) for restaurants and bars, and B (business) for meeting rooms. Lobbies, common areas, and assembly spaces face the strictest fire code requirements for decorative materials. Check with your local AHJ for specific requirements."
