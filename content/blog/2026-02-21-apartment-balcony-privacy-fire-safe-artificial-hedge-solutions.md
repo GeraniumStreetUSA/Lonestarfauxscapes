@@ -10,7 +10,7 @@ tags:
   - high-rise artificial hedge
   - condo balcony screening
   - balcony fire code
-draft: true
+draft: false
 faq:
   - question: "Can I put artificial hedges on my apartment balcony?"
     answer: "In most cases, yes—but you need approval from building management or the HOA, and the product may need to meet fire code requirements. High-rise buildings are particularly strict about combustible materials on balconies because of the risk of fire spread between floors. Check with your building management before purchasing or installing anything."
