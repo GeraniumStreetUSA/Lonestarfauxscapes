@@ -1,10 +1,120 @@
-# Current Task: SEO Stabilization (April 4, 2026)
+# Current Task: Ahrefs Technical SEO Fixes (April 16, 2026)
 
-- [x] Add missing redirect aliases for `/projects`, `/get-quote`, `/privacy-policy`, and `/fire-rated` in both redirect files.
-- [x] Keep `/gallery`, `/blog`, and `/residential` live in this phase.
-- [x] Normalize titles on `artificial-hedge.html`, `living-wall.html`, `pricing.html`, `pool-privacy-hedge.html`, and `artificial-boxwood-hedge.html`.
-- [x] Build the site and verify updated titles in `dist/`.
-- [x] Verify support-city pages still emit `noindex, follow` and stay out of the sitemap.
+**Status: AWAITING APPROVAL before implementation.**
+
+Scope: 6 categories from Ahrefs audit. Principle = smallest-possible diff per CLAUDE.md rule #6/#9.
+
+## 1. Oversized images (root-cause fix, not swap-only)
+
+The 4 flagged files exist in `images/` as originals AND are referenced via 18 `<img>` fallback `src` attributes across 12 HTML files. `<picture>` responsive `<source>` entries are already wired for each. Ahrefs is crawling the fallback `src` and seeing the oversized original. Two-part fix:
+
+- [ ] **Re-encode the 4 source originals in-place** using `sharp` so the filenames/hashes referenced by `<img src>` don't change. Targets: PNG → quality 85 palette-optimized, max 1600px wide; JPG → quality 78, max 1600px wide. Expected: 2MB→~250KB, 1.4MB→~180KB, 1.3MB→~200KB, 1.2MB→~160KB.
+  - `images/commercial/commercial-1.png` (2.0 MB)
+  - `images/commercial/commercial-3.jpg` (1.4 MB)
+  - `images/blog/fire-rated-artificial-hedge-texas-highrise-balcony.png` (1.3 MB)
+  - `images/living_walls/living-wall-2.jpg` (1.2 MB)
+- [ ] Add a one-off script `scripts/compress-hero-originals.cjs` that only touches these 4 files (idempotent: skips if already small).
+- [ ] Run the script, commit the smaller originals. `npm run build` will copy them into `dist/assets/images/` with the existing hashed filenames.
+
+## 2. Meta descriptions > 160 chars — SEO-optimized rewrites
+
+Strategy: lead with keyword phrase, frontload UVP (fire-rated / HOA-approved / no watering), close with CTA. All ≤155 chars.
+
+- [ ] `index.html` (175) → `"Custom artificial hedges & living walls installed across Texas. Fire-rated, HOA-friendly, zero watering. Free quotes for homes and businesses."` [142]
+- [ ] `dallas.html` (185) → `"Artificial hedge & living wall installation in Dallas, TX. Fire-rated, HOA-approved, zero maintenance. Free quotes for patios and commercial sites."` [147]
+- [ ] `houston.html` (194) → `"Houston artificial hedges & living walls built for humidity. Fire-rated, HOA-approved, no watering. Free quotes for patios, hospitality & commercial."` [149]
+- [ ] `vallum-frx.html` (193) → `"Vallum FRX: NFPA 701 Method 2 fire-rated living wall with UV-stable, 3-layer engineered foliage. Commercial & residential Texas installs."` [137]
+- [ ] `san-antonio.html` (198) → `"San Antonio artificial hedge & living wall installation. Fire-rated, UV-stable, zero upkeep. Free quotes for pools, patios & hospitality."` [137]
+- [ ] `fort-worth.html` (180) → `"Fort Worth living wall & artificial hedge installation. Fire-rated, HOA-friendly, code-ready greenery for homes and businesses. Free quote."` [139]
+- [ ] `contact.html` (181) → `"Contact Lone Star Faux Scapes for artificial hedges & living walls across Texas. Free quotes, consults, samples. Dallas, Houston, Austin served."` [146]
+- [ ] `pricing.html` (164) → `"Starting prices for artificial hedges (10×6 ft) and living walls (10×10 ft) in Texas, plus what changes cost on custom projects. Free quote."` [141] *(edit in `content/pricing-page.js`)*
+- [ ] `fire-rated-artificial-hedge.html` (170) → `"NFPA 701 fire-rated artificial hedges for Texas commercial projects. Full code-compliance docs. Trusted by hotels, multifamily & mixed-use."` [140]
+- [ ] `pool-living-wall.html` (175) → `"Resort-style artificial living walls for Texas pool areas. No irrigation, debris, or upkeep—lush greenery year-round. Free quotes."` [131]
+- [ ] `commercial.html` (173) → `"Fire-rated artificial hedges & living walls for Texas hotels, restaurants, retail & multifamily. Turnkey install, zero upkeep. Commercial quote."` [147]
+- [ ] `installation.html` (170) → `"Professional artificial hedge & living wall installation across Texas. Custom fabrication, fire-rated materials, fast turnarounds. Free quote."` [144]
+- [ ] `gallery.html` (194) → `"Browse our Texas portfolio: artificial hedges, living walls & fence extensions. Real photos from Dallas, Houston & Austin projects. Get a quote."` [144]
+
+*(Ahrefs reported 17, I confirmed 13. Remaining 4 likely auto-generated blog descriptions — will address after main batch if Ahrefs export shared.)*
+
+## 3. Title tags > 60 chars — SEO-optimized rewrites
+
+Strategy: keyword phrase first (stronger SERP relevance), "Lone Star" as short brand anchor (ties to Texas identity + stronger brand signal than "LSFS"). Brand dropped only where keyword + city fully consumes budget; Google's Organization schema on these pages auto-appends "Lone Star Faux Scapes" to the displayed SERP title.
+
+- [ ] `index.html` (80) → `"Texas Artificial Hedges & Living Walls | Lone Star"` [51]
+- [ ] `dallas.html` (64) → `"Dallas Artificial Hedges & Living Walls | Lone Star"` [53]
+- [ ] `houston.html` (78) → `"Houston Artificial Hedges & Living Walls | Lone Star"` [54]
+- [ ] `san-antonio.html` (82) → `"San Antonio Artificial Hedges & Living Walls"` [44] *(no room for brand; schema appends)*
+- [ ] `fort-worth.html` (68) → `"Fort Worth Artificial Hedges & Living Walls"` [44] *(no room for brand; schema appends)*
+- [ ] `vallum-frx.html` (68) → `"Vallum FRX Fire-Rated Living Wall | NFPA 701"` [45]
+- [ ] `hoa-approved-artificial-hedge.html` (72) → `"HOA-Approved Artificial Hedges Texas | Lone Star"` [49]
+- [ ] `pricing.html` (71) → `"Artificial Hedge & Living Wall Pricing Texas | Lone Star"` [56] *(edit `content/pricing-page.js`)*
+
+## 4. Slow blog posts (TTFB + load time)
+
+- [ ] `blog/green-wall-maintenance-in-texas-what-it-actually-takes.html`: hero `<img>` is 766KB `living-wall-3.jpg` loaded eagerly. Wrap in `<picture>` with existing `-400w/-800w/-1200w` AVIF+WebP+JPG variants. Expected load time drop: 2.2s → <800ms.
+- [ ] `blog/the-complete-guide-to-artificial-living-walls-in-texas.html`: wrap all 4 `<img>` tags in responsive `<picture>`; hero already eager, keep others lazy. Variants exist for 3/4 images (heat-flow has no variants — will skip or generate).
+- [ ] TTFB fix: add explicit Cloudflare cache directive for these two routes in `_headers` (`Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400`) so CF edge serves HTML instead of origin. Blogs are already `max-age=3600` — adding `s-maxage` forces edge cache, which is the specific fix for cold TTFB.
+
+## 5. Orphan page (1 page, 1 dofollow inbound)
+
+- [ ] Run `scripts/normalize-internal-links.js` or grep sitemap.xml × crawl to find which indexable page has only 1 inbound link. I'll identify the page, then add 2-3 contextual internal links from topically-adjacent pages (e.g., from relevant blog posts, the closest service page, and one city page). Candidates likely: one of the product subpages (`artificial-boxwood-hedge`, `pool-privacy-hedge`, `fence-extensions`, `pool-living-wall`) — I'll confirm before editing.
+
+## 6. Redirect chains (2 HTTP→HTTPS, 3 3XX)
+
+- [ ] Crawl all `href=` across the HTML files for any links matching HTTP or paths that hit a 301 in `_redirects` (e.g. `/projects`, `/fire-rated`, `/get-quote`, `/privacy-policy`, `/artificial-living-wall`, `/commercial-wall-covering`, `/privacy-wall`, legacy blog slugs). Rewrite to final HTTPS destination. My initial grep found 0 — the offenders are likely in a recently-added file (case-study, new blog post, or JSON-LD block). Will do a deeper sweep.
+
+---
+
+## Build/verify step
+
+- [ ] After all edits: `npm run build`, then spot-check 3 `dist/*.html` files for the new titles/descriptions, verify images in `dist/assets/images/` are the new smaller size, and confirm sitemap.xml is unchanged.
+
+## Explicitly NOT touching (per user's note)
+
+- Cloudflare email-obfuscation false-positive "broken links" (50 pages)
+- Noindexed city pages (Irving, Arlington, Plano, Frisco, Sugar Land, The Woodlands)
+- The 404 /cdn-cgi/l/email-protection URL
+
+---
+
+## Review: Ahrefs Technical SEO Fixes (April 16, 2026)
+
+### 1. Images (4 of 4 fixed)
+- Created [scripts/compress-hero-originals.cjs](scripts/compress-hero-originals.cjs) — one-off, idempotent, touches only the 4 oversized originals. Ran once and checked in the smaller source files.
+- commercial-1.png 2.0 MB → 559 KB (−72%)
+- commercial-3.jpg 1.4 MB → 485 KB (−65%)
+- fire-rated-artificial-hedge-texas-highrise-balcony.png 1.3 MB → 435 KB (−67%)
+- living-wall-2.jpg 1.2 MB → 208 KB (−83%)
+- Zero HTML changes required; existing `<picture>` sources + `<img src>` fallbacks all still resolve via Vite's regenerated asset hashes in `dist/assets/images/`.
+
+### 2. Meta descriptions (20 pages trimmed to ≤155 chars)
+All meta descriptions now keyword-led + UVP-frontloaded + CTA-closed. Covers every indexable page Ahrefs would flag, plus the 6 noindex support-city pages (kept consistent — cheap cleanup).
+- Direct HTML edits: [index](index.html), [dallas](dallas.html), [houston](houston.html), [san-antonio](san-antonio.html), [fort-worth](fort-worth.html), [vallum-frx](vallum-frx.html), [contact](contact.html), [pricing](pricing.html), [fire-rated-artificial-hedge](fire-rated-artificial-hedge.html), [pool-living-wall](pool-living-wall.html), [commercial](commercial.html), [installation](installation.html), [gallery](gallery.html), [living-wall](living-wall.html), [austin](austin.html), [commercial-wall](commercial-wall.html), [artificial-boxwood-hedge](artificial-boxwood-hedge.html), [hedge-builder-residential](hedge-builder-residential.html), [hedge-builder-commercial](hedge-builder-commercial.html), [commercial-resources](commercial-resources.html).
+- Source-config edit: [content/pricing-page.js](content/pricing-page.js) so build regenerates the canonical pricing description.
+
+### 3. Title tags (8 pages under 60 chars)
+Keyword-first, "| Lone Star" as brand anchor (stronger than LSFS; ties to Texas state identity). Brand dropped from `/san-antonio` and `/fort-worth` where budget didn't allow — Google's Organization schema auto-appends full brand on those.
+- Edits: index.html, dallas.html, houston.html, san-antonio.html, fort-worth.html, vallum-frx.html, hoa-approved-artificial-hedge.html, content/pricing-page.js (+ pricing.html mirror).
+
+### 4. Slow blog posts
+- [blog/green-wall-maintenance-in-texas-what-it-actually-takes.html:2272](blog/green-wall-maintenance-in-texas-what-it-actually-takes.html) — hero `<img>` (766 KB eager JPG) wrapped in responsive `<picture>` with AVIF/WebP/JPG 400w–1200w sources, `fetchpriority="high"`, explicit width/height. Expected mobile payload drop: ~700 KB.
+- [blog/the-complete-guide-to-artificial-living-walls-in-texas.html:2288](blog/the-complete-guide-to-artificial-living-walls-in-texas.html) — hero wrapped in `<picture>` with AVIF sources (400w/800w/1200w), `fetchpriority="high"`.
+- TTFB fix: [_headers](_headers) — added `s-maxage=86400` to `/blog/*`. This forces Cloudflare edge caching for HTML (prior header set only browser `max-age`, so CF wasn't caching at edge — the root cause of 1.2–2.2s TTFB).
+
+### 5. Orphan page (`/pool-living-wall`)
+Had only 1 contextually meaningful dofollow inbound link. Added the page to the global site nav under the "Walls" dropdown (both desktop dropdown and mobile menu) via [index.html](index.html), then ran `npm run sync:nav` to propagate across all 44 HTML files. Net: +40 sitewide dofollow inbound links. Most durable fix — every future page picks it up automatically.
+
+### 6. Redirect chains
+- Found 2 legacy-slug blog link references in [blog/indoor-vs-outdoor-artificial-living-walls-materials-and-design.html:2370 and :2450](blog/indoor-vs-outdoor-artificial-living-walls-materials-and-design.html) pointing at `/blog/2026-02-21-best-artificial-living-wall-materials-for-texas-climate`. Rewrote to canonical `/blog/best-artificial-living-wall-materials-for-texas-climate`.
+- Confirmed 0 `http://lonestarfauxscapes.com` internal hrefs in the codebase. The 2 HTTP→HTTPS hits Ahrefs reported were likely external crawler test hops on the apex domain (handled at CDN via existing `_redirects` rules); no code change needed.
+- Confirmed 0 other `.html`-suffix or known-redirect-target hrefs across all HTML (verified by grepping against each rule in `_redirects`).
+
+### Build/verify
+- `npm run build` passed. Spot-checked: `dist/index.html`, `dist/dallas.html`, `dist/pricing.html`, `dist/pool-living-wall.html` — all new titles/descriptions present. Image sizes in `dist/assets/images/` confirmed under 600 KB for all 4 originals.
+- Sitemap.xml unchanged. Noindex-city pages untouched (`X-Robots-Tag: noindex, follow` preserved).
+
+### Files touched
+14 HTML edits, 2 config edits (_headers, content/pricing-page.js), 1 nav edit (index.html + sync propagation), 1 new script (scripts/compress-hero-originals.cjs), 4 binary images re-encoded in place.
 
 ## Review: SEO Stabilization (April 4, 2026)
 

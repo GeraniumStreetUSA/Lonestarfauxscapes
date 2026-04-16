@@ -25,6 +25,7 @@ export const UNIVERSAL_NAV_MARKUP = `<!-- NAVBAR HTML -->
           <div class="lsfs-dropdown-section">
             <span class="lsfs-dropdown-label">Walls</span>
             <a href="/living-wall">Living Wall</a>
+            <a href="/pool-living-wall">Pool Living Wall</a>
             <a href="/commercial-wall">Commercial Wall</a>
             <a href="/fence-extensions">Fence Extensions</a>
           </div>
@@ -91,6 +92,7 @@ export const UNIVERSAL_NAV_MARKUP = `<!-- NAVBAR HTML -->
   <a href="/vallum-frx" class="lsfs-mobile-link lsfs-sub">Vallum FRX</a>
   <span class="lsfs-mobile-subhead">Walls</span>
   <a href="/living-wall" class="lsfs-mobile-link lsfs-sub">Living Wall</a>
+  <a href="/pool-living-wall" class="lsfs-mobile-link lsfs-sub">Pool Living Wall</a>
   <a href="/commercial-wall" class="lsfs-mobile-link lsfs-sub">Commercial Wall</a>
   <a href="/fence-extensions" class="lsfs-mobile-link lsfs-sub">Fence Extensions</a>
   <!-- Locations Section -->

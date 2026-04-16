@@ -22,9 +22,9 @@
 /
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
-# Blog - fresh content
+# Blog - edge-cached at Cloudflare to fix TTFB (s-maxage forces CF edge cache)
 /blog/*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400
 
 # Security headers for all pages
 /* 
