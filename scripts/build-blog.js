@@ -237,7 +237,7 @@ const inferBlogCtaConfig = (post) => {
 
   const cityMatch = text.match(/\b(austin|dallas|houston|san antonio|fort worth)\b/);
   const service = /living wall|green wall/.test(text) ? 'Living wall project' : 'Artificial hedge project';
-  const fireTopic = /fire|nfpa|astm|submittal|code/.test(text);
+  const fireTopic = /fire|nfpa|astm|submittal|documentation|ahj/.test(text);
   const hoaTopic = /\bhoa\b/.test(text);
   const pricingTopic = /price|pricing|cost|budget|roi/.test(text);
   const commercialTopic = /commercial|multifamily|hospitality|hotel|retail|office|restaurant|property manager|architect|designer|general contractor|\bgc\b|submittal|shop drawing|ahj|acoustic|fire|nfpa/.test(text);
@@ -248,18 +248,18 @@ const inferBlogCtaConfig = (post) => {
   let primaryLabel = 'Get ballpark pricing';
   let primaryEvent = 'blog_ballpark_pricing';
 
-  if (fireTopic) {
-    title = 'Need fire-rated options or documentation?';
-    description = 'Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.';
-    primaryHref = 'mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request';
-    primaryLabel = 'Request fire-doc info';
-    primaryEvent = 'blog_fire_docs';
-  } else if (hoaTopic) {
+  if (hoaTopic) {
     title = 'Need an HOA-friendly privacy option?';
     description = 'Send the fence length, target height, and photos. We can point you to the cleanest path for backyard privacy without live-plant upkeep.';
     primaryHref = '/hoa-approved-artificial-hedge';
     primaryLabel = 'Ask about HOA-friendly options';
     primaryEvent = 'blog_hoa_options';
+  } else if (fireTopic) {
+    title = 'Need fire-rated options or documentation?';
+    description = 'Send the wall size, project type, and timeline. We can tell you when fire-rated foliage or documentation belongs in the scope.';
+    primaryHref = 'mailto:info@lonestarfauxscapes.com?subject=Fire%20Documentation%20Request';
+    primaryLabel = 'Request fire-doc info';
+    primaryEvent = 'blog_fire_docs';
   } else if (pricingTopic) {
     title = 'Need a real starting number for your project?';
     description = 'Use the pricing page for quick benchmarks, then send dimensions and photos for a tighter range.';
@@ -297,7 +297,6 @@ const renderBlogArticleCta = (post) => {
           <div class="lsfs-cro-actions">
             <a class="lsfs-cro-btn lsfs-cro-btn--primary" href="${escapeHtmlAttribute(cta.primaryHref)}" data-lsfs-cta="${escapeHtmlAttribute(cta.primaryEvent)}">${escapeHtmlText(cta.primaryLabel)}</a>
             <a class="lsfs-cro-btn lsfs-cro-btn--secondary" href="tel:+17609787335" data-lsfs-cta="blog_call">Call (760) 978-7335</a>
-            <a class="lsfs-cro-btn lsfs-cro-btn--tertiary" href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
           </div>
           <div class="lsfs-cro-context">
             ${cta.trustPoints.map((item) => `<span class="lsfs-cro-pill">${escapeHtmlText(item)}</span>`).join('')}
@@ -305,6 +304,7 @@ const renderBlogArticleCta = (post) => {
           <div class="lsfs-cro-links">
             ${cta.resourceHref ? `<a href="${escapeHtmlAttribute(cta.resourceHref)}" data-lsfs-cta="blog_commercial_resource_hub">${escapeHtmlText(cta.resourceLabel)}</a>` : ''}
             <a href="/case-studies" data-lsfs-cta="blog_recent_local_work">See recent local work</a>
+            <a href="mailto:info@lonestarfauxscapes.com?subject=Project%20Inquiry" data-lsfs-cta="blog_email">Email your project</a>
             <a href="/contact" data-lsfs-cta="blog_full_contact">Use the full contact page</a>
           </div>
         </div>
@@ -1053,16 +1053,28 @@ const generatePostHTML = (post) => {
     "dateModified": "${post.dateModified}",
     "author": {
       "@type": "Organization",
-      "name": "Lone Star Faux Scapes"
+      "name": "Lone Star Faux Scapes",
+      "@id": "${SITE_URL}/#organization"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Lone Star Faux Scapes",
+      "@id": "${SITE_URL}/#organization",
       "logo": {
         "@type": "ImageObject",
         "url": "${SITE_URL}/favicon/web-app-manifest-512x512.png"
       }
     },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "${escapeJsonString(post.primaryServiceLabel || post.topicLabel || 'Artificial greenery installation')}"
+      },
+      {
+        "@type": "Place",
+        "name": "Texas"
+      }
+    ],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "${post.canonical || `${SITE_URL}/blog/${post.slug}`}"
@@ -2781,7 +2793,7 @@ const generatePostHTML = (post) => {
       border-radius: 999px;
       background: rgba(76,175,80,0.15);
       border: 1px solid rgba(76,175,80,0.3);
-      color: var(--color-accent);
+      color: #c9f0cc;
       font-weight: 600;
     }
 
@@ -2799,10 +2811,10 @@ const generatePostHTML = (post) => {
 
     /* Article Content - Optimized for desktop reading (2025 best practices) */
     .article-content {
-      max-width: 980px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 3rem 4% 4rem;
-      font-size: 1.25rem;
+      font-size: 1.14rem;
       line-height: 1.75;
     }
     .article-content h2 {
@@ -2819,12 +2831,12 @@ const generatePostHTML = (post) => {
     .article-content p {
       margin-bottom: 1.75rem;
       color: rgba(255,255,255,0.9);
-      max-width: 76ch;
+      max-width: 70ch;
     }
     .article-content ul, .article-content ol {
       margin: 1.25rem 0 1.75rem 1.5rem;
       color: rgba(255,255,255,0.9);
-      max-width: 76ch;
+      max-width: 70ch;
     }
     .article-content li { margin-bottom: 0.65rem; line-height: 1.7; }
     .article-content a {
@@ -2871,6 +2883,7 @@ const generatePostHTML = (post) => {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
+      max-width: 70ch;
     }
     .toc-header {
       display: flex;
