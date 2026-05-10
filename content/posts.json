@@ -145,14 +145,14 @@
   {
     "fileSlug": "2026-03-30-texas-property-code-202-007-artificial-hedges-and-hoa-rules",
     "slug": "texas-property-code-202-007-artificial-hedges-and-hoa-rules",
-    "title": "Texas Property Code 202.007 and artificial hedges: what your HOA can and can't block",
+    "title": "Texas Property Code 202.007 and Artificial Hedges: HOA Approval Guide",
     "date": "2026-03-30",
     "datePublished": "2026-03-30",
     "dateModified": "2026-03-30",
     "displayDate": "Mar 30, 2026",
     "image": "/images/hedges/hedge-privacy-1.jpg",
     "socialImage": "/images/hedges/hedge-privacy-1.jpg",
-    "summary": "What Section 202.007 actually says about drought-resistant landscaping, whether it covers artificial hedges, and how to get HOA approval in Texas with a real step-by-step process.",
+    "summary": "Where Texas Property Code 202.007 is clear, where artificial hedges remain a gray area, and how to build a stronger HOA approval package.",
     "category": "Guides",
     "tags": [
       "texas property code 202.007",
@@ -163,7 +163,7 @@
       "hoa architectural request"
     ],
     "relatedUrl": "",
-    "seoTitle": "",
+    "seoTitle": "Texas 202.007 Artificial Hedge HOA Guide",
     "seoDescription": "",
     "canonical": "https://lonestarfauxscapes.com/blog/texas-property-code-202-007-artificial-hedges-and-hoa-rules",
     "robots": "index, follow",
@@ -176,7 +176,8 @@
     "primaryServiceHref": "/hoa-approved-artificial-hedge",
     "primaryServiceLabel": "See HOA-friendly hedge options",
     "topicLabel": "Commercial planning",
-    "featuredScore": 50
+    "featuredScore": 50,
+    "schemaAbout": "HOA artificial hedge approval"
   },
   {
     "fileSlug": "2026-03-27-real-vs-artificial-living-walls-in-texas-an-honest-comparison",
@@ -252,14 +253,14 @@
   {
     "fileSlug": "2026-03-25-green-wall-maintenance-in-texas-what-it-actually-takes",
     "slug": "green-wall-maintenance-in-texas-what-it-actually-takes",
-    "title": "Green wall maintenance in Texas: what it actually takes",
+    "title": "Green Wall Maintenance in Texas: Dallas, Fort Worth & Houston Costs",
     "date": "2026-03-25",
     "datePublished": "2026-03-25",
     "dateModified": "2026-03-25",
     "displayDate": "Mar 25, 2026",
     "image": "/images/living_walls/living-wall-3.jpg",
     "socialImage": "/images/living_walls/living-wall-3.jpg",
-    "summary": "Real maintenance costs, water usage, and labor for living walls in Texas heat. What goes wrong, what it costs to fix, and when artificial walls make more sense.",
+    "summary": "Compare living green wall maintenance costs, water use, plant replacement, and artificial green wall alternatives for Texas projects.",
     "category": "Guides",
     "tags": [
       "green wall maintenance",
@@ -271,7 +272,7 @@
       "living walls Houston"
     ],
     "relatedUrl": "",
-    "seoTitle": "",
+    "seoTitle": "Green Wall Maintenance Costs in Texas",
     "seoDescription": "",
     "canonical": "https://lonestarfauxscapes.com/blog/green-wall-maintenance-in-texas-what-it-actually-takes",
     "robots": "index, follow",
@@ -284,7 +285,8 @@
     "primaryServiceHref": "/living-wall",
     "primaryServiceLabel": "See artificial living wall installs",
     "topicLabel": "Texas city guides",
-    "featuredScore": 10
+    "featuredScore": 10,
+    "schemaAbout": "Green wall maintenance"
   },
   {
     "fileSlug": "2026-02-21-indoor-vs-outdoor-artificial-living-walls-materials-and-design",

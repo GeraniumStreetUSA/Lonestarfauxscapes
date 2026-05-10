@@ -1,9 +1,11 @@
 ---
-title: "Green Wall Maintenance in Dallas & Fort Worth, TX"
-summary: "Compare living green wall maintenance costs, water use, plant replacement, and artificial green wall alternatives for Dallas, Fort Worth, Houston, and Texas projects."
+title: "Green Wall Maintenance in Texas: Dallas, Fort Worth & Houston Costs"
+seoTitle: "Green Wall Maintenance Costs in Texas"
+summary: "Compare living green wall maintenance costs, water use, plant replacement, and artificial green wall alternatives for Texas projects."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
+schemaAbout: "Green wall maintenance"
 tags:
   - green wall maintenance
   - living wall maintenance

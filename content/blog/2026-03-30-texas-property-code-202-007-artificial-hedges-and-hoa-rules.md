@@ -1,9 +1,11 @@
 ---
-title: "Texas Property Code 202.007 and HOA Artificial Hedges"
-summary: "What Texas Property Code 202.007 says about drought-resistant landscaping, artificial hedges, HOA denials, and how to build a stronger approval package."
+title: "Texas Property Code 202.007 and Artificial Hedges: HOA Approval Guide"
+seoTitle: "Texas 202.007 Artificial Hedge HOA Guide"
+summary: "Where Texas Property Code 202.007 is clear, where artificial hedges remain a gray area, and how to build a stronger HOA approval package."
 date: 2026-03-30
 image: /images/hedges/hedge-privacy-1.jpg
 category: "Guides"
+schemaAbout: "HOA artificial hedge approval"
 tags:
   - texas property code 202.007
   - HOA artificial hedge
@@ -16,7 +18,7 @@ faq:
   - question: "Does Texas Property Code 202.007 protect artificial hedges?"
     answer: "Section 202.007 prohibits HOAs from blocking drought-resistant landscaping, but it does not define whether artificial or synthetic materials qualify. The statute references drought-resistant landscaping and water-conserving natural turf. Whether an artificial hedge fits that definition has not been settled by Texas courts as of 2026."
   - question: "Can my HOA deny an artificial hedge in Texas?"
-    answer: "An HOA can require you to submit plans for approval and can deny your request if it is aesthetically incompatible with the subdivision. However, Section 202.007 says they cannot unreasonably deny drought-resistant landscaping. If your artificial hedge is well-designed and consistent with the neighborhood, an unreasonable denial may violate state law."
+    answer: "An HOA can require you to submit plans for approval and can deny your request if it is aesthetically incompatible with the subdivision. However, Section 202.007 says they cannot unreasonably deny drought-resistant landscaping. If your artificial hedge is well-designed and consistent with the neighborhood, an unreasonable denial may be worth challenging with the statutory language and your approval packet."
   - question: "What should I include in my HOA application for an artificial hedge?"
     answer: "Include the exact location on your property, material specifications and UV rating, color and foliage style photos, dimensions and mounting method, fire rating documentation if applicable, and photos of the product installed on similar properties. The more detail you provide, the harder it is for the committee to claim incompatibility."
   - question: "What happens if my HOA denies my artificial hedge request?"

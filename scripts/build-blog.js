@@ -1068,7 +1068,7 @@ const generatePostHTML = (post) => {
     "about": [
       {
         "@type": "Thing",
-        "name": "${escapeJsonString(post.primaryServiceLabel || post.topicLabel || 'Artificial greenery installation')}"
+        "name": "${escapeJsonString(post.schemaAbout || post.topicLabel || 'Artificial greenery installation')}"
       },
       {
         "@type": "Place",
@@ -3308,6 +3308,7 @@ async function buildBlog() {
       topic: typeof data.topic === 'string' ? data.topic.trim() : '',
       audience: typeof data.audience === 'string' ? data.audience.trim() : '',
       servicePage: typeof data.servicePage === 'string' ? data.servicePage.trim() : '',
+      schemaAbout: typeof data.schemaAbout === 'string' ? data.schemaAbout.trim() : '',
       featured: data.featured === true,
     };
     post.guide = normalizeFlagshipGuide(data, post);

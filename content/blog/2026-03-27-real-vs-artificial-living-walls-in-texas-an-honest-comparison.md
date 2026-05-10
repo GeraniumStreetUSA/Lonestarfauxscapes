@@ -326,7 +326,7 @@ Most of the artificial walls we install in [Dallas](/dallas), [Fort Worth](/fort
 
 ## Related reading
 
-- [Green wall maintenance in Texas: what it actually takes](/blog/green-wall-maintenance-in-texas-what-it-actually-takes) — detailed maintenance costs and schedule
+- [Green wall maintenance costs in Texas](/blog/green-wall-maintenance-in-texas-what-it-actually-takes) — detailed maintenance costs and schedule
 - [Artificial living walls](/living-wall) — our product page with system details
 - [The complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas) — types, materials, and installation
 
