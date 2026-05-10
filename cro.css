@@ -5,12 +5,12 @@
 .lsfs-cro-card,
 .lsfs-quick-form-card {
   position: relative;
-  border-radius: 28px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
-    radial-gradient(circle at top right, rgba(76, 175, 80, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(76, 175, 80, 0.08), transparent 30%),
     linear-gradient(145deg, rgba(10, 18, 13, 0.96), rgba(6, 12, 9, 0.98));
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
   overflow: hidden;
 }
 
@@ -98,7 +98,8 @@
 
 .lsfs-cro-btn--primary {
   background: linear-gradient(135deg, #4caf50, #2e7d32);
-  box-shadow: 0 14px 30px rgba(76, 175, 80, 0.24);
+  color: #061007;
+  box-shadow: 0 12px 24px rgba(76, 175, 80, 0.18);
 }
 
 .lsfs-cro-btn--secondary {

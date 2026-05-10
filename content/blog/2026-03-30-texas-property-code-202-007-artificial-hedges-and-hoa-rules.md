@@ -1,6 +1,6 @@
 ---
-title: "Texas Property Code 202.007 and artificial hedges: what your HOA can and can't block"
-summary: "What Section 202.007 actually says about drought-resistant landscaping, whether it covers artificial hedges, and how to get HOA approval in Texas with a real step-by-step process."
+title: "Texas Property Code 202.007 and HOA Artificial Hedges"
+summary: "What Texas Property Code 202.007 says about drought-resistant landscaping, artificial hedges, HOA denials, and how to build a stronger approval package."
 date: 2026-03-30
 image: /images/hedges/hedge-privacy-1.jpg
 category: "Guides"

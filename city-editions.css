@@ -98,7 +98,7 @@ body.city-san-antonio {
 
 .city-hero__content h1 {
   margin: 0;
-  max-width: 14ch;
+  max-width: 18ch;
   font-family: var(--city-heading);
   font-size: clamp(2.7rem, 5vw, 4.7rem);
   line-height: 0.94;
@@ -107,7 +107,7 @@ body.city-san-antonio {
 }
 
 .city-hero__lede {
-  max-width: 62ch;
+  max-width: 60ch;
   margin: 1rem 0 0;
   color: var(--city-copy);
   font-size: 1.05rem;

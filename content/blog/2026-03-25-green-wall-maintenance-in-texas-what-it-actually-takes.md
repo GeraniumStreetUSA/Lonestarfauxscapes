@@ -1,6 +1,6 @@
 ---
-title: "Green wall maintenance in Texas: what it actually takes"
-summary: "Real maintenance costs, water usage, and labor for living walls in Texas heat. What goes wrong, what it costs to fix, and when artificial walls make more sense."
+title: "Green Wall Maintenance in Dallas & Fort Worth, TX"
+summary: "Compare living green wall maintenance costs, water use, plant replacement, and artificial green wall alternatives for Dallas, Fort Worth, Houston, and Texas projects."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
