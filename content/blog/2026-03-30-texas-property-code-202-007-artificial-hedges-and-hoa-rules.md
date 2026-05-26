@@ -1,7 +1,7 @@
 ---
 title: "Texas Property Code 202.007 and Artificial Hedges: HOA Approval Guide"
-seoTitle: "Texas 202.007 Artificial Hedge HOA Guide"
-summary: "Where Texas Property Code 202.007 is clear, where artificial hedges remain a gray area, and how to build a stronger HOA approval package."
+seoTitle: "Texas HOA Artificial Hedge Rules & 202.007"
+summary: "What Texas Property Code 202.007 says, where artificial hedges remain a gray area, and how to prepare a stronger HOA approval packet."
 date: 2026-03-30
 image: /images/hedges/hedge-privacy-1.jpg
 category: "Guides"
@@ -16,13 +16,13 @@ tags:
 draft: false
 faq:
   - question: "Does Texas Property Code 202.007 protect artificial hedges?"
-    answer: "Section 202.007 prohibits HOAs from blocking drought-resistant landscaping, but it does not define whether artificial or synthetic materials qualify. The statute references drought-resistant landscaping and water-conserving natural turf. Whether an artificial hedge fits that definition has not been settled by Texas courts as of 2026."
+    answer: "Section 202.007 restricts how HOAs can treat drought-resistant landscaping, but it does not define whether artificial or synthetic materials qualify. The statute references drought-resistant landscaping and water-conserving natural turf. We have not found a published Texas court ruling in the sources reviewed that settles this question for artificial hedges."
   - question: "Can my HOA deny an artificial hedge in Texas?"
-    answer: "An HOA can require you to submit plans for approval and can deny your request if it is aesthetically incompatible with the subdivision. However, Section 202.007 says they cannot unreasonably deny drought-resistant landscaping. If your artificial hedge is well-designed and consistent with the neighborhood, an unreasonable denial may be worth challenging with the statutory language and your approval packet."
+    answer: "An HOA can require you to submit plans for approval and can deny your request if it is aesthetically incompatible with the subdivision. Section 202.007 says associations may not unreasonably deny drought-resistant landscaping. If your artificial hedge is well-designed and consistent with the neighborhood, a denial may be worth discussing with your HOA, your approval packet, and qualified legal counsel."
   - question: "What should I include in my HOA application for an artificial hedge?"
-    answer: "Include the exact location on your property, material specifications and UV rating, color and foliage style photos, dimensions and mounting method, fire rating documentation if applicable, and photos of the product installed on similar properties. The more detail you provide, the harder it is for the committee to claim incompatibility."
+    answer: "Include the exact location on your property, material specifications and UV rating, color and foliage style photos, dimensions and mounting method, fire rating documentation if applicable, and photos of the product installed on similar properties. A detailed packet gives the committee clearer information to evaluate."
   - question: "What happens if my HOA denies my artificial hedge request?"
-    answer: "Under Texas law, the HOA must provide written denial with reasons and explain what changes would result in approval. You have 30 days to request a hearing with the board of directors, and the board must hold that hearing within 30 days of your request."
+    answer: "Texas Property Code Section 209.00505 includes written-denial and hearing-process requirements for many POA architectural decisions. Review the current statute and your association documents, because timing and procedure can depend on the facts."
 ---
 
 <style>
@@ -160,14 +160,14 @@ Here's where we need to be honest.
 
 <div class="hoa-callout hoa-callout-warn hoa-reveal">
   <span class="hoa-callout-icon">&#9888;</span>
-  <div class="hoa-callout-body"><strong>Section 202.007 does not define "drought-resistant landscaping."</strong> The statute protects drought-resistant landscaping and water-conserving natural turf, but it does not specify whether artificial or synthetic materials qualify. As of 2026, no published Texas court ruling has settled this question for artificial hedges or faux living walls. This is not legal advice — consult a Texas property attorney for your specific situation.</div>
+  <div class="hoa-callout-body"><strong>Section 202.007 does not define "drought-resistant landscaping."</strong> The statute protects drought-resistant landscaping and water-conserving natural turf, but it does not specify whether artificial or synthetic materials qualify. In the sources reviewed for this article, we did not find a published Texas court ruling that settles this question for artificial hedges or faux living walls. This is not legal advice — consult a Texas property attorney for your specific situation.</div>
 </div>
 
-**The argument that artificial hedges qualify:** An artificial hedge uses zero water, requires zero irrigation, and cannot die during drought. It is functionally the most drought-resistant "landscaping" possible. Some HOA attorneys have noted that the statute's failure to define the term leaves room for this interpretation.
+**The argument that artificial hedges qualify:** An artificial hedge uses no irrigation water and cannot die during drought. A homeowner could argue that the statute's failure to define the term leaves room for a water-conservation interpretation.
 
 **The argument that they don't qualify:** The statute specifically says "water-conserving **natural** turf" in one clause, suggesting the legislature was thinking about real plants. An HOA could argue that "landscaping" implies living material and that plastic panels are a structure, not landscaping.
 
-**The practical reality:** Most Texas HOAs approve artificial hedges when presented with a professional application. The legal question rarely needs to be tested because the approval process works. The statute is a useful backstop if you're denied, but it's not a guarantee.
+**The practical reality:** Approval often turns on the quality of the application, the CC&Rs, and the committee's design standards. The statute can be a useful backstop if you're denied, but it is not an automatic approval path.
 
 ## How to get your artificial hedge approved (the real process)
 
@@ -180,7 +180,7 @@ Forget the legal arguments for now. Here's what actually gets approvals through 
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">Get the architectural review application form</div>
-    <div class="hoa-step-desc">Request the ACC/ARC application from your HOA management company or board. Some communities have specific landscaping modification forms. Use the official form — don't just send an email.</div>
+    <div class="hoa-step-desc">Request the ACC/ARC application from your HOA management company or board. Some communities have specific landscaping modification forms. Use the official form instead of relying on email alone.</div>
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">Build a detailed submission package</div>
@@ -188,7 +188,7 @@ Forget the legal arguments for now. Here's what actually gets approvals through 
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">Submit and follow up at 14 days</div>
-    <div class="hoa-step-desc">Submit your application and document the date. Many Texas HOAs have a 30-day review window. If you haven't heard back in two weeks, send a written follow-up. Under some CC&Rs, failure to respond within 30 days constitutes automatic approval.</div>
+    <div class="hoa-step-desc">Submit your application and document the date. Many Texas HOA documents include a review window. If you have not heard back in two weeks, send a written follow-up. Some CC&Rs describe what happens if the association does not respond by the stated deadline.</div>
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">If approved, keep a copy of the written approval</div>
@@ -196,7 +196,7 @@ Forget the legal arguments for now. Here's what actually gets approvals through 
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">If denied, request the written reason and appeal</div>
-    <div class="hoa-step-desc">Texas law requires the committee to explain the denial in writing and tell you what changes would result in approval. You have 30 days to request a hearing with the full board, and the board must hold that hearing within 30 days of your request.</div>
+    <div class="hoa-step-desc">Texas Property Code Section 209.00505 includes written-denial and hearing-process requirements for many POA architectural decisions. Review the current statute and your association documents before relying on a deadline.</div>
   </div>
 </div>
 
@@ -216,7 +216,7 @@ The more professional your application, the less room the committee has to claim
 
 <div class="hoa-callout hoa-callout-info hoa-reveal">
   <span class="hoa-callout-icon">&#128204;</span>
-  <div class="hoa-callout-body"><strong>We provide this for our clients.</strong> When you work with Lone Star Faux Scapes, we supply product specs, installed project photos, fire-rating documentation, and a material description formatted for HOA submissions. We've helped homeowners in <a href="/dallas">Dallas</a>, <a href="/houston">Houston</a>, <a href="/san-antonio">San Antonio</a>, and <a href="/sugar-land">Sugar Land</a> get approvals.</div>
+  <div class="hoa-callout-body"><strong>We can help assemble this packet.</strong> When you work with Lone Star Faux Scapes, we can supply product specs, installed project photos, available fire-rating documentation, and a material description formatted for HOA submissions.</div>
 </div>
 
 ## What to do if your HOA denies your request
@@ -227,12 +227,12 @@ Don't panic. Denials happen, and Texas law gives you a clear path forward.
   <div class="hoa-flow-card hoa-reveal">
     <div class="hoa-flow-num">1</div>
     <div class="hoa-flow-title">Get the written denial</div>
-    <div class="hoa-flow-desc">Texas law requires the committee to provide written reasons and specify what changes would lead to approval.</div>
+    <div class="hoa-flow-desc">Ask for the written reasons and any changes the committee says would lead to approval.</div>
   </div>
   <div class="hoa-flow-card hoa-reveal">
     <div class="hoa-flow-num">2</div>
     <div class="hoa-flow-title">Request a board hearing</div>
-    <div class="hoa-flow-desc">You have 30 days from the denial notice to request a hearing with the full board. The board must hold it within 30 days.</div>
+    <div class="hoa-flow-desc">Review the current statute and your documents for the hearing deadline and process that apply to your community.</div>
   </div>
   <div class="hoa-flow-card hoa-reveal">
     <div class="hoa-flow-num">3</div>
@@ -241,7 +241,7 @@ Don't panic. Denials happen, and Texas law gives you a clear path forward.
   </div>
 </div>
 
-If the denial reason is purely aesthetic and your product is consistent with the neighborhood, you have a reasonable argument that the denial is "unreasonable" under Section 202.007. But again — whether artificial hedges fall under 202.007 is an untested legal question in Texas courts, so don't treat the statute as an automatic win.
+If the denial reason is purely aesthetic and your product is consistent with the neighborhood, Section 202.007 may be worth discussing with the board or qualified legal counsel. But again — whether artificial hedges fall under 202.007 was not resolved by the sources reviewed for this article, so do not treat the statute as automatic approval.
 
 ## Arguments that strengthen your case
 
@@ -250,7 +250,7 @@ If you're pushing back on a denial, these points carry weight with HOA boards:
 - **Water conservation.** Texas faces recurring drought. Your hedge uses zero water. Reference TCEQ water restrictions data and TWDB outdoor water use statistics showing 31% of residential water goes to outdoor purposes.
 - **Consistency.** If your HOA has approved artificial turf for any homeowner, they've already set a precedent for approving synthetic materials in landscaping.
 - **Maintenance.** Artificial hedges maintain a consistent appearance year-round. Dead, brown, or overgrown natural hedges are the aesthetic problem HOAs are actually trying to prevent.
-- **Fire safety.** NFPA 701-rated artificial hedges are arguably safer than dried-out natural hedges in Texas heat, especially near structures.
+- **Fire documentation.** If fire performance matters for the project, include product-specific test documentation and ask the HOA what standard they expect to review.
 
 ## Common HOA objections and how to address them
 
@@ -258,7 +258,7 @@ If you're pushing back on a denial, these points carry weight with HOA boards:
 
 **"It's not landscaping, it's a structure."** Technically, an artificial hedge mounted on an existing fence is a modification to an existing structure, which may fall under fencing rules rather than landscaping rules. Frame your application according to whichever category is more favorable in your CC&Rs.
 
-**"It'll degrade over time."** Provide UV stabilization data. UV-stabilized panels tested to ASTM G154 standards retain appearance for 5 to 10 years in full sun. Include your maintenance commitment in the application.
+**"It'll degrade over time."** Provide product-specific UV documentation and include your maintenance commitment in the application. Avoid relying on broad lifespan claims unless your installer or manufacturer backs the exact product.
 
 **"No one else has one."** Being first doesn't mean it's prohibited. If the CC&Rs don't explicitly ban artificial materials, the committee needs a specific rule to cite — not just preference.
 
@@ -272,6 +272,7 @@ If you're pushing back on a denial, these points carry weight with HOA boards:
 
 <div class="hoa-sources">
   <a class="hoa-source-chip" href="https://statutes.capitol.texas.gov/docs/PR/htm/PR.202.htm" target="_blank" rel="noopener">&#9878; TX Property Code Ch. 202 (official)</a>
+  <a class="hoa-source-chip" href="https://statutes.capitol.texas.gov/Docs/PR/htm/PR.209.htm" target="_blank" rel="noopener">&#9878; TX Property Code Ch. 209 (official)</a>
   <a class="hoa-source-chip" href="https://codes.findlaw.com/tx/property-code/prop-sect-202-007/" target="_blank" rel="noopener">&#9878; FindLaw &mdash; &sect; 202.007</a>
   <a class="hoa-source-chip" href="https://capitol.texas.gov/tlodocs/83R/analysis/html/SB00198H.HTM" target="_blank" rel="noopener">&#9878; SB 198 bill analysis (83rd Legislature)</a>
   <a class="hoa-source-chip" href="https://guides.sll.texas.gov/property-owners-associations/ccrs" target="_blank" rel="noopener">&#127987; TX State Law Library &mdash; POA guide</a>
