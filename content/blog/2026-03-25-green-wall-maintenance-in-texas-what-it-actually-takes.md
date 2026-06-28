@@ -1,7 +1,7 @@
 ---
-title: "Green Wall Maintenance in Texas: Costs, Water Use & Artificial Alternatives"
-seoTitle: "Green Wall Maintenance in Texas: Costs & Alternatives"
-summary: "What live green wall maintenance takes in Texas: cost ranges, water use, plant replacement, and when artificial wall alternatives may fit."
+title: "Green Wall Maintenance in Dallas & Fort Worth: Costs, Water Use & Alternatives"
+seoTitle: "Green Wall Maintenance Dallas & Fort Worth Costs"
+summary: "Green wall maintenance in Dallas and Fort Worth: live wall cost ranges, water use, Texas failure points, and when artificial alternatives may fit."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
@@ -28,21 +28,36 @@ faq:
 
 <style>
 /* ─── Blog Enhancement Styles ─── */
+.article-content {
+  max-width: 820px;
+}
+.article-content p,
+.article-content ul,
+.article-content ol,
+.table-of-contents {
+  max-width: 66ch;
+}
+.article-content h2 {
+  margin-top: clamp(2.6rem, 5vw, 4rem);
+}
+.article-content h2:first-of-type {
+  margin-top: 0;
+}
 .gw-stats-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin: 2rem 0 2.5rem;
+  margin: 1.75rem 0 2.35rem;
 }
 @media (max-width: 600px) {
   .gw-stats-row { grid-template-columns: 1fr; }
 }
 .gw-stat-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
-  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.028));
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 12px;
-  padding: 1.3rem;
-  text-align: center;
+  padding: 1.2rem;
+  text-align: left;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 .gw-stat-card.gw-visible {
@@ -56,8 +71,8 @@ faq:
 .gw-stat-card:nth-child(3) { transition-delay: 0.24s; }
 .gw-stat-kicker {
   display: block;
-  margin-bottom: 0.45rem;
-  color: #9fd8a3;
+  margin-bottom: 0.55rem;
+  color: #b8ecbc;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -74,8 +89,8 @@ faq:
 .gw-stat-value .gw-counter { display: inline; }
 .gw-stat-label {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.74);
-  margin-top: 0.35rem;
+  color: rgba(255,255,255,0.78);
+  margin-top: 0.45rem;
   display: block;
   line-height: 1.4;
 }
@@ -95,8 +110,8 @@ faq:
   border: 1px solid rgba(255,152,0,0.25);
 }
 .gw-callout-info {
-  background: rgba(76,175,80,0.06);
-  border: 1px solid rgba(76,175,80,0.2);
+  background: rgba(76,175,80,0.075);
+  border: 1px solid rgba(184,236,188,0.26);
 }
 .gw-callout-label {
   flex-shrink: 0;
@@ -111,7 +126,7 @@ faq:
   line-height: 1.2;
   text-transform: uppercase;
 }
-.gw-callout-body { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.88); }
+.gw-callout-body { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.9); }
 .gw-callout-body strong { color: #fff; }
 
 /* ─── Timeline ─── */
@@ -119,6 +134,7 @@ faq:
   position: relative;
   margin: 2rem 0 2.5rem;
   padding-left: 2.5rem;
+  max-width: 66ch;
 }
 .gw-timeline::before {
   content: '';
@@ -143,14 +159,14 @@ faq:
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #9fd8a3;
+  background: #b8ecbc;
   border: 2px solid #14231d;
 }
 .gw-tl-freq {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #9fd8a3;
+  color: #b8ecbc;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
@@ -161,7 +177,7 @@ faq:
 }
 .gw-tl-tasks li {
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.84);
   padding: 0.2rem 0;
   padding-left: 1.2rem;
   position: relative;
@@ -181,8 +197,10 @@ faq:
 .gw-compare {
   margin: 2rem 0 2.5rem;
   border-radius: 12px;
+  padding: 0.45rem;
   overflow-x: auto;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.028);
 }
 .gw-compare.gw-visible { opacity: 1; transform: translateY(0); }
 .gw-compare table {
@@ -200,8 +218,8 @@ faq:
   letter-spacing: 0.05em;
 }
 .gw-compare thead th:first-child {
-  background: rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.035);
+  color: rgba(255,255,255,0.62);
 }
 .gw-compare thead th:nth-child(2) {
   background: rgba(255,80,80,0.06);
@@ -209,8 +227,8 @@ faq:
   border-bottom: 2px solid rgba(255,80,80,0.2);
 }
 .gw-compare thead th:nth-child(3) {
-  background: rgba(76,175,80,0.06);
-  color: #9fd8a3;
+  background: rgba(76,175,80,0.08);
+  color: #b8ecbc;
   border-bottom: 2px solid rgba(76,175,80,0.25);
 }
 .gw-compare td {
@@ -220,13 +238,13 @@ faq:
 }
 .gw-compare td:first-child {
   font-weight: 500;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.72);
   font-size: 0.85rem;
 }
 .gw-compare td:nth-child(2) { background: rgba(255,80,80,0.02); }
 .gw-compare td:nth-child(3) { background: rgba(76,175,80,0.02); }
 .gw-compare .gw-zero {
-  color: #9fd8a3;
+  color: #b8ecbc;
   font-weight: 600;
 }
 .gw-compare tbody tr {
@@ -251,8 +269,8 @@ faq:
   .gw-dangers { grid-template-columns: 1fr; }
 }
 .gw-danger-card {
-  background: rgba(255,255,255,0.035);
-  border: 1px solid rgba(255,255,255,0.11);
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.13);
   border-radius: 12px;
   padding: 1.25rem;
   transition: border-color 0.2s ease, background 0.2s ease;
@@ -280,7 +298,7 @@ faq:
 }
 .gw-danger-desc {
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255,255,255,0.82);
   line-height: 1.55;
 }
 
@@ -296,7 +314,7 @@ faq:
   gap: 0.75rem;
   padding: 0.6rem 0;
   font-size: 1rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.88);
 }
 .gw-checklist li.gw-visible { opacity: 1; transform: translateX(0); }
 .gw-checklist li:nth-child(2) { transition-delay: 0.06s; }
@@ -317,7 +335,7 @@ faq:
 }
 .gw-check-green {
   background: rgba(76,175,80,0.15);
-  color: #4caf50;
+  color: #b8ecbc;
   border: 1px solid rgba(76,175,80,0.3);
 }
 .gw-check-amber {
@@ -349,8 +367,8 @@ faq:
   padding: 1.25rem;
   padding-left: 3.5rem;
   margin-bottom: 1rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px;
 }
 .gw-step.gw-visible { opacity: 1; transform: translateY(0); }
@@ -366,7 +384,7 @@ faq:
   height: 28px;
   border-radius: 50%;
   background: rgba(76,175,80,0.15);
-  color: #4caf50;
+  color: #b8ecbc;
   font-weight: 700;
   font-size: 0.85rem;
   display: flex;
@@ -381,7 +399,7 @@ faq:
 }
 .gw-step-desc {
   font-size: 0.92rem;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255,255,255,0.82);
   line-height: 1.55;
 }
 
@@ -399,14 +417,14 @@ faq:
   padding: 0.35rem 0.75rem;
   border-radius: 100px;
   font-size: 0.78rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.76);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.82);
   text-decoration: none !important;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .gw-source-type {
-  color: #9fd8a3;
+  color: #b8ecbc;
   font-weight: 700;
 }
 .gw-source-chip:hover {
