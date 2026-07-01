@@ -1,3 +1,24 @@
+# Current Task: Website Factory Proposal 20260701-060006
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` and `chg-1-design-polish` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Update the source blog markdown title, SEO title, meta description, summary, and H1 alignment for Dallas-Fort Worth green wall maintenance search intent.
+- [x] Tighten the page-specific CSS for spacing, typography, visual rhythm, contrast, and scanability without changing route, canonical, robots, schema type, tracking attributes, or CTA behavior.
+- [x] Mirror the generated static page, blog card, and post index for this one article because `npm run build:blog` is blocked by missing local dependencies.
+- [x] Run practical repo verification with static assertions and whitespace/JSON checks.
+- [x] Write the required implementation summary artifact.
+
+## Review: Website Factory Proposal 20260701-060006
+
+- Updated the target blog source markdown and generated static mirrors for the approved title/meta/H1 change.
+- Applied restrained page-specific design polish to reduce excess spacing, tighten typography scale, improve intro hierarchy, and improve small-text contrast without changing CTAs or tracking attributes.
+- Preserved canonical URL, robots directive, sitemap entry, source links, price/water/replacement figures, FAQ answers, and existing CTA destinations.
+- `npm run build:blog` is blocked in this worktree because `node_modules` is missing and Node cannot resolve `marked`.
+- A local `python3 -m http.server` smoke server was also blocked by sandbox bind permissions.
+- Static verification passed for page metadata, canonical/robots, BlogPosting and FAQ schema, CTA tracking attributes, content/posts.json, and the blog card mirror.
+
 # Current Task: Ahrefs Technical SEO Fixes (April 16, 2026)
 
 **Status: AWAITING APPROVAL before implementation.**
