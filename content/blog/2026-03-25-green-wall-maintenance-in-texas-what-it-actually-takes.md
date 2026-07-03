@@ -1,8 +1,8 @@
 ---
-title: "Green Wall Maintenance in Dallas-Fort Worth, TX"
-seoTitle: "Green Wall Maintenance Dallas-Fort Worth TX Costs"
-seoDescription: "Compare Dallas-Fort Worth green wall maintenance tasks, cost benchmarks, water use, Texas failure points, and artificial wall alternatives."
-summary: "Compare Dallas-Fort Worth green wall maintenance tasks, cost benchmarks, water use, Texas failure points, and artificial wall alternatives."
+title: "Green Wall Maintenance in Texas: Costs, Tasks, and Alternatives"
+seoTitle: "Green Wall Maintenance in Texas: Costs & Alternatives"
+seoDescription: "See what living green wall maintenance in Texas involves, cost and water benchmarks, failure points, and when artificial walls may be simpler."
+summary: "See what living green wall maintenance in Texas involves, cost and water benchmarks, failure points, and when artificial walls may be simpler."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
@@ -30,13 +30,13 @@ faq:
 <style>
 /* ─── Blog Enhancement Styles ─── */
 .article-hero {
-  padding: clamp(6.1rem, 8vw, 7.6rem) 0 clamp(1.9rem, 3.2vw, 2.7rem);
+  padding: clamp(5.8rem, 7.4vw, 7.2rem) 0 clamp(1.65rem, 2.8vw, 2.35rem);
   background:
     linear-gradient(180deg, rgba(5,10,7,0.98), rgba(9,19,14,0.94)),
     linear-gradient(135deg, rgba(194,236,197,0.08), rgba(189,147,96,0.08));
 }
 .article-hero .container {
-  max-width: 960px;
+  max-width: 980px;
 }
 .breadcrumb {
   flex-wrap: wrap;
@@ -54,9 +54,9 @@ faq:
   transition-timing-function: ease;
 }
 .article-hero h1 {
-  max-width: 880px;
-  font-size: clamp(2.55rem, 4.6vw, 3.85rem);
-  line-height: 1.02;
+  max-width: 920px;
+  font-size: clamp(2.45rem, 4.35vw, 3.65rem);
+  line-height: 1.04;
   letter-spacing: 0;
   text-transform: none;
   text-wrap: balance;
@@ -74,7 +74,7 @@ faq:
 }
 .featured-image {
   max-width: 980px;
-  margin: clamp(0.6rem, 1.6vw, 1.1rem) auto 0;
+  margin: clamp(0.8rem, 1.8vw, 1.25rem) auto 0;
   padding: 0 4%;
 }
 .featured-image img {
@@ -84,8 +84,8 @@ faq:
   box-shadow: none;
 }
 .article-content {
-  max-width: 880px;
-  padding-top: clamp(2.1rem, 3.4vw, 2.85rem);
+  max-width: 900px;
+  padding-top: clamp(1.9rem, 3vw, 2.55rem);
   font-size: clamp(1.04rem, 1.25vw, 1.1rem);
   line-height: 1.75;
 }
@@ -100,10 +100,10 @@ faq:
   text-wrap: pretty;
 }
 .article-content h2 {
-  margin-top: clamp(2.75rem, 5vw, 4rem);
-  padding-top: clamp(1rem, 1.8vw, 1.3rem);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: clamp(1.72rem, 3vw, 2.3rem);
+  margin-top: clamp(2.45rem, 4.4vw, 3.55rem);
+  padding-top: clamp(0.9rem, 1.5vw, 1.15rem);
+  border-top: 1px solid rgba(255,255,255,0.09);
+  font-size: clamp(1.62rem, 2.65vw, 2.15rem);
   line-height: 1.12;
   letter-spacing: 0;
   text-wrap: balance;
@@ -115,7 +115,7 @@ faq:
 }
 .article-content h2:first-of-type + p {
   font-size: clamp(1.1rem, 1.45vw, 1.18rem);
-  line-height: 1.68;
+  line-height: 1.62;
   color: rgba(245,245,245,0.94);
 }
 .article-content p {
@@ -129,8 +129,8 @@ faq:
   color: #c6efc9;
 }
 .table-of-contents {
-  margin-bottom: clamp(2rem, 3.6vw, 2.7rem);
-  padding: 0.9rem 0 1rem;
+  margin-bottom: clamp(1.8rem, 3.1vw, 2.35rem);
+  padding: 0.85rem 0 0.95rem;
   background: transparent;
   border-width: 1px 0;
   border-radius: 0;
@@ -138,8 +138,21 @@ faq:
 .toc-header {
   color: rgba(245,245,245,0.9);
 }
+.toc-header span:last-child {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .toc-icon {
   display: none;
+}
+.table-of-contents ol {
+  margin-top: 0.72rem;
+}
+.table-of-contents li {
+  margin: 0.34rem 0;
+  line-height: 1.45;
 }
 .table-of-contents a {
   color: rgba(245,245,245,0.8);
@@ -267,16 +280,16 @@ faq:
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
-  margin: 1.45rem 0 2.1rem;
+  margin: 1.25rem 0 1.9rem;
 }
 @media (max-width: 600px) {
   .gw-stats-row { grid-template-columns: 1fr; }
 }
 .gw-stat-card {
-  background: rgba(255,255,255,0.035);
+  background: rgba(255,255,255,0.045);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 8px;
-  padding: 0.95rem 1rem;
+  padding: 1rem 1.05rem;
   text-align: left;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -318,8 +331,8 @@ faq:
 /* ─── Callout Cards ─── */
 .gw-callout {
   border-radius: 8px;
-  padding: 1.15rem 1.35rem;
-  margin: 1.55rem 0;
+  padding: 1.08rem 1.25rem;
+  margin: 1.4rem 0;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
@@ -352,8 +365,8 @@ faq:
 /* ─── Timeline ─── */
 .gw-timeline {
   position: relative;
-  margin: 1.75rem 0 2.35rem;
-  padding-left: 2.5rem;
+  margin: 1.55rem 0 2.1rem;
+  padding-left: 2.35rem;
   max-width: 66ch;
 }
 .gw-timeline::before {
@@ -367,7 +380,7 @@ faq:
 }
 .gw-tl-item {
   position: relative;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.55rem;
 }
 .gw-tl-item.gw-visible { opacity: 1; transform: translateX(0); }
 .gw-tl-item:nth-child(2) { transition-delay: 0.1s; }
@@ -415,7 +428,7 @@ faq:
 
 /* ─── Comparison Table ─── */
 .gw-compare {
-  margin: 1.75rem 0 2.35rem;
+  margin: 1.6rem 0 2.1rem;
   border-radius: 8px;
   padding: 0.45rem;
   overflow-x: auto;
@@ -482,8 +495,8 @@ faq:
 .gw-dangers {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-  margin: 1.75rem 0;
+  gap: 0.75rem;
+  margin: 1.55rem 0;
 }
 @media (max-width: 600px) {
   .gw-dangers { grid-template-columns: 1fr; }
@@ -492,7 +505,7 @@ faq:
   background: rgba(255,255,255,0.045);
   border: 1px solid rgba(255,255,255,0.13);
   border-radius: 8px;
-  padding: 1.25rem;
+  padding: 1.12rem;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 .gw-danger-card.gw-visible { opacity: 1; transform: scale(1); }
@@ -684,10 +697,10 @@ faq:
 }
 @media (max-width: 640px) {
   .article-hero {
-    padding: 5.75rem 0 1.75rem;
+    padding: 5.45rem 0 1.55rem;
   }
   .article-hero h1 {
-    font-size: clamp(2.15rem, 10vw, 2.9rem);
+    font-size: clamp(2rem, 9vw, 2.65rem);
   }
   .gw-callout {
     flex-direction: column;
@@ -696,9 +709,9 @@ faq:
 }
 </style>
 
-## Green wall maintenance in Dallas-Fort Worth: quick answer
+## Green wall maintenance in Texas: quick answer
 
-If you searched for "green wall maintenance Dallas TX" or "green living wall maintenance in Fort Worth, TX," this page is for two situations: a live wall is already struggling, or you are trying to understand the maintenance commitment before installing one.
+If you searched for "green wall maintenance Texas," "green wall maintenance Dallas TX," or "green living wall maintenance in Fort Worth, TX," this page is for two situations: a live wall is already struggling, or you are trying to understand the maintenance commitment before installing one.
 
 This guide covers routine tasks, source-linked cost and water benchmarks, Texas-specific failure points, and when an artificial wall may be a practical alternative.
 
