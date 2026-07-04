@@ -1,8 +1,8 @@
 ---
-title: "Green Wall Maintenance in Texas: Costs, Tasks, and Alternatives"
-seoTitle: "Green Wall Maintenance in Texas: Costs & Alternatives"
-seoDescription: "See what living green wall maintenance in Texas involves, cost and water benchmarks, failure points, and when artificial walls may be simpler."
-summary: "See what living green wall maintenance in Texas involves, cost and water benchmarks, failure points, and when artificial walls may be simpler."
+title: "Green Wall Maintenance in Dallas-Fort Worth: What It Takes in Texas"
+seoTitle: "Green Wall Maintenance Dallas-Fort Worth TX"
+seoDescription: "See what living green wall maintenance involves around Dallas-Fort Worth and across Texas, from routine care and water needs to artificial wall options."
+summary: "See what living green wall maintenance involves around Dallas-Fort Worth and across Texas, from routine care and water needs to artificial wall options."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
