@@ -1,3 +1,7 @@
+# Staging alias — keep the .pages.dev copy out of the index (custom domain unaffected)
+https://lonestarfauxscapes-main.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
 # Static assets - aggressive caching (hashed filenames)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
