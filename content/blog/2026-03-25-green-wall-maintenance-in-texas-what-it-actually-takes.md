@@ -1,8 +1,8 @@
 ---
-title: "Green Wall Maintenance in Dallas, TX: Living Wall Care vs. Artificial Walls"
-seoTitle: "Green Wall Maintenance Dallas TX: Living vs Artificial Walls"
-seoDescription: "Compare living wall maintenance in Dallas with artificial greenery care, including routine upkeep, Texas heat issues, and when each option makes sense."
-summary: "Compare living wall maintenance in Dallas with artificial greenery care, including routine upkeep, Texas heat issues, and when each option makes sense."
+title: "Green Wall Maintenance in Dallas, TX: What It Takes in Texas Heat"
+seoTitle: "Green Wall Maintenance Dallas TX: What It Takes in Heat"
+seoDescription: "See what living green wall maintenance takes in Dallas and Texas heat, how artificial greenery care differs, and when each option fits a project."
+summary: "See what living green wall maintenance takes in Dallas and Texas heat, how artificial greenery care differs, and when each option fits a project."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
 category: "Guides"
