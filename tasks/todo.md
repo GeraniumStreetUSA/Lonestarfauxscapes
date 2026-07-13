@@ -1,3 +1,25 @@
+# Current Task: Website Factory Proposal 20260713-060005
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm the approved change ID, isolated worktree, target source, generated mirrors, and SEO evidence.
+- [x] Update only the source title, SEO title, and meta description for Dallas green wall maintenance search intent.
+- [x] Regenerate or safely mirror the target article metadata/H1 through the repo's existing blog pattern.
+- [x] Run Impeccable/anti-slop, scope, truthfulness, metadata, and practical build verification.
+- [x] Write `implementation-codex-summary.md` in the proposal artifact folder.
+
+## Review: Website Factory Proposal 20260713-060005
+
+- Applied only `chg-1-title-meta` to the approved green wall maintenance article.
+- Changed the SEO title to `Green Wall Maintenance Dallas TX: Costs, Care & Options` (55 characters).
+- Changed the H1 to `Green Wall Maintenance in Dallas, TX: Costs, Care & Artificial Options` and aligned the breadcrumb, card title, image alt, and BlogPosting headline generated from that source title.
+- Changed the meta description to a 152-character summary of the article's existing upkeep, cost, heat-risk, and artificial-option sections.
+- Preserved the route, canonical, `index, follow`, sitemap entry, CTA destinations, tracking attributes, pricing, factual body copy, FAQ, and schema types.
+- `npm run build` passed. Final targeted assertions also passed for metadata/H1, canonical/robots, JSON-LD syntax, source/index/build consistency, changed-file scope, and prohibited-claim additions.
+- Impeccable reported 11 pre-existing warnings outside the approved metadata scope; no design changes were made.
+
 # Current Task: Website Factory Proposal 20260701-060006
 
 **Status: APPROVED by Alex for implementation.**
