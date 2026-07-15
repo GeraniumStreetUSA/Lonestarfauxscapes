@@ -385,3 +385,19 @@ Fire-rated content is performing well (83 imp NFPA blog). Multifamily ROI post e
 
 ### Manual Action Required
 Owner must submit GSC URL removal requests per `docs/gsc-removal-requests.md` — this cannot be done via code.
+
+## Website Factory proposal-20260715-060318
+
+- [x] Confirm approval and inspect the target article's source and generated metadata.
+- [x] Update only `chg-1-title-meta` (title, H1, and meta description).
+- [x] Run the required Impeccable anti-slop review for the changed first-read copy.
+- [x] Rebuild and verify generated output, SEO safety, and repository checks.
+- [x] Write the implementation summary and review the final diff.
+
+### Review
+
+- Reframed the Dallas green-wall maintenance article around upkeep planning before installation, matching the approved GSC maintenance and installation-planning intent.
+- Updated the source frontmatter, generated article metadata/H1/BlogPosting headline, blog data, and blog/guide cards.
+- Preserved canonical URL, robots/indexing directives, body copy, pricing and sourced claims, analytics, CTA destinations, schema structure, and site architecture.
+- `npm run build`, the focused metadata/schema assertions, flagship-guide verification, and `git diff --check` passed.
+- Impeccable reported pre-existing design warnings; the unapproved design card was not implemented.
