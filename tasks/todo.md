@@ -1,3 +1,25 @@
+# Current Task: Website Factory Proposal 20260716-060331
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm the approved change ID, isolated worktree, target source, fresh GSC evidence, and prior title/meta iteration.
+- [x] Refine only the source title, SEO title, and meta description around the page's living-versus-artificial maintenance comparison.
+- [x] Regenerate the target article and existing metadata mirrors through the repository's blog pattern.
+- [x] Run Impeccable/anti-slop, scope, truthfulness, metadata, and practical build verification.
+- [x] Write `implementation-codex-summary.md` in the proposal artifact folder.
+
+## Review: Website Factory Proposal 20260716-060331
+
+- Applied only `chg-1-title-meta` to the approved green wall maintenance article.
+- Reframed the title and H1 around the article's living-wall versus artificial-wall comparison while retaining the measured Dallas maintenance query at the start of the SEO title.
+- Rewrote the meta description to describe the existing maintenance, cost-factor, Texas heat, and pre-installation comparison content without adding a factual or performance claim.
+- Kept the route, canonical, `index, follow`, sitemap entry, schema types, body copy, FAQ, CTA destinations, tracking, pricing, and hard claims unchanged.
+- Mirrored the source metadata into the target static article, post index, blog card, and guides card because the isolated worktree has no `node_modules` and cannot resolve `marked`.
+- Targeted assertions passed for source/mirror consistency, one H1, metadata lengths, canonical/robots, JSON-LD parsing and headline alignment, changed-file scope, prohibited-claim additions, and whitespace.
+- Impeccable completed with 11 pre-existing warnings outside the approved title/meta scope. Full build and screenshot capture remain blocked by missing dependencies and sandbox permissions; details are in the implementation summary.
+
 # Current Task: Website Factory Proposal 20260713-060005
 
 **Status: APPROVED by Alex for implementation.**
