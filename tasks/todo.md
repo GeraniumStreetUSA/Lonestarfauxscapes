@@ -1,3 +1,26 @@
+# Current Task: Website Factory Proposal 20260717-060411
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm the approved change ID, isolated worktree, target source, generated mirrors, and proposal evidence.
+- [x] Determine the approved search-intent wording from the proposal artifact and current article evidence.
+- [x] Update only the source title, SEO title, meta description, and generated mirrors required by the existing blog build pattern.
+- [x] Run MarketingSkills SEO/copy review, Impeccable/anti-slop review, and truthfulness/scope checks.
+- [x] Run the practical build and targeted metadata/schema/SEO-sanity verification.
+- [x] Write `implementation-codex-summary.md` in the proposal artifact folder.
+
+## Review: Website Factory Proposal 20260717-060411
+
+- Applied only `chg-1-title-meta` to the approved Dallas green wall maintenance article.
+- Changed the SEO title to `Green Wall Maintenance Dallas TX: Living vs Artificial` (54 characters).
+- Changed the H1 to `Green Wall Maintenance in Dallas, TX: Living vs. Artificial Walls` and synchronized the breadcrumb, card title, image alt, social metadata, and BlogPosting headline through the existing blog pattern.
+- Changed the meta description to a 153-character summary of article topics already present: living wall care, cost factors, Texas heat risks, artificial upkeep, and pre-installation planning.
+- Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics attributes, pricing, factual body copy, FAQ answers, and schema types.
+- `npm run build` passed. Targeted source/build assertions, flagship-guide verification, JSON-LD parsing, scope checks, SEO-sanity checks, and whitespace checks also passed.
+- Impeccable reported 11 existing design findings outside the approved title/meta scope; no design changes were made.
+
 # Current Task: Website Factory Proposal 20260713-060005
 
 **Status: APPROVED by Alex for implementation.**
