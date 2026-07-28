@@ -424,3 +424,22 @@ Owner must submit GSC URL removal requests per `docs/gsc-removal-requests.md` â€
 - Preserved canonical URL, robots/indexing directives, body copy, pricing and sourced claims, analytics, CTA destinations, schema structure, and site architecture.
 - `npm run build`, the focused metadata/schema assertions, flagship-guide verification, and `git diff --check` passed.
 - Impeccable reported pre-existing design warnings; the unapproved design card was not implemented.
+
+## Website Factory proposal-20260728-060322
+
+- [x] Confirm `chg-1-title-meta` is approved and inspect the current source-of-truth content, generated HTML, and metadata/schema patterns.
+- [x] Select a truthful, search-intent-aligned title, H1, and meta description using only existing page content and approved GSC evidence.
+- [x] Update only the source fields needed for `chg-1-title-meta` and regenerate the existing target outputs.
+- [x] Verify the diff preserves the URL, canonical, robots/indexing, analytics, pricing, claims, schema structure, styling, and all unapproved pages.
+- [x] Run the repository build and targeted SEO/HTML checks.
+- [x] Run the mandatory anti-slop and truthfulness review.
+- [x] Write `implementation-codex-summary.md` with commands, results, source evidence, claim review, and Alex review items.
+
+### Review
+
+- Updated the article's source title, SEO title, and meta description to address both approved GSC intents: Dallas green-wall maintenance and installation planning.
+- Propagated those fields to the existing generated article, BlogPosting headline, post index, and blog/guide listing titles.
+- Preserved the canonical URL, `index, follow`, schema structure, article body and summary, CTA destinations, scripts/analytics behavior, styling, pricing, and all unapproved pages.
+- Impeccable reported 11 pre-existing design warnings outside `chg-1-title-meta`; no design changes were made.
+- The full build passed in an isolated temporary copy with a writable dependency tree. Targeted metadata, scope, prohibited-claim, protected-file, JSON, and `git diff --check` assertions passed.
+- Browser screenshots could not be captured because the sandbox blocked local port binding and the browser CLI socket directory was read-only.
