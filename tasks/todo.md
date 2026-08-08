@@ -443,3 +443,26 @@ Owner must submit GSC URL removal requests per `docs/gsc-removal-requests.md` â€
 - Impeccable reported 11 pre-existing design warnings outside `chg-1-title-meta`; no design changes were made.
 - The full build passed in an isolated temporary copy with a writable dependency tree. Targeted metadata, scope, prohibited-claim, protected-file, JSON, and `git diff --check` assertions passed.
 - Browser screenshots could not be captured because the sandbox blocked local port binding and the browser CLI socket directory was read-only.
+
+## Website Factory proposal-20260806-060258
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm the approved change ID, isolated worktree, target source, generated mirrors, and proposal/GSC evidence.
+- [x] Select a truthful title, H1, and meta description that match the approved Dallas maintenance and installation-planning intent.
+- [x] Update only the source metadata fields needed for `chg-1-title-meta` and regenerate the existing article/listing mirrors.
+- [x] Run MarketingSkills SEO/copy, Impeccable anti-slop, truthfulness, and protected-scope reviews.
+- [x] Run the repository build plus focused metadata, schema, canonical, robots, sitemap, and diff checks.
+- [x] Write `implementation-codex-summary.md` with commands, results, source evidence, claim review, and Alex review items.
+
+### Review
+
+- Applied only `chg-1-title-meta` to the approved Dallas green wall maintenance article.
+- Changed the SEO title to `Green Wall Maintenance Dallas TX: Costs, Tasks & Options` (56 characters).
+- Changed the H1 to `Dallas Green Wall Maintenance: Costs, Tasks & Artificial Options` and synchronized the breadcrumb, image alt, BlogPosting headline, post index, and blog/guide cards through the existing content pattern.
+- Changed the meta description to a 152-character summary of existing article topics: maintenance tasks, cost factors, Texas heat risks, artificial options, and pre-installation planning.
+- Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics attributes, pricing, body claims, FAQ answers, schema types, and styling.
+- The full production build and flagship-guide verification passed. Focused metadata, JSON-LD, scope, protected-file, prohibited-claim-pattern, and whitespace checks also passed.
+- Impeccable reported 11 pre-existing design warnings outside the approved title/meta scope; no design changes were made.
