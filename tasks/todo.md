@@ -466,3 +466,25 @@ Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-w
 - Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics attributes, pricing, body claims, FAQ answers, schema types, and styling.
 - The full production build and flagship-guide verification passed. Focused metadata, JSON-LD, scope, protected-file, prohibited-claim-pattern, and whitespace checks also passed.
 - Impeccable reported 11 pre-existing design warnings outside the approved title/meta scope; no design changes were made.
+
+## Website Factory proposal-20260809-060250
+
+**Status: APPROVED by Alex for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm approval, isolated-worktree status, repository guidance, and the approved GSC/search-intent evidence.
+- [x] Inspect the article source, generated HTML, metadata/schema flow, and prior title/meta implementations.
+- [x] Update only the source title, SEO title, and meta description for the approved Dallas maintenance and pre-installation intent.
+- [x] Regenerate the existing article and listing mirrors with the repository's blog builder.
+- [x] Run MarketingSkills, Impeccable, truthfulness, protected-scope, build, and targeted SEO/schema checks.
+- [x] Write `implementation-codex-summary.md` and complete this section's review notes.
+
+### Review
+
+- Applied only `chg-1-title-meta` to the approved Dallas green-wall maintenance article.
+- Reframed the SEO title, H1, and meta description around the fresh GSC maintenance and pre-installation queries while preserving the article's existing topics and offer.
+- Synchronized the source frontmatter, generated article/social metadata, BlogPosting headline, post index, and blog/guide listing data.
+- Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics behavior, pricing, body claims, FAQ answers, schema types, styling, and all unapproved pages.
+- The isolated full production build, flagship-guide verification, focused metadata/schema assertions, protected-scope checks, JSON checks, and whitespace checks passed.
+- Impeccable reported seven pre-existing design warnings outside `chg-1-title-meta`; no design changes were made. Browser screenshots could not be captured because the sandbox blocked local port binding and the browser CLI socket directory was read-only.
