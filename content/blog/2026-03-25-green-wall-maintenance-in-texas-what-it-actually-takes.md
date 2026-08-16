@@ -1,7 +1,7 @@
 ---
-title: "Dallas Green Wall Maintenance: Costs, Tasks & Artificial Options"
-seoTitle: "Green Wall Maintenance Dallas TX: Costs, Tasks & Options"
-seoDescription: "See what green wall maintenance in Dallas involves, including routine tasks, cost factors, Texas heat risks, and artificial options before installation."
+title: "Dallas Green Wall Maintenance: What to Know Before Installation"
+seoTitle: "Green Wall Maintenance Dallas TX: Before Installation"
+seoDescription: "Considering a green wall in Dallas? Compare routine maintenance, cost factors, Texas heat risks, and artificial wall care before planning an installation."
 summary: "Compare living green wall maintenance in Texas heat with artificial green wall care, including routine tasks, upkeep risks, and when each option fits."
 date: 2026-03-25
 image: /images/living_walls/living-wall-3.jpg
