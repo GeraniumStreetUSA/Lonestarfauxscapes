@@ -1,3 +1,27 @@
+# Current Task: Website Factory Proposal 20260901-060008
+
+**Status: APPROVED by Hermes autonomous site authorization for implementation.**
+
+Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-what-it-actually-takes`.
+
+- [x] Confirm the approved change ID, isolated worktree, target source, and proposal/GSC evidence.
+- [x] Review the article, existing metadata build pattern, MarketingSkills guidance, and Impeccable guidance.
+- [x] Update only the source H1/title, SEO title, and meta description through the existing blog build pattern.
+- [x] Run the practical build plus targeted scope, truthfulness, metadata/schema, and SEO-sanity verification.
+- [x] Run the required Impeccable detector and review the final diff.
+- [x] Write `implementation-codex-summary.md` in the proposal artifact folder.
+
+## Review: Website Factory Proposal 20260901-060008
+
+- Applied only `chg-1-title-meta` to the approved Dallas green wall maintenance article.
+- Changed the SEO title to `Green Wall Maintenance Dallas, TX: What It Actually Takes` (57 characters).
+- Changed the H1 to `Green Wall Maintenance in Dallas, TX: What It Actually Takes` (60 characters) and synchronized the breadcrumb, image alt, social metadata, BlogPosting headline, post index, and existing blog/guide listing mirrors.
+- Changed the meta description to a 154-character comparison grounded in existing article coverage: living and artificial maintenance, watering and plant care, panel cleaning, Texas heat, and pre-installation planning.
+- Preserved the route, canonical, `index, follow`, sitemap, CTA destinations and tracking, dates, schema types, article body, pricing, and legal/compliance content.
+- Restored locked dependencies with `npm ci --offline`; `npm run build` then passed. Targeted source/build consistency, JSON-LD, CTA, SEO-sanity, exact-scope, flagship-guide, and whitespace checks passed.
+- Impeccable reported 11 pre-existing design warnings outside the approved title/meta scope; no design changes were made.
+- No commit, push, merge, PR, preview deployment, or production deployment was performed.
+
 # Current Task: Website Factory Proposal 20260817-060405
 
 **Status: APPROVED by Alex for implementation.**
