@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#EDECE6" />
+    <script>
+      // ?qa=1 is screenshot mode: set before first paint so nothing animates.
+      (function () {
+        try {
+          if (new URLSearchParams(window.location.search).get('qa') === '1') {
+            document.documentElement.setAttribute('data-qa-mode', '1');
+          }
+        } catch (error) {
+          // No URLSearchParams: leave motion as the visitor's settings allow.
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Hero LCP image. Moves into the homepage's prerendered head once
+         prerender lands (Phase 4); sizes must match HERO_SIZES in HomeHero. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+      media="(max-width: 767px)"
+      imagesrcset="/images/hero-austin-boxwood-wall-phone-480.avif 480w, /images/hero-austin-boxwood-wall-phone-717.avif 717w"
+      imagesizes="(min-width: 1024px) min(640px, 50vw), calc(100vw - 60px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+      media="(min-width: 768px)"
+      imagesrcset="/images/hero-austin-boxwood-wall-480.avif 480w, /images/hero-austin-boxwood-wall-768.avif 768w, /images/hero-austin-boxwood-wall-1200.avif 1200w"
+      imagesizes="(min-width: 1024px) min(640px, 50vw), calc(100vw - 60px)"
+    />
+    <!-- No static <title>: HomeSeo renders it and React 19 hoists it, so the
+         prerendered head (Phase 4) carries exactly one. -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

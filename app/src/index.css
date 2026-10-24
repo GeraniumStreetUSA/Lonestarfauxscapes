@@ -1,0 +1,1262 @@
+/* Lone Star Faux Scapes: "Read the yard".
+   Daylight ground, ink, one green, and a site plan that draws itself.
+   Palette, type and drawing rules come from CONCEPT.md. */
+
+/* ---------------------------------------------------------------- fonts */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 820;
+  font-stretch: 100% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-500.woff2') format('woff2');
+}
+
+/* Metric-matched fallbacks, computed from the font tables (Archivo 400 at
+   100% width against Arial; JetBrains Mono against Courier New), so the
+   pre-webfont paint takes the same space and the swap does not reflow. */
+@font-face {
+  font-family: 'Archivo Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 97.85%;
+  ascent-override: 89.73%;
+  descent-override: 21.46%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Courier New'), local('CourierNewPSMT');
+  size-adjust: 99.98%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------- tokens */
+
+@layer base {
+  :root {
+    --caliche: #edece6;
+    --limestone: #e1dfd6;
+    --ink: #15211b;
+    --cedar: #4d5852;
+    --boxwood: #2e5a2c;
+    --boxwood-deep: #244a23;
+    --noon: #f2b53a;
+    --grass: #a9b3ad;
+    --leaf: #8fc08a;
+    --line: rgb(21 33 27 / 0.14);
+    --rule: rgb(21 33 27 / 0.22);
+    --control: rgb(21 33 27 / 0.55);
+    /* Property lines on the plan and the page spine. */
+    --plan-line: rgb(21 33 27 / 0.42);
+    --focus: var(--boxwood);
+
+    --gutter: 16px;
+    --section-y: 72px;
+    --split-gap: 0px;
+
+    --ease-plan: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    color-scheme: light;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --gutter: 28px;
+      --section-y: 96px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --gutter: 48px;
+      --section-y: 128px;
+      --split-gap: 64px;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+  }
+
+  body {
+    margin: 0;
+    background: var(--caliche);
+    color: var(--ink);
+    font-family: 'Archivo', 'Archivo Fallback', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 400;
+    font-stretch: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: normal;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 18px;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-weight: 760;
+    font-stretch: 112%;
+    letter-spacing: -0.028em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::selection {
+    background: rgb(46 90 44 / 0.22);
+    color: var(--ink);
+  }
+
+  /* The keyboard ring. `outline`, not box-shadow, and the pseudo-class is
+     doubled so the selectors reach (0,2,1): no `outline-none` utility can
+     erase it. Pointer focus stays quiet. */
+  a:focus-visible:focus-visible,
+  button:focus-visible:focus-visible,
+  input:focus-visible:focus-visible,
+  select:focus-visible:focus-visible,
+  textarea:focus-visible:focus-visible,
+  summary:focus-visible:focus-visible,
+  [tabindex]:focus-visible:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    box-shadow: none;
+    transition: none;
+  }
+
+  /* On the dark chapter the ring is Noon. */
+  .on-ink {
+    --focus: var(--noon);
+  }
+}
+
+/* ----------------------------------------------------------- components */
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: calc(1280px + 2 * var(--gutter));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+
+  /* Header: brand and actions on one row, the nav on its own row below
+     1024 px; brand, nav and actions in one row above. */
+  .header-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'brand actions'
+      'nav nav';
+    align-items: center;
+    column-gap: 12px;
+  }
+
+  .header-brand {
+    grid-area: brand;
+    min-height: 64px;
+  }
+
+  .header-actions {
+    grid-area: actions;
+  }
+
+  .header-nav {
+    grid-area: nav;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    border-top: 1px solid var(--line);
+  }
+
+  @media (min-width: 1024px) {
+    .header-grid {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: 'brand nav actions';
+      column-gap: 24px;
+      min-height: 80px;
+    }
+
+    .header-nav {
+      justify-self: center;
+      margin-inline: 0;
+      padding-inline: 0;
+      border-top: 0;
+    }
+  }
+
+  /* Hero: pitch and provenance on the left, the photo spanning both on the
+     right. Same columns as .estimator-grid, so the spine lines up. */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      grid-template-areas:
+        'pitch media'
+        'provenance media';
+      grid-template-rows: auto 1fr;
+      column-gap: var(--split-gap);
+      row-gap: 32px;
+    }
+
+    .hero-pitch {
+      grid-area: pitch;
+    }
+
+    .hero-media {
+      grid-area: media;
+    }
+
+    .hero-provenance {
+      grid-area: provenance;
+      align-self: end;
+      margin-bottom: 38px;
+    }
+  }
+
+  /* ---- type ---- */
+
+  .t-h1 {
+    font-size: clamp(2.3rem, 1.2rem + 4vw, 4.5rem);
+    font-weight: 790;
+    font-stretch: 114%;
+    letter-spacing: -0.034em;
+    line-height: 0.98;
+  }
+
+  .t-h2 {
+    font-size: clamp(1.875rem, 1.2rem + 2.35vw, 3.25rem);
+    font-weight: 770;
+    font-stretch: 114%;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .t-h3 {
+    font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+    font-weight: 700;
+    font-stretch: 108%;
+    letter-spacing: -0.016em;
+    line-height: 1.15;
+  }
+
+  .t-h3-lg {
+    font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2.125rem);
+    font-weight: 730;
+    font-stretch: 112%;
+    letter-spacing: -0.026em;
+    line-height: 1.08;
+  }
+
+  .t-lede {
+    font-size: clamp(1.125rem, 1rem + 0.45vw, 1.375rem);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+  }
+
+  .t-body {
+    max-width: 62ch;
+  }
+
+  .t-small {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .t-label {
+    font-size: 13px;
+    font-weight: 620;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .t-figure {
+    font-weight: 800;
+    font-stretch: 118%;
+    letter-spacing: -0.045em;
+    line-height: 0.86;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+    font-weight: 500;
+    font-variant-ligatures: none;
+  }
+
+  /* ---- the callout: a mono plan note with its point and leader ---- */
+
+  .callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  /* The copy's "◦" stays in the DOM; it is drawn as a ring and a short
+     leader so it renders identically in every font. */
+  .callout-mark {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    width: 30px;
+    height: 9px;
+    margin-right: 10px;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  .callout-mark::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 9px;
+    height: 9px;
+    box-sizing: border-box;
+    border: 1.5px solid currentColor;
+    border-color: var(--callout-ring, var(--ink));
+    border-radius: 50%;
+  }
+
+  .callout-mark::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    right: 0;
+    top: 4px;
+    height: 1px;
+    background: var(--callout-ring, var(--ink));
+  }
+
+  .on-ink .callout {
+    color: var(--noon);
+    --callout-ring: var(--noon);
+  }
+
+  /* ---- buttons: the only rounded things on the site (4 px) ---- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 640;
+    font-stretch: 104%;
+    letter-spacing: -0.005em;
+    line-height: 1.1;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
+    transition:
+      transform 200ms var(--ease-plan),
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .btn svg {
+    flex: none;
+    transition: transform 200ms var(--ease-plan);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    background: var(--boxwood);
+    color: var(--caliche);
+    box-shadow: 0 1px 0 rgb(21 33 27 / 0.18);
+  }
+
+  .btn-primary:hover {
+    background: var(--boxwood-deep);
+    box-shadow: 0 8px 18px -10px rgb(21 33 27 / 0.55);
+  }
+
+  .btn-primary:hover svg.nudge-down {
+    transform: translateY(3px);
+  }
+
+  .btn-primary:hover svg.nudge-right {
+    transform: translateX(3px);
+  }
+
+  .btn-compact {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+
+  /* Text links that lead somewhere: ink text, a Boxwood rule that thickens. */
+  .link-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    font-weight: 620;
+    color: var(--boxwood);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    text-decoration-color: rgb(46 90 44 / 0.45);
+    transition: text-decoration-color 200ms ease;
+  }
+
+  .link-go svg {
+    flex: none;
+    transition: transform 200ms var(--ease-plan);
+  }
+
+  .link-go:hover {
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+
+  .link-go:hover svg {
+    transform: translateX(3px);
+  }
+
+  @media (min-width: 1024px) {
+    .link-go {
+      min-height: 32px;
+    }
+  }
+
+  .on-ink .link-go {
+    color: var(--leaf);
+    text-decoration-color: rgb(143 192 138 / 0.5);
+  }
+
+  /* ---- plan drawing language on the page itself ---- */
+
+  /* Long-short dash, the property-line convention, as CSS so the page spine
+     and the hero lot line are crisp at any size. Period: 12 dash, 4 gap,
+     3 dash, 4 gap (the plan SVG uses the same pattern). */
+  .spine {
+    position: absolute;
+    width: 1px;
+    background-image: linear-gradient(
+      to bottom,
+      var(--plan-line) 0 12px,
+      transparent 12px 16px,
+      var(--plan-line) 16px 19px,
+      transparent 19px 23px
+    );
+    background-size: 1px 23px;
+    background-repeat: repeat-y;
+    pointer-events: none;
+  }
+
+  .lot-frame {
+    position: relative;
+    padding: 14px;
+    background-image:
+      linear-gradient(to right, var(--plan-line) 0 12px, transparent 12px 16px, var(--plan-line) 16px 19px, transparent 19px 23px),
+      linear-gradient(to right, var(--plan-line) 0 12px, transparent 12px 16px, var(--plan-line) 16px 19px, transparent 19px 23px),
+      linear-gradient(to bottom, var(--plan-line) 0 12px, transparent 12px 16px, var(--plan-line) 16px 19px, transparent 19px 23px),
+      linear-gradient(to bottom, var(--plan-line) 0 12px, transparent 12px 16px, var(--plan-line) 16px 19px, transparent 19px 23px);
+    background-size:
+      23px 1px,
+      23px 1px,
+      1px 23px,
+      1px 23px;
+    background-position:
+      0 0,
+      0 100%,
+      0 0,
+      100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  }
+
+  @media (min-width: 1024px) {
+    .lot-frame {
+      padding: 16px;
+    }
+  }
+
+  .on-ink .lot-frame,
+  .on-ink .spine {
+    --plan-line: rgb(169 179 173 / 0.38);
+  }
+
+  /* A survey pin: Noon, ringed in ink so it holds 3:1 on the light ground. */
+  .pin {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--noon);
+    box-shadow: 0 0 0 1.5px var(--ink);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  /* ---- photos ---- */
+
+  .photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--limestone);
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-settle img {
+    transform: scale(1.035);
+    filter: saturate(0.92);
+    transition: transform 700ms var(--ease-plan);
+  }
+
+  .card-hover:hover .photo-settle img,
+  .card-hover:focus-within .photo-settle img {
+    transform: scale(1);
+  }
+
+  /* ---- fields: underline inputs, labels always visible ---- */
+
+  .field-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 620;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .field-input {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 0 9px;
+    border: 0;
+    border-bottom: 1.5px solid var(--control);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 17px;
+    line-height: 1.4;
+    transition: border-color 160ms ease;
+  }
+
+  .field-input::placeholder {
+    color: rgb(77 88 82 / 0.85);
+  }
+
+  .field-input:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-bottom-color: var(--boxwood);
+    border-bottom-width: 2px;
+    padding-bottom: 8.5px;
+  }
+
+  .field-input[aria-invalid='true'] {
+    border-bottom-color: #9b2c1f;
+  }
+
+  textarea.field-input {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .field-error {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #8f2618;
+  }
+
+  /* Choice chips: a real radio, visually replaced by the chip beside it. */
+  .chip-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .chip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid var(--control);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .chip:hover {
+    border-color: var(--ink);
+  }
+
+  /* The selected chip takes the plan mark's solid Boxwood side. */
+  .chip-input:checked + .chip {
+    border-color: var(--boxwood);
+    background: rgb(46 90 44 / 0.07);
+    box-shadow: inset 0 3px 0 var(--boxwood);
+  }
+
+  .chip-input:focus-visible + .chip {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* Estimator system chips: a list on phones and in the narrow desktop
+     column (1024 to 1279), three across where there is room. */
+  .chip-note {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px), (min-width: 1280px) {
+    .chip-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .chip-system {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .chip-system .chip-note {
+      margin-left: 24px;
+    }
+  }
+
+  .chip-dot {
+    position: relative;
+    flex: none;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--control);
+    border-radius: 50%;
+    transition: border-color 160ms ease;
+  }
+
+  .chip-input:checked + .chip .chip-dot {
+    border-color: var(--boxwood);
+  }
+
+  .chip-input:checked + .chip .chip-dot::after {
+    content: '';
+    position: absolute;
+    inset: 2.5px;
+    border-radius: 50%;
+    background: var(--boxwood);
+  }
+
+  /* ---- range slider: the thumb is the plan's survey pin ---- */
+
+  .range {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    --fill: 50%;
+  }
+
+  .range:focus {
+    outline: none;
+  }
+
+  .range::-webkit-slider-runnable-track {
+    height: 3px;
+    background: linear-gradient(to right, var(--boxwood) 0 var(--fill), rgb(21 33 27 / 0.2) var(--fill) 100%);
+  }
+
+  .range::-moz-range-track {
+    height: 3px;
+    background: rgb(21 33 27 / 0.2);
+  }
+
+  .range::-moz-range-progress {
+    height: 3px;
+    background: var(--boxwood);
+  }
+
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    margin-top: -9.5px;
+    border-radius: 50%;
+    background: var(--noon);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 4px var(--caliche);
+    transition: transform 160ms var(--ease-plan);
+  }
+
+  .range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--noon);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 4px var(--caliche);
+  }
+
+  .range:hover::-webkit-slider-thumb {
+    transform: scale(1.08);
+  }
+
+  .range:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .range:focus-visible::-moz-range-thumb {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .num-input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 4.75rem;
+    min-height: 44px;
+    padding: 6px 2px 5px;
+    border: 0;
+    border-bottom: 1.5px solid var(--control);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .num-input::-webkit-outer-spin-button,
+  .num-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .num-input:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  .num-input:focus {
+    outline: none;
+    border-bottom-color: var(--boxwood);
+  }
+
+  /* ---- the yard plan ---- */
+
+  .plan {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 640 / 420;
+  }
+
+  .plan svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .plan-run {
+    stroke-width: 2.4;
+  }
+
+  .plan-pin {
+    stroke-width: 1.6;
+  }
+
+  @media (max-width: 767px) {
+    .plan-run {
+      stroke-width: 3.6;
+    }
+
+    .plan-pin {
+      stroke-width: 2.4;
+    }
+  }
+
+  .plan-tick {
+    transform-box: fill-box;
+  }
+
+  .plan-tick[data-axis='y'] {
+    transform-origin: 50% 0%;
+  }
+
+  .plan-tick[data-axis='x'] {
+    transform-origin: 100% 50%;
+  }
+
+  .plan-label {
+    position: absolute;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    pointer-events: none;
+  }
+
+  .plan-label[data-side='above'] {
+    transform: translate(-50%, -100%);
+  }
+
+  .plan-label[data-side='right'] {
+    transform: translate(0, -50%);
+  }
+
+  .plan-label[data-side='below'] {
+    transform: translate(0, 0);
+  }
+
+  /* On phones there is no room right of the side line, so the callout for a
+     run that has turned the corner sits just inside the lot instead. */
+  @media (max-width: 639px) {
+    .plan-run-label[data-side='right'] {
+      transform: translate(calc(-100% - 18px), -50%);
+    }
+  }
+
+  .plan-run-label {
+    padding: 4px 6px 3px;
+    background: var(--caliche);
+    color: var(--boxwood);
+    font-size: 13px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    box-shadow: inset 0 0 0 1px rgb(46 90 44 / 0.35);
+  }
+
+  @media (min-width: 640px) {
+    .plan-run-label {
+      font-size: 14px;
+    }
+  }
+
+  /* ---- the estimator layout ----
+     Desktop: copy and controls left, plan and readout right. Phones: the plan
+     moves up under the heading so a thumb on the slider can see it draw. */
+
+  .estimator-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .estimator-col {
+    display: contents;
+  }
+
+  .estimator-intro {
+    order: 1;
+  }
+
+  .estimator-plan {
+    order: 2;
+  }
+
+  .estimator-controls {
+    order: 3;
+  }
+
+  .estimator-readout {
+    order: 4;
+  }
+
+  @media (min-width: 1024px) {
+    .estimator-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      column-gap: var(--split-gap);
+      align-items: start;
+    }
+
+    .estimator-col {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .estimator-col + .estimator-col {
+      gap: 36px;
+    }
+
+    .estimator-intro,
+    .estimator-plan,
+    .estimator-controls,
+    .estimator-readout {
+      order: 0;
+    }
+  }
+
+  /* Ends exactly on the lot's top-left corner (y = 40 of 420). */
+  .estimator-spine {
+    left: 0;
+    bottom: calc(100% - (40 / 420) * 100%);
+    height: 100vh;
+  }
+
+  .working {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    column-gap: 10px;
+    row-gap: 7px;
+    font-size: 13px;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+  }
+
+  @media (min-width: 640px) {
+    .working {
+      font-size: 14px;
+      column-gap: 12px;
+    }
+  }
+
+  .working-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: baseline;
+  }
+
+  .working-left {
+    text-align: right;
+    color: var(--cedar);
+  }
+
+  .working-eq {
+    color: var(--cedar);
+  }
+
+  .working-result {
+    color: var(--ink);
+  }
+
+  /* Ordinal markers: the drafting "detail bubble", a numbered ring. */
+  .step-index,
+  .question-index {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .question-index {
+    width: 26px;
+    height: 26px;
+    margin-top: 0.22em;
+  }
+
+  @media (min-width: 640px) {
+    .question-index {
+      width: 30px;
+      height: 30px;
+      margin-top: 0.12em;
+    }
+  }
+
+  /* Spec rows on the system cards. */
+  .spec-list {
+    display: grid;
+    grid-template-columns: 5.6rem minmax(0, 1fr);
+    gap: 8px 12px;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .spec-list dt {
+    font-size: 13px;
+    font-weight: 620;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    line-height: 1.55;
+    color: var(--cedar);
+  }
+
+  .spec-list dd {
+    margin: 0;
+  }
+
+  /* One link per card; its ::after covers the card so the whole card is the
+     target while the link text stays the accessible name. */
+  .card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .card-link:focus-visible:focus-visible {
+    outline: none;
+  }
+
+  .card-link:focus-visible::after {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* The hero's homes / businesses fork: two plan cells. */
+  .fork-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    height: 100%;
+    padding: 14px 16px 14px;
+    font-size: 16px;
+    font-weight: 640;
+    color: var(--boxwood);
+    transition: background-color 160ms ease;
+  }
+
+  .fork-link:hover {
+    background: rgb(46 90 44 / 0.06);
+  }
+
+  @media (min-width: 640px) {
+    .fork-link {
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+    }
+  }
+
+  .contact-cell {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    min-height: 88px;
+    padding: 18px 22px;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .contact-cell svg {
+    flex: none;
+    color: var(--boxwood);
+  }
+
+  .contact-cell:hover {
+    background: rgb(46 90 44 / 0.06);
+    color: var(--boxwood);
+  }
+
+  .contact-strip > * {
+    background: var(--caliche);
+  }
+
+  .contact-value {
+    margin-top: 2px;
+    font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.375rem);
+    font-weight: 680;
+    font-stretch: 106%;
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+
+  .caption-on-ink {
+    color: var(--grass) !important;
+    --callout-ring: var(--grass) !important;
+  }
+
+  /* ---- hairline grid for cards (1 px rule shows through the gap) ---- */
+
+  .rule-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .rule-grid > * {
+    background: var(--caliche);
+  }
+
+  .process-grid > * {
+    background: var(--limestone);
+  }
+}
+
+/* ------------------------------------------------------------ utilities */
+
+@layer utilities {
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ------------------------------------------------- motion and QA modes */
+
+/* `?qa=1` sets data-qa-mode on <html> before first paint (index.html). */
+html[data-qa-mode='1'] {
+  scroll-behavior: auto !important;
+}
+
+html[data-qa-mode='1'] *,
+html[data-qa-mode='1'] *::before,
+html[data-qa-mode='1'] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-qa-mode='1'] [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .photo-settle img {
+    transform: none;
+  }
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

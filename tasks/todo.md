@@ -1,3 +1,90 @@
+# Current Task: React rebuild, homepage first, "Read the yard" (2026-10-24)
+
+**Status: APPROVED 2026-10-24, in progress. Keep everything local (no push, PR, deploy) until the whole site is approved.** Owner picked (2026-10-24): React rebuild per prompt.md, estimator with no dollars, signature "plan draws itself". Branch `rebuild/homepage` (from `origin/main`). `redesign/panel-by-panel` untouched.
+Sources: `califaux-main/design.md` (quality bar), `califaux-main/prompt.md` (Lone Star brief).
+
+## Why the current homepage isn't working
+
+- **Search:** GSC (Feb 22 to Mar 21) shows 2,188 impressions, 16 clicks, 0.73% CTR, avg position 9.4. Pages rank but don't get clicked: generic titles and snippets, and some intent mismatch with real-plant searches.
+- **Live homepage (main):** a generic dark-green template. "Request Project Pricing" with nothing to anchor it. Unverified claims ("Est. 2019", "Licensed & Insured", lifespans).
+- **Panel-by-panel homepage:** a pinned 3D scroll story. The hero copy starts faded (even with `?qa=1`), content sits behind motion, and the buyer has to sit through a story before reaching a quote. Three.js weight. The "cells snap in" signature is too close to the Califauxscapes install motion.
+- **Psychology:** visitors arrive with one job (privacy, or cover this wall, fast) and four fears in a fixed order: *Will it look fake? Will Texas sun kill it? Will my HOA let me? What will it cost?* Neither version answers them in that order.
+
+## Concept
+
+- **Look:** daylight Hill Country. Caliche `#EDECE6` ground, Live oak `#15211B` ink, one Boxwood `#2E5A2C` green, Noon `#F2B53A` used rarely and never as text. One dark chapter for fire and commercial.
+- **Drawing language:** top-down site plan. Property lines, fence runs, setbacks, a north arrow, pool outlines, run lengths read off the plan. No elevation drawings, no tile-grid reveals.
+- **Signature motion, "the plan draws itself":** in the estimator, the visitor's fence run draws on a yard plan as they set it, with live run length and panel count. It needs no photos, can't be mistaken for Califauxscapes, and turns the first interaction into a small commitment (foot in the door, plus the IKEA effect) that carries into the quote form.
+- **Type:** Archivo variable (already self-hosted, Lone Star's own) for display and text. Swap the mono from IBM Plex Mono (Califauxscapes' mono) to JetBrains Mono, used only for real measurements.
+- **Voice:** plainspoken Texas builder, short sentences, hedged outcomes, arithmetic shown. No em-dashes, no banned words.
+
+## Homepage, top to bottom (with each section's job)
+
+1. **Header:** wordmark, Systems, Pricing, Projects, Areas, phone, "Get a free quote". (Reduce choice.)
+2. **Hero:** an H1 carrying the query ("Artificial hedges and living walls, installed in Texas"), a subline that names the pain (a neighbor's second story, a bare fence line, a blank wall), one primary CTA plus the phone, and the trust line "A Geranium Street USA brand". Real install photo with a separate mobile crop and a preloaded LCP. A small "For homes / For businesses" fork lets visitors self-select.
+3. **Estimator ("Measure your run"), screen 2:** system chips, run length, height, city or ZIP, then the plan draws the run with arithmetic (`48 ft run ÷ 20 in panels = 29 panels`), a qualifier, and "Send to my quote". Dimension mode, no dollar figure, unless you release prices (see question 2).
+4. **Link band:** popular systems and the 5 metro pages, so crawlable links sit high on the page.
+5. **"The four questions everyone asks":** answer-first blocks in fear order. Realism (leaf and seam close-up), Texas sun (UV-rated options, hedged), HOA (Texas Property Code text cited, no promise of approval), cost (how a quote is built). Each links to its guide.
+6. **Systems cards:** hedge, living wall, fence extension, commercial / Vallum FRX. Each card has a photo, a small plan drawing, "quoted after a site review" (or the released price), 3 spec rows and one link.
+7. **Dark chapter, commercial and fire:** NFPA 701 vs ASTM E84 in plain words, sourced, with no certificate claims.
+8. **Texas installs:** the 3 real case studies (Austin, Houston x2). Fix the Austin square-footage maths.
+9. **Process:** 4 steps (send dimensions, site review, build, install), with no timelines unless you confirm them.
+10. **Quote form:** prefilled from the estimator, framed as "Step 2 of 2" (endowed progress). Honeypot, Turnstile mounted on first interaction, POST `/api/contact`, LSFSCRO events kept.
+11. **FAQ** (FAQPage schema, visible questions only) and **service area** (5 metros), then the contact block and footer.
+12. **Sticky CTA:** a desktop pill hidden while a primary CTA is in view, and a mobile bar with Call and Quote.
+
+**SEO:**
+- Title: "Artificial Hedges & Living Walls in Texas | Lone Star" (52 characters).
+- A new meta description of 155 characters or fewer, written for clicks.
+- The H1 carries the query, and about 1,000+ words of real text are on the page with no scroll-jacking.
+- One canonical `HomeAndConstructionBusiness` node with a region-only address.
+- Drop Three.js from the homepage.
+
+## Todo
+
+New React app lives in `app/` beside today's site. The live static site keeps serving until cutover. Cutover (Cloudflare Pages build settings) only with owner OK.
+
+### Phase 0: check in
+- [x] Owner approves this plan.
+
+### Phase 1: truth and URL docs (before any build)
+- [x] `OWNER-NEEDS.md`: every open fact in one batch (brand spelling, logo, prices, warranty, crews, timelines, licence, address, photos, metros, booking, IDs, CMS, byline).
+- [x] `REDIRECTS.md`: all 65 sitemap URLs, 6 suburb pages, /terms, /privacy, /sitemap, /hedge-quote, each kept or 301 one hop.
+- [x] `CLAIMS.md`: claim register, starting with the homepage.
+- [x] `IMAGE-PROMPTS.md`: one prompt per image slot; real-install-only slots marked.
+
+### Phase 2: concept and homepage mock (STOP for owner yes)
+- [x] One-page concept: palette (AA checked), type pair, signature motion, homepage order, card anatomy.
+- [x] Scaffold `app/`: Vite 7, React 19, TS, Tailwind 3, react-router 7, helmet-async. Tokens, fonts, header, footer.
+- [x] Homepage built in React with the plan-drawing estimator. Screenshots at 1440x900 and 390x844.
+
+### Phase 3: homepage to ship quality
+- [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
+- [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
+- [ ] Sticky CTA, answer-first block, FAQ, process, case cards, contact block.
+- [ ] Motion fail-open, reduced motion, `?qa=1`; GSAP/Lenis desktop only, dynamic import.
+- [ ] Skip link, 44px targets, 2px Boxwood focus ring, real radio groups.
+
+### Phase 4: platform
+- [ ] Route manifest driving router, prerender, sitemap, valid-routes, with a sync test.
+- [ ] Puppeteer prerender + Critters; hydration check; build under 15 min.
+- [ ] SEO: title/description helpers with length tests, canonicals, noindex on preview hosts until `ALLOW_INDEXING`, one `HomeAndConstructionBusiness` node, llms.txt.
+- [ ] Pages Functions: `/api/contact` ported, catch-all redirect function from `REDIRECTS.md`, tested.
+
+### Phase 5: templates and migration (owner review after each)
+- [ ] Templates: system, metro, guide, blog post, project.
+- [ ] Migrate: systems pages, 5 metro hubs, suburbs (noindex or folded), 34 blog posts with URLs kept, 3 case studies (Austin maths fixed), pricing, residential, commercial, about, legal, 404.
+
+### Phase 6: verify
+- [ ] typecheck, lint, node tests, hydration, motion, H1-clears-nav, em-dash on `dist/`, img attribute check.
+- [ ] Lighthouse a11y, best practices, SEO at 100; real browser at both sizes, motion on, reduced, `?qa=1`.
+
+### Phase 7
+- [ ] Review section below. No push to main, no deploy, no DNS or Cloudflare changes without owner OK.
+
+
+---
+
 # Current Task: Website Factory Proposal 20260817-060405
 
 **Status: APPROVED by Alex for implementation.**
