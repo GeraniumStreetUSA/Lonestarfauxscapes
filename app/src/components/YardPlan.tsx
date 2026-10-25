@@ -10,11 +10,13 @@ import {
   NORTH,
   OAK,
   POOL,
+  TICK_LENGTH,
   TRACK_LENGTH,
   TRACK_PATH,
   VIEW_H,
   VIEW_W,
   buildRun,
+  buildUnitBlocks,
   pointAt,
   pointsToPath,
   runLabelAnchor,
@@ -28,7 +30,10 @@ const NOON = '#F2B53A';
 
 interface YardPlanProps {
   runFt: number;
-  panelsAcross: number;
+  /** Panels across the run, or freestanding units when `units` is set. */
+  count: number;
+  /** Draw freestanding units as separate blocks instead of panel ticks on a band. */
+  units?: boolean;
   /** The system's module note, drawn in the start corner ("20 in panels"). */
   moduleNote: string;
 }
@@ -129,12 +134,13 @@ const StaticYard = memo(function StaticYard() {
  * Markup is always the finished drawing for the current numbers, so the
  * prerendered page and the first paint show the 40 ft default complete. Only a
  * change the visitor makes animates: the line draws (stroke-dashoffset over
- * 600 ms), then the panel ticks land left to right inside 300 ms while the
- * run-length callout counts to the new value. Reduced motion and `?qa=1` get
- * the finished drawing instantly.
+ * 600 ms), then the panel ticks (or a privacy wall's unit blocks) land left
+ * to right inside 300 ms while the run-length callout counts to the new
+ * value. Reduced motion and `?qa=1` get the finished drawing instantly.
  */
-export default function YardPlan({ runFt, panelsAcross, moduleNote }: YardPlanProps) {
-  const run = useMemo(() => buildRun(runFt, panelsAcross), [runFt, panelsAcross]);
+export default function YardPlan({ runFt, count, units = false, moduleNote }: YardPlanProps) {
+  const run = useMemo(() => buildRun(runFt, count), [runFt, count]);
+  const blocks = useMemo(() => (units ? buildUnitBlocks(run, count) : null), [units, run, count]);
 
   const pathRef = useRef<SVGPathElement>(null);
   const ticksRef = useRef<SVGGElement>(null);
@@ -149,14 +155,14 @@ export default function YardPlan({ runFt, panelsAcross, moduleNote }: YardPlanPr
     raf: 0,
     shownPx: run.length,
     shownFt: runFt,
-    last: { runFt, panelsAcross },
+    last: { runFt, count, units },
   });
 
   useLayoutEffect(() => {
     const m = motion.current;
     const prev = m.last;
-    if (prev.runFt === runFt && prev.panelsAcross === panelsAcross) return;
-    m.last = { runFt, panelsAcross };
+    if (prev.runFt === runFt && prev.count === count && prev.units === units) return;
+    m.last = { runFt, count, units };
 
     const path = pathRef.current;
     const tickGroup = ticksRef.current;
@@ -256,7 +262,7 @@ export default function YardPlan({ runFt, panelsAcross, moduleNote }: YardPlanPr
     };
     setLive({ px: fromPx, ft: fromFt });
     m.raf = requestAnimationFrame(step);
-  }, [run, runFt, panelsAcross]);
+  }, [run, runFt, count, units]);
 
   useEffect(() => {
     const m = motion.current;
@@ -272,37 +278,54 @@ export default function YardPlan({ runFt, panelsAcross, moduleNote }: YardPlanPr
   const runLabel = runLabelAnchor(tipPx);
   const labelFt = live ? Math.round(live.ft) : runFt;
 
+  // Panel ticks, or for freestanding units one block per unit. Either way they
+  // land left to right after the line has drawn.
   const ticks = useMemo(
     () =>
-      run.ticks.map((t, i) => (
-        <line
-          key={i}
-          className="plan-tick"
-          data-axis={t.x1 === t.x2 ? 'y' : 'x'}
-          x1={t.x1}
-          y1={t.y1}
-          x2={t.x2}
-          y2={t.y2}
-          vectorEffect="non-scaling-stroke"
-        />
-      )),
-    [run.ticks],
+      blocks
+        ? blocks.map((points, i) => (
+            <path
+              key={i}
+              className="plan-tick"
+              data-axis={points[0].y === points[1].y ? 'y' : 'x'}
+              d={pointsToPath(points)}
+              fill="none"
+              strokeOpacity={0.5}
+              strokeWidth={TICK_LENGTH}
+              strokeLinejoin="miter"
+            />
+          ))
+        : run.ticks.map((t, i) => (
+            <line
+              key={i}
+              className="plan-tick"
+              data-axis={t.x1 === t.x2 ? 'y' : 'x'}
+              x1={t.x1}
+              y1={t.y1}
+              x2={t.x2}
+              y2={t.y2}
+              vectorEffect="non-scaling-stroke"
+            />
+          )),
+    [blocks, run.ticks],
   );
 
   return (
     <div className="plan">
       <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} aria-hidden="true" focusable="false">
         <StaticYard />
-        <path
-          ref={bandRef}
-          d={pointsToPath(run.band)}
-          fill="none"
-          stroke={BOXWOOD}
-          strokeOpacity={0.13}
-          strokeWidth={9}
-          strokeLinejoin="miter"
-          strokeLinecap="butt"
-        />
+        {units ? null : (
+          <path
+            ref={bandRef}
+            d={pointsToPath(run.band)}
+            fill="none"
+            stroke={BOXWOOD}
+            strokeOpacity={0.13}
+            strokeWidth={9}
+            strokeLinejoin="miter"
+            strokeLinecap="butt"
+          />
+        )}
         <g ref={ticksRef} stroke={BOXWOOD} strokeWidth={1.25} strokeLinecap="butt">
           {ticks}
         </g>
@@ -326,7 +349,7 @@ export default function YardPlan({ runFt, panelsAcross, moduleNote }: YardPlanPr
       </span>
       <span className="plan-label" data-side="below" style={place(run.labels.module)} aria-hidden="true">
         {moduleNote}
-        {run.tickStep > 1 ? (
+        {!units && run.tickStep > 1 ? (
           <>
             <br />
             <span className="mt-1.5 inline-block text-cedar">1 tick = {run.tickStep} panels</span>

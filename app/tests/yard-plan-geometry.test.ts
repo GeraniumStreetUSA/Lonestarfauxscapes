@@ -7,11 +7,15 @@ import {
   HOUSE_HATCH,
   LOT,
   MIN_TICK_GAP,
+  TICK_LENGTH,
   TRACK_LENGTH,
+  UNIT_GAP,
   VIEW_H,
   VIEW_W,
   buildRun,
+  buildUnitBlocks,
   runToPx,
+  type Point,
 } from '../src/lib/yard-plan-geometry.ts';
 
 function run(runFt: number, systemId: 'hedge' | 'fence-extension' | 'living-wall' = 'hedge') {
@@ -92,7 +96,51 @@ test('the run label sits above the back line, then right of the side line', () =
   assert.equal(run(180).labels.run.side, 'right');
 });
 
+function units(runFt: number) {
+  const e = buildEstimate({ systemId: 'privacy-wall', runFt, heightFt: 4 });
+  const r = buildRun(e.runFt, e.across);
+  return { r, units: e.across, blocks: buildUnitBlocks(r, e.across) };
+}
+
+function drawnLength(points: Point[]): number {
+  return points.slice(1).reduce((sum, p, i) => sum + Math.hypot(p.x - points[i].x, p.y - points[i].y), 0);
+}
+
+test('privacy wall units are separate blocks along the run, one per unit', () => {
+  const { r, units: count, blocks } = units(40);
+  assert.equal(count, 10);
+  assert.equal(blocks.length, 10);
+  // On the back line, centred in the band, left to right with a gap between neighbours.
+  for (const b of blocks) {
+    assert.equal(b.length, 2);
+    assert.equal(b[0].y, LOT.y0 + TICK_LENGTH / 2);
+    assert.equal(b[1].y, b[0].y);
+    assert.ok(b[1].x > b[0].x);
+  }
+  for (let i = 1; i < blocks.length; i += 1) {
+    const gap = blocks[i][0].x - blocks[i - 1][1].x;
+    assert.ok(Math.abs(gap - UNIT_GAP) < 0.05, `gap ${gap}`);
+  }
+  assert.ok(blocks[0][0].x > r.start.x);
+  assert.ok(blocks[blocks.length - 1][1].x < r.end.x);
+});
+
+test('units follow the run round the corner, and stay readable at 300 ft', () => {
+  const corner = units(180);
+  assert.equal(corner.blocks.length, 45);
+  // One unit straddles the corner and bends round it; the last runs down the side line.
+  assert.ok(corner.blocks.some((b) => b.length === 3));
+  const last = corner.blocks[corner.blocks.length - 1];
+  assert.equal(last[0].x, last[1].x);
+  assert.ok(last[1].y > last[0].y);
+
+  const far = units(300);
+  assert.equal(far.blocks.length, 75);
+  for (const b of far.blocks) assert.ok(drawnLength(b) >= MIN_TICK_GAP, `block ${drawnLength(b)}`);
+});
+
 test('geometry is deterministic', () => {
   assert.deepEqual(run(137), run(137));
+  assert.deepEqual(units(137), units(137));
   assert.ok(HOUSE_HATCH.length > 20);
 });

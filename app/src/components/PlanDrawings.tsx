@@ -39,7 +39,7 @@ function Pin({ x, y, r = 3.6 }: { x: number; y: number; r?: number }) {
 
 const DASH = '9 3 2 3';
 
-export type SystemDrawingId = 'hedge' | 'living-wall' | 'fence-extension' | 'commercial';
+export type SystemDrawingId = 'hedge' | 'living-wall' | 'fence-extension' | 'commercial' | 'privacy-wall';
 
 /** The plan strip at the top of each system card (240 x 64). */
 export function SystemThumb({ id }: { id: SystemDrawingId }) {
@@ -101,6 +101,22 @@ export function SystemThumb({ id }: { id: SystemDrawingId }) {
           ))}
           <Pin x={96} y={54} />
           <Pin x={144} y={54} />
+        </g>
+      ) : null}
+
+      {id === 'privacy-wall' ? (
+        <g fill="none">
+          {/* Freestanding 4 ft units, each on its base, screening a patio from the pool deck. */}
+          <path d="M 8 8 L 232 8" stroke={INK} strokeOpacity={0.45} strokeDasharray={DASH} {...thin} />
+          {[16, 60, 104, 148].map((x) => (
+            <g key={x}>
+              <rect x={x - 3} y={17} width={42} height={13} stroke={INK} strokeOpacity={0.4} {...thin} />
+              <rect x={x} y={20} width={36} height={7} fill={BOXWOOD} fillOpacity={0.2} stroke={BOXWOOD} strokeWidth={1.2} {...thin} />
+            </g>
+          ))}
+          <rect x={150} y={40} width={76} height={18} rx={8} stroke={INK} strokeOpacity={0.45} {...thin} />
+          <Pin x={16} y={23.5} />
+          <Pin x={184} y={23.5} />
         </g>
       ) : null}
     </svg>

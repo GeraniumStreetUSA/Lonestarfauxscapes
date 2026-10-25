@@ -15,7 +15,8 @@
  *   - feet map to drawn length on a log scale, so 30 ft and 300 ft differ
  *     visibly while 4 ft still shows;
  *   - one tick per panel across, perpendicular to the run, on the yard side;
- *     ticks closer than MIN_TICK_GAP are thinned to every Nth and labelled.
+ *     ticks closer than MIN_TICK_GAP are thinned to every Nth and labelled;
+ *   - freestanding units (the privacy wall) are separate blocks instead.
  */
 
 export const VIEW_W = 640;
@@ -193,6 +194,46 @@ export function buildRun(runFt: number, panelsAcross: number): RunGeometry {
       module: toAnchor({ x: LOT.x0 + 14, y: LOT.y0 + TICK_LENGTH + 12 }, 'below'),
     },
   };
+}
+
+/** Gap between neighbouring freestanding units on the plan, in viewBox units. */
+export const UNIT_GAP = 3;
+
+/**
+ * Freestanding units (the privacy wall) as separate blocks along the run: the
+ * run's band cut into `units` equal lengths, with a small gap between
+ * neighbours. Each block is a polyline on the band's centre line, drawn with
+ * stroke-width TICK_LENGTH; one that straddles the corner bends round it.
+ */
+export function buildUnitBlocks(run: RunGeometry, units: number): Point[][] {
+  const segments = run.band.slice(1).map((b, i) => {
+    const a = run.band[i];
+    return { a, b, length: Math.hypot(b.x - a.x, b.y - a.y) };
+  });
+  const total = segments.reduce((sum, s) => sum + s.length, 0);
+  const count = Math.max(1, Math.floor(units));
+  const pitch = total / count;
+  const inset = Math.min(UNIT_GAP / 2, pitch / 4);
+
+  const slice = (from: number, to: number): Point[] => {
+    const out: Point[] = [];
+    let start = 0;
+    for (const { a, b, length } of segments) {
+      const end = start + length;
+      if (length > 0 && end > from && start < to) {
+        const at = (d: number): Point => {
+          const t = (d - start) / length;
+          return { x: round(a.x + (b.x - a.x) * t), y: round(a.y + (b.y - a.y) * t) };
+        };
+        if (out.length === 0) out.push(at(Math.max(from, start)));
+        out.push(at(Math.min(to, end)));
+      }
+      start = end;
+    }
+    return out;
+  };
+
+  return Array.from({ length: count }, (_, i) => slice(i * pitch + inset, (i + 1) * pitch - inset));
 }
 
 /* ---------------------------------------------------------------------------

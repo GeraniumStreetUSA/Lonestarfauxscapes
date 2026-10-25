@@ -15,19 +15,35 @@ function files(dir: string, exts: string[]): string[] {
 }
 
 const sources = [...files(path.join(appRoot, 'src'), ['.ts', '.tsx', '.css', '.json']), path.join(appRoot, 'index.html')];
-const copyFiles = ['src/data/home-content.ts', 'src/data/case-studies.ts', 'src/data/site.ts'].map((f) =>
-  path.join(appRoot, f),
-);
+const pricesFile = path.join(appRoot, 'src/data/starting-prices.ts');
+const copyFiles = [
+  'src/data/home-content.ts',
+  'src/data/case-studies.ts',
+  'src/data/site.ts',
+  'src/data/starting-prices.ts',
+].map((f) => path.join(appRoot, f));
 
 test('no em-dash anywhere in the app source', () => {
   for (const file of sources) {
-    assert.ok(!readFileSync(file, 'utf8').includes('—'), path.relative(appRoot, file));
+    assert.ok(!readFileSync(file, 'utf8').includes('\u2014'), path.relative(appRoot, file));
   }
 });
 
-test('no dollar figures anywhere in the app source', () => {
+test('dollar figures only in src/data/starting-prices.ts', () => {
+  assert.ok(sources.includes(pricesFile), 'the prices file is in the scan');
   for (const file of sources) {
+    if (file === pricesFile) continue;
     assert.doesNotMatch(readFileSync(file, 'utf8'), /\$\s?\d/, path.relative(appRoot, file));
+  }
+});
+
+test('no leftover "no prices" wording', () => {
+  for (const file of sources) {
+    assert.doesNotMatch(
+      readFileSync(file, 'utf8'),
+      /no prices here|not dollars|dimensions only|no dollar figure/i,
+      path.relative(appRoot, file),
+    );
   }
 });
 

@@ -1,15 +1,22 @@
 /**
  * Homepage copy, verbatim from the Phase 2 copy deck
- * (tasks/phase2-homepage-brief.md). Do not add facts, numbers, timelines,
- * ratings, warranties or prices here; ask the owner first (OWNER-NEEDS.md).
- * `tests/copy.test.ts` scans this file and every component for em-dashes,
- * dollar figures and banned words.
+ * (tasks/phase2-homepage-brief.md) and the pricing release of 2026-10-25.
+ * Do not add facts, numbers, timelines, ratings or warranties here; ask the
+ * owner first (OWNER-NEEDS.md). Prices are never typed here: they are
+ * formatted from `starting-prices.ts`. `tests/copy.test.ts` scans this file
+ * and every component for em-dashes, dollar figures and banned words.
  */
+
+import {
+  STARTING_PRICES,
+  formatStartingPriceProse,
+  type StartingPrice,
+} from './starting-prices.ts';
 
 export const SEO = {
   title: 'Artificial Hedges & Living Walls in Texas | Lone Star Faux Scapes',
-  description:
-    'Artificial hedges, living walls and fence extensions built to your run. Serving Dallas, Fort Worth, Houston, Austin and San Antonio. Free quote.',
+  /** ≤155 characters (tested). "DFW" keeps all five metros inside the limit. */
+  description: `Artificial hedges ${formatStartingPriceProse(STARTING_PRICES.hedge)} plus install. Living walls, fence extensions and privacy walls in DFW, Houston, Austin, San Antonio.`,
   canonical: 'https://lonestarfauxscapes.com/',
 } as const;
 
@@ -31,13 +38,17 @@ export const HERO = {
 export const ESTIMATOR = {
   callout: '◦ STEP 1 OF 2: MEASURE YOUR RUN',
   title: 'How long is the line you want green?',
-  body: 'Pick a system and set the run. We draw it, count the panels and send the numbers with your quote. No prices here: every quote follows a site review.',
+  body: 'Pick a system and set the run. We draw it, count the panels and do the arithmetic on our published starting prices. Installation is quoted after a site review.',
   /** Fieldset legend. Not in the deck: reuses the deck's quote-form field name. */
   systemLegend: 'System',
   runLabel: 'Run length (ft)',
   heightLabel: 'Height (ft)',
+  /** Shown instead of the height slider where the price fixes the height: "Height: 6 ft (priced size)". */
+  heightFixedLabel: 'Height',
+  heightFixedNote: 'priced size',
   locationLabel: 'City or ZIP',
-  qualifier: 'Dimensions only, not a quote. Final panel layout is set at the site review.',
+  qualifier:
+    'Illustrations, not quotes: arithmetic from our published material starting prices. Installation is quoted separately after a site review.',
   send: 'Send these numbers to my quote',
 } as const;
 
@@ -82,15 +93,21 @@ export const QUESTIONS = {
     {
       question: 'What will it cost?',
       answer:
-        'It depends on run length, height, system, mounting and site access. That is why the estimator shows dimensions, not dollars. Your written quote follows a site review.',
+        `Starting prices are published: hedge ${formatStartingPriceProse(STARTING_PRICES.hedge)}, ` +
+        `fence extension ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])}, ` +
+        `living wall ${formatStartingPriceProse(STARTING_PRICES['living-wall'])}, ` +
+        `privacy wall ${formatStartingPriceProse(STARTING_PRICES['privacy-wall'])}. ` +
+        'Installation is quoted after a site review, because access, mounting and run length drive it.',
       link: { label: 'How pricing works', href: '/pricing' },
     },
   ] satisfies Question[],
 } as const;
 
 export interface SystemCard {
-  id: 'hedge' | 'living-wall' | 'fence-extension' | 'commercial';
+  id: 'hedge' | 'living-wall' | 'fence-extension' | 'commercial' | 'privacy-wall';
   title: string;
+  /** The released starting price, or null for a system quoted after a site review. */
+  startingPrice: StartingPrice | null;
   module: string;
   mount: string;
   bestFor: string;
@@ -99,14 +116,16 @@ export interface SystemCard {
 }
 
 export const SYSTEMS_SECTION = {
-  title: 'Four systems. Measured to your site.',
-  titleLines: ['Four systems.', 'Measured to your site.'],
-  price: 'Quoted after a site review',
+  title: 'Five systems. Measured to your site.',
+  titleLines: ['Five systems.', 'Measured to your site.'],
+  /** The price line of a card with no released price. */
+  quoted: 'Quoted after a site review',
   specLabels: { module: 'Module', mount: 'Mount', bestFor: 'Best for' },
   cards: [
     {
       id: 'hedge',
       title: 'Artificial hedge',
+      startingPrice: STARTING_PRICES.hedge,
       module: '20 in panels',
       mount: 'Fence, frame or wall',
       bestFor: 'Backyard privacy, pool screens',
@@ -116,6 +135,7 @@ export const SYSTEMS_SECTION = {
     {
       id: 'living-wall',
       title: 'Living wall',
+      startingPrice: STARTING_PRICES['living-wall'],
       module: '40 in panels',
       mount: 'Wall or frame',
       bestFor: 'Courtyards, patios, interiors',
@@ -125,6 +145,7 @@ export const SYSTEMS_SECTION = {
     {
       id: 'fence-extension',
       title: 'Fence extension',
+      startingPrice: STARTING_PRICES['fence-extension'],
       module: '20 in panels',
       mount: 'Frame above an existing fence',
       bestFor: 'Second-story sightlines',
@@ -134,11 +155,22 @@ export const SYSTEMS_SECTION = {
     {
       id: 'commercial',
       title: 'Commercial wall',
+      startingPrice: null,
       module: 'Per system spec',
       mount: 'Wall or freestanding frame',
       bestFor: 'Restaurants, retail, multifamily',
       link: { label: 'Commercial walls', href: '/commercial-wall' },
       image: 'system-commercial',
+    },
+    {
+      id: 'privacy-wall',
+      title: 'Privacy wall',
+      startingPrice: STARTING_PRICES['privacy-wall'],
+      module: '4 × 4 ft units',
+      mount: 'Freestanding, standard base',
+      bestFor: 'Patios, pool decks, quick screens',
+      link: { label: 'Privacy walls', href: '/privacy-wall' },
+      image: 'system-privacy-wall',
     },
   ] satisfies SystemCard[],
 } as const;
@@ -194,7 +226,7 @@ export const QUOTE = {
     details: 'Details',
     detailsPlaceholder: 'What needs covering? Rough size, fence type, photos to share.',
   },
-  systems: ['Artificial hedge', 'Living wall', 'Fence extension', 'Commercial wall', 'Not sure yet'],
+  systems: ['Artificial hedge', 'Living wall', 'Fence extension', 'Commercial wall', 'Privacy wall', 'Not sure yet'],
   projectTypes: ['Residential', 'Commercial'],
   submit: 'Send my quote request',
   success: 'Got it. We will be in touch at the email you gave.',
@@ -237,7 +269,7 @@ export const FAQ = {
     {
       question: 'How is the price set?',
       answer:
-        'By run length, height, system, mounting and site access. You get a written quote after a site review.',
+        'From published starting prices for each system, plus installation. Installation is quoted after a site review: run length, mounting and site access drive it.',
     },
     {
       question: 'Will my HOA approve it?',

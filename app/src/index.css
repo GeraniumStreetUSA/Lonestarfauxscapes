@@ -587,6 +587,11 @@
     transform: scale(1);
   }
 
+  /* A photo whose subject sits low in the frame keeps it in wide crops. */
+  .photo-low img {
+    object-position: 50% 100%;
+  }
+
   /* ---- fields: underline inputs, labels always visible ---- */
 
   .field-label {
@@ -688,7 +693,7 @@
   }
 
   /* Estimator system chips: a list on phones and in the narrow desktop
-     column (1024 to 1279), three across where there is room. */
+     column (1024 to 1279), two by two where there is room. */
   .chip-note {
     margin-left: auto;
     white-space: nowrap;
@@ -696,7 +701,7 @@
 
   @media (min-width: 640px) and (max-width: 1023px), (min-width: 1280px) {
     .chip-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .chip-system {
@@ -994,6 +999,16 @@
     height: 100vh;
   }
 
+  /* "from" and "/ unit" beside the estimator's lead figure. */
+  .estimate-price-word {
+    font-size: clamp(1.125rem, 1rem + 0.45vw, 1.375rem);
+    font-weight: 640;
+    font-stretch: 106%;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--ink);
+  }
+
   .working {
     display: grid;
     grid-template-columns: auto auto minmax(0, 1fr);
@@ -1184,6 +1199,42 @@
 
   .rule-grid > * {
     background: var(--caliche);
+  }
+
+  /* The five system cards. Phones: one column. Tablets: two across, the last
+     card spanning both. Desktop: three across, then the last two at half
+     width. A wider card's photo is cropped wider (8:3, 2:1) so every photo in
+     the grid stands the same height. */
+  @media (min-width: 640px) {
+    .systems-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .systems-grid > li {
+      grid-column: span 3;
+    }
+
+    .systems-grid > li:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .systems-grid > li:last-child .photo {
+      aspect-ratio: 8 / 3;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .systems-grid > li {
+      grid-column: span 2;
+    }
+
+    .systems-grid > li:nth-child(n + 4) {
+      grid-column: span 3;
+    }
+
+    .systems-grid > li:nth-child(n + 4) .photo {
+      aspect-ratio: 2 / 1;
+    }
   }
 
   .process-grid > * {

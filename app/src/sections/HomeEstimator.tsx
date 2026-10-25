@@ -15,6 +15,8 @@ import {
   commitDraft,
   formatNumber,
   getSystem,
+  isHeightLocked,
+  isPerUnit,
   type Range,
   type SystemId,
 } from '../lib/estimator';
@@ -98,9 +100,10 @@ function Measure({ id, label, range, value, onCommit }: MeasureProps) {
 
 /**
  * Screen 2, the signature. The visitor picks a system and sets the run; the
- * plan draws it and the readout counts the panels, with the working shown.
- * No prices: every quote follows a site review. "Send" carries the numbers
- * into the quote form below (step 2 of 2).
+ * plan draws it, and the readout leads with the starting material figure from
+ * the released prices, then counts the panels, with the working shown. Every
+ * figure carries the installation caveat. "Send" carries the numbers into the
+ * quote form below (step 2 of 2).
  */
 export default function HomeEstimator() {
   const uid = useId();
@@ -111,6 +114,7 @@ export default function HomeEstimator() {
 
   const system = getSystem(systemId);
   const estimate = buildEstimate({ systemId, runFt, heightFt });
+  const { price } = estimate;
 
   const chooseSystem = (id: SystemId) => {
     setSystemId(id);
@@ -122,7 +126,8 @@ export default function HomeEstimator() {
     scrollToQuote();
   };
 
-  const working = [estimate.lines.across, estimate.lines.rows, estimate.lines.panels, estimate.lines.area];
+  const { lines } = estimate;
+  const working = [lines.across, lines.rows, lines.panels, lines.area].filter((line): line is string => line !== null);
 
   return (
     <section id="estimate" aria-labelledby={`${uid}-title`} className="relative overflow-clip">
@@ -168,13 +173,20 @@ export default function HomeEstimator() {
 
               <div className="mt-8 grid gap-7">
                 <Measure id={`${uid}-run`} label={ESTIMATOR.runLabel} range={RUN} value={runFt} onCommit={(v) => setRunFt(clampRun(v))} />
-                <Measure
-                  id={`${uid}-height`}
-                  label={ESTIMATOR.heightLabel}
-                  range={system.height}
-                  value={heightFt}
-                  onCommit={(v) => setHeightFt(clampHeight(system, v))}
-                />
+                {isHeightLocked(system) ? (
+                  <p className="field-label">
+                    {ESTIMATOR.heightFixedLabel}: {estimate.heightFt} ft{' '}
+                    <span className="font-normal text-cedar">({ESTIMATOR.heightFixedNote})</span>
+                  </p>
+                ) : (
+                  <Measure
+                    id={`${uid}-height`}
+                    label={ESTIMATOR.heightLabel}
+                    range={system.height}
+                    value={heightFt}
+                    onCommit={(v) => setHeightFt(clampHeight(system, v))}
+                  />
+                )}
                 <div>
                   <label htmlFor={`${uid}-location`} className="field-label">
                     {ESTIMATOR.locationLabel}
@@ -197,23 +209,38 @@ export default function HomeEstimator() {
             <div className="estimator-plan relative">
               {/* The spine arrives from the hero and ends on the corner where the run starts. */}
               <span className="spine estimator-spine hidden lg:block" aria-hidden="true" />
-              <YardPlan runFt={estimate.runFt} panelsAcross={estimate.across} moduleNote={system.note} />
+              <YardPlan runFt={estimate.runFt} count={estimate.across} units={isPerUnit(system)} moduleNote={system.note} />
             </div>
 
             <div className="estimator-readout">
+              {/* Live regions hold figures and arithmetic only; the caption between them is read in place. */}
               <div aria-live="polite" aria-atomic="true">
-                <div className="grid grid-cols-2 border-y border-rule">
-                  <p className="py-5 pr-4 sm:py-6">
-                    <span className="t-figure block text-[clamp(3.25rem,2.2rem+3.6vw,5.75rem)]">
-                      {formatNumber(estimate.panels)}
-                    </span>
-                    <span className="mt-2 block text-[17px] font-[620] text-cedar">panels</span>
+                <p className="flex flex-wrap items-baseline gap-x-3">
+                  <span className="estimate-price-word">from</span>{' '}
+                  <span className="t-figure text-[clamp(3.25rem,2.2rem+3.6vw,5.75rem)]">{price.amount}</span>
+                  {price.per ? <> <span className="estimate-price-word">{price.per}</span></> : null}
+                </p>
+                {price.arithmetic ? (
+                  <p className="mono mt-4 text-[13px] leading-relaxed tracking-[0.01em] text-ink sm:text-[14px]">
+                    {price.arithmetic}
                   </p>
-                  <p className="border-l border-rule py-5 pl-5 sm:py-6 sm:pl-7">
-                    <span className="t-figure block text-[clamp(3.25rem,2.2rem+3.6vw,5.75rem)]">
+                ) : null}
+              </div>
+              <p className="t-small mt-2 max-w-[52ch] text-cedar">{price.caption}</p>
+
+              <div aria-live="polite" aria-atomic="true" className="mt-7">
+                <div className="grid grid-cols-2 border-y border-rule">
+                  <p className="py-4 pr-4">
+                    <span className="t-figure block text-[clamp(2.25rem,1.7rem+1.4vw,3rem)]">
+                      {formatNumber(estimate.panels)}
+                    </span>{' '}
+                    <span className="mt-1.5 block text-[16px] font-[620] text-cedar">{estimate.panelsWord}</span>
+                  </p>
+                  <p className="border-l border-rule py-4 pl-5 sm:pl-7">
+                    <span className="t-figure block text-[clamp(2.25rem,1.7rem+1.4vw,3rem)]">
                       {formatNumber(estimate.areaSqFt)}
-                    </span>
-                    <span className="mt-2 block text-[17px] font-[620] text-cedar">sq ft</span>
+                    </span>{' '}
+                    <span className="mt-1.5 block text-[16px] font-[620] text-cedar">sq ft</span>
                   </p>
                 </div>
                 <ol className="working mono m-0 list-none border-b border-rule p-0 py-5">

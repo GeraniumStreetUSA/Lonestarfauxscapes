@@ -12,8 +12,8 @@ Reply by number. "Drop it" is always a valid answer.
 | 4 | Publish the Spicewood street address (21933 Briarcliff Dr, Spicewood, TX 78669)? | Street address in schema | Region only ("Texas"), no street address |
 | 5 | Hours: Mon to Fri, 8 AM to 4 PM. Correct? | Shown | Left out |
 | 6 | "Est. 2019": proof, or drop? Any project count you will stand behind? | "Est. 2019" badge | Both dropped |
-| 7 | Texas starting prices: system, figure, unit, configuration, qualifier. | Conflicting ($2,500+ installed; $25 to $65/sq ft; $65 to $90/sq ft; others) | No dollar figures anywhere. Estimator shows dimensions only (your 2026-10-24 decision) |
-| 8 | System lineup to sell: hedge (boxwood, ficus, oasis, custom), living wall (Single Mat, Vallum FRX, Fluid Design, Oasis), commercial wall covering, fence extensions, pool privacy, fire-rated hedge. Which stay? | All listed | Four homepage systems: hedge, living wall, fence extension, commercial wall / Vallum FRX |
+| 7 | Texas starting prices | **Answered 2026-10-25:** same structure as Califauxscapes, installation extra. Hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft (3 ft), living wall from $18 / sq ft, privacy wall from $699 / unit (4 x 4 ft). Commercial wall quoted after a site review | Shipped as released |
+| 8 | System lineup to sell (privacy wall added 2026-10-25): hedge (boxwood, ficus, oasis, custom), living wall (Single Mat, Vallum FRX, Fluid Design, Oasis), commercial wall covering, fence extensions, pool privacy, fire-rated hedge. Which stay? | All listed | Four homepage systems: hedge, living wall, fence extension, commercial wall / Vallum FRX |
 | 9 | Panel module sizes: 20 in hedge mats and 40 in wall mats? | Both appear | Used in estimator maths (the truth audit marks both as sourced). Correct me if wrong |
 | 10 | Fire rating documentation: lab, standard, report or certificate. "With every installation" or "on request"? | Conflicting. Also "self-extinguishes within 2 seconds" | "Fire-rated options available", with NFPA 701 vs ASTM E84 explained. No certificate promise |
 | 11 | UV rating, warranty terms, lifespan wording | Conflicting (1 yr structural / 3 yr colour; 5 to 8 yrs; 10+ yrs indoors) | No warranty strip and no lifespan numbers |
@@ -35,3 +35,4 @@ Reply by number. "Drop it" is always a valid answer.
 | 27 | Rename `/case-studies` and `/gallery` to `/projects`? It would cost 5 indexed URLs | `/projects` 301s to `/case-studies` | Keep `/case-studies` |
 | 28 | Fold `/commercial-resources` into `/commercial`? | Separate page, with internal notes showing | Keep it, strip the notes |
 | 29 | **Live defect:** the Decap CMS at `/admin/` is stuck in a redirect loop (301 to `/admin`, then 308 back) because of the trailing-slash rule in `_redirects`. Fix it on the live site now? | Broken | Fixed in the rebuild only, unless you say fix live |
+| 30 | Freestanding privacy wall page: the rebuild adds `/privacy-wall` (today it 301s to `/residential`). OK to turn it into its own page? | 301 to /residential | New page in the rebuild, redirect removed |

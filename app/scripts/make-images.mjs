@@ -90,6 +90,13 @@ const IMAGES = [
     src: storefront04,
     crop: { left: 176, top: 0, width: 1024, height: 768 },
   },
+  // Privacy wall card: freestanding hedge boxes along a Houston walkway (a
+  // real photo not otherwise on the page). Full frame: the card shows it at
+  // 4:3, 8:3 and 2:1.
+  {
+    name: 'system-privacy-wall',
+    src: 'public/case-studies/houston-restaurant-hedges/HOUSTON-RESTAURAUNT-HEDGE-06.avif',
+  },
 ];
 
 async function main() {

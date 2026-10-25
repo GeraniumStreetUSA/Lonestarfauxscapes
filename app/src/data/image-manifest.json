@@ -95,5 +95,14 @@
       768,
       1024
     ]
+  },
+  "system-privacy-wall": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
   }
 }

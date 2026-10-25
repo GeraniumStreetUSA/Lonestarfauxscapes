@@ -51,5 +51,6 @@ test('validation: name, email, city or ZIP, system and project type are required
   assert.ok(!fields.has('details'));
   assert.equal(quoteSchema.safeParse(filled).success, true);
   assert.equal(quoteSchema.safeParse({ ...filled, email: 'not-an-email' }).success, false);
+  assert.equal(quoteSchema.safeParse({ ...filled, system: 'Privacy wall' }).success, true);
   assert.equal(quoteSchema.safeParse({ ...filled, system: 'Something else' }).success, false);
 });

@@ -58,6 +58,16 @@ New React app lives in `app/` beside today's site. The live static site keeps se
 - [x] Scaffold `app/`: Vite 7, React 19, TS, Tailwind 3, react-router 7, helmet-async. Tokens, fonts, header, footer.
 - [x] Homepage built in React with the plan-drawing estimator. Screenshots at 1440x900 and 390x844.
 
+### Pricing add-on (owner request 2026-10-25, done, owner answers: install extra, heights locked to priced sizes, privacy wall added)
+Owner: use Califauxscapes pricing structure on the Lone Star build, "plus install". Live califauxscapes.com/pricing and its `starting-prices.ts` agree:
+hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft (3 ft), living wall from $18 / sq ft (fully custom), freestanding privacy wall from $699 / unit (4 x 4 ft, standard base). Every figure carries "+ installation, quoted after a site review".
+- [x] `app/src/data/starting-prices.ts`: the one data file for prices, configs and the install qualifier, with tests.
+- [x] Estimator: add the starting-material figure and its arithmetic (`40 linear ft x $99 = $3,960`), the "+ installation" line, the panel count kept.
+- [x] Systems cards: price line from the data file. Commercial wall stays "Quoted after a site review".
+- [x] Copy: remove "No prices here" lines; update Four questions #4, the FAQ price answer, and SEO description if needed.
+- [x] `CLAIMS.md` and `OWNER-NEEDS.md` #7: record owner release 2026-10-25.
+- [x] Verify: tests, build, browser at 1440 and 390.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

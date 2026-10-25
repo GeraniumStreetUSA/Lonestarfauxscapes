@@ -131,7 +131,7 @@ Both `_redirects` and `public/_redirects` are identical except line 1's comment.
 | `/get-quote` | `/contact` | bare and `/` 1 hop; `.html` 2 hops |
 | `/privacy-policy` | `/privacy` | bare and `/` 1 hop; `.html` 2 hops |
 | `/fire-rated` | `/fire-rated-artificial-hedge` | bare and `/` 1 hop; `.html` 2 hops |
-| `/privacy-wall` | `/residential` | all 1 hop |
+| `/privacy-wall` | **proposed: new page `/privacy-wall` (freestanding privacy wall, added 2026-10-25); drop this 301 if owner OKs OWNER-NEEDS #30** | was `/residential`, 1 hop |
 | `/lighthouse-report` | `/installation` (or 410, decision 6) | bare and `.html` 1 hop; `/` 2 hops |
 | `/commercial-wall-covering` | `/commercial-wall` | all 1 hop |
 | `/commercial-fire-retardant-tested-artificial-solutions` | `/commercial` | all 1 hop |
