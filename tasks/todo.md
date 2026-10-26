@@ -110,6 +110,11 @@ Build order: hero prototype first, shown to the owner, then the rest. Builder: F
 - [ ] Spine, systems hover and carousel, projects gallery, fire word-fill, global micro-interactions.
 - [ ] Verify: 60 fps on a mid laptop, Lighthouse, reduced motion, `?qa=1`, 390 px.
 
+### Owner round 2026-10-26 (b)
+- [x] Fire copy: NFPA 701 only, no ASTM anywhere (owner: no ASTM E84 test on file). Three-point NFPA explainer (what it is, where fire code asks for it, what to ask for). FAQ fire answer matches.
+- [x] "Where we work": a real Texas outline map (survey grid, north arrow, true scale bar), metro rows with coordinates; hovering a row lights its pin and the reverse; the outline draws in on scroll (fails open).
+- [x] Sticky header: follows on scroll. Desktop compacts. Phone hides the nav row while scrolling down and shows it on scroll up. The desktop floating quote pill goes, since the header button is always there. Anchors offset for the header.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

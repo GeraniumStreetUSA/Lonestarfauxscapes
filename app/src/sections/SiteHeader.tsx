@@ -1,18 +1,53 @@
 import { Phone } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 import PlanMark from '../components/PlanMark';
 import { BUSINESS, HEADER_NAV } from '../data/site';
 import { CONTACT, HERO } from '../data/home-content';
 
 /**
- * Wordmark, four links, the phone and one button. Static, not fixed: on a
- * phone the bottom bar carries Call and the quote, so the header can scroll
- * away and give the page its height back. One <nav>, placed by CSS grid: in
- * the header row on desktop, on its own row (44 px targets) below 1024 px.
+ * Wordmark, four links, the phone and one button. Sticky: it follows the
+ * visitor. Desktop keeps it in view (with a soft shadow once the page moves).
+ * Phones slide it away while scrolling down, to give the page its height
+ * back (the bottom bar carries Call and the quote), and bring it back on the
+ * first scroll up. Transform only, so nothing below it ever jumps.
  */
 export default function SiteHeader() {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const phone = window.matchMedia('(max-width: 1023px)');
+    let lastY = window.scrollY;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const y = window.scrollY;
+      el.toggleAttribute('data-scrolled', y > 8);
+      const down = y > lastY + 4;
+      const up = y < lastY - 4;
+      if (phone.matches && down && y > el.offsetHeight * 2) el.setAttribute('data-tucked', '');
+      if (!phone.matches || up || y <= el.offsetHeight) el.removeAttribute('data-tucked');
+      if (down || up) lastY = y;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    /* Keyboard users always see the header they tab into. */
+    const onFocus = () => el.removeAttribute('data-tucked');
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    el.addEventListener('focusin', onFocus);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      el.removeEventListener('focusin', onFocus);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <header className="relative z-20 border-b border-rule bg-caliche">
+    <header ref={ref} className="site-header">
       <div className="wrap header-grid">
         <a href="/" className="header-brand -ml-1 inline-flex items-center gap-2.5 px-1">
           <PlanMark className="h-6 w-6 flex-none" />

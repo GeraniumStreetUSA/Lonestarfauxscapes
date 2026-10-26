@@ -6,8 +6,9 @@ import { FIRE_CHAPTER } from '../data/home-content';
 
 /**
  * The one dark chapter: commercial work and fire code. Ink ground, Noon for
- * the callout and focus ring, Live leaf for links. The two standards are
- * explained, never certified: no certificate claims.
+ * the callout and focus ring, Live leaf for links. NFPA 701 only (the
+ * owner has no ASTM E84 testing to point to): what it is, where fire code
+ * asks for it, and what to ask for.
  */
 export default function HomeFireChapter() {
   return (
@@ -19,6 +20,19 @@ export default function HomeFireChapter() {
             {FIRE_CHAPTER.title}
           </h2>
           <p className="t-body mt-6 text-grass">{FIRE_CHAPTER.body}</p>
+          <dl className="fire-points">
+            {FIRE_CHAPTER.points.map((point, index) => (
+              <div key={point.label} className="fire-point">
+                <dt>
+                  <span className="fire-point-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  {point.label}
+                </dt>
+                <dd>{point.text}</dd>
+              </div>
+            ))}
+          </dl>
           <ul className="m-0 mt-9 grid list-none border-t border-[rgb(169_179_173/0.28)] p-0 sm:grid-cols-2 sm:gap-x-8">
             {FIRE_CHAPTER.links.map((link) => (
               <li key={link.href} className="border-b border-[rgb(169_179_173/0.28)]">

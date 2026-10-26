@@ -196,11 +196,25 @@ export const SYSTEMS_SECTION = {
 export const FIRE_CHAPTER = {
   callout: '◦ FIRE CODE',
   title: 'Commercial jobs answer to the fire marshal.',
-  body: 'Restaurants, retail and multifamily projects often need greenery with a documented fire rating. Two standards come up. NFPA 701 is a flame test for textiles and films. ASTM E84 measures surface burning of building materials. Which one your project needs depends on the code path and your fire marshal. Ask for the documentation that matches your system before you order.',
+  body: 'Restaurants, retail and multifamily projects often need greenery with a documented fire rating. The test fire marshals ask for on decorative greenery is NFPA 701. Our fire-rated hedges and walls are built for it.',
+  points: [
+    {
+      label: 'What it is',
+      text: 'NFPA 701 is the flame propagation test for textiles, films and decorative materials: a sample is burned and judged on how far the flame spreads and whether flaming pieces drip.',
+    },
+    {
+      label: 'Where it comes up',
+      text: 'Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer.',
+    },
+    {
+      label: 'What to ask for',
+      text: 'The NFPA 701 documentation for your exact system, before you order. Then confirm the requirement with your fire marshal.',
+    },
+  ],
   links: [
     { label: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge' },
     { label: 'Vallum FRX walls', href: '/vallum-frx' },
-    { label: 'NFPA 701 vs ASTM E84', href: '/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery' },
+    { label: 'NFPA 701, explained', href: '/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery' },
     { label: 'Commercial projects', href: '/commercial' },
   ],
   photoCaption: 'Patio hedge barriers, Houston',
@@ -282,7 +296,7 @@ export const FAQ = {
     {
       question: 'Is it fire-rated?',
       answer:
-        'Fire-rated options are available for hedges and walls. Ask for the documentation for the exact system you choose.',
+        'Fire-rated hedge and wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
     },
     {
       question: 'How is the price set?',
@@ -303,8 +317,13 @@ export const FAQ = {
 } as const;
 
 export const SERVICE_AREA = {
+  callout: '◦ SERVICE AREA',
   title: 'Where we work.',
-  elsewhere: 'Somewhere else in Texas? Ask.',
+  intro: 'Dallas, Fort Worth, Houston, Austin and San Antonio. Pick your metro, or send any Texas city with your quote.',
+  elsewhere: 'Somewhere else in Texas?',
+  elsewhereAction: 'Send your city',
+  mapLabel: 'Map of Texas with the five metros we serve marked.',
+  scale: '100 mi',
 } as const;
 
 export const CONTACT = {

@@ -4,7 +4,7 @@ import { motionAllowed } from './motion';
  * Lenis smooth scrolling, desktop only: a fine pointer with hover, 1024 px
  * and up, motion allowed. Phones and touch keep native scrolling. Lenis is
  * imported on demand so it never weighs on first paint. In-page anchors
- * (#quote) glide through Lenis too.
+ * (#quote) glide through Lenis too, stopping clear of the sticky header.
  *
  * Returns a cleanup for the effect that starts it.
  */
@@ -17,7 +17,7 @@ export function startSmoothScroll(): () => void {
 
   void import('lenis').then(({ default: Lenis }) => {
     if (stopped) return;
-    const lenis = new Lenis({ duration: 1.05, anchors: { offset: 0 }, autoRaf: true });
+    const lenis = new Lenis({ duration: 1.05, anchors: { offset: -96 }, autoRaf: true });
     destroy = () => lenis.destroy();
   });
 

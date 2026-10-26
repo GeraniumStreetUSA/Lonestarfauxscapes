@@ -1,4 +1,4 @@
-import { ArrowDown, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { CONTACT, STICKY } from '../data/home-content';
@@ -50,11 +50,10 @@ function useAnyVisible(selector: string, ratio: number, initial: boolean): boole
 }
 
 /**
- * Desktop: a quote pill, bottom right. Phones: Call and "Get a free quote" in
- * a bottom bar. Both stand down while a primary CTA is on screen (no doubled
- * buttons at the hero) and while the quote form is in view (a thumb near the
- * foot of the form cannot hit the bar). Rendered after <main> so it never
- * precedes the hero CTA in tab order.
+ * Phones only: Call and "Get a free quote" in a bottom bar. (Desktop needs
+ * no floating button: the sticky header carries the quote button.) The bar
+ * stands down while a primary CTA or the quote form is on screen, and it is
+ * rendered after <main> so it never precedes the hero CTA in tab order.
  */
 export default function StickyCta() {
   const primaryInView = useAnyVisible('[data-primary-cta]', 0.5, true);
@@ -63,18 +62,6 @@ export default function StickyCta() {
 
   return (
     <>
-      <div
-        className={`fixed bottom-7 right-7 z-40 hidden transition-[opacity,transform] duration-200 lg:block ${
-          pillHidden ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100'
-        }`}
-        inert={pillHidden}
-      >
-        <a href="#quote" className="btn btn-primary shadow-[0_10px_30px_-12px_rgb(21_33_27/0.6)]" data-cta="sticky">
-          {STICKY.quote}
-          <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
-        </a>
-      </div>
-
       <div
         className={`fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-[rgb(237_236_230/0.94)] px-3 pt-2 backdrop-blur-md transition-[opacity,transform] duration-200 [padding-bottom:max(8px,env(safe-area-inset-bottom))] lg:hidden ${
           pillHidden ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'

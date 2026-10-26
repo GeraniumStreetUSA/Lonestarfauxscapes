@@ -79,7 +79,7 @@ Plainspoken Texas builder. Short sentences. It names the condition (sun, heat, h
 4. **Link band:** systems and the 5 metros (crawlable, compact).
 5. **Four questions:** realism (close-up of leaf and seam), Texas sun, HOA (Texas Property Code § 202.007 text cited, never a promise of approval), cost (how a quote is built, no figures).
 6. **Systems:** four cards.
-7. **Dark chapter: commercial and fire.** NFPA 701 vs ASTM E84 in plain words, sourced, with no certificate claims.
+7. **Dark chapter: commercial and fire.** NFPA 701 in plain words: what it is, where fire code asks for it, what to ask for. No ASTM E84 (owner: no such test).
 8. **Texas installs:** the 3 real case studies.
 9. **Process:** send dimensions, site review, build, install. No timelines.
 10. **Quote form:** "Step 2 of 2", prefilled from the estimator.

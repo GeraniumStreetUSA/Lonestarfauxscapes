@@ -25,7 +25,10 @@ Status key:
 | Indoor-grade foliage "can fade faster outside" | Four questions | General material fact, hedged | soft |
 | Texas Property Code Chapter 202 governs HOA deed-restriction enforcement | Four questions | Tex. Prop. Code Ch. 202, "Construction and Enforcement of Restrictive Covenants" | ok (cite the statute on the HOA guide) |
 | Fire-rated options exist for hedges and walls | Dark chapter, FAQ | `docs/truth-audit.md`: allowed as "options exist". No certificate claims | ok |
-| NFPA 701 = flame test for textiles and films; ASTM E84 = surface burning of building materials | Dark chapter | Standard titles: NFPA 701 "Fire Tests for Flame Propagation of Textiles and Films"; ASTM E84 "Surface Burning Characteristics of Building Materials" | ok |
+| NFPA 701 = flame propagation test for textiles, films and decorative materials; judged on flame spread and flaming drips | Fire chapter | NFPA 701 standard title and test criteria | ok |
+| "Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer" | Fire chapter | IFC decorative-vegetation provision as applied by state fire codes (e.g. Oregon State Fire Marshal holiday decor guidance, Minnesota R. 7511.0807); no section number quoted because it differs by edition | ok (soft: varies by city and edition) |
+| "Our fire-rated hedges and walls are built for NFPA 701" and "Ask for the NFPA 701 documentation" | Fire chapter, FAQ | Owner direction 2026-10-26 ("talk NFPA more"; no ASTM E84 test). Needs the NFPA 701 report on file (OWNER-NEEDS #10) | owner |
+| No ASTM E84 mention anywhere | Whole site | Owner 2026-10-26: no ASTM E84 test | ok |
 | Process: send numbers, site review, written quote, panels cut to layout, mounted | Process, quote, FAQ, systems cards | Generic. The written quote after a site review comes from the brief's wording | soft (OWNER-NEEDS #12, #13) |
 | Panels "can mount to many fences or to a freestanding frame" | FAQ | Live product pages | soft |
 | Case studies: Austin residential privacy, Houston restaurant patio, Houston storefront | Texas installs, hero caption, commercial caption | `content/case-studies.json`, real photos | ok (Austin area left out, OWNER-NEEDS #15) |
