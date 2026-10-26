@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import HomeSeo from '../components/HomeSeo';
 import StickyCta from '../components/StickyCta';
 import { armReveals } from '../lib/reveal';
+import { startSmoothScroll } from '../lib/smooth-scroll';
 import HomeEstimator from '../sections/HomeEstimator';
 import HomeFaq from '../sections/HomeFaq';
 import HomeFireChapter from '../sections/HomeFireChapter';
@@ -12,6 +13,7 @@ import HomeLinkBand from '../sections/HomeLinkBand';
 import HomeProcess from '../sections/HomeProcess';
 import HomeQuestions from '../sections/HomeQuestions';
 import HomeQuote from '../sections/HomeQuote';
+import HomeReal from '../sections/HomeReal';
 import HomeServiceArea from '../sections/HomeServiceArea';
 import HomeSystems from '../sections/HomeSystems';
 import SiteFooter from '../sections/SiteFooter';
@@ -23,6 +25,7 @@ import SiteHeader from '../sections/SiteHeader';
  */
 export default function HomePage() {
   useEffect(() => armReveals(), []);
+  useEffect(() => startSmoothScroll(), []);
 
   return (
     <>
@@ -36,6 +39,7 @@ export default function HomePage() {
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none">
         <HomeHero />
+        <HomeReal />
         <HomeEstimator />
         <HomeLinkBand />
         <HomeQuestions />

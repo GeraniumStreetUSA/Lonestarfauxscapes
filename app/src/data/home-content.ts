@@ -21,9 +21,10 @@ export const SEO = {
 } as const;
 
 export const HERO = {
-  /** The H1 in three phrases: three lines on phones and tablets, two on desktop. */
-  titlePhrases: ['Artificial hedges', 'and living walls,', 'installed in Texas.'],
-  sub: 'Privacy from the second-story window next door. Green on the bare fence. No watering, no trimming.',
+  /** The H1 is one element: the search phrase, then the display line. */
+  kicker: 'Artificial hedges and living walls, installed in Texas',
+  display: ['Out of sight.', 'Still green.'],
+  sub: "Your neighbor's second story looks straight into your yard. A hedge built to the right height can take that view away. No watering, no trimming.",
   cta: 'Get a free quote',
   phoneLead: 'or call',
   trust: 'A Geranium Street USA brand. Serving Dallas, Fort Worth, Houston, Austin and San Antonio.',
@@ -33,6 +34,23 @@ export const HERO = {
   ],
   photoCaption: 'Boxwood privacy wall, Austin',
   photoAlt: 'Tall artificial boxwood privacy wall behind live oaks in an Austin backyard',
+  scene: {
+    title: "A backyard drawn in 3D: the neighbor's second-story window looks over a 6 ft fence onto the pool, and a hedge along the fence blocks that view.",
+    window: "Neighbor's window",
+    pool: 'Your pool',
+    inView: 'In view',
+    outOfSight: 'Out of sight',
+    fence: '6 ft fence',
+    hedge: 'Hedge',
+    sliderLabel: 'Hedge height',
+    hint: 'Drag to raise or lower the hedge',
+  },
+} as const;
+
+/** The scroll from the drawn hedge to the real one. */
+export const REAL = {
+  caption: 'The real thing, Austin.',
+  statement: 'Real installs, measured to the foot.',
 } as const;
 
 export const ESTIMATOR = {

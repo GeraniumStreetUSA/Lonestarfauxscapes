@@ -233,40 +233,6 @@
     }
   }
 
-  /* Hero: pitch and provenance on the left, the photo spanning both on the
-     right. Same columns as .estimator-grid, so the spine lines up. */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    .hero-grid {
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      grid-template-areas:
-        'pitch media'
-        'provenance media';
-      grid-template-rows: auto 1fr;
-      column-gap: var(--split-gap);
-      row-gap: 32px;
-    }
-
-    .hero-pitch {
-      grid-area: pitch;
-    }
-
-    .hero-media {
-      grid-area: media;
-    }
-
-    .hero-provenance {
-      grid-area: provenance;
-      align-self: end;
-      margin-bottom: 38px;
-    }
-  }
-
   /* ---- type ---- */
 
   .t-h1 {
@@ -434,14 +400,38 @@
   }
 
   .btn-primary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     background: var(--boxwood);
     color: var(--caliche);
     box-shadow: 0 1px 0 rgb(21 33 27 / 0.18);
   }
 
+  /* Hover: a deeper green sweeps in from the left, like a run being drawn. */
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 420ms cubic-bezier(0.7, 0, 0.2, 1);
+  }
+
+  .btn-primary:hover::before {
+    transform: scaleX(1);
+  }
+
   .btn-primary:hover {
-    background: var(--boxwood-deep);
-    box-shadow: 0 8px 18px -10px rgb(21 33 27 / 0.55);
+    box-shadow: 0 10px 22px -12px rgb(21 33 27 / 0.6);
+  }
+
+  .btn-lg {
+    min-height: 56px;
+    padding: 0 26px;
+    font-size: 17px;
   }
 
   .btn-primary:hover svg.nudge-down {
@@ -1260,6 +1250,754 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
+}
+
+/* ------------------------------------------------ hero: "Out of sight" */
+
+@layer components {
+  .hero {
+    position: relative;
+    overflow-x: clip;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'title'
+      'scene'
+      'copy'
+      'foot';
+    padding-top: 28px;
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    grid-area: title;
+    margin: 0;
+  }
+
+  .hero-kicker {
+    display: block;
+    max-width: 30ch;
+    font-size: 15px;
+    font-weight: 620;
+    font-stretch: 104%;
+    letter-spacing: -0.003em;
+    line-height: 1.35;
+    color: var(--cedar);
+  }
+
+  .hero-display {
+    display: block;
+    margin-top: 14px;
+    font-size: clamp(3.1rem, 0.9rem + 10.4vw, 8.25rem);
+    font-weight: 800;
+    font-stretch: 112%;
+    letter-spacing: -0.048em;
+    line-height: 0.86;
+    color: var(--ink);
+  }
+
+  .hero-display-line {
+    display: block;
+    overflow: clip;
+    padding-bottom: 0.06em;
+    margin-bottom: -0.06em;
+  }
+
+  .hero-display-line > span {
+    display: inline-block;
+  }
+
+  .hero-display-line:last-child > span {
+    color: var(--boxwood);
+  }
+
+  .hero-copy {
+    grid-area: copy;
+    margin-top: 8px;
+  }
+
+  .hero-sub {
+    max-width: 36ch;
+    color: var(--ink);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 22px;
+    margin-top: 24px;
+  }
+
+  .hero-phone {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    font-weight: 640;
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--control);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+
+  .hero-phone:hover {
+    text-decoration-color: var(--ink);
+  }
+
+  .hero-price {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--cedar);
+  }
+
+  .hero-scene {
+    grid-area: scene;
+    margin-top: 6px;
+    margin-inline: calc(-1 * var(--gutter));
+    overflow: hidden;
+  }
+
+  .hero-foot {
+    grid-area: foot;
+    margin-top: 28px;
+  }
+
+  .hero-fork {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid var(--rule);
+  }
+
+  .hero-fork > li + li {
+    border-left: 1px solid var(--rule);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-layout {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      grid-template-areas:
+        'title title'
+        'copy scene'
+        'foot scene';
+      grid-template-rows: auto auto 1fr;
+      column-gap: 24px;
+      padding-top: 36px;
+      padding-bottom: 56px;
+    }
+
+    .hero-kicker {
+      max-width: none;
+      font-size: 16px;
+    }
+
+    .hero-display {
+      margin-top: 18px;
+      font-size: clamp(5rem, 1rem + 6.6vw, 8.5rem);
+    }
+
+    /* Two lines side by side would run too wide: keep them stacked, but let
+       the second line step in, so the scene can rise beside it. */
+    .hero-display-line:last-child {
+      padding-left: 0.9em;
+    }
+
+    .hero-copy {
+      margin-top: 34px;
+      align-self: start;
+    }
+
+    .hero-scene {
+      overflow: visible;
+      margin-top: -7.5vw;
+      margin-inline: 0 calc(-1 * var(--gutter) - max(0px, (100vw - 1280px - 2 * var(--gutter)) / 2));
+      align-self: start;
+    }
+
+    .hero-foot {
+      align-self: end;
+      margin-top: 32px;
+    }
+  }
+
+  /* ---------------------------------------------------------- the scene */
+
+  .sightline {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    position: relative;
+    perspective: 1400px;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Phones: the drawing is framed tighter, on window, fence, hedge and pool. */
+  .sightline-canvas {
+    position: relative;
+    width: 136%;
+    margin-left: -4%;
+    transform: rotateY(var(--tilt-x)) rotateX(var(--tilt-y));
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  @media (min-width: 640px) {
+    .sightline-canvas {
+      width: 112%;
+      margin-left: -2%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sightline-canvas {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  .sightline-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sightline polygon,
+  .sightline polyline,
+  .sightline line,
+  .sightline ellipse,
+  .sightline circle {
+    vector-effect: non-scaling-stroke;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .sightline [data-ink] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  .sl-ink polygon,
+  .sl-ink polyline {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1.25;
+  }
+
+  .sl-thin {
+    stroke-width: 0.9 !important;
+    stroke-opacity: 0.7;
+  }
+
+  .sl-ground-lot {
+    fill: #e2e0d7;
+  }
+
+  .sl-ground-yard {
+    fill: #e9e7df;
+  }
+
+  .sl-property {
+    fill: none;
+    stroke: var(--plan-line);
+    stroke-width: 1;
+  }
+
+  .sl-shadow {
+    fill: var(--ink);
+    fill-opacity: 0.09;
+    stroke: none;
+  }
+
+  .sl-house-front {
+    fill: #f6f4ee;
+  }
+
+  .sl-house-side {
+    fill: #d5d2c7;
+  }
+
+  .sl-house-roof {
+    fill: #ebe8e0;
+  }
+
+  .sl-window {
+    fill: #c6d2cf;
+    stroke: var(--ink);
+    stroke-width: 1.4;
+    transition: fill 300ms ease;
+  }
+
+  .sl-mullion {
+    fill: none;
+    stroke: var(--ink);
+  }
+
+  .sl-glow {
+    opacity: 1;
+    transition: opacity 420ms ease;
+  }
+
+  .sightline[data-state='hidden'] .sl-glow {
+    opacity: 0.18;
+  }
+
+  .sightline[data-state='seen'] .sl-window {
+    fill: #f5d58f;
+  }
+
+  .sl-fence {
+    fill: #b88a5c;
+  }
+
+  .sl-fence-lines polygon {
+    stroke-width: 1.25;
+  }
+
+  .sl-board {
+    fill: none;
+    stroke: #6f4f30;
+    stroke-width: 0.7;
+    stroke-opacity: 0.55;
+  }
+
+  .sl-cone-group {
+    transform-box: view-box;
+  }
+
+  .sl-cone {
+    fill: var(--noon);
+    stroke: #d99a1e;
+    stroke-width: 1;
+    stroke-dasharray: 5 4;
+    transition: fill-opacity 300ms ease;
+  }
+
+  .sl-cone-back {
+    fill-opacity: 0.32;
+  }
+
+  .sl-cone-front {
+    fill-opacity: 0.4;
+  }
+
+  .sightline[data-state='hidden'] .sl-cone-back {
+    fill-opacity: 0.2;
+  }
+
+  .sl-patch {
+    fill: var(--noon);
+    fill-opacity: 0.6;
+    stroke: #d99a1e;
+    stroke-width: 1.2;
+  }
+
+  .sl-hedge-front {
+    fill: #2e5a2c;
+    stroke: var(--ink);
+    stroke-width: 1.25;
+  }
+
+  .sl-hedge-front-tex {
+    stroke: none;
+    opacity: 0.92;
+  }
+
+  .sl-hedge-side {
+    fill: #1f3d1e;
+    stroke: var(--ink);
+    stroke-width: 1.25;
+  }
+
+  .sl-hedge-side-tex {
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .sl-hedge-top {
+    fill: #5d8a4f;
+    stroke: var(--ink);
+    stroke-width: 1.25;
+  }
+
+  .sl-hedge-front,
+  .sl-hedge-front-tex,
+  .sl-hedge-top {
+    cursor: ns-resize;
+  }
+
+  .sl-deck {
+    fill: #dcd8cd;
+  }
+
+  .sl-water {
+    fill: #a7cfd0;
+  }
+
+  .sl-water-wall {
+    fill: #6fa7ab;
+    fill-opacity: 0.55;
+  }
+
+  .sl-shimmer polyline {
+    fill: none;
+    stroke: #f4fbfa;
+    stroke-width: 1.4;
+    stroke-dasharray: 10 18;
+    stroke-opacity: 0.85;
+    animation: sl-shimmer 3.9s linear infinite;
+  }
+
+  @keyframes sl-shimmer {
+    to {
+      stroke-dashoffset: -56;
+    }
+  }
+
+  .sl-chair polygon {
+    fill: #f7f5ef;
+  }
+
+  .sl-trunk {
+    stroke: #3d3a2e;
+    stroke-width: 2.4;
+  }
+
+  .sl-canopy circle {
+    fill: #6e8f5b;
+    fill-opacity: 0.94;
+    stroke: var(--ink);
+    stroke-width: 1.1;
+  }
+
+  .sl-oak {
+    transform-box: view-box;
+    animation: sl-sway 7s ease-in-out infinite alternate;
+  }
+
+  @keyframes sl-sway {
+    from {
+      transform: rotate(-0.5deg);
+    }
+    to {
+      transform: rotate(0.6deg);
+    }
+  }
+
+  /* ---- labels over the drawing ---- */
+
+  .sl-label,
+  .sl-status {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .sl-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 9px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: rgb(246 244 238 / 0.92);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .sl-label-window {
+    transform: translate(-100%, -50%);
+  }
+
+  .sl-label-quiet {
+    transform: translate(-50%, 0);
+    background: transparent;
+    border-color: transparent;
+    color: var(--cedar);
+    padding: 0;
+  }
+
+  .sl-label-fence {
+    transform: translate(0, -100%);
+    transition: opacity 260ms ease;
+  }
+
+  .sightline[data-fence='covered'] .sl-label-fence {
+    opacity: 0;
+  }
+
+  .sl-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--noon);
+    box-shadow: 0 0 0 3px rgb(242 181 58 / 0.3);
+    transition:
+      background-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  .sightline[data-state='hidden'] .sl-dot {
+    background: var(--grass);
+    box-shadow: 0 0 0 3px rgb(169 179 173 / 0.25);
+  }
+
+  .sl-status {
+    display: grid;
+    transform: translate(-50%, -50%);
+  }
+
+  .sl-status > span {
+    grid-area: 1 / 1;
+    justify-self: center;
+    padding: 7px 12px;
+    font-size: 15px;
+    font-weight: 700;
+    font-stretch: 108%;
+    letter-spacing: -0.01em;
+    border-radius: 999px;
+    transition:
+      opacity 260ms ease,
+      transform 360ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+  .sl-status-seen {
+    background: var(--noon);
+    color: var(--ink);
+    box-shadow: 0 6px 16px -8px rgb(150 100 10 / 0.7);
+  }
+
+  .sl-status-hidden {
+    background: var(--boxwood);
+    color: var(--caliche);
+    box-shadow: 0 6px 16px -8px rgb(21 33 27 / 0.7);
+  }
+
+  .sightline[data-state='hidden'] .sl-status-seen,
+  .sightline[data-state='seen'] .sl-status-hidden {
+    opacity: 0;
+    transform: scale(0.82) translateY(4px);
+  }
+
+  /* ---- the handle ---- */
+
+  .sl-handle {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 14px 0 11px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    font-weight: 680;
+    font-stretch: 106%;
+    font-variant-numeric: tabular-nums;
+    color: var(--caliche);
+    background: var(--ink);
+    border: 0;
+    border-radius: 999px;
+    box-shadow:
+      0 0 0 4px rgb(237 236 230 / 0.9),
+      0 10px 24px -10px rgb(21 33 27 / 0.7);
+    cursor: ns-resize;
+    touch-action: none;
+    transition:
+      opacity 320ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .sl-handle:hover,
+  .sightline[data-dragging] .sl-handle {
+    background: var(--boxwood);
+  }
+
+  .sl-handle:focus-visible:focus-visible {
+    outline: 2px solid var(--boxwood);
+    outline-offset: 5px;
+  }
+
+  .sl-hint {
+    position: absolute;
+    right: 4%;
+    bottom: 3%;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 560;
+    color: var(--cedar);
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+
+  .sl-hint::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .sightline[data-intro='running'] .sl-handle,
+  .sightline[data-intro='running'] .sl-hint,
+  .sightline[data-touched] .sl-hint {
+    opacity: 0;
+  }
+
+  .sightline[data-intro='running'] .sl-handle {
+    pointer-events: none;
+  }
+
+  @media (max-width: 639px) {
+    .sl-label {
+      font-size: 11px;
+      padding: 4px 7px;
+    }
+
+    .sl-status > span {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+
+    .sl-hint {
+      position: static;
+      justify-content: center;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+  }
+
+  /* --------------------------------------------- the drawing to the real */
+
+  .real {
+    position: relative;
+  }
+
+  .real-track[data-motion='on'] {
+    height: 210vh;
+  }
+
+  .real-stage {
+    --clip: none;
+    --zoom: 1;
+    --tex: 0;
+    --words: 1;
+    position: relative;
+    height: min(100svh, 62vw);
+    min-height: 420px;
+    overflow: hidden;
+    background: var(--caliche);
+  }
+
+  .real-track[data-motion='on'] .real-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  .real-figure,
+  .real-photo,
+  .real-tex {
+    position: absolute;
+    inset: 0;
+  }
+
+  .real-figure {
+    clip-path: var(--clip);
+  }
+
+  .real-photo picture,
+  .real-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .real-photo img {
+    transform: scale(var(--zoom));
+    transform-origin: 50% 60%;
+  }
+
+  .real-tex {
+    background: url('/images/tex-boxwood-256.webp') 0 0 / 96px 96px;
+    opacity: var(--tex);
+  }
+
+  .real-words {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 120px var(--gutter) 34px;
+    background: linear-gradient(to top, rgb(21 33 27 / 0.78), rgb(21 33 27 / 0));
+    opacity: var(--words);
+    transform: translateY(calc((1 - var(--words)) * 18px));
+  }
+
+  @media (min-width: 1024px) {
+    .real-words {
+      padding: 160px max(var(--gutter), (100vw - 1280px) / 2) 56px;
+    }
+  }
+
+  .real-caption {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #e6e2d4;
+  }
+
+  .real-statement {
+    max-width: 16ch;
+    font-size: clamp(2.1rem, 1rem + 4.4vw, 4.75rem);
+    font-weight: 790;
+    font-stretch: 112%;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: var(--caliche);
+  }
+}
+
+/* The scene's entrance holds its drawing until the script takes over.
+   index.html adds .scene-intro only when motion is allowed, and removes it
+   by itself after 2.5 s, so nothing can stay hidden. */
+html.scene-intro .sightline [data-ink] {
+  stroke-dashoffset: 1;
+}
+
+html.scene-intro .sightline [data-fill],
+html.scene-intro .sightline [data-cone],
+html.scene-intro .sightline [data-intro-label],
+html.scene-intro .sightline .sl-hedge,
+html.scene-intro .sightline .sl-patch,
+html.scene-intro .sightline .sl-cone-front,
+html.scene-intro .sightline .sl-handle,
+html.scene-intro .sightline .sl-hint,
+html.scene-intro .sightline .sl-glow {
+  opacity: 0;
 }
 
 /* ------------------------------------------------- motion and QA modes */

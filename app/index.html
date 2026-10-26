@@ -8,8 +8,15 @@
       // ?qa=1 is screenshot mode: set before first paint so nothing animates.
       (function () {
         try {
-          if (new URLSearchParams(window.location.search).get('qa') === '1') {
-            document.documentElement.setAttribute('data-qa-mode', '1');
+          var html = document.documentElement;
+          var qa = new URLSearchParams(window.location.search).get('qa') === '1';
+          if (qa) html.setAttribute('data-qa-mode', '1');
+          // Hold the hero drawing for its entrance only when it will play.
+          // Fails open: the hold lifts by itself after 2.5 s.
+          var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (!qa && !reduced && !window.__PRERENDER__ && 'animate' in Element.prototype) {
+            html.classList.add('scene-intro');
+            setTimeout(function () { html.classList.remove('scene-intro'); }, 2500);
           }
         } catch (error) {
           // No URLSearchParams: leave motion as the visitor's settings allow.
@@ -19,26 +26,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- Hero LCP image. Moves into the homepage's prerendered head once
-         prerender lands (Phase 4); sizes must match HERO_SIZES in HomeHero. -->
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      fetchpriority="high"
-      media="(max-width: 767px)"
-      imagesrcset="/images/hero-austin-boxwood-wall-phone-480.avif 480w, /images/hero-austin-boxwood-wall-phone-717.avif 717w"
-      imagesizes="(min-width: 1024px) min(640px, 50vw), calc(100vw - 60px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      fetchpriority="high"
-      media="(min-width: 768px)"
-      imagesrcset="/images/hero-austin-boxwood-wall-480.avif 480w, /images/hero-austin-boxwood-wall-768.avif 768w, /images/hero-austin-boxwood-wall-1200.avif 1200w"
-      imagesizes="(min-width: 1024px) min(640px, 50vw), calc(100vw - 60px)"
-    />
     <!-- No static <title>: HomeSeo renders it and React 19 hoists it, so the
          prerendered head (Phase 4) carries exactly one. -->
   </head>

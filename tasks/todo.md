@@ -68,6 +68,48 @@ hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft 
 - [x] `CLAIMS.md` and `OWNER-NEEDS.md` #7: record owner release 2026-10-25.
 - [x] Verify: tests, build, browser at 1440 and 390.
 
+### Phase 2b: "Out of sight" redesign (owner 2026-10-26: "3/10, hero weak, drawings hard to read, no interaction, flat"; approved hero-first 2026-10-26)
+
+**Why it's flat:** template split hero; top-down plans read as blueprints to homeowners; every section has the same rhythm (H2 left, list right); zero motion or response to the visitor.
+
+**Core idea: show privacy as a sightline.** Every buyer's real problem is someone looking in. So the site draws that look, literally, and lets the visitor block it.
+
+1. **Hero: "the sightline."**
+   - Full-width axonometric (3/4 view, not top-down) drawing of a Texas backyard: house, pool, live oak, fence, and the neighbor's two-story window.
+   - A Noon-yellow sightline cone runs from that window onto the pool.
+   - On load the scene inks itself in, then the hedge rises along the fence, cuts the cone, and the cone goes dark.
+   - The hedge face is filled with the real boxwood photo texture: a drawn world, real material.
+   - The visitor can drag the hedge height (3 to 12 ft). The cone recalculates live from real geometry, with plain labels: "Neighbor's window", "Your pool", "Hedge 8 ft", "Out of sight".
+   - Headline: small SEO line "Artificial hedges and living walls, installed in Texas" over a huge display line "Out of sight. Still green." Both sit in the H1.
+   - Desktop gets a subtle cursor tilt, leaf sway on the oak, and shimmer on the pool.
+2. **Drawing to real:** the next scroll expands the drawn hedge into the real Austin photo full-bleed (scroll-scrubbed mask, no tiles). Caption: "The real one, Austin."
+3. **Estimator in the same 3/4 yard:** the run draws along the fence, then the hedge rises on it, so it's readable at a glance. Priced arithmetic stays as it is.
+4. **Four questions as a sticky story:** the question list stays pinned on the left while the answers scroll on the right, each with its own interaction:
+   - Realism: a magnifier loupe over the real leaf close-up.
+   - Texas sun: drag the sun across the sky and the hedge's shadow sweeps.
+   - HOA: the Chapter 202 citation card turns over.
+   - Cost: a live mini estimate.
+5. **Spine:** one fence line draws down the page as you scroll and links the process steps.
+6. **Systems:** on hover a card's drawing animates, its photo settles, and the arrow nudges. Phone: swipe carousel with snap.
+7. **Projects:** a horizontal drag gallery with parallax inside each photo.
+8. **Fire chapter:** the statement's words light up as you scroll, one by one.
+9. **Throughout:**
+   - Line-mask heading reveals and numbers that count up.
+   - Buttons with a fill sweep, plus a magnetic primary CTA on desktop.
+   - Lenis smooth scroll on desktop, GSAP ScrollTrigger loaded on demand.
+10. **Guardrails kept:**
+    - Content never waits on motion, reduced motion shows the final state, and `?qa=1` turns everything off.
+    - No scroll-jacking: the only pin is the four-questions column, and no tile reveals.
+    - No new claims, real photos only.
+    - The phone layout is designed first, not shrunk from desktop.
+
+Build order: hero prototype first, shown to the owner, then the rest. Builder: Fable 5 (highest taste) for the hero and motion system, with Opus for the follow-on sections.
+- [x] Hero prototype (sightline scene, drag, load sequence, drawing-to-real transition), desktop and phone. Built by Opus 5.5 after owner asked (Fable stopped before writing code). STOP: owner review.
+- [ ] Estimator in the 3/4 yard.
+- [ ] Four questions sticky story with its 4 interactions.
+- [ ] Spine, systems hover and carousel, projects gallery, fire word-fill, global micro-interactions.
+- [ ] Verify: 60 fps on a mid laptop, Lighthouse, reduced motion, `?qa=1`, 390 px.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
