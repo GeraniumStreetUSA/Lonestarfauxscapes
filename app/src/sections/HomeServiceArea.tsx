@@ -31,7 +31,7 @@ export default function HomeServiceArea() {
                 <li key={area.href} className="border-b border-rule">
                   <a
                     href={area.href}
-                    className="group flex min-h-[64px] items-center justify-between gap-6 py-3 text-[clamp(1.375rem,1.1rem+1vw,2rem)] font-[720] tracking-[-0.025em] [font-stretch:112%] transition-colors hover:text-boxwood"
+                    className="group flex min-h-[64px] items-center justify-between gap-6 py-3 text-[clamp(1.375rem,1.1rem+1vw,2rem)] font-display font-[720] tracking-[-0.02em] transition-colors hover:text-boxwood"
                   >
                     {area.label}
                     <ArrowRight

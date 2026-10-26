@@ -29,7 +29,7 @@ export default function SiteFooter() {
         <div className="col-span-2 lg:col-span-1">
           <a href="/" className="inline-flex min-h-11 items-center gap-2.5">
             <PlanMark className="h-6 w-6 flex-none" />
-            <span className="text-[18px] font-[720] leading-none tracking-[-0.012em] [font-stretch:112%]">{BUSINESS.name}</span>
+            <span className="font-display text-[19px] font-[750] leading-none tracking-[-0.012em]">{BUSINESS.name}</span>
           </a>
         </div>
         <Column title={FOOTER.columns.systems} links={SYSTEM_LINKS} />

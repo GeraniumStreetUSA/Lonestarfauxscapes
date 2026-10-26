@@ -30,13 +30,15 @@ There is one dark chapter (ink ground) for fire and commercial. No Texas flags, 
 
 ## Type
 
+Changed 2026-10-26: the owner called the expanded Archivo "AI slop".
+
 | Role | Family | Use |
 |---|---|---|
-| Display | **Archivo** variable, expanded (`wdth` 112 to 118), 700 to 800, tracking -0.03em | H1, H2, figures |
-| Text and UI | **Archivo** at 100% width, 400 and 600 | Body 17 to 18 px, leading 1.55, max 62ch |
-| Measure | **JetBrains Mono** 500 | Only real measurements on the plan and in the estimator: `48 FT`, `20 IN`, `29 PANELS`, `N`. Never decoration |
+| Display | **Besley** variable (Clarendon), 700 to 800, tracking -0.02 to -0.03em | H1, H2, H3, the hero display line, figures, wordmark |
+| Text and UI | **Libre Franklin** variable (Franklin Gothic), 400 to 700 | Body 17 to 18 px, leading 1.55, labels, buttons |
+| Measure | **JetBrains Mono** 500 | Only real measurements and scene labels |
 
-Self-hosted woff2, two preloads (Archivo and the mono), metric-matched fallbacks. The type floor is 13 px.
+Clarendon with Franklin Gothic is the old American sign-painter and newspaper pairing: plainspoken and confident, not tech. Both fonts are OFL, self-hosted woff2, and the two preloaded files. The fallbacks are metric-matched to Georgia and Arial.
 
 ## Drawing language: the site plan
 

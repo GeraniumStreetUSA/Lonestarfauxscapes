@@ -24,7 +24,8 @@ export default {
         control: 'rgb(21 33 27 / 0.55)',
       },
       fontFamily: {
-        sans: ['Archivo', 'Archivo Fallback', 'Arial', 'sans-serif'],
+        sans: ['"Libre Franklin"', '"Libre Franklin Fallback"', 'Arial', 'sans-serif'],
+        display: ['Besley', '"Besley Fallback"', 'Georgia', 'serif'],
         mono: ['"JetBrains Mono"', '"JetBrains Mono Fallback"', '"Courier New"', 'monospace'],
       },
       borderRadius: {
