@@ -265,14 +265,16 @@ export const INSTALLS = {
   allHref: '/case-studies',
 } as const;
 
+/** The owner's process, as described on 2026-10-28. No timelines. */
 export const PROCESS = {
   title: 'How a job runs.',
   steps: [
-    { title: 'Send your numbers', body: 'Run, height, city, and photos if you have them.' },
+    { title: 'Send your numbers', body: 'Run, height, city, and photos if you have them. The estimator above fills in most of it.' },
     {
-      title: 'Site review',
-      body: 'Measurements, mounting and access are confirmed. Then you get a written quote.',
+      title: 'Rough quote',
+      body: 'We email an assessment and a rough quote, with a 3D render of your space when it helps you decide.',
     },
+    { title: 'Site review', body: 'Measurements, mounting and access are confirmed on site. That sets the final invoice.' },
     { title: 'Build', body: 'Panels are cut and staged to your layout.' },
     { title: 'Install', body: 'The run is mounted to your fence, frame or wall.' },
   ],
@@ -284,7 +286,11 @@ export const QUOTE = {
   title: 'Get a free quote.',
   body: 'Tell us where and what. We reply with next steps.',
   nextTitle: 'What happens next',
-  next: ['We read your numbers and photos.', 'We set up a site review.', 'You get a written quote.'],
+  next: [
+    'We read your numbers and photos.',
+    'You get an email assessment and a rough quote, with a 3D render when it helps.',
+    'A site review sets the final invoice.',
+  ],
   fields: {
     name: 'Name',
     email: 'Email',
@@ -338,7 +344,7 @@ export const FAQ = {
     {
       question: 'How is the price set?',
       answer:
-        'From published starting prices for each system, plus installation. Installation is quoted after a site review: run length, mounting and site access drive it.',
+        'From published starting prices for each system, plus installation. You get a rough quote by email first; the site review sets the final invoice, because run length, mounting and site access drive installation.',
     },
     {
       question: 'Will my HOA approve it?',

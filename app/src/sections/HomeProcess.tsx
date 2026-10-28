@@ -2,9 +2,13 @@ import { ProcessDrawing } from '../components/PlanDrawings';
 import Picture from '../components/Picture';
 import { PROCESS } from '../data/home-content';
 
+/** Which drawing each step uses; the last step is a photo of a real install. */
+const DRAWINGS = [0, 3, 1, 2] as const;
+
 /**
- * Four steps, no timelines. Steps 1 to 3 are drawn on the plan; step 4 is a
- * photo of a real install, the drawing become a fence.
+ * The owner's five steps, no timelines: numbers, emailed assessment and
+ * rough quote (with a 3D render when it helps), site review for the final
+ * invoice, build, install. Steps 1 to 4 are drawn; step 5 is a real photo.
  */
 export default function HomeProcess() {
   return (
@@ -13,18 +17,18 @@ export default function HomeProcess() {
         <h2 id="process-title" className="t-h2" data-reveal>
           {PROCESS.title}
         </h2>
-        <ol className="rule-grid process-grid m-0 mt-10 list-none p-0 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4" data-reveal>
+        <ol className="rule-grid process-grid m-0 mt-10 list-none p-0 sm:grid-cols-2 lg:mt-14 lg:grid-cols-5" data-reveal>
           {PROCESS.steps.map((step, index) => (
             <li key={step.title} className="flex flex-col">
               <div className="relative aspect-[4/3] overflow-hidden border-b border-line bg-caliche">
-                {index < 3 ? (
-                  <ProcessDrawing step={index as 0 | 1 | 2} />
+                {index < DRAWINGS.length ? (
+                  <ProcessDrawing step={DRAWINGS[index]} />
                 ) : (
                   <div className="photo h-full">
                     <Picture
                       name="install-austin-panels"
                       alt={PROCESS.installAlt}
-                      sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, calc(100vw - 34px)"
+                      sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, calc(100vw - 34px)"
                     />
                   </div>
                 )}

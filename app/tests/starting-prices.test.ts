@@ -70,7 +70,7 @@ test('Four questions #4 is built from the data file', () => {
 test('the FAQ price answer and the estimator copy', () => {
   assert.equal(
     FAQ.items.find((item) => item.question === 'How is the price set?')?.answer,
-    'From published starting prices for each system, plus installation. Installation is quoted after a site review: run length, mounting and site access drive it.',
+    'From published starting prices for each system, plus installation. You get a rough quote by email first; the site review sets the final invoice, because run length, mounting and site access drive installation.',
   );
   assert.equal(
     ESTIMATOR.body,

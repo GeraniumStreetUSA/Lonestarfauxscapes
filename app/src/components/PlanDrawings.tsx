@@ -149,8 +149,12 @@ export function ForkGlyph({ kind }: { kind: 'homes' | 'businesses' }) {
   );
 }
 
-/** Process steps 1 to 3 (320 x 240); step 4 is a photo of a real install. */
-export function ProcessDrawing({ step }: { step: 0 | 1 | 2 }) {
+/**
+ * Process drawings (320 x 240): 0 numbers, 1 site review, 2 build, 3 the
+ * emailed assessment (a rough quote sheet behind a small 3D render). The
+ * install step is a photo of a real job.
+ */
+export function ProcessDrawing({ step }: { step: 0 | 1 | 2 | 3 }) {
   return (
     <svg viewBox="0 0 320 240" className="absolute inset-0 h-full w-full" aria-hidden="true" focusable="false">
       {step === 0 ? (
@@ -220,6 +224,22 @@ export function ProcessDrawing({ step }: { step: 0 | 1 | 2 }) {
           <path d="M 46 196 L 256 196" stroke={INK} strokeOpacity={0.55} {...thin} />
           <path d="M 46 190 L 46 202 M 256 190 L 256 202" stroke={INK} strokeOpacity={0.55} {...thin} />
           <path d="M 42 200 L 50 192 M 252 200 L 260 192" stroke={INK} strokeOpacity={0.8} {...thin} />
+        </g>
+      ) : null}
+      {step === 3 ? (
+        <g fill="none">
+          {/* The emailed rough quote: a sheet with its lines, tucked behind. */}
+          <rect x={196} y={34} width={88} height={112} fill="#F6F4EE" stroke={INK} strokeOpacity={0.6} {...thin} />
+          <path d="M 208 54 L 262 54 M 208 68 L 272 68 M 208 82 L 252 82 M 208 104 L 272 104 M 208 118 L 240 118" stroke={INK} strokeOpacity={0.35} {...thin} />
+          <path d="M 242 128 L 272 128" stroke={BOXWOOD} strokeWidth={2.4} strokeLinecap="round" />
+          {/* The 3D render: a hedge run in the same 2:1 axonometric as the hero. */}
+          <path d="M 40 150 L 140 100 L 300 180 L 200 230 Z" fill={INK} fillOpacity={0.035} stroke={INK} strokeOpacity={0.25} strokeDasharray="3 4" {...thin} />
+          <polygon points="223,198 240,190 240,134 223,142" fill="#1F3D1E" stroke={INK} {...thin} />
+          <polygon points="83,128 223,198 223,142 83,72" fill={BOXWOOD} stroke={INK} {...thin} />
+          <path d="M 97 79 L 97 135 M 111 86 L 111 142 M 125 93 L 125 149 M 139 100 L 139 156 M 153 107 L 153 163 M 167 114 L 167 170 M 181 121 L 181 177 M 195 128 L 195 184 M 209 135 L 209 191" stroke="#F6F4EE" strokeOpacity={0.22} {...thin} />
+          <polygon points="83,72 223,142 240,134 100,64" fill="#5D8A4F" stroke={INK} {...thin} />
+          {/* Render frame corners. */}
+          <path d="M 30 44 L 30 30 L 44 30 M 30 216 L 30 230 L 44 230 M 176 30 L 186 30" stroke={INK} strokeOpacity={0.55} {...thin} />
         </g>
       ) : null}
     </svg>

@@ -29,7 +29,7 @@ Status key:
 | "Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer" | Fire chapter | IFC decorative-vegetation provision as applied by state fire codes (e.g. Oregon State Fire Marshal holiday decor guidance, Minnesota R. 7511.0807); no section number quoted because it differs by edition | ok (soft: varies by city and edition) |
 | "Our fire-rated hedges and walls are built for NFPA 701" and "Ask for the NFPA 701 documentation" | Fire chapter, FAQ | Owner direction 2026-10-26 ("talk NFPA more"; no ASTM E84 test). Needs the NFPA 701 report on file (OWNER-NEEDS #10) | owner |
 | No ASTM E84 mention anywhere | Whole site | Owner 2026-10-26: no ASTM E84 test | ok |
-| Process: send numbers, site review, written quote, panels cut to layout, mounted | Process, quote, FAQ, systems cards | Generic. The written quote after a site review comes from the brief's wording | soft (OWNER-NEEDS #12, #13) |
+| Process: send numbers; emailed assessment and rough quote (3D render when it helps); site review sets the final invoice; build; install | Process, quote "what happens next", FAQ | Owner, 2026-10-28 | ok |
 | Panels "can mount to many fences or to a freestanding frame" | FAQ | Live product pages | soft |
 | Case studies: Austin residential privacy, Houston restaurant patio, Houston storefront | Texas installs, hero caption, commercial caption | `content/case-studies.json`, real photos | ok (Austin area left out, OWNER-NEEDS #15) |
 | Hero photo: Austin | Hero caption | Austin case study photos | ok |
