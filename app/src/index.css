@@ -2109,28 +2109,29 @@
 @layer components {
   /* ------------------------------------- four questions, hands-on */
 
+  /* Default (no script, reduced motion, ?qa=1): a plain stacked list. */
   .q-section {
-    --q-read: 0;
+    --q-bg: var(--caliche);
+    background: var(--q-bg);
   }
 
-  .q-body {
+  .q-head {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    margin-top: 36px;
+    gap: 24px;
   }
 
-  .q-index {
+  .q-steps,
+  .q-swipe {
     display: none;
   }
 
   .q-list {
-    margin: 0;
-    padding: 0;
+    margin: 36px 0 0;
+    padding: 32px 0 0;
     list-style: none;
     display: grid;
     gap: 56px;
     border-top: 2px solid var(--ink);
-    padding-top: 32px;
   }
 
   .q-count {
@@ -2156,6 +2157,7 @@
 
   .q-answer {
     margin-top: 16px;
+    max-width: 54ch;
     color: var(--cedar);
   }
 
@@ -2166,111 +2168,226 @@
 
   .q-card-slot {
     margin-top: 24px;
+    max-width: 600px;
   }
 
-  @media (min-width: 1024px) {
-    .q-body {
-      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-      column-gap: 72px;
-      margin-top: 48px;
+  .q-link {
+    margin-top: 20px;
+  }
+
+  /* ---- Phones: swipe carousel ---- */
+  .q-section[data-mode='swipe'] .q-list {
+    --m: 0;
+    display: flex;
+    gap: 16px;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 28px var(--gutter) 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    border-top: 0;
+  }
+
+  .q-section[data-mode='swipe'] .q-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .q-section[data-mode='swipe'] .q-item {
+    flex: 0 0 88%;
+    scroll-snap-align: start;
+    padding: 22px 18px 24px;
+    background: #f6f4ee;
+    border: 1px solid var(--rule);
+    transform: scale(calc(1 - var(--m, 0) * 0.06));
+    opacity: calc(1 - var(--m, 0) * 0.35);
+    transform-origin: left center;
+  }
+
+  .q-section[data-mode='swipe'] .q-swipe {
+    display: block;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--cedar);
+  }
+
+  /* ---- Desktop: pinned side scroll with morphing cards ---- */
+  .q-section[data-mode='pin'] {
+    padding-block: 0;
+  }
+
+  .q-section[data-mode='pin'] .q-track {
+    height: 460vh;
+  }
+
+  .q-section[data-mode='pin'] .q-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .q-section[data-mode='pin'] .q-frame {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100%;
+    padding-top: 112px;
+    padding-bottom: 40px;
+  }
+
+  .q-section[data-mode='pin'] .q-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .q-section[data-mode='pin'] .q-head .t-h2 {
+    font-size: clamp(1.75rem, 1rem + 1.6vw, 2.5rem);
+  }
+
+  /* Progress: four steps, each filling as its question is reached. */
+  .q-section[data-mode='pin'] .q-steps {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .q-step {
+    --fill: 0%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px 8px;
+    align-items: baseline;
+    width: 112px;
+    padding: 6px 0 0;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: rgb(21 33 27 / 0.45);
+    transition: color 250ms ease;
+  }
+
+  .q-step[data-on],
+  .q-step:hover {
+    color: var(--ink);
+  }
+
+  .q-step-num {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .q-step-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .q-step-bar {
+    grid-column: 1 / -1;
+    height: 3px;
+    margin-top: 6px;
+    background: linear-gradient(to right, var(--boxwood) 0 var(--fill), rgb(21 33 27 / 0.15) var(--fill) 100%);
+  }
+
+  .q-section[data-mode='pin'] .q-list {
+    position: relative;
+    margin: 28px 0 0;
+    padding: 0;
+    border-top: 2px solid var(--ink);
+    display: block;
+  }
+
+  /* Every question sits in the same place; script sets --d (distance from
+     the current question), --a (|d|), --in (iris progress) and --out. */
+  .q-section[data-mode='pin'] .q-item {
+    --d: 0;
+    --a: 0;
+    --in: 1;
+    --out: 0;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto auto auto auto minmax(0, 1fr);
+    grid-template-areas:
+      'count card'
+      'q card'
+      'a card'
+      'link card'
+      '. card';
+    column-gap: 72px;
+    align-content: center;
+    padding-top: 28px;
+  }
+
+  .q-section[data-mode='pin'] .q-item:not([data-on]) {
+    pointer-events: none;
+  }
+
+  .q-section[data-mode='pin'] .q-count,
+  .q-section[data-mode='pin'] .q-question,
+  .q-section[data-mode='pin'] .q-answer,
+  .q-section[data-mode='pin'] .q-link {
+    /* Gone by a = 0.45, so outgoing and incoming lines never overlap. */
+    opacity: max(0, calc(1 - var(--a) * 2.2));
+    will-change: transform, opacity;
+  }
+
+  /* Side scroll, with a stagger: each line travels a little further. */
+  .q-section[data-mode='pin'] .q-count {
+    grid-area: count;
+    transform: translateX(calc(var(--d) * 30%));
+  }
+
+  .q-section[data-mode='pin'] .q-question {
+    grid-area: q;
+    font-size: clamp(2.4rem, 1.2rem + 3vw, 4rem);
+    transform: translateX(calc(var(--d) * 46%));
+  }
+
+  .q-section[data-mode='pin'] .q-answer {
+    grid-area: a;
+    transform: translateX(calc(var(--d) * 62%));
+  }
+
+  .q-section[data-mode='pin'] .q-link {
+    grid-area: link;
+    justify-self: start;
+    transform: translateX(calc(var(--d) * 78%));
+  }
+
+  /* The morph: the incoming card irises open over the outgoing one from its
+     focal point; the outgoing card sinks back a touch. */
+  .q-section[data-mode='pin'] .q-card-slot {
+    grid-area: card;
+    align-self: center;
+    margin: 0;
+    max-width: 600px;
+    width: 100%;
+    justify-self: end;
+    padding: 18px;
+    background: var(--q-bg);
+    clip-path: circle(calc(var(--in) * 150%) at var(--cx, 50%) var(--cy, 50%));
+    transform: scale(calc(1.06 - var(--in) * 0.06 - var(--out) * 0.08));
+    /* The outgoing card sinks and is gone before the iris finishes. */
+    opacity: max(0, calc(1 - var(--out) * 1.5));
+    will-change: clip-path, transform;
+  }
+
+  @media (max-height: 760px) {
+    .q-section[data-mode='pin'] .q-frame {
+      padding-top: 96px;
     }
 
-    /* The index: pinned under the header, the question in view lit. */
-    .q-index {
-      display: block;
-      position: sticky;
-      top: 128px;
-      align-self: start;
-      padding-left: 22px;
-    }
-
-    .q-index::before,
-    .q-index::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-    }
-
-    .q-index::before {
-      background: var(--line);
-    }
-
-    .q-index::after {
-      background: var(--boxwood);
-      transform: scaleY(var(--q-read));
-      transform-origin: top;
-    }
-
-    .q-index ol {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 6px;
-    }
-
-    .q-index-link {
-      display: grid;
-      grid-template-columns: 2.4rem minmax(0, 1fr);
-      align-items: baseline;
-      padding: 12px 0;
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.012em;
-      color: rgb(21 33 27 / 0.38);
-      text-decoration: none;
-      transition:
-        color 300ms ease,
-        transform 300ms var(--ease-plan);
-    }
-
-    .q-index-link:hover {
-      color: var(--cedar);
-    }
-
-    .q-index-link[data-on] {
-      color: var(--ink);
-      transform: translateX(6px);
-    }
-
-    .q-index-num {
-      font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: inherit;
-    }
-
-    .q-index-link[data-on] .q-index-num {
-      color: var(--boxwood);
-    }
-
-    .q-list {
-      gap: 0;
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .q-item {
-      min-height: 86vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 48px 0;
-      border-top: 1px solid var(--rule);
-    }
-
-    .q-item:first-child {
-      border-top: 2px solid var(--ink);
-    }
-
-    .q-answer {
-      max-width: 54ch;
+    .q-section[data-mode='pin'] .q-card-slot {
+      max-width: 500px;
     }
   }
 

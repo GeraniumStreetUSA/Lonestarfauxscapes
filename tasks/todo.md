@@ -129,6 +129,11 @@ Build order: hero prototype first, shown to the owner, then the rest. Builder: F
 - [x] Q4 cost: a live mini estimate (system chips, run slider) from the published prices, linking to the full estimator.
 - [x] Same copy and links; motion fails open; reduced motion and ?qa=1 show final states.
 
+### Four questions: pinned side scroll with morphing cards (owner 2026-10-28)
+- [x] Desktop: section pins; vertical scroll drives the four questions sideways (staggered parallax text), cards morph via an iris from a focal point (lens to sun, sun to the § mark, sheet to price). Each panel holds so the card is usable. Background tint shifts per question. Four-step progress bar, click to jump.
+- [x] Phones: native swipe carousel with scroll-snap; off-centre cards scale and fade slightly.
+- [x] Reduced motion and ?qa=1: stacked list. No change to copy or links.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

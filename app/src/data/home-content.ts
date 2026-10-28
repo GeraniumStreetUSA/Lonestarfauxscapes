@@ -121,6 +121,9 @@ export interface Question {
 export const QUESTIONS = {
   callout: '◦ FOUR QUESTIONS',
   title: 'Four things everyone asks first.',
+  /** Short labels for the progress steps. */
+  steps: ['Looks', 'Sun', 'HOA', 'Cost'],
+  swipe: 'Swipe for the next question',
   /** Labels for each answer's hands-on card. */
   cards: {
     loupe: {
