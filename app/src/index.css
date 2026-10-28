@@ -1713,143 +1713,269 @@
   /* ---------------------------------------------------------- footer */
 
   .ft {
-    background: var(--ink);
-    color: var(--caliche);
-    padding: 64px 0 96px;
-    overflow: hidden;
-  }
-
-  @media (min-width: 1024px) {
-    .ft {
-      padding: 96px 0 0;
-    }
-  }
-
-  /* The wordmark: three stacked copies of the same text. The base is an
-     outline; the fill is the real boxwood, grown up from the bottom; the sun
-     is a brighter boxwood under a soft spot that follows the cursor. */
-  .ft-mark {
-    --grow: 0%;
-    --sun-x: 50%;
-    --sun-y: 50%;
     position: relative;
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 13.4vw;
-    line-height: 0.9;
-    letter-spacing: -0.035em;
-    color: transparent;
-    -webkit-text-stroke: 1px rgb(169 179 173 / 0.4);
-    text-decoration: none;
-    /* Room for the descender of the p, so the clipped fill never cuts it. */
-    padding-bottom: 0.2em;
+    background: var(--caliche);
+    color: var(--ink);
   }
 
-  .ft-mark-line {
-    display: block;
-    white-space: nowrap;
+  /* The back fence: the drawing, edge to edge. Phones frame it tighter on
+     the lit window, the hedge and the first oak. */
+  .fence {
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
   }
 
-  @media (min-width: 1024px) {
-    .ft-mark {
-      font-size: min(12.6vw, 13.5rem);
+  .fence-canvas {
+    position: relative;
+    width: 230%;
+    margin-left: -78%;
+  }
+
+  @media (min-width: 640px) {
+    .fence-canvas {
+      width: 150%;
+      margin-left: -30%;
     }
   }
 
-  .ft-mark::before,
-  .ft-mark::after {
-    content: attr(data-text);
-    white-space: pre;
+  @media (min-width: 1024px) {
+    .fence-canvas {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  .fence-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .fence-svg * {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .ff-house-front {
+    fill: #f6f4ee;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-house-side {
+    fill: #d5d2c7;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-house-roof {
+    fill: #ebe8e0;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-window {
+    fill: #c6d2cf;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-window-lit {
+    fill: #f5d58f;
+  }
+
+  .ff-cone {
+    fill: var(--noon);
+    fill-opacity: 0.5;
+    stroke: #d99a1e;
+    stroke-width: 1;
+    stroke-dasharray: 5 4;
+  }
+
+  .ff-hit {
+    fill: var(--noon);
+    fill-opacity: 0.55;
+  }
+
+  .ff-hedge-top {
+    fill: #5d8a4f;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-hedge-front {
+    fill: var(--boxwood);
+  }
+
+  .ff-hedge-tex {
+    opacity: 0.95;
+  }
+
+  .ff-seam {
+    stroke: #f6f4ee;
+    stroke-opacity: 0.16;
+    stroke-width: 1;
+  }
+
+  .ff-edge {
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .ff-ground {
+    fill: var(--limestone);
+  }
+
+  .ff-shadow {
+    fill: var(--ink);
+    fill-opacity: 0.1;
+  }
+
+  .ff-trunk {
+    fill: none;
+    stroke: #3d3a2e;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+  }
+
+  .ff-canopy {
+    fill: #6e8f5b;
+    stroke: var(--ink);
+    stroke-width: 1.1;
+  }
+
+  .ff-oak {
+    transform-box: view-box;
+    animation: sl-sway 7s ease-in-out infinite alternate;
+  }
+
+  .ff-tag {
     position: absolute;
-    inset: 0;
-    -webkit-text-stroke: 0;
-    /* A real crop of the boxwood mat, tiled as shot (never mirrored), at a
-       leaf size that reads as hedge. */
-    background-image:
-      linear-gradient(180deg, rgb(21 33 27 / 0) 40%, rgb(21 33 27 / 0.45)),
-      image-set(url('/images/mat-boxwood-900.avif') type('image/avif'), url('/images/mat-boxwood-900.webp') type('image/webp'));
-    background-size: 100% 100%, 380px auto;
-    background-position: center, 0 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    transform: translate(-50%, 0);
+    padding: 6px 11px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+    background: var(--caliche);
+    border-radius: 999px;
+    box-shadow: 0 6px 16px -8px rgb(21 33 27 / 0.7);
     pointer-events: none;
   }
 
-  .ft-mark::before {
-    clip-path: inset(var(--grow) 0 0 0);
+  .ft-body {
+    background: var(--limestone);
+    padding: 40px 0 104px;
   }
 
-  .ft-mark[data-grow='armed'] {
-    --grow: 100%;
+  @media (min-width: 1024px) {
+    .ft-body {
+      padding: 56px 0 0;
+    }
   }
 
-  .ft-mark[data-grow='go']::before {
-    transition: clip-path 1800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* The close: brand and the hero's line, answered; then the quote. */
+  .ft-close {
+    display: grid;
+    gap: 28px;
   }
 
-  .ft-mark::after {
-    background-image:
-      linear-gradient(rgb(242 181 58 / 0.18), rgb(242 181 58 / 0.18)),
-      image-set(url('/images/mat-boxwood-900.avif') type('image/avif'), url('/images/mat-boxwood-900.webp') type('image/webp'));
-    filter: brightness(1.55) saturate(1.15);
-    opacity: 0;
-    -webkit-mask-image: radial-gradient(circle 240px at var(--sun-x) var(--sun-y), #000 0%, rgb(0 0 0 / 0) 70%);
-    mask-image: radial-gradient(circle 240px at var(--sun-x) var(--sun-y), #000 0%, rgb(0 0 0 / 0) 70%);
-    transition: opacity 400ms ease;
+  @media (min-width: 1024px) {
+    .ft-close {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      align-items: end;
+      column-gap: 64px;
+    }
   }
 
-  .ft-mark[data-sun]::after {
-    opacity: 1;
+  .ft-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 750;
+    color: var(--ink);
+    text-decoration: none;
   }
 
-  .ft-mark:focus-visible:focus-visible {
-    outline-offset: 8px;
+  .ft-line {
+    margin: 10px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 1rem + 5.4vw, 5.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .ft-line > span {
+    display: block;
+  }
+
+  .ft-line > span + span {
+    color: var(--boxwood);
+  }
+
+  .ft-act-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 22px;
+    margin-top: 16px;
+  }
+
+  .ft-phone {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .ft-phone:hover {
+    color: var(--boxwood);
   }
 
   /* The title block: four numbered cells between hairlines. */
   .ft-block {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 48px;
-    border-top: 1px solid rgb(169 179 173 / 0.28);
+    margin-top: 44px;
+    border-top: 2px solid var(--ink);
   }
 
   .ft-col {
-    padding: 24px 16px 28px 0;
-    border-bottom: 1px solid rgb(169 179 173 / 0.28);
+    padding: 22px 16px 26px 0;
+    border-bottom: 1px solid var(--rule);
   }
 
   .ft-col:nth-child(even) {
     padding-left: 16px;
-    border-left: 1px solid rgb(169 179 173 / 0.28);
+    border-left: 1px solid var(--rule);
   }
 
-  /* Phones: contact gets the full width, so the number and email never wrap. */
   @media (max-width: 1023px) {
     .ft-col:last-child {
       grid-column: 1 / -1;
       padding-left: 0;
       border-left: 0;
     }
-
-    .ft-mark::before,
-    .ft-mark::after {
-      background-size: 100% 100%, 240px auto;
-    }
   }
 
   @media (min-width: 1024px) {
     .ft-block {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-top: 72px;
+      margin-top: 64px;
     }
 
     .ft-col,
     .ft-col:nth-child(even) {
-      padding: 28px 24px 40px;
-      border-left: 1px solid rgb(169 179 173 / 0.28);
+      padding: 26px 24px 36px;
+      border-left: 1px solid var(--rule);
       border-bottom: 0;
     }
 
@@ -1869,22 +1995,22 @@
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--grass);
+    color: var(--cedar);
   }
 
   .ft-col-index {
-    color: var(--noon);
+    color: var(--boxwood);
   }
 
   .ft-list {
     display: grid;
     gap: 2px;
-    margin: 16px 0 0;
+    margin: 14px 0 0;
     padding: 0;
     list-style: none;
   }
 
-  /* Links: an underline draws out under the text, like a run on the plan. */
+  /* Links: a Boxwood run draws out under the text. */
   .ft-link {
     position: relative;
     display: inline-flex;
@@ -1892,7 +2018,7 @@
     gap: 6px;
     min-height: 44px;
     font-size: 16px;
-    color: var(--caliche);
+    color: var(--ink);
     text-decoration: none;
     transition: color 200ms ease;
   }
@@ -1910,8 +2036,8 @@
     left: 0;
     right: 0;
     bottom: 8px;
-    height: 1px;
-    background: var(--leaf);
+    height: 2px;
+    background: var(--boxwood);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 320ms cubic-bezier(0.7, 0, 0.2, 1);
@@ -1919,27 +2045,21 @@
 
   @media (min-width: 1024px) {
     .ft-link::after {
-      bottom: 5px;
+      bottom: 4px;
     }
   }
 
   .ft-link:hover {
-    color: var(--leaf);
+    color: var(--boxwood);
   }
 
   .ft-link:hover::after {
     transform: scaleX(1);
   }
 
-  .ft-link-strong {
-    font-family: var(--font-display);
-    font-size: 21px;
-    font-weight: 700;
-  }
-
   .ft-out {
     flex: none;
-    color: var(--leaf);
+    color: var(--boxwood);
     transition: transform 200ms var(--ease-plan);
   }
 
@@ -1953,15 +2073,15 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px 24px;
-    padding: 24px 0 8px;
+    padding: 22px 0 8px;
     font-size: 14px;
-    color: var(--grass);
+    color: var(--cedar);
   }
 
   @media (min-width: 1024px) {
     .ft-bottom {
-      padding: 28px 0 32px;
-      border-top: 1px solid rgb(169 179 173 / 0.28);
+      padding: 26px 0 30px;
+      border-top: 1px solid var(--rule);
     }
   }
 
@@ -1970,7 +2090,7 @@
     align-items: center;
     gap: 8px;
     min-height: 44px;
-    color: var(--caliche);
+    color: var(--ink);
     font-weight: 600;
     text-decoration: none;
   }

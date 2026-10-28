@@ -1,9 +1,9 @@
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react';
 
-import { CONTACT, FOOTER } from '../data/home-content';
+import FooterFence from '../components/FooterFence';
+import PlanMark from '../components/PlanMark';
+import { CONTACT, FOOTER, HERO } from '../data/home-content';
 import { AREA_LINKS, BUSINESS, COMPANY_LINKS, SYSTEM_LINKS, type NavLink } from '../data/site';
-import { motionAllowed } from '../lib/motion';
 
 function Column({ index, title, links }: { index: number; title: string; links: readonly NavLink[] }) {
   return (
@@ -28,122 +28,84 @@ function Column({ index, title, links }: { index: number; title: string; links: 
 }
 
 /**
- * The finale: the drawing's title block on an ink ground, under a full-width
- * wordmark whose letters are filled with the real boxwood texture. The fill
- * grows up the letters as the footer arrives (the hero's hedge, once more),
- * and on desktop a patch of sun follows the cursor across the leaves.
+ * The back fence: the page ends where the hero began. A drawn hedge runs the
+ * full width with a neighbor's sightline that follows the cursor and always
+ * lands on the hedge; then the closing line (the hero's headline, answered),
+ * the quote button, and the site's links as a title block.
  *
  * Same links as before, all plain crawlable anchors in a labelled <nav>.
- * The textured copies of the wordmark are ::before / ::after layers, so the
- * brand name is in the markup exactly once. Motion fails open: the letters ship
- * full, and only a below-the-fold footer is armed to grow.
  */
 export default function SiteFooter() {
-  const mark = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const el = mark.current;
-    if (!el || !motionAllowed() || typeof IntersectionObserver === 'undefined') return;
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-
-    el.dataset.grow = 'armed';
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        io.disconnect();
-        el.dataset.grow = 'go';
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    const deadline = window.setTimeout(() => {
-      if (el.dataset.grow === 'armed') el.dataset.grow = 'go';
-    }, 10000);
-
-    /* The sun patch: desktop, fine pointer only. */
-    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const onMove = (event: PointerEvent) => {
-      const rect = el.getBoundingClientRect();
-      el.style.setProperty('--sun-x', `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`);
-      el.style.setProperty('--sun-y', `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`);
-    };
-    const onEnter = () => el.setAttribute('data-sun', '');
-    const onLeave = () => el.removeAttribute('data-sun');
-    if (fine) {
-      el.addEventListener('pointermove', onMove);
-      el.addEventListener('pointerenter', onEnter);
-      el.addEventListener('pointerleave', onLeave);
-    }
-
-    return () => {
-      io.disconnect();
-      window.clearTimeout(deadline);
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerenter', onEnter);
-      el.removeEventListener('pointerleave', onLeave);
-      delete el.dataset.grow;
-    };
-  }, []);
-
-  const [first, ...rest] = BUSINESS.name.split(' ');
-  const second = rest.slice(0, 1).join(' ');
-  const tail = rest.slice(1).join(' ');
-  const lines = (
-    <>
-      <span className="ft-mark-line">
-        {first} {second}
-      </span>{' '}
-      <span className="ft-mark-line">{tail}</span>
-    </>
-  );
-
   return (
-    <footer className="on-ink ft">
-      <div className="wrap">
-        {/* The textured layers are CSS pseudo-elements fed from data-text, so
-            crawlers and screen readers get the brand name once, not three times. */}
-        <a ref={mark} href="/" className="ft-mark" data-text={`${first} ${second}\n${tail}`}>
-          {lines}
-        </a>
+    <footer className="ft">
+      <FooterFence />
 
-        <nav aria-label="Footer" className="ft-block">
-          <Column index={1} title={FOOTER.columns.systems} links={SYSTEM_LINKS} />
-          <Column index={2} title={FOOTER.columns.areas} links={AREA_LINKS} />
-          <Column index={3} title={FOOTER.columns.company} links={COMPANY_LINKS} />
-          <div className="ft-col">
-            <p className="ft-col-head">
-              <span className="ft-col-index" aria-hidden="true">
-                04
-              </span>
-              {FOOTER.columns.contact}
-            </p>
-            <ul className="ft-list">
-              <li>
-                <a href={BUSINESS.phoneHref} className="ft-link ft-link-strong tabular">
+      <div className="ft-body">
+        <div className="wrap">
+          <div className="ft-close">
+            <div>
+              <a href="/" className="ft-brand">
+                <PlanMark className="h-6 w-6 flex-none" />
+                <span>{BUSINESS.name}</span>
+              </a>
+              <p className="ft-line" aria-hidden="true">
+                <span>{HERO.display[0]}</span>
+                <span>{HERO.display[1]}</span>
+              </p>
+            </div>
+            <div className="ft-act">
+              <p className="t-small max-w-[40ch] text-cedar">{HERO.trust}</p>
+              <div className="ft-act-row">
+                <a href="#quote" className="btn btn-primary" data-cta="footer">
+                  {HERO.cta}
+                  <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
+                </a>
+                <a href={BUSINESS.phoneHref} className="ft-phone tabular">
                   {BUSINESS.phoneDisplay}
                 </a>
-              </li>
-              <li>
-                <a href={BUSINESS.emailHref} className="ft-link [overflow-wrap:anywhere]">
-                  {BUSINESS.email}
-                </a>
-              </li>
-              <li>
-                <a href={BUSINESS.parent.url} rel="noopener" className="ft-link">
-                  {CONTACT.brand}
-                  <ArrowUpRight size={15} strokeWidth={2.2} className="ft-out" aria-hidden="true" />
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
-        </nav>
 
-        <div className="ft-bottom">
-          <p className="m-0">{FOOTER.bottom}</p>
-          <a href="#main" className="ft-top">
-            {FOOTER.top}
-            <ArrowUp size={15} strokeWidth={2.2} aria-hidden="true" />
-          </a>
+          <nav aria-label="Footer" className="ft-block">
+            <Column index={1} title={FOOTER.columns.systems} links={SYSTEM_LINKS} />
+            <Column index={2} title={FOOTER.columns.areas} links={AREA_LINKS} />
+            <Column index={3} title={FOOTER.columns.company} links={COMPANY_LINKS} />
+            <div className="ft-col">
+              <p className="ft-col-head">
+                <span className="ft-col-index" aria-hidden="true">
+                  04
+                </span>
+                {FOOTER.columns.contact}
+              </p>
+              <ul className="ft-list">
+                <li>
+                  <a href={BUSINESS.phoneHref} className="ft-link tabular">
+                    {BUSINESS.phoneDisplay}
+                  </a>
+                </li>
+                <li>
+                  <a href={BUSINESS.emailHref} className="ft-link [overflow-wrap:anywhere]">
+                    {BUSINESS.email}
+                  </a>
+                </li>
+                <li>
+                  <a href={BUSINESS.parent.url} rel="noopener" className="ft-link">
+                    {CONTACT.brand}
+                    <ArrowUpRight size={15} strokeWidth={2.2} className="ft-out" aria-hidden="true" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div className="ft-bottom">
+            <p className="m-0">{FOOTER.bottom}</p>
+            <a href="#main" className="ft-top">
+              {FOOTER.top}
+              <ArrowUp size={15} strokeWidth={2.2} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
