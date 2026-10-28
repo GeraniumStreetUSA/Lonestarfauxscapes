@@ -1757,8 +1757,10 @@
     }
   }
 
-  .ft-mark-fill,
-  .ft-mark-sun {
+  .ft-mark::before,
+  .ft-mark::after {
+    content: attr(data-text);
+    white-space: pre;
     position: absolute;
     inset: 0;
     -webkit-text-stroke: 0;
@@ -1775,7 +1777,7 @@
     pointer-events: none;
   }
 
-  .ft-mark-fill {
+  .ft-mark::before {
     clip-path: inset(var(--grow) 0 0 0);
   }
 
@@ -1783,11 +1785,11 @@
     --grow: 100%;
   }
 
-  .ft-mark[data-grow='go'] .ft-mark-fill {
+  .ft-mark[data-grow='go']::before {
     transition: clip-path 1800ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  .ft-mark-sun {
+  .ft-mark::after {
     background-image:
       linear-gradient(rgb(242 181 58 / 0.18), rgb(242 181 58 / 0.18)),
       image-set(url('/images/mat-boxwood-900.avif') type('image/avif'), url('/images/mat-boxwood-900.webp') type('image/webp'));
@@ -1798,7 +1800,7 @@
     transition: opacity 400ms ease;
   }
 
-  .ft-mark[data-sun] .ft-mark-sun {
+  .ft-mark[data-sun]::after {
     opacity: 1;
   }
 
@@ -1832,8 +1834,8 @@
       border-left: 0;
     }
 
-    .ft-mark-fill,
-    .ft-mark-sun {
+    .ft-mark::before,
+    .ft-mark::after {
       background-size: 100% 100%, 240px auto;
     }
   }

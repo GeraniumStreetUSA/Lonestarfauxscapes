@@ -34,8 +34,8 @@ function Column({ index, title, links }: { index: number; title: string; links: 
  * and on desktop a patch of sun follows the cursor across the leaves.
  *
  * Same links as before, all plain crawlable anchors in a labelled <nav>.
- * The textured copies of the wordmark are decorative (aria-hidden); the real
- * text is the home link underneath them. Motion fails open: the letters ship
+ * The textured copies of the wordmark are ::before / ::after layers, so the
+ * brand name is in the markup exactly once. Motion fails open: the letters ship
  * full, and only a below-the-fold footer is armed to grow.
  */
 export default function SiteFooter() {
@@ -100,14 +100,10 @@ export default function SiteFooter() {
   return (
     <footer className="on-ink ft">
       <div className="wrap">
-        <a ref={mark} href="/" className="ft-mark">
-          <span className="ft-mark-base">{lines}</span>
-          <span className="ft-mark-fill" aria-hidden="true">
-            {lines}
-          </span>
-          <span className="ft-mark-sun" aria-hidden="true">
-            {lines}
-          </span>
+        {/* The textured layers are CSS pseudo-elements fed from data-text, so
+            crawlers and screen readers get the brand name once, not three times. */}
+        <a ref={mark} href="/" className="ft-mark" data-text={`${first} ${second}\n${tail}`}>
+          {lines}
         </a>
 
         <nav aria-label="Footer" className="ft-block">
