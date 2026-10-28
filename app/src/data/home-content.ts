@@ -376,7 +376,8 @@ export const CONTACT = {
 } as const;
 
 export const FOOTER = {
-  columns: { systems: 'Systems', areas: 'Areas', company: 'Company' },
+  columns: { systems: 'Systems', areas: 'Areas', company: 'Company', contact: 'Contact' },
+  top: 'Back to top',
   bottom: '© 2026 Lone Star Faux Scapes. A Geranium Street USA brand.',
 } as const;
 

@@ -1709,6 +1709,279 @@
   }
 }
 
+@layer components {
+  /* ---------------------------------------------------------- footer */
+
+  .ft {
+    background: var(--ink);
+    color: var(--caliche);
+    padding: 64px 0 96px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .ft {
+      padding: 96px 0 0;
+    }
+  }
+
+  /* The wordmark: three stacked copies of the same text. The base is an
+     outline; the fill is the real boxwood, grown up from the bottom; the sun
+     is a brighter boxwood under a soft spot that follows the cursor. */
+  .ft-mark {
+    --grow: 0%;
+    --sun-x: 50%;
+    --sun-y: 50%;
+    position: relative;
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13.4vw;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(169 179 173 / 0.4);
+    text-decoration: none;
+    /* Room for the descender of the p, so the clipped fill never cuts it. */
+    padding-bottom: 0.2em;
+  }
+
+  .ft-mark-line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 1024px) {
+    .ft-mark {
+      font-size: min(12.6vw, 13.5rem);
+    }
+  }
+
+  .ft-mark-fill,
+  .ft-mark-sun {
+    position: absolute;
+    inset: 0;
+    -webkit-text-stroke: 0;
+    /* A real crop of the boxwood mat, tiled as shot (never mirrored), at a
+       leaf size that reads as hedge. */
+    background-image:
+      linear-gradient(180deg, rgb(21 33 27 / 0) 40%, rgb(21 33 27 / 0.45)),
+      image-set(url('/images/mat-boxwood-900.avif') type('image/avif'), url('/images/mat-boxwood-900.webp') type('image/webp'));
+    background-size: 100% 100%, 380px auto;
+    background-position: center, 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    pointer-events: none;
+  }
+
+  .ft-mark-fill {
+    clip-path: inset(var(--grow) 0 0 0);
+  }
+
+  .ft-mark[data-grow='armed'] {
+    --grow: 100%;
+  }
+
+  .ft-mark[data-grow='go'] .ft-mark-fill {
+    transition: clip-path 1800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .ft-mark-sun {
+    background-image:
+      linear-gradient(rgb(242 181 58 / 0.18), rgb(242 181 58 / 0.18)),
+      image-set(url('/images/mat-boxwood-900.avif') type('image/avif'), url('/images/mat-boxwood-900.webp') type('image/webp'));
+    filter: brightness(1.55) saturate(1.15);
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(circle 240px at var(--sun-x) var(--sun-y), #000 0%, rgb(0 0 0 / 0) 70%);
+    mask-image: radial-gradient(circle 240px at var(--sun-x) var(--sun-y), #000 0%, rgb(0 0 0 / 0) 70%);
+    transition: opacity 400ms ease;
+  }
+
+  .ft-mark[data-sun] .ft-mark-sun {
+    opacity: 1;
+  }
+
+  .ft-mark:focus-visible:focus-visible {
+    outline-offset: 8px;
+  }
+
+  /* The title block: four numbered cells between hairlines. */
+  .ft-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 48px;
+    border-top: 1px solid rgb(169 179 173 / 0.28);
+  }
+
+  .ft-col {
+    padding: 24px 16px 28px 0;
+    border-bottom: 1px solid rgb(169 179 173 / 0.28);
+  }
+
+  .ft-col:nth-child(even) {
+    padding-left: 16px;
+    border-left: 1px solid rgb(169 179 173 / 0.28);
+  }
+
+  /* Phones: contact gets the full width, so the number and email never wrap. */
+  @media (max-width: 1023px) {
+    .ft-col:last-child {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .ft-mark-fill,
+    .ft-mark-sun {
+      background-size: 100% 100%, 240px auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ft-block {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 72px;
+    }
+
+    .ft-col,
+    .ft-col:nth-child(even) {
+      padding: 28px 24px 40px;
+      border-left: 1px solid rgb(169 179 173 / 0.28);
+      border-bottom: 0;
+    }
+
+    .ft-col:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  .ft-col-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grass);
+  }
+
+  .ft-col-index {
+    color: var(--noon);
+  }
+
+  .ft-list {
+    display: grid;
+    gap: 2px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Links: an underline draws out under the text, like a run on the plan. */
+  .ft-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    font-size: 16px;
+    color: var(--caliche);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  @media (min-width: 1024px) {
+    .ft-link {
+      min-height: 34px;
+      font-size: 15px;
+    }
+  }
+
+  .ft-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    height: 1px;
+    background: var(--leaf);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 320ms cubic-bezier(0.7, 0, 0.2, 1);
+  }
+
+  @media (min-width: 1024px) {
+    .ft-link::after {
+      bottom: 5px;
+    }
+  }
+
+  .ft-link:hover {
+    color: var(--leaf);
+  }
+
+  .ft-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .ft-link-strong {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  .ft-out {
+    flex: none;
+    color: var(--leaf);
+    transition: transform 200ms var(--ease-plan);
+  }
+
+  .ft-link:hover .ft-out {
+    transform: translate(2px, -2px);
+  }
+
+  .ft-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 24px 0 8px;
+    font-size: 14px;
+    color: var(--grass);
+  }
+
+  @media (min-width: 1024px) {
+    .ft-bottom {
+      padding: 28px 0 32px;
+      border-top: 1px solid rgb(169 179 173 / 0.28);
+    }
+  }
+
+  .ft-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    color: var(--caliche);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .ft-top svg {
+    transition: transform 220ms var(--ease-plan);
+  }
+
+  .ft-top:hover svg {
+    transform: translateY(-3px);
+  }
+}
+
 /* ------------------------------------------------ hero: "Out of sight" */
 
 @layer components {
