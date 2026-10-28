@@ -121,6 +121,14 @@ Build order: hero prototype first, shown to the owner, then the rest. Builder: F
 - [x] Fact strip from the case study only: 130 ft run, 16 ft tall, existing wire mesh, boxwood with UV-resistant materials. No area figure, no timeline.
 - [x] Exits: "Read the Austin case study" and "Measure your run". Image variants for 05 and 07.
 
+### "Four things everyone asks first", made interactive (owner 2026-10-28)
+- [x] Desktop: sticky numbered index on the left (active question lit, reading line); answers scroll on the right. Phones: stacked cards.
+- [x] Q1 realism: a magnifier over a real boxwood product close-up (pointer, touch drag, arrow keys).
+- [x] Q2 Texas sun: drag the sun across the sky (or arrow keys), the hedge's shadow swings, with a time readout.
+- [x] Q3 HOA: a submission checklist you can tick (real checkboxes), Chapter 202 citation, "no promise of approval".
+- [x] Q4 cost: a live mini estimate (system chips, run slider) from the published prices, linking to the full estimator.
+- [x] Same copy and links; motion fails open; reduced motion and ?qa=1 show final states.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

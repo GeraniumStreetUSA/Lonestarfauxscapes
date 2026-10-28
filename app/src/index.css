@@ -323,7 +323,9 @@
     font-stretch: 118%;
     letter-spacing: -0.045em;
     line-height: 0.86;
-    font-variant-numeric: tabular-nums;
+    /* Besley's tabular zero is a different design from its other figures;
+       the big display numbers use proportional figures. */
+    font-variant-numeric: proportional-nums;
   }
 
   .mono {
@@ -2101,6 +2103,615 @@
 
   .ft-top:hover svg {
     transform: translateY(-3px);
+  }
+}
+
+@layer components {
+  /* ------------------------------------- four questions, hands-on */
+
+  .q-section {
+    --q-read: 0;
+  }
+
+  .q-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 36px;
+  }
+
+  .q-index {
+    display: none;
+  }
+
+  .q-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 56px;
+    border-top: 2px solid var(--ink);
+    padding-top: 32px;
+  }
+
+  .q-count {
+    margin: 0;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--cedar);
+  }
+
+  .q-count-num {
+    color: var(--boxwood);
+  }
+
+  .q-question {
+    margin-top: 10px;
+    font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+    font-weight: 780;
+    letter-spacing: -0.024em;
+    line-height: 1;
+  }
+
+  .q-answer {
+    margin-top: 16px;
+    color: var(--cedar);
+  }
+
+  .q-answer strong {
+    font-weight: 640;
+    color: var(--ink);
+  }
+
+  .q-card-slot {
+    margin-top: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    .q-body {
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      column-gap: 72px;
+      margin-top: 48px;
+    }
+
+    /* The index: pinned under the header, the question in view lit. */
+    .q-index {
+      display: block;
+      position: sticky;
+      top: 128px;
+      align-self: start;
+      padding-left: 22px;
+    }
+
+    .q-index::before,
+    .q-index::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+    }
+
+    .q-index::before {
+      background: var(--line);
+    }
+
+    .q-index::after {
+      background: var(--boxwood);
+      transform: scaleY(var(--q-read));
+      transform-origin: top;
+    }
+
+    .q-index ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .q-index-link {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      align-items: baseline;
+      padding: 12px 0;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.012em;
+      color: rgb(21 33 27 / 0.38);
+      text-decoration: none;
+      transition:
+        color 300ms ease,
+        transform 300ms var(--ease-plan);
+    }
+
+    .q-index-link:hover {
+      color: var(--cedar);
+    }
+
+    .q-index-link[data-on] {
+      color: var(--ink);
+      transform: translateX(6px);
+    }
+
+    .q-index-num {
+      font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: inherit;
+    }
+
+    .q-index-link[data-on] .q-index-num {
+      color: var(--boxwood);
+    }
+
+    .q-list {
+      gap: 0;
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .q-item {
+      min-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .q-item:first-child {
+      border-top: 2px solid var(--ink);
+    }
+
+    .q-answer {
+      max-width: 54ch;
+    }
+  }
+
+  /* ---- the cards ---- */
+
+  .q-card {
+    position: relative;
+  }
+
+  .q-card-caption {
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--cedar);
+  }
+
+  /* Loupe */
+  /* Capped at the photo's native width, so the 2x view stays sharp enough. */
+  .q-loupe-frame {
+    position: relative;
+    max-width: 560px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--limestone);
+    touch-action: pan-y;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .q-loupe-frame {
+      cursor: none;
+    }
+  }
+
+  .q-loupe-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) brightness(0.92);
+  }
+
+  .q-loupe-lens {
+    position: absolute;
+    width: clamp(130px, 34%, 200px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    border: 3px solid var(--caliche);
+    box-shadow:
+      0 0 0 1px var(--ink),
+      0 18px 40px -16px rgb(21 33 27 / 0.7);
+    pointer-events: none;
+  }
+
+  .q-loupe-zoom {
+    position: absolute;
+    right: 14%;
+    bottom: 10%;
+    padding: 3px 7px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--caliche);
+    border-radius: 999px;
+  }
+
+  .q-loupe-frame:focus-visible:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* Sun */
+  .q-sun-frame {
+    --warm: 0;
+    position: relative;
+    border: 1px solid var(--rule);
+    background: #eef0ea;
+    overflow: hidden;
+  }
+
+  .q-sun-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #f6dfb8, #efe6d2 70%);
+    opacity: var(--warm);
+    pointer-events: none;
+  }
+
+  .q-sun-svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+
+  .q-sun-svg * {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .q-sun-arc {
+    fill: none;
+    stroke: var(--ink);
+    stroke-opacity: 0.25;
+    stroke-width: 1;
+    stroke-dasharray: 3 6;
+  }
+
+  .q-sun-ground {
+    fill: var(--limestone);
+  }
+
+  .q-sun-edge {
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .q-sun-shadow {
+    fill: var(--ink);
+    fill-opacity: 0.16;
+  }
+
+  .q-sun-hedge-front {
+    fill: var(--boxwood);
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .q-sun-hedge-side {
+    fill: #1f3d1e;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .q-sun-hedge-top {
+    fill: #5d8a4f;
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+
+  .q-sun-disc {
+    fill: var(--noon);
+    stroke: var(--ink);
+    stroke-width: 1.6;
+  }
+
+  .q-sun-readout {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px 6px 12px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: rgb(246 244 238 / 0.94);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+  }
+
+  .q-sun-tag {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--limestone);
+  }
+
+  .q-sun-tag[data-high] {
+    background: var(--noon);
+  }
+
+  .q-sun-control {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .q-sun-end {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cedar);
+  }
+
+  /* HOA checklist */
+  .q-hoa-sheet {
+    position: relative;
+    padding: 24px;
+    border: 1px solid var(--rule);
+    background:
+      repeating-linear-gradient(180deg, transparent 0 35px, rgb(21 33 27 / 0.05) 35px 36px),
+      #f6f4ee;
+    overflow: hidden;
+  }
+
+  .q-hoa-cite {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .q-hoa-cite-mark {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--boxwood);
+  }
+
+  .q-hoa-cite strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  .q-hoa-cite-note {
+    display: block;
+    margin-top: 4px;
+    font-size: 15px;
+    color: var(--cedar);
+  }
+
+  .q-hoa-list {
+    margin: 18px 0 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  .q-hoa-heading {
+    margin-bottom: 8px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cedar);
+  }
+
+  .q-hoa-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 48px;
+    cursor: pointer;
+  }
+
+  .q-hoa-input {
+    position: absolute;
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .q-hoa-box {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    color: transparent;
+    background: #fff;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      transform 200ms var(--ease-plan);
+  }
+
+  .q-hoa-item[data-on] .q-hoa-box {
+    background: var(--boxwood);
+    border-color: var(--boxwood);
+    color: var(--caliche);
+    transform: scale(1.06);
+  }
+
+  .q-hoa-input:focus-visible + .q-hoa-box {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .q-hoa-text {
+    font-size: 17px;
+    transition: color 200ms ease;
+  }
+
+  .q-hoa-item[data-on] .q-hoa-text {
+    color: var(--cedar);
+    text-decoration: line-through;
+    text-decoration-color: var(--boxwood);
+    text-decoration-thickness: 2px;
+  }
+
+  .q-hoa-note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--cedar);
+  }
+
+  .q-hoa-stamp {
+    position: absolute;
+    right: 18px;
+    bottom: 22px;
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--boxwood);
+    border: 2px solid var(--boxwood);
+    border-radius: 4px;
+    transform: rotate(-8deg) scale(1.6);
+    opacity: 0;
+    transition:
+      opacity 220ms ease,
+      transform 360ms cubic-bezier(0.2, 0.9, 0.2, 1.25);
+    pointer-events: none;
+  }
+
+  .q-hoa-sheet[data-ready] .q-hoa-stamp {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1);
+  }
+
+  /* Live cost */
+  .q-cost {
+    padding: 24px;
+    border: 1px solid var(--rule);
+    background: #f6f4ee;
+  }
+
+  .q-cost-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .q-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid var(--control);
+    border-radius: 4px;
+    cursor: pointer;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .q-chip:hover {
+    border-color: var(--ink);
+  }
+
+  .q-chip[data-on] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--caliche);
+  }
+
+  .q-chip:has(input:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .q-cost-run {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 20px;
+  }
+
+  .q-cost-label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .q-cost-run-value {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .q-cost-out {
+    margin-top: 10px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .q-cost-figure {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 1.6rem + 3vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .q-cost-from {
+    font-size: 0.4em;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: var(--cedar);
+  }
+
+  .q-cost-math {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .q-cost-caption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--cedar);
   }
 }
 

@@ -119,7 +119,34 @@ export interface Question {
 }
 
 export const QUESTIONS = {
+  callout: '◦ FOUR QUESTIONS',
   title: 'Four things everyone asks first.',
+  /** Labels for each answer's hands-on card. */
+  cards: {
+    loupe: {
+      caption: 'A real boxwood panel. Move the loupe over it.',
+      alt: 'Close-up of an artificial boxwood panel, showing leaf density',
+      zoom: '2×',
+    },
+    sun: {
+      caption: 'Drag the sun. Texas sun is the test outdoor foliage has to pass.',
+      slider: 'Time of day',
+      high: 'High sun',
+      low: 'Low sun',
+    },
+    hoa: {
+      cite: 'Texas Property Code, Chapter 202',
+      citeNote: 'Governs how HOA deed restrictions are enforced.',
+      heading: 'Before you submit',
+      items: ["Read your HOA's rules", 'Product specs', 'Photos of the run'],
+      ready: 'Ready to submit',
+      note: 'No promise of approval. Your HOA decides.',
+    },
+    cost: {
+      runLabel: 'Run length (ft)',
+      full: 'Open the full estimator',
+    },
+  },
   items: [
     {
       question: 'Will it look fake?',

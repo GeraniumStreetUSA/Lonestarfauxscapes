@@ -124,7 +124,8 @@ export default function FooterFence() {
       const dur = 1600;
       const ease = (t: number) => 1 - Math.pow(1 - t, 3);
       const step = (now: number) => {
-        const t = Math.min(1, (now - start) / dur);
+        /* rAF timestamps can precede performance.now(); never go below 0. */
+        const t = Math.min(1, Math.max(0, (now - start) / dur));
         r.setAttribute('width', String(Math.round((W + 60) * ease(t))));
         if (t < 1) requestAnimationFrame(step);
       };
