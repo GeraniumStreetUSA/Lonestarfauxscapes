@@ -16,6 +16,33 @@
       717
     ]
   },
+  "austin-before": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "austin-install": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "austin-after": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
   "install-austin-panels": {
     "width": 1200,
     "height": 896,

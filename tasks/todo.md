@@ -115,6 +115,12 @@ Build order: hero prototype first, shown to the owner, then the rest. Builder: F
 - [x] "Where we work": a real Texas outline map (survey grid, north arrow, true scale bar), metro rows with coordinates; hovering a row lights its pin and the reverse; the outline draws in on scroll (fails open).
 - [x] Sticky header: follows on scroll. Desktop compacts. Phone hides the nav row while scrolling down and shows it on scroll up. The desktop floating quote pill goes, since the header button is always there. Anchors offset for the header.
 
+### Section after the hero: "The Austin job" (owner approved 2026-10-28)
+- [x] Replace HomeReal (floating texture parallelogram, dead scroll, soft dirt-yard photo) with a three-step story of the real Austin job: Before (05), Install (07/08), After (06).
+- [x] Sticky photo stage on desktop: the step's photo wipes in as its text scrolls by; a progress line draws down. Phones: stacked cards. Fails open to stacked cards.
+- [x] Fact strip from the case study only: 130 ft run, 16 ft tall, existing wire mesh, boxwood with UV-resistant materials. No area figure, no timeline.
+- [x] Exits: "Read the Austin case study" and "Measure your run". Image variants for 05 and 07.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

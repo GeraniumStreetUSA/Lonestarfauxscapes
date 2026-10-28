@@ -30,6 +30,8 @@ const manifestPath = path.join(appRoot, 'src/data/image-manifest.json');
 /** In-app originals (paths relative to the app). */
 const austin06 = 'app/public/images/austin-boxwood-privacy-wall-06.avif';
 const austin08 = 'app/public/images/austin-boxwood-privacy-wall-08.avif';
+const austin05 = 'app/public/images/austin-boxwood-privacy-wall-05.avif';
+const austin07 = 'app/public/images/austin-boxwood-privacy-wall-07.avif';
 const restaurant04 = 'app/public/images/houston-restaurant-hedge-04.avif';
 const restaurant05 = 'app/public/images/houston-restaurant-hedge-05.avif';
 const storefront04 = 'app/public/images/houston-storefront-hedge-04.avif';
@@ -49,6 +51,11 @@ const IMAGES = [
     src: austin06,
     crop: { left: 250, top: 0, width: 717, height: 896 },
   },
+  // The Austin job story after the hero: before, install, after (full 4:3
+  // frames, same job, same photographer).
+  { name: 'austin-before', src: austin05 },
+  { name: 'austin-install', src: austin07 },
+  { name: 'austin-after', src: austin06 },
   // Process step 4 (install). Watermarked original; acceptable for the mock.
   { name: 'install-austin-panels', src: austin08 },
   // Commercial chapter.

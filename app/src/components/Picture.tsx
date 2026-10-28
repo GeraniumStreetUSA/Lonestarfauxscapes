@@ -32,6 +32,8 @@ interface PictureProps {
   sizes: string;
   /** The LCP image: eager, high fetch priority. Everything else is lazy. */
   priority?: boolean;
+  /** Eager without high priority: for images revealed by script, where lazy loading would show a blank or stale frame. */
+  eager?: boolean;
   /** Art-directed crop for narrow screens, e.g. the hero's 4:5 phone crop. */
   narrow?: { name: ImageName; media: string };
 }
@@ -40,7 +42,7 @@ interface PictureProps {
  * AVIF then WebP, with real src, width, height and alt on every <img>.
  * Variant widths come from the manifest that scripts/make-images.mjs writes.
  */
-export default function Picture({ name, alt, sizes, priority = false, narrow }: PictureProps) {
+export default function Picture({ name, alt, sizes, priority = false, eager = false, narrow }: PictureProps) {
   const main = intrinsic(name);
   const narrowEntry = narrow ? entry(narrow.name) : null;
   const narrowSize = narrow ? intrinsic(narrow.name) : null;
@@ -76,7 +78,7 @@ export default function Picture({ name, alt, sizes, priority = false, narrow }: 
         alt={alt}
         sizes={sizes}
         decoding="async"
-        {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const })}
+        {...(priority ? { fetchPriority: 'high' as const } : eager ? { loading: 'eager' as const } : { loading: 'lazy' as const })}
       />
     </picture>
   );

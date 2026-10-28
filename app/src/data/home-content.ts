@@ -47,10 +47,47 @@ export const HERO = {
   },
 } as const;
 
-/** The scroll from the drawn hedge to the real one. */
-export const REAL = {
-  caption: 'The real thing, Austin.',
-  statement: 'Real installs, measured to the foot.',
+/**
+ * Right after the hero: the real Austin job, told in three steps. Facts come
+ * only from content/case-studies.json (austin-high-end-residential-privacy).
+ * Left out on purpose: the area figure (conflicts with 16 x 130 ft) and the
+ * install timeline (not owner-confirmed).
+ */
+export const AUSTIN_STORY = {
+  callout: '◦ A REAL TEXAS JOB: AUSTIN',
+  title: 'Out of sight in Austin: 16 ft tall, 130 ft long.',
+  lede: 'The neighbor was remodeling, and the live screen in between was failing. Here is how that 130 ft run went green.',
+  steps: [
+    {
+      label: 'Before',
+      title: 'A tall screen, thin cover.',
+      text: 'A 16 ft wire mesh screen already stood between the two yards. The live planting on it could not keep up, and keeping it going took constant upkeep.',
+      image: 'austin-before',
+      alt: 'Bare 16 ft wire mesh privacy screen behind young trees in an Austin backyard, before the install',
+    },
+    {
+      label: 'Install',
+      title: 'Panels on the mesh. No new structure.',
+      text: 'Boxwood panels went straight onto the existing mesh, with a screen backing behind them. The tall structure stayed; only the cover changed.',
+      image: 'austin-install',
+      alt: 'Installer on a ladder fixing boxwood panels to the wire mesh screen',
+    },
+    {
+      label: 'After',
+      title: 'Green on day one. Nothing to water.',
+      text: '130 ft of boxwood, 16 ft tall, behind the live oaks. The materials were picked for UV resistance in full Austin sun.',
+      image: 'austin-after',
+      alt: 'Tall artificial boxwood privacy wall behind live oaks in an Austin backyard',
+    },
+  ],
+  facts: [
+    { label: 'Run', value: '130 ft' },
+    { label: 'Height', value: '16 ft' },
+    { label: 'Mount', value: 'Existing wire mesh' },
+    { label: 'Foliage', value: 'Boxwood panels, UV-resistant' },
+  ],
+  caseStudy: { label: 'Read the Austin case study', href: '/case-studies/austin-high-end-residential-privacy' },
+  measure: { label: 'Measure your run', href: '#estimate' },
 } as const;
 
 export const ESTIMATOR = {

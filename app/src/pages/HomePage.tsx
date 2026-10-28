@@ -4,6 +4,7 @@ import HomeSeo from '../components/HomeSeo';
 import StickyCta from '../components/StickyCta';
 import { armReveals } from '../lib/reveal';
 import { startSmoothScroll } from '../lib/smooth-scroll';
+import HomeAustin from '../sections/HomeAustin';
 import HomeEstimator from '../sections/HomeEstimator';
 import HomeFaq from '../sections/HomeFaq';
 import HomeFireChapter from '../sections/HomeFireChapter';
@@ -13,7 +14,6 @@ import HomeLinkBand from '../sections/HomeLinkBand';
 import HomeProcess from '../sections/HomeProcess';
 import HomeQuestions from '../sections/HomeQuestions';
 import HomeQuote from '../sections/HomeQuote';
-import HomeReal from '../sections/HomeReal';
 import HomeServiceArea from '../sections/HomeServiceArea';
 import HomeSystems from '../sections/HomeSystems';
 import SiteFooter from '../sections/SiteFooter';
@@ -39,7 +39,7 @@ export default function HomePage() {
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none">
         <HomeHero />
-        <HomeReal />
+        <HomeAustin />
         <HomeEstimator />
         <HomeLinkBand />
         <HomeQuestions />

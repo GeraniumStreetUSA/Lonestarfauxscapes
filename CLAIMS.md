@@ -33,6 +33,8 @@ Status key:
 | Panels "can mount to many fences or to a freestanding frame" | FAQ | Live product pages | soft |
 | Case studies: Austin residential privacy, Houston restaurant patio, Houston storefront | Texas installs, hero caption, commercial caption | `content/case-studies.json`, real photos | ok (Austin area left out, OWNER-NEEDS #15) |
 | Hero photo: Austin | Hero caption | Austin case study photos | ok |
+| Austin story: 16 ft wire mesh screen, 130 ft run, facing a neighboring remodel, failing live screen, panels on the existing mesh with screen backing, boxwood, UV-resistant materials | Section after the hero | `content/case-studies.json` (austin-high-end-residential-privacy): problemSolved, scope, dimensions, material, documentationNotes | ok |
+| "Green on day one. Nothing to water." | Austin story | Case study: "immediate coverage and no irrigation upkeep" | ok |
 | Starting prices: hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft (3 ft), living wall from $18 / sq ft, privacy wall from $699 / unit (4 x 4 ft); every one "+ installation, quoted after a site review" | Estimator, systems cards, Four questions, FAQ, meta description | Owner release 2026-10-25 (same as califauxscapes.com/pricing, checked live 2026-10-25); single source `app/src/data/starting-prices.ts` | ok |
 | Estimator figure = released rate x size, rounded to $10; privacy wall unit price never multiplied | Estimator | Arithmetic on released prices | ok |
 | No installed totals, no warranty, no lifespan, no timelines, no licence, no reviews, no founding year | Whole homepage | Left out on purpose (OWNER-NEEDS #2, #6, #7, #11, #13, #17) | ok |
