@@ -20,6 +20,13 @@ export const SEO = {
   canonical: 'https://lonestarfauxscapes.com/',
 } as const;
 
+/** Header labels not covered by the nav data. */
+export const HEADER = {
+  quoteShort: 'Quote',
+  menu: 'Menu',
+  close: 'Close menu',
+} as const;
+
 export const HERO = {
   /** The H1 is one element: the search phrase, then the display line. */
   kicker: 'Artificial hedges and living walls, installed in Texas',

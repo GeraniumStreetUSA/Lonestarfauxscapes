@@ -54,6 +54,10 @@ export default function HomeHero() {
         <div className="hero-scene">
           <SightlineScene />
         </div>
+        {/* Phones: the drag hint as a caption under the cropped drawing. */}
+        <p className="hero-hint" aria-hidden="true">
+          {HERO.scene.hint}
+        </p>
 
         <div className="hero-foot">
           <p className="t-small max-w-[44ch] text-cedar [text-wrap:balance]">{HERO.trust}</p>

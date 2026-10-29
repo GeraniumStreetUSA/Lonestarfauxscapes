@@ -715,10 +715,12 @@ export default function SightlineScene({ onFirstDrag }: { onFirstDrag?: () => vo
             {S.hedge} <span ref={set('handleValue')}>{feetText(initialShown)}</span>
           </span>
         </button>
-        <p className="sl-hint" aria-hidden="true">
-          {S.hint}
-        </p>
       </div>
+      {/* Outside the canvas: on phones the canvas overflows a cropped window,
+          and the hint belongs to the window. */}
+      <p className="sl-hint" aria-hidden="true">
+        {S.hint}
+      </p>
     </div>
   );
 }

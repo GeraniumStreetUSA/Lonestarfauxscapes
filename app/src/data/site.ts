@@ -31,6 +31,13 @@ export const HEADER_NAV: readonly NavLink[] = [
   { label: 'Guides', href: '/guides' },
 ];
 
+/** The phone menu sheet: the header's links plus the two most asked-for pages. */
+export const MENU_LINKS: readonly NavLink[] = [
+  ...HEADER_NAV,
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export const SYSTEM_LINKS: readonly NavLink[] = [
   { label: 'Artificial hedges', href: '/artificial-hedge' },
   { label: 'Living walls', href: '/living-wall' },
