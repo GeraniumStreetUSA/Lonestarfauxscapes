@@ -157,6 +157,31 @@ Audit at 390x844: 22,750 px tall (27 screens); first screen has no CTA, price or
 - [x] Link band: wrapped chips, all visible.
 - [x] Verify at 390 and 360, motion on and ?qa=1; desktop unchanged; republish the preview.
 
+### Mobile length + subtle motion (owner 2026-10-29: "too long on mobile ... missing subtle animations")
+
+Approved by owner in chat. Research: NN/g "Scrolling and Attention" (57% of viewing time above the fold, 74% in the first two screens). Phone page at 390x844 measured 17,672 px = 20.9 screens. Target about 12. Desktop layout unchanged; all copy and links stay in the markup (SEO).
+
+Before (px at 390): hero 1033, austin 1943, estimator 1603, link band 389, questions 3262, systems 989, fire 1502, installs 918, process 1050, quote 1536, faq 694, area 1420, footer 1246.
+
+- [x] Questions (phones): accordion, first open with its card; opening one irises its card and closes the last
+- [x] Service area (phones): map + tappable city chips instead of five tall rows; contact strip hidden (the footer contact column sits right below)
+- [x] Process (phones): text-only timeline (line still draws); quote's "what happens next" hidden on phones (repeats process)
+- [x] Installs (phones): drop the Austin row (already told in the story)
+- [x] Austin story (phones): shorter pinned steps
+- [x] Fire chapter (phones): photo hidden, points tightened
+- [x] Footer (phones): lower fence crop, closing CTA hidden (bottom bar carries it)
+- [x] Link band hidden on phones; FAQ items already answered above hidden on phones; hero fork as text links
+- [x] Motion: heading mask rise + stagger, photo settle, smooth accordions, press states, desktop hover underline/lift, scroll progress line; reduced motion and ?qa=1 get none
+- [x] Verify 390/360 + desktop, typecheck/tests/build, em-dash check, share build + artifact, local commit
+
+Review:
+- Phone page at 390x844: 17,672 px (20.9 screens) to 12,443 px (14.7 screens). Target of about 12 not reached; what is left is the estimator (1,595), quote form (1,252) and the Austin proof (1,577). Going further means cutting real content, which is the owner's call.
+- Also trimmed on phones: the systems card's drawing (the photo shows the same), Austin's "Measure your run" button (the estimator is the next section), Austin facts set smaller, section padding 56 to 48 px.
+- Four questions on phones/tablets is now an accordion (`data-mode='fold'`); the old pinned progress bar and its scroll code are gone. Desktop pin mode is unchanged (`.q-body` is `display: contents`).
+- Motion: `armSectionMotion` (src/lib/reveal.ts) for heading mask rise, callout ring/leader draw, photo settle; `armAccordions` (src/lib/accordion.ts) for every details element; touch press states; desktop card lift on recent jobs; CSS scroll-driven progress line. All off under reduced motion and `?qa=1`.
+- Found: an IntersectionObserver never reports a fully clip-path-ed element as intersecting, so headings are held by opacity and the mask plays only in the animation.
+- Every hidden block stays in the markup (crawlable); desktop shows all of it. Tests 52/52, build and share build pass. Preview republished (artifact v4). Nothing pushed.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

@@ -108,7 +108,7 @@ export default function HomeSystems() {
           {cards.map((card, index) => (
             <li key={card.id} id={`system-${card.id}`} className="flex" data-on={active === index ? 'true' : undefined}>
               <article className="card-hover relative flex w-full flex-col">
-                <div className="relative border-b border-line px-5 pb-9 pt-4 lg:px-6">
+                <div className="relative border-b border-line px-5 pb-9 pt-4 max-sm:hidden lg:px-6">
                   <div className="max-w-[380px]">
                     <SystemThumb id={card.id} />
                   </div>

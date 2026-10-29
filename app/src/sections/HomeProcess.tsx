@@ -27,6 +27,9 @@ export default function HomeProcess() {
       const mark = window.innerHeight * 0.62;
       const p = Math.min(1, Math.max(0, (mark - rect.top) / rect.height));
       ol.style.setProperty('--p', p.toFixed(4));
+      /* End the line at the last step's number, not the bottom of its text. */
+      const last = steps[steps.length - 1]?.querySelector('.step-index')?.getBoundingClientRect();
+      if (last) ol.style.setProperty('--line-end', `${Math.round(rect.bottom - last.top - last.height / 2)}px`);
       steps.forEach((step) => {
         const r = step.getBoundingClientRect();
         step.toggleAttribute('data-on', r.top + 30 < mark);
@@ -43,6 +46,7 @@ export default function HomeProcess() {
       window.removeEventListener('resize', onScroll);
       cancelAnimationFrame(raf);
       ol.style.removeProperty('--p');
+      ol.style.removeProperty('--line-end');
       steps.forEach((step) => step.removeAttribute('data-on'));
     };
   }, []);

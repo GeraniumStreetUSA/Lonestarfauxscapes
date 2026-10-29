@@ -27,7 +27,11 @@ export default function HomeFaq() {
         </h2>
         <div ref={list} className="faq-list m-0 grid gap-x-12 md:grid-cols-2" data-reveal>
           {FAQ.items.map((item) => (
-            <details key={item.question} className="faq-item border-t-2 border-ink" open>
+            <details
+              key={item.question}
+              className={`faq-item border-t-2 border-ink${item.answeredAbove ? ' max-sm:hidden' : ''}`}
+              open
+            >
               <summary className="faq-q">
                 <span>{item.question}</span>
                 <Plus size={18} strokeWidth={2.2} className="faq-icon" aria-hidden="true" />

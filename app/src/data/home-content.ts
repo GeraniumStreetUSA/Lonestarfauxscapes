@@ -365,6 +365,8 @@ export const QUOTE = {
 export interface Faq {
   question: string;
   answer: string;
+  /** Answered higher on the page; phones skip it here (still in the markup and schema). */
+  answeredAbove?: true;
 }
 
 export const FAQ = {
@@ -381,16 +383,19 @@ export const FAQ = {
     },
     {
       question: 'Is it fire-rated?',
+      answeredAbove: true,
       answer:
         'Fire-rated hedge and wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
     },
     {
       question: 'How is the price set?',
+      answeredAbove: true,
       answer:
         'From published starting prices for each system, plus installation. You get a rough quote by email first; the site review sets the final invoice, because run length, mounting and site access drive installation.',
     },
     {
       question: 'Will my HOA approve it?',
+      answeredAbove: true,
       answer:
         "We cannot promise approval. Check your HOA's rules and submit product specs and photos with your request.",
     },

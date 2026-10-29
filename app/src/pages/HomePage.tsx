@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 
 import HomeSeo from '../components/HomeSeo';
 import StickyCta from '../components/StickyCta';
-import { armReveals } from '../lib/reveal';
+import { armAccordions } from '../lib/accordion';
+import { armReveals, armSectionMotion } from '../lib/reveal';
 import { startSmoothScroll } from '../lib/smooth-scroll';
 import HomeAustin from '../sections/HomeAustin';
 import HomeEstimator from '../sections/HomeEstimator';
@@ -25,6 +26,8 @@ import SiteHeader from '../sections/SiteHeader';
  */
 export default function HomePage() {
   useEffect(() => armReveals(), []);
+  useEffect(() => armSectionMotion(), []);
+  useEffect(() => armAccordions(), []);
   useEffect(() => startSmoothScroll(), []);
 
   return (
@@ -36,6 +39,7 @@ export default function HomePage() {
       >
         Skip to content
       </a>
+      <div className="scroll-progress" aria-hidden="true" />
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none">
         <HomeHero />

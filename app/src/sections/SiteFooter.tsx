@@ -63,7 +63,7 @@ export default function SiteFooter() {
                 <span>{HERO.display[1]}</span>
               </p>
             </div>
-            <div className="ft-act">
+            <div className="ft-act max-sm:hidden">
               <p className="t-small max-w-[40ch] text-cedar">{HERO.trust}</p>
               <div className="ft-act-row">
                 <a href="#quote" className="btn btn-primary" data-cta="footer">

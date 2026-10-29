@@ -53,7 +53,7 @@ export default function HomeFireChapter() {
           </ul>
         </div>
 
-        <figure className="m-0 lg:pt-2" data-reveal>
+        <figure className="m-0 max-sm:hidden lg:pt-2" data-reveal>
           <div className="lot-frame">
             <div className="photo aspect-[16/10] bg-[#1d2a23]">
               <Picture

@@ -128,7 +128,7 @@ export default function HomeAustin() {
               {AUSTIN_STORY.caseStudy.label}
               <ArrowUpRight size={16} strokeWidth={2.2} aria-hidden="true" />
             </a>
-            <a href={AUSTIN_STORY.measure.href} className="btn btn-primary" data-cta="austin-measure">
+            <a href={AUSTIN_STORY.measure.href} className="btn btn-primary max-sm:hidden" data-cta="austin-measure">
               {AUSTIN_STORY.measure.label}
               <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
             </a>

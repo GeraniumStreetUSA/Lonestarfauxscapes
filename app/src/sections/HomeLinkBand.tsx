@@ -27,7 +27,7 @@ function Row({ label, links }: { label: string; links: readonly NavLink[] }) {
  */
 export default function HomeLinkBand() {
   return (
-    <div className="border-y border-rule bg-limestone">
+    <div className="border-y border-rule bg-limestone max-sm:hidden">
       <div className="wrap divide-y divide-line py-2">
         <Row label={LINK_BAND.systemsLabel} links={SYSTEM_LINKS} />
         <Row label={LINK_BAND.areasLabel} links={AREA_LINKS} />

@@ -75,7 +75,7 @@ export default function HomeServiceArea() {
           </ul>
         </div>
 
-        <ul className="rule-grid contact-strip m-0 mt-16 list-none p-0 sm:grid-cols-3 lg:mt-20" data-reveal>
+        <ul className="rule-grid contact-strip m-0 mt-16 list-none p-0 max-sm:hidden sm:grid-cols-3 lg:mt-20" data-reveal>
           <li>
             <a href={BUSINESS.phoneHref} className="contact-cell">
               <Phone size={20} strokeWidth={2} aria-hidden="true" />

@@ -17,7 +17,7 @@ export default function HomeInstalls() {
           {CASE_CARDS.map((card) => {
             const titleId = `case-${card.slug}`;
             return (
-              <li key={card.slug}>
+              <li key={card.slug} className={card.city === 'Austin' ? 'max-sm:hidden' : undefined}>
                 <article className="card-hover relative flex h-full flex-col">
                   <div className="photo photo-settle aspect-[4/3]">
                     <Picture

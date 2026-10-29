@@ -175,7 +175,7 @@ export default function HomeQuote() {
             <p className="t-lede mt-5 max-w-[30ch] text-cedar">{QUOTE.body}</p>
           </div>
 
-          <div className="quote-next mt-10 border-t border-rule pt-6 lg:mt-14">
+          <div className="quote-next mt-10 border-t border-rule pt-6 max-sm:hidden lg:mt-14">
             <p className="t-label text-cedar">{QUOTE.nextTitle}</p>
             <ol className="m-0 mt-5 grid list-none gap-4 p-0">
               {QUOTE.next.map((line, index) => (

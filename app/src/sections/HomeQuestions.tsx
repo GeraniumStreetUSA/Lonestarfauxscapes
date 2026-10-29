@@ -1,5 +1,5 @@
-import { ArrowRight } from 'lucide-react';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { ArrowRight, Plus } from 'lucide-react';
+import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react';
 
 import Callout from '../components/Callout';
 import CostCard from '../components/questions/CostCard';
@@ -49,7 +49,7 @@ const smooth = (t: number) => t * t * (3 - 2 * t);
  * Desktop (motion allowed): the section pins and the page's scroll drives it
  * sideways through the four questions. Text slides in with a little parallax;
  * each card irises open over the last from a focal point, and each question
- * holds still long enough to use its card. Phones: a native swipe carousel.
+ * holds still long enough to use its card. Phones and tablets: an accordion.
  * Reduced motion, ?qa=1 or no script: the plain stacked list (the markup's
  * own layout), so nothing depends on the effect.
  */
@@ -142,81 +142,57 @@ export default function HomeQuestions() {
     };
   }, []);
 
-  /* Phones and tablets: a vertical flow. A bar pins at the top of the section
-     with the four steps and the question in view; each card irises open from
-     its focal point as it arrives (armed only below the fold, fails open). */
-  const [flowActive, setFlowActive] = useState(0);
+  /* Phones and tablets: an accordion. The first question opens with its
+     card; tapping another opens it (its card irises in from its focal point)
+     and closes the last, while the tapped question stays under the finger.
+     The markup ships every answer and card, so no script still shows all. */
+  const [fold, setFold] = useState(false);
+  const [openQ, setOpenQ] = useState(0);
+  const anchor = useRef<{ i: number; top: number } | null>(null);
   useEffect(() => {
-    const sec = section.current;
-    const ol = list.current;
-    if (!sec || !ol || window.matchMedia('(min-width: 1024px)').matches) return;
-    sec.dataset.mode = 'flow';
-    const items = Array.from(ol.querySelectorAll<HTMLElement>('[data-q]'));
-    const steps = Array.from(sec.querySelectorAll<HTMLElement>('.q-bar [data-bar-step]'));
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setFlowActive(Number((entry.target as HTMLElement).dataset.q));
-        });
-      },
-      { rootMargin: '-40% 0px -50% 0px' },
-    );
-    items.forEach((item) => io.observe(item));
-
-    /* The iris: each card's visual opens over a beat as it scrolls in.
-       Armed only for cards that start below the fold; triggered from the
-       same scroll handler as the bar, and released by a deadline regardless. */
-    const armed = new Set<HTMLElement>();
-    if (motionAllowed()) {
-      items.forEach((item) => {
-        const slot = item.querySelector<HTMLElement>('.q-card-slot');
-        if (slot && slot.getBoundingClientRect().top > window.innerHeight) {
-          slot.dataset.iris = 'armed';
-          armed.add(slot);
-        }
-      });
-    }
-    const open = (slot: HTMLElement) => {
-      armed.delete(slot);
-      const i = Number(slot.closest<HTMLElement>('[data-q]')?.dataset.q ?? 0);
-      const [cx, cy] = FOCI[i];
-      delete slot.dataset.iris;
-      slot.animate(
-        [
-          { clipPath: `circle(0% at ${cx}% ${cy}%)`, transform: 'scale(1.04)' },
-          { clipPath: `circle(150% at ${cx}% ${cy}%)`, transform: 'scale(1)' },
-        ],
-        { duration: 900, easing: 'cubic-bezier(0.7, 0, 0.2, 1)' },
-      );
-    };
-    const deadline = window.setTimeout(() => armed.forEach((slot) => delete slot.dataset.iris), 15000);
-
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const rect = ol.getBoundingClientRect();
-      const raw = ((window.innerHeight * 0.45 - rect.top) / rect.height) * N;
-      steps.forEach((step, i) => step.style.setProperty('--fill', `${Math.min(1, Math.max(0, raw - i)) * 100}%`));
-      armed.forEach((slot) => {
-        if (slot.getBoundingClientRect().top < window.innerHeight * 0.8) open(slot);
-      });
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      io.disconnect();
-      window.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(raf);
-      window.clearTimeout(deadline);
-      armed.forEach((slot) => delete slot.dataset.iris);
-      delete sec.dataset.mode;
-    };
+    if (window.matchMedia('(min-width: 1024px)').matches) return;
+    section.current!.dataset.mode = 'fold';
+    setFold(true);
   }, []);
+
+  useLayoutEffect(() => {
+    const from = anchor.current;
+    const ol = list.current;
+    if (!from || !ol) return;
+    anchor.current = null;
+    const item = ol.querySelector<HTMLElement>(`[data-q="${from.i}"]`);
+    if (!item) return;
+    /* Keep the tapped question where it was, then open its card. */
+    window.scrollBy(0, item.getBoundingClientRect().top - from.top);
+    /* Tapped low on the screen: glide it up so the opened card shows. */
+    const top = item.getBoundingClientRect().top;
+    if (top > window.innerHeight * 0.4) {
+      window.scrollBy({ top: top - 72, behavior: motionAllowed() ? 'smooth' : 'auto' });
+    }
+    if (!motionAllowed()) return;
+    const [cx, cy] = FOCI[from.i];
+    item.querySelector('.q-card-slot')?.animate(
+      [
+        { clipPath: `circle(0% at ${cx}% ${cy}%)`, transform: 'scale(1.04)' },
+        { clipPath: `circle(150% at ${cx}% ${cy}%)`, transform: 'scale(1)' },
+      ],
+      { duration: 800, easing: 'cubic-bezier(0.7, 0, 0.2, 1)' },
+    );
+    item.querySelectorAll('.q-answer, .q-link').forEach((el, k) =>
+      el.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], {
+        duration: 420,
+        delay: 60 + k * 120,
+        easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)',
+        fill: 'backwards',
+      }),
+    );
+  }, [openQ]);
+
+  const toggle = (i: number, event: ReactMouseEvent<HTMLButtonElement>) => {
+    if (i === openQ) return;
+    anchor.current = { i, top: event.currentTarget.closest('[data-q]')!.getBoundingClientRect().top };
+    setOpenQ(i);
+  };
 
   return (
     <section ref={section} aria-labelledby="questions-title" className="section q-section">
@@ -243,27 +219,37 @@ export default function HomeQuestions() {
               </ol>
             </header>
 
-            {/* Phones: the section's pinned bar (shown by CSS in flow mode only). */}
-            <div className="q-bar" aria-hidden="true">
-              <p className="q-bar-now">
-                <span className="q-count-num">{pad(flowActive + 1)}</span>
-                <span className="q-bar-label">{QUESTIONS.items[flowActive].question}</span>
-              </p>
-              <span className="q-bar-steps">
-                {QUESTIONS.steps.map((label) => (
-                  <span key={label} className="q-bar-step" data-bar-step />
-                ))}
-              </span>
-            </div>
             <ol ref={list} className="q-list">
               {QUESTIONS.items.map((item, index) => {
                 const [lead, rest] = answerFirst(item.answer);
                 return (
-                  <li key={item.question} id={`q-${index + 1}`} className="q-item" data-q={index}>
+                  <li
+                    key={item.question}
+                    id={`q-${index + 1}`}
+                    className="q-item"
+                    data-q={index}
+                    data-shut={fold && index !== openQ ? 'true' : undefined}
+                  >
                     <p className="q-count">
                       <span className="q-count-num">{pad(index + 1)}</span> / {pad(N)}
                     </p>
-                    <h3 className="q-question">{item.question}</h3>
+                    <h3 className="q-question">
+                      {fold ? (
+                        <button
+                          type="button"
+                          className="q-toggle"
+                          aria-expanded={index === openQ}
+                          aria-controls={`q-${index + 1}-body`}
+                          onClick={(event) => toggle(index, event)}
+                        >
+                          {item.question}
+                          <Plus size={20} strokeWidth={2.2} className="q-toggle-icon" aria-hidden="true" />
+                        </button>
+                      ) : (
+                        item.question
+                      )}
+                    </h3>
+                    <div id={`q-${index + 1}-body`} className="q-body">
                     <p className="t-body q-answer">
                       <strong>{lead}</strong>
                       {rest}
@@ -273,6 +259,7 @@ export default function HomeQuestions() {
                       {item.link.label}
                       <ArrowRight size={16} strokeWidth={2.2} aria-hidden="true" />
                     </a>
+                    </div>
                   </li>
                 );
               })}
