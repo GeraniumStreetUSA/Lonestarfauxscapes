@@ -1,22 +1,19 @@
 import { ArrowRight } from 'lucide-react';
-import { useRef } from 'react';
 
 import Callout from '../components/Callout';
 import Picture from '../components/Picture';
-import SwipeDots from '../components/SwipeDots';
 import { CASE_CARDS } from '../data/case-studies';
 import { INSTALLS } from '../data/home-content';
 
 /** Three real Texas jobs, from the site's case-study source. */
 export default function HomeInstalls() {
-  const list = useRef<HTMLUListElement>(null);
   return (
     <section id="projects" aria-labelledby="projects-title" className="section">
       <div className="wrap">
         <h2 id="projects-title" className="t-h2" data-reveal>
           {INSTALLS.title}
         </h2>
-        <ul ref={list} className="swipe-md m-0 mt-10 grid list-none gap-x-8 gap-y-14 p-0 md:grid-cols-3 lg:mt-14" data-reveal>
+        <ul className="installs-list m-0 mt-10 grid list-none gap-x-8 gap-y-14 p-0 md:grid-cols-3 lg:mt-14" data-reveal>
           {CASE_CARDS.map((card) => {
             const titleId = `case-${card.slug}`;
             return (
@@ -43,7 +40,6 @@ export default function HomeInstalls() {
             );
           })}
         </ul>
-        <SwipeDots target={list} count={CASE_CARDS.length} label="Project" className="swipe-md-dots" />
         <div className="mt-12 border-t border-rule pt-5">
           <a href={INSTALLS.allHref} className="link-go">
             {INSTALLS.allLabel}

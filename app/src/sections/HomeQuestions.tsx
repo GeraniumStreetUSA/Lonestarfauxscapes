@@ -1,12 +1,11 @@
 import { ArrowRight } from 'lucide-react';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 import Callout from '../components/Callout';
 import CostCard from '../components/questions/CostCard';
 import HoaCard from '../components/questions/HoaCard';
 import LoupeCard from '../components/questions/LoupeCard';
 import SunCard from '../components/questions/SunCard';
-import SwipeDots from '../components/SwipeDots';
 import { QUESTIONS } from '../data/home-content';
 import { motionAllowed } from '../lib/motion';
 
@@ -143,32 +142,78 @@ export default function HomeQuestions() {
     };
   }, []);
 
-  /* Phones: swipe carousel; cards off-centre shrink and fade a touch. */
+  /* Phones and tablets: a vertical flow. A bar pins at the top of the section
+     with the four steps and the question in view; each card irises open from
+     its focal point as it arrives (armed only below the fold, fails open). */
+  const [flowActive, setFlowActive] = useState(0);
   useEffect(() => {
     const sec = section.current;
     const ol = list.current;
     if (!sec || !ol || window.matchMedia('(min-width: 1024px)').matches) return;
-    sec.dataset.mode = 'swipe';
-    if (!motionAllowed()) return () => delete sec.dataset.mode;
+    sec.dataset.mode = 'flow';
     const items = Array.from(ol.querySelectorAll<HTMLElement>('[data-q]'));
+    const steps = Array.from(sec.querySelectorAll<HTMLElement>('.q-bar [data-bar-step]'));
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setFlowActive(Number((entry.target as HTMLElement).dataset.q));
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px' },
+    );
+    items.forEach((item) => io.observe(item));
+
+    /* The iris: each card's visual opens over a beat as it scrolls in.
+       Armed only for cards that start below the fold; triggered from the
+       same scroll handler as the bar, and released by a deadline regardless. */
+    const armed = new Set<HTMLElement>();
+    if (motionAllowed()) {
+      items.forEach((item) => {
+        const slot = item.querySelector<HTMLElement>('.q-card-slot');
+        if (slot && slot.getBoundingClientRect().top > window.innerHeight) {
+          slot.dataset.iris = 'armed';
+          armed.add(slot);
+        }
+      });
+    }
+    const open = (slot: HTMLElement) => {
+      armed.delete(slot);
+      const i = Number(slot.closest<HTMLElement>('[data-q]')?.dataset.q ?? 0);
+      const [cx, cy] = FOCI[i];
+      delete slot.dataset.iris;
+      slot.animate(
+        [
+          { clipPath: `circle(0% at ${cx}% ${cy}%)`, transform: 'scale(1.04)' },
+          { clipPath: `circle(150% at ${cx}% ${cy}%)`, transform: 'scale(1)' },
+        ],
+        { duration: 900, easing: 'cubic-bezier(0.7, 0, 0.2, 1)' },
+      );
+    };
+    const deadline = window.setTimeout(() => armed.forEach((slot) => delete slot.dataset.iris), 15000);
+
     let raf = 0;
     const update = () => {
       raf = 0;
-      const box = ol.getBoundingClientRect();
-      items.forEach((item) => {
-        const r = item.getBoundingClientRect();
-        const off = Math.min(1, Math.abs(r.left - box.left - 16) / box.width);
-        item.style.setProperty('--m', off.toFixed(3));
+      const rect = ol.getBoundingClientRect();
+      const raw = ((window.innerHeight * 0.45 - rect.top) / rect.height) * N;
+      steps.forEach((step, i) => step.style.setProperty('--fill', `${Math.min(1, Math.max(0, raw - i)) * 100}%`));
+      armed.forEach((slot) => {
+        if (slot.getBoundingClientRect().top < window.innerHeight * 0.8) open(slot);
       });
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
-    ol.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+
     return () => {
-      ol.removeEventListener('scroll', onScroll);
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(raf);
+      window.clearTimeout(deadline);
+      armed.forEach((slot) => delete slot.dataset.iris);
       delete sec.dataset.mode;
     };
   }, []);
@@ -198,6 +243,18 @@ export default function HomeQuestions() {
               </ol>
             </header>
 
+            {/* Phones: the section's pinned bar (shown by CSS in flow mode only). */}
+            <div className="q-bar" aria-hidden="true">
+              <p className="q-bar-now">
+                <span className="q-count-num">{pad(flowActive + 1)}</span>
+                <span className="q-bar-label">{QUESTIONS.items[flowActive].question}</span>
+              </p>
+              <span className="q-bar-steps">
+                {QUESTIONS.steps.map((label) => (
+                  <span key={label} className="q-bar-step" data-bar-step />
+                ))}
+              </span>
+            </div>
             <ol ref={list} className="q-list">
               {QUESTIONS.items.map((item, index) => {
                 const [lead, rest] = answerFirst(item.answer);
@@ -220,7 +277,6 @@ export default function HomeQuestions() {
                 );
               })}
             </ol>
-            <SwipeDots target={list} count={N} label="Question" className="q-swipe-dots" />
           </div>
         </div>
       </div>

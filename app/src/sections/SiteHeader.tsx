@@ -54,6 +54,9 @@ export default function SiteHeader() {
       const up = y < lastY - 4;
       if (phone.matches && down && y > el.offsetHeight * 2) el.setAttribute('data-tucked', '');
       if (!phone.matches || up || y <= el.offsetHeight) el.removeAttribute('data-tucked');
+      /* Pinned elements further down (Austin photo, question bar) read this
+         to sit under the header while it shows, and at the top when it tucks. */
+      document.documentElement.toggleAttribute('data-header-tucked', el.hasAttribute('data-tucked'));
       if (down || up) lastY = y;
     };
     const onScroll = () => {

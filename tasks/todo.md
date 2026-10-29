@@ -147,6 +147,16 @@ Audit at 390x844: 22,750 px tall (27 screens); first screen has no CTA, price or
 - [x] Four questions: position dots. Map: Houston label inside the frame; labels not tappable on touch.
 - [x] Verify at 390x844 and 360x780 (motion on, reduced, ?qa=1); page height 22,750 to 14,850 px (target 13,000 not reached: the rest is real content); desktop unchanged.
 
+### Mobile v2: no sideways swiping (owner 2026-10-28: "too many swipe to the right ... be creative")
+- [x] Remove every phone carousel (Austin, systems, projects, questions) and the swipe/dots code.
+- [x] Austin: photo pinned under the header while the three steps scroll beneath; each step wipes its photo in.
+- [x] Four questions: vertical, with a pinned section bar (four-step progress and the current question); each card's visual irises open as it arrives.
+- [x] Systems: a tap picker (all five names) over one card that changes in place (photo wipe, drawing redraw, text rise). No script: all five cards stacked.
+- [x] Recent jobs: compact rows (square photo, city, title).
+- [x] Process: a green line draws down the timeline as you scroll; each step number lights when reached.
+- [x] Link band: wrapped chips, all visible.
+- [x] Verify at 390 and 360, motion on and ?qa=1; desktop unchanged; republish the preview.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

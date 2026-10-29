@@ -216,6 +216,9 @@ export const SYSTEMS_SECTION = {
   /** The price line of a card with no released price. */
   quoted: 'Quoted after a site review',
   specLabels: { module: 'Module', mount: 'Mount', bestFor: 'Best for' },
+  /** Phones: the picker's one-row labels, in card order. */
+  short: ['Hedge', 'Living wall', 'Fence ext.', 'Commercial', 'Privacy wall'],
+  pickerLabel: 'Choose a system',
   cards: [
     {
       id: 'hedge',
