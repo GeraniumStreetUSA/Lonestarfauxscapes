@@ -2,6 +2,7 @@ import { ChevronsUpDown } from 'lucide-react';
 import { useCallback, useEffect, useRef } from 'react';
 
 import { HERO } from '../data/home-content';
+import { asset } from '../lib/asset';
 import { motionAllowed } from '../lib/motion';
 import {
   CHAIR,
@@ -544,10 +545,10 @@ export default function SightlineScene({ onFirstDrag }: { onFirstDrag?: () => vo
         >
           <defs>
             <pattern id="sl-boxwood" patternUnits="userSpaceOnUse" width="64" height="64" patternTransform="skewY(26.565)">
-              <image href="/images/tex-boxwood-256.webp" width="64" height="64" preserveAspectRatio="none" />
+              <image href={asset('images/tex-boxwood-256.webp')} width="64" height="64" preserveAspectRatio="none" />
             </pattern>
             <pattern id="sl-boxwood-side" patternUnits="userSpaceOnUse" width="64" height="64" patternTransform="skewY(-26.565)">
-              <image href="/images/tex-boxwood-256.webp" width="64" height="64" preserveAspectRatio="none" />
+              <image href={asset('images/tex-boxwood-256.webp')} width="64" height="64" preserveAspectRatio="none" />
             </pattern>
             <linearGradient id="sl-hedge-shade" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#f6f3e6" stopOpacity="0.16" />

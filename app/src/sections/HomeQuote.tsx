@@ -8,6 +8,7 @@ import Turnstile from '../components/Turnstile';
 import { ESTIMATOR, QUOTE } from '../data/home-content';
 import { BUSINESS } from '../data/site';
 import { track, trackFormStart } from '../lib/analytics';
+import { IS_SHARE } from '../lib/asset';
 import { useSentEstimate } from '../lib/estimate-store';
 import {
   EMPTY_QUOTE,
@@ -71,7 +72,7 @@ export default function HomeQuote() {
   const tokenWaiters = useRef<((value: string | null) => void)[]>([]);
 
   useEffect(() => {
-    setLocal(isLocalHost());
+    setLocal(isLocalHost() || IS_SHARE);
   }, []);
 
   const {
@@ -355,7 +356,7 @@ export default function HomeQuote() {
                 {devPayload ? (
                   <div role="status" className="mt-5 border border-dashed border-cedar bg-limestone p-4">
                     <p className="mono text-[13px] uppercase tracking-[0.06em] text-cedar">
-                      Dev only (localhost): not posted to /api/contact
+                      {IS_SHARE ? 'Preview only: this form is not sent anywhere' : 'Dev only (localhost): not posted to /api/contact'}
                     </p>
                     <pre className="mono mt-3 overflow-x-auto whitespace-pre-wrap break-words text-[13px] leading-relaxed text-ink">
                       {JSON.stringify(devPayload, null, 2)}

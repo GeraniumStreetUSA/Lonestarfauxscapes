@@ -1,6 +1,7 @@
 import { useId, useRef, useState } from 'react';
 
 import { QUESTIONS } from '../../data/home-content';
+import { asset } from '../../lib/asset';
 
 const C = QUESTIONS.cards.sun;
 
@@ -87,7 +88,7 @@ export default function SunCard() {
         >
           <defs>
             <pattern id="q-sun-boxwood" patternUnits="userSpaceOnUse" width="140" height="103">
-              <image href="/images/mat-boxwood-900.webp" width="140" height="103" preserveAspectRatio="none" />
+              <image href={asset('images/mat-boxwood-900.webp')} width="140" height="103" preserveAspectRatio="none" />
             </pattern>
             <radialGradient id="q-sun-glow">
               <stop offset="0" stopColor="#F2B53A" stopOpacity="0.55" />

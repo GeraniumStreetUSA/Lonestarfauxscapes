@@ -1,4 +1,5 @@
 import manifest from '../data/image-manifest.json';
+import { asset } from '../lib/asset';
 
 type ImageName = keyof typeof manifest;
 
@@ -13,7 +14,7 @@ function entry(name: ImageName): ImageEntry {
 }
 
 function srcSet(name: string, widths: number[], format: 'avif' | 'webp'): string {
-  return widths.map((w) => `/images/${name}-${w}.${format} ${w}w`).join(', ');
+  return widths.map((w) => `${asset(`images/${name}-${w}.${format}`)} ${w}w`).join(', ');
 }
 
 /** Largest variant's pixel size, for the <img> width and height attributes. */
@@ -23,7 +24,7 @@ function intrinsic(name: ImageName): { width: number; height: number; src: strin
   const height = Math.round((e.height / e.width) * largest);
   // The 768 variant (or the largest below it) is the plain-src fallback.
   const fallback = [...e.widths].reverse().find((w) => w <= 768) ?? e.widths[0];
-  return { width: largest, height, src: `/images/${name}-${fallback}.webp` };
+  return { width: largest, height, src: asset(`images/${name}-${fallback}.webp`) };
 }
 
 interface PictureProps {

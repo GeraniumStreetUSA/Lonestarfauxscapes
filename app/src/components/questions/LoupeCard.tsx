@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 
 import { QUESTIONS } from '../../data/home-content';
+import { asset } from '../../lib/asset';
 
 const C = QUESTIONS.cards.loupe;
-const SRC = '/images/q-leaf-560.webp';
+const SRC = asset('images/q-leaf-560.webp');
 const ZOOM = 2;
 
 /**

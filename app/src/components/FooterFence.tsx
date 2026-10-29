@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import { HERO } from '../data/home-content';
+import { asset } from '../lib/asset';
 import { motionAllowed } from '../lib/motion';
 
 /**
@@ -168,7 +169,7 @@ export default function FooterFence() {
         <svg viewBox={`0 0 ${W} ${H}`} className="fence-svg" focusable="false">
           <defs>
             <pattern id="ff-boxwood" patternUnits="userSpaceOnUse" width="200" height="147">
-              <image href="/images/mat-boxwood-900.webp" width="200" height="147" preserveAspectRatio="none" />
+              <image href={asset('images/mat-boxwood-900.webp')} width="200" height="147" preserveAspectRatio="none" />
             </pattern>
             <linearGradient id="ff-shade" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#f6f3e6" stopOpacity="0.12" />
