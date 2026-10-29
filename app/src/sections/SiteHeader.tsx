@@ -75,8 +75,8 @@ export default function SiteHeader() {
     <header ref={ref} className="site-header">
       <div className="wrap header-grid">
         <a href="/" className="header-brand -ml-1 inline-flex min-w-0 items-center gap-2 px-1 sm:gap-2.5">
-          <PlanMark className="h-6 w-6 flex-none" />
-          <span className="whitespace-nowrap font-display text-[16px] font-[750] leading-none tracking-[-0.012em] max-[359px]:text-[14.5px] sm:text-[18px]">
+          <PlanMark className="h-6 w-6 flex-none max-[379px]:hidden" />
+          <span className="whitespace-nowrap font-display text-[16px] font-[750] leading-none tracking-[-0.012em] max-[379px]:text-[15.5px] sm:text-[18px]">
             {BUSINESS.name}
           </span>
         </a>

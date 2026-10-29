@@ -112,6 +112,10 @@ export const ESTIMATOR = {
   qualifier:
     'Illustrations, not quotes: arithmetic from our published material starting prices. Installation is quoted separately after a site review.',
   send: 'Send these numbers to my quote',
+  /** The phone dock's short button. */
+  dockSend: 'Send',
+  /** Phones: the panel-count working folds behind this. */
+  workingLabel: 'How the panels are counted',
 } as const;
 
 export const LINK_BAND = {
@@ -130,7 +134,6 @@ export const QUESTIONS = {
   title: 'Four things everyone asks first.',
   /** Short labels for the progress steps. */
   steps: ['Looks', 'Sun', 'HOA', 'Cost'],
-  swipe: 'Swipe for the next question',
   /** Labels for each answer's hands-on card. */
   cards: {
     loupe: {

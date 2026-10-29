@@ -5,7 +5,7 @@ function Row({ label, links }: { label: string; links: readonly NavLink[] }) {
   return (
     <div className="grid gap-x-8 gap-y-1 py-4 sm:grid-cols-[7.5rem_minmax(0,1fr)] sm:items-baseline sm:py-3.5">
       <p className="t-label text-cedar">{label}</p>
-      <ul className="flex flex-wrap gap-x-6 gap-y-0">
+      <ul className="link-row flex flex-wrap gap-x-6 gap-y-0">
         {links.map((link) => (
           <li key={link.href}>
             <a

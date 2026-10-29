@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpRight, Plus } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 import FooterFence from '../components/FooterFence';
 import PlanMark from '../components/PlanMark';
@@ -7,13 +8,14 @@ import { AREA_LINKS, BUSINESS, COMPANY_LINKS, SYSTEM_LINKS, type NavLink } from 
 
 function Column({ index, title, links }: { index: number; title: string; links: readonly NavLink[] }) {
   return (
-    <div className="ft-col">
-      <p className="ft-col-head">
+    <details className="ft-col" data-fold open>
+      <summary className="ft-col-head">
         <span className="ft-col-index" aria-hidden="true">
           {String(index).padStart(2, '0')}
         </span>
         {title}
-      </p>
+        <Plus size={16} strokeWidth={2.2} className="ft-col-icon" aria-hidden="true" />
+      </summary>
       <ul className="ft-list">
         {links.map((link) => (
           <li key={link.href}>
@@ -23,7 +25,7 @@ function Column({ index, title, links }: { index: number; title: string; links: 
           </li>
         ))}
       </ul>
-    </div>
+    </details>
   );
 }
 
@@ -36,6 +38,14 @@ function Column({ index, title, links }: { index: number; title: string; links: 
  * Same links as before, all plain crawlable anchors in a labelled <nav>.
  */
 export default function SiteFooter() {
+  /* Phones: the three link lists fold shut after load (contact stays open);
+     every link stays in the markup either way. */
+  const block = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 1023px)').matches) return;
+    block.current?.querySelectorAll('details[data-fold]').forEach((d) => d.removeAttribute('open'));
+  }, []);
+
   return (
     <footer className="ft">
       <FooterFence />
@@ -67,7 +77,7 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          <nav aria-label="Footer" className="ft-block">
+          <nav ref={block} aria-label="Footer" className="ft-block">
             <Column index={1} title={FOOTER.columns.systems} links={SYSTEM_LINKS} />
             <Column index={2} title={FOOTER.columns.areas} links={AREA_LINKS} />
             <Column index={3} title={FOOTER.columns.company} links={COMPANY_LINKS} />

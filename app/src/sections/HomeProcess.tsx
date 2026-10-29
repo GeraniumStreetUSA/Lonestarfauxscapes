@@ -19,8 +19,8 @@ export default function HomeProcess() {
         </h2>
         <ol className="rule-grid process-grid m-0 mt-10 list-none p-0 sm:grid-cols-2 lg:mt-14 lg:grid-cols-5" data-reveal>
           {PROCESS.steps.map((step, index) => (
-            <li key={step.title} className="flex flex-col">
-              <div className="relative aspect-[4/3] overflow-hidden border-b border-line bg-caliche">
+            <li key={step.title} className="process-step flex flex-col">
+              <div className="process-art relative aspect-[4/3] overflow-hidden border-b border-line bg-caliche">
                 {index < DRAWINGS.length ? (
                   <ProcessDrawing step={DRAWINGS[index]} />
                 ) : (
@@ -33,7 +33,7 @@ export default function HomeProcess() {
                   </div>
                 )}
               </div>
-              <div className="flex gap-4 px-5 pb-7 pt-5 lg:px-6">
+              <div className="process-text flex gap-4 px-5 pb-7 pt-5 lg:px-6">
                 <span className="step-index" aria-hidden="true">
                   {index + 1}
                 </span>

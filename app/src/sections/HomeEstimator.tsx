@@ -1,5 +1,5 @@
 import { ArrowDown } from 'lucide-react';
-import { useId, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
 
 import Callout from '../components/Callout';
 import YardPlan from '../components/YardPlan';
@@ -116,6 +116,45 @@ export default function HomeEstimator() {
   const estimate = buildEstimate({ systemId, runFt, heightFt });
   const { price } = estimate;
 
+  /* Phones: the dock shows while the controls are on screen and the full
+     readout (with its own Send button) is not. */
+  const controls = useRef<HTMLFormElement>(null);
+  const readout = useRef<HTMLDivElement>(null); // the price figure, not the whole readout
+  const [dock, setDock] = useState(false);
+  useEffect(() => {
+    const c = controls.current;
+    const r = readout.current;
+    if (!c || !r || typeof IntersectionObserver === 'undefined') return;
+    const phone = window.matchMedia('(max-width: 1023px)');
+    let controlsIn = false;
+    let readoutIn = false;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.target === c) controlsIn = e.isIntersecting;
+          if (e.target === r) readoutIn = e.isIntersecting;
+        });
+        setDock(phone.matches && controlsIn && !readoutIn);
+      },
+      /* The bottom 20% is where the dock and the Call / Quote bar sit. */
+      { rootMargin: '0px 0px -20% 0px', threshold: 0.6 },
+    );
+    io.observe(c);
+    io.observe(r);
+    return () => io.disconnect();
+  }, []);
+
+  const workingRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 1023px)').matches) workingRef.current?.removeAttribute('open');
+  }, []);
+
+  /* While the dock is up, the page's Call / Quote bar steps aside. */
+  useEffect(() => {
+    document.documentElement.toggleAttribute('data-est-dock', dock);
+    return () => document.documentElement.removeAttribute('data-est-dock');
+  }, [dock]);
+
   const chooseSystem = (id: SystemId) => {
     setSystemId(id);
     setHeightFt(getSystem(id).height.default);
@@ -142,7 +181,7 @@ export default function HomeEstimator() {
               <p className="t-body mt-5 max-w-[46ch] text-cedar">{ESTIMATOR.body}</p>
             </div>
 
-            <form className="estimator-controls" onSubmit={(event) => event.preventDefault()} noValidate>
+            <form ref={controls} className="estimator-controls" onSubmit={(event) => event.preventDefault()} noValidate>
               <fieldset className="m-0 min-w-0 border-0 p-0">
                 <legend className="field-label mb-3 p-0">{ESTIMATOR.systemLegend}</legend>
                 <div className="chip-grid grid gap-2">
@@ -214,7 +253,7 @@ export default function HomeEstimator() {
 
             <div className="estimator-readout">
               {/* Live regions hold figures and arithmetic only; the caption between them is read in place. */}
-              <div aria-live="polite" aria-atomic="true">
+              <div ref={readout} aria-live="polite" aria-atomic="true">
                 <p className="flex flex-wrap items-baseline gap-x-3">
                   <span className="estimate-price-word">from</span>{' '}
                   <span className="t-figure text-[clamp(3.25rem,2.2rem+3.6vw,5.75rem)]">{price.amount}</span>
@@ -243,7 +282,10 @@ export default function HomeEstimator() {
                     <span className="mt-1.5 block text-[16px] font-[620] text-cedar">sq ft</span>
                   </p>
                 </div>
-                <ol className="working mono m-0 list-none border-b border-rule p-0 py-5">
+                {/* Open in the markup (desktop shows it); folded on phones after load. */}
+                <details ref={workingRef} className="working-wrap border-b border-rule" open>
+                  <summary className="working-summary">{ESTIMATOR.workingLabel}</summary>
+                <ol className="working mono m-0 list-none p-0 py-5">
                   {working.map((line) => {
                     const [left, result] = splitWorking(line);
                     return (
@@ -255,6 +297,7 @@ export default function HomeEstimator() {
                     );
                   })}
                 </ol>
+                </details>
               </div>
               <p className="t-small mt-5 max-w-[48ch] text-cedar">{ESTIMATOR.qualifier}</p>
               <button type="button" onClick={send} className="btn btn-primary mt-6 w-full sm:w-auto" data-primary-cta data-cta="estimator">
@@ -264,6 +307,25 @@ export default function HomeEstimator() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Phones only (hidden by CSS from 1024 px). Mirrors the readout's
+          figures; the readout itself stays the accessible live region. */}
+      <div className="est-dock" data-on={dock ? 'true' : undefined} aria-hidden={!dock} inert={!dock}>
+        <p className="est-dock-figure m-0">
+          <span className="est-dock-price">
+            <small>from </small>
+            {price.amount}
+            {price.per ? <small> {price.per}</small> : null}
+          </span>
+          <span className="est-dock-meta">
+            {formatNumber(estimate.panels)} {estimate.panelsWord} · {formatNumber(estimate.areaSqFt)} sq ft · {system.label}
+          </span>
+        </p>
+        <button type="button" onClick={send} className="btn" data-cta="estimator-dock">
+          {ESTIMATOR.dockSend}
+          <ArrowDown size={16} strokeWidth={2.4} aria-hidden="true" />
+        </button>
       </div>
     </section>
   );

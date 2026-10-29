@@ -6,6 +6,7 @@ import CostCard from '../components/questions/CostCard';
 import HoaCard from '../components/questions/HoaCard';
 import LoupeCard from '../components/questions/LoupeCard';
 import SunCard from '../components/questions/SunCard';
+import SwipeDots from '../components/SwipeDots';
 import { QUESTIONS } from '../data/home-content';
 import { motionAllowed } from '../lib/motion';
 
@@ -219,9 +220,7 @@ export default function HomeQuestions() {
                 );
               })}
             </ol>
-            <p className="q-swipe" aria-hidden="true">
-              {QUESTIONS.swipe}
-            </p>
+            <SwipeDots target={list} count={N} label="Question" className="q-swipe-dots" />
           </div>
         </div>
       </div>

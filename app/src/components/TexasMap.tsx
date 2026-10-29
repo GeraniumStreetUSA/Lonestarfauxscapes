@@ -92,7 +92,7 @@ export const METRO_COORDS: Record<string, [lon: number, lat: number]> = {
 const LABEL_SIDE: Record<string, 'left' | 'right'> = {
   Dallas: 'right',
   'Fort Worth': 'left',
-  Houston: 'right',
+  Houston: 'left',
   Austin: 'left',
   'San Antonio': 'left',
 };

@@ -164,14 +164,18 @@ export default function HomeQuote() {
   return (
     <section id="quote" aria-labelledby="quote-title" className="section">
       <div className="wrap grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-20">
-        <div data-reveal>
-          <Callout text={QUOTE.callout} />
-          <h2 id="quote-title" className="t-h2 mt-5">
-            {QUOTE.title}
-          </h2>
-          <p className="t-lede mt-5 max-w-[30ch] text-cedar">{QUOTE.body}</p>
+        {/* Phones: this column dissolves (display: contents) so the form can
+            sit between the intro and "what happens next". */}
+        <div className="quote-side" data-reveal>
+          <div className="quote-intro">
+            <Callout text={QUOTE.callout} />
+            <h2 id="quote-title" className="t-h2 mt-5">
+              {QUOTE.title}
+            </h2>
+            <p className="t-lede mt-5 max-w-[30ch] text-cedar">{QUOTE.body}</p>
+          </div>
 
-          <div className="mt-10 border-t border-rule pt-6 lg:mt-14">
+          <div className="quote-next mt-10 border-t border-rule pt-6 lg:mt-14">
             <p className="t-label text-cedar">{QUOTE.nextTitle}</p>
             <ol className="m-0 mt-5 grid list-none gap-4 p-0">
               {QUOTE.next.map((line, index) => (
@@ -186,7 +190,7 @@ export default function HomeQuote() {
           </div>
         </div>
 
-        <div>
+        <div className="quote-form">
           {status === 'sent' ? (
             <div role="status" className="border border-boxwood bg-[rgb(46_90_44/0.06)] p-8 lg:p-10">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-boxwood text-caliche">
@@ -268,7 +272,7 @@ export default function HomeQuote() {
 
               <fieldset className="m-0 min-w-0 border-0 p-0 sm:col-span-2" aria-describedby={described('system')}>
                 <legend className="field-label mb-3 p-0">{QUOTE.fields.system}</legend>
-                <div className="flex flex-wrap gap-2">
+                <div className="quote-chips flex flex-wrap gap-2">
                   {SYSTEM_OPTIONS.map((option) => (
                     <div key={option} className="relative">
                       <input

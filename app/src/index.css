@@ -84,7 +84,7 @@
     --focus: var(--boxwood);
 
     --gutter: 16px;
-    --section-y: 72px;
+    --section-y: 56px;
     --split-gap: 0px;
 
     --ease-plan: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -708,14 +708,14 @@
     outline-offset: 3px;
   }
 
-  /* Estimator system chips: a list on phones and in the narrow desktop
-     column (1024 to 1279), two by two where there is room. */
+  /* Estimator system chips: two by two (phones included, so the choice
+     takes two rows, not four); a list only in the narrow desktop column. */
   .chip-note {
     margin-left: auto;
     white-space: nowrap;
   }
 
-  @media (min-width: 640px) and (max-width: 1023px), (min-width: 1280px) {
+  @media (max-width: 1023px), (min-width: 1280px) {
     .chip-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -959,7 +959,7 @@
   .estimator-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 28px;
   }
 
   .estimator-col {
@@ -1659,6 +1659,13 @@
     transform: translate(calc(-100% - 10px), -50%);
   }
 
+  /* Touch: the pins are decoration; the list below carries the links. */
+  @media (hover: none) {
+    .tx-label {
+      pointer-events: none;
+    }
+  }
+
   .tx-label[data-on] {
     background: var(--ink);
     color: var(--caliche);
@@ -2116,8 +2123,11 @@
     gap: 24px;
   }
 
-  .q-steps,
-  .q-swipe {
+  .q-steps {
+    display: none;
+  }
+
+  .q-section:not([data-mode='swipe']) .q-swipe-dots {
     display: none;
   }
 
@@ -2199,16 +2209,6 @@
     transform: scale(calc(1 - var(--m, 0) * 0.06));
     opacity: calc(1 - var(--m, 0) * 0.35);
     transform-origin: left center;
-  }
-
-  .q-section[data-mode='swipe'] .q-swipe {
-    display: block;
-    margin-top: 10px;
-    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--cedar);
   }
 
   /* ---- Desktop: pinned side scroll with morphing cards ---- */
@@ -2933,6 +2933,533 @@
     font-weight: 700;
     color: var(--ink);
     text-decoration: none;
+  }
+}
+
+@layer components {
+  /* ---- phone estimator dock: the live result while the controls are on
+     screen, so a thumb on the slider sees the price move ---- */
+  .est-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 45;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgb(21 33 27 / 0.96);
+    color: var(--caliche);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transform: translateY(calc(100% + 12px));
+    visibility: hidden;
+    transition:
+      transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      visibility 0s linear 280ms;
+  }
+
+  .est-dock[data-on] {
+    transform: none;
+    visibility: visible;
+    transition:
+      transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      visibility 0s;
+  }
+
+  html[data-est-dock] .sticky-bar {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .est-dock-figure {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .est-dock-price {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .est-dock-price small {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--grass);
+  }
+
+  .est-dock-meta {
+    display: block;
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    color: var(--grass);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .est-dock .btn {
+    flex: none;
+    min-height: 44px;
+    padding: 0 16px;
+    background: var(--leaf);
+    color: var(--ink);
+  }
+
+  @media (min-width: 1024px) {
+    .est-dock {
+      display: none;
+    }
+  }
+}
+
+@layer components {
+  /* ---- phone swipe rows: one card and a peek of the next, snap, dots ----
+     .swipe-sm below 640 px, .swipe-md below 768, .swipe-lg below 1024; each
+     list's dots carry the matching -dots class so they hide with it. */
+  @media (max-width: 639px) {
+    .swipe-sm {
+      position: relative;
+      display: flex !important;
+      gap: 12px;
+      margin-inline: calc(-1 * var(--gutter));
+      padding: 4px var(--gutter) 6px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--gutter);
+      scrollbar-width: none;
+      background: none;
+      border: 0;
+    }
+
+    .swipe-sm::-webkit-scrollbar {
+      display: none;
+    }
+
+    .swipe-sm > * {
+      flex: 0 0 86%;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .swipe-sm-dots {
+      display: none !important;
+    }
+  }
+  @media (max-width: 767px) {
+    .swipe-md {
+      position: relative;
+      display: flex !important;
+      gap: 12px;
+      margin-inline: calc(-1 * var(--gutter));
+      padding: 4px var(--gutter) 6px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--gutter);
+      scrollbar-width: none;
+      background: none;
+      border: 0;
+    }
+
+    .swipe-md::-webkit-scrollbar {
+      display: none;
+    }
+
+    .swipe-md > * {
+      flex: 0 0 86%;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .swipe-md-dots {
+      display: none !important;
+    }
+  }
+  @media (max-width: 1023px) {
+    .swipe-lg {
+      position: relative;
+      display: flex !important;
+      gap: 12px;
+      margin-inline: calc(-1 * var(--gutter));
+      padding: 4px var(--gutter) 6px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--gutter);
+      scrollbar-width: none;
+      background: none;
+      border: 0;
+    }
+
+    .swipe-lg::-webkit-scrollbar {
+      display: none;
+    }
+
+    .swipe-lg > * {
+      flex: 0 0 86%;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .swipe-lg-dots {
+      display: none !important;
+    }
+  }
+
+  .swipe-dots {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .swipe-count {
+    font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--cedar);
+  }
+
+  .swipe-dot-row {
+    display: flex;
+    gap: 2px;
+  }
+
+  /* 44 px tap area around an 8 px dot; the active dot stretches into a run. */
+  .swipe-dot {
+    position: relative;
+    width: 28px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .swipe-dot::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgb(21 33 27 / 0.25);
+    transform: translate(-50%, -50%);
+    transition:
+      width 260ms var(--ease-plan),
+      background-color 200ms ease;
+  }
+
+  .swipe-dot[data-on]::after {
+    width: 22px;
+    background: var(--boxwood);
+  }
+
+  .swipe-dot:focus-visible:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -6px;
+  }
+}
+
+@layer components {
+  /* Swipe-row cards: each item becomes a card with its own edge. */
+  @media (max-width: 639px) {
+    .systems-grid.swipe-sm > li {
+      border: 1px solid var(--rule);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .swipe-md > li > article {
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .story-steps.swipe-lg > li {
+      padding: 0 0 4px;
+    }
+
+    .story-steps.swipe-lg .story-step-photo {
+      margin-bottom: 14px;
+    }
+  }
+}
+
+@layer components {
+  /* Phones: the five steps as a compact timeline, a small drawing beside
+     each step's text instead of a full-width drawing above it. */
+  @media (max-width: 639px) {
+    .process-step {
+      display: grid !important;
+      grid-template-columns: 112px minmax(0, 1fr);
+      align-items: stretch;
+    }
+
+    /* !important: the 4:3 aspect utility would otherwise widen the cell. */
+    .process-art {
+      aspect-ratio: auto !important;
+      width: 112px;
+      min-height: 100%;
+      border-bottom: 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .process-art img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .process-text {
+      padding: 16px 14px 18px;
+      gap: 12px;
+    }
+
+    .process-text .t-h3 {
+      font-size: 19px;
+    }
+
+    .process-text .t-small {
+      font-size: 15px;
+    }
+
+    /* Story facts: the long values wrap less at a smaller size. */
+    .story-facts dd {
+      font-size: 1.15rem;
+    }
+  }
+}
+
+@layer components {
+  /* ---- FAQ: details/summary; open on desktop, tap-to-open on phones ---- */
+  .faq-q {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 2px 0 0;
+    font-size: 19px;
+    font-weight: 680;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    flex: none;
+    margin-top: 3px;
+    color: var(--boxwood);
+    transition: transform 240ms var(--ease-plan);
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    padding: 10px 8px 24px 0;
+  }
+
+  .faq-item:not([open]) .faq-q {
+    padding-bottom: 22px;
+  }
+
+  /* Desktop shows every answer as a plain list: no toggle affordance. */
+  @media (min-width: 768px) {
+    .faq-q {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .faq-icon {
+      display: none;
+    }
+  }
+
+  /* ---- link band: one swipeable chip row per group on phones ---- */
+  @media (max-width: 639px) {
+    .link-row {
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+      margin-inline: calc(-1 * var(--gutter));
+      padding: 6px var(--gutter) 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .link-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .link-row a {
+      white-space: nowrap;
+      padding: 0 14px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--caliche);
+      text-decoration: none !important;
+    }
+  }
+
+  /* ---- quote: phones put the form before "what happens next", and the
+     system choice in two columns ---- */
+  @media (max-width: 1023px) {
+    .quote-side {
+      display: contents;
+    }
+
+    .quote-intro {
+      order: 1;
+    }
+
+    .quote-form {
+      order: 2;
+    }
+
+    .quote-next {
+      order: 3;
+      margin-top: 0 !important;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .quote-chips {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quote-chips .chip {
+      width: 100%;
+    }
+  }
+}
+
+@layer components {
+  /* ---- folded lists on phones (estimator working, footer columns) ---- */
+  .working-summary,
+  .ft-col-head {
+    list-style: none;
+  }
+
+  .working-summary::-webkit-details-marker,
+  .ft-col-head::-webkit-details-marker {
+    display: none;
+  }
+
+  .working-summary {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-size: 15px;
+    font-weight: 620;
+    color: var(--boxwood);
+    cursor: pointer;
+  }
+
+  .working-summary::after {
+    content: '+';
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 220ms var(--ease-plan);
+  }
+
+  .working-wrap[open] .working-summary::after {
+    transform: rotate(45deg);
+  }
+
+  .working-wrap .working {
+    padding-top: 0;
+  }
+
+  .ft-col-icon {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .ft-col-head {
+      min-height: 44px;
+      cursor: pointer;
+    }
+
+    .ft-col-icon {
+      display: block;
+      margin-left: auto;
+      color: var(--boxwood);
+      transition: transform 220ms var(--ease-plan);
+    }
+
+    .ft-col[open] .ft-col-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Folded columns stack full width, one even row each. */
+    .ft-block {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .ft-col,
+    .ft-col:nth-child(even) {
+      padding: 0 !important;
+      border-left: 0 !important;
+    }
+
+    .ft-col-head {
+      align-items: center;
+      min-height: 54px;
+    }
+
+    .ft-col .ft-list {
+      margin-top: 0;
+      padding-bottom: 14px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .working-summary {
+      display: none;
+    }
+
+    .ft-col-head {
+      pointer-events: none;
+    }
+  }
+
+  /* ---- compact metro rows on phones ---- */
+  @media (max-width: 639px) {
+    .area-row {
+      min-height: 58px;
+      padding: 8px 2px;
+    }
+
+    .area-name {
+      font-size: 1.45rem;
+    }
+
+    .area-coords {
+      font-size: 11px;
+    }
   }
 }
 

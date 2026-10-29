@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Callout from '../components/Callout';
 import Picture from '../components/Picture';
+import SwipeDots from '../components/SwipeDots';
 import { AUSTIN_STORY } from '../data/home-content';
 
 const STEPS = AUSTIN_STORY.steps;
@@ -80,7 +81,7 @@ export default function HomeAustin() {
         </header>
 
         <div className="story-body">
-          <ol ref={steps} className="story-steps">
+          <ol ref={steps} className="story-steps swipe-lg">
             {STEPS.map((step, index) => (
               <li key={step.label} className="story-step" data-step={index} data-on={active === index ? 'true' : undefined}>
                 <figure className="story-step-photo m-0">
@@ -95,6 +96,7 @@ export default function HomeAustin() {
               </li>
             ))}
           </ol>
+          <SwipeDots target={steps} count={STEPS.length} label="Step" className="swipe-lg-dots" />
 
           <div className="story-stage" aria-hidden="true">
             <div className="story-frame">

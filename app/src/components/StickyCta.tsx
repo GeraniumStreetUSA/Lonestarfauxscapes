@@ -63,7 +63,7 @@ export default function StickyCta() {
   return (
     <>
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-[rgb(237_236_230/0.94)] px-3 pt-2 backdrop-blur-md transition-[opacity,transform] duration-200 [padding-bottom:max(8px,env(safe-area-inset-bottom))] lg:hidden ${
+        className={`sticky-bar fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-[rgb(237_236_230/0.94)] px-3 pt-2 backdrop-blur-md transition-[opacity,transform] duration-200 [padding-bottom:max(8px,env(safe-area-inset-bottom))] lg:hidden ${
           pillHidden ? 'pointer-events-none translate-y-full opacity-0' : 'translate-y-0 opacity-100'
         }`}
         inert={pillHidden}

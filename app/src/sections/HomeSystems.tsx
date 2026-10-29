@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
+import { useRef } from 'react';
 
 import { SystemThumb } from '../components/PlanDrawings';
 import Picture from '../components/Picture';
+import SwipeDots from '../components/SwipeDots';
 import { SYSTEMS_SECTION } from '../data/home-content';
 import { formatStartingPrice, formatStartingPriceCaption } from '../data/starting-prices';
 
@@ -26,6 +28,7 @@ function photoSizes(index: number, count: number): string {
  */
 export default function HomeSystems() {
   const { cards, specLabels } = SYSTEMS_SECTION;
+  const list = useRef<HTMLUListElement>(null);
   return (
     <section id="systems" aria-labelledby="systems-title" className="section bg-limestone">
       <div className="wrap">
@@ -37,7 +40,7 @@ export default function HomeSystems() {
             </span>
           ))}
         </h2>
-        <ul className="rule-grid systems-grid m-0 mt-10 list-none p-0 lg:mt-14" data-reveal>
+        <ul ref={list} className="rule-grid systems-grid swipe-sm m-0 mt-10 list-none p-0 lg:mt-14" data-reveal>
           {cards.map((card, index) => (
             <li key={card.id} className="flex">
               <article className="card-hover relative flex w-full flex-col">
@@ -83,6 +86,7 @@ export default function HomeSystems() {
             </li>
           ))}
         </ul>
+        <SwipeDots target={list} count={cards.length} label="System" className="swipe-sm-dots" />
       </div>
     </section>
   );

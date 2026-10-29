@@ -134,6 +134,19 @@ Build order: hero prototype first, shown to the owner, then the rest. Builder: F
 - [x] Phones: native swipe carousel with scroll-snap; off-centre cards scale and fade slightly.
 - [x] Reduced motion and ?qa=1: stacked list. No change to copy or links.
 
+### Mobile UX pass (owner 2026-10-28: "mobile experience is awful, make it perfect")
+Audit at 390x844: 22,750 px tall (27 screens); first screen has no CTA, price or phone; estimator result is below its controls; quote form buried; long stacked sections.
+- [x] Header: one row on phones (wordmark, call icon, "Quote" button, Menu) with a full-screen menu sheet; tucks on scroll down, returns on scroll up.
+- [x] Hero first screen: headline, a shorter scene crop, then CTA + call + price in view without scrolling; trust and fork below. Faster intro on phones.
+- [x] Estimator: 2x2 system chips, smaller plan; a sticky result bar (price, panels, Send) while the estimator is on screen, replacing the Call/Quote bar.
+- [x] Austin story, Systems, Recent jobs: swipe carousels (snap, one card and a peek, position dots, counter).
+- [x] Process: compact vertical timeline with small drawings.
+- [x] FAQ: accordions (answers stay in the markup for SEO).
+- [x] Link band: one swipeable chip row per group.
+- [x] Quote form: fields first, "what happens next" after; system choice as a compact 2-column grid.
+- [x] Four questions: position dots. Map: Houston label inside the frame; labels not tappable on touch.
+- [x] Verify at 390x844 and 360x780 (motion on, reduced, ?qa=1); page height 22,750 to 14,850 px (target 13,000 not reached: the rest is real content); desktop unchanged.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
