@@ -50,6 +50,13 @@ function withContactLinks(text: string) {
   });
 }
 
+interface HomeQuoteProps {
+  /** Overrides for pages other than the homepage (the kit's QuoteSection); the homepage passes none. */
+  callout?: string;
+  title?: string;
+  body?: string;
+}
+
 /**
  * Step 2 of 2. Underline inputs with labels that stay visible, real radio
  * groups, errors tied to their fields. Numbers sent from the estimator fill
@@ -59,7 +66,7 @@ function withContactLinks(text: string) {
  * on the first touch of the form. On localhost nothing is posted: the payload
  * is shown in a dev-only notice so no real lead is ever sent from dev.
  */
-export default function HomeQuote() {
+export default function HomeQuote({ callout = QUOTE.callout, title = QUOTE.title, body = QUOTE.body }: HomeQuoteProps) {
   const uid = useId();
   const id = (name: string) => `${uid}-${name}`;
   const sent = useSentEstimate();
@@ -168,11 +175,11 @@ export default function HomeQuote() {
             sit between the intro and "what happens next". */}
         <div className="quote-side" data-reveal>
           <div className="quote-intro">
-            <Callout text={QUOTE.callout} />
+            <Callout text={callout} />
             <h2 id="quote-title" className="t-h2 mt-5">
-              {QUOTE.title}
+              {title}
             </h2>
-            <p className="t-lede mt-5 max-w-[30ch] text-cedar">{QUOTE.body}</p>
+            <p className="t-lede mt-5 max-w-[30ch] text-cedar">{body}</p>
           </div>
 
           <div className="quote-next mt-10 border-t border-rule pt-6 max-sm:hidden lg:mt-14">

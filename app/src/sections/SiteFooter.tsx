@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 
 import FooterFence from '../components/FooterFence';
 import PlanMark from '../components/PlanMark';
+import { useQuoteHref } from '../lib/quote-href';
 import { CONTACT, FOOTER, HERO } from '../data/home-content';
 import { AREA_LINKS, BUSINESS, COMPANY_LINKS, SYSTEM_LINKS, type NavLink } from '../data/site';
 
@@ -40,6 +41,7 @@ function Column({ index, title, links }: { index: number; title: string; links: 
 export default function SiteFooter() {
   /* Phones: the three link lists fold shut after load (contact stays open);
      every link stays in the markup either way. */
+  const quoteHref = useQuoteHref();
   const block = useRef<HTMLElement>(null);
   useEffect(() => {
     if (!window.matchMedia('(max-width: 1023px)').matches) return;
@@ -66,7 +68,7 @@ export default function SiteFooter() {
             <div className="ft-act max-sm:hidden">
               <p className="t-small max-w-[40ch] text-cedar">{HERO.trust}</p>
               <div className="ft-act-row">
-                <a href="#quote" className="btn btn-primary" data-cta="footer">
+                <a href={quoteHref} className="btn btn-primary" data-cta="footer">
                   {HERO.cta}
                   <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
                 </a>

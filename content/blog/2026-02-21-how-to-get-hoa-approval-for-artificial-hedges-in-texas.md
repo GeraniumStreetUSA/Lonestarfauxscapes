@@ -71,14 +71,14 @@ faq:
   - question: "Can my HOA ban artificial hedges in Texas?"
     answer: "HOAs can regulate the appearance and type of landscaping through their CC&Rs, including artificial elements. However, Texas Property Code Section 202.007 prohibits HOAs from unreasonably denying drought-resistant landscaping. Whether artificial hedges fall under this protection depends on how your HOA and the courts interpret the statute. The safest approach is to submit a well-documented application rather than argue the legal question."
   - question: "How long does HOA approval usually take?"
-    answer: "Most Texas HOA architectural review committees are required to respond within 30 to 60 days, depending on the association's governing documents. Texas Property Code Section 209.00505 establishes appeal procedures if your request is denied, including the right to a hearing within 30 days of your appeal."
+    answer: "The review timeline depends on the association's governing documents, which should state how long the committee has to respond. Texas Property Code Section 209.00505 establishes appeal procedures if your request is denied, including the right to a hearing within 30 days of your appeal."
   - question: "What if my HOA denies my artificial hedge application?"
     answer: "Under Texas Property Code Section 209.00505, the denial must describe the basis in reasonable detail and any changes required for approval. You have the right to request a hearing within 30 days. The board must hold the hearing and can affirm, modify, or reverse the decision."
   - question: "Do I need a permit for an artificial hedge in Texas?"
     answer: "Permit requirements depend on the city, fence height, mounting method, and whether structural work is involved. HOA approval is separate from municipal requirements, so check both before installing."
 ---
 
-If you live in a deed-restricted community in Texas—and most newer subdivisions are—you probably need architectural review approval before installing an artificial hedge. That's not a reason to avoid the project. It's just a process, and one that goes smoothly when you understand what your HOA is actually looking for and what the law says about your rights.
+If you live in a deed-restricted community in Texas (and most newer subdivisions are), you probably need architectural review approval before installing an artificial hedge. That's not a reason to avoid the project. It's just a process, and one that goes smoothly when you understand what your HOA is actually looking for and what the law says about your rights.
 
 This guide walks through the process step by step: what Texas law requires of HOAs, what to put in your application, how to handle objections, and what to do if you're denied.
 
@@ -108,7 +108,7 @@ In plain language: they can't just say "no" without explanation, and you have a 
 
 This matters because one of the strongest arguments for artificial hedges is water conservation. While Section 202.007 specifically names "drought-resistant landscaping" and "water-conserving natural turf," the spirit of the law is clear: Texas recognizes that water scarcity makes traditional landscaping requirements impractical, and HOAs cannot unreasonably stand in the way of conservation-minded alternatives.
 
-Whether artificial hedges are covered directly by Section 202.007 has not been definitively settled by Texas courts. But the water-conservation argument—paired with the product's realistic appearance and zero irrigation requirement—gives you strong footing for your application.
+Whether artificial hedges are covered directly by Section 202.007 has not been definitively settled by Texas courts. But the water-conservation argument (paired with the product's realistic appearance and zero irrigation requirement) gives you strong footing for your application.
 
 ## Before you apply: read your CC&Rs
 
@@ -116,11 +116,11 @@ Whether artificial hedges are covered directly by Section 202.007 has not been d
 
 Your HOA's CC&Rs (Covenants, Conditions & Restrictions) and architectural guidelines are the first documents to check. Look for language about:
 
-- **"Artificial landscaping"** or **"artificial plants"** — Some CC&Rs explicitly allow or prohibit these. If yours are silent on the topic, that's usually a good sign.
-- **"Natural materials only"** — If your CC&Rs require "natural" landscaping materials, you'll need to make a case for why the artificial hedge should qualify as a permitted modification.
-- **Fence height restrictions** — If you're adding a hedge topper to extend fence height, check whether the CC&Rs limit total fence-plus-topper height. Many Texas communities cap residential fences at 6 to 8 feet. City ordinances may also apply.
-- **Color and appearance standards** — Some HOAs require that modifications "match the aesthetic character" of the neighborhood. Premium artificial hedges typically meet this standard easily, but you'll want to document it.
-- **Approval process and timeline** — Your governing documents should specify the submission requirements (application form, drawings, samples) and the timeline for review.
+- **"Artificial landscaping"** or **"artificial plants"**, Some CC&Rs explicitly allow or prohibit these. If yours are silent on the topic, that's usually a good sign.
+- **"Natural materials only"**: If your CC&Rs require "natural" landscaping materials, you'll need to make a case for why the artificial hedge should qualify as a permitted modification.
+- **Fence height restrictions**: If you're adding a hedge topper to extend fence height, check whether the CC&Rs limit total fence-plus-topper height. Many Texas communities cap residential fences at 6 to 8 feet. City ordinances may also apply.
+- **Color and appearance standards**: Some HOAs require that modifications "match the aesthetic character" of the neighborhood. Premium artificial hedges typically meet this standard easily, but you'll want to document it.
+- **Approval process and timeline**: Your governing documents should specify the submission requirements (application form, drawings, samples) and the timeline for review.
 
 If you can't find your CC&Rs, request a copy from your HOA management company. Texas Property Code Section 209.005 requires the association to make governing documents available to owners.
 
@@ -153,7 +153,7 @@ Show where the hedge will be installed on your property. Include the fence line,
 Describe how the panels will be attached (zip ties, screws, frame system) and confirm that the existing fence or structure is in good condition. Note whether a professional installer will do the work.
 
 ### 7. Water conservation argument
-If your community has experienced watering restrictions—and most Texas communities have—include a brief note about the water savings. Reference [Section 202.007](https://statutes.capitol.texas.gov/SOTWDocs/PR/htm/PR.202.htm) of the Texas Property Code and the fact that the installation requires zero irrigation, zero fertilizer, and zero ongoing water use.
+If your community has experienced watering restrictions (and most Texas communities have), include a brief note about the water savings. Reference [Section 202.007](https://statutes.capitol.texas.gov/SOTWDocs/PR/htm/PR.202.htm) of the Texas Property Code and the fact that the installation requires zero irrigation, zero fertilizer, and zero ongoing water use.
 
 ## Common objections and how to address them
 
@@ -180,26 +180,26 @@ You have rights under [Texas Property Code Section 209.00505](https://statutes.c
 5. At the hearing, both you and the board have the opportunity to discuss facts and resolve the issue.
 6. The board can **affirm, modify, or reverse** the original decision.
 
-If you go to a hearing, bring your sample panel, your spec sheet, and your photos. Keep it factual and professional. Most boards are made up of homeowners who want the neighborhood to look good—if you can show them the product looks good, the path to approval gets easier.
+If you go to a hearing, bring your sample panel, your spec sheet, and your photos. Keep it factual and professional. Most boards are made up of homeowners who want the neighborhood to look good, if you can show them the product looks good, the path to approval gets easier.
 
 ## Tips that increase your chances
 
 - **Talk to a board member informally first.** Before submitting anything, ask a neighbor who sits on the architectural committee what they think. An informal conversation can reveal objections early so you can address them in your application.
 - **Offer a trial period.** Some homeowners offer to install a small section (one fence panel) for 30 to 60 days so the committee can see it in real conditions. This removes the "unknown" factor.
-- **Get neighbor support.** If adjacent neighbors are supportive—or even interested in installing their own—mention that in your application. It signals that the modification is welcome, not controversial.
+- **Get neighbor support.** If adjacent neighbors are supportive (or even interested in installing their own) mention that in your application. It signals that the modification is welcome, not controversial.
 - **Keep your existing fence in good shape.** If the fence underneath is leaning, rotting, or damaged, fix it first. A committee that sees a damaged fence will focus on that instead of the hedge panels.
 
 ## Related articles
 
-This article is part of our [complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, costs, and more.
+This article is part of our [complete guide to artificial hedges in Texas](/blog/the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, costs, and more.
 
 You might also find these useful:
-- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
-- [Artificial vs. real boxwood in Texas](/blog/2025-12-11-artificial-vs-real-boxwood-texas)
+- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/artificial-hedges-vs-real-plants-in-texas)
+- [Artificial vs. real boxwood in Texas](/blog/artificial-vs-real-boxwood-texas)
 
-For HOA-friendly product options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge) or [request a free quote](/#contact).
+For HOA-friendly product options, see our [HOA-approved artificial hedge page](/hoa-approved-artificial-hedge) or [request a free quote](/contact).
 
-We help homeowners navigate HOA approvals in [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), [Sugar Land](/sugar-land), and across Texas.
+We serve homeowners in [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), [Sugar Land](/sugar-land), and across Texas.
 
 ## FAQ
 
@@ -207,7 +207,7 @@ We help homeowners navigate HOA approvals in [Dallas](/dallas), [Houston](/houst
 HOAs can regulate the appearance and type of landscaping through their CC&Rs, including artificial elements. However, Texas Property Code Section 202.007 prohibits HOAs from unreasonably denying drought-resistant landscaping. Whether artificial hedges fall under this protection depends on how your HOA and the courts interpret the statute. The safest approach is to submit a well-documented application rather than argue the legal question.
 
 ### How long does HOA approval usually take?
-Most Texas HOA architectural review committees are required to respond within 30 to 60 days, depending on the association's governing documents. Texas Property Code Section 209.00505 establishes appeal procedures if your request is denied, including the right to a hearing within 30 days of your appeal.
+The review timeline depends on the association's governing documents, which should state how long the committee has to respond. Texas Property Code Section 209.00505 establishes appeal procedures if your request is denied, including the right to a hearing within 30 days of your appeal.
 
 ### What if my HOA denies my artificial hedge application?
 Under Texas Property Code Section 209.00505, the denial must describe the basis in reasonable detail and any changes required for approval. You have the right to request a hearing within 30 days. The board must hold the hearing and can affirm, modify, or reverse the decision.
@@ -219,6 +219,6 @@ Permit requirements depend on the city, fence height, mounting method, and wheth
 - Texas Property Code Chapter 209 (Texas Residential Property Owners Protection Act): https://statutes.capitol.texas.gov/Docs/PR/htm/PR.209.htm
 - Texas Property Code Section 202.007 (water conservation landscaping protections): https://statutes.capitol.texas.gov/SOTWDocs/PR/htm/PR.202.htm
 
-<!-- image: /images/hedges/hedge-privacy-2.webp -->
-<!-- image: /images/hedges/hedge-privacy-3.webp -->
-<!-- image: /images/hedges/hedge-topper-la.webp -->
+<!-- image: /images/hedges/hedge-privacy-2.webp | Long run of artificial hedge panels behind an iron railing, above a wall with a vine trellis -->
+<!-- image: /images/hedges/hedge-privacy-3.webp | Artificial hedge panels lining a raised planter wall beside a tiled walkway -->
+<!-- image: /images/hedges/hedge-topper-la.webp | Tall artificial hedge panels above a stucco wall, with a smaller hedge panel on the gate below -->

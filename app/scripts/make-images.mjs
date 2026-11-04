@@ -3,6 +3,9 @@
 //
 //   node scripts/make-images.mjs
 //
+// The list below is the homepage's; more lists load from scripts/images/*.mjs
+// (see loadExtraImages).
+//
 // Sources: the Texas case-study originals, copied into public/images/ with
 // kebab-case names (from ../public/case-studies/), plus two uncaptioned
 // system-card photos read from the repo's ../images/ folder.
@@ -13,9 +16,9 @@
 // repo root's node_modules so the app does not carry it as a dependency.
 
 import { createRequire } from 'node:module';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const appRoot = path.resolve(here, '..');
@@ -106,11 +109,35 @@ const IMAGES = [
   },
 ];
 
+/**
+ * Page agents add images without editing this file: each scripts/images/*.mjs
+ * exports `IMAGES` in the same shape as above ({ name, src, crop? }, src
+ * relative to the repo root). Names must be unique across all lists.
+ */
+async function loadExtraImages() {
+  const dir = path.join(here, 'images');
+  const files = await readdir(dir).catch((error) => {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  });
+  const extra = [];
+  for (const file of files.filter((f) => f.endsWith('.mjs')).sort()) {
+    const module = await import(pathToFileURL(path.join(dir, file)).href);
+    if (!Array.isArray(module.IMAGES)) throw new Error(`scripts/images/${file} must export IMAGES (an array)`);
+    extra.push(...module.IMAGES);
+  }
+  return extra;
+}
+
 async function main() {
   await mkdir(outDir, { recursive: true });
   const manifest = {};
+  const images = [...IMAGES, ...(await loadExtraImages())];
+  const names = new Set();
 
-  for (const image of IMAGES) {
+  for (const image of images) {
+    if (names.has(image.name)) throw new Error(`Duplicate image name: ${image.name}`);
+    names.add(image.name);
     const source = path.join(repoRoot, image.src);
     const meta = await sharp(source).metadata();
     const crop = image.crop ?? { left: 0, top: 0, width: meta.width, height: meta.height };

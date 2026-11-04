@@ -4,10 +4,11 @@ import { useEffect, useRef } from 'react';
 import { FAQ } from '../data/home-content';
 
 /**
- * Visible questions and answers; HomeSeo builds the FAQPage schema from the
- * same array. The markup ships every answer open (desktop shows them all, and
- * crawlers read them either way); on phones they fold shut after load, so the
- * list is a quick scan of questions you tap to open.
+ * Visible questions and answers; the homepage route (src/routes.ts) builds
+ * the FAQPage schema from the same array. The markup ships every answer open
+ * (desktop shows them all, and crawlers read them either way); on phones they
+ * fold shut after load, so the list is a quick scan of questions you tap to
+ * open.
  */
 export default function HomeFaq() {
   const list = useRef<HTMLDivElement>(null);

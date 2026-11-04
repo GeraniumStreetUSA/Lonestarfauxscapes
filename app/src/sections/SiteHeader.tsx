@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import PlanMark from '../components/PlanMark';
+import { useQuoteHref } from '../lib/quote-href';
 import { BUSINESS, HEADER_NAV, MENU_LINKS } from '../data/site';
 import { HEADER, HERO } from '../data/home-content';
 
@@ -18,6 +19,7 @@ import { HEADER, HERO } from '../data/home-content';
  * nav stays in the markup (hidden on phones) so crawlers see the same links.
  */
 export default function SiteHeader() {
+  const quoteHref = useQuoteHref();
   const ref = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -107,7 +109,7 @@ export default function SiteHeader() {
             <Phone size={16} strokeWidth={2} aria-hidden="true" />
             {BUSINESS.phoneDisplay}
           </a>
-          <a href="#quote" className="btn btn-primary btn-compact header-quote" data-cta="header">
+          <a href={quoteHref} className="btn btn-primary btn-compact header-quote" data-cta="header">
             <span className="lg:hidden">{HEADER.quoteShort}</span>
             <span className="hidden lg:inline">{HERO.cta}</span>
           </a>
@@ -155,7 +157,7 @@ export default function SiteHeader() {
               <Phone size={20} strokeWidth={2} aria-hidden="true" />
               {BUSINESS.phoneDisplay}
             </a>
-            <a href="#quote" className="btn btn-primary btn-lg w-full" onClick={() => setMenuOpen(false)} data-cta="menu">
+            <a href={quoteHref} className="btn btn-primary btn-lg w-full" onClick={() => setMenuOpen(false)} data-cta="menu">
               {HERO.cta}
               <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
             </a>

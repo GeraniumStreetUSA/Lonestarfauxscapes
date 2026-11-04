@@ -15,11 +15,11 @@ tags:
 draft: false
 faq:
   - question: "What is the cheapest privacy solution for a Texas backyard?"
-    answer: "Pressure-treated pine fencing is the cheapest upfront at $15 to $30 per linear foot installed. However, it requires staining every 2-3 years and lasts 15-20 years. Over a 20-year period, a cedar fence or artificial hedge fence extension may cost less when maintenance is factored in."
+    answer: "Pressure-treated pine fencing is usually the cheapest upfront. However, it needs regular staining and tends to wear out sooner than cedar or vinyl. Over the long run, a cedar fence or artificial hedge fence extension may cost less when maintenance is factored in."
   - question: "How tall can a backyard fence be in Texas?"
     answer: "It varies by city. Houston allows up to 8 feet without a permit. Dallas allows up to 6 feet solid or 8 feet open without a permit. Austin limits solid fences to 6 feet average height with a 7-foot maximum. Always check your specific city ordinance before building."
   - question: "Can I add height to my existing fence in Texas?"
-    answer: "Yes. Artificial hedge fence extensions can add 1 to 3 feet of privacy height to an existing fence without replacing it. They mount on top of the existing structure and are generally HOA-friendly because they use a green, natural-looking material rather than extending the fence panel itself."
+    answer: "Yes. Artificial hedge fence extensions can add privacy height to an existing fence without replacing it. They mount on top of the existing structure and are generally HOA-friendly because they use a green, natural-looking material rather than extending the fence panel itself."
   - question: "What is the best privacy solution for a Texas pool area?"
     answer: "Artificial hedges or artificial living walls are popular for pool areas because they produce no leaves, require no irrigation near the water, and are resistant to chlorine splash and UV exposure. Traditional hedges drop debris into the pool and require constant maintenance."
 ---
@@ -109,11 +109,11 @@ faq:
 
 ## The real options for Texas backyard privacy
 
-If you're looking for backyard privacy in Texas, you have more options than a standard wood fence. Each one has tradeoffs in cost, lifespan, maintenance, and HOA compatibility. This guide compares them side by side so you can pick based on your actual situation — not just what a fence company or landscaper is selling.
+If you're looking for backyard privacy in Texas, you have more options than a standard wood fence. Each one has tradeoffs in cost, lifespan, maintenance, and HOA compatibility. This guide compares them side by side so you can pick based on your actual situation, not just what a fence company or landscaper is selling.
 
 <div class="prv-callout prv-callout-info prv-reveal">
   <span class="prv-callout-icon">&#9432;</span>
-  <div class="prv-callout-body">We install artificial hedges and fence extensions, so our bias is clear. The cost data below comes from published pricing guides and industry sources, not our quotes. Every figure is sourced at the bottom.</div>
+  <div class="prv-callout-body">We install artificial hedges and fence extensions, so our bias is clear. Every figure below is sourced at the bottom.</div>
 </div>
 
 ## The comparison table
@@ -132,17 +132,17 @@ If you're looking for backyard privacy in Texas, you have more options than a st
     <tbody>
       <tr>
         <td>Cost per linear ft</td>
-        <td>$30–60 (cedar)</td>
-        <td>$40–85</td>
+        <td>Varies by wood and contractor</td>
+        <td>Varies by contractor</td>
         <td>Varies by system</td>
         <td>Varies by height</td>
       </tr>
       <tr>
         <td>Lifespan (TX sun)</td>
-        <td>15–20 yrs (pine)<br>20–30 yrs (cedar)</td>
-        <td>20–30+ yrs</td>
-        <td>5–10 yrs (UV-stabilized)</td>
-        <td>5–10 yrs (UV-stabilized)</td>
+        <td>Cedar outlasts pine with upkeep</td>
+        <td>Long-lived</td>
+        <td>Depends on UV rating and sun exposure</td>
+        <td>Depends on UV rating and sun exposure</td>
       </tr>
       <tr>
         <td>Maintenance</td>
@@ -155,8 +155,8 @@ If you're looking for backyard privacy in Texas, you have more options than a st
         <td>Max height (typical)</td>
         <td>6–8 ft by code</td>
         <td>6–8 ft by code</td>
-        <td>Any height (custom)</td>
-        <td class="prv-win">Adds 1–3 ft to existing</td>
+        <td>Custom heights</td>
+        <td class="prv-win">Adds height to existing</td>
       </tr>
       <tr>
         <td>Permits needed</td>
@@ -193,13 +193,6 @@ If you're looking for backyard privacy in Texas, you have more options than a st
         <td class="prv-win">Green, natural look</td>
         <td class="prv-win">Green, natural look</td>
       </tr>
-      <tr>
-        <td>Sound reduction</td>
-        <td>Some</td>
-        <td>Minimal</td>
-        <td>Optional acoustic backing</td>
-        <td>Optional acoustic backing</td>
-      </tr>
     </tbody>
   </table>
 </div>
@@ -233,26 +226,26 @@ Before choosing any privacy solution, know your city's height rules. Going over 
 
 <div class="prv-callout prv-callout-warn prv-reveal">
   <span class="prv-callout-icon">&#9888;</span>
-  <div class="prv-callout-body"><strong>Height limit workaround:</strong> If your city caps fences at 6 feet but you need more privacy, an <a href="/fence-extensions">artificial hedge fence extension</a> adds 1–3 feet on top of your existing fence. Because it's a hedge-style topper rather than a fence panel extension, it typically doesn't trigger the same permit requirements. Check your specific city ordinance.</div>
+  <div class="prv-callout-body"><strong>Height limit workaround:</strong> If your city caps fences at 6 feet but you need more privacy, an <a href="/fence-extensions">artificial hedge fence extension</a> adds height on top of your existing fence. Because it's a hedge-style topper rather than a fence panel extension, it typically doesn't trigger the same permit requirements. Check your specific city ordinance.</div>
 </div>
 
 ## Option 1: Wood privacy fence
 
 **Best for:** New construction, full perimeter enclosure, property line definition.
 
-Wood is the default privacy solution in Texas and for good reason — it's affordable, widely available, and fence contractors are everywhere.
+Wood is the default privacy solution in Texas and for good reason, it's affordable, widely available, and fence contractors are everywhere.
 
-**The real costs:** Cedar fencing (the most popular in Texas) runs $30 to $60 per linear foot installed. For a typical 150-linear-foot backyard, that's **$4,500 to $9,000**. Pressure-treated pine is cheaper at $15 to $30 per foot, but it warps and weathers faster in Texas heat.
+**The real costs:** Cedar fencing is the most popular in Texas and costs more than pressure-treated pine, which is cheaper upfront but warps and weathers faster in Texas heat. Get local quotes, since contractor pricing varies by city and by year.
 
-**The catch:** Wood fences need staining every 2 to 4 years to maintain appearance and prevent rot. In Texas sun, unstained pine fences can gray and warp within a single summer. Cedar is more durable but still weathers. Budget $500 to $1,500 per staining cycle for a full backyard fence. Over 20 years, maintenance can equal or exceed the original installation cost.
+**The catch:** Wood fences need staining every 2 to 4 years to maintain appearance and prevent rot. In Texas sun, unstained pine fences can gray and warp within a single summer. Cedar is more durable but still weathers. Over the life of the fence, maintenance can add up to a large share of the original installation cost.
 
-**Lifespan:** Cedar lasts 20 to 30 years with maintenance. Pressure-treated pine lasts 15 to 20 years. Both numbers assume regular staining and periodic board replacement.
+**Lifespan:** Cedar generally outlasts pressure-treated pine, and both depend on regular staining and periodic board replacement.
 
 ## Option 2: Vinyl (PVC) privacy fence
 
 **Best for:** Low-maintenance perimeter fencing where you don't mind the plastic look.
 
-Vinyl costs more upfront at $40 to $85 per linear foot installed, but it requires almost zero maintenance and lasts 20 to 30+ years.
+Vinyl usually costs more upfront than wood, but it requires almost zero maintenance and is long-lived.
 
 **The tradeoff:** Vinyl fences look like vinyl fences. They don't weather like wood (which some people prefer), but they also don't look natural. Some Texas HOAs restrict or ban vinyl fencing for aesthetic reasons. In extreme Texas heat, lower-grade vinyl can warp or become brittle over time.
 
@@ -260,19 +253,19 @@ Vinyl costs more upfront at $40 to $85 per linear foot installed, but it require
 
 **Best for:** Privacy screens, patio walls, pool areas, and anywhere you want a green look without irrigation.
 
-Artificial hedge panels mount on existing structures (fences, walls, frames) or custom-fabricated steel frames. They produce no debris, require no water, and are available with NFPA 701 fire-rated foliage for commercial applications.
+Artificial hedge panels mount on existing structures (fences, walls, frames) or custom-fabricated steel frames. They produce no debris, require no water, and are available in fire-rated options for commercial applications. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose.
 
-**Why they're popular for pools and patios:** No leaves fall into the pool. No irrigation system runs near the water. No roots crack the deck. UV-stabilized foliage holds its color for 5 to 10 years in full sun.
+**Why they're popular for pools and patios:** No leaves fall into the pool. No irrigation system runs near the water. No roots crack the deck. UV-stabilized foliage is made to hold its color in full sun; ask for UV and warranty terms in writing.
 
-**Where they don't make sense:** If you need a full perimeter fence from scratch, artificial hedges alone aren't a fencing replacement — they need a mounting structure. They work best as panels on an existing fence or wall, or on custom frames for specific areas like pool surrounds, patio screens, and side-yard privacy.
+**Where they don't make sense:** If you need a full perimeter fence from scratch, artificial hedges alone aren't a fencing replacement, they need a mounting structure. They work best as panels on an existing fence or wall, or on custom frames for specific areas like pool surrounds, patio screens, and side-yard privacy.
 
 ## Option 4: Artificial hedge fence extensions
 
 **Best for:** Adding privacy height to an existing fence that's too short.
 
-If you already have a 6-foot fence but can still see your neighbor's second story windows, a [fence extension with artificial hedges](/fence-extensions) adds 1 to 3 feet of green privacy without replacing the whole fence.
+If you already have a 6-foot fence but can still see your neighbor's second story windows, a [fence extension with artificial hedges](/fence-extensions) adds green privacy height without replacing the whole fence.
 
-**Why homeowners choose this:** It's faster and cheaper than replacing a fence. It doesn't trigger most permit requirements. The green hedge look is generally more HOA-friendly than a taller wood panel. Optional acoustic backing can reduce noise by up to 8 dB.
+**Why homeowners choose this:** It can be faster and cheaper than replacing a fence. It doesn't trigger most permit requirements. The green hedge look is generally more HOA-friendly than a taller wood panel. Optional acoustic backing may help soften noise.
 
 ## Which one fits your situation?
 
@@ -298,44 +291,39 @@ If you already have a 6-foot fence but can still see your neighbor's second stor
   <div class="prv-use-card prv-reveal">
     <span class="prv-use-icon">&#127749;</span>
     <div class="prv-use-title">Patio, balcony, or side yard screen</div>
-    <div class="prv-use-desc">Specific area needs screening — not a full fence, just a section of privacy for outdoor living.</div>
+    <div class="prv-use-desc">Specific area needs screening, not a full fence, just a section of privacy for outdoor living.</div>
     <div class="prv-use-rec">Best fit: artificial hedge panels on frame</div>
   </div>
 </div>
 
 ## The 10-year cost math for a 150 ft backyard
 
-To keep things honest, here's a rough cost comparison over 10 years for a typical 150-linear-foot Texas backyard:
+To keep things honest, here's how the long-run cost picture compares for a typical Texas backyard:
 
-**Cedar fence:** $4,500–$9,000 install + $2,000–$6,000 in staining (3 cycles) + $500–$1,000 board repairs = **$7,000–$16,000 over 10 years**
+**Cedar fence:** Install, plus staining every few years, plus board repairs.
 
-**Vinyl fence:** $6,000–$12,750 install + ~$0 maintenance = **$6,000–$12,750 over 10 years**
+**Vinyl fence:** A higher install cost than pine, with almost no maintenance.
 
-**Artificial hedge on existing fence:** Varies by linear footage and height. No ongoing maintenance costs. One-time install, then done.
+**Artificial hedge on existing fence:** Varies by linear footage and height. Starting prices are published on the [pricing page](/pricing) (installation is quoted after a site review). Minimal ongoing maintenance costs.
 
-**Fence extension on existing fence:** Adds height without replacing the fence. No ongoing maintenance costs. Least total cost if you already have a fence and just need more privacy.
+**Fence extension on existing fence:** Adds height without replacing the fence. Minimal ongoing maintenance costs. Often the lowest total cost if you already have a fence and just need more privacy.
 
-The cheapest 10-year option depends on what you already have. If you're starting from scratch, vinyl or cedar are your full-perimeter options. If you already have a fence and need more privacy or a better look, artificial hedges and extensions skip the ongoing costs entirely.
+The cheapest long-run option depends on what you already have. If you're starting from scratch, vinyl or cedar are your full-perimeter options. If you already have a fence and need more privacy or a better look, artificial hedges and extensions avoid most of the ongoing costs.
 
 ## Related reading
 
-- [Artificial hedge fence extensions](/fence-extensions) — add height to your existing fence
-- [Pool privacy hedges](/pool-privacy-hedge) — artificial hedges for pool areas
-- [Pool living walls](/pool-living-wall) — vertical gardens for poolside
-- [HOA-approved artificial hedges](/hoa-approved-artificial-hedge) — getting your hedge approved
-- [Texas Property Code 202.007 and HOA rules](/blog/texas-property-code-202-007-artificial-hedges-and-hoa-rules) — what HOAs can and can't block
+- [Artificial hedge fence extensions](/fence-extensions), add height to your existing fence
+- [Pool privacy hedges](/pool-privacy-hedge), artificial hedges for pool areas
+- [Pool living walls](/pool-living-wall), vertical gardens for poolside
+- [HOA-approved artificial hedges](/hoa-approved-artificial-hedge), getting your hedge approved
+- [Texas Property Code 202.007 and HOA rules](/blog/texas-property-code-202-007-artificial-hedges-and-hoa-rules), what HOAs can and can't block
 
 ## Sources
 
 <div class="prv-sources">
-  <a class="prv-source-chip" href="https://dfwfencecontractor.com/how-much-does-a-6-wood-privacy-fence-cost-in-texas/" target="_blank" rel="noopener">&#128218; DFW Fence — TX wood fence costs</a>
-  <a class="prv-source-chip" href="https://www.arkfencecompany.com/blog/how-much-does-cedar-fence-cost-texas-2026" target="_blank" rel="noopener">&#128218; Ark Fence — Cedar pricing 2026</a>
-  <a class="prv-source-chip" href="https://homeguide.com/costs/vinyl-fence-cost-vs-wood" target="_blank" rel="noopener">&#128218; HomeGuide — Vinyl vs wood</a>
-  <a class="prv-source-chip" href="https://k2fence.com/fence-articles/cedar-vs-pine-fence-which-lasts-longer-in-texas-heat" target="_blank" rel="noopener">&#128218; K2 Fence — Cedar vs pine TX</a>
-  <a class="prv-source-chip" href="https://www.ergeon.com/blog/post/a-guide-to-fence-laws-in-houston-tx" target="_blank" rel="noopener">&#127987; Ergeon — Houston fence laws</a>
-  <a class="prv-source-chip" href="https://www.austintexas.gov/page/fencing-regulations" target="_blank" rel="noopener">&#127987; City of Austin — Fencing regs</a>
-  <a class="prv-source-chip" href="https://dfwfencecontractor.com/services/fence-laws-in-texas/" target="_blank" rel="noopener">&#127987; DFW — TX fence laws</a>
-  <a class="prv-source-chip" href="https://coolcatfence.com/how-long-should-a-wooden-fence-last-in-houston-texas/" target="_blank" rel="noopener">&#128218; Cool Cat — Wood fence lifespan</a>
+  <a class="prv-source-chip" href="https://www.ergeon.com/blog/post/a-guide-to-fence-laws-in-houston-tx" target="_blank" rel="noopener">&#127987; Ergeon, Houston fence laws</a>
+  <a class="prv-source-chip" href="https://www.austintexas.gov/page/fencing-regulations" target="_blank" rel="noopener">&#127987; City of Austin, Fencing regs</a>
+  <a class="prv-source-chip" href="https://dfwfencecontractor.com/services/fence-laws-in-texas/" target="_blank" rel="noopener">&#127987; DFW, TX fence laws</a>
 </div>
 
 See our [artificial hedges](/artificial-hedge) and [fence extensions](/fence-extensions) pages, or explore installations in [Dallas](/dallas), [Houston](/houston), [San Antonio](/san-antonio), [Sugar Land](/sugar-land), and [Frisco](/frisco).

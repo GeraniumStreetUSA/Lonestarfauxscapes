@@ -13,18 +13,18 @@ tags:
 draft: false
 faq:
   - question: "Do hotels need fire-rated artificial greenery?"
-    answer: "In most cases, yes—particularly in interior spaces. Hotels contain multiple occupancy types: R-1 (residential) for guest rooms, A-2 (assembly) for restaurants and bars, and B (business) for meeting rooms. Lobbies, common areas, and assembly spaces face the strictest fire code requirements for decorative materials. Check with your local AHJ for specific requirements."
+    answer: "In most cases, yes, particularly in interior spaces. Hotels contain multiple occupancy types: R-1 (residential) for guest rooms, A-2 (assembly) for restaurants and bars, and B (business) for meeting rooms. Lobbies, common areas, and assembly spaces face the strictest fire code requirements for decorative materials. Check with your local AHJ for specific requirements."
   - question: "What areas of a hotel benefit most from artificial greenery?"
     answer: "The highest-impact locations are the lobby and entrance, pool deck and courtyard, restaurant and bar areas, event spaces, and hallway transitions between public and private areas. These are the spaces where guests form impressions, take photos, and spend the most time outside their rooms."
   - question: "How durable is artificial greenery in a hotel environment?"
     answer: "Hotels are harder on decor than most environments because of 24/7 guest traffic, housekeeping schedules, and frequent events. Quality panels handle this well, but plan for more frequent cleaning (monthly in high-traffic areas) and position panels where they will not be directly impacted by luggage carts, service equipment, or heavy foot traffic."
   - question: "Can artificial greenery be used for hotel event spaces?"
-    answer: "Yes. Artificial living walls and hedge panels work well as event backdrops, photo walls, and space dividers. For events in assembly-classified spaces, fire-rated products are typically required. The advantage over live greenery for events is consistency—the wall looks the same for every event without the variability of live plants."
+    answer: "Yes. Artificial living walls and hedge panels work well as event backdrops, photo walls, and space dividers. For events in assembly-classified spaces, fire-rated products are typically required. The advantage over live greenery for events is consistency, the wall looks the same for every event without the variability of live plants."
 ---
 
 Hotels are one of the most demanding environments for any decorative material. The space is occupied around the clock, guests interact with surfaces constantly, housekeeping runs on a daily schedule, and the design has to work simultaneously as a business asset, a marketing tool, and a code-compliant installation.
 
-Artificial greenery—living walls, hedge panels, and accent installations—has become a standard element in Texas hospitality design. The visual appeal is obvious: it creates lush, photogenic spaces without the irrigation, pest control, and plant replacement costs that live greenery demands. But in a hotel, the design conversation can't be separated from the compliance conversation.
+Artificial greenery (living walls, hedge panels, and accent installations) has become a standard element in Texas hospitality design. The visual appeal is obvious: it creates lush, photogenic spaces without the irrigation, pest control, and plant replacement costs that live greenery demands. But in a hotel, the design conversation can't be separated from the compliance conversation.
 
 This article covers both: where artificial greenery creates the most value in hotel environments, and how to keep it compliant with fire codes.
 
@@ -36,22 +36,22 @@ The lobby is the hotel's first impression. A living wall behind the front desk, 
 
 Design considerations for lobby walls:
 - **Foliage density and variety matter most here.** Guests walk past the wall at close range. Mixed foliage with varied textures, depths, and leaf sizes reads as intentional design. Flat, uniform panels look cheap up close.
-- **Lighting is critical.** Warm LED uplighting or wall-washing fixtures make the foliage look rich and three-dimensional. The lobby is often lit differently at different times of day—make sure the wall looks good under all lighting conditions.
-- **Brand integration.** Some hotels incorporate signage, logos, or branded elements within the living wall. This works when done subtly—a metal logo mounted on the foliage, for example. It fails when it looks like a billboard.
+- **Lighting is critical.** Warm LED uplighting or wall-washing fixtures make the foliage look rich and three-dimensional. The lobby is often lit differently at different times of day, make sure the wall looks good under all lighting conditions.
+- **Brand integration.** Some hotels incorporate signage, logos, or branded elements within the living wall. This works when done subtly, a metal logo mounted on the foliage, for example. It fails when it looks like a billboard.
 
 ### Pool deck and courtyard
 
-Hotel pool areas face the same conditions as residential pools—reflected UV, chlorine mist, splashing, and heat—but with higher traffic and higher expectations.
+Hotel pool areas face the same conditions as residential pools (reflected UV, chlorine mist, splashing, and heat) but with higher traffic and higher expectations.
 
 Artificial hedges around the pool provide privacy screening between the pool and adjacent properties or parking areas. Living walls create photo-worthy backdrops for the lounge area. Equipment screening (pumps, filters, heaters) keeps the pool deck looking clean.
 
-For pool-specific guidance, see our [pool privacy guide](/blog/2026-02-21-pool-privacy-solutions-artificial-hedges-for-texas-backyards).
+For pool-specific guidance, see our [pool privacy guide](/blog/pool-privacy-solutions-artificial-hedges-for-texas-backyards).
 
 ### Restaurant and bar areas
 
-Hotel restaurants and bars fall under assembly occupancy (Group A-2), which triggers the most stringent fire code requirements for interior finishes and decorative materials. A living wall in a hotel restaurant serves the same design function as in a standalone restaurant—backdrop, ambiance, photography—but the code requirements are non-negotiable.
+Hotel restaurants and bars fall under assembly occupancy (Group A-2), which triggers the most stringent fire code requirements for interior finishes and decorative materials. A living wall in a hotel restaurant serves the same design function as in a standalone restaurant (backdrop, ambiance, photography) but the code requirements are non-negotiable.
 
-For restaurant-specific considerations, see our [restaurant patio guide](/blog/2026-02-21-artificial-living-walls-for-restaurant-patios-in-texas).
+For restaurant-specific considerations, see our [restaurant patio guide](/blog/artificial-living-walls-for-restaurant-patios-in-texas).
 
 ### Event and meeting spaces
 
@@ -65,7 +65,7 @@ Long hotel corridors benefit from greenery to break up the monotony. A living wa
 
 ### Exterior and porte-cochere
 
-The hotel entrance—the porte-cochere or drop-off area—is where the guest experience begins. Hedge panels screening service areas, living wall accents flanking the entrance, or greenery on the valet area fence create a finished, curated arrival experience.
+The hotel entrance (the porte-cochere or drop-off area) is where the guest experience begins. Hedge panels screening service areas, living wall accents flanking the entrance, or greenery on the valet area fence create a finished, curated arrival experience.
 
 ## Fire code requirements for hotels
 
@@ -85,13 +85,13 @@ Hotels contain multiple occupancy types within a single building, and each area 
 
 For hotel projects, the safest approach is to specify fire-rated products throughout:
 
-- **NFPA 701 Method 2** tested products for decorative applications (living walls, hedge panels, accent greenery)
+- **NFPA 701** documentation for decorative applications (living walls, hedge panels, accent greenery); fire-rated options are built for NFPA 701, so ask for the NFPA 701 documentation for the exact system you choose
 - Documentation that names the specific product, not a generic sample
 - Test reports from accredited laboratories
 
 This approach eliminates the variability of local enforcement. Whether the AHJ is strict or lenient, you have documentation that covers you.
 
-For the technical details on fire standards, see our [NFPA 701 vs ASTM E84 guide](/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader compliance guidance, see our [fire-rated greenery guide for commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties).
+For the technical details on fire standards, see our [NFPA 701 vs ASTM E84 guide](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader compliance guidance, see our [fire-rated greenery guide for commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
 
 ## Durability in a hotel environment
 
@@ -110,14 +110,14 @@ Hotels are harder on decor than most commercial environments:
 - **Sturdy backing grids** that resist flex and impact
 - **Resilient foliage** that springs back after contact
 - **Secure mounting** that doesn't loosen with vibration from nearby foot traffic
-- **Panels positioned above direct-contact zones** where possible—mounting the bottom edge of a living wall above luggage-cart height, for example
+- **Panels positioned above direct-contact zones** where possible, mounting the bottom edge of a living wall above luggage-cart height, for example
 
 ### Cleaning schedule for hotels
 
 - **Monthly** for high-traffic areas (lobby, restaurant, pool)
 - **Quarterly** for lower-traffic areas (hallways, meeting rooms)
 - **After events** if the greenery is near catering, bars, or cooking areas
-- Use mild soap and water. Avoid the industrial cleaners used on hard surfaces—these can damage polymer foliage.
+- Use mild soap and water. Avoid the industrial cleaners used on hard surfaces, these can damage polymer foliage.
 
 ## Working with hotel designers and brand standards
 
@@ -132,18 +132,18 @@ Get the brand standards document early and verify that the products you're speci
 
 ## Related articles
 
-This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties), which covers standards, documentation, and procurement.
+This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties), which covers standards, documentation, and procurement.
 
 You might also find these useful:
-- [Texas fire code requirements for artificial plants in commercial buildings](/blog/2026-02-21-texas-fire-code-requirements-for-artificial-plants-in-commercial-buildings)
-- [Artificial greenery ROI for multifamily property managers](/blog/2026-02-21-artificial-greenery-roi-for-multifamily-property-managers)
+- [Texas fire code requirements for artificial plants in commercial buildings](/blog/texas-fire-code-requirements-for-artificial-plants-in-commercial-buildings)
+- [Artificial greenery ROI for multifamily property managers](/blog/artificial-greenery-roi-for-multifamily-property-managers)
 
 For commercial products, see our [commercial living wall page](/commercial-wall), [fire-rated hedge page](/fire-rated-artificial-hedge), or [Vallum FRX system](/vallum-frx).
 
 ## FAQ
 
 ### Do hotels need fire-rated artificial greenery?
-In most cases, yes—particularly in interior spaces. Hotels contain multiple occupancy types: R-1 (residential) for guest rooms, A-2 (assembly) for restaurants and bars, and B (business) for meeting rooms. Lobbies, common areas, and assembly spaces face the strictest fire code requirements for decorative materials. Check with your local AHJ for specific requirements.
+In most cases, yes, particularly in interior spaces. Hotels contain multiple occupancy types: R-1 (residential) for guest rooms, A-2 (assembly) for restaurants and bars, and B (business) for meeting rooms. Lobbies, common areas, and assembly spaces face the strictest fire code requirements for decorative materials. Check with your local AHJ for specific requirements.
 
 ### What areas of a hotel benefit most from artificial greenery?
 The highest-impact locations are the lobby and entrance, pool deck and courtyard, restaurant and bar areas, event spaces, and hallway transitions between public and private areas. These are the spaces where guests form impressions, take photos, and spend the most time outside their rooms.
@@ -152,12 +152,12 @@ The highest-impact locations are the lobby and entrance, pool deck and courtyard
 Hotels are harder on decor than most environments because of 24/7 guest traffic, housekeeping schedules, and frequent events. Quality panels handle this well, but plan for more frequent cleaning (monthly in high-traffic areas) and position panels where they will not be directly impacted by luggage carts, service equipment, or heavy foot traffic.
 
 ### Can artificial greenery be used for hotel event spaces?
-Yes. Artificial living walls and hedge panels work well as event backdrops, photo walls, and space dividers. For events in assembly-classified spaces, fire-rated products are typically required. The advantage over live greenery for events is consistency—the wall looks the same for every event without the variability of live plants.
+Yes. Artificial living walls and hedge panels work well as event backdrops, photo walls, and space dividers. For events in assembly-classified spaces, fire-rated products are typically required. The advantage over live greenery for events is consistency, the wall looks the same for every event without the variability of live plants.
 
 ## References
 - International Code Council (IBC/IFC): https://www.iccsafe.org/
 - NFPA 701: https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701
 
-<!-- image: /images/commercial/commercial-3.jpg -->
-<!-- image: /images/blog/artificial-living-walls-001.jpg -->
-<!-- image: /images/commercial/commercial-1.png -->
+<!-- image: /images/commercial/commercial-3.jpg | Artificial hedge panels cladding the entrance wall of a shopping centre, with planters in front -->
+<!-- image: /images/blog/artificial-living-walls-001.jpg | Artificial living wall of mixed green foliage set into a wood-framed lobby wall, with seating beyond -->
+<!-- image: /images/commercial/commercial-1.png | Large artificial living wall in a building lobby, with patterned zones of green foliage, still under construction -->

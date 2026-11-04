@@ -1,17 +1,20 @@
-import { useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { useEffect, type ComponentType } from 'react';
 
 import { installClickTracking } from './lib/analytics';
-import HomePage from './pages/HomePage';
+import type { PageProps, Route } from './routes';
 
-export default function App() {
+/**
+ * The page for one route. There is no client router: every internal link is a
+ * plain <a href> to a prerendered page, so the route is fixed for the life of
+ * the page and the entry points hand it in with its loaded component.
+ */
+export default function App({ route, Page }: { route: Route; Page: ComponentType<PageProps> }) {
   useEffect(() => installClickTracking(), []);
 
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      {/* Only the homepage exists in this phase; other paths are served by the live site. */}
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
+  /* The prerender writes the head; in dev there is no prerender, so tabs get their title here. */
+  useEffect(() => {
+    document.title = route.title;
+  }, [route.title]);
+
+  return <Page route={route} />;
 }

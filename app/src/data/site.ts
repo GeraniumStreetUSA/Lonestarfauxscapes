@@ -25,7 +25,7 @@ export interface NavLink {
 }
 
 export const HEADER_NAV: readonly NavLink[] = [
-  { label: 'Systems', href: '#systems' },
+  { label: 'Systems', href: '/products' },
   { label: 'Projects', href: '/case-studies' },
   { label: 'Areas', href: '/locations' },
   { label: 'Guides', href: '/guides' },

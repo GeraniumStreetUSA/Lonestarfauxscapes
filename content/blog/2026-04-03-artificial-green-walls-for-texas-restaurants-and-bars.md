@@ -15,11 +15,11 @@ tags:
 draft: false
 faq:
   - question: "Do artificial plants in restaurants need to be fire rated?"
-    answer: "For most commercial applications in Texas, yes. The Texas Fire Code requires textiles and decorative materials in public spaces to comply with NFPA 701 flame propagation criteria. The local fire marshal has final authority. Always confirm requirements with your local jurisdiction before installation."
+    answer: "Often, in commercial spaces. Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer. The local fire marshal has final authority. Always confirm requirements with your local jurisdiction before installation."
   - question: "Are artificial plants allowed in Texas restaurant patios?"
     answer: "Yes. Texas DSHS rules allow decorative items in consumer dining areas as long as they are kept clean. The health department cannot penalize a food establishment for decorative items that don't meet 'easily cleanable surface' requirements, provided they are maintained in a clean condition."
   - question: "How much does an artificial green wall cost for a restaurant?"
-    answer: "Costs vary based on wall size, foliage type, mounting method, and whether fire-rated materials are needed. A typical restaurant feature wall or patio screen is custom-quoted based on site measurements. Contact us for project-specific pricing."
+    answer: "Costs vary based on wall size, foliage type, mounting method, and whether fire-rated materials are needed. Starting prices are published on the pricing page (installation is quoted after a site review). A restaurant feature wall or patio screen is custom-quoted based on site measurements."
   - question: "Can outdoor dining increase restaurant revenue?"
     answer: "Yes. The National Restaurant Association reports that nearly 7 in 10 customers prefer having an outdoor dining option. Research by the Simons Advisory Group found patio seating can increase gross profits by as much as 65%. A well-designed patio with greenery encourages longer stays and higher spend per visit."
 ---
@@ -106,7 +106,7 @@ faq:
 
 Walk through any restaurant district in [Dallas](/dallas), [Houston](/houston), or [San Antonio](/san-antonio) and you'll notice the same thing: green walls, hedge screens, and living wall backdrops are showing up in patios, dining rooms, and storefronts.
 
-There's a reason. It's not just aesthetics — it's revenue.
+There's a reason. It's not just aesthetics, it's revenue.
 
 <div class="rst-stats-row">
   <div class="rst-stat-card rst-reveal">
@@ -141,12 +141,12 @@ Greenery is what turns a patio from "tables outside" into a space people want to
   <div class="rst-use-card rst-reveal">
     <span class="rst-use-icon">&#128248;</span>
     <div class="rst-use-title">Instagram-ready feature walls</div>
-    <div class="rst-use-desc">Mixed-foliage living walls behind bars, at entry points, or flanking host stands. These become the backdrop for every guest photo — free marketing every time someone posts.</div>
+    <div class="rst-use-desc">Mixed-foliage living walls behind bars, at entry points, or flanking host stands. These become the backdrop for every guest photo, free marketing every time someone posts.</div>
   </div>
   <div class="rst-use-card rst-reveal">
     <span class="rst-use-icon">&#127915;</span>
     <div class="rst-use-title">Dining room accent walls</div>
-    <div class="rst-use-desc">Indoor green walls that soften hard surfaces — brick, concrete, tile. Absorb ambient noise and add visual warmth to industrial or modern interiors without the humidity and pest risks of real plants indoors.</div>
+    <div class="rst-use-desc">Indoor green walls that soften hard surfaces, brick, concrete, tile. Can help soften ambient noise and add visual warmth to industrial or modern interiors without the humidity and pest risks of real plants indoors.</div>
   </div>
   <div class="rst-use-card rst-reveal">
     <span class="rst-use-icon">&#128274;</span>
@@ -164,7 +164,7 @@ Greenery is what turns a patio from "tables outside" into a space people want to
 
 Restaurant operators don't have time for plant maintenance. Here's the practical case:
 
-**No irrigation system to manage.** A real living wall on a restaurant patio requires a dedicated drip system with controllers, fertigation, and regular monitoring. That's plumbing infrastructure in a space that already has grease traps, gas lines, and drainage to deal with. Artificial panels mount directly to the wall or a simple frame — no plumbing.
+**No irrigation system to manage.** A real living wall on a restaurant patio requires a dedicated drip system with controllers, fertigation, and regular monitoring. That's plumbing infrastructure in a space that already has grease traps, gas lines, and drainage to deal with. Artificial panels mount directly to the wall or a simple frame, no plumbing.
 
 **No plant replacement budget.** Published research shows living walls lose 2 to 12% of their plants annually, even with professional care. In Texas heat with south-facing restaurant patios, replacement rates trend toward the higher end. That's a recurring cost with zero revenue impact.
 
@@ -180,17 +180,17 @@ This is the section most people skip and shouldn't.
 
 <div class="rst-callout rst-callout-fire rst-reveal">
   <span class="rst-callout-icon">&#128293;</span>
-  <div class="rst-callout-body"><strong>Texas Fire Code requires decorative materials in public spaces to comply with NFPA 701 flame propagation criteria.</strong> This means artificial foliage in a restaurant dining room or patio may need to be fire-rated. The local fire marshal has final authority — always confirm requirements with your jurisdiction before installation.</div>
+  <div class="rst-callout-body"><strong>Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer.</strong> This means artificial foliage in a restaurant dining room or patio may need to be fire-rated. The local fire marshal has final authority, always confirm requirements with your jurisdiction before installation.</div>
 </div>
 
 **What NFPA 701 means in practice:**
-- NFPA 701 tests whether a material self-extinguishes or continues to burn when a flame source is removed
+- NFPA 701 tests flame spread and flaming drips
 - Method 1 applies to lighter materials (fabrics, films). Method 2 applies to heavier materials like foliage panels
-- If your artificial green wall uses NFPA 701 Method 2-tested foliage, you can provide the test documentation to your fire marshal and GC during the permitting process
+- Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose, so you can give it to your fire marshal and GC during the permitting process
 
-**What we provide:** Lone Star Faux Scapes offers NFPA 701 Method 2-rated foliage for all commercial installations. We supply test documentation and can coordinate directly with your GC or fire marshal's office. See our [fire-rated artificial hedges](/fire-rated-artificial-hedge) page for details.
+**What to ask us for:** Fire-rated options are built for NFPA 701; ask Lone Star Faux Scapes for the NFPA 701 documentation for the exact system you choose. See our [fire-rated artificial hedges](/fire-rated-artificial-hedge) page for details.
 
-**Real plants and fire:** Real plants are not inherently fire-safe either. Dried-out plants, accumulated dead material, and dry growing media can be combustible — especially in Texas heat. The difference is that artificial foliage can be manufactured to a documented fire standard, while real plant fire behavior varies by species, moisture content, and season.
+**Real plants and fire:** Real plants are not inherently fire-safe either. Dried-out plants, accumulated dead material, and dry growing media can be combustible, especially in Texas heat. The difference is that artificial foliage can be manufactured to a documented fire standard, while real plant fire behavior varies by species, moisture content, and season.
 
 ## Health department rules for restaurant decor
 
@@ -208,38 +208,38 @@ In plain language: artificial green walls on your patio or dining room walls are
 If you're a restaurant owner, operator, GC, or designer specifying artificial greenery for a Texas project, here's what to include:
 
 <ul class="rst-checklist">
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>NFPA 701 Method 2 foliage</strong> — standard for any commercial dining space. Request test reports.</li>
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>UV-stabilized panels</strong> — required for any exterior or patio-facing installation. Ask about ASTM G154 testing.</li>
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Mixed-species foliage</strong> — single-species uniform panels look obviously artificial. Mixed ferns, grasses, and varied greens read as natural from any distance.</li>
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Hidden mounting hardware</strong> — visible brackets and exposed frames undercut the design. Spec concealed attachment systems.</li>
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Logo recess capability</strong> — if the wall will feature branding, spec a recess or channel for the logo and any backlighting before fabrication, not after.</li>
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Maintenance access</strong> — panels should be removable for cleaning and replacement without demolishing the mounting system.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>NFPA 701 documentation</strong>, commonly requested for commercial dining spaces. Ask for the NFPA 701 documentation for the exact system you choose.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>UV-stabilized panels</strong>, required for any exterior or patio-facing installation. Ask for UV rating and warranty terms in writing.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Mixed-species foliage</strong>, single-species uniform panels look obviously artificial. Mixed ferns, grasses, and varied greens read as natural from any distance.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Hidden mounting hardware</strong>, visible brackets and exposed frames undercut the design. Spec concealed attachment systems.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Logo recess capability</strong>, if the wall will feature branding, spec a recess or channel for the logo and any backlighting before fabrication, not after.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Maintenance access</strong>, panels should be removable for cleaning and replacement without demolishing the mounting system.</li>
 </ul>
 
 ## The bottom line for Texas restaurant operators
 
 A green wall behind your bar or around your patio is a one-time investment that shows up in every guest photo, every Google Maps image, and every social media tag. Real plants require an ongoing maintenance contract, irrigation infrastructure, and plant replacement budget. Artificial panels require a hose rinse twice a year.
 
-For most Texas restaurants — especially patios in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio) — artificial green walls deliver the design impact without the operational burden.
+For most Texas restaurants (especially patios in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio)) artificial green walls deliver the design impact without the operational burden.
 
 ## Related reading
 
-- [Commercial artificial green walls](/commercial) — full commercial product page
-- [Commercial wall covering](/commercial-wall) — facade and cladding solutions
-- [Fire-rated artificial hedges](/fire-rated-artificial-hedge) — NFPA 701 options and documentation
-- [NFPA 701 vs ASTM E84 fire ratings](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery) — detailed fire code comparison
+- [Commercial artificial green walls](/commercial), full commercial product page
+- [Commercial wall covering](/commercial-wall), facade and cladding solutions
+- [Fire-rated artificial hedges](/fire-rated-artificial-hedge), NFPA 701 options and documentation
+- [NFPA 701 vs ASTM E84 fire ratings](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery), detailed fire code comparison
 
 ## Sources
 
 <div class="rst-sources">
-  <a class="rst-source-chip" href="https://restaurant.org/education-and-resources/resource-library/customer-demand-for-outdoor-dining-rose-due-to-the-delta-variant/" target="_blank" rel="noopener">&#128218; NRA — Outdoor dining demand</a>
-  <a class="rst-source-chip" href="https://www.fastcasual.com/blogs/how-to-attract-guests-with-outdoor-seating/" target="_blank" rel="noopener">&#128218; Fast Casual — Patio revenue +30%</a>
-  <a class="rst-source-chip" href="https://gosnappy.io/blog/patio-season-trends-2024/" target="_blank" rel="noopener">&#128218; Snappy — 2024 patio trends</a>
+  <a class="rst-source-chip" href="https://restaurant.org/education-and-resources/resource-library/customer-demand-for-outdoor-dining-rose-due-to-the-delta-variant/" target="_blank" rel="noopener">&#128218; NRA, Outdoor dining demand</a>
+  <a class="rst-source-chip" href="https://www.fastcasual.com/blogs/how-to-attract-guests-with-outdoor-seating/" target="_blank" rel="noopener">&#128218; Fast Casual, Patio revenue +30%</a>
+  <a class="rst-source-chip" href="https://gosnappy.io/blog/patio-season-trends-2024/" target="_blank" rel="noopener">&#128218; Snappy, 2024 patio trends</a>
   <a class="rst-source-chip" href="https://up.codes/viewer/texas/nfpa-1-2021/chapter/10/general-safety-requirements" target="_blank" rel="noopener">&#127987; TX Fire Code Ch. 10 (UpCodes)</a>
   <a class="rst-source-chip" href="https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701" target="_blank" rel="noopener">&#127987; NFPA 701 standard</a>
-  <a class="rst-source-chip" href="https://www.dshs.texas.gov/retail-food-establishments/statutes-laws-retail-food-establishments" target="_blank" rel="noopener">&#127987; TX DSHS — Food establishment rules</a>
-  <a class="rst-source-chip" href="https://www.sciencedirect.com/science/article/abs/pii/S1618866721000509" target="_blank" rel="noopener">&#128218; ScienceDirect — Living wall water use</a>
-  <a class="rst-source-chip" href="https://livewall.com/technical/maintenance/" target="_blank" rel="noopener">&#128736; LiveWall — Plant replacement rates</a>
+  <a class="rst-source-chip" href="https://www.dshs.texas.gov/retail-food-establishments/statutes-laws-retail-food-establishments" target="_blank" rel="noopener">&#127987; TX DSHS, Food establishment rules</a>
+  <a class="rst-source-chip" href="https://www.sciencedirect.com/science/article/abs/pii/S1618866721000509" target="_blank" rel="noopener">&#128218; ScienceDirect, Living wall water use</a>
+  <a class="rst-source-chip" href="https://livewall.com/technical/maintenance/" target="_blank" rel="noopener">&#128736; LiveWall, Plant replacement rates</a>
 </div>
 
 See our [commercial green walls](/commercial) page for project photos, or explore installations in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio).

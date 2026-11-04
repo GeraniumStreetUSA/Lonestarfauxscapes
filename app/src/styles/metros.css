@@ -1,0 +1,251 @@
+/* Metro, suburb and /locations pages. Class prefix `mt-p-`. Plain CSS, loaded
+   after the page kit, reading the same tokens. Phones first. */
+
+/* ------------------------------------------------------------ hero map */
+
+/* The map keeps its own proportions (a little taller than wide), so the
+   hero frame grows to fit it instead of cropping it to 4:3. */
+.pk-hero-frame:has(> .mt-p-map) {
+  aspect-ratio: auto;
+}
+
+.mt-p-map {
+  padding: 12px 12px 10px;
+}
+
+.mt-p-map-note {
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  color: var(--cedar);
+}
+
+/* ------------------------------------------------------------- systems */
+
+/* Each cell carries a price line and the installation caveat: let it run its length on phones. */
+.mt-p-systems .pk-option-text {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+/* The caveat is said once under the list on phones; desktop keeps it in every row. */
+.mt-p-caveat-once {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .mt-p-caveat {
+    display: none;
+  }
+
+  .mt-p-caveat-once {
+    display: block;
+    margin: 12px 0 0;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--cedar);
+  }
+
+  /* "Not sure yet" says what the hero, the quote button and the form already say. */
+  .mt-p-systems .pk-option:has(> article[data-link='no']) {
+    display: none;
+  }
+
+  /* Smaller pictures: the rows are mostly the picture's height. */
+  .mt-p-systems .pk-option article {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .mt-p-systems .pk-option article[data-media='no'] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mt-p-systems .pk-media-photo,
+  .mt-p-systems .pk-media-drawing {
+    width: 80px;
+  }
+}
+
+/* -------------------------------------------------------------- places */
+
+.mt-p-places {
+  margin-top: 28px;
+}
+
+.mt-p-places-list {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------- two lists side by side */
+
+.mt-p-split {
+  display: grid;
+  gap: 36px;
+}
+
+.mt-p-split-title {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+
+/* Phones: the setups heading is a small mono label over its chips. */
+@media (max-width: 639px) {
+  .mt-p-split-title {
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cedar);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-p-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 72px;
+  }
+
+  .mt-p-split-title {
+    font-size: 1.375rem;
+  }
+}
+
+/* ------------------------------------------------------ the hub's rows */
+
+.mt-p-hub {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'head'
+    'list';
+  row-gap: 28px;
+}
+
+.mt-p-hub-head {
+  grid-area: head;
+}
+
+.mt-p-hub-list {
+  grid-area: list;
+}
+
+.mt-p-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.mt-p-rows > li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.mt-p-row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 76px;
+  padding: 14px 0;
+  color: var(--ink);
+}
+
+.mt-p-row-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--boxwood);
+}
+
+.mt-p-row-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.125rem);
+  font-weight: 720;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  transition: color 160ms ease;
+}
+
+.mt-p-row-meta {
+  grid-column: 2;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+.mt-p-row-arrow {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  flex: none;
+  color: var(--boxwood);
+  transition: transform 200ms var(--ease-plan);
+}
+
+.mt-p-row:hover .mt-p-row-name,
+.mt-p-row[data-on] .mt-p-row-name {
+  color: var(--boxwood);
+}
+
+.mt-p-row:hover .mt-p-row-arrow,
+.mt-p-row[data-on] .mt-p-row-arrow {
+  transform: translateX(4px);
+}
+
+.mt-p-group {
+  margin: 28px 0 14px;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.mt-p-group:first-of-type {
+  margin-top: 0;
+}
+
+/* Phones: the area heading is a small mono label over its chips. */
+@media (max-width: 639px) {
+  .mt-p-group {
+    margin: 24px 0 12px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cedar);
+  }
+
+  .mt-p-group:first-of-type {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-p-hub {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas: 'head list';
+    column-gap: 72px;
+    align-items: start;
+  }
+}

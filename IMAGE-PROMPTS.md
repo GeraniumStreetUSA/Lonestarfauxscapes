@@ -74,3 +74,14 @@ Four photos at the same aspect: site measuring with a tape on a fence, panels st
 
 ### 11. Guide headers: heat and UV, HOA, fire code, maintenance, cost (ILLUSTRATIVE OK)
 - **Default:** a site-plan drawing (no photo needed). Photo prompts can be added on request.
+
+### 12. Freestanding privacy wall unit (REAL ONLY, needed for `/privacy-wall`)
+- **Scene:** one or two 4 ft x 4 ft freestanding artificial hedge units on their standard bases, set on a Texas patio or pool deck, screening a seating area. Late-afternoon side light, eye-level, 35 mm.
+- **Must show:** the base and the panel edges clearly, so the unit reads as freestanding (not fence-mounted).
+- **Must not show:** faces, house numbers, other brands.
+- **Size:** 1200 x 900 (4:3). Today the page uses an uncaptioned fence-line hedge photo as a stand-in.
+
+### 13. Living wall at a pool (REAL ONLY, needed for `/pool-living-wall`)
+- **Scene:** an artificial living wall on a pool-side wall or cabana in Texas, with the water in the foreground. Bright midday or golden hour, 24 to 35 mm, level horizon.
+- **Must not show:** people in swimwear, faces, house numbers.
+- **Size:** 1200 x 900 (4:3). Today the page uses a foliage close-up as a stand-in.

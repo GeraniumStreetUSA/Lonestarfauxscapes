@@ -138,12 +138,12 @@ faq:
 
 ## What Section 202.007 actually says
 
-If you're a Texas homeowner trying to install an artificial hedge and your HOA is pushing back, you've probably seen "Texas Property Code 202.007" mentioned online. Here's what it actually says — and where the gray area is.
+If you're a Texas homeowner trying to install an artificial hedge and your HOA is pushing back, you've probably seen "Texas Property Code 202.007" mentioned online. Here's what it actually says, and where the gray area is.
 
 <div class="hoa-statute hoa-reveal">
   <div class="hoa-statute-label">Texas Property Code &sect; 202.007(a)</div>
   <div class="hoa-statute-text">A property owners' association may not include or enforce a provision in a dedicatory instrument that prohibits or restricts a property owner from [...] using <strong>drought-resistant landscaping</strong> or <strong>water-conserving natural turf</strong>.</div>
-  <div class="hoa-statute-cite">Effective September 1, 2013 (SB 198, 83rd Texas Legislature) &mdash; <a href="https://statutes.capitol.texas.gov/docs/PR/htm/PR.202.htm" target="_blank" rel="noopener" style="color: rgba(100,149,237,0.8);">Full text at Texas Legislature Online</a></div>
+  <div class="hoa-statute-cite">Effective September 1, 2013 (SB 198, 83rd Texas Legislature). <a href="https://statutes.capitol.texas.gov/docs/PR/htm/PR.202.htm" target="_blank" rel="noopener" style="color: rgba(100,149,237,0.8);">Full text at Texas Legislature Online</a></div>
 </div>
 
 The law also says:
@@ -160,7 +160,7 @@ Here's where we need to be honest.
 
 <div class="hoa-callout hoa-callout-warn hoa-reveal">
   <span class="hoa-callout-icon">&#9888;</span>
-  <div class="hoa-callout-body"><strong>Section 202.007 does not define "drought-resistant landscaping."</strong> The statute protects drought-resistant landscaping and water-conserving natural turf, but it does not specify whether artificial or synthetic materials qualify. In the sources reviewed for this article, we did not find a published Texas court ruling that settles this question for artificial hedges or faux living walls. This is not legal advice — consult a Texas property attorney for your specific situation.</div>
+  <div class="hoa-callout-body"><strong>Section 202.007 does not define "drought-resistant landscaping."</strong> The statute protects drought-resistant landscaping and water-conserving natural turf, but it does not specify whether artificial or synthetic materials qualify. In the sources reviewed for this article, we did not find a published Texas court ruling that settles this question for artificial hedges or faux living walls. This is not legal advice, consult a Texas property attorney for your specific situation.</div>
 </div>
 
 **The argument that artificial hedges qualify:** An artificial hedge uses no irrigation water and cannot die during drought. A homeowner could argue that the statute's failure to define the term leaves room for a water-conservation interpretation.
@@ -192,7 +192,7 @@ Forget the legal arguments for now. Here's what actually gets approvals through 
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">If approved, keep a copy of the written approval</div>
-    <div class="hoa-step-desc">Get the approval in writing before starting installation. Keep this document permanently. There have been cases in Texas where HOAs approved modifications and later claimed they hadn't, so written documentation protects you.</div>
+    <div class="hoa-step-desc">Get the approval in writing before starting installation. Keep this document permanently. HOAs sometimes dispute earlier approvals, so written documentation protects you.</div>
   </div>
   <div class="hoa-step hoa-reveal">
     <div class="hoa-step-title">If denied, request the written reason and appeal</div>
@@ -206,17 +206,17 @@ The more professional your application, the less room the committee has to claim
 
 <ul class="hoa-checklist">
   <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Site plan</strong> showing exact location of the hedge on your property, including distances from property lines and structures</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Dimensions</strong> — height, length, and depth of the proposed installation</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Product photos</strong> — close-up foliage detail AND photos of the same product installed on a similar property (your installer should provide these)</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Material specifications</strong> — foliage type, UV stabilization rating, color description, and manufacturer if available</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Fire rating documentation</strong> — NFPA 701 test reports if applicable (especially for multifamily or commercial-adjacent properties)</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Mounting method</strong> — how the hedge attaches to the fence, wall, or frame. Committees want to know it won't fall apart.</li>
-  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Maintenance commitment</strong> — a brief note that you'll rinse the hedge annually and address any damage. This eliminates the "it'll look bad over time" objection.</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Dimensions</strong>, height, length, and depth of the proposed installation</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Product photos</strong>, close-up foliage detail AND photos of the same product installed on a similar property (your installer should provide these)</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Material specifications</strong>, foliage type, UV stabilization rating, color description, and manufacturer if available</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Fire rating documentation</strong>, NFPA 701 test reports if applicable (especially for multifamily or commercial-adjacent properties)</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Mounting method</strong>, how the hedge attaches to the fence, wall, or frame. Committees want to know it won't fall apart.</li>
+  <li class="hoa-reveal"><span class="hoa-check-icon">&#10003;</span> <strong>Maintenance commitment</strong>, a brief note that you'll rinse the hedge annually and address any damage. This eliminates the "it'll look bad over time" objection.</li>
 </ul>
 
 <div class="hoa-callout hoa-callout-info hoa-reveal">
   <span class="hoa-callout-icon">&#128204;</span>
-  <div class="hoa-callout-body"><strong>We can help assemble this packet.</strong> When you work with Lone Star Faux Scapes, we can supply product specs, installed project photos, available fire-rating documentation, and a material description formatted for HOA submissions.</div>
+  <div class="hoa-callout-body"><strong>We can help with this packet.</strong> Ask Lone Star Faux Scapes for product specs, the NFPA 701 documentation for the exact system you choose, and a material description you can use in your HOA submission.</div>
 </div>
 
 ## What to do if your HOA denies your request
@@ -241,7 +241,7 @@ Don't panic. Denials happen, and Texas law gives you a clear path forward.
   </div>
 </div>
 
-If the denial reason is purely aesthetic and your product is consistent with the neighborhood, Section 202.007 may be worth discussing with the board or qualified legal counsel. But again — whether artificial hedges fall under 202.007 was not resolved by the sources reviewed for this article, so do not treat the statute as automatic approval.
+If the denial reason is purely aesthetic and your product is consistent with the neighborhood, Section 202.007 may be worth discussing with the board or qualified legal counsel. But again, whether artificial hedges fall under 202.007 was not resolved by the sources reviewed for this article, so do not treat the statute as automatic approval.
 
 ## Arguments that strengthen your case
 
@@ -260,27 +260,27 @@ If you're pushing back on a denial, these points carry weight with HOA boards:
 
 **"It'll degrade over time."** Provide product-specific UV documentation and include your maintenance commitment in the application. Avoid relying on broad lifespan claims unless your installer or manufacturer backs the exact product.
 
-**"No one else has one."** Being first doesn't mean it's prohibited. If the CC&Rs don't explicitly ban artificial materials, the committee needs a specific rule to cite — not just preference.
+**"No one else has one."** Being first doesn't mean it's prohibited. If the CC&Rs don't explicitly ban artificial materials, the committee needs a specific rule to cite, not just preference.
 
 ## Related reading
 
-- [How to get HOA approval for artificial hedges in Texas](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas) — our original HOA approval guide
-- [HOA-approved artificial hedges](/hoa-approved-artificial-hedge) — product page with HOA-specific details
-- [Green wall maintenance in Texas](/blog/green-wall-maintenance-in-texas-what-it-actually-takes) — why artificial walls skip the maintenance problem HOAs worry about
+- [How to get HOA approval for artificial hedges in Texas](/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas), our original HOA approval guide
+- [HOA-approved artificial hedges](/hoa-approved-artificial-hedge), product page with HOA-specific details
+- [Green wall maintenance in Texas](/blog/green-wall-maintenance-in-texas-what-it-actually-takes), why artificial walls skip the maintenance problem HOAs worry about
 
 ## Sources
 
 <div class="hoa-sources">
   <a class="hoa-source-chip" href="https://statutes.capitol.texas.gov/docs/PR/htm/PR.202.htm" target="_blank" rel="noopener">&#9878; TX Property Code Ch. 202 (official)</a>
   <a class="hoa-source-chip" href="https://statutes.capitol.texas.gov/Docs/PR/htm/PR.209.htm" target="_blank" rel="noopener">&#9878; TX Property Code Ch. 209 (official)</a>
-  <a class="hoa-source-chip" href="https://codes.findlaw.com/tx/property-code/prop-sect-202-007/" target="_blank" rel="noopener">&#9878; FindLaw &mdash; &sect; 202.007</a>
+  <a class="hoa-source-chip" href="https://codes.findlaw.com/tx/property-code/prop-sect-202-007/" target="_blank" rel="noopener">&#9878; FindLaw: &sect; 202.007</a>
   <a class="hoa-source-chip" href="https://capitol.texas.gov/tlodocs/83R/analysis/html/SB00198H.HTM" target="_blank" rel="noopener">&#9878; SB 198 bill analysis (83rd Legislature)</a>
-  <a class="hoa-source-chip" href="https://guides.sll.texas.gov/property-owners-associations/ccrs" target="_blank" rel="noopener">&#127987; TX State Law Library &mdash; POA guide</a>
-  <a class="hoa-source-chip" href="https://www.fsresidential.com/texas/news-events/articles/texas-hoa-architectural-committee-guidelines-the-u/" target="_blank" rel="noopener">&#128218; FSR &mdash; TX ACC guidelines</a>
-  <a class="hoa-source-chip" href="https://rmwbh.com/the-how-tos-of-accs/" target="_blank" rel="noopener">&#128218; RMWBH Law &mdash; ACC process</a>
-  <a class="hoa-source-chip" href="https://hoaattorneydallas.com/architectural-control-committee/" target="_blank" rel="noopener">&#128218; Nacol Law &mdash; ACC overview</a>
-  <a class="hoa-source-chip" href="https://www.tceq.texas.gov/drinkingwater/trot/droughtw.html" target="_blank" rel="noopener">&#127987; TCEQ &mdash; Water restrictions</a>
-  <a class="hoa-source-chip" href="https://www.twdb.texas.gov/publications/reports/technical_notes/doc/SeasonalWaterUseReport-final.pdf" target="_blank" rel="noopener">&#127987; TWDB &mdash; Outdoor water use</a>
+  <a class="hoa-source-chip" href="https://guides.sll.texas.gov/property-owners-associations/ccrs" target="_blank" rel="noopener">&#127987; TX State Law Library: POA guide</a>
+  <a class="hoa-source-chip" href="https://www.fsresidential.com/texas/news-events/articles/texas-hoa-architectural-committee-guidelines-the-u/" target="_blank" rel="noopener">&#128218; FSR: TX ACC guidelines</a>
+  <a class="hoa-source-chip" href="https://rmwbh.com/the-how-tos-of-accs/" target="_blank" rel="noopener">&#128218; RMWBH Law: ACC process</a>
+  <a class="hoa-source-chip" href="https://hoaattorneydallas.com/architectural-control-committee/" target="_blank" rel="noopener">&#128218; Nacol Law: ACC overview</a>
+  <a class="hoa-source-chip" href="https://www.tceq.texas.gov/drinkingwater/trot/droughtw.html" target="_blank" rel="noopener">&#127987; TCEQ: Water restrictions</a>
+  <a class="hoa-source-chip" href="https://www.twdb.texas.gov/publications/reports/technical_notes/doc/SeasonalWaterUseReport-final.pdf" target="_blank" rel="noopener">&#127987; TWDB: Outdoor water use</a>
 </div>
 
 See our [HOA-approved artificial hedges](/hoa-approved-artificial-hedge) page, or explore installations in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio).

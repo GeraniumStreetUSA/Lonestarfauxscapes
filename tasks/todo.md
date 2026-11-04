@@ -186,6 +186,53 @@ Review:
 - [x] Phones (<640): hide the three scrolling steps, the step counter and chip index; photo is static (After), then facts and the case-study link. Steps stay in the markup; tablets and desktop unchanged.
 - [x] Review: Austin 1,577 to 836 px; phone page 12,443 to 11,702 px (14.7 to 13.9 screens). Tests 52/52, builds pass, preview v5. Nothing pushed.
 
+### Full site rebuild: every page in the new design (owner 2026-11-04: "redo all other pages ... mobile as important as desktop ... sonnet sub agents code, you review")
+
+Scope: all 89 live URLs in `REDIRECTS.md` Table A move to the React app at their exact paths (slashless), prerendered to static HTML. Nothing deployed; live site untouched until the owner approves the whole site.
+
+Evidence (GSC, 2026-08-04..2026-11-01, `gsc.py perf --dims page --days 90`): 80 clicks, 8,929 impressions. The blog carries most of it: the NFPA 701 vs ASTM E84 post is the top click page (16), green-wall maintenance (1,751 impr), Texas Property Code 202.007 (803). Google shows jump links to blog heading anchors (`#what-section-202007-actually-says`), so heading ids must be byte-identical. Two stray URLs seen in GSC get one-hop 301s (`/blog/nfpa-...-explained`, `/graph-nfpa-...-explained`).
+
+Architecture (decided):
+- One route manifest (`app/src/routes.ts`): path, page type, title, description, robots, sitemap flag, breadcrumbs, lazy page loader. It drives the router, prerender, sitemap.xml, robots.txt and tests.
+- Prerender with Vite SSR + `renderToString` (no browser needed in the Cloudflare build; deviates from the brief's Puppeteer on purpose). Head tags (title, description, canonical, robots, JSON-LD) written from the manifest. Internal links stay plain `<a>`, so every page load is a full prerendered page.
+- Per-route code splitting; the current route's chunk loads before `hydrateRoot`.
+- Blog stays sourced from `content/blog/*.md` (Decap CMS and the Website Factory pipeline keep working). A build step turns each post into JSON with the same heading-id algorithm and guide modules as `scripts/build-blog.js`.
+- Old asset paths kept (`/images/*`, `/downloads/*`, `/favicon/*`, `/admin/`, `/content/*.json`, case-study images).
+- `_redirects` rewritten from `REDIRECTS.md` Tables B and C (one hop, `/admin/` loop fixed); 410s via a narrow Pages Function scoped with `_routes.json`; existing `functions/` (contact, cms, hedge-quote) kept; real 404 status for unknown paths.
+- Owner decision 2026-11-04: the NFPA 701 vs ASTM E84 post keeps its URL, title and explainer content; any line saying or implying Lone Star products have ASTM E84 results is removed.
+- Owner defaults from `OWNER-NEEDS.md` apply (#26 suburbs stay noindex, #27 keep `/case-studies`, #28 keep `/commercial-resources` without internal notes, #29 fix `/admin/`, #30 `/privacy-wall` becomes its own page, #21 Decap kept). No unconfirmed claims, no unreleased prices, no em-dashes. Existing titles and meta descriptions kept unless they break length rules (they are GSC-tuned).
+
+Mobile is a first-class target: every template is designed at 390 first, then 1440. Page-length budget on phones: system/use-case pages about 8 screens, metro 7, hubs 6, posts as long as their content with a folded table of contents. Sticky Call/Quote bar on every page. No sideways swipe carousels.
+
+Templates (all in the homepage's language: Besley + Libre Franklin, caliche/limestone/boxwood, plan drawings):
+1. System page: `/artificial-hedge`, `/living-wall`, `/fence-extensions`, `/commercial-wall`, `/privacy-wall` (new)
+2. Use-case page: `/artificial-boxwood-hedge`, `/fire-rated-artificial-hedge`, `/hoa-approved-artificial-hedge`, `/pool-privacy-hedge`, `/pool-living-wall`, `/vallum-frx`
+3. Hub page: `/products`, `/residential`, `/commercial`, `/commercial-resources`, `/locations`, `/guides`, `/blog`, `/case-studies`, `/gallery`
+4. Metro page: 5 metros (indexed) + 6 suburbs (noindex, same template)
+5. Post page: 34 posts, flagship guide modules, TOC, related posts
+6. Project page: 3 case studies
+7. Utility: `/contact`, `/pricing`, `/installation`, `/privacy`, `/terms`, `/sitemap`, `/404`, `/hedge-builder-residential`, `/hedge-builder-commercial`
+
+Work (Sonnet sub-agents build; I write specs and review every page at 390/360/1440, motion on/reduced/`?qa=1`):
+- [x] A. Platform: manifest, layout shell (header nav to real pages, footer, sticky bar), lazy hydrate, SSR prerender, head/JSON-LD builder, sitemap/robots/llms.txt, asset copy, 404. Proven on home + one stub.
+- [x] B. Inner-page kit: page hero, breadcrumbs, spec rows, prose styles, FAQ, quote band, card grid, TOC, related links. Reviewed on a kit page at 390 and 1440 before any page work.
+- [x] C1. Blog pipeline (34 posts, titles/descriptions/heading ids match live), claims cleanup (134 dollar figures and fabricated stats out), post template, /blog, /guides. Fixed: 5 posts hid content behind dead reveal scripts (now settled at build + test) + `/blog` + `/guides` (heading ids identical to live, checked by test against the live HTML).
+- [x] C2. Systems + use-case pages (11): built, reviewed at 390.
+- [x] C3. Metros, `/locations`, suburbs (12): built, reviewed at 390 and 1440.
+- [x] C4. Hubs, projects (3 case studies), gallery: built, reviewed at 390.
+- [x] D. Redirects (90 rules, one hop, tested), `_headers`, `_routes.json`, 410 function, crawl script (349/355 on wrangler; 6 = case studies not built yet). Final crawl after pages land. Was: local `wrangler pages dev` crawl: all Table A 200 + self canonical, all Table B one 301, Table C 410, unknown 404; titles/meta diffed against live.
+- Review polish list (collected while reviewing):
+  - [x] Metro (phones): "Nearby areas" as chips; drop the duplicate "Guides" sub-heading; trim toward 7 screens (Dallas 8.9 incl. form)
+  - [x] /locations (desktop): map in the hero media slot (right half empty)
+  - [x] Phone length (system 12.4 to 9.8, residential 9.9 to 8.4, Dallas 8.9 to 7.8; suburbs, projects, most hubs within budget; the rest is the shared footer, estimator and form): related-link bands as chips on phones; the 5-step process folded on phones (it repeats on every page; full on /installation)
+  - [x] IMAGE-PROMPTS.md: real freestanding 4 ft privacy wall unit; real living wall at a Texas pool (#12, #13)
+- Owner items found during the rebuild (for the final report):
+  - /terms carries old claims kept verbatim: "We stand behind our work" + warranty section, "Quotes are valid for 30 days", deposit terms, "Last updated: December 11, 2025"; /privacy says "IP address (anonymized)". Keep, edit or drop?
+  - Five blog headings promise numbers the cleaned bodies no longer give (editing them changes their anchor links).
+- [x] C4b. Utility pages (9): built, reviewed at 390 (contact email fixed to one line), hedge-builder meta and the hedge-quote reply-time line fixed.
+  - [x] Posts: 5 posts with embedded components restyled for the light theme (old dark-theme styles stripped at build); responsive post images (hero 768w: 4.0 MB to 0.6 MB across those 5); 67 real alt texts; leftover claims (acoustic row, DIY timing, "eliminate the question") fixed
+- [x] E. Checks (78 pages; typecheck; 104 tests; em-dash 0 in dist; one H1 per page; crawl on wrangler 355/355 for both the preview and the ALLOW_INDEXING=1 build; reviewed every template at 390 and 1440). Was: typecheck, tests (route sync, title/desc lengths, redirects, schema, heading ids), em-dash on dist, img attrs, claims audit vs `CLAIMS.md`; every page reviewed on phone and desktop; preview for the owner; local commit only.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

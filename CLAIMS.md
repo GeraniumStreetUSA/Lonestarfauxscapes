@@ -28,7 +28,7 @@ Status key:
 | NFPA 701 = flame propagation test for textiles, films and decorative materials; judged on flame spread and flaming drips | Fire chapter | NFPA 701 standard title and test criteria | ok |
 | "Many Texas cities adopt the International Fire Code, which points artificial decorative vegetation in many commercial buildings to NFPA 701, documented by the manufacturer" | Fire chapter | IFC decorative-vegetation provision as applied by state fire codes (e.g. Oregon State Fire Marshal holiday decor guidance, Minnesota R. 7511.0807); no section number quoted because it differs by edition | ok (soft: varies by city and edition) |
 | "Our fire-rated hedges and walls are built for NFPA 701" and "Ask for the NFPA 701 documentation" | Fire chapter, FAQ | Owner direction 2026-10-26 ("talk NFPA more"; no ASTM E84 test). Needs the NFPA 701 report on file (OWNER-NEEDS #10) | owner |
-| No ASTM E84 mention anywhere | Whole site | Owner 2026-10-26: no ASTM E84 test | ok |
+| No ASTM E84 claim about Lone Star products anywhere; the NFPA 701 vs ASTM E84 explainer post keeps its general explanation of both standards | Whole site; `/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery` | Owner 2026-10-26 (no ASTM E84 test); owner 2026-11-04 (keep the explainer, no product claim) | ok |
 | Process: send numbers; emailed assessment and rough quote (3D render when it helps); site review sets the final invoice; build; install | Process, quote "what happens next", FAQ | Owner, 2026-10-28 | ok |
 | Panels "can mount to many fences or to a freestanding frame" | FAQ | Live product pages | soft |
 | Case studies: Austin residential privacy, Houston restaurant patio, Houston storefront | Texas installs, hero caption, commercial caption | `content/case-studies.json`, real photos | ok (Austin area left out, OWNER-NEEDS #15) |
@@ -38,3 +38,7 @@ Status key:
 | Starting prices: hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft (3 ft), living wall from $18 / sq ft, privacy wall from $699 / unit (4 x 4 ft); every one "+ installation, quoted after a site review" | Estimator, systems cards, Four questions, FAQ, meta description | Owner release 2026-10-25 (same as califauxscapes.com/pricing, checked live 2026-10-25); single source `app/src/data/starting-prices.ts` | ok |
 | Estimator figure = released rate x size, rounded to $10; privacy wall unit price never multiplied | Estimator | Arithmetic on released prices | ok |
 | No installed totals, no warranty, no lifespan, no timelines, no licence, no reviews, no founding year | Whole homepage | Left out on purpose (OWNER-NEEDS #2, #6, #7, #11, #13, #17) | ok |
+
+## Blog posts (cleanup 2026-11-04)
+
+All 34 posts: every dollar figure removed (134), fabricated statistics and unsourced lifespans, warranties, timelines, wind and acoustic numbers removed or hedged, every "our products are tested / certified" line replaced with "built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose", ASTM E84 never tied to Lone Star products, 6 infographics with baked-in prices or certifications removed, the owner's 5-step process used where posts describe a project. Headings were left untouched (Google shows jump links to them); five headings still promise numbers the bodies no longer give (listed in tasks/todo.md for the owner).

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { CONTACT, STICKY } from '../data/home-content';
 import { BUSINESS } from '../data/site';
+import { useQuoteHref } from '../lib/quote-href';
 
 /** True while any element matching the selector is at least `ratio` visible. */
 function useAnyVisible(selector: string, ratio: number, initial: boolean): boolean {
@@ -56,6 +57,7 @@ function useAnyVisible(selector: string, ratio: number, initial: boolean): boole
  * rendered after <main> so it never precedes the hero CTA in tab order.
  */
 export default function StickyCta() {
+  const quoteHref = useQuoteHref();
   const primaryInView = useAnyVisible('[data-primary-cta]', 0.5, true);
   const formInView = useAnyVisible('[data-lead-form]', 0.25, false);
   const pillHidden = primaryInView || formInView;
@@ -77,7 +79,7 @@ export default function StickyCta() {
             <Phone size={17} strokeWidth={2.2} aria-hidden="true" />
             {STICKY.call}
           </a>
-          <a href="#quote" className="btn btn-primary btn-compact flex-1" data-cta="sticky_mobile">
+          <a href={quoteHref} className="btn btn-primary btn-compact flex-1" data-cta="sticky_mobile">
             {STICKY.quote}
           </a>
         </div>

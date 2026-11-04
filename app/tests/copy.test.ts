@@ -33,6 +33,8 @@ test('dollar figures only in src/data/starting-prices.ts', () => {
   assert.ok(sources.includes(pricesFile), 'the prices file is in the scan');
   for (const file of sources) {
     if (file === pricesFile) continue;
+    // The blog posts are the owner's articles; tests/blog-content.test.ts holds the list of those that still quote prices.
+    if (file.startsWith(path.join(appRoot, 'src/generated/posts') + path.sep)) continue;
     assert.doesNotMatch(readFileSync(file, 'utf8'), /\$\s?\d/, path.relative(appRoot, file));
   }
 });

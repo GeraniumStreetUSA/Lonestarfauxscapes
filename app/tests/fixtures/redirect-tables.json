@@ -1,0 +1,265 @@
+{
+  "note": "Table B (legacy redirects, REDIRECTS.md) and Table C (gone, 410). Read by tests/redirects.test.ts. Every \"from\" must 301 to \"to\" in one hop.",
+  "redirects": [
+    {
+      "from": [
+        "/index.html"
+      ],
+      "to": "/"
+    },
+    {
+      "from": [
+        "/admin/index.html"
+      ],
+      "to": "/admin/"
+    },
+    {
+      "from": [
+        "/projects",
+        "/projects.html",
+        "/projects/"
+      ],
+      "to": "/case-studies"
+    },
+    {
+      "from": [
+        "/get-quote",
+        "/get-quote.html",
+        "/get-quote/"
+      ],
+      "to": "/contact"
+    },
+    {
+      "from": [
+        "/privacy-policy",
+        "/privacy-policy.html",
+        "/privacy-policy/"
+      ],
+      "to": "/privacy"
+    },
+    {
+      "from": [
+        "/fire-rated",
+        "/fire-rated.html",
+        "/fire-rated/"
+      ],
+      "to": "/fire-rated-artificial-hedge"
+    },
+    {
+      "from": [
+        "/lighthouse-report",
+        "/lighthouse-report.html",
+        "/lighthouse-report/"
+      ],
+      "to": "/installation"
+    },
+    {
+      "from": [
+        "/commercial-wall-covering",
+        "/commercial-wall-covering.html",
+        "/commercial-wall-covering/"
+      ],
+      "to": "/commercial-wall"
+    },
+    {
+      "from": [
+        "/commercial-fire-retardant-tested-artificial-solutions",
+        "/commercial-fire-retardant-tested-artificial-solutions.html",
+        "/commercial-fire-retardant-tested-artificial-solutions/"
+      ],
+      "to": "/commercial"
+    },
+    {
+      "from": [
+        "/residential-fire-retardant-tested-artificial-solutions",
+        "/residential-fire-retardant-tested-artificial-solutions.html",
+        "/residential-fire-retardant-tested-artificial-solutions/"
+      ],
+      "to": "/commercial"
+    },
+    {
+      "from": [
+        "/artificial-living-wall",
+        "/artificial-living-wall.html",
+        "/artificial-living-wall/"
+      ],
+      "to": "/living-wall"
+    },
+    {
+      "from": [
+        "/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main",
+        "/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main.html",
+        "/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main/"
+      ],
+      "to": "/blog/artificial-living-walls-for-the-texas-summers"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas",
+        "/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas.html",
+        "/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas/"
+      ],
+      "to": "/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas"
+    },
+    {
+      "from": [
+        "/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t",
+        "/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t.html",
+        "/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t/"
+      ],
+      "to": "/blog/dallas-privacy-without-the-watering-a-real-guide"
+    },
+    {
+      "from": [
+        "/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia",
+        "/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia.html",
+        "/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia/"
+      ],
+      "to": "/blog/houston-no-water-greenery-fix-choosing-artificial-hedges"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo",
+        "/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo.html",
+        "/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo/"
+      ],
+      "to": "/blog/artificial-living-walls-and-hedges-in-houston"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties",
+        "/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties.html",
+        "/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties/"
+      ],
+      "to": "/blog/fire-rated-artificial-greenery-for-texas-commercial-properties"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas",
+        "/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas.html",
+        "/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas/"
+      ],
+      "to": "/blog/the-complete-guide-to-artificial-hedges-in-texas"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas",
+        "/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas.html",
+        "/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas/"
+      ],
+      "to": "/blog/the-complete-guide-to-artificial-living-walls-in-texas"
+    },
+    {
+      "from": [
+        "/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-",
+        "/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-.html",
+        "/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-/"
+      ],
+      "to": "/blog/artificial-living-walls-and-hedges-in-san-antonio"
+    },
+    {
+      "from": [
+        "/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units",
+        "/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units.html",
+        "/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units/"
+      ],
+      "to": "/blog/firewise-artificial-hedges-for-multi-family-units"
+    },
+    {
+      "from": [
+        "/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces",
+        "/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces.html",
+        "/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces/"
+      ],
+      "to": "/blog/faux-living-walls-transforming-texas-office-spaces"
+    },
+    {
+      "from": [
+        "/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex",
+        "/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex.html",
+        "/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex/"
+      ],
+      "to": "/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas"
+    },
+    {
+      "from": [
+        "/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes",
+        "/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes.html",
+        "/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes/"
+      ],
+      "to": "/blog/artificial-vs-real-living-walls-for-texas-homes"
+    },
+    {
+      "from": [
+        "/blog/2025-12-11-artificial-vs-real-boxwood-texas",
+        "/blog/2025-12-11-artificial-vs-real-boxwood-texas.html",
+        "/blog/2025-12-11-artificial-vs-real-boxwood-texas/"
+      ],
+      "to": "/blog/artificial-vs-real-boxwood-texas"
+    },
+    {
+      "from": [
+        "/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes",
+        "/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes.html",
+        "/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes/"
+      ],
+      "to": "/blog/faux-green-walls-vs-real-plants-for-texas-homes"
+    },
+    {
+      "from": [
+        "/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is",
+        "/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is.html",
+        "/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is/"
+      ],
+      "to": "/blog/artificial-hedges-vs-real-plants-in-texas"
+    },
+    {
+      "from": [
+        "/blog/2026-01-31-artificial-living-walls-for-the-texas-summers",
+        "/blog/2026-01-31-artificial-living-walls-for-the-texas-summers.html",
+        "/blog/2026-01-31-artificial-living-walls-for-the-texas-summers/"
+      ],
+      "to": "/blog/artificial-living-walls-for-the-texas-summers"
+    },
+    {
+      "from": [
+        "/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery",
+        "/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery.html",
+        "/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery/"
+      ],
+      "to": "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery"
+    },
+    {
+      "from": [
+        "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained",
+        "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained.html",
+        "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained/"
+      ],
+      "to": "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery"
+    },
+    {
+      "from": [
+        "/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained",
+        "/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained.html",
+        "/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained/"
+      ],
+      "to": "/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery"
+    }
+  ],
+  "gone": [
+    "/hero-backup",
+    "/hero-backup.html",
+    "/lighthouse-report.json",
+    "/lh-scores.json",
+    "/navbar-component",
+    "/navbar-component.html",
+    "/navbar-universal",
+    "/navbar-universal.html",
+    "/roadmap",
+    "/roadmap.html",
+    "/sample-page/feed",
+    "/understanding-responsible-gambling-practices-a",
+    "/mastering-advanced-casino-strategies-a",
+    "/seasonal-shifts-how-trends-influence-gambling"
+  ]
+}

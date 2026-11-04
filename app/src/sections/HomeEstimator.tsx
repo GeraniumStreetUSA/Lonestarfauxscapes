@@ -98,6 +98,15 @@ function Measure({ id, label, range, value, onCommit }: MeasureProps) {
   );
 }
 
+interface HomeEstimatorProps {
+  /** The system chip selected on load; the homepage leaves it at the default. */
+  initialSystem?: SystemId;
+  /** Heading overrides for pages other than the homepage (the kit's EstimatorSection). */
+  callout?: string;
+  title?: string;
+  body?: string;
+}
+
 /**
  * Screen 2, the signature. The visitor picks a system and sets the run; the
  * plan draws it, and the readout leads with the starting material figure from
@@ -105,11 +114,16 @@ function Measure({ id, label, range, value, onCommit }: MeasureProps) {
  * figure carries the installation caveat. "Send" carries the numbers into the
  * quote form below (step 2 of 2).
  */
-export default function HomeEstimator() {
+export default function HomeEstimator({
+  initialSystem = DEFAULT_SYSTEM_ID,
+  callout = ESTIMATOR.callout,
+  title = ESTIMATOR.title,
+  body = ESTIMATOR.body,
+}: HomeEstimatorProps) {
   const uid = useId();
-  const [systemId, setSystemId] = useState<SystemId>(DEFAULT_SYSTEM_ID);
+  const [systemId, setSystemId] = useState<SystemId>(initialSystem);
   const [runFt, setRunFt] = useState<number>(RUN.default);
-  const [heightFt, setHeightFt] = useState<number>(getSystem(DEFAULT_SYSTEM_ID).height.default);
+  const [heightFt, setHeightFt] = useState<number>(getSystem(initialSystem).height.default);
   const [location, setLocation] = useState('');
 
   const system = getSystem(systemId);
@@ -174,11 +188,11 @@ export default function HomeEstimator() {
         <div className="estimator-grid">
           <div className="estimator-col">
             <div className="estimator-intro">
-              <Callout text={ESTIMATOR.callout} />
+              <Callout text={callout} />
               <h2 id={`${uid}-title`} className="t-h2 mt-5 max-w-[15ch]">
-                {ESTIMATOR.title}
+                {title}
               </h2>
-              <p className="t-body mt-5 max-w-[46ch] text-cedar">{ESTIMATOR.body}</p>
+              <p className="t-body mt-5 max-w-[46ch] text-cedar">{body}</p>
             </div>
 
             <form ref={controls} className="estimator-controls" onSubmit={(event) => event.preventDefault()} noValidate>

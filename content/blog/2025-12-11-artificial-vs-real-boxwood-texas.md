@@ -19,13 +19,11 @@ The shift isn't about giving up on aesthetics. It's about adapting to our enviro
 
 ## The Thirst Factor: Water Conservation Reality
 
-Water is the most pressing issue. According to the Texas Water Development Board, nearly 90% of the state experienced drought conditions in the last year. Cities like Austin and San Antonio have implemented permanent, year-round watering schedules. Keeping a living boxwood hedge alive under Stage 2 restrictions is a constant battle.
+Water is the most pressing issue. According to the Texas Water Development Board, large parts of the state regularly experience drought conditions. Cities like Austin and San Antonio have implemented permanent, year-round watering schedules. Keeping a living boxwood hedge alive under Stage 2 restrictions is a constant battle.
 
 A live boxwood hedge requires a substantial amount of water, especially during establishment and peak heat. We're talking about gallons per linear foot, each week, from May through October. That adds up to thousands of gallons annually for a typical property border. For a commercial site in Fort Worth or El Paso, the irrigation costs and labor for monitoring soil moisture become a considerable, recurring line item.
 
 Artificial boxwood requires water exactly once. That's during the initial installation, when you might wet the area to ease positioning. After that, its hydration needs are zero. This single difference transforms your landscape from a water consumer to a water conserver. In a state where water rights and conservation are increasingly part of long-term planning, this isn't just a cost saver. It's a responsible environmental and operational choice.
-
-![Infographic: Artificial vs Real Boxwood in Texas](/images/blog/infographic-artificial-vs-real-boxwood-texas.webp)
 
 ## The Maintenance Equation: Labor, Chemicals, and Time
 
@@ -41,13 +39,13 @@ Meanwhile, a real boxwood's appearance is at the mercy of the climate. The famou
 
 ## Specialized Considerations: Fire Resistance and Durability
 
-The "fire resistant" specification in artificial boxwood isn't just marketing jargon. It's a critical safety and durability feature, especially in Texas. Many high-quality artificial hedges are now constructed with fire-retardant materials that meet certain ASTM standards. They are engineered not to ignite easily and to self-extinguish. In regions prone to wildfires or for properties where perimeter ember intrusion is a concern, this adds a layer of protection that living, often dry vegetation does not.
+The "fire resistant" specification in artificial boxwood isn't just marketing jargon. It's a critical safety and durability feature, especially in Texas. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. In regions prone to wildfires or for properties where perimeter ember intrusion is a concern, fire-rated materials can add a layer of protection that living, often dry vegetation does not.
 
-Durability extends beyond fire. Top-tier artificial boxwood is built to withstand extreme weather. It won't fade under the intense UV exposure of a West Texas sun. It won't rot during the humid rainy spells in Houston. It won't shed leaves or require cleanup after a windstorm. This resilience ensures the product performs as an asset, not a liability, with a lifespan often guaranteed for a decade or more.
+Durability extends beyond fire. Top-tier artificial boxwood is built to withstand extreme weather. UV-rated options are made to resist fading under the intense UV exposure of a West Texas sun. It won't rot during the humid rainy spells in Houston. It won't shed leaves or require cleanup after a windstorm. This resilience helps the product perform as an asset, not a liability. Ask for lifespan and warranty terms in writing.
 
 ## Navigating the Initial Investment
 
-The most significant hurdle for artificial boxwood is the upfront cost. Per linear foot, the initial installation of a premium artificial hedge is higher than planting small boxwood shrubs. This gives many decision-makers pause. However, a cost analysis over a five to ten year period tells a different story. You must factor in the avoided costs. Eliminate the recurring expenses for water, irrigation system maintenance, fertilizer, pest control, and multiple annual trimmings. The artificial option has a higher initial peak but then flattens to a nearly zero maintenance cost line. For real boxwood, that initial lower cost is just the first of many repeated annual investments.
+The most significant hurdle for artificial boxwood is the upfront cost. Per linear foot, the initial installation of a premium artificial hedge is higher than planting small boxwood shrubs. This gives many decision-makers pause. However, a cost analysis over the long run tells a different story. You must factor in the avoided costs. Eliminate the recurring expenses for water, irrigation system maintenance, fertilizer, pest control, and multiple annual trimmings. The artificial option has a higher initial peak but then flattens to a nearly zero maintenance cost line. For real boxwood, that initial lower cost is just the first of many repeated annual investments.
 
 The value proposition becomes clear over time. It's a classic case of capital expenditure versus operational expenditure. For a property owner planning to stay put for the long term, or a developer looking to minimize a building's ongoing maintenance burden, the math increasingly favors the artificial solution.
 
@@ -61,12 +59,12 @@ The goal of Texas landscaping is adapting beautifully to our challenging environ
 
 ## Related articles
 
-This article is part of our [complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, HOA approval, and more.
+This article is part of our [complete guide to artificial hedges in Texas](/blog/the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, HOA approval, and more.
 
 You might also find these useful:
-- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
-- [Faux green walls vs. real plants for Texas homes](/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes)
+- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/artificial-hedges-vs-real-plants-in-texas)
+- [Faux green walls vs. real plants for Texas homes](/blog/faux-green-walls-vs-real-plants-for-texas-homes)
 
 ---
 
-Want help spec'ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [request a free quote](/#contact).
+Want help spec'ing a fire-rated or low-maintenance hedge system? See our options on the [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [request a free quote](/contact).

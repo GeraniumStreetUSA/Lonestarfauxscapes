@@ -26,8 +26,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/besley-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/libre-franklin-var.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- No static <title>: HomeSeo renders it and React 19 hoists it, so the
-         prerendered head (Phase 4) carries exactly one. -->
+    <!-- No static head tags: scripts/prerender.mjs writes each page's title,
+         description, robots, canonical and JSON-LD from src/routes.ts. In dev
+         (no prerender) App sets document.title. -->
   </head>
   <body>
     <div id="root"></div>

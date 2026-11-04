@@ -18,7 +18,7 @@ tags:
 draft: false
 faq:
   - question: "How much does it cost to maintain a living green wall?"
-    answer: "Professional maintenance for a living green wall is often estimated around $1.50 to $3.00 per square foot per month for irrigation checks, pruning, fertilization, and plant replacements. A 100 sq ft wall would be roughly $1,800 to $3,600 per year before repairs or access equipment, so treat this as an educational benchmark rather than a quote."
+    answer: "Professional maintenance for a living green wall is a recurring cost that covers irrigation checks, pruning, fertilization, and plant replacements, before repairs or access equipment. It varies by system, size, access, and provider, so get quotes from living wall maintenance companies for your site."
   - question: "How often do plants need to be replaced in a living wall?"
     answer: "Well-designed systems report 2-12% annual plant replacement depending on climate, species selection, and system type. In hot climates like Texas, replacement rates tend toward the higher end due to heat stress and irrigation challenges."
   - question: "Do living walls use a lot of water?"
@@ -765,9 +765,9 @@ Most professional providers recommend biweekly visits during the first few month
 
 <div class="gw-stats-row">
   <div class="gw-stat-card gw-reveal">
-    <span class="gw-stat-kicker">Cost</span>
-    <span class="gw-stat-value">$<span class="gw-counter" data-target="3600">3,600</span></span>
-    <span class="gw-stat-label">Annual maintenance cost<br>for a 100 sq ft wall (high end)</span>
+    <span class="gw-stat-kicker">Care</span>
+    <span class="gw-stat-value">Monthly</span>
+    <span class="gw-stat-label">Professional visits (minimum)<br>for a living wall</span>
   </div>
   <div class="gw-stat-card gw-reveal">
     <span class="gw-stat-kicker">Water</span>
@@ -781,7 +781,7 @@ Most professional providers recommend biweekly visits during the first few month
   </div>
 </div>
 
-**Professional maintenance labor:** Published and vendor-facing estimates commonly put living wall maintenance around $1.50 to $3.00 per square foot per month. For a 100 square foot living wall, that works out to $150 to $300/month, or **$1,800 to $3,600 per year** before repairs or access equipment. Treat that as an educational benchmark, not a quote.
+**Professional maintenance labor:** Living wall maintenance is a recurring professional service, usually priced by the square foot per month, and it comes before repairs or access equipment. Get quotes from living wall maintenance providers for your site.
 
 **Plant replacements:** Even well-designed systems can lose plants. Published replacement rates range from 2% per year on high-end modular systems up to 12% per year in challenging climates. In Texas, the issue is usually heat stress, UV damage, and irrigation failure during peak summer.
 
@@ -832,8 +832,8 @@ Texas isn't gentle on living walls. Here's what makes maintenance harder here co
     </thead>
     <tbody>
       <tr>
-        <td>Annual maintenance (100 sq ft)</td>
-        <td>$1,800 – $3,600+</td>
+        <td>Annual maintenance</td>
+        <td>Recurring professional contract</td>
         <td><span class="gw-zero">Low routine upkeep</span> (occasional rinse)</td>
       </tr>
       <tr>
@@ -875,7 +875,7 @@ Texas isn't gentle on living walls. Here's what makes maintenance harder here co
   </table>
 </div>
 
-An artificial wall is not no-cost. The upfront cost is real, but routine upkeep is usually lighter after installation. A rinse with a hose once or twice a year to clear dust is the standard recommendation.
+An artificial wall is not no-cost. The upfront cost is real (starting prices are published on the [pricing page](/pricing), and installation is quoted after a site review), but routine upkeep is usually lighter after installation. A rinse with a hose once or twice a year to clear dust is the standard recommendation.
 
 ## When a living wall makes sense anyway
 
