@@ -27,6 +27,8 @@ export default function HomeAustin() {
   useEffect(() => {
     const list = steps.current;
     if (!list || typeof IntersectionObserver === 'undefined') return;
+    /* Phones show only the finished job; nothing to follow. */
+    if (window.matchMedia('(max-width: 639px)').matches) return;
     const items = Array.from(list.querySelectorAll<HTMLElement>('[data-step]'));
 
     /* The step crossing the middle band of the viewport is the active one. */

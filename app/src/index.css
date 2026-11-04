@@ -4714,11 +4714,22 @@ html[data-qa-mode='1'] [data-reveal] {
       display: none;
     }
 
-    /* Austin: shorter steps under the pinned photo. */
-    .story-step,
-    .story-step:last-child {
-      min-height: 0;
-      padding: 24px 0;
+    /* Austin: the finished job only (photo, facts, case study). The three
+       steps stay in the markup for crawlers and wider screens. */
+    .story-steps,
+    .story-count,
+    .story-chip .story-step-index {
+      display: none;
+    }
+
+    .story-stage {
+      position: static;
+      margin-top: 0;
+    }
+
+    .story-foot {
+      margin-top: 20px;
+      gap: 16px;
     }
 
     /* Where we work: the metros as tappable chips under the map. */

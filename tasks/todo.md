@@ -182,6 +182,10 @@ Review:
 - Found: an IntersectionObserver never reports a fully clip-path-ed element as intersecting, so headings are held by opacity and the mask plays only in the animation.
 - Every hidden block stays in the markup (crawlable); desktop shows all of it. Tests 52/52, build and share build pass. Preview republished (artifact v4). Nothing pushed.
 
+### Austin story, phones: finished job only (owner 2026-11-04: "yes fix the austin story")
+- [x] Phones (<640): hide the three scrolling steps, the step counter and chip index; photo is static (After), then facts and the case-study link. Steps stay in the markup; tablets and desktop unchanged.
+- [x] Review: Austin 1,577 to 836 px; phone page 12,443 to 11,702 px (14.7 to 13.9 screens). Tests 52/52, builds pass, preview v5. Nothing pushed.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
