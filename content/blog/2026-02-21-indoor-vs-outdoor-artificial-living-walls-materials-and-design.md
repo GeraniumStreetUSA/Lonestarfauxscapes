@@ -140,6 +140,8 @@ Fire code requirements apply primarily to indoor installations, particularly in 
 
 **Outdoor installations** generally face less fire code scrutiny for decorative materials, though covered patios, balconies, and spaces near building egress may still be subject to review depending on local enforcement.
 
+**Our foliage:** Standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
+
 For a detailed breakdown of fire standards, see our [NFPA 701 vs ASTM E84 guide](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery).
 
 ## Mounting: what's different

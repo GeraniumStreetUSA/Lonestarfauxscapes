@@ -47,7 +47,7 @@ const QUESTIONS = [
 
 const SERVICE_PAGES = [
   { title: 'Pricing', href: '/pricing', text: 'What is priced today and what is quoted' },
-  { title: 'Artificial hedge', href: '/artificial-hedge', text: 'Privacy screens, hedge walls and fence toppers' },
+  { title: 'Artificial hedge', href: '/artificial-hedge', text: 'Privacy screens, hedge walls and fence extensions' },
   { title: 'Living walls', href: '/living-wall', text: 'Interior and exterior greenery walls' },
   { title: 'Residential', href: '/residential', text: 'Backyards, pools, patios and HOA questions' },
   { title: 'Commercial', href: '/commercial', text: 'Hospitality, retail, office and multifamily' },

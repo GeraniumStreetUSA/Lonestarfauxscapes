@@ -77,7 +77,7 @@ export const PRIVACY_WALL: SystemPageData = {
       items: [
         {
           title: 'Fence extensions',
-          text: 'Your fence is there but too short. Add height on top of it.',
+          text: 'Your fence is there but too short. Add height fixed to the face of it.',
           href: '/fence-extensions',
         },
         {

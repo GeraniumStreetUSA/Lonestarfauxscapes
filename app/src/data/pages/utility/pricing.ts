@@ -1,64 +1,108 @@
 /**
- * Copy for /pricing. Dollar figures never appear here: the page renders the
- * released starting prices through the helpers in src/data/starting-prices.ts.
+ * Copy for /pricing. Dollar figures are never typed here: the page and the
+ * answers below render the released starting prices through the helpers in
+ * src/data/starting-prices.ts.
  */
+
+import {
+  FR_STATEMENT,
+  HEDGE_TIERS,
+  INSTALLATION_CAVEAT,
+  STARTING_PRICES,
+  formatStartingPriceProse,
+} from '../../starting-prices.ts';
+
+/** The card order on the price board: the hedge (both tiers) first, the commercial wall (no price) last. */
+export type BoardSystemId = 'hedge' | 'fence-extension' | 'living-wall' | 'privacy-wall' | 'commercial';
+
+export interface BoardCard {
+  id: BoardSystemId;
+  title: string;
+  href: string;
+  /** One short line: what it is. */
+  line: string;
+}
 
 export const PRICING_PAGE = {
   callout: '◦ PRICING',
-  title: 'Real starting prices for artificial hedges and living walls',
-  lede: 'Four systems have a starting price. Installation is extra and is quoted after a site review.',
-  prices: {
+  title: 'Starting prices for artificial hedges and living walls',
+  lede: 'Material starting prices, by the foot or the unit. Installation is quoted after a site review.',
+  board: {
     id: 'starting-prices',
     callout: '◦ STARTING PRICES',
     title: 'What each system starts at.',
-    intro: 'Each figure is the starting point for the configuration shown. Your final invoice is set at the site review.',
+    cards: [
+      { id: 'hedge', title: 'Artificial hedge', href: '/artificial-hedge', line: 'On your fence, or on its own posts.' },
+      { id: 'fence-extension', title: 'Fence extension', href: '/fence-extensions', line: 'Raises your fence. Fixed to its face.' },
+      { id: 'living-wall', title: 'Living wall', href: '/living-wall', line: 'Foliage on a wall, cut to your size.' },
+      { id: 'privacy-wall', title: 'Privacy wall', href: '/privacy-wall', line: 'A freestanding screen on a base.' },
+      { id: 'commercial', title: 'Commercial wall', href: '/commercial-wall', line: 'Foliage panels for business facades.' },
+    ] satisfies BoardCard[],
+    /** The chip under every card (the caveat is the shared constant, verbatim). */
+    chips: { installation: INSTALLATION_CAVEAT, fire: 'Fire-rated: upgrade, extra cost' },
     /** The commercial wall has no released price. */
-    commercial: {
-      title: 'Commercial wall',
-      href: '/commercial-wall',
-      text: 'Code requirements, access, branding, framing and documentation matter more than a square-foot guess.',
-    },
+    quoted: 'Quoted after a site review',
+  },
+  covers: {
+    id: 'whats-in-the-price',
+    callout: '◦ WHAT IT COVERS',
+    title: 'What the starting price covers.',
+    inTitle: 'In the starting price',
+    in: ['Standard UV-stabilized foliage', 'Panels for your run or area'],
+    extraTitle: 'Extra',
+    extra: [
+      'Installation, after the site review',
+      'Fire-rated foliage (NFPA 701)',
+      'Anything the site review adds',
+    ],
   },
   drivers: {
+    id: 'cost-drivers',
     callout: '◦ COST DRIVERS',
     title: 'What changes the number.',
     items: [
-      {
-        title: 'Size and height',
-        text: 'Longer runs and taller panels use more material and often need more structure.',
-      },
-      {
-        title: 'Mounting surface',
-        text: 'A clean wall, an existing fence, masonry or a custom frame all install differently.',
-      },
-      {
-        title: 'Custom fabrication',
-        text: 'Corners, stepped lines, hidden seams, trims and logo work add shop time.',
-      },
-      {
-        title: 'Fence condition and sightlines',
-        text: 'For a fence extension or a pool screen, the state of the fence, the height you add and how the panels attach can change the scope fast.',
-      },
-      {
-        title: 'Fire-rated and commercial requirements',
-        text: 'Fire-rated options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system. Paperwork and coordination can change the scope.',
-      },
+      { icon: 'length', title: 'Run length', text: 'Longer runs use more material.' },
+      { icon: 'height', title: 'Height', text: 'Taller runs may be priced to your site.' },
+      { icon: 'surface', title: 'Mounting surface', text: 'A fence, a wall or posts install differently.' },
+      { icon: 'fence', title: 'Fence condition', text: 'Extending vinyl is generally not recommended.' },
+      { icon: 'custom', title: 'Custom shapes', text: 'Corners, steps and logos add shop time.' },
+      { icon: 'access', title: 'Site access', text: 'Confirmed at the site review.' },
+      { icon: 'fire', title: 'Fire-rated foliage', text: 'An upgrade, at extra cost.' },
+      { icon: 'commercial', title: 'Commercial needs', text: 'Code and paperwork can change the scope.' },
     ],
   },
   process: {
-    callout: '◦ HOW A QUOTE IS BUILT',
-    title: 'Five steps from numbers to invoice.',
-    intro: 'Every job runs the same way. The rough quote comes first. A site review sets the final invoice.',
+    id: 'how-a-job-runs',
+    callout: '◦ FIVE STEPS',
+    title: 'How a job runs.',
+    fold: 'The five steps',
   },
-  send: {
-    callout: '◦ WHAT TO SEND',
-    title: 'Send what you have.',
-    intro: 'Missing a number? Send what you have and a photo.',
-    facts: [
-      { label: 'Size', value: 'Run and height' },
-      { label: 'Photos', value: 'Wide and close up' },
-      { label: 'Surface', value: 'Fence, wall or mesh' },
-      { label: 'City', value: 'Where it goes' },
+  faq: {
+    title: 'Pricing questions',
+    items: [
+      {
+        question: 'What does the starting price include?',
+        answer:
+          'The material: standard UV-stabilized foliage and panels for your run or area. Installation is extra and is quoted after a site review.',
+      },
+      {
+        question: 'Why is installation quoted after a site review?',
+        answer:
+          'Mounting, access and height change the work. We confirm them on site, and the review sets the final invoice.',
+      },
+      {
+        question: 'What is the difference between a hedge on my fence and a freestanding hedge?',
+        answer: `A hedge ${HEDGE_TIERS.hedge.said} is ${HEDGE_TIERS.hedge.build}, ${formatStartingPriceProse(STARTING_PRICES.hedge)}. A freestanding hedge is ${HEDGE_TIERS['hedge-freestanding'].build}, ${formatStartingPriceProse(STARTING_PRICES['hedge-freestanding'])}. Both are material starting prices; installation is quoted after a site review.`,
+      },
+      {
+        question: 'How much does fire-rated foliage cost?',
+        answer: FR_STATEMENT,
+      },
+      {
+        question: 'What should I send for a quote?',
+        answer:
+          'Your run length and height, your city, the surface (fence, wall or mesh), and a wide photo and a close-up. Missing a number? Send what you have.',
+      },
     ],
   },
 } as const;

@@ -60,7 +60,7 @@ A real hedge takes time to fill in. Houston grows fast, but it still isn’t ins
 ### Fire-rated options for commercial spaces
 For a lot of Houston businesses, the question isn’t only “Does it look good?” It’s “Will this pass inspection?”
 
-If you’re putting greenery inside a restaurant, event space, hotel, or office lobby, someone may ask about fire performance. That’s where **fire rated living walls** come in.
+If you’re putting greenery inside a restaurant, event space, hotel, or office lobby, someone may ask about fire performance. That’s where **fire rated living walls** come in. For Lone Star Faux Scapes products, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 Two practical notes:
 

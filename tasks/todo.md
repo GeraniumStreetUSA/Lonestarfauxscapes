@@ -234,6 +234,20 @@ Work (Sonnet sub-agents build; I write specs and review every page at 390/360/14
 - [x] Owner round 2026-11-04: Terms rewritten for Texas and to protect the business (attorney review before launch); NFPA 701 report confirmed, Intertek kept off the site; IMAGE-PROMPTS.md opened; five blog headings rewritten with their live anchors pinned (`{#old-id}` support in build-content.mjs) and the invented cost-bar graphic removed
 - [x] E. Checks (78 pages; typecheck; 104 tests; em-dash 0 in dist; one H1 per page; crawl on wrangler 355/355 for both the preview and the ALLOW_INDEXING=1 build; reviewed every template at 390 and 1440). Was: typecheck, tests (route sync, title/desc lengths, redirects, schema, heading ids), em-dash on dist, img attrs, claims audit vs `CLAIMS.md`; every page reviewed on phone and desktop; preview for the owner; local commit only.
 
+### Pricing and product corrections from the Califauxscapes handoff (owner 2026-11-04: "make sure it visual and not super cramped and text heavy")
+
+Source: `/Volumes/hermes_agent/Downloads/LONESTAR-HANDOFF.md` (applied on califauxscapes.com in GeraniumStreetUSA/califaux#40).
+
+- [x] Data: hedge priced in two tiers in `starting-prices.ts` (on your fence or wall: single-sided, about 2 to 3 in deep, from $99/linear ft; freestanding: 6 ft x 7 in full 3D hedge on posts set in concrete, from $200/linear ft); `FR_PRICE_NOTE` ("Prices are for standard UV-stabilized foliage; fire-rated foliage costs extra."); one source, tests updated
+- [x] Fire rating presented as an upgrade at extra cost everywhere (pages, FAQs, spec rows, blog, schema, llms.txt); test that no built page says fire-rated is standard
+- [x] Fence extension: attaches to the face of the fence or wall, generally with steel square tube, overlapping 1 ft per 2 ft of extension height (3 ft overlaps 1.5 ft); vinyl caveat; wording that says "on top of" / "frame above" replaced
+- [x] Every single hedge price says which tier; hedge pages show both side by side; "6 ft x 12 in" gone (estimator, homepage, hero drawing note, CostCard, metros, hubs)
+- [x] Estimator: hedge offers both tiers (on-fence per linear ft; freestanding per linear ft at 6 ft x 7 in)
+- [x] /pricing redesigned visual-first: a price board with a section drawing per system (on-fence vs freestanding depth, extension overlap on the fence face, living wall, 4 x 4 privacy wall unit), big figures, short labels, what is included vs extra, the estimator to try your numbers, cost drivers as a compact icon grid, the 5 steps, FAQ folded; phones first, no wall of text
+- [x] Built-site search: no "6 ft x 12 in", every hedge price labelled by tier, no fire-rated-as-standard sentence; review at 390/360/1440; commit locally
+
+Review: owner confirmed Texas = Califauxscapes facts (2026-11-04). Data in one file (two hedge tiers, FR notes); estimator offers both hedge kinds; every hedge price labelled by tier (25 pages); fire-rated foliage is an upgrade at extra cost everywhere (no "UV + FR", no fire-rated-as-standard in the built HTML); extension face-mount wording and vinyl caveat; claims.test.ts guards it; 122 tests pass. /pricing rebuilt as a price board with six section drawings, one "every price" legend instead of chips on each card, in/extra lists, estimator, cost-driver icon grid, folded steps and FAQ. Hero price line trimmed to the labelled on-fence price. Open for owner: freestanding hedge panel module (counted as 20 in), whether the 3 ft extension's overlap is inside the $65 figure, whether the "Vallum FRX" name stays now that fire rating is an upgrade.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
@@ -774,3 +788,14 @@ Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-w
 - Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics behavior, pricing, body claims, FAQ answers, schema types, styling, and all unapproved pages.
 - The isolated full production build, flagship-guide verification, focused metadata/schema assertions, protected-scope checks, JSON checks, and whitespace checks passed.
 - Impeccable reported seven pre-existing design warnings outside `chg-1-title-meta`; no design changes were made. Browser screenshots could not be captured because the sandbox blocked local port binding and the browser CLI socket directory was read-only.
+
+## Texas hedge tiers, fire rating as an upgrade, fence extension attachment (owner 2026-11-04)
+
+### Review
+
+- Estimator: two hedge chips (`hedge` on your fence or wall, `hedge-freestanding`), hedge height input kept for the drawing and panel count with the "per linear foot, taller runs may be priced to your site" note, `FR_PRICE_NOTE` under every price, plan drawn 3 in vs 7 in deep (`depthToPlan`), quote-form chips accept both.
+- Every hedge price names its tier (homepage hero, systems card, Four questions, FAQ, SEO description, page hero, hub cards, metro rows, system FAQs); hero sightline hedge is 0.25 ft deep and opens at 9 ft.
+- Fire rating is an upgrade at extra cost everywhere (`FR_STATEMENT` / `FR_PRICE_NOTE` / `claims-copy.ts`), 34 blog posts reviewed (29 edited).
+- Fence extensions: face-mounted, steel square tube, 1 ft per 2 ft overlap, vinyl caveat; FAQ "How does it attach to my fence?".
+- `tests/claims.test.ts` fails if the old claims return; `CLAIMS.md` updated.
+- Open for the owner: freestanding hedge panel size (counted as 20 in), whether the extension price covers the 1.5 ft overlap, blog summaries and one heading ("Fence toppers for added height") that still use old wording and are protected.

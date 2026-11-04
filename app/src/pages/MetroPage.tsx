@@ -18,8 +18,10 @@ import { METRO_REFS, SUBURB_REFS } from '../data/pages/metros/areas';
 import type { MetroData, MetroGuide, SystemKey } from '../data/pages/metros/types';
 import { SITE_URL } from '../data/site';
 import {
+  FR_PRICE_NOTE,
   INSTALLATION_CAVEAT,
   STARTING_PRICES,
+  formatHedgePricesProse,
   formatStartingPriceProse,
   type StartingPriceId,
 } from '../data/starting-prices';
@@ -63,7 +65,7 @@ const SYSTEMS: readonly {
     href: '/fence-extensions',
     price: 'fence-extension',
     media: (
-      <Picture name="system-fence-extension" alt="Artificial hedge panels added above a fence" sizes={CELL_SIZES} />
+      <Picture name="system-fence-extension" alt="Artificial hedge rising above a low stucco wall beside a tiled terrace" sizes={CELL_SIZES} />
     ),
   },
   {
@@ -89,24 +91,31 @@ const CAVEAT = INSTALLATION_CAVEAT.replace('+ ', '+\u00a0');
 
 /**
  * A short local note, then the released price in prose and the installation
- * caveat. The caveat sits in its own span: phones hide it per row and show it
- * once under the list (`SystemsCaveat`); desktop reads it in every row.
+ * caveat. A hedge is priced two ways, so its row says both, each with its
+ * tier. The caveat and the fire-rating note sit in their own span: phones hide
+ * it per row and show it once under the list (`SystemsCaveat`); desktop reads
+ * it in every row.
  */
 function systemLine(note: string, price?: StartingPriceId): ReactNode {
   if (!price) return `${note} Quoted after a site review.`;
-  const prose = formatStartingPriceProse(STARTING_PRICES[price]);
+  const prose = price === 'hedge' ? formatHedgePricesProse() : formatStartingPriceProse(STARTING_PRICES[price]);
   return (
     <>
       {note} {prose.charAt(0).toUpperCase()}
       {prose.slice(1)}
       <span className="mt-p-caveat"> {CAVEAT}</span>.
+      <span className="mt-p-caveat"> {FR_PRICE_NOTE}</span>
     </>
   );
 }
 
 /** Phones only: the caveat every row carries on desktop, said once under the list. */
 function SystemsCaveat() {
-  return <p className="mt-p-caveat-once">All prices are starting prices, {CAVEAT}.</p>;
+  return (
+    <p className="mt-p-caveat-once">
+      All prices are starting prices, {CAVEAT}. {FR_PRICE_NOTE}
+    </p>
+  );
 }
 
 function guideRows(guides: readonly MetroGuide[]): LinkRow[] {

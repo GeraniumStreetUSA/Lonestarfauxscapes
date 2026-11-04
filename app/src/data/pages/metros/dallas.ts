@@ -23,7 +23,7 @@ export const DALLAS: MetroData = {
     },
     {
       title: 'Paperwork for commercial scopes',
-      text: 'Hospitality and retail buyers often ask for fire documentation before anything else. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system.',
+      text: 'Hospitality and retail buyers often ask for fire documentation before anything else. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the NFPA 701 documentation for the exact system.',
     },
   ],
   systems: {
@@ -52,7 +52,7 @@ export const DALLAS: MetroData = {
     {
       slug: 'how-to-get-hoa-approval-for-artificial-hedges-in-texas',
       title: 'How to get HOA approval for artificial hedges',
-      text: 'For backyard privacy and fence toppers that need an association to say yes.',
+      text: 'For backyard privacy and fence extensions that need an association to say yes.',
     },
   ],
   setups: [

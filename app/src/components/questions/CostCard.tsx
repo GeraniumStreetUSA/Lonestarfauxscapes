@@ -6,7 +6,7 @@ import { buildEstimate, getSystem, type SystemId } from '../../lib/estimator';
 
 const C = QUESTIONS.cards.cost;
 /* The three systems priced by length or area; the per-unit privacy wall lives in the full estimator. */
-const CHOICES: SystemId[] = ['hedge', 'fence-extension', 'living-wall'];
+const CHOICES: SystemId[] = ['hedge', 'hedge-freestanding', 'fence-extension', 'living-wall'];
 
 /**
  * "What will it cost?": the answer, live. Pick a system, set the run, and the
@@ -70,6 +70,7 @@ export default function CostCard() {
           {estimate.price.arithmetic ? <p className="q-cost-math tabular">{estimate.price.arithmetic}</p> : null}
         </div>
         <p className="q-cost-caption">{estimate.price.caption}</p>
+        <p className="q-cost-caption">{estimate.price.frNote}</p>
 
         <a href="#estimate" className="link-go mt-4" data-cta="questions-estimator">
           {C.full}

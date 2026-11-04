@@ -19,9 +19,9 @@ import { FAQ, HERO } from '../data/home-content';
 import type { PageProps } from '../routes';
 
 const FACTS = [
-  { label: 'Height', value: '6 ft priced size' },
+  { label: 'On a fence or wall', value: 'About 2 to 3 in deep' },
   { label: 'Panels', value: '20 in wide' },
-  { label: 'Fire', value: 'NFPA 701 options' },
+  { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
   { label: 'Installation', value: 'Quoted after a site review' },
 ] as const;
 
@@ -51,7 +51,7 @@ const OPTIONS = [
     title: 'Fence extension',
     text: 'Add height to the fence you already have.',
     href: '/fence-extensions',
-    media: <Picture name="system-fence-extension" alt="Artificial hedge panels added above a fence" sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 96px" />,
+    media: <Picture name="system-fence-extension" alt="Artificial hedge rising above a low stucco wall beside a tiled terrace" sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 96px" />,
   },
   {
     title: 'Privacy wall',
@@ -79,7 +79,7 @@ const TOC: readonly TocItem[] = [
 const RELATED = [
   { title: 'Living walls', href: '/living-wall', text: 'Greenery for a blank wall, no irrigation.' },
   { title: 'Fence extensions', href: '/fence-extensions', text: 'Add height to the fence you have.' },
-  { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'Built for NFPA 701.' },
+  { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'The fire-rated upgrade (NFPA 701).' },
   { title: 'Pool privacy', href: '/pool-privacy-hedge' },
   { title: 'Dallas', href: '/dallas', text: 'Installs in Dallas.' },
   { title: 'Houston', href: '/houston' },
@@ -171,7 +171,13 @@ export default function KitPage({ route }: PageProps) {
               </thead>
               <tbody>
                 <tr>
-                  <td>Hedge</td>
+                  <td>Hedge on your fence or wall</td>
+                  <td>20 in</td>
+                  <td>Your height</td>
+                  <td>Run in inches</td>
+                </tr>
+                <tr>
+                  <td>Freestanding hedge</td>
                   <td>20 in</td>
                   <td>6 ft</td>
                   <td>Run in inches</td>
@@ -206,7 +212,7 @@ export default function KitPage({ route }: PageProps) {
             </figure>
             <h2 id="kit-fire">Fire documentation</h2>
             <blockquote>
-              <p>Ask for the NFPA 701 documentation for the exact system you choose.</p>
+              <p>Fire-rated foliage (NFPA 701) is an upgrade at extra cost. Ask for the documentation for the exact system you choose.</p>
             </blockquote>
             <p>
               Panels are rated by system, so the <code>20 in</code> hedge and the <code>40 in</code> wall can carry

@@ -11,7 +11,7 @@ import '../styles/posts.css';
 const NEXT = [
   { title: 'Guides', href: '/guides', text: 'Planning guides for installation, fire documentation and HOA review.' },
   { title: 'Installation', href: '/installation', text: 'How a project goes from your numbers to a finished install.' },
-  { title: 'Commercial resources', href: '/commercial-resources', text: 'Fire-rated options and documentation help for teams specifying greenery.' },
+  { title: 'Commercial resources', href: '/commercial-resources', text: 'The fire-rated upgrade and documentation help for teams specifying greenery.' },
   { title: 'Pricing', href: '/pricing', text: 'What is priced today and what is quoted after a site review.' },
   { title: 'Case studies', href: '/case-studies', text: 'Real Texas installs: the problem, the scope and the result.' },
   { title: 'Photo gallery', href: '/gallery', text: 'Texas installs to look at when you only need ideas.' },

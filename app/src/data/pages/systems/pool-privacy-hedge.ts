@@ -7,6 +7,7 @@
  * HOAs approve" and the shop pre-fabrication line.
  */
 
+import { HEDGE_SIZE_NOTE } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -22,10 +23,10 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
       alt: 'Long artificial hedge wall behind a backyard swimming pool',
     },
     facts: [
-      { label: 'Height', value: '6 ft priced size' },
+      { label: 'On a fence or wall', value: 'About 2 to 3 in deep' },
+      { label: 'Freestanding', value: '6 ft × 7 in, on posts' },
       { label: 'Panels', value: '20 in wide' },
-      { label: 'Mount', value: 'Fence or freestanding' },
-      { label: 'Foliage', value: 'UV-rated options' },
+      { label: 'Foliage', value: 'UV-stabilized' },
     ],
   },
   blocks: [
@@ -51,8 +52,8 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
           text: 'Stand where you swim and note what can see you: a window, a deck, the street. The height follows the angle of that view.',
         },
         {
-          title: 'Fence-top or freestanding',
-          text: 'Add hedge panels above your fence, or stand freestanding sections where there is no fence to build on.',
+          title: 'On your fence or freestanding',
+          text: 'Mount a hedge on the face of your fence or wall, add height with a fence extension, or stand a freestanding hedge on posts where there is no fence to build on.',
         },
         {
           title: 'Fill the gaps',
@@ -60,7 +61,7 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
         },
         {
           title: 'Outdoor-rated foliage',
-          text: 'UV-rated options are made for outdoor sun. Pool areas add splash, residue and reflected heat, so match the product to the spot and rinse it now and then.',
+          text: 'Standard foliage is UV-stabilized for outdoor sun. Pool areas add splash, residue and reflected heat, so match the product to the spot and rinse it now and then.',
         },
       ],
     },
@@ -75,7 +76,7 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
       {
         question: 'How tall can a pool privacy hedge be?',
         answer:
-          'Our priced size is 6 ft tall. Taller screens go in your rough quote, and the height depends on the angle of the view you want to block.',
+          `${HEDGE_SIZE_NOTE} The height depends on the angle of the view you want to block.`,
       },
       {
         question: 'Will it drop leaves into the pool?',
@@ -85,7 +86,7 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
       {
         question: 'Can it block a two-story neighbor?',
         answer:
-          'A taller screen can block that view. Send a photo from where you swim, and we size the height to the angle. Fence extensions add height on top of a fence you already have.',
+          'A taller screen can block that view. Send a photo from where you swim, and we size the height to the angle. Fence extensions add height to a fence you already have, fixed to its face. Extending a vinyl fence is much harder and generally not recommended.',
       },
       {
         question: 'Will my HOA allow it?',

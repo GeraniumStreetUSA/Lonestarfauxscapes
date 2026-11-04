@@ -18,7 +18,7 @@ export const PLANO: MetroData = {
     },
     {
       title: 'Campus and lobby greenery',
-      text: 'Offices along the Tollway and the Legacy area can use living walls for lobbies and outdoor meeting spaces. Fire-rated options are built for NFPA 701; ask for the documentation for the exact system.',
+      text: 'Offices along the Tollway and the Legacy area can use living walls for lobbies and outdoor meeting spaces. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the documentation for the exact system.',
     },
     {
       title: 'Retail frontage and patios',

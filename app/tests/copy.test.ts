@@ -21,6 +21,10 @@ const copyFiles = [
   'src/data/case-studies.ts',
   'src/data/site.ts',
   'src/data/starting-prices.ts',
+  'src/data/pages/systems/claims-copy.ts',
+  'src/data/pages/systems/fence-extensions.ts',
+  'src/data/pages/systems/fire-rated-artificial-hedge.ts',
+  'src/data/pages/metros/shared.ts',
 ].map((f) => path.join(appRoot, f));
 
 test('no em-dash anywhere in the app source', () => {
@@ -37,6 +41,15 @@ test('dollar figures only in src/data/starting-prices.ts', () => {
     if (file.startsWith(path.join(appRoot, 'src/generated/posts') + path.sep)) continue;
     assert.doesNotMatch(readFileSync(file, 'utf8'), /\$\s?\d/, path.relative(appRoot, file));
   }
+});
+
+test('the only dollar figures in the prices file are the five released ones', () => {
+  const figures = [...readFileSync(pricesFile, 'utf8').matchAll(/\$\s?(\d[\d,]*)/g)].map((match) => match[1]);
+  // Code comments quote the formatted examples ("$99", "$3,960", "$108,000"); the released set must all be there.
+  for (const released of ['99', '200', '65', '18', '699']) assert.ok(figures.includes(released), `$${released}`);
+  // No fire-rated price is released: no figure sits next to the fire-rating note or statement.
+  const text = readFileSync(pricesFile, 'utf8');
+  assert.doesNotMatch(text, /fire-rated[^.\n]{0,60}\$\s?\d/i);
 });
 
 test('no leftover "no prices" wording', () => {

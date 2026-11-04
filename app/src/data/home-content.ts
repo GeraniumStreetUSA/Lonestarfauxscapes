@@ -8,7 +8,10 @@
  */
 
 import {
+  FR_PRICE_NOTE,
+  FR_STATEMENT,
   STARTING_PRICES,
+  formatHedgePricesProse,
   formatStartingPriceProse,
   type StartingPrice,
 } from './starting-prices.ts';
@@ -16,7 +19,7 @@ import {
 export const SEO = {
   title: 'Artificial Hedges & Living Walls in Texas | Lone Star Faux Scapes',
   /** ≤155 characters (tested). "DFW" keeps all five metros inside the limit. */
-  description: `Artificial hedges ${formatStartingPriceProse(STARTING_PRICES.hedge)} plus install. Living walls, fence extensions and privacy walls in DFW, Houston, Austin, San Antonio.`,
+  description: `Artificial hedges ${formatStartingPriceProse(STARTING_PRICES.hedge)} on your fence or wall, plus install. Living walls and fence extensions in DFW, Houston, Austin, San Antonio.`,
   canonical: 'https://lonestarfauxscapes.com/',
 } as const;
 
@@ -170,7 +173,7 @@ export const QUESTIONS = {
     {
       question: 'Will Texas sun wear it out?',
       answer:
-        "UV-rated hedge and wall options are made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to your wall's exposure.",
+        "Standard foliage is UV-stabilized for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to your wall's exposure.",
       link: {
         label: 'How long hedges last in Texas heat',
         href: '/blog/how-long-do-artificial-hedges-last-in-texas-heat',
@@ -188,11 +191,11 @@ export const QUESTIONS = {
     {
       question: 'What will it cost?',
       answer:
-        `Starting prices are published: hedge ${formatStartingPriceProse(STARTING_PRICES.hedge)}, ` +
+        `Starting prices are published: hedge ${formatHedgePricesProse()}, ` +
         `fence extension ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])}, ` +
         `living wall ${formatStartingPriceProse(STARTING_PRICES['living-wall'])}, ` +
         `privacy wall ${formatStartingPriceProse(STARTING_PRICES['privacy-wall'])}. ` +
-        'Installation is quoted after a site review, because access, mounting and run length drive it.',
+        `Installation is quoted after a site review, because access, mounting and run length drive it. ${FR_PRICE_NOTE}`,
       link: { label: 'How pricing works', href: '/pricing' },
     },
   ] satisfies Question[],
@@ -203,6 +206,8 @@ export interface SystemCard {
   title: string;
   /** The released starting price, or null for a system quoted after a site review. */
   startingPrice: StartingPrice | null;
+  /** A second released price for the same card (the freestanding hedge), shown under the first. */
+  alsoPriced?: StartingPrice;
   module: string;
   mount: string;
   bestFor: string;
@@ -224,8 +229,9 @@ export const SYSTEMS_SECTION = {
       id: 'hedge',
       title: 'Artificial hedge',
       startingPrice: STARTING_PRICES.hedge,
+      alsoPriced: STARTING_PRICES['hedge-freestanding'],
       module: '20 in panels',
-      mount: 'Fence, frame or wall',
+      mount: 'Your fence or wall, or freestanding on posts',
       bestFor: 'Backyard privacy, pool screens',
       link: { label: 'Artificial hedges', href: '/artificial-hedge' },
       image: 'system-hedge',
@@ -245,7 +251,7 @@ export const SYSTEMS_SECTION = {
       title: 'Fence extension',
       startingPrice: STARTING_PRICES['fence-extension'],
       module: '20 in panels',
-      mount: 'Frame above an existing fence',
+      mount: 'Face of your fence or wall, steel square tube',
       bestFor: 'Second-story sightlines',
       link: { label: 'Fence extensions', href: '/fence-extensions' },
       image: 'system-fence-extension',
@@ -276,7 +282,7 @@ export const SYSTEMS_SECTION = {
 export const FIRE_CHAPTER = {
   callout: '◦ FIRE CODE',
   title: 'Commercial jobs answer to the fire marshal.',
-  body: 'Restaurants, retail and multifamily projects often need greenery with a documented fire rating. The test fire marshals ask for on decorative greenery is NFPA 701. Our fire-rated hedges and walls are built for it.',
+  body: `Restaurants, retail and multifamily projects often need greenery with a documented fire rating. The test fire marshals ask for on decorative greenery is NFPA 701. ${FR_STATEMENT}`,
   points: [
     {
       label: 'What it is',
@@ -288,7 +294,7 @@ export const FIRE_CHAPTER = {
     },
     {
       label: 'What to ask for',
-      text: 'The NFPA 701 documentation for your exact system, before you order. Then confirm the requirement with your fire marshal.',
+      text: 'If your project needs it, fire-rated foliage as an upgrade and the NFPA 701 documentation for your exact system, before you order. Then confirm the requirement with your fire marshal.',
     },
   ],
   links: [
@@ -344,7 +350,15 @@ export const QUOTE = {
     details: 'Details',
     detailsPlaceholder: 'What needs covering? Rough size, fence type, photos to share.',
   },
-  systems: ['Artificial hedge', 'Living wall', 'Fence extension', 'Commercial wall', 'Privacy wall', 'Not sure yet'],
+  systems: [
+    'Hedge on your fence or wall',
+    'Freestanding hedge',
+    'Living wall',
+    'Fence extension',
+    'Commercial wall',
+    'Privacy wall',
+    'Not sure yet',
+  ],
   projectTypes: ['Residential', 'Commercial'],
   submit: 'Send my quote request',
   success: 'Got it. We will be in touch at the email you gave.',
@@ -379,13 +393,12 @@ export const FAQ = {
     {
       question: 'Can it mount on my existing fence?',
       answer:
-        'Often, yes. Panels can mount to many fences or to a freestanding frame. The site review confirms what your fence can carry.',
+        'Often, yes. A hedge mounts on the face of many fences and walls, about 2 to 3 in deep. A freestanding hedge stands on its own posts, set in concrete. The site review confirms what your fence can carry.',
     },
     {
       question: 'Is it fire-rated?',
       answeredAbove: true,
-      answer:
-        'Fire-rated hedge and wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
+      answer: `Not as standard. ${FR_STATEMENT} NFPA 701 is the flame test fire marshals ask for on decorative greenery; your fire authority makes the final call on whether your project needs it.`,
     },
     {
       question: 'How is the price set?',

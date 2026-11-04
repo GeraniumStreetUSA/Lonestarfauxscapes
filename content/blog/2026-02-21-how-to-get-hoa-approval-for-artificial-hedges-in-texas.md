@@ -118,7 +118,7 @@ Your HOA's CC&Rs (Covenants, Conditions & Restrictions) and architectural guidel
 
 - **"Artificial landscaping"** or **"artificial plants"**, Some CC&Rs explicitly allow or prohibit these. If yours are silent on the topic, that's usually a good sign.
 - **"Natural materials only"**: If your CC&Rs require "natural" landscaping materials, you'll need to make a case for why the artificial hedge should qualify as a permitted modification.
-- **Fence height restrictions**: If you're adding a hedge topper to extend fence height, check whether the CC&Rs limit total fence-plus-topper height. Many Texas communities cap residential fences at 6 to 8 feet. City ordinances may also apply.
+- **Fence height restrictions**: If you're adding a hedge fence extension, check whether the CC&Rs limit total fence-plus-extension height. Many Texas communities cap residential fences at 6 to 8 feet. City ordinances may also apply.
 - **Color and appearance standards**: Some HOAs require that modifications "match the aesthetic character" of the neighborhood. Premium artificial hedges typically meet this standard easily, but you'll want to document it.
 - **Approval process and timeline**: Your governing documents should specify the submission requirements (application form, drawings, samples) and the timeline for review.
 

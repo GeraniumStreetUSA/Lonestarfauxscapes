@@ -18,7 +18,7 @@ export const ARLINGTON: MetroData = {
     },
     {
       title: 'Restaurant and retail frontage',
-      text: 'Patio edges, storefronts and lobbies in areas like the Entertainment District can take hedge panels and living walls. Fire-rated options are built for NFPA 701; ask for the documentation.',
+      text: 'Patio edges, storefronts and lobbies in areas like the Entertainment District can take hedge panels and living walls. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the documentation.',
     },
     {
       title: 'Venues and busy spaces',

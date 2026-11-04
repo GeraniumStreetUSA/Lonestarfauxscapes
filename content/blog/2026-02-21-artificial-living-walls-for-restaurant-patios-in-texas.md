@@ -58,7 +58,7 @@ How fire codes apply to your patio depends on how the patio is classified:
 
 **Enclosed patios** (roof plus walls or roll-down screens) are typically treated as interior space and subject to the same fire requirements as indoor dining rooms.
 
-The practical advice: if your patio has any roof structure or enclosure, check with your local Authority Having Jurisdiction (AHJ), usually the fire marshal or building inspector, before installing decorative materials. If fire-rated products are needed, fire-rated options are built for [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701); ask for the NFPA 701 documentation for the exact system you choose.
+The practical advice: if your patio has any roof structure or enclosure, check with your local Authority Having Jurisdiction (AHJ), usually the fire marshal or building inspector, before installing decorative materials. If fire-rated products are needed, we can supply fire-rated foliage ([NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose.
 
 For a detailed comparison of fire test standards, see our [NFPA 701 vs ASTM E84 guide](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader fire compliance guidance, see our [fire-rated artificial greenery guide for commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
 

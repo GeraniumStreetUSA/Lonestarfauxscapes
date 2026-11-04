@@ -215,7 +215,7 @@ export const TERMS: LegalDoc = {
     {
       heading: '7. Fire Documentation',
       body: [
-        'Fire-rated options are built for NFPA 701. On request, we provide the test documentation available for the specific system you choose. Whether a product or its documentation satisfies the code requirements for your project is decided by the authority having jurisdiction (usually the local fire marshal or building official), not by us.',
+        'Standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage is an upgrade at extra cost and is built for NFPA 701. On request, we provide the test documentation available for the specific system you choose. Whether a product or its documentation satisfies the code requirements for your project is decided by the authority having jurisdiction (usually the local fire marshal or building official), not by us.',
       ],
     },
     {

@@ -106,7 +106,7 @@ The [National Apartment Association](https://www.naahq.org/) consistently identi
 
 On multifamily properties, fire compliance adds a layer that residential projects don't face. Artificial greenery in courtyards, along egress paths, and in interior common areas may need to meet fire code requirements depending on the jurisdiction and installation location.
 
-Fire-rated products (tested to standards like [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) are available and commonly specified for commercial multifamily applications. The upfront cost for fire-rated products is higher than standard panels, but the compliance documentation protects you during inspections and insurance reviews.
+Fire-rated products (tested to standards like [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) are available and commonly specified for commercial multifamily applications. On our panels, fire-rated foliage is an upgrade at extra cost over standard panels, with documentation on request for inspections and insurance reviews; the local fire authority (AHJ) makes the final call.
 
 Our [fire-rated artificial greenery guide](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties) covers the standards, documentation, and procurement details for commercial properties. The [NFPA 701 vs ASTM E84 comparison](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery) explains the specific test standards and when each applies.
 

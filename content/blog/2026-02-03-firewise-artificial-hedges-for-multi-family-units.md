@@ -14,7 +14,7 @@ draft: false
 
 If you manage a multifamily property, you’ve probably had this conversation on repeat: residents want more privacy and a nicer-looking courtyard, leasing wants something that looks good in photos, and ownership wants fewer headaches than real landscaping. Artificial hedges can solve a lot of that quickly.
 
-But there’s one piece you can’t gloss over: how it behaves in a fire, and whether you can prove what you installed.
+But there’s one piece you can’t gloss over: how it behaves in a fire, and whether you can prove what you installed. For Lone Star Faux Scapes hedges, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 “Green wall” and “faux hedge” are marketing labels. Firewise decisions come down to what the product is made of, how it was tested, where it’s going, and what you can hand a city inspector or risk consultant without scrambling.
 

@@ -10,7 +10,7 @@
  *
  * The sightline is real geometry: rays from the neighbor's second-story
  * window to every point of the pool. A ray is blocked when it passes below
- * the top of the fence (at y = 0) or of the hedge (front face at y = 1).
+ * the top of the fence (at y = 0) or of the hedge (front face at y = 0.25).
  * Because the pool is flat and level, whether a ray is blocked depends only
  * on how far into the yard it lands, so the visible part of the pool is a
  * strip y ∈ [cut, far edge]. "Out of sight" is when that strip is empty.
@@ -36,8 +36,13 @@ export const SCALE = 10;
 export const Z_SCALE = 1.2;
 
 export const FENCE = { x0: 0, x1: 46, height: 6 } as const;
-/** The hedge stands on the yard side of the fence, 12 in deep. */
-export const HEDGE = { x0: 0.5, x1: 45.5, depth: 1, min: 6, max: 12, default: 8 } as const;
+/**
+ * The hedge is mounted on the yard-side face of the fence, about 3 in deep
+ * (0.25 ft; the released depth for a hedge on a fence or wall is 2 to 3 in).
+ * At that depth the pool is fully hidden from just over 8 ft, so the opening
+ * height is 9 ft.
+ */
+export const HEDGE = { x0: 0.5, x1: 45.5, depth: 0.25, min: 6, max: 12, default: 9 } as const;
 export const NEIGHBOR_HOUSE = { x0: 15, x1: 41, y0: -28, y1: -10, height: 21 } as const;
 export const WINDOW = { x0: 24, x1: 31, z0: 11.5, z1: 16.5 } as const;
 /** The neighbor's eye: centre of the second-story window, on its wall. */

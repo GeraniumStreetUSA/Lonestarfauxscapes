@@ -29,7 +29,7 @@ faq:
 ## Introduction  
 Texas high-rise living comes with a unique set of challenges, especially when it comes to balcony landscaping. Real plants wilt under the scorching sun, require constant watering (a problem during droughts), and most critically, can become fire hazards in a state prone to wildfires. That’s where artificial fire rated hedges step in.  
 
-These aren’t your grandma’s plastic plants. Fire-rated options are built for NFPA 701[1]; ask for the NFPA 701 documentation for the exact system you choose. Some buyers also ask about California Title 19[2]. Good artificial hedges can look much like real boxwood or ivy, and UV-rated options are made for hot Texas summers. For homeowners in Dallas high-rises or Austin condos, it’s a way to get greenery without the risk or maintenance.  
+These aren’t your grandma’s plastic plants. On our hedges, standard foliage is UV-stabilized for outdoor sun, and fire-rated foliage (NFPA 701[1]) is an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. Some buyers also ask about California Title 19[2]. Good artificial hedges can look much like real boxwood or ivy, and UV-rated options are made for hot Texas summers. For homeowners in Dallas high-rises or Austin condos, it’s a way to get greenery without the risk or maintenance.  
 
 The technology behind these products has advanced significantly in recent years. Some manufacturers build fire retardants into the material rather than relying only on surface treatments, which is worth asking about.  
 
@@ -118,7 +118,7 @@ For Texas high-rise homeowners, artificial fire rated hedges check all the boxes
 
 The initial investment in quality fire-rated artificial hedging can pay off through low upkeep. You may save on water bills, landscaping services, and potential fire damage repairs. As more Texas cities adopt stricter fire codes for high-rises, these solutions will likely become standard rather than optional.  
 
-If you're tired of staring at a barren balcony, this might be the only solution that works long-term. Consult with a specialty supplier who understands local code requirements to ensure you get a system that looks great and meets all safety regulations.  
+If you're tired of staring at a barren balcony, this might be the only solution that works long-term. Consult with a specialty supplier who understands local code requirements, and confirm the requirements with your local fire authority (AHJ), which makes the final call.  
 
 ## Related articles
 

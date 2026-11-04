@@ -29,7 +29,7 @@ faq:
 
 When artificial greenery goes into a commercial project (a hotel lobby, a restaurant patio, a multifamily courtyard, an office building), the conversation shifts. It's no longer just about how it looks. It's about what happens in a fire, what the inspector expects to see, and what paperwork you need in the file.
 
-This guide is for property managers, architects, general contractors, and building owners working on commercial projects in Texas. We'll cover what "fire-rated" actually means when it comes to artificial greenery, which standards apply, where fire compliance is most likely to be required, and how to avoid the procurement and installation mistakes that create problems later.
+This guide is for property managers, architects, general contractors, and building owners working on commercial projects in Texas. We'll cover what "fire-rated" actually means when it comes to artificial greenery, which standards apply, where fire compliance is most likely to be required, and how to avoid the procurement and installation mistakes that create problems later. A note on our own products: standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 For project-specific guidance, we've written detailed articles on two common commercial applications: [fire-rated artificial hedges for Texas high-rises](/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas) and [firewise artificial hedges for multifamily properties](/blog/firewise-artificial-hedges-for-multi-family-units).
 
@@ -144,7 +144,7 @@ If artificial greenery is being used to screen one of these areas, treat the pla
 
 ## Product options for commercial projects
 
-Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. Our product lines for commercial projects:
+Fire-rated foliage (NFPA 701) is an upgrade at extra cost over our standard UV-stabilized foliage; ask for the NFPA 701 documentation for the exact system you choose. Our product lines for commercial projects:
 
 - [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge), fire-rated options for fences, screens, and balcony applications
 - [Commercial living wall systems](/commercial-wall), Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces

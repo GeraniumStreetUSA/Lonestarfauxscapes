@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { SystemThumb } from '../components/PlanDrawings';
 import Picture from '../components/Picture';
 import { SYSTEMS_SECTION } from '../data/home-content';
-import { formatStartingPrice, formatStartingPriceCaption } from '../data/starting-prices';
+import { FR_PRICE_NOTE, formatStartingPrice, formatStartingPriceCaption } from '../data/starting-prices';
 import { motionAllowed } from '../lib/motion';
 
 /**
@@ -129,6 +129,15 @@ export default function HomeSystems() {
                         {formatStartingPrice(card.startingPrice)}
                       </p>
                       <p className="t-small mt-1 text-cedar">{formatStartingPriceCaption(card.startingPrice)}</p>
+                      {card.alsoPriced ? (
+                        <>
+                          <p className="mt-3 text-[18px] font-[680] leading-snug tracking-[-0.01em] text-ink [font-stretch:106%]">
+                            {formatStartingPrice(card.alsoPriced)}
+                          </p>
+                          <p className="t-small mt-1 text-cedar">{formatStartingPriceCaption(card.alsoPriced)}</p>
+                        </>
+                      ) : null}
+                      <p className="t-small mt-3 text-cedar">{FR_PRICE_NOTE}</p>
                     </>
                   ) : (
                     <p className="mt-2 text-[18px] font-[680] leading-snug tracking-[-0.01em] text-ink [font-stretch:106%]">

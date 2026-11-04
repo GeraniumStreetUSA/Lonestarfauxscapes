@@ -188,7 +188,7 @@ This is the section most people skip and shouldn't.
 - Method 1 applies to lighter materials (fabrics, films). Method 2 applies to heavier materials like foliage panels
 - Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose, so you can give it to your fire marshal and GC during the permitting process
 
-**What to ask us for:** Fire-rated options are built for NFPA 701; ask Lone Star Faux Scapes for the NFPA 701 documentation for the exact system you choose. See our [fire-rated artificial hedges](/fire-rated-artificial-hedge) page for details.
+**What to ask us for:** Our standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost; if your project needs it, ask Lone Star Faux Scapes for the NFPA 701 documentation for the exact system you choose. See our [fire-rated artificial hedges](/fire-rated-artificial-hedge) page for details.
 
 **Real plants and fire:** Real plants are not inherently fire-safe either. Dried-out plants, accumulated dead material, and dry growing media can be combustible, especially in Texas heat. The difference is that artificial foliage can be manufactured to a documented fire standard, while real plant fire behavior varies by species, moisture content, and season.
 
@@ -208,7 +208,7 @@ In plain language: artificial green walls on your patio or dining room walls are
 If you're a restaurant owner, operator, GC, or designer specifying artificial greenery for a Texas project, here's what to include:
 
 <ul class="rst-checklist">
-  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>NFPA 701 documentation</strong>, commonly requested for commercial dining spaces. Ask for the NFPA 701 documentation for the exact system you choose.</li>
+  <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>NFPA 701 documentation</strong>, commonly requested for commercial dining spaces. Fire-rated foliage is an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose.</li>
   <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>UV-stabilized panels</strong>, required for any exterior or patio-facing installation. Ask for UV rating and warranty terms in writing.</li>
   <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Mixed-species foliage</strong>, single-species uniform panels look obviously artificial. Mixed ferns, grasses, and varied greens read as natural from any distance.</li>
   <li class="rst-reveal"><span class="rst-check-icon">&#10003;</span> <strong>Hidden mounting hardware</strong>, visible brackets and exposed frames undercut the design. Spec concealed attachment systems.</li>

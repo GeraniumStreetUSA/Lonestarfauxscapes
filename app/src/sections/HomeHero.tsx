@@ -5,7 +5,7 @@ import { ForkGlyph } from '../components/PlanDrawings';
 import SightlineScene from '../components/SightlineScene';
 import { HERO } from '../data/home-content';
 import { BUSINESS } from '../data/site';
-import { formatStartingPrice, INSTALLATION_CAVEAT, STARTING_PRICES } from '../data/starting-prices';
+import { HEDGE_TIERS, INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPrice } from '../data/starting-prices';
 
 /**
  * "Out of sight. Still green." The buyer's real problem is someone looking
@@ -16,7 +16,9 @@ import { formatStartingPrice, INSTALLATION_CAVEAT, STARTING_PRICES } from '../da
  * The H1 is one element: the search phrase, then the display line.
  */
 export default function HomeHero() {
-  const hedgePrice = `Hedges ${formatStartingPrice(STARTING_PRICES.hedge)} ${INSTALLATION_CAVEAT}`;
+  // The entry price only, named by its tier; the pricing page and the hedge
+  // page show the freestanding price beside it.
+  const hedgePrice = `Hedges ${formatStartingPrice(STARTING_PRICES.hedge)} ${HEDGE_TIERS.hedge.said} ${INSTALLATION_CAVEAT}`;
 
   return (
     <section aria-labelledby="hero-title" className="hero">

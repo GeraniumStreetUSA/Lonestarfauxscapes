@@ -58,7 +58,7 @@ In tighter parts of town (think older lots near **King William**), people often 
 If you run a restaurant, salon, or office, the “dead plant corner” becomes something people notice. Faux hedges and artificial living walls stay the same through busy seasons. No leaves dropping near entryways. No muddy planters. No emergency replanting before a grand opening.
 
 ### Fire-rated options for commercial and multifamily
-This matters more than most people expect. If you’re putting greenery inside a commercial space, you may need **fire rated living walls** (often tied to building code requirements, insurance requirements, or a general contractor’s spec). If someone sells you a bargain “green wall” with no documentation, you can end up paying twice, once for the wall and again to replace it.
+This matters more than most people expect. If you’re putting greenery inside a commercial space, you may need **fire rated living walls** (often tied to building code requirements, insurance requirements, or a general contractor’s spec). If someone sells you a bargain “green wall” with no documentation, you can end up paying twice, once for the wall and again to replace it. Standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 In practice, a lot of San Antonio property owners are hunting for the sweet spot: a natural look, low maintenance, and code-friendly specs where required. That’s a big part of what to ask any provider about.
 
@@ -104,7 +104,7 @@ South- and west-facing walls get the strongest exposure. In neighborhoods like *
 If the wall faces west and sits above light-colored concrete, plan for more UV exposure than you think. It’s not just the sun overhead; it’s also what bounces back up.
 
 ### Wind and storm season
-San Antonio storms can bring gusts that test attachments, especially on fences and patio structures. Faux hedges used as fence-top privacy need solid mechanical fastening, not flimsy clips.
+San Antonio storms can bring gusts that test attachments, especially on fences and patio structures. Faux hedges used to extend a fence need solid mechanical fastening, not flimsy clips. A fence extension attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom.
 
 ### Dust, pollen, and “why is everything yellow?” season
 Spring pollen is no joke here, and dry stretches kick up dust. Faux greenery is easier than live plants, but it still needs occasional cleaning so it doesn’t start looking dull.

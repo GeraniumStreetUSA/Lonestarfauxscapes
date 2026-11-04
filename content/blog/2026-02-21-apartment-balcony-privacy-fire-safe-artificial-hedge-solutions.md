@@ -50,7 +50,7 @@ The specifics vary by city. Some Texas jurisdictions have explicit rules about b
 
 ### Why fire-rated hedges solve the problem
 
-Fire-rated options are built for [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701); ask for the NFPA 701 documentation for the exact system you choose. They resist ignition and slow flame propagation in the test. They don't eliminate fire risk entirely (no decorative material does), but they can reduce the contribution to a balcony fire compared to untreated materials.
+On our hedges, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage ([NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) is an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. Fire-rated panels resist ignition and slow flame propagation in the test. They don't eliminate fire risk entirely (no decorative material does), but they can reduce the contribution to a balcony fire compared to untreated materials.
 
 For building managers and residents alike, fire-rated products provide:
 - **Code compliance**: documentation the AHJ may accept

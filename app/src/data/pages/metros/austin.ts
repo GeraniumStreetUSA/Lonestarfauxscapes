@@ -24,7 +24,7 @@ export const AUSTIN: MetroData = {
     },
     {
       title: 'Mounting that suits the structure',
-      text: 'Decks, terraces and existing fences each take a different mount. Send a photo of what the panels will go on. Fire-rated options are built for NFPA 701; ask for the documentation for the exact system.',
+      text: 'Decks, terraces and existing fences each take a different mount. Send a photo of what the panels will go on. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the documentation for the exact system.',
     },
   ],
   systems: {

@@ -1,5 +1,7 @@
 import { PROCESS } from '../../home-content.ts';
 import { PROJECTS } from '../../projects.ts';
+import { FR_STATEMENT } from '../../starting-prices.ts';
+import { EXTENSION_ATTACHMENT, VINYL_CAVEAT } from '../systems/claims-copy.ts';
 import type { HubData } from './types.ts';
 
 const austin = PROJECTS.find((p) => p.city === 'Austin');
@@ -28,7 +30,7 @@ export const RESIDENTIAL_HUB: HubData = {
         },
         {
           title: 'More fence height',
-          text: 'A fence extension adds height above the fence you already have. Panels are built to your measurements, corners and returns included.',
+          text: 'A fence extension adds height to the fence you already have, fixed to its face. Panels are built to your measurements, corners and returns included.',
           links: [{ label: 'Fence extensions', href: '/fence-extensions' }],
         },
         {
@@ -72,11 +74,11 @@ export const RESIDENTIAL_HUB: HubData = {
       kind: 'prose',
       id: 'fire',
       callout: '◦ FIRE',
-      title: 'Fire-safe options for homes and HOAs.',
+      title: 'Fire-rated options for homes and HOAs.',
       tone: 'limestone',
       paragraphs: [
         'Most homes do not need fire-rated foliage. Attached homes, shared walls and some HOAs ask for it.',
-        'Fire-rated hedge options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system you choose.',
+        FR_STATEMENT,
       ],
       links: [{ label: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge' }],
     },
@@ -101,8 +103,7 @@ export const RESIDENTIAL_HUB: HubData = {
         },
         {
           question: 'Can you add height to my fence?',
-          answer:
-            'Yes. A fence extension puts hedge panels on a frame above the fence you have, built to your measurements. The site review confirms what your fence can carry.',
+          answer: `Yes. ${EXTENSION_ATTACHMENT} ${VINYL_CAVEAT} The site review confirms what your fence or wall can carry.`,
         },
         {
           question: 'Does a hedge need watering or trimming?',
@@ -110,13 +111,12 @@ export const RESIDENTIAL_HUB: HubData = {
         },
         {
           question: 'Is a residential hedge fire-rated?',
-          answer:
-            'Fire-rated options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system you choose. Most homes do not need it, but attached homes and some HOAs do.',
+          answer: `Not as standard. ${FR_STATEMENT} Most homes do not need it, but attached homes and some HOAs do.`,
         },
         {
           question: 'Which system fits my yard?',
           answer:
-            'A hedge screen covers a fence line or a patio edge. A fence extension adds height above the fence you have. A living wall covers a blank wall, and a privacy wall stands on its own base. Send your numbers and a photo, and we suggest one in the assessment.',
+            'A hedge screen covers a fence line or a patio edge. A fence extension adds height to the fence you have. A living wall covers a blank wall, and a privacy wall stands on its own base. Send your numbers and a photo, and we suggest one in the assessment.',
         },
         {
           question: 'How long does installation take?',

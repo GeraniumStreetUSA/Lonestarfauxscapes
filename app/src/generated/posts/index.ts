@@ -490,7 +490,7 @@ export const POSTS: readonly BlogPostSummary[] = [
       ]
     },
     "summary": "A practical guide to using artificial hedges for pool privacy in Texas, code requirements, material considerations for chlorine and UV, installation approaches, and what works around pool equipment.",
-    "readingMinutes": 7,
+    "readingMinutes": 8,
     "featuredScore": 10,
     "city": ""
   },
@@ -599,7 +599,7 @@ export const POSTS: readonly BlogPostSummary[] = [
       ]
     },
     "summary": "Houston artificial living walls and faux hedges that stay green in heat and humidity. Options, safety notes, and a quote from Lone Star Faux Scapes.",
-    "readingMinutes": 9,
+    "readingMinutes": 10,
     "featuredScore": 10,
     "city": "Houston"
   },
@@ -815,7 +815,7 @@ export const POSTS: readonly BlogPostSummary[] = [
       ]
     },
     "summary": "Discover how artificial fire rated hedges solve balcony landscaping challenges in Texas high-rises while meeting strict safety codes.",
-    "readingMinutes": 5,
+    "readingMinutes": 6,
     "featuredScore": 0,
     "city": ""
   },

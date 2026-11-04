@@ -8,12 +8,12 @@ const filled = {
   name: ' Pat Rivera ',
   email: 'pat@example.com',
   location: 'Austin',
-  system: 'Artificial hedge',
+  system: 'Hedge on your fence or wall',
   projectType: 'Residential',
 };
 
 test('service is the chip label, a slash, and the project type', () => {
-  assert.equal(serviceLine('Artificial hedge', 'Residential'), 'Artificial hedge / Residential');
+  assert.equal(serviceLine('Freestanding hedge', 'Residential'), 'Freestanding hedge / Residential');
   assert.equal(serviceLine('Not sure yet', 'Commercial'), 'Not sure yet / Commercial');
 });
 
@@ -30,7 +30,7 @@ test('the payload has exactly the fields the Pages Function reads', () => {
     'website',
   ]);
   assert.equal(payload.name, 'Pat Rivera');
-  assert.equal(payload.service, 'Artificial hedge / Residential');
+  assert.equal(payload.service, 'Hedge on your fence or wall / Residential');
   assert.equal(payload.turnstileToken, 'token-1');
 });
 
@@ -52,5 +52,8 @@ test('validation: name, email, city or ZIP, system and project type are required
   assert.equal(quoteSchema.safeParse(filled).success, true);
   assert.equal(quoteSchema.safeParse({ ...filled, email: 'not-an-email' }).success, false);
   assert.equal(quoteSchema.safeParse({ ...filled, system: 'Privacy wall' }).success, true);
+  // Both hedge kinds are chips the form accepts.
+  assert.equal(quoteSchema.safeParse({ ...filled, system: 'Hedge on your fence or wall' }).success, true);
+  assert.equal(quoteSchema.safeParse({ ...filled, system: 'Freestanding hedge' }).success, true);
   assert.equal(quoteSchema.safeParse({ ...filled, system: 'Something else' }).success, false);
 });

@@ -1,4 +1,4 @@
-/* Utility pages: contact, pricing, the sitemap, the 404 and the two hedge
+/* Utility pages: contact, the sitemap, the 404 and the two hedge
    builders. Plain CSS, loaded after page-kit.css; every class starts with
    `ut-p-`. Phones first (390 px), then widened. */
 
@@ -96,58 +96,6 @@
   .ut-p-reach-value {
     font-size: 1.5rem;
   }
-}
-
-/* -------------------------------------------------------------- pricing */
-
-.ut-p-prices {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 2px solid var(--ink);
-}
-
-.ut-p-price {
-  display: grid;
-  gap: 10px 32px;
-  padding: 18px 0 20px;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* The system name is a link: the padding grows its tap target to 44 px. */
-.ut-p-price-name h3 a {
-  display: inline-block;
-  margin-block: -10px;
-  padding-block: 10px;
-  text-decoration: underline;
-  text-decoration-color: rgb(46 90 44 / 0.5);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.ut-p-price-name h3 a:hover {
-  color: var(--boxwood);
-  text-decoration-color: currentColor;
-}
-
-.ut-p-price-name p {
-  margin-top: 6px;
-}
-
-.ut-p-price .pk-price-caption {
-  margin-top: 0;
-}
-
-@media (min-width: 768px) {
-  .ut-p-price {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.8fr) minmax(0, 1.1fr);
-    align-items: center;
-    padding: 26px 0 28px;
-  }
-}
-
-.ut-p-more {
-  margin-top: 24px;
 }
 
 /* -------------------------------------------------------------- sitemap */

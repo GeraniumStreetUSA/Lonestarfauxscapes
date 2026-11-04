@@ -71,7 +71,7 @@ export const HOA_APPROVED_ARTIFICIAL_HEDGE: SystemPageData = {
       title: 'What a hedge answers, and what it does not.',
       paragraphs: ['A hedge answers several common objections to live landscaping. Whether it answers yours is the board\'s call.'],
       list: [
-        'Brown patches: the foliage does not die back. It does need the right UV rating for the sun it gets.',
+        'Brown patches: the foliage does not die back. Standard foliage is UV-stabilized for the sun it gets.',
         'Overgrowth: panels do not grow past the line or over a neighbor\'s fence.',
         'Water: no irrigation, so no overspray or runoff.',
         'Uniform look: color and density are the same along the whole run.',
@@ -98,7 +98,7 @@ export const HOA_APPROVED_ARTIFICIAL_HEDGE: SystemPageData = {
       {
         question: 'How tall can the hedge be?',
         answer:
-          "Your HOA's rules and your city set the limit. Tell us the limit and we plan to it. Our priced size is 6 ft tall, and other heights go in your rough quote.",
+          "Your HOA's rules and your city set the limit. Tell us the limit and we plan to it. A hedge on your fence or wall is priced per linear foot, and a taller run may be priced to your site; a freestanding hedge is priced at 6 ft. Other heights go in your rough quote.",
       },
       {
         question: 'How long does approval take?',

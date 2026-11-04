@@ -87,7 +87,7 @@ When you start specifying artificial greenery for a commercial project (a hotel 
 
 The two standards you'll encounter most often are **NFPA 701** and **ASTM E84**. They sound similar (both involve fire and testing), but they measure different things, use different test methods, and apply in different situations. Mixing them up or specifying the wrong one can create problems during inspection.
 
-This article explains what each standard actually tests, how they differ, and when each one applies to artificial greenery projects.
+This article explains what each standard actually tests, how they differ, and when each one applies to artificial greenery projects. For Lone Star Faux Scapes products, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 ## NFPA 701: flame propagation of textiles and films
 

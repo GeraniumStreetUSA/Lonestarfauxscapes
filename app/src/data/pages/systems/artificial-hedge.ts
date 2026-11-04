@@ -6,7 +6,8 @@
  * ranges, lifespan and "turnkey".
  */
 
-import { INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
+import { FR_STATEMENT, HEDGE_TIERS } from '../../starting-prices.ts';
+import { FIRE_FAQ_ANSWER, HEDGE_MOUNT_ANSWER, HEDGE_PRICE_ANSWER, UV_FAQ_ANSWER } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -22,10 +23,11 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       alt: 'Tall artificial boxwood privacy wall behind live oaks in an Austin backyard',
     },
     facts: [
-      { label: 'Height', value: '6 ft priced size' },
+      // Short forms: the tier comparison right below gives each build in full.
+      { label: HEDGE_TIERS.hedge.label, value: '2 to 3 in deep' },
+      { label: HEDGE_TIERS['hedge-freestanding'].label, value: '6 ft × 7 in, on posts' },
       { label: 'Panels', value: '20 in wide' },
-      { label: 'Mount', value: 'Fence, frame or wall' },
-      { label: 'Fire', value: 'NFPA 701 options' },
+      { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
     ],
   },
   blocks: [
@@ -49,8 +51,8 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
           text: 'Panels are cut to your lengths and heights, with corners and returns planned in, so the line reads as one hedge.',
         },
         {
-          title: 'Fire-rated and UV-rated options',
-          text: 'Fire-rated options are built for NFPA 701. UV-rated options are made for outdoor sun. Match each to the site.',
+          title: 'UV-stabilized, with fire-rated as an upgrade',
+          text: FR_STATEMENT,
         },
       ],
     },
@@ -58,14 +60,14 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       kind: 'estimator',
       system: 'hedge',
       title: 'How long is the hedge run?',
-      body: 'Set the run. We count 20 in panels and do the arithmetic on our published hedge starting price. Installation is quoted after a site review.',
+      body: 'Pick a hedge on your fence or wall, or a freestanding hedge, and set the run. We count 20 in panels and do the arithmetic on our published hedge starting prices. Installation is quoted after a site review.',
     },
     {
       kind: 'options',
       id: 'materials',
       callout: '◦ MATERIALS',
       title: 'Material options for artificial hedges.',
-      intro: 'Four families. UV-rated and fire-rated options exist; ask which apply to the one you like.',
+      intro: 'Four families. Standard foliage is UV-stabilized. Fire-rated foliage is an upgrade at extra cost: tell us the one you like and we will say plainly whether it comes fire-rated.',
       items: [
         {
           title: 'Boxwood',
@@ -99,7 +101,7 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       driversTitle: 'What to send',
       drivers: [
         'Run length: the line you want green, corners and returns included.',
-        'Height: from the ground or the fence top to the height you want.',
+        'Height: from the ground to the height you want. A hedge on your fence or wall is priced per linear foot; a taller run may be priced to your site.',
         'Mounting surface: fence, block wall, metal posts or building facade.',
         'Photos: wide shots of the run and close ones of the mounting surface.',
       ],
@@ -120,18 +122,15 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       },
       {
         question: 'Can it mount on my existing fence?',
-        answer:
-          'Often, yes. Panels can mount to many fences or to a freestanding frame. The site review confirms what your fence can carry.',
+        answer: HEDGE_MOUNT_ANSWER,
       },
       {
         question: 'Will Texas sun wear it out?',
-        answer:
-          "UV-rated hedge options are made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to the exposure of your run.",
+        answer: UV_FAQ_ANSWER,
       },
       {
         question: 'Is it fire-rated?',
-        answer:
-          'Fire-rated hedge options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
+        answer: FIRE_FAQ_ANSWER,
       },
       {
         question: 'Will my HOA approve it?',
@@ -140,7 +139,7 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       },
       {
         question: 'How is the price set?',
-        answer: `Hedge panels start ${formatStartingPriceProse(STARTING_PRICES.hedge)} (${STARTING_PRICES.hedge.configuration}) ${INSTALLATION_CAVEAT}. You get a rough quote by email first; the site review sets the final invoice.`,
+        answer: HEDGE_PRICE_ANSWER,
       },
     ],
   },

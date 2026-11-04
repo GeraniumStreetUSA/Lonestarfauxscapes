@@ -110,7 +110,7 @@ This works well on:
 
 ### Fence toppers for added height
 
-Adding a hedge topper to extend fence height is also manageable for DIY. The panels attach to the top rail or posts of the existing fence. The main challenge is working at height, you'll need a stable ladder and ideally a second person to hold panels in place while you fasten them.
+Adding height usually takes a project out of DIY territory. A fence extension (often called a topper) attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom. A site review confirms the fence can carry it and how it is fastened. Extending a vinyl fence is much harder and generally not recommended.
 
 Check your city's fence height ordinance and HOA rules before adding height. See our [HOA approval guide](/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas) for the process.
 
@@ -134,7 +134,7 @@ A freestanding hedge wall (one that's not attached to an existing fence) needs a
 
 ### Commercial and multifamily projects
 
-Commercial installations add layers: fire-rated product requirements, coordination with building management, work-hour restrictions, larger crews, and documentation. For commercial projects, see our [fire-rated greenery guide](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
+Commercial installations add layers: fire-rated product requirements, coordination with building management, work-hour restrictions, larger crews, and documentation. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request. For commercial projects, see our [fire-rated greenery guide](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
 
 ### Damaged or unstable mounting surfaces
 
@@ -192,7 +192,7 @@ When you hire a professional, the scope typically includes:
 - **Structural work** (if needed), building frames, setting posts, repairing fences
 - **Panel installation**: attachment, alignment, trimming, and finishing
 - **Cleanup**: removing packaging, fastener debris, and trimmed material
-- **Documentation**: for commercial projects, providing spec sheets, NFPA 701 documentation, and installation records
+- **Documentation**: for commercial projects, providing spec sheets, NFPA 701 documentation when fire-rated foliage is specified, and installation records
 
 Ask any installer what workmanship coverage they offer and get it in writing (separate from the product manufacturer's warranty on the panels).
 

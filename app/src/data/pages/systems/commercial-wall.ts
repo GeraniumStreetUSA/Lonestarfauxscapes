@@ -8,6 +8,8 @@
  * signage fabrication, acoustic infill, "Instagram-worthy".
  */
 
+import { FR_STATEMENT } from '../../starting-prices.ts';
+import { FIRE_FAQ_ANSWER } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -16,7 +18,7 @@ export const COMMERCIAL_WALL: SystemPageData = {
   hero: {
     callout: '◦ SYSTEM / COMMERCIAL WALL',
     title: 'Commercial Artificial Hedge Wall Covering in Texas',
-    lede: 'Hedge panels over a facade, a barrier or a patio edge, for restaurants, retail, hotels and multifamily. Fire-rated and UV-rated options exist.',
+    lede: 'Hedge panels over a facade, a barrier or a patio edge, for restaurants, retail, hotels and multifamily. Standard foliage is UV-stabilized; fire-rated foliage is an upgrade at extra cost.',
     price: 'quoted',
     image: {
       name: 'system-commercial',
@@ -25,8 +27,8 @@ export const COMMERCIAL_WALL: SystemPageData = {
     facts: [
       { label: 'Module', value: 'Per system spec' },
       { label: 'Mount', value: 'Wall or frame' },
-      { label: 'Foliage', value: 'UV-rated options' },
-      { label: 'Fire', value: 'NFPA 701 options' },
+      { label: 'Foliage', value: 'UV-stabilized' },
+      { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
     ],
   },
   blocks: [
@@ -51,7 +53,7 @@ export const COMMERCIAL_WALL: SystemPageData = {
         },
         {
           title: 'Fire documentation to ask for',
-          text: 'Fire-rated options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system, then confirm the requirement with your fire marshal.',
+          text: `${FR_STATEMENT} Then confirm the requirement with your fire marshal.`,
         },
       ],
     },
@@ -79,7 +81,7 @@ export const COMMERCIAL_WALL: SystemPageData = {
       drivers: [
         'Wall or run size, with a few photos.',
         'City, and what the building is: restaurant, hotel, multifamily, retail or office.',
-        'Whether the wall needs a fire-rated option.',
+        'Whether the wall needs fire-rated foliage (an upgrade at extra cost).',
         'Who signs off: owner, property manager or fire marshal.',
       ],
     },
@@ -95,13 +97,12 @@ export const COMMERCIAL_WALL: SystemPageData = {
     items: [
       {
         question: 'Is it fire-rated?',
-        answer:
-          'Fire-rated options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose, before you order.',
+        answer: FIRE_FAQ_ANSWER,
       },
       {
         question: 'Does it handle Texas sun?',
         answer:
-          'UV-rated options are made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to the wall exposure.',
+          'Standard foliage is UV-stabilized for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to the wall exposure.',
       },
       {
         question: 'How is it mounted?',

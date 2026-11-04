@@ -41,7 +41,7 @@ function bandCopy(post: BlogPost): { title: string; text: string } {
   if (post.topic === 'commercial-planning' || post.audience === 'commercial' || /fire|nfpa/.test(post.slug)) {
     return {
       title: 'Specifying greenery for a commercial space?',
-      text: 'Tell us the space and the documentation you need. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system.',
+      text: 'Tell us the space and the documentation you need. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the NFPA 701 documentation for the exact system.',
     };
   }
   if (post.topic === 'living-walls') {

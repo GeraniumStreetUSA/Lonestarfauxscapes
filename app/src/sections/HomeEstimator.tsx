@@ -232,13 +232,16 @@ export default function HomeEstimator({
                     <span className="font-normal text-cedar">({ESTIMATOR.heightFixedNote})</span>
                   </p>
                 ) : (
-                  <Measure
-                    id={`${uid}-height`}
-                    label={ESTIMATOR.heightLabel}
-                    range={system.height}
-                    value={heightFt}
-                    onCommit={(v) => setHeightFt(clampHeight(system, v))}
-                  />
+                  <div>
+                    <Measure
+                      id={`${uid}-height`}
+                      label={ESTIMATOR.heightLabel}
+                      range={system.height}
+                      value={heightFt}
+                      onCommit={(v) => setHeightFt(clampHeight(system, v))}
+                    />
+                    {system.heightNote ? <p className="t-small mt-3 max-w-[46ch] text-cedar">{system.heightNote}</p> : null}
+                  </div>
                 )}
                 <div>
                   <label htmlFor={`${uid}-location`} className="field-label">
@@ -262,7 +265,13 @@ export default function HomeEstimator({
             <div className="estimator-plan relative">
               {/* The spine arrives from the hero and ends on the corner where the run starts. */}
               <span className="spine estimator-spine hidden lg:block" aria-hidden="true" />
-              <YardPlan runFt={estimate.runFt} count={estimate.across} units={isPerUnit(system)} moduleNote={system.note} />
+              <YardPlan
+                runFt={estimate.runFt}
+                count={estimate.across}
+                units={isPerUnit(system)}
+                moduleNote={system.note}
+                depthIn={system.depthIn}
+              />
             </div>
 
             <div className="estimator-readout">
@@ -280,6 +289,7 @@ export default function HomeEstimator({
                 ) : null}
               </div>
               <p className="t-small mt-2 max-w-[52ch] text-cedar">{price.caption}</p>
+              <p className="t-small mt-2 max-w-[52ch] text-cedar">{price.frNote}</p>
 
               <div aria-live="polite" aria-atomic="true" className="mt-7">
                 <div className="grid grid-cols-2 border-y border-rule">

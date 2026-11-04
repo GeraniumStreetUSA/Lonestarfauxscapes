@@ -17,6 +17,7 @@ import {
   VIEW_W,
   buildRun,
   buildUnitBlocks,
+  depthToPlan,
   pointAt,
   pointsToPath,
   runLabelAnchor,
@@ -36,6 +37,8 @@ interface YardPlanProps {
   units?: boolean;
   /** The system's module note, drawn in the start corner ("20 in panels"). */
   moduleNote: string;
+  /** True depth of a hedge in inches (3 on a fence line, 7 freestanding); null draws the default depth. */
+  depthIn?: number | null;
 }
 
 /** Eight short limbs from the trunk: the plan symbol for a canopy tree. */
@@ -138,8 +141,9 @@ const StaticYard = memo(function StaticYard() {
  * to right inside 300 ms while the run-length callout counts to the new
  * value. Reduced motion and `?qa=1` get the finished drawing instantly.
  */
-export default function YardPlan({ runFt, count, units = false, moduleNote }: YardPlanProps) {
-  const run = useMemo(() => buildRun(runFt, count), [runFt, count]);
+export default function YardPlan({ runFt, count, units = false, moduleNote, depthIn = null }: YardPlanProps) {
+  const depth = depthIn === null ? TICK_LENGTH : depthToPlan(depthIn);
+  const run = useMemo(() => buildRun(runFt, count, depth), [runFt, count, depth]);
   const blocks = useMemo(() => (units ? buildUnitBlocks(run, count) : null), [units, run, count]);
 
   const pathRef = useRef<SVGPathElement>(null);
@@ -291,7 +295,7 @@ export default function YardPlan({ runFt, count, units = false, moduleNote }: Ya
               d={pointsToPath(points)}
               fill="none"
               strokeOpacity={0.5}
-              strokeWidth={TICK_LENGTH}
+              strokeWidth={depth}
               strokeLinejoin="miter"
             />
           ))
@@ -321,7 +325,7 @@ export default function YardPlan({ runFt, count, units = false, moduleNote }: Ya
             fill="none"
             stroke={BOXWOOD}
             strokeOpacity={0.13}
-            strokeWidth={9}
+            strokeWidth={depth}
             strokeLinejoin="miter"
             strokeLinecap="butt"
           />

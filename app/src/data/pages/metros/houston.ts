@@ -24,7 +24,7 @@ export const HOUSTON: MetroData = {
     },
     {
       title: 'Greenery that does not need soil or water',
-      text: 'Pool decks, terraces and shared lounges in places like River Oaks and the Heights want screening that stays full in wet, humid weather. UV-rated options exist for outdoor sun; rinse off dust and pollen now and then.',
+      text: 'Pool decks, terraces and shared lounges in places like River Oaks and the Heights want screening that stays full in wet, humid weather. Standard foliage is UV-stabilized for outdoor sun; rinse off dust and pollen now and then.',
     },
   ],
   systems: {
@@ -65,7 +65,7 @@ export const HOUSTON: MetroData = {
     {
       question: 'How do the hedges handle Houston humidity?',
       answer:
-        'There is no soil, irrigation or live growth to manage in wet weather. UV-rated options exist for outdoor sun, so ask which product suits direct sun and which a covered area. Rinse off dust and pollen now and then.',
+        'There is no soil, irrigation or live growth to manage in wet weather. Standard foliage is UV-stabilized for outdoor sun, so ask which product suits direct sun and which a covered area. Rinse off dust and pollen now and then.',
     },
     { question: 'Are the hedges fire-rated?', answer: FIRE_ANSWER },
     {

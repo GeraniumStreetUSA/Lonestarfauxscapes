@@ -1,3 +1,4 @@
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import type { HubData } from './types.ts';
 
 /** /products: the five systems with their released prices, then the job-specific pages. */
@@ -23,11 +24,11 @@ export const PRODUCTS_HUB: HubData = {
       columns: 2,
       items: [
         { title: 'Artificial boxwood hedge', href: '/artificial-boxwood-hedge', text: 'Boxwood panels for patios, events and permanent installs.' },
-        { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'Built for NFPA 701. Ask for the documentation.' },
+        { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'The fire-rated upgrade, built for NFPA 701. Extra cost.' },
         { title: 'HOA-friendly hedges', href: '/hoa-approved-artificial-hedge', text: 'The specs and photos your HOA request needs.' },
         { title: 'Pool privacy hedge', href: '/pool-privacy-hedge', text: 'Screening beside the pool, with no watering.' },
         { title: 'Pool living wall', href: '/pool-living-wall', text: 'Greenery for a pool-area wall.' },
-        { title: 'Vallum FRX', href: '/vallum-frx', text: 'A fire-rated living wall system built for NFPA 701.' },
+        { title: 'Vallum FRX', href: '/vallum-frx', text: 'The fire-rated living wall system, an upgrade at extra cost.' },
       ],
     },
     {
@@ -36,8 +37,8 @@ export const PRODUCTS_HUB: HubData = {
       callout: '◦ PERMITTING AND FIRE',
       title: 'Fire-rated options and documentation.',
       paragraphs: [
-        'Fire-rated hedge and living wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose, before you order.',
-        'UV-rated options are made for outdoor sun. Match the rating to how much sun the wall gets.',
+        `${FR_STATEMENT} NFPA 701 is the flame test fire marshals ask for on decorative greenery. Ask for the documentation for the exact system you choose, before you order.`,
+        'Match the foliage to how much sun the wall gets: indoor-grade foliage can fade faster outside.',
       ],
       links: [
         { label: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge' },

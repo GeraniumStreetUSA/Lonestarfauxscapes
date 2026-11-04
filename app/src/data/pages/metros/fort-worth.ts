@@ -23,7 +23,7 @@ export const FORT_WORTH: MetroData = {
     },
     {
       title: 'Hospitality frontage',
-      text: 'Hotels, breweries and venues in areas like the Stockyards often need greenery on a facade or patio edge. Fire-rated options are built for NFPA 701; ask for the documentation for the exact system.',
+      text: 'Hotels, breweries and venues in areas like the Stockyards often need greenery on a facade or patio edge. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the documentation for the exact system.',
     },
   ],
   systems: {

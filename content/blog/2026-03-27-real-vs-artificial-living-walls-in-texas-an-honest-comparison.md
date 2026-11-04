@@ -235,7 +235,7 @@ Over several years, the math often isn't close. Real walls cost more over time b
       <tr>
         <td>Fire rating options</td>
         <td>Limited by plant species</td>
-        <td class="rva-win">Fire-rated options built for NFPA 701</td>
+        <td class="rva-win">Fire-rated upgrade (NFPA 701) at extra cost</td>
       </tr>
       <tr>
         <td>HOA approval</td>
@@ -272,7 +272,7 @@ We'll be straight about this. Real living walls have advantages that artificial 
 
 **Consistency in Texas heat.** UV-stabilized artificial foliage is made to hold its appearance in full sun; ask for UV and warranty terms in writing. Real plants in exterior Texas installations face 100+ degree surface temperatures, high evapotranspiration rates (documented by Texas A&M's TexasET Network), and water restrictions tracked by TCEQ. Without flawless maintenance, real walls struggle in Texas summers.
 
-**Fire rating.** Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. Real plants have variable fire behavior based on species, moisture content, and season. For commercial, hospitality, and multifamily applications where fire documentation is required, artificial has a clear advantage.
+**Fire rating.** Fire-rated foliage (NFPA 701) is available as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. Real plants have variable fire behavior based on species, moisture content, and season. For commercial, hospitality, and multifamily applications where fire documentation is required, artificial has a clear advantage.
 
 **Zero water.** In a state where the TWDB documents that 31% of residential water use goes to outdoor purposes, adding a living wall that consumes 5 to 12 gallons per square foot per year is a meaningful additional draw. Artificial uses none.
 

@@ -1,5 +1,6 @@
 import { BUSINESS } from '../../site.ts';
 import { PROCESS } from '../../home-content.ts';
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import type { HubData } from './types.ts';
 
 /** /commercial-resources: the buyer-type guidance, without the internal notes. */
@@ -75,7 +76,7 @@ export const COMMERCIAL_RESOURCES_HUB: HubData = {
       items: [
         {
           title: 'Fire-rated options',
-          text: 'Fire-rated hedge and living wall options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system you choose.',
+          text: FR_STATEMENT,
           links: [
             { label: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge' },
             { label: 'Vallum FRX', href: '/vallum-frx' },

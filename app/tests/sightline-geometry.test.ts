@@ -21,9 +21,13 @@ test('the 6 ft fence alone leaves the pool in view', () => {
   assert.ok(visibleFrom(0) > POOL.y0 && visibleFrom(0) < POOL.y1);
 });
 
-test('the threshold sits between 7 and 8 ft, so the default 8 ft hedge hides the pool', () => {
+test('the hedge is mounted on the fence face, about 3 in deep', () => {
+  assert.equal(HEDGE.depth, 0.25);
+});
+
+test('the threshold sits between 8 and 9 ft, so the default 9 ft hedge hides the pool', () => {
   const t = outOfSightThreshold();
-  assert.ok(t > 7 && t < 8, `threshold ${t}`);
+  assert.ok(t > 8 && t < 9, `threshold ${t}`);
   assert.equal(isOutOfSight(t - 0.05), false);
   assert.equal(isOutOfSight(t + 0.05), true);
   assert.equal(isOutOfSight(HEDGE.default), true);

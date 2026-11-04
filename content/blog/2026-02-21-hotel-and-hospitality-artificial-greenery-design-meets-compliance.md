@@ -26,7 +26,7 @@ Hotels are one of the most demanding environments for any decorative material. T
 
 Artificial greenery (living walls, hedge panels, and accent installations) has become a standard element in Texas hospitality design. The visual appeal is obvious: it creates lush, photogenic spaces without the irrigation, pest control, and plant replacement costs that live greenery demands. But in a hotel, the design conversation can't be separated from the compliance conversation.
 
-This article covers both: where artificial greenery creates the most value in hotel environments, and how to keep it compliant with fire codes.
+This article covers both: where artificial greenery creates the most value in hotel environments, and how to keep it compliant with fire codes. On our products, standard foliage is UV-stabilized for outdoor sun, and fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 ## Where hotels use artificial greenery
 
@@ -85,11 +85,11 @@ Hotels contain multiple occupancy types within a single building, and each area 
 
 For hotel projects, the safest approach is to specify fire-rated products throughout:
 
-- **NFPA 701** documentation for decorative applications (living walls, hedge panels, accent greenery); fire-rated options are built for NFPA 701, so ask for the NFPA 701 documentation for the exact system you choose
+- **NFPA 701** documentation for decorative applications (living walls, hedge panels, accent greenery); on our products that means the fire-rated foliage upgrade, so ask for the NFPA 701 documentation for the exact system you choose
 - Documentation that names the specific product, not a generic sample
 - Test reports from accredited laboratories
 
-This approach eliminates the variability of local enforcement. Whether the AHJ is strict or lenient, you have documentation that covers you.
+This approach reduces the variability of local enforcement. Whether the AHJ is strict or lenient, you have the documentation ready to submit, and the AHJ still makes the final call.
 
 For the technical details on fire standards, see our [NFPA 701 vs ASTM E84 guide](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader compliance guidance, see our [fire-rated greenery guide for commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
 

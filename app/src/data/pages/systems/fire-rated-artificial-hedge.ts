@@ -5,10 +5,14 @@
  * pass criteria list, "Method 2 certified", certificates with every
  * installation, MSDS and inspector support, "required in most Texas
  * occupancies", "worked with fire marshals across Texas", "cost difference is
- * minimal". No other test standard is claimed for our products.
+ * minimal". No other test standard is claimed for our products. Fire-rated
+ * foliage is an upgrade at extra cost on every product (owner, 2026-11-04):
+ * this page describes the upgrade and when a project needs it, and names no
+ * figure for it.
  */
 
 import { FIRE_CHAPTER } from '../../home-content.ts';
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -17,14 +21,14 @@ export const FIRE_RATED_ARTIFICIAL_HEDGE: SystemPageData = {
   hero: {
     callout: '◦ FIRE / NFPA 701',
     title: 'Fire-Rated Artificial Hedges Built for NFPA 701',
-    lede: 'Hotels, restaurants and multifamily projects often need greenery with a documented fire rating. Our fire-rated hedge options are built for NFPA 701.',
+    lede: 'Hotels, restaurants and multifamily projects often need greenery with a documented fire rating. The fire-rated hedge option is built for NFPA 701. It is an upgrade at extra cost.',
     price: 'hedge',
     image: {
       name: 'commercial-houston-patio',
       alt: FIRE_CHAPTER.photoAlt,
     },
     facts: [
-      { label: 'Standard', value: 'NFPA 701' },
+      { label: 'Fire-rated', value: 'Upgrade, extra cost' },
       { label: 'Applies to', value: 'Hedges, walls' },
       { label: 'Ask for', value: 'Documentation' },
       { label: 'Decides', value: 'Your fire marshal' },
@@ -57,6 +61,10 @@ export const FIRE_RATED_ARTIFICIAL_HEDGE: SystemPageData = {
   faq: {
     items: [
       {
+        question: 'Is fire-rated foliage standard?',
+        answer: `No. ${FR_STATEMENT} No price is published for it, so it is quoted in your rough quote.`,
+      },
+      {
         question: 'What is NFPA 701?',
         answer: FIRE_CHAPTER.points[0].text,
       },
@@ -73,12 +81,12 @@ export const FIRE_RATED_ARTIFICIAL_HEDGE: SystemPageData = {
       {
         question: 'Can a home use fire-rated hedges?',
         answer:
-          'You can ask for a fire-rated option on any project. It is mostly a commercial requirement, so tell us what your project needs when you ask for the quote, and the rough quote will be for the right material.',
+          'You can ask for the fire-rated upgrade on any project. It is mostly a commercial requirement, so tell us what your project needs when you ask for the quote, and the rough quote will be for the right material.',
       },
       {
         question: 'Do fire-rated living walls exist?',
         answer:
-          'Yes. Fire-rated living wall options are built for NFPA 701 too. Vallum FRX is our fire-rated living wall system.',
+          'Yes. Fire-rated living wall options are built for NFPA 701 too, as an upgrade at extra cost. Vallum FRX is our fire-rated living wall system.',
       },
     ],
   },

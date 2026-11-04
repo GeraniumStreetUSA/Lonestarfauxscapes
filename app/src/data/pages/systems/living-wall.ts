@@ -8,6 +8,7 @@
  */
 
 import { INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -26,7 +27,7 @@ export const LIVING_WALL: SystemPageData = {
       { label: 'Panels', value: '40 in wide' },
       { label: 'Height', value: 'You set it' },
       { label: 'Mount', value: 'Wall or frame' },
-      { label: 'Fire', value: 'NFPA 701 options' },
+      { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
     ],
   },
   blocks: [
@@ -46,8 +47,8 @@ export const LIVING_WALL: SystemPageData = {
           text: 'Lobbies, amenity spaces, restaurants, courtyards and covered patios, with or without good light.',
         },
         {
-          title: 'Fire-rated and UV-rated options',
-          text: 'Fire-rated living wall options are built for NFPA 701. UV-rated options are made for outdoor sun.',
+          title: 'UV-stabilized, with fire-rated as an upgrade',
+          text: FR_STATEMENT,
         },
         {
           title: 'Built to your wall',
@@ -74,7 +75,7 @@ export const LIVING_WALL: SystemPageData = {
         },
         {
           title: 'Vallum FRX',
-          text: 'A fire-rated living wall system, built for NFPA 701.',
+          text: 'The fire-rated living wall system, an upgrade at extra cost.',
           href: '/vallum-frx',
         },
         {
@@ -104,7 +105,7 @@ export const LIVING_WALL: SystemPageData = {
         },
         {
           title: 'Light',
-          text: 'Plants need the right light to stay alive. Artificial foliage stays green in any light, but outdoors it should be UV-rated.',
+          text: 'Plants need the right light to stay alive. Artificial foliage stays green in any light, but outdoors it should be UV-stabilized.',
         },
       ],
     },
@@ -133,12 +134,11 @@ export const LIVING_WALL: SystemPageData = {
       {
         question: 'Can it go outside?',
         answer:
-          "UV-rated living wall options are made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Tell us where the wall goes and how much sun it sees.",
+          "Standard foliage is UV-stabilized for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Tell us where the wall goes and how much sun it sees.",
       },
       {
         question: 'Is there a fire-rated living wall?',
-        answer:
-          'Fire-rated living wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
+        answer: `Yes, as an upgrade at extra cost; standard foliage is not fire-rated. Fire-rated living wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose, and your local fire authority (the AHJ) makes the final call.`,
       },
       {
         question: 'What does it mount to?',

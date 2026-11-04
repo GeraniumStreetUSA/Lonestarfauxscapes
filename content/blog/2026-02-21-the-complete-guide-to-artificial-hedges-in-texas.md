@@ -43,7 +43,7 @@ The most important feature for Texas applications is **UV stabilization**, addit
 
 Not all panels are the same. The main styles you'll see in the Texas market:
 
-**Boxwood panels** are the most popular. They mimic the dense, small-leafed look of real boxwood hedges. These work well for privacy screening, fence toppers, and decorative borders. We cover the boxwood-vs-real-plants decision in detail in our [artificial vs. real boxwood comparison](/blog/artificial-vs-real-boxwood-texas).
+**Boxwood panels** are the most popular. They mimic the dense, small-leafed look of real boxwood hedges. These work well for privacy screening, fence extensions, and decorative borders. We cover the boxwood-vs-real-plants decision in detail in our [artificial vs. real boxwood comparison](/blog/artificial-vs-real-boxwood-texas).
 
 **Mixed greenery panels** combine different leaf shapes (ferns, grasses, ivy, and other foliage) for a more natural, "wild garden" look. These tend to work well for living wall applications and commercial spaces where a uniform boxwood look would feel too formal.
 
@@ -118,9 +118,9 @@ We cover pool-specific options in more detail on our [pool privacy hedge page](/
 
 ## Fence extensions and toppers
 
-One of the most practical uses for artificial hedges in Texas is extending the effective height of an existing fence. If your fence is six feet but you want eight feet of screening, a two-foot artificial hedge topper can bridge the gap without building a taller fence.
+One of the most practical uses for artificial hedges in Texas is extending the effective height of an existing fence. If your fence is six feet but you want eight feet of screening, a two-foot artificial hedge extension can bridge the gap without building a taller fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom.
 
-This is especially relevant where local codes or HOA rules limit fence height. An artificial hedge topper mounted on top of an existing fence often falls into a different category than the fence itself, making it easier to add height without a variance.
+This is especially relevant where local codes or HOA rules limit fence height. An artificial hedge extension often falls into a different category than the fence itself, which can make it easier to add height without a variance; check your city ordinance and HOA rules first. Extending a vinyl fence is much harder and generally not recommended.
 
 We have a full page on [fence extension options](/fence-extensions) if this is your primary interest.
 
@@ -130,7 +130,7 @@ The product only performs as well as the installation. The main installation app
 
 **Fence-mounted panels** attach directly to an existing wood, metal, or vinyl fence using UV-rated zip ties, screws, or clamps. This is the simplest installation method and works well when the fence is straight and solid.
 
-**Frame-mounted systems** use aluminum or steel framing attached to posts or walls, with panels secured to the frame. This approach is more robust, allows for a consistent flat surface, and works well for freestanding screens and fence toppers.
+**Frame-mounted systems** use aluminum or steel framing attached to posts or walls, with panels secured to the frame. This approach is more robust, allows for a consistent flat surface, and works well for freestanding screens and fence extensions.
 
 **Wall-mounted panels** attach to masonry, stucco, CMU, or other wall surfaces using furring strips or a mounting grid. A small air gap behind the panels helps with heat dissipation, important for south- and west-facing walls in Texas.
 
@@ -140,7 +140,7 @@ In every case, the critical details are:
 - **Seam connections.** Where panels meet, the connection needs to be tight enough to resist wind flutter but allow for minor thermal expansion.
 - **Substrate condition.** If the fence or wall is damaged, warped, or unstable, fix that first. The hedge will mirror whatever it's attached to.
 
-A DIY installation can work for simple fence-mounted panels on a straight, solid fence. For frame-mounted systems, fence toppers, or anything at height, professional installation is worth the investment, both for the finished look and for long-term wind resistance.
+A DIY installation can work for simple fence-mounted panels on a straight, solid fence. For frame-mounted systems, fence extensions, or anything at height, professional installation is worth the investment, both for the finished look and for long-term wind resistance.
 
 ## Maintenance: what it actually takes
 

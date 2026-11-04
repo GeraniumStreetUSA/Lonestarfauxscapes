@@ -7,6 +7,7 @@
  * "complete oasis" packages with sizes.
  */
 
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -25,7 +26,7 @@ export const POOL_LIVING_WALL: SystemPageData = {
       { label: 'Panels', value: '40 in wide' },
       { label: 'Height', value: 'You set it' },
       { label: 'Mount', value: 'Wall, fence or frame' },
-      { label: 'Foliage', value: 'UV-rated options' },
+      { label: 'Foliage', value: 'UV-stabilized' },
     ],
   },
   blocks: [
@@ -61,7 +62,7 @@ export const POOL_LIVING_WALL: SystemPageData = {
       items: [
         {
           title: 'Match the rating to the sun',
-          text: 'UV-rated living wall options are made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside.',
+          text: 'Standard foliage is UV-stabilized for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside.',
         },
         {
           title: 'Rinse it now and then',
@@ -73,7 +74,7 @@ export const POOL_LIVING_WALL: SystemPageData = {
         },
         {
           title: 'Fire-rated if you need it',
-          text: 'Fire-rated living wall options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system.',
+          text: FR_STATEMENT,
         },
       ],
     },
@@ -96,7 +97,7 @@ export const POOL_LIVING_WALL: SystemPageData = {
       {
         question: 'Will the color fade in Texas sun?',
         answer:
-          'UV-rated options are made for outdoor sun, but appearance over time depends on exposure, placement and the product. Match the system to the sun and weather your wall will see.',
+          'Standard foliage is UV-stabilized for outdoor sun, but appearance over time depends on exposure, placement and the product. Match the system to the sun and weather your wall will see.',
       },
       {
         question: 'Can you match my landscaping?',

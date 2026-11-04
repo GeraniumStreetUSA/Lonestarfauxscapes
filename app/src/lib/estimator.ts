@@ -12,16 +12,21 @@
  * then does the arithmetic on the released starting prices in
  * `data/starting-prices.ts`, the only source of a figure:
  *
- *   hedge, fence extension   run ft x the rate per linear ft
+ *   hedge (on your fence or wall),
+ *   freestanding hedge,
+ *   fence extension          run ft x the rate per linear ft
  *   living wall              run ft x height ft = sq ft, x the rate per sq ft
  *   privacy wall             the price of one standard unit, never multiplied
  *
  * Totals round to the nearest ten dollars, and the working shows the exact
  * product first. There is no labour factor, no range and no installation
  * figure: installation is quoted after a site review, and every price carries
- * that caveat. Heights are locked to the priced configuration (hedge 6 ft,
- * fence extension 3 ft, privacy wall 4 ft); only the living wall, priced per
- * square foot, takes a height.
+ * that caveat and the fire-rating note (FR_PRICE_NOTE). Heights are locked to
+ * the priced configuration (freestanding hedge 6 ft, fence extension 3 ft,
+ * privacy wall 4 ft). The living wall, priced per square foot, takes a height;
+ * so does the hedge on your fence or wall, whose price is per linear foot
+ * with no released height: the height only draws the panel count, and a
+ * taller run may be priced to the site.
  *
  * Every figure comes back with its working as strings, so the page shows the
  * arithmetic beside it. Kept free of React and the DOM so it runs under
@@ -29,6 +34,8 @@
  */
 
 import {
+  FR_PRICE_NOTE,
+  HEDGE_TIERS,
   INSTALLATION_CAVEAT,
   STARTING_PRICES,
   UNIT_LABELS,
@@ -38,7 +45,7 @@ import {
   type StartingPrice,
 } from '../data/starting-prices.ts';
 
-export type SystemId = 'hedge' | 'fence-extension' | 'living-wall' | 'privacy-wall';
+export type SystemId = 'hedge' | 'hedge-freestanding' | 'fence-extension' | 'living-wall' | 'privacy-wall';
 
 export interface Range {
   min: number;
@@ -50,6 +57,8 @@ export interface EstimatorSystem {
   id: SystemId;
   /** Chip label in the estimator. */
   label: string;
+  /** How the estimate reads in the quote summary (short, so it fits 160 characters). */
+  summaryLabel: string;
   /** Chip note, also drawn on the plan in mono. */
   note: string;
   /**
@@ -59,6 +68,10 @@ export interface EstimatorSystem {
   moduleIn: number;
   /** Height range in feet. min === max locks it to the priced configuration. */
   height: Range;
+  /** Said under an open height field: what the price does and does not cover. */
+  heightNote: string | null;
+  /** Released depth in inches, drawn on the plan; null draws the plan's default depth. */
+  depthIn: number | null;
   /** The released starting price the figure is built on. */
   price: StartingPrice;
   /** The matching System chip in the quote form. */
@@ -71,37 +84,63 @@ export const RUN: Range = { min: 4, max: 300, default: 40 };
 export const SYSTEMS: readonly EstimatorSystem[] = [
   {
     id: 'hedge',
-    label: 'Hedge',
+    label: `Hedge ${HEDGE_TIERS.hedge.said}`,
+    summaryLabel: 'Fence hedge',
     note: '20 in panels',
     moduleIn: 20,
-    height: { min: 6, max: 6, default: 6 },
+    // No height is released for a hedge on a fence or wall: the field draws and counts
+    // panels, the price stays per linear foot.
+    height: { min: 3, max: 10, default: 6 },
+    heightNote: 'The price is per linear foot. Taller runs may be priced to your site.',
+    depthIn: 3,
     price: STARTING_PRICES.hedge,
-    quoteSystem: 'Artificial hedge',
+    quoteSystem: 'Hedge on your fence or wall',
+  },
+  {
+    id: 'hedge-freestanding',
+    label: 'Freestanding hedge',
+    summaryLabel: 'Freestanding hedge',
+    note: '7 in deep',
+    moduleIn: 20,
+    height: { min: 6, max: 6, default: 6 },
+    heightNote: null,
+    depthIn: 7,
+    price: STARTING_PRICES['hedge-freestanding'],
+    quoteSystem: 'Freestanding hedge',
   },
   {
     id: 'fence-extension',
     label: 'Fence extension',
+    summaryLabel: 'Fence extension',
     note: '20 in panels',
     moduleIn: 20,
     height: { min: 3, max: 3, default: 3 },
+    heightNote: null,
+    depthIn: null,
     price: STARTING_PRICES['fence-extension'],
     quoteSystem: 'Fence extension',
   },
   {
     id: 'living-wall',
     label: 'Living wall',
+    summaryLabel: 'Living wall',
     note: '40 in panels',
     moduleIn: 40,
     height: { min: 3, max: 20, default: 8 },
+    heightNote: null,
+    depthIn: null,
     price: STARTING_PRICES['living-wall'],
     quoteSystem: 'Living wall',
   },
   {
     id: 'privacy-wall',
     label: 'Privacy wall',
+    summaryLabel: 'Privacy wall',
     note: '4 × 4 ft units',
     moduleIn: 48,
     height: { min: 4, max: 4, default: 4 },
+    heightNote: null,
+    depthIn: null,
     price: STARTING_PRICES['privacy-wall'],
     quoteSystem: 'Privacy wall',
   },
@@ -210,6 +249,8 @@ export interface EstimatePrice {
   arithmetic: string | null;
   /** Configuration, qualifiers and the installation caveat, from the data file. */
   caption: string;
+  /** Said under the price: the figures are for standard foliage, fire-rated costs extra. */
+  frNote: string;
 }
 
 export interface Estimate {
@@ -253,6 +294,7 @@ function buildPrice(system: EstimatorSystem, runFt: number, heightFt: number, ar
       figure: `from ${formatRate(price)}`,
       arithmetic: null,
       caption,
+      frNote: FR_PRICE_NOTE,
     };
   }
 
@@ -271,6 +313,7 @@ function buildPrice(system: EstimatorSystem, runFt: number, heightFt: number, ar
     figure: `from ${formatUsd(total)}`,
     arithmetic: exact === total ? product : `${product}, rounded to ${formatUsd(total)}`,
     caption,
+    frNote: FR_PRICE_NOTE,
   };
 }
 
@@ -281,7 +324,7 @@ export function buildEstimate(input: EstimateInput): Estimate {
   const areaSqFt = runFt * heightFt;
   const area = `${formatNumber(runFt)} ft × ${formatNumber(heightFt)} ft = ${formatNumber(areaSqFt)} sq ft`;
   const price = buildPrice(system, runFt, heightFt, areaSqFt);
-  const head = `${system.label}, ${formatNumber(runFt)} ft run × ${formatNumber(heightFt)} ft high: `;
+  const head = `${system.summaryLabel}, ${formatNumber(runFt)} ft run × ${formatNumber(heightFt)} ft high: `;
   const tail = ` · ${price.figure} ${INSTALLATION_CAVEAT}`;
 
   if (isPerUnit(system)) {

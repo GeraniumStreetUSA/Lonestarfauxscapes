@@ -86,7 +86,7 @@ This works especially well on:
 - **Chain-link fences** that are structurally sound but visually unattractive
 
 ### Fence height extensions
-If 6 feet of fence isn't enough, a hedge topper adds height without building a taller fence. A 2-foot hedge topper on a 6-foot fence gives you 8 feet of screening, often enough to block second-story sightlines.
+If 6 feet of fence isn't enough, a hedge extension adds height without building a taller fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom. A 2-foot extension on a 6-foot fence gives you 8 feet of screening, often enough to block second-story sightlines. Extending a vinyl fence is much harder and generally not recommended.
 
 Check your city's fence height ordinance and your HOA's CC&Rs before adding height. Many Texas cities allow 8-foot fences in backyards. For guidance on HOA approval, see our [HOA approval guide for artificial hedges](/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas).
 

@@ -19,7 +19,7 @@ faq:
   - question: "How tall can a backyard fence be in Texas?"
     answer: "It varies by city. Houston allows up to 8 feet without a permit. Dallas allows up to 6 feet solid or 8 feet open without a permit. Austin limits solid fences to 6 feet average height with a 7-foot maximum. Always check your specific city ordinance before building."
   - question: "Can I add height to my existing fence in Texas?"
-    answer: "Yes. Artificial hedge fence extensions can add privacy height to an existing fence without replacing it. They mount on top of the existing structure and are generally HOA-friendly because they use a green, natural-looking material rather than extending the fence panel itself."
+    answer: "Yes. Artificial hedge fence extensions can add privacy height to an existing fence without replacing it. An extension attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom. Extensions are generally HOA-friendly because they use a green, natural-looking material rather than extending the fence panel itself. Extending a vinyl fence is much harder and generally not recommended."
   - question: "What is the best privacy solution for a Texas pool area?"
     answer: "Artificial hedges or artificial living walls are popular for pool areas because they produce no leaves, require no irrigation near the water, and are resistant to chlorine splash and UV exposure. Traditional hedges drop debris into the pool and require constant maintenance."
 ---
@@ -226,7 +226,7 @@ Before choosing any privacy solution, know your city's height rules. Going over 
 
 <div class="prv-callout prv-callout-warn prv-reveal">
   <span class="prv-callout-icon">&#9888;</span>
-  <div class="prv-callout-body"><strong>Height limit workaround:</strong> If your city caps fences at 6 feet but you need more privacy, an <a href="/fence-extensions">artificial hedge fence extension</a> adds height on top of your existing fence. Because it's a hedge-style topper rather than a fence panel extension, it typically doesn't trigger the same permit requirements. Check your specific city ordinance.</div>
+  <div class="prv-callout-body"><strong>Height limit workaround:</strong> If your city caps fences at 6 feet but you need more privacy, an <a href="/fence-extensions">artificial hedge fence extension</a> adds height to your existing fence. It attaches to the face of the fence, generally with steel square tube, and the foliage covers the tube at the bottom. Because it's a hedge rather than a fence panel extension, it typically doesn't trigger the same permit requirements. Check your specific city ordinance.</div>
 </div>
 
 ## Option 1: Wood privacy fence
@@ -253,7 +253,7 @@ Vinyl usually costs more upfront than wood, but it requires almost zero maintena
 
 **Best for:** Privacy screens, patio walls, pool areas, and anywhere you want a green look without irrigation.
 
-Artificial hedge panels mount on existing structures (fences, walls, frames) or custom-fabricated steel frames. They produce no debris, require no water, and are available in fire-rated options for commercial applications. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose.
+Artificial hedge panels mount on existing structures (fences, walls, frames) or custom-fabricated steel frames. They produce no debris and require no water. For commercial applications that need it, fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 **Why they're popular for pools and patios:** No leaves fall into the pool. No irrigation system runs near the water. No roots crack the deck. UV-stabilized foliage is made to hold its color in full sun; ask for UV and warranty terms in writing.
 
@@ -263,7 +263,7 @@ Artificial hedge panels mount on existing structures (fences, walls, frames) or 
 
 **Best for:** Adding privacy height to an existing fence that's too short.
 
-If you already have a 6-foot fence but can still see your neighbor's second story windows, a [fence extension with artificial hedges](/fence-extensions) adds green privacy height without replacing the whole fence.
+If you already have a 6-foot fence but can still see your neighbor's second story windows, a [fence extension with artificial hedges](/fence-extensions) adds green privacy height without replacing the whole fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom. Extending a vinyl fence is much harder and generally not recommended.
 
 **Why homeowners choose this:** It can be faster and cheaper than replacing a fence. It doesn't trigger most permit requirements. The green hedge look is generally more HOA-friendly than a taller wood panel. Optional acoustic backing may help soften noise.
 

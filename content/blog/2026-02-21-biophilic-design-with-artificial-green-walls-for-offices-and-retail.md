@@ -114,7 +114,7 @@ The arguments for artificial over live in commercial settings are practical:
 
 **Lower total cost.** The upfront cost of an artificial wall may be comparable to or higher than a live wall of similar size. But the ongoing costs, no irrigation, no plant replacement, no specialized horticultural maintenance, can make the total cost of ownership lower over time.
 
-**Fire-rated options.** For commercial interiors that require fire-rated decorative materials, fire-rated options are built for [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701); ask for the NFPA 701 documentation for the exact system you choose. Live planted walls don't face this issue (live plants don't burn the same way), but the irrigation and maintenance trade-offs remain.
+**Fire-rated options.** For commercial interiors that require fire-rated decorative materials, we can supply fire-rated foliage ([NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. Live planted walls don't face this issue (live plants don't burn the same way), but the irrigation and maintenance trade-offs remain.
 
 ## Getting the details right
 

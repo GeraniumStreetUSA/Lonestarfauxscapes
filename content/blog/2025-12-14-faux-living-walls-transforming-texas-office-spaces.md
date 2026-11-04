@@ -92,7 +92,7 @@ A project with Lone Star Faux Scapes runs like this:
 
 ## Fire Safety You Can't Get With Real Plants  
 
-NFPA 701 documentation[1] isn't just paperwork, it's what many fire-regulated spaces ask for. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. The test looks at flame spread and flaming drips.  
+NFPA 701 documentation[1] isn't just paperwork, it's what many fire-regulated spaces ask for. We supply fire-rated foliage (NFPA 701) as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. The test looks at flame spread and flaming drips.  
 
 Key safety advantages over live plants:  
 - **No combustible growing media** (soil, coco coir, peat moss)  
@@ -110,7 +110,7 @@ Specialized applications demand extra precautions:
 
 Maintenance protocols ensure ongoing safety:  
 - Annual inspection of mounting hardware  
-- Verification of flame retardant coatings  
+- Verification of flame retardant coatings on fire-rated systems  
 - Documentation of cleaning product compatibility  
 
 ## Installation Secrets for Texas Climates  
@@ -200,7 +200,7 @@ The technology continues advancing with new developments like:
 - Interactive LED-integrated designs  
 - Recyclable plant materials reducing environmental impact  
 
-For Texas businesses, these systems represent more than decor, they're strategic investments in sustainable, low-maintenance design. The combination of aesthetic flexibility, code compliance, and operational savings creates compelling value propositions across industries.  
+For Texas businesses, these systems represent more than decor, they're strategic investments in sustainable, low-maintenance design. The combination of aesthetic flexibility, fire-rated options where code calls for them, and operational savings creates compelling value propositions across industries.  
 
 Ready to explore options for your space? [Lone Star Faux Scapes](/commercial-wall) serves commercial spaces across Texas. Here is how a project runs:  
 - You send your numbers  

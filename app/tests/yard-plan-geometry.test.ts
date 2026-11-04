@@ -14,6 +14,7 @@ import {
   VIEW_W,
   buildRun,
   buildUnitBlocks,
+  depthToPlan,
   runToPx,
   type Point,
 } from '../src/lib/yard-plan-geometry.ts';
@@ -143,4 +144,20 @@ test('geometry is deterministic', () => {
   assert.deepEqual(run(137), run(137));
   assert.deepEqual(units(137), units(137));
   assert.ok(HOUSE_HATCH.length > 20);
+});
+
+test('a hedge on a fence line draws thin, a freestanding hedge at its full 7 in depth', () => {
+  assert.equal(depthToPlan(7), TICK_LENGTH);
+  assert.ok(depthToPlan(3) < TICK_LENGTH / 2, `3 in draws ${depthToPlan(3)}`);
+  assert.ok(depthToPlan(2) < depthToPlan(3));
+  const onFence = buildRun(40, 24, depthToPlan(3));
+  const free = buildRun(40, 24, depthToPlan(7));
+  // Ticks run from the line into the yard by the drawn depth; the band's centre line sits half a depth in.
+  const near = (a: number, b: number) => Math.abs(a - b) < 0.01;
+  assert.ok(near(onFence.ticks[0].y2 - onFence.ticks[0].y1, depthToPlan(3)));
+  assert.ok(near(free.ticks[0].y2 - free.ticks[0].y1, TICK_LENGTH));
+  assert.ok(near(onFence.band[0].y, LOT.y0 + depthToPlan(3) / 2));
+  assert.ok(near(free.band[0].y, LOT.y0 + TICK_LENGTH / 2));
+  // No depth given: the plan's default, as before.
+  assert.deepEqual(buildRun(40, 24), free);
 });

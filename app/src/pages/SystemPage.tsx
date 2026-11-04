@@ -13,6 +13,7 @@ import PointList from '../components/page/PointList';
 import QuoteSection from '../components/page/QuoteSection';
 import Section from '../components/page/Section';
 import Picture from '../components/Picture';
+import HedgeTierCompare from '../components/pricing/HedgeTierCompare';
 import { CASE_CARDS } from '../data/case-studies';
 import { PROCESS } from '../data/home-content';
 import { METROS } from '../data/pages/systems/shared';
@@ -191,6 +192,9 @@ export default function SystemPage({ route, data }: PageProps & { data: SystemPa
         media={<Picture name={hero.image.name} alt={hero.image.alt} sizes="(min-width: 1024px) 560px, calc(100vw - 32px)" priority />}
         facts={hero.facts}
       />
+
+      {/* The hedge page puts its two starting prices, on a fence and freestanding, right under the hero. */}
+      {route.path === '/artificial-hedge' ? <HedgeTierCompare /> : null}
 
       {blocks.map((block) => (
         <BlockView key={block.kind === 'estimator' ? 'estimator' : block.id} block={block} hasEstimator={hasEstimator} />

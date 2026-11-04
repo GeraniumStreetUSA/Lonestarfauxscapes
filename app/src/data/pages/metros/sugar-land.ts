@@ -18,7 +18,7 @@ export const SUGAR_LAND: MetroData = {
     },
     {
       title: 'Greenery for Gulf Coast weather',
-      text: 'Hot, humid and wet weather is hard on live hedges. Panels have no soil or irrigation to manage; UV-rated options exist for outdoor sun, and a rinse now and then clears dust and pollen.',
+      text: 'Hot, humid and wet weather is hard on live hedges. Panels have no soil or irrigation to manage; Standard foliage is UV-stabilized for outdoor sun, and a rinse now and then clears dust and pollen.',
     },
     {
       title: 'Town Square and business frontage',

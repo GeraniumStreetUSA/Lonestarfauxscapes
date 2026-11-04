@@ -159,7 +159,7 @@ If the panels are UV-stabilized and mounted well, they can take sun, but direct 
 Usually, yes. Many homeowners attach panels to wood or metal fencing with outdoor-rated zip ties, staples, or screws (depending on the fence type). The bigger question is whether the fence is straight and solid. If the fence is already warped or loose, the living wall will mirror that.
 
 ### Do I need fire-rated artificial living walls for a hotel or restaurant?
-Often for interiors, yes, many commercial spaces need documentation for decorative materials. Fire-rated options are built for NFPA 701, so ask for the NFPA 701 documentation for the exact system you choose when the project calls for it, and confirm requirements with your local inspector or fire marshal since enforcement can vary by city and by where the wall is installed (interior vs covered patio vs fully outdoors).
+Often for interiors, yes, many commercial spaces need documentation for decorative materials. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, so ask for it and for the NFPA 701 documentation for the exact system you choose when the project calls for it, and confirm requirements with your local inspector or fire marshal since enforcement can vary by city and by where the wall is installed (interior vs covered patio vs fully outdoors).
 
 ### What's the easiest way to clean an outdoor artificial living wall in Texas?
 A hose rinse is usually enough. For heavier buildup (pollen, pool chemical residue, city dust), use mild soap and water and rinse well. If you're cleaning near a pool deck or outdoor kitchen, test a small spot first, some cleaners can dull the finish on certain plastics.

@@ -155,7 +155,7 @@ For an outdoor living wall installation in Texas, the material specification sho
 2. **UV-stabilized backing grid**: rigid, with interlocking edges
 3. **Stainless steel or coated fasteners**: no bare steel, no standard zip ties
 4. **Mounting system with air gap**: furring strips, grid, or frame to prevent heat and moisture buildup behind panels
-5. **Fire-rated option if commercial**: fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose when the installation requires fire compliance
+5. **Fire-rated option if commercial**: fire-rated foliage (NFPA 701) is an upgrade at extra cost; when the installation requires fire compliance, specify it and ask for the NFPA 701 documentation for the exact system you choose
 
 ## Related articles
 

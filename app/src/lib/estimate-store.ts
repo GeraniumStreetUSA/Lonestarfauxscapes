@@ -9,7 +9,7 @@ import { useSyncExternalStore } from 'react';
  * sent yet" state and hydration matches it.
  */
 export interface SentEstimate {
-  /** A quote-form System chip label ("Artificial hedge"). */
+  /** A quote-form System chip label ("Hedge on your fence or wall"). */
   system: string;
   /** City or ZIP as typed in the estimator; empty when left blank. */
   location: string;

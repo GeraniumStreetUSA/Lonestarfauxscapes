@@ -1,12 +1,13 @@
 import { CASE_CARDS } from '../../case-studies.ts';
 import { FIRE_CHAPTER, PROCESS } from '../../home-content.ts';
+import { FR_STATEMENT } from '../../starting-prices.ts';
 import type { HubData } from './types.ts';
 
 /** /commercial: businesses. Ends in the quote form. */
 export const COMMERCIAL_HUB: HubData = {
   callout: '◦ FOR BUSINESSES',
   title: 'Commercial artificial green walls for Texas properties',
-  lede: 'Hedges and living walls for restaurants, retail, hotels and multifamily. Fire-rated options are built for NFPA 701. Commercial walls are quoted after a site review.',
+  lede: 'Hedges and living walls for restaurants, retail, hotels and multifamily. Fire-rated foliage (NFPA 701) is an upgrade at extra cost. Commercial walls are quoted after a site review.',
   hero: {
     name: 'commercial-houston-patio',
     alt: FIRE_CHAPTER.photoAlt,
@@ -28,7 +29,7 @@ export const COMMERCIAL_HUB: HubData = {
         },
         {
           title: 'Hedge screens and extensions',
-          text: 'Screens along a perimeter or a patio edge, or height added above an existing fence.',
+          text: 'Screens along a perimeter or a patio edge, or height added to the face of an existing fence.',
           href: '/artificial-hedge',
           image: { name: 'system-hedge', alt: 'Artificial boxwood hedge panels on a fence line' },
         },
@@ -40,7 +41,7 @@ export const COMMERCIAL_HUB: HubData = {
         },
         {
           title: 'Vallum FRX',
-          text: 'A fire-rated living wall system built for NFPA 701.',
+          text: 'The fire-rated living wall system built for NFPA 701, an upgrade at extra cost.',
           href: '/vallum-frx',
         },
       ],
@@ -54,7 +55,7 @@ export const COMMERCIAL_HUB: HubData = {
       tone: 'ink',
       items: FIRE_CHAPTER.points.map((point) => ({ title: point.label, text: point.text })),
       links: [
-        { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'Built for NFPA 701.' },
+        { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'The fire-rated upgrade, built for NFPA 701.' },
         { title: 'NFPA 701, explained', href: '/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery', text: 'The test, and what it covers.' },
         {
           title: 'Texas fire code for commercial buildings',
@@ -109,13 +110,12 @@ export const COMMERCIAL_HUB: HubData = {
       items: [
         {
           question: 'What fire documentation can I get?',
-          answer:
-            'Fire-rated hedge and wall options are built for NFPA 701. Ask for the NFPA 701 documentation for the exact system you choose, while you are getting your quote.',
+          answer: `${FR_STATEMENT} Ask for the NFPA 701 documentation for the exact system you choose, while you are getting your quote.`,
         },
         {
           question: 'Interior or exterior?',
           answer:
-            'Both are possible. Outdoor walls need UV-rated options, because indoor-grade foliage can fade faster in sun. Tell us where the wall goes and we match the rating to the exposure.',
+            'Both are possible. Outdoor walls need UV-stabilized foliage (our standard), because indoor-grade foliage can fade faster in sun. Tell us where the wall goes and we match the rating to the exposure.',
         },
         {
           question: 'How is a commercial job priced?',

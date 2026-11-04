@@ -18,6 +18,7 @@ import { SYSTEMS_SECTION, type SystemCard } from '../data/home-content';
 import type { HubData, HubImage, HubLink, HubSection } from '../data/pages/hubs/types';
 import { AREA_LINKS, SITE_URL } from '../data/site';
 import {
+  FR_PRICE_NOTE,
   INSTALLATION_CAVEAT,
   formatStartingPrice,
   formatStartingPriceCaption,
@@ -35,7 +36,7 @@ const THUMB_SIZES = '(min-width: 1024px) 380px, (min-width: 640px) 45vw, 104px';
 const SYSTEM_ALT: Record<SystemCard['id'], string> = {
   hedge: 'Artificial boxwood hedge panels on a fence line',
   'living-wall': 'Artificial living wall on an outdoor wall',
-  'fence-extension': 'Artificial hedge panels added above a fence',
+  'fence-extension': 'Artificial hedge rising above a low stucco wall beside a tiled terrace',
   commercial: 'Artificial hedge panels on a commercial storefront',
   'privacy-wall': 'Freestanding hedge boxes along a walkway',
 };
@@ -69,14 +70,21 @@ function Caption({ price }: { price: StartingPrice }) {
   return (
     <>
       {parts.join(' · ')}
-      <span className="hb-p-caveat"> · {caveat}</span>
+      <span className="hb-p-caveat">
+        {' '}
+        · {caveat}. {FR_PRICE_NOTE}
+      </span>
     </>
   );
 }
 
 /** Phones only: the caveat every card carries on desktop, said once under the list. */
 function SystemsCaveat() {
-  return <p className="hb-p-caveat-once">All prices are starting prices, {INSTALLATION_CAVEAT.replace('+ ', '+\u00a0')}.</p>;
+  return (
+    <p className="hb-p-caveat-once">
+      All prices are starting prices, {INSTALLATION_CAVEAT.replace('+ ', '+\u00a0')}. {FR_PRICE_NOTE}
+    </p>
+  );
 }
 
 /**
@@ -103,6 +111,14 @@ function SystemCards({ ids, terse = false }: { ids: readonly SystemCard['id'][];
                   <p className="t-small hb-p-caption">
                     <Caption price={card.startingPrice} />
                   </p>
+                ) : null}
+                {card.alsoPriced ? (
+                  <>
+                    <p className="hb-p-price">{formatStartingPrice(card.alsoPriced)}</p>
+                    <p className="t-small hb-p-caption">
+                      <Caption price={card.alsoPriced} />
+                    </p>
+                  </>
                 ) : null}
                 <p className="t-small pk-card-text">{card.bestFor}</p>
               </div>

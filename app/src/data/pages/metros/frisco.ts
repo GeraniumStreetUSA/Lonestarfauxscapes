@@ -9,7 +9,7 @@ export const FRISCO: MetroData = {
   mapActive: 'Dallas',
   callout: '◦ FRISCO, TX',
   title: 'Artificial hedge installation in Frisco, TX',
-  lede: 'Hedges and living walls for Frisco homes, offices and entertainment venues. Fire-rated options and HOA-friendly planning, built to your measurements.',
+  lede: 'Hedges and living walls for Frisco homes, offices and entertainment venues. A fire-rated upgrade for the jobs that need it, and HOA-friendly planning, built to your measurements.',
   needsTitle: 'What Frisco projects usually need',
   needs: [
     {
@@ -22,7 +22,7 @@ export const FRISCO: MetroData = {
     },
     {
       title: 'Venues and business corridors',
-      text: 'Offices, restaurants and entertainment spaces around The Star and Frisco Square can use living walls and hedge panels. Fire-rated options are built for NFPA 701; ask for the documentation.',
+      text: 'Offices, restaurants and entertainment spaces around The Star and Frisco Square can use living walls and hedge panels. Fire-rated foliage is an upgrade at extra cost (built for NFPA 701); ask for the documentation.',
     },
   ],
   places: ['Starwood', 'Phillips Creek Ranch', 'The Star', 'Stonebriar', 'Frisco Square', 'Panther Creek'],

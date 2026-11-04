@@ -23,7 +23,7 @@ export const SAN_ANTONIO: MetroData = {
     },
     {
       title: 'Immediate coverage on a property line',
-      text: 'A hedge run or a fence extension screens a perimeter at once, without waiting for plants to grow. UV-rated options exist for hot, exposed walls; ask which product suits direct sun.',
+      text: 'A hedge run or a fence extension screens a perimeter at once, without waiting for plants to grow. Standard foliage is UV-stabilized for hot, exposed walls; ask which product suits direct sun.',
     },
   ],
   systems: {

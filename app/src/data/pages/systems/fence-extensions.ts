@@ -1,5 +1,5 @@
 /**
- * /fence-extensions. Carried over from the old page: height on top of the
+ * /fence-extensions. Carried over from the old page: height added to the
  * fence you have, the 9 ft arithmetic, HOA height limits as the thing to check
  * first, and the three-step flow. Dropped: acoustic cores and "-5 to -10 dB",
  * the "___+ fences extended" counter, one-to-two-day timelines, "most HOAs
@@ -8,6 +8,7 @@
  */
 
 import { INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
+import { EXTENSION_ATTACHMENT, VINYL_CAVEAT } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -16,17 +17,17 @@ export const FENCE_EXTENSIONS: SystemPageData = {
   hero: {
     callout: '◦ SYSTEM / FENCE EXTENSION',
     title: 'Artificial Fence Extensions for Patio Privacy in Texas',
-    lede: 'Add hedge panels above the fence you already have. More height, more screening, no new fence.',
+    lede: 'Add hedge panels to the face of the fence or wall you already have, and rise above it. More height, more screening, no new fence.',
     price: 'fence-extension',
     image: {
       name: 'sys-fence-topper',
-      alt: 'Artificial hedge panels standing on top of a low stucco wall beside a house',
+      alt: 'Tall artificial hedge rising above a low stucco wall along the side of a house, under a clear blue sky',
     },
     facts: [
       { label: 'Extension', value: '3 ft priced size' },
       { label: 'Panels', value: '20 in wide' },
-      { label: 'Mount', value: 'Frame above the fence' },
-      { label: 'Foliage', value: 'UV-rated options' },
+      { label: 'Mount', value: 'Face of the fence or wall, steel square tube' },
+      { label: 'Foliage', value: 'UV-stabilized' },
     ],
   },
   blocks: [
@@ -43,17 +44,24 @@ export const FENCE_EXTENSIONS: SystemPageData = {
         },
         {
           title: 'No new fence to build',
-          text: 'The extension goes on a frame above what you have. The fence stays; only the height changes.',
+          text: 'The extension is fixed to the face of your fence or wall, generally with steel square tube. The fence stays; only the height changes.',
         },
         {
           title: 'No watering, no trimming',
-          text: 'Hedge panels on top of the fence stay green without irrigation or clipping. Rinse off dust now and then.',
+          text: 'The extension stays green without irrigation or clipping. Rinse off dust now and then.',
         },
         {
           title: 'Built to your fence line',
           text: 'Panels are sized to your spans, with corners and returns planned in so the top reads as one hedge.',
         },
       ],
+    },
+    {
+      kind: 'text',
+      id: 'attach',
+      callout: '◦ HOW IT ATTACHES',
+      title: 'How it attaches to your fence.',
+      paragraphs: [EXTENSION_ATTACHMENT, `${VINYL_CAVEAT} The site review confirms what your fence or wall can carry.`],
     },
     {
       kind: 'estimator',
@@ -77,13 +85,13 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       id: 'pricing',
       callout: '◦ HOW PRICING WORKS',
       title: 'Cost factors and how a job runs.',
-      intro: 'The starting price is for the material. Installation is quoted after a site review, which also checks what your fence and posts can carry.',
+      intro: 'The starting price is for the material. Installation is quoted after a site review, which also checks what your fence or wall can carry.',
       tone: 'limestone',
       driversTitle: 'What to send',
       drivers: [
         'Fence length, with corners and gates marked.',
         'Fence height now, and the height you want to reach.',
-        'Fence type: wood, metal or masonry.',
+        'Fence type: wood, metal, masonry or vinyl (extending vinyl is much harder).',
         'Photos from the yard side, and the view you want to block.',
       ],
     },
@@ -91,9 +99,12 @@ export const FENCE_EXTENSIONS: SystemPageData = {
   faq: {
     items: [
       {
-        question: 'Can it go on my existing fence?',
-        answer:
-          'Often, yes. Panels mount on a frame above the fence. The site review confirms what your fence and posts can carry.',
+        question: 'How does it attach to my fence?',
+        answer: `${EXTENSION_ATTACHMENT} The site review confirms what your fence or wall can carry.`,
+      },
+      {
+        question: 'Can I extend a vinyl fence?',
+        answer: VINYL_CAVEAT,
       },
       {
         question: 'How much height can I add?',

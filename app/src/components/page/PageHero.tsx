@@ -3,6 +3,7 @@ import { useId, type ReactNode } from 'react';
 
 import { BUSINESS } from '../../data/site';
 import {
+  FR_PRICE_NOTE,
   formatStartingPriceCaption,
   formatUsd,
   STARTING_PRICES,
@@ -34,21 +35,37 @@ interface PageHeroProps {
   facts?: readonly Fact[];
 }
 
-/** The released price as three parts (the word "from", the figure, the unit), so the figure can be set large. */
+/** One released price as three parts (the word "from", the figure, the unit), so the figure can be set large. */
+function PriceBlock({ id, first }: { id: StartingPriceId; first: boolean }) {
+  const released = STARTING_PRICES[id];
+  return (
+    <>
+      <p className={first ? 'pk-price' : 'pk-price mt-4'}>
+        <span className="pk-price-word">from</span> <span className="pk-price-fig">{formatUsd(released.amount)}</span>
+        {released.per === 'unit' ? null : <span className="pk-price-word"> / {UNIT_LABELS[released.per]}</span>}
+      </p>
+      <p className="pk-price-caption">{formatStartingPriceCaption(released)}</p>
+    </>
+  );
+}
+
+/**
+ * The released price, with the fire-rating note under it. A hedge is priced
+ * two ways, so a hedge page shows both, each with its tier in its caption.
+ */
 function PriceLine({ price }: { price: StartingPriceId | 'quoted' }) {
   if (price === 'quoted') {
     return (
       <p className="pk-price pk-price-text">Quoted after a site review</p>
     );
   }
-  const released = STARTING_PRICES[price];
+  const ids: StartingPriceId[] = price === 'hedge' ? ['hedge', 'hedge-freestanding'] : [price];
   return (
     <>
-      <p className="pk-price">
-        <span className="pk-price-word">from</span> <span className="pk-price-fig">{formatUsd(released.amount)}</span>
-        {released.per === 'unit' ? null : <span className="pk-price-word"> / {UNIT_LABELS[released.per]}</span>}
-      </p>
-      <p className="pk-price-caption">{formatStartingPriceCaption(released)}</p>
+      {ids.map((id, index) => (
+        <PriceBlock key={id} id={id} first={index === 0} />
+      ))}
+      <p className="pk-price-caption">{FR_PRICE_NOTE}</p>
     </>
   );
 }

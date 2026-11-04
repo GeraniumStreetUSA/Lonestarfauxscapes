@@ -216,7 +216,7 @@ The more professional your application, the less room the committee has to claim
 
 <div class="hoa-callout hoa-callout-info hoa-reveal">
   <span class="hoa-callout-icon">&#128204;</span>
-  <div class="hoa-callout-body"><strong>We can help with this packet.</strong> Ask Lone Star Faux Scapes for product specs, the NFPA 701 documentation for the exact system you choose, and a material description you can use in your HOA submission.</div>
+  <div class="hoa-callout-body"><strong>We can help with this packet.</strong> Ask Lone Star Faux Scapes for product specs, the NFPA 701 documentation if you choose the fire-rated foliage upgrade (an extra-cost option), and a material description you can use in your HOA submission.</div>
 </div>
 
 ## What to do if your HOA denies your request

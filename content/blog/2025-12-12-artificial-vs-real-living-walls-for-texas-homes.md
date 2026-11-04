@@ -101,7 +101,7 @@ Appraisers may value either as a landscaping feature, and the return varies. The
 Consider your selling timeline. Real walls take time to fill in, while artificial walls deliver immediate impact. For investment properties, artificial walls avoid tenant maintenance issues.  
 
 ## Fire Ratings Matter More Than You Think  
-Some codes require flame retardancy for certain installations, so check with your local authority. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose[1]. Real plants, by contrast, can become fuel during wildfire season.  
+Some codes require flame retardancy for certain installations, so check with your local authority. On our walls, fire-rated foliage (NFPA 701) is an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose[1]. Real plants, by contrast, can become fuel during wildfire season.  
 
 This is critical for homes near brush areas. Some HOAs may require fire-resistant landscaping, so check your covenants.  
 

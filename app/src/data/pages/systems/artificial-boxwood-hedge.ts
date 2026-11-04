@@ -7,6 +7,8 @@
  * add-ons, the setup-time and cost rows.
  */
 
+import { FR_STATEMENT } from '../../starting-prices.ts';
+import { HEDGE_SIZE_NOTE } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -15,7 +17,7 @@ export const ARTIFICIAL_BOXWOOD_HEDGE: SystemPageData = {
   hero: {
     callout: '◦ HEDGE / BOXWOOD',
     title: 'Artificial Boxwood Hedges in Texas',
-    lede: 'The classic clipped boxwood look, built to your size. Fixed on a fence, a wall or a frame, or on casters where it has to move.',
+    lede: 'The classic clipped boxwood look, built to your size. Fixed on your fence or wall, freestanding on posts, or on casters where it has to move.',
     price: 'hedge',
     image: {
       name: 'austin-install',
@@ -25,7 +27,7 @@ export const ARTIFICIAL_BOXWOOD_HEDGE: SystemPageData = {
       { label: 'Look', value: 'Clipped boxwood' },
       { label: 'Size', value: 'Built to yours' },
       { label: 'Mount', value: 'Fixed or on casters' },
-      { label: 'Fire', value: 'NFPA 701 options' },
+      { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
     ],
   },
   blocks: [
@@ -55,8 +57,8 @@ export const ARTIFICIAL_BOXWOOD_HEDGE: SystemPageData = {
           text: 'Panels are made to your height and width: straight runs, corners and freestanding sections.',
         },
         {
-          title: 'UV-rated and fire-rated options',
-          text: 'UV-rated boxwood is made for outdoor sun. Fire-rated boxwood is built for NFPA 701, for indoor venues such as hotels and event spaces. Ask for the NFPA 701 documentation for the exact system.',
+          title: 'UV-stabilized, with fire-rated as an upgrade',
+          text: 'Standard boxwood is UV-stabilized for outdoor sun. Fire-rated boxwood (NFPA 701) is an upgrade at extra cost, for indoor venues such as hotels and event spaces, with documentation on request.',
         },
       ],
     },
@@ -72,16 +74,16 @@ export const ARTIFICIAL_BOXWOOD_HEDGE: SystemPageData = {
           text: 'Panels mounted for good. The usual choice for backyard privacy, patio edges and storefronts.',
         },
         {
-          title: 'Freestanding frame',
-          text: 'A frame that stands on its own, for dividers and screens where there is no fence.',
+          title: 'Freestanding',
+          text: 'A hedge on posts set in concrete, for dividers and screens where there is no fence.',
         },
         {
           title: 'Mobile, on casters',
           text: 'Hedge sections that roll into place, for events, restaurants and flexible spaces.',
         },
         {
-          title: 'Fire-rated boxwood',
-          text: 'For venues that ask for NFPA 701 documentation before they allow greenery.',
+          title: 'Fire-rated boxwood (upgrade)',
+          text: 'An upgrade at extra cost, for venues that ask for NFPA 701 documentation before they allow greenery.',
         },
       ],
     },
@@ -104,17 +106,16 @@ export const ARTIFICIAL_BOXWOOD_HEDGE: SystemPageData = {
       {
         question: 'What sizes can you make?',
         answer:
-          'Panels are built to your height and width. Our priced size is 6 ft tall, and other sizes go in your rough quote.',
+          `Panels are built to your height and width. ${HEDGE_SIZE_NOTE}`,
       },
       {
         question: 'Will Texas sun wear it out?',
         answer:
-          'UV-rated boxwood is made for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to the exposure.',
+          'Standard boxwood is UV-stabilized for outdoor sun. Indoor-grade foliage is not, and it can fade faster outside. Match the rating to the exposure.',
       },
       {
         question: 'Is there fire-rated boxwood for indoor venues?',
-        answer:
-          'Fire-rated boxwood options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose.',
+        answer: `Yes, as an upgrade at extra cost; standard boxwood is not fire-rated. ${FR_STATEMENT} Ask for the NFPA 701 documentation for the exact system you choose.`,
       },
       {
         question: 'Can I use it for an event?',

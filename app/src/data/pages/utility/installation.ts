@@ -18,7 +18,7 @@ export const INSTALLATION_PAGE = {
     items: [
       {
         title: 'Fence',
-        text: 'Panels on an existing fence, or a frame added above it for height.',
+        text: 'Panels on the face of an existing fence. A fence extension is fixed to the face too, generally with steel square tube. Extending a vinyl fence is much harder and generally not recommended.',
         href: '/fence-extensions',
       },
       {

@@ -40,7 +40,7 @@ There’s a practical reason behind a lot of this: **water use and maintenance l
 Most people start looking for an artificial living wall Texas installer for one of three reasons: privacy, consistent appearance, or control.
 
 ### Privacy that doesn’t turn into a weekly chore
-An **artificial privacy hedge** makes sense when a wood fence feels stark, or when you can’t add fence height because of HOA rules or driveway sightline limits. A 40–60" tall hedge line above an existing fence can change how a yard feels without rebuilding the fence.
+An **artificial privacy hedge** makes sense when a wood fence feels stark, or when you can’t add fence height because of HOA rules or driveway sightline limits. A hedge fence extension can change how a yard feels without rebuilding the fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom.
 
 In Houston, privacy is often about **pool and patio season**. Outdoor areas get used early and late in the year, so people want screening that looks the same in February as it does in August.
 
@@ -57,7 +57,7 @@ Artificial wall systems are predictable. If you’re running a patio in Midtown,
 ### Fire-rated options (what that means in real terms)
 If you’re specifying **Fire rated Artificial Living Walls** or **Fire rated artificial hedges** for a commercial job, ask about documentation right away.
 
-A lot of buyers hear “fire rated” and assume it’s just a marketing phrase. It shouldn’t be. It should mean the product was tested to a specific standard (for decorative greenery, usually **NFPA 701**) and the supplier can provide the paperwork. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose.
+A lot of buyers hear “fire rated” and assume it’s just a marketing phrase. It shouldn’t be. It should mean the product was tested to a specific standard (for decorative greenery, usually **NFPA 701**) and the supplier can provide the paperwork. For Lone Star Faux Scapes products, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 A simple way to think about it:
 
@@ -183,7 +183,7 @@ If you’re looking for **Artificial living walls and Artificial hedges Houston 
 It depends on sun exposure, product quality, and where it’s installed (full sun vs. covered patio). Ask about UV resistance and what the warranty covers for fading.
 
 **Do artificial hedge panels work for fence-top privacy?**
-Yes, as long as the fence and posts can handle the extra surface area in wind. A good installer will explain fastening and support so panels don’t flap or pull loose.
+Yes, as long as the fence and posts can handle the extra surface area in wind. An extension attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height; the foliage covers the tube at the bottom. A good installer will explain fastening and support so panels don’t flap or pull loose. Extending a vinyl fence is much harder and generally not recommended.
 
 **What does “fire rated” mean for artificial living walls?**
 Usually it means the product was tested to a standard like NFPA 701 and comes with documentation for the exact system. Final acceptance depends on your AHJ.

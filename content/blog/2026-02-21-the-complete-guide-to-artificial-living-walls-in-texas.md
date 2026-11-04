@@ -22,7 +22,7 @@ faq:
   - question: "How heavy are artificial living wall panels?"
     answer: "Artificial panels are significantly lighter than a live planted wall, which can be very heavy when soil is saturated. Check the product's weight and your wall's capacity; standard drywall or masonry can support many artificial panel systems, but confirm for your wall."
   - question: "Are fire-rated artificial living walls available?"
-    answer: "Yes. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. This is often required for commercial interior installations."
+    answer: "Yes. Our standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request for the exact system you choose. This is often required for commercial interior installations."
   - question: "How long do artificial living walls last?"
     answer: "Indoors, a quality artificial living wall can hold its appearance for many years with minimal care. Outdoors in Texas, lifespan depends on sun exposure, material quality, and maintenance, and indoor installs generally last longer than full-sun outdoor ones."
 ---
@@ -39,7 +39,7 @@ An artificial hedge is typically a single type of foliage (dense boxwood, for ex
 
 An artificial living wall is different in intent. It's designed to look like a vertical garden: multiple types of foliage layered together (ferns, grasses, trailing vines, mosses, small flowering plants) arranged to create depth and visual complexity. The goal is a naturalistic, "planted" look rather than a trimmed hedge look.
 
-This distinction matters because it affects where each product works best. Hedge panels are ideal for fences, privacy barriers, and toppers. Living walls are the better choice for feature walls, restaurant backdrops, lobby installations, pool surrounds, and any application where you want the visual richness of a planted garden without the irrigation system behind it.
+This distinction matters because it affects where each product works best. Hedge panels are ideal for fences, privacy barriers, and fence extensions. Living walls are the better choice for feature walls, restaurant backdrops, lobby installations, pool surrounds, and any application where you want the visual richness of a planted garden without the irrigation system behind it.
 
 ## Materials and construction
 
@@ -174,7 +174,7 @@ They do not need light to survive, but lighting changes how they look dramatical
 Artificial panels are significantly lighter than a live planted wall, which can be very heavy when soil is saturated. Check the product's weight and your wall's capacity; standard drywall or masonry can support many artificial panel systems, but confirm for your wall.
 
 ### Are fire-rated artificial living walls available?
-Yes. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. This is often required for commercial interior installations.
+Yes. Our standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request for the exact system you choose. This is often required for commercial interior installations.
 
 ### How long do artificial living walls last?
 Indoors, a quality artificial living wall can hold its appearance for many years with minimal care. Outdoors in Texas, lifespan depends on sun exposure, material quality, and maintenance, and indoor installs generally last longer than full-sun outdoor ones.
