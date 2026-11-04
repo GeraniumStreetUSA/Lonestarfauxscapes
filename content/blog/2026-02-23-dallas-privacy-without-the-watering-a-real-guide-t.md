@@ -45,7 +45,7 @@ Fourth: **design control**. A faux wall keeps the same pattern and color, which 
 
 Fifth: **fire rating requests** (mostly commercial). Many buyers ask about **Fire rated Artificial Living Walls** and **Fire rated artificial hedges** because venues, offices, and multifamily properties may need documentation for finishes inside or near egress paths. This is where you want specifics, not “yeah, it’s safe.” For decorative greenery, that usually means NFPA 701 documentation. Fire-rated options are built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose. That doesn’t make the product non-combustible, but it does give you a standardized way to compare flame behavior.
 
-## What to look for in a Dallas provider (so the wall doesn’t look rough in 18 months)
+## What to look for in a Dallas provider (so the wall keeps looking good) {#what-to-look-for-in-a-dallas-provider-so-the-wall-}
 
 Dallas is hard on anything that lives outside. If you want an artificial hedge or living wall to keep its color and shape, the materials matter, and the install matters just as much. Here’s what to ask before you sign.
 

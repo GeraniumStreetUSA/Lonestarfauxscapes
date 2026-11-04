@@ -296,7 +296,7 @@ If you already have a 6-foot fence but can still see your neighbor's second stor
   </div>
 </div>
 
-## The 10-year cost math for a 150 ft backyard
+## The long-run cost picture for a Texas backyard {#the-10-year-cost-math-for-a-150-ft-backyard}
 
 To keep things honest, here's how the long-run cost picture compares for a typical Texas backyard:
 

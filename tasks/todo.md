@@ -231,6 +231,7 @@ Work (Sonnet sub-agents build; I write specs and review every page at 390/360/14
   - Five blog headings promise numbers the cleaned bodies no longer give (editing them changes their anchor links).
 - [x] C4b. Utility pages (9): built, reviewed at 390 (contact email fixed to one line), hedge-builder meta and the hedge-quote reply-time line fixed.
   - [x] Posts: 5 posts with embedded components restyled for the light theme (old dark-theme styles stripped at build); responsive post images (hero 768w: 4.0 MB to 0.6 MB across those 5); 67 real alt texts; leftover claims (acoustic row, DIY timing, "eliminate the question") fixed
+- [x] Owner round 2026-11-04: Terms rewritten for Texas and to protect the business (attorney review before launch); NFPA 701 report confirmed, Intertek kept off the site; IMAGE-PROMPTS.md opened; five blog headings rewritten with their live anchors pinned (`{#old-id}` support in build-content.mjs) and the invented cost-bar graphic removed
 - [x] E. Checks (78 pages; typecheck; 104 tests; em-dash 0 in dist; one H1 per page; crawl on wrangler 355/355 for both the preview and the ALLOW_INDEXING=1 build; reviewed every template at 390 and 1440). Was: typecheck, tests (route sync, title/desc lengths, redirects, schema, heading ids), em-dash on dist, img attrs, claims audit vs `CLAIMS.md`; every page reviewed on phone and desktop; preview for the owner; local commit only.
 
 ### Phase 3: homepage to ship quality

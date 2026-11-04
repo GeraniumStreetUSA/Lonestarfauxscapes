@@ -175,19 +175,8 @@ This is where the conversation usually starts and where the biggest misunderstan
 
 **Artificial living wall:** Higher upfront cost per square foot (varies by system and foliage quality), but ongoing costs are effectively zero. A hose rinse once or twice a year is the standard recommendation. Starting prices are published on the [pricing page](/pricing) (installation is quoted after a site review).
 
-### 5-year total cost for a 100 sq ft wall
+### Cost over time: real vs artificial {#5-year-total-cost-for-a-100-sq-ft-wall}
 
-<div class="rva-cost-bars rva-reveal">
-  <div class="rva-cost-bar-label">Real living wall, install + 5 years maintenance</div>
-  <div class="rva-cost-bar-wrap">
-    <div class="rva-cost-bar rva-cost-bar-real" data-width="100">Install + maintenance that keeps recurring</div>
-  </div>
-  <div class="rva-cost-bar-label">Artificial living wall, install + 5 years maintenance</div>
-  <div class="rva-cost-bar-wrap">
-    <div class="rva-cost-bar rva-cost-bar-artificial" data-width="45">Install cost only (no ongoing)</div>
-  </div>
-  <div class="rva-cost-note">Illustrative only, not a price comparison. Real wall: install plus ongoing maintenance. Artificial: one-time install only. Water costs not included in either.</div>
-</div>
 
 Over several years, the math often isn't close. Real walls cost more over time because the maintenance never stops. Artificial walls front-load the cost and then it's done.
 

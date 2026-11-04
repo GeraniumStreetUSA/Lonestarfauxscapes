@@ -1,7 +1,9 @@
 /**
- * /privacy and /terms: the old live pages' text, carried over as written.
- * Changes: brand spelling, the "Contact Form" link now points at /contact,
- * and the headings and lists are data. No new legal claims were added.
+ * /privacy: the old live page's text, carried over as written (brand
+ * spelling fixed, the "Contact Form" link points at /contact).
+ * /terms: rewritten 2026-11-04 at the owner's request, for Texas and to
+ * protect the business first (owner: "edit it to be compliant for Texas and
+ * protects us first and foremost"). Have a Texas attorney review before launch.
  */
 
 /** A paragraph or list item: plain, led by a bold label, or ending in a link. */
@@ -141,124 +143,161 @@ export const PRIVACY: LegalDoc = {
 
 export const TERMS: LegalDoc = {
   title: 'Terms of Service',
-  updated: 'Last updated: December 11, 2025',
+  updated: 'Last updated: November 4, 2026',
   intro: [
-    'Welcome to Lone Star Faux Scapes. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully.',
+    'Lone Star Faux Scapes is a brand of Geranium Street USA, Inc. ("Lone Star Faux Scapes", "we", "us"). These Terms of Service ("Terms") apply to this website and to any estimate, quote or communication you receive from us. Please read them carefully.',
   ],
   sections: [
     {
-      heading: '1. Acceptance of Terms',
+      heading: '1. Agreement to These Terms',
       body: [
-        'By accessing our website at lonestarfauxscapes.com or engaging our services, you agree to these Terms of Service and our Privacy Policy. If you do not agree, please do not use our website or services.',
+        'By using lonestarfauxscapes.com, using our estimator, or requesting a quote, you agree to these Terms and to our Privacy Policy. If you do not agree, do not use the website.',
+        'Installation work is performed only under a separate written agreement, proposal or invoice that you sign or accept in writing ("Project Agreement"). If these Terms and a Project Agreement conflict, the Project Agreement controls.',
       ],
     },
     {
-      heading: '2. Services',
+      heading: '2. Information on This Website',
       body: [
-        'Lone Star Faux Scapes provides design, fabrication, and installation services for artificial hedges, faux living walls, fence extensions, and related products. Our services include:',
+        'Everything on this website, including product descriptions, photos, drawings, starting prices, estimator results, guides and blog articles, is general information. It is not engineering, legal, building code, fire code or HOA advice, and it is not an offer to sell or install at any price.',
+        'Photos and drawings illustrate products and past work; your finished project may differ in color, density, layout and appearance. We may correct errors and change information, products, prices and availability at any time without notice.',
+      ],
+    },
+    {
+      heading: '3. Estimates, Quotes and Pricing',
+      body: [
+        'Starting prices and estimator results are arithmetic illustrations based on published material starting prices. They are not quotes, and installation is not included.',
+        'A rough quote is an estimate based on the measurements, photos and information you give us. It is not binding on either party. The final price is set only in your Project Agreement after a site review, and it may differ from any estimate because of:',
         [
-          'Custom design consultation',
-          'Product fabrication and customization',
-          'Professional installation',
-          'Commercial and residential projects',
+          'Site conditions, access, slope or the condition of the surface the system mounts to',
+          'Differences between the measurements you provide and the measured site',
+          'Changes to scope, height, materials or layout',
+          'Material, freight or supply cost changes',
+          'Permits, inspections, HOA or landlord requirements, and fire documentation requirements',
         ],
+        'Unless a quote states a different date, it expires 30 days after it is sent.',
       ],
     },
     {
-      heading: '3. Quotes and Pricing',
+      heading: '4. Project Agreements and Changes',
       body: [
-        'All quotes provided are estimates based on the information available at the time. Final pricing may vary based on:',
+        'Scope, price, schedule, payment terms and any warranty for a project are stated only in its Project Agreement. Any change to the work must be agreed in writing (email is enough) and may change the price and schedule.',
+        'Schedules are estimates. We are not responsible for delays caused by weather, supply or shipping delays, site access, permit or HOA review, or other causes outside our reasonable control.',
+      ],
+    },
+    {
+      heading: '5. Payment',
+      body: [
+        'Payment terms are stated in your Project Agreement. Unless it says otherwise:',
         [
-          'Site conditions discovered during installation',
-          'Changes to project scope',
-          'Material availability and pricing fluctuations',
-          'Additional work requested by the client',
+          'A deposit is required before materials are ordered or fabrication begins',
+          'Custom and made-to-measure materials are non-refundable once ordered or fabricated, to the extent permitted by law',
+          'The balance is due on completion of the installation',
+          'Past-due amounts may accrue interest at the rate stated in the Project Agreement, never more than the maximum rate permitted by Texas law',
         ],
-        'Quotes are valid for 30 days unless otherwise specified.',
+        'We reserve all rights available to us for unpaid work, including lien rights under Chapter 53 of the Texas Property Code.',
       ],
     },
     {
-      heading: '4. Project Agreements',
+      heading: '6. Your Responsibilities',
       body: [
-        'Specific project terms, including pricing, timeline, and scope, will be detailed in a separate written agreement or proposal. That agreement, along with these Terms, governs our relationship for that project.',
-      ],
-    },
-    {
-      heading: '5. Payment Terms',
-      body: [
-        'Payment terms will be specified in your project agreement. Generally:',
+        'Unless your Project Agreement assigns a task to us, you are responsible for:',
         [
-          'A deposit is required to begin work',
-          'Progress payments may be required for larger projects',
-          'Final payment is due upon project completion',
+          'Giving us accurate measurements, photos and information',
+          'Confirming property lines and that you own, or have the right to modify, the fence, wall or structure we install on',
+          'Obtaining any HOA, landlord, property manager or neighbor approval. We can supply product information for your request, but we cannot promise that any association will approve it',
+          'Obtaining permits and confirming building and fire code requirements with the authority having jurisdiction',
+          'Marking private utilities and, where any digging or anchoring into the ground is planned, arranging a Texas 811 locate',
+          'Providing safe, clear access to the work area',
         ],
+        'We are not responsible for defects in, or failure of, existing fences, walls, wire mesh, posts or other structures that we did not build, or for damage caused by their condition.',
       ],
     },
     {
-      heading: '6. Warranty',
+      heading: '7. Fire Documentation',
       body: [
-        'We stand behind our work. Specific warranty terms vary by product and will be provided in your project agreement. Our warranties typically cover:',
-        ['Workmanship defects', 'Material defects under normal use', 'Structural integrity of installations'],
+        'Fire-rated options are built for NFPA 701. On request, we provide the test documentation available for the specific system you choose. Whether a product or its documentation satisfies the code requirements for your project is decided by the authority having jurisdiction (usually the local fire marshal or building official), not by us.',
+      ],
+    },
+    {
+      heading: '8. Warranty',
+      body: [
+        'The only warranties we give are the written warranties stated in your Project Agreement or in written product documentation we provide for your project.',
         {
-          lead: 'Note:',
-          text: 'Warranties do not cover damage from improper use, modifications, extreme weather events, or normal wear and tear. UV degradation timelines vary by product exposure.',
+          lead: 'DISCLAIMER OF OTHER WARRANTIES.',
+          text: 'TO THE FULLEST EXTENT PERMITTED BY TEXAS LAW, THIS WEBSITE AND ITS CONTENT ARE PROVIDED "AS IS", AND WE DISCLAIM ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. NOTHING IN THESE TERMS LIMITS ANY WARRANTY OR RIGHT THAT TEXAS LAW DOES NOT ALLOW TO BE LIMITED.',
         },
+        'Unless your written warranty says otherwise, no warranty covers damage from hail, wind, flood, fire or other severe weather or acts of God; misuse, impact or vandalism; cleaning methods or chemicals other than those we recommend; alterations or repairs by others; the condition or movement of the structure the system is mounted to; or normal weathering, including gradual color change from sun exposure.',
       ],
     },
     {
-      heading: '7. Intellectual Property',
+      heading: '9. Construction Defect Claims (Texas Property Code Chapter 27)',
       body: [
-        'All content on our website, including text, images, designs, logos, and graphics, is the property of Lone Star Faux Scapes and protected by copyright and trademark laws. You may not reproduce, distribute, or use our content without written permission.',
+        'If you believe work we performed on your residence has a construction defect, Chapter 27 of the Texas Property Code may apply. Where it applies, you must send us written notice describing the defect in reasonable detail by certified mail, return receipt requested, at least 60 days before filing suit, and allow us to inspect the work and make a written offer to repair or settle, as Chapter 27 provides.',
       ],
     },
     {
-      heading: '8. Website Use',
+      heading: '10. Limitation of Liability',
       body: [
-        'You agree to use our website only for lawful purposes and in a way that does not:',
+        'TO THE FULLEST EXTENT PERMITTED BY TEXAS LAW:',
+        [
+          'We are not liable for any indirect, incidental, special, consequential, exemplary or punitive damages, or for lost profits, lost use or loss of property value, arising from the website, any estimate or quote, or our products or services',
+          'Our total liability for any claim arising from a project is limited to the amount you paid us for that project, and for any claim arising only from use of the website, to one hundred U.S. dollars',
+        ],
+        'These limits do not apply to liability that cannot be limited under Texas law, including liability for gross negligence or intentional misconduct.',
+      ],
+    },
+    {
+      heading: '11. Indemnification',
+      body: [
+        'You agree to indemnify and hold harmless Geranium Street USA, Inc., Lone Star Faux Scapes and their officers, employees and agents from claims, damages and expenses (including reasonable attorney fees) brought by third parties, such as an HOA, landlord or neighbor, that arise from your breach of these Terms, inaccurate information you gave us, or work performed at your direction on property or structures you did not have the right to modify, except to the extent caused by our own negligence.',
+      ],
+    },
+    {
+      heading: '12. Photos of Completed Work',
+      body: [
+        'We may photograph completed installations and use the photos in our marketing. We will not publish your name or street address without your permission. To opt out, tell us in writing before or after your installation.',
+      ],
+    },
+    {
+      heading: '13. Communications',
+      body: [
+        'When you send us a request, you agree that we may contact you by phone, text message or email about that request and your project. We do not sell your contact information. Message and data rates may apply to texts; you may ask us to stop at any time.',
+      ],
+    },
+    {
+      heading: '14. Intellectual Property and Website Use',
+      body: [
+        'All content on this website, including text, photos, drawings, designs, logos and graphics, belongs to Geranium Street USA, Inc. or its licensors and is protected by copyright and trademark law. You may not copy, republish or use it commercially without our written permission.',
+        'You agree to use the website only for lawful purposes and not to:',
         [
           'Infringe the rights of others',
           "Restrict or inhibit anyone else's use of the website",
           'Attempt to gain unauthorized access to our systems',
-          'Transmit harmful code or malware',
+          'Transmit harmful code or malware, or submit automated or false requests',
         ],
+        'Links to other websites are for convenience; we are not responsible for their content.',
       ],
     },
     {
-      heading: '9. Limitation of Liability',
+      heading: '15. Governing Law and Disputes',
       body: [
-        'To the fullest extent permitted by law, Lone Star Faux Scapes shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or services.',
+        'These Terms and any dispute about the website, an estimate, a quote or a project are governed by the laws of the State of Texas, without regard to conflict-of-law rules.',
+        'Before filing any claim, each party agrees to try in good faith to resolve the dispute by written notice and discussion for at least 30 days (or the longer period Chapter 27 requires, where it applies). Any lawsuit must be filed in the state or federal courts for the Texas county where the project is located or, if there is no project, the county of our principal Texas office, and each party consents to that venue.',
       ],
     },
     {
-      heading: '10. Indemnification',
+      heading: '16. General',
       body: [
-        'You agree to indemnify and hold harmless Lone Star Faux Scapes, its officers, employees, and agents from any claims, damages, or expenses arising from your violation of these Terms or misuse of our services.',
+        'We may update these Terms by posting a new version on this page with a new "Last updated" date; the version in effect when you sign a Project Agreement applies to that project. If any provision is found unenforceable, it will be enforced to the maximum extent permitted and the rest of these Terms remain in effect. Our failure to enforce a provision is not a waiver. These Terms and any Project Agreement are the entire agreement between us on their subject.',
       ],
     },
     {
-      heading: '11. Governing Law',
+      heading: '17. Contact Information',
       body: [
-        'These Terms are governed by the laws of the State of Texas. Any disputes shall be resolved in the courts of Texas.',
-      ],
-    },
-    {
-      heading: '12. Changes to Terms',
-      body: [
-        'We may modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our website or services constitutes acceptance of the modified Terms.',
-      ],
-    },
-    {
-      heading: '13. Severability',
-      body: [
-        'If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.',
-      ],
-    },
-    {
-      heading: '14. Contact Information',
-      body: [
-        'For questions about these Terms, please contact us:',
+        'Questions about these Terms? Contact Lone Star Faux Scapes, a brand of Geranium Street USA, Inc.:',
         [
           { before: 'Phone: ', link: PHONE_LINK },
+          { before: 'Email: ', link: { text: 'info@lonestarfauxscapes.com', href: 'mailto:info@lonestarfauxscapes.com' } },
           { before: 'Website: ', link: FORM_LINK },
         ],
       ],

@@ -552,20 +552,26 @@ function addHeadingIds(htmlContent) {
   let match;
   while ((match = headingRegex.exec(htmlContent)) !== null) {
     const level = parseInt(match[1]);
-    const text = match[2].replace(/<[^>]*>/g, '');
-    const id = text
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .substring(0, 50);
-    headings.push({ level, text, id });
+    // `## New wording {#old-id}` keeps a heading's live anchor when its wording
+    // changes (Google links to these anchors).
+    const pinned = /\s*\{#([a-z0-9-]+)\}\s*$/.exec(match[2]);
+    const raw = match[2].replace(/<[^>]*>/g, '');
+    const text = pinned ? raw.replace(/\s*\{#[a-z0-9-]+\}\s*$/, '') : raw;
+    const id = pinned
+      ? pinned[1]
+      : text
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .substring(0, 50);
+    headings.push({ level, raw, text, id });
   }
 
   if (headings.length < 3) return { toc: [], content: htmlContent };
 
   let modifiedContent = htmlContent;
-  headings.forEach(({ level, text, id }) => {
-    const originalHeading = new RegExp(`<h${level}>${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h${level}>`, 'i');
+  headings.forEach(({ level, raw, text, id }) => {
+    const originalHeading = new RegExp(`<h${level}>${raw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h${level}>`, 'i');
     modifiedContent = modifiedContent.replace(originalHeading, `<h${level} id="${id}">${text}</h${level}>`);
   });
 

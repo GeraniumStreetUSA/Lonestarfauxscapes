@@ -41,7 +41,7 @@ Water requirements vary dramatically by plant selection, and drip systems can lo
 
 For artificial walls, cleaning methods affect water savings. Pressure washing uses water, while electrostatic dust removal systems use none. Consider your local water rates: real walls can add noticeably to utility bills.  
 
-## When Hail Hits at 70 MPH  
+## When hail and storms hit {#when-hail-hits-at-70-mph}
 Texas storms destroy real plants in minutes. A single hailstorm can shred delicate leaves, requiring complete replanting. Artificial walls withstand impact better, but only if they're installed with reinforced backing systems.  
 
 Ask what wind loads the mounting system is designed for, especially in coastal areas. Real living walls need protective covers during severe weather alerts.  
@@ -69,7 +69,7 @@ Maintenance timelines reveal stark differences:
 
 Real walls require specialized care, pH-balanced fertilizers, root zone monitoring, and seasonal plant rotation. Artificial walls develop maintenance needs over time: UV coating reapplication, stem reinforcement, and color touch-ups over time.  
 
-## Installation Costs That'll Surprise You  
+## What drives installation cost {#installation-costs-that39ll-surprise-you}
 Professional installation of real living walls often costs more up front because of:  
 - Irrigation systems  
 - Structural reinforcements for weight  
