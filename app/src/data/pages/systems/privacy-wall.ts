@@ -1,8 +1,9 @@
 /**
  * /privacy-wall: a new page (there is no old one). Built only from the
- * released price (4 ft x 4 ft with standard base, fully custom sizes), the
- * estimator's privacy wall system (4 ft units, counted run in feet / 4) and the
- * homepage card (freestanding, standard base, patios, pool decks). No wind,
+ * released price (4 ft x 4 ft with standard base, fully custom sizes: that
+ * configuration is said in the price caption only, with no unit size or unit
+ * count anywhere else, owner 2026-11-04) and the homepage card (freestanding,
+ * standard base, patios, pool decks). No wind,
  * noise, fire, timeline or lifespan claims: none is sourced for this system.
  */
 
@@ -15,14 +16,13 @@ export const PRIVACY_WALL: SystemPageData = {
   hero: {
     callout: '◦ SYSTEM / PRIVACY WALL',
     title: 'Freestanding Artificial Privacy Walls in Texas',
-    lede: 'Hedge units on a base, in 4 ft sections. Screen a patio, a pool deck or an open edge without building a fence first.',
+    lede: 'Hedge units on a base. Screen a patio, a pool deck or an open edge without building a fence first.',
     price: 'privacy-wall',
     image: {
       name: 'system-privacy-wall',
       alt: 'Freestanding boxwood hedge sections along a covered walkway',
     },
     facts: [
-      { label: 'Unit', value: '4 ft × 4 ft' },
       { label: 'Base', value: 'Standard base' },
       { label: 'Stands', value: 'Freestanding' },
       { label: 'Sizes', value: 'Custom available' },
@@ -41,8 +41,8 @@ export const PRIVACY_WALL: SystemPageData = {
           text: 'Units stand on their own base. A patio edge, a pool deck or an open side yard can be screened without building a fence first.',
         },
         {
-          title: 'Sized in 4 ft sections',
-          text: 'A run is counted in 4 ft units, so you see the layout and the count before you commit. Custom sizes are available.',
+          title: 'Custom sizes',
+          text: 'The starting price is for one standard unit on its base. Custom sizes are available and quoted after a site review.',
         },
         {
           title: 'No watering, no trimming',
@@ -54,7 +54,7 @@ export const PRIVACY_WALL: SystemPageData = {
       kind: 'estimator',
       system: 'privacy-wall',
       title: 'How long is the screen?',
-      body: 'Set the run. We count 4 ft × 4 ft units and draw the layout. The starting price is per standard unit, and installation is quoted after a site review.',
+      body: 'Set the run and we draw it. The starting price is per standard unit, and installation is quoted after a site review.',
     },
     {
       kind: 'options',
@@ -102,7 +102,7 @@ export const PRIVACY_WALL: SystemPageData = {
       drivers: [
         'Run length, and where the units would stand.',
         'The surface under them: deck, concrete, pavers or turf.',
-        'A height above 4 ft, if you want one.',
+        'The height you want, if it is taller than the standard unit.',
         'Photos of the space from where you would sit.',
       ],
     },
@@ -110,17 +110,13 @@ export const PRIVACY_WALL: SystemPageData = {
   faq: {
     items: [
       {
-        question: 'How big is a unit?',
-        answer: '4 ft × 4 ft with a standard base. Fully custom sizes are available and quoted.',
+        question: 'Can I get a custom size?',
+        answer: 'Yes. Fully custom sizes are available and quoted after a site review.',
       },
       {
         question: 'Does it need a fence or wall behind it?',
         answer:
           'No. Units are freestanding on a base. The site review confirms where they stand and how they sit on your surface.',
-      },
-      {
-        question: 'How is a run counted?',
-        answer: 'In 4 ft units: the run in feet divided by 4, rounded up. The estimator shows the arithmetic.',
       },
       {
         question: 'Can it go beside the pool?',

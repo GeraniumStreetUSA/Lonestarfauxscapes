@@ -25,7 +25,6 @@ export const POOL_PRIVACY_HEDGE: SystemPageData = {
     facts: [
       { label: 'On a fence or wall', value: 'About 2 to 3 in deep' },
       { label: 'Freestanding', value: '6 ft × 7 in, on posts' },
-      { label: 'Panels', value: '20 in wide' },
       { label: 'Foliage', value: 'UV-stabilized' },
     ],
   },

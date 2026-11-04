@@ -14,9 +14,9 @@
  *     the side line, so a corner lot reads differently from a short run;
  *   - feet map to drawn length on a log scale, so 30 ft and 300 ft differ
  *     visibly while 4 ft still shows;
- *   - one tick per panel across, perpendicular to the run, on the yard side;
- *     ticks closer than MIN_TICK_GAP are thinned to every Nth and labelled;
- *   - freestanding units (the privacy wall) are separate blocks instead.
+ *   - the hedge's depth is a green band along the run, on the yard side. No
+ *     panel ticks, module labels or unit blocks are drawn: the plan shows the
+ *     run and its length only (owner, 2026-11-04).
  */
 
 export const VIEW_W = 640;
@@ -58,13 +58,7 @@ const LOG_KNEE_FT = 30;
 export const BACK_LENGTH = LOT.x1 - LOT.x0;
 const LOG_SCALE = BACK_LENGTH / Math.log(1 + BACK_CAPACITY_FT / LOG_KNEE_FT);
 
-/**
- * Smallest drawn gap between ticks, in viewBox units. The plan renders at
- * roughly 0.55x on a 390 px phone and about 1x on desktop, so 6 units keeps
- * ticks at least 3 px apart on screen at every width.
- */
-export const MIN_TICK_GAP = 6;
-/** Tick length, from the run line into the yard. Also the depth drawn for a freestanding hedge (7 in). */
+/** Depth of the band, from the run line into the yard. Also the depth drawn for a freestanding hedge (7 in), and the default. */
 export const TICK_LENGTH = 9;
 
 /**
@@ -137,26 +131,18 @@ export interface RunGeometry {
   end: Point;
   /** True once the run has turned the corner onto the side line. */
   turnsCorner: boolean;
-  /** One segment per tick drawn, in order from the start. */
-  ticks: Segment[];
   /**
-   * The centre line of the green band the ticks sit in (the hedge's depth),
-   * offset half a tick length into the yard. Drawn with stroke-width
-   * `depth` (TICK_LENGTH unless a hedge's true depth is drawn).
+   * The centre line of the green band (the hedge's depth), offset half a
+   * depth into the yard. Drawn with stroke-width `depth` (TICK_LENGTH unless
+   * a hedge's true depth is drawn).
    */
   band: Point[];
-  /** Panels across, the true count. */
-  panelsAcross: number;
-  /** 1 when every panel has a tick; N when only every Nth panel is drawn. */
-  tickStep: number;
   labels: {
     run: LabelAnchor;
-    /** The module note, just inside the start corner, under the tick band. */
-    module: LabelAnchor;
   };
 }
 
-export function buildRun(runFt: number, panelsAcross: number, depth: number = TICK_LENGTH): RunGeometry {
+export function buildRun(runFt: number, depth: number = TICK_LENGTH): RunGeometry {
   const length = runToPx(runFt);
   const end = pointAt(length);
   const turnsCorner = end.onSide && length > BACK_LENGTH;
@@ -164,20 +150,6 @@ export function buildRun(runFt: number, panelsAcross: number, depth: number = TI
   const points: Point[] = [{ x: LOT.x0, y: LOT.y0 }];
   if (turnsCorner) points.push({ x: LOT.x1, y: LOT.y0 });
   points.push(end.point);
-
-  const count = Math.max(1, Math.floor(panelsAcross));
-  const gap = length / count;
-  const tickStep = gap >= MIN_TICK_GAP ? 1 : Math.ceil(MIN_TICK_GAP / gap);
-
-  const ticks: Segment[] = [];
-  for (let i = 0; i < count; i += tickStep) {
-    const { point, onSide } = pointAt((i + 0.5) * gap);
-    ticks.push(
-      onSide
-        ? { x1: point.x, y1: point.y, x2: round(point.x - depth), y2: point.y }
-        : { x1: point.x, y1: point.y, x2: point.x, y2: round(point.y + depth) },
-    );
-  }
 
   const half = depth / 2;
   const band: Point[] = [{ x: LOT.x0, y: LOT.y0 + half }];
@@ -194,55 +166,9 @@ export function buildRun(runFt: number, panelsAcross: number, depth: number = TI
     start: points[0],
     end: end.point,
     turnsCorner,
-    ticks,
     band,
-    panelsAcross: count,
-    tickStep,
-    labels: {
-      run: runLabelAnchor(length),
-      module: toAnchor({ x: LOT.x0 + 14, y: LOT.y0 + depth + 12 }, 'below'),
-    },
+    labels: { run: runLabelAnchor(length) },
   };
-}
-
-/** Gap between neighbouring freestanding units on the plan, in viewBox units. */
-export const UNIT_GAP = 3;
-
-/**
- * Freestanding units (the privacy wall) as separate blocks along the run: the
- * run's band cut into `units` equal lengths, with a small gap between
- * neighbours. Each block is a polyline on the band's centre line, drawn with
- * stroke-width TICK_LENGTH (the run's `depth`); one that straddles the corner bends round it.
- */
-export function buildUnitBlocks(run: RunGeometry, units: number): Point[][] {
-  const segments = run.band.slice(1).map((b, i) => {
-    const a = run.band[i];
-    return { a, b, length: Math.hypot(b.x - a.x, b.y - a.y) };
-  });
-  const total = segments.reduce((sum, s) => sum + s.length, 0);
-  const count = Math.max(1, Math.floor(units));
-  const pitch = total / count;
-  const inset = Math.min(UNIT_GAP / 2, pitch / 4);
-
-  const slice = (from: number, to: number): Point[] => {
-    const out: Point[] = [];
-    let start = 0;
-    for (const { a, b, length } of segments) {
-      const end = start + length;
-      if (length > 0 && end > from && start < to) {
-        const at = (d: number): Point => {
-          const t = (d - start) / length;
-          return { x: round(a.x + (b.x - a.x) * t), y: round(a.y + (b.y - a.y) * t) };
-        };
-        if (out.length === 0) out.push(at(Math.max(from, start)));
-        out.push(at(Math.min(to, end)));
-      }
-      start = end;
-    }
-    return out;
-  };
-
-  return Array.from({ length: count }, (_, i) => slice(i * pitch + inset, (i + 1) * pitch - inset));
 }
 
 /* ---------------------------------------------------------------------------

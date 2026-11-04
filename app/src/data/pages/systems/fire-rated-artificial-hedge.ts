@@ -86,7 +86,7 @@ export const FIRE_RATED_ARTIFICIAL_HEDGE: SystemPageData = {
       {
         question: 'Do fire-rated living walls exist?',
         answer:
-          'Yes. Fire-rated living wall options are built for NFPA 701 too, as an upgrade at extra cost. Vallum FRX is our fire-rated living wall system.',
+          'Yes. Fire-rated living wall options are built for NFPA 701 too, as an upgrade at extra cost. Vallum FRX is our fire-rated living wall system, and it only comes fire-rated.',
       },
     ],
   },

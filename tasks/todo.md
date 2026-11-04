@@ -248,6 +248,16 @@ Source: `/Volumes/hermes_agent/Downloads/LONESTAR-HANDOFF.md` (applied on califa
 
 Review: owner confirmed Texas = Califauxscapes facts (2026-11-04). Data in one file (two hedge tiers, FR notes); estimator offers both hedge kinds; every hedge price labelled by tier (25 pages); fire-rated foliage is an upgrade at extra cost everywhere (no "UV + FR", no fire-rated-as-standard in the built HTML); extension face-mount wording and vinyl caveat; claims.test.ts guards it; 122 tests pass. /pricing rebuilt as a price board with six section drawings, one "every price" legend instead of chips on each card, in/extra lists, estimator, cost-driver icon grid, folded steps and FAQ. Hero price line trimmed to the labelled on-fence price. Open for owner: freestanding hedge panel module (counted as 20 in), whether the 3 ft extension's overlap is inside the $65 figure, whether the "Vallum FRX" name stays now that fire rating is an upgrade.
 
+### Pricing round 2 (owner 2026-11-04)
+Owner: "just dont put size ... keep it simple, non confusing for the privacy, only ones that need it are the movable hedges"; hedge on fence "Scale from 6 ft"; extension "4.5 = 81usd per lin ft at 3ft over the fence ... 18usd a lin ft per ft height"; "vallum only comes in FR".
+- [x] No panel sizes or panel counts for privacy products (hedges, extensions, privacy wall, estimator, pricing, homepage); movable hedges keep theirs
+- [x] Hedge on fence: $99/linear ft at 6 ft, scales with height ($16.50 per sq ft of face); estimator price follows the height slider
+- [x] Fence extension: $18 per linear ft per ft of foliage; foliage = extension height x 1.5 (overlap 1 ft per 2 ft); 3 ft over the fence = 4.5 ft = from $81/linear ft (replaces $65); estimator height adjustable
+- [x] Vallum FRX only comes fire-rated: say so; claims test allows it as the one exception
+- [x] Tests, CLAIMS.md, review at 390 and 1440, commit
+
+Review: estimator checked in the page: hedge 40 ft at 8 ft = $5,280, at 4 ft = $2,640; extension 40 ft at 3 ft over = $3,240 ($81/ft), at 2 ft = $2,160. No panel sizes or counts left for privacy products (built-site search: no "$65", "20 in", "40 in"). Vallum FRX says it comes fire-rated as standard and is quoted after a site review. 123 tests pass.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

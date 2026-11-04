@@ -41,7 +41,7 @@ export const COMMERCIAL_HUB: HubData = {
         },
         {
           title: 'Vallum FRX',
-          text: 'The fire-rated living wall system built for NFPA 701, an upgrade at extra cost.',
+          text: 'Vallum FRX only comes fire-rated (NFPA 701), so it is priced above standard living wall foliage.',
           href: '/vallum-frx',
         },
       ],

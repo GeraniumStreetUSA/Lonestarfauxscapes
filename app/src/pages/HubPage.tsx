@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Fragment, type ComponentProps, type ReactNode } from 'react';
 
-import Callout from '../components/Callout';
 import Layout from '../components/Layout';
 import CardGrid from '../components/page/CardGrid';
 import FaqList from '../components/page/FaqList';
@@ -88,7 +87,7 @@ function SystemsCaveat() {
 }
 
 /**
- * The home page's five systems as cards: picture, module, title, released
+ * The home page's five systems as cards: picture, title, released
  * price with its caption (configuration and the installation caveat), the
  * best-for line and one link. Phones: compact rows, like the kit's cards.
  */
@@ -103,7 +102,6 @@ function SystemCards({ ids, terse = false }: { ids: readonly SystemCard['id'][];
               <div className="photo photo-settle pk-media-photo">
                 <Picture name={card.image as ImageName} alt={SYSTEM_ALT[card.id]} sizes={THUMB_SIZES} />
               </div>
-              <Callout text={card.module} className="pk-card-callout" />
               <h3 className="t-h3 pk-card-title">{card.title}</h3>
               <div className="hb-p-card-body">
                 <p className="hb-p-price">{card.startingPrice ? formatStartingPrice(card.startingPrice) : SYSTEMS_SECTION.quoted}</p>

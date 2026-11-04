@@ -20,14 +20,14 @@ import type { PageProps } from '../routes';
 
 const FACTS = [
   { label: 'On a fence or wall', value: 'About 2 to 3 in deep' },
-  { label: 'Panels', value: '20 in wide' },
+  { label: 'Height', value: 'Price scales with it' },
   { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
   { label: 'Installation', value: 'Quoted after a site review' },
 ] as const;
 
 const POINTS = [
   { title: 'Measure the run', text: 'Walk the line you want green and note each corner and gate. Send us the lengths in feet.' },
-  { title: 'We count the panels', text: 'The run in inches, divided by the 20 in panel, rounded up. The estimator shows the arithmetic.' },
+  { title: 'We do the arithmetic', text: 'The run in feet times the rate for your height. The estimator shows the working.' },
   {
     title: 'A site review sets the invoice',
     text: 'Run length, mounting and site access drive installation, so the final invoice waits for the review.',
@@ -43,7 +43,7 @@ const OPTIONS = [
   },
   {
     title: 'Living wall',
-    text: 'Greenery for a blank wall, in 40 in panels.',
+    text: 'Greenery for a blank wall, cut to your wall.',
     href: '/living-wall',
     media: <Picture name="system-living-wall" alt="Artificial living wall on an outdoor wall" sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 96px" />,
   },
@@ -55,7 +55,7 @@ const OPTIONS = [
   },
   {
     title: 'Privacy wall',
-    text: 'Freestanding units on a base, in 4 ft sections.',
+    text: 'Freestanding units on a base.',
     href: '/privacy-wall',
     mediaKind: 'drawing' as const,
     media: <SystemThumb id="privacy-wall" />,
@@ -72,7 +72,7 @@ const OPTIONS = [
 const TOC: readonly TocItem[] = [
   { id: 'kit-measure', text: 'Measuring a run', level: 2 },
   { id: 'kit-corners', text: 'Corners and gates', level: 3 },
-  { id: 'kit-count', text: 'Counting panels', level: 2 },
+  { id: 'kit-count', text: 'How the price is built', level: 2 },
   { id: 'kit-fire', text: 'Fire documentation', level: 2 },
 ];
 
@@ -158,47 +158,41 @@ export default function KitPage({ route }: PageProps) {
             <p>
               A corner is counted once. A gate is a break in the run, so measure each side of it as its own stretch.
             </p>
-            <h2 id="kit-count">Counting panels</h2>
-            <p>The panel is the unit a crew counts. The estimator uses the same module for each system.</p>
+            <h2 id="kit-count">How the price is built</h2>
+            <p>Each system is priced by one measure. The estimator shows the same arithmetic.</p>
             <table>
               <thead>
                 <tr>
                   <th>System</th>
-                  <th>Panel module</th>
                   <th>Priced height</th>
-                  <th>Counted by</th>
+                  <th>Priced by</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Hedge on your fence or wall</td>
-                  <td>20 in</td>
-                  <td>Your height</td>
-                  <td>Run in inches</td>
+                  <td>6 ft, scales with height</td>
+                  <td>Linear ft</td>
                 </tr>
                 <tr>
                   <td>Freestanding hedge</td>
-                  <td>20 in</td>
                   <td>6 ft</td>
-                  <td>Run in inches</td>
+                  <td>Linear ft</td>
                 </tr>
                 <tr>
                   <td>Fence extension</td>
-                  <td>20 in</td>
-                  <td>3 ft</td>
-                  <td>Run in inches</td>
+                  <td>3 ft over the fence</td>
+                  <td>Linear ft per ft of foliage</td>
                 </tr>
                 <tr>
                   <td>Living wall</td>
-                  <td>40 in</td>
                   <td>Your height</td>
-                  <td>Run and height</td>
+                  <td>Sq ft</td>
                 </tr>
                 <tr>
                   <td>Privacy wall</td>
-                  <td>4 ft units</td>
-                  <td>4 ft</td>
-                  <td>Run in feet</td>
+                  <td>Standard unit</td>
+                  <td>Per unit</td>
                 </tr>
               </tbody>
             </table>
@@ -215,8 +209,7 @@ export default function KitPage({ route }: PageProps) {
               <p>Fire-rated foliage (NFPA 701) is an upgrade at extra cost. Ask for the documentation for the exact system you choose.</p>
             </blockquote>
             <p>
-              Panels are rated by system, so the <code>20 in</code> hedge and the <code>40 in</code> wall can carry
-              different paperwork.
+              Fire paperwork is by system, so a hedge and a wall can carry different documents.
             </p>
             <hr />
             <p>
@@ -236,7 +229,7 @@ export default function KitPage({ route }: PageProps) {
             <tbody>
               <tr>
                 <td>Hedge</td>
-                <td>20 in panels, counted across the run</td>
+                <td>Priced by the linear foot</td>
                 <td>6 ft</td>
               </tr>
             </tbody>

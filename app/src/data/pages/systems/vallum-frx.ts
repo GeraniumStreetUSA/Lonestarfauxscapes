@@ -1,5 +1,8 @@
 /**
- * /vallum-frx. The fire-rated living wall system. NFPA 701 only. Dropped:
+ * /vallum-frx. The fire-rated living wall system. NFPA 701 only. Owner,
+ * 2026-11-04: Vallum FRX only comes fire-rated, so it is priced above standard
+ * living wall foliage; no figure is released and it is quoted after a site
+ * review. Vallum FRX is the one product that comes fire-rated as standard. Dropped:
  * "industry-leading warranties", the 1-year structural and 3-year foliage
  * warranties, the 5 to 7 year lifespan, the 1 to 2 day install time, the
  * aluminum hat channel, steel grid and "UV-PE HD" material list (unverified),
@@ -7,7 +10,7 @@
  * placeholder phone link.
  */
 
-import { FR_STATEMENT, INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
+import { INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
 
@@ -16,14 +19,14 @@ export const VALLUM_FRX: SystemPageData = {
   hero: {
     callout: '◦ LIVING WALL / FIRE-RATED',
     title: 'Vallum FRX Fire-Rated Living Wall',
-    lede: 'The fire-rated option for living walls, built for NFPA 701, with UV-stabilized foliage. Fire rating is an upgrade at extra cost, with documentation on request.',
-    price: 'living-wall',
+    lede: 'Vallum FRX comes fire-rated (NFPA 701) as standard, with UV-stabilized foliage and documentation on request. Fire-rated foliage costs extra, so it is priced above standard living wall foliage.',
+    price: 'quoted',
     image: {
       name: 'sys-vallum-wall',
       alt: 'Vallum FRX artificial living wall on an exterior wall',
     },
     facts: [
-      { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
+      { label: 'Fire-rated', value: 'Always, NFPA 701' },
       { label: 'Foliage', value: 'UV-stabilized' },
       { label: 'Build', value: 'Three layers' },
       { label: 'Use', value: 'Indoor or outdoor' },
@@ -36,8 +39,8 @@ export const VALLUM_FRX: SystemPageData = {
       callout: '◦ THE PROBLEM',
       title: 'Some walls have to pass a fire marshal.',
       paragraphs: [
-        'Restaurants, hotels, multifamily and retail projects often need greenery with a documented fire rating. Vallum FRX is our fire-rated living wall system, built for NFPA 701. Fire rating is an upgrade at extra cost, with documentation on request.',
-        'Ask for the NFPA 701 documentation for the exact system, then confirm the requirement with your fire marshal.',
+        'Restaurants, hotels, multifamily and retail projects often need greenery with a documented fire rating. Vallum FRX is our fire-rated living wall system, and it comes fire-rated (NFPA 701) as standard, with documentation on request.',
+        'Fire-rated foliage costs extra, so Vallum FRX is priced above standard living wall foliage. We quote it after a site review. Ask for the NFPA 701 documentation for the exact system, then confirm the requirement with your fire marshal.',
       ],
       links: [GUIDES.nfpa],
     },
@@ -53,8 +56,8 @@ export const VALLUM_FRX: SystemPageData = {
           text: 'A frame, a grid and the foliage on top, built as one system for the wall.',
         },
         {
-          title: 'Fire-rated, as an upgrade',
-          text: 'Built for NFPA 701, with UV-stabilized foliage for walls that see sun. The fire rating is an upgrade at extra cost.',
+          title: 'Fire-rated, always',
+          text: 'Vallum FRX only comes fire-rated, built for NFPA 701, with UV-stabilized foliage for walls that see sun. That makes it cost more than standard living wall foliage.',
         },
         {
           title: 'Inside or out',
@@ -82,11 +85,11 @@ export const VALLUM_FRX: SystemPageData = {
       {
         question: 'What is Vallum FRX?',
         answer:
-          'It is our fire-rated living wall system: a frame, a grid and UV-stabilized foliage built as one system for NFPA 701. Fire rating is an upgrade at extra cost on every product.',
+          'It is our fire-rated living wall system: a frame, a grid and UV-stabilized foliage built as one system for NFPA 701. Vallum FRX only comes fire-rated, and fire-rated foliage costs extra.',
       },
       {
         question: 'Is it fire-rated?',
-        answer: `It is the fire-rated option, built for NFPA 701, and fire rating costs extra. ${FR_STATEMENT} Ask for the documentation for the exact system you choose, before you order, and your local fire authority (the AHJ) makes the final call.`,
+        answer: `Yes. Vallum FRX comes fire-rated (NFPA 701) as standard, and fire-rated foliage costs extra. Ask for the documentation for the exact system you choose, before you order, and your local fire authority (the AHJ) makes the final call. On our other systems fire-rated foliage is an upgrade at extra cost.`,
       },
       {
         question: 'Can it go outside?',
@@ -99,7 +102,7 @@ export const VALLUM_FRX: SystemPageData = {
       },
       {
         question: 'What does it cost?',
-        answer: `Living walls start ${formatStartingPriceProse(STARTING_PRICES['living-wall'])} (${STARTING_PRICES['living-wall'].configuration.toLowerCase()}) ${INSTALLATION_CAVEAT}. Vallum FRX is a specific system, so we price it in your rough quote.`,
+        answer: `Vallum FRX is priced above standard living wall foliage, because fire-rated foliage costs extra, and we quote it after a site review. For reference, standard living walls start ${formatStartingPriceProse(STARTING_PRICES['living-wall'])} (${STARTING_PRICES['living-wall'].configuration.toLowerCase()}) ${INSTALLATION_CAVEAT}.`,
       },
     ],
   },

@@ -18,16 +18,16 @@ export const METROS: readonly PageLink[] = [
 /** Systems and use cases, keyed by path, each with the line a link row shows. */
 export const PAGES = {
   hedge: { title: 'Artificial hedge', href: '/artificial-hedge', text: 'Panels for a fence line, a wall or a patio edge.' },
-  livingWall: { title: 'Living wall', href: '/living-wall', text: 'Mixed foliage for a blank wall, in 40 in panels.' },
+  livingWall: { title: 'Living wall', href: '/living-wall', text: 'Mixed foliage for a blank wall, cut to your wall.' },
   fenceExtension: { title: 'Fence extensions', href: '/fence-extensions', text: 'Add height to the fence you already have.' },
   commercialWall: { title: 'Commercial wall', href: '/commercial-wall', text: 'Facades and storefronts, quoted after a site review.' },
-  privacyWall: { title: 'Privacy wall', href: '/privacy-wall', text: 'Freestanding 4 ft units on a base.' },
+  privacyWall: { title: 'Privacy wall', href: '/privacy-wall', text: 'Freestanding units on a base.' },
   boxwood: { title: 'Boxwood hedge', href: '/artificial-boxwood-hedge', text: 'The classic clipped look, fixed or on casters.' },
   fireRated: { title: 'Fire-rated hedges', href: '/fire-rated-artificial-hedge', text: 'The fire-rated upgrade, built for NFPA 701.' },
   hoa: { title: 'Hedges for HOA requests', href: '/hoa-approved-artificial-hedge', text: 'Specs and photos for your HOA submission.' },
   poolPrivacy: { title: 'Pool privacy hedge', href: '/pool-privacy-hedge', text: 'Screen the pool from the second floor next door.' },
   poolLivingWall: { title: 'Pool living wall', href: '/pool-living-wall', text: 'Greenery behind the pool, nothing to water.' },
-  vallum: { title: 'Vallum FRX', href: '/vallum-frx', text: 'The fire-rated living wall system, an upgrade.' },
+  vallum: { title: 'Vallum FRX', href: '/vallum-frx', text: 'The living wall system that only comes fire-rated.' },
 } as const satisfies Record<string, PageLink>;
 
 /** Blog posts, keyed by topic, with a short line on what each covers. */

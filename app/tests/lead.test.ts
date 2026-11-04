@@ -35,7 +35,7 @@ test('the payload has exactly the fields the Pages Function reads', () => {
 });
 
 test('message is never empty: details, then the estimate, then system and place', () => {
-  const summary = 'Hedge, 40 ft run × 6 ft high: 24 across × 4 rows = 96 panels, 240 sq ft (20 in panels)';
+  const summary = 'Fence hedge, 40 ft run × 8 ft high, 320 sq ft · from $5,280 + installation, quoted after a site review';
   assert.equal(composeMessage('Cover the back fence.', summary, 's', 'l'), `Cover the back fence.\n\n${summary}`);
   assert.equal(composeMessage('', summary, 's', 'l'), summary);
   assert.equal(composeMessage('  ', '', 'Living wall / Commercial', 'Houston'), 'Living wall / Commercial, Houston');

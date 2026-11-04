@@ -76,7 +76,7 @@ faq:
   - question: "What tools do I need to install artificial hedge panels?"
     answer: "For a basic fence-line installation: UV-rated zip ties or stainless steel screws, wire cutters or a drill, a tape measure, a level, a utility knife for trimming panels, and a step ladder if the fence is tall. For frame-mounted installations, you may also need a post driver, concrete mix, and a saw for cutting framing material."
   - question: "How long does it take to install artificial hedges on a fence?"
-    answer: "A single fence panel section (roughly 20 by 20 inches) goes up quickly once you get the hang of alignment and attachment. A longer fence line takes longer, including setup, alignment, and cleanup, so plan the labor before you start."
+    answer: "A single fence panel section goes up quickly once you get the hang of alignment and attachment. A longer fence line takes longer, including setup, alignment, and cleanup, so plan the labor before you start."
   - question: "Will a bad installation void the product warranty?"
     answer: "It depends on the manufacturer's terms. Some warranties require professional installation or specific mounting methods. Others cover the product regardless of who installs it. Check the warranty before starting and follow the manufacturer's installation instructions to avoid issues."
 ---
@@ -98,7 +98,7 @@ This article covers what each approach involves so you can make the right call f
 The most common DIY project: attaching artificial hedge panels to an existing fence for privacy or appearance. If your fence is in good shape and you're covering a manageable section, this is a straightforward job.
 
 **What's involved:**
-- Measure the fence area to determine how many panels you need
+- Measure the fence run so you know how much hedge you need
 - Attach panels to the fence using UV-rated zip ties, clips, or stainless steel screws
 - Align panels so the seams are tight and the foliage overlaps the edges
 - Trim any excess with a utility knife where panels meet corners or posts
@@ -230,7 +230,7 @@ Yes, for straightforward fence-line installations. If you are attaching panels t
 For a basic fence-line installation: UV-rated zip ties or stainless steel screws, wire cutters or a drill, a tape measure, a level, a utility knife for trimming panels, and a step ladder if the fence is tall. For frame-mounted installations, you may also need a post driver, concrete mix, and a saw for cutting framing material.
 
 ### How long does it take to install artificial hedges on a fence?
-A single fence panel section (roughly 20 by 20 inches) goes up quickly once you get the hang of alignment and attachment. A longer fence line takes much longer for one person working alone, once you count setup, alignment, and cleanup.
+A single fence panel section goes up quickly once you get the hang of alignment and attachment. A longer fence line takes much longer for one person working alone, once you count setup, alignment, and cleanup.
 
 ### Will a bad installation void the product warranty?
 It depends on the manufacturer's terms. Some warranties require professional installation or specific mounting methods. Others cover the product regardless of who installs it. Check the warranty before starting and follow the manufacturer's installation instructions to avoid issues.

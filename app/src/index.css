@@ -905,18 +905,6 @@
     }
   }
 
-  .plan-tick {
-    transform-box: fill-box;
-  }
-
-  .plan-tick[data-axis='y'] {
-    transform-origin: 50% 0%;
-  }
-
-  .plan-tick[data-axis='x'] {
-    transform-origin: 100% 50%;
-  }
-
   .plan-label {
     position: absolute;
     white-space: nowrap;

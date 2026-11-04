@@ -33,7 +33,7 @@ export const INSTALLATION_PAGE = {
       },
       {
         title: 'Freestanding frame',
-        text: 'Freestanding units on a standard base, in 4 ft sections.',
+        text: 'Freestanding units on a standard base.',
         href: '/privacy-wall',
       },
     ],

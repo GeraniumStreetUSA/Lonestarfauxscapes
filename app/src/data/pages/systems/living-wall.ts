@@ -17,14 +17,13 @@ export const LIVING_WALL: SystemPageData = {
   hero: {
     callout: '◦ SYSTEM / LIVING WALL',
     title: 'Artificial Living Wall Installation in Texas',
-    lede: 'Mixed-foliage panels for a blank wall, in 40 in modules, cut to your wall. No irrigation system, no plant care.',
+    lede: 'Mixed-foliage panels for a blank wall, cut to your wall. No irrigation system, no plant care.',
     price: 'living-wall',
     image: {
       name: 'sys-living-wall-hero',
       alt: 'Artificial mixed-foliage living wall with a fire hose cabinet set into it',
     },
     facts: [
-      { label: 'Panels', value: '40 in wide' },
       { label: 'Height', value: 'You set it' },
       { label: 'Mount', value: 'Wall or frame' },
       { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
@@ -52,7 +51,7 @@ export const LIVING_WALL: SystemPageData = {
         },
         {
           title: 'Built to your wall',
-          text: 'Panels are 40 in wide. The wall is planned to your height and width, with the foliage pattern laid out across it.',
+          text: 'The wall is planned to your height and width, with the foliage pattern laid out across it.',
         },
       ],
     },
@@ -60,7 +59,7 @@ export const LIVING_WALL: SystemPageData = {
       kind: 'estimator',
       system: 'living-wall',
       title: 'How big is the wall?',
-      body: 'Set the run and the height. We count 40 in panels and do the arithmetic on our published living wall starting price. Installation is quoted after a site review.',
+      body: 'Set the run and the height. We work out the square feet and do the arithmetic on our published living wall starting price. Installation is quoted after a site review.',
     },
     {
       kind: 'options',
@@ -75,7 +74,7 @@ export const LIVING_WALL: SystemPageData = {
         },
         {
           title: 'Vallum FRX',
-          text: 'The fire-rated living wall system, an upgrade at extra cost.',
+          text: 'Vallum FRX only comes fire-rated (NFPA 701), so it is priced above standard foliage.',
           href: '/vallum-frx',
         },
         {
@@ -138,7 +137,7 @@ export const LIVING_WALL: SystemPageData = {
       },
       {
         question: 'Is there a fire-rated living wall?',
-        answer: `Yes, as an upgrade at extra cost; standard foliage is not fire-rated. Fire-rated living wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Ask for the NFPA 701 documentation for the exact system you choose, and your local fire authority (the AHJ) makes the final call.`,
+        answer: `Yes, as an upgrade at extra cost; standard foliage is not fire-rated. Fire-rated living wall options are built for NFPA 701, the flame test fire marshals ask for on decorative greenery. Vallum FRX only comes fire-rated and is priced above standard foliage. Ask for the NFPA 701 documentation for the exact system you choose, and your local fire authority (the AHJ) makes the final call.`,
       },
       {
         question: 'What does it mount to?',

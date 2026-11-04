@@ -22,7 +22,7 @@ Let's start with what you pay at the register and to get it in the ground.
 
 **Real Hedge Plants:** For common screening plants like Ligustrum (Privet), Indian Hawthorn, or Dwarf Yaupon Holly, a Texas nursery prices them by the plant, and a dense 10-foot linear hedge may need 8-10 plants. Professional installation adds more, depending on soil prep, labor, and size of the project.
 
-**Artificial Hedges (Premium Quality):** Commercial-grade, UV-stabilized artificial hedge panels are priced per panel or per foot, and a 10-foot span might need 5-10 panels. Professional installation by a specialist like Lone Star Faux Scapes helps ensure a secure fit and is quoted after a site review. Starting prices are published on the [pricing page](/pricing) (installation is quoted after a site review).
+**Artificial Hedges (Premium Quality):** Commercial-grade, UV-stabilized artificial hedge panels are priced per linear foot. Professional installation by a specialist like Lone Star Faux Scapes helps ensure a secure fit and is quoted after a site review. Starting prices are published on the [pricing page](/pricing) (installation is quoted after a site review).
 
 ![Installer fitting an artificial boxwood hedge panel to a balcony wall, a ladder beside him](/images/hedges/hedge-privacy-1.webp)
 

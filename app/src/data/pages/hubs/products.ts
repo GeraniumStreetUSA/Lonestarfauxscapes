@@ -28,7 +28,7 @@ export const PRODUCTS_HUB: HubData = {
         { title: 'HOA-friendly hedges', href: '/hoa-approved-artificial-hedge', text: 'The specs and photos your HOA request needs.' },
         { title: 'Pool privacy hedge', href: '/pool-privacy-hedge', text: 'Screening beside the pool, with no watering.' },
         { title: 'Pool living wall', href: '/pool-living-wall', text: 'Greenery for a pool-area wall.' },
-        { title: 'Vallum FRX', href: '/vallum-frx', text: 'The fire-rated living wall system, an upgrade at extra cost.' },
+        { title: 'Vallum FRX', href: '/vallum-frx', text: 'The living wall system that only comes fire-rated.' },
       ],
     },
     {

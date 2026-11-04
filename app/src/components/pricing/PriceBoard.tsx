@@ -14,11 +14,11 @@ const TIERS: readonly { tier: HedgeTier; drawing: SectionDrawingId }[] = [
   { tier: HEDGE_TIERS['hedge-freestanding'], drawing: 'hedge-freestanding' },
 ];
 
-/** A tier's size in a few words, from the released numbers: "about 2 to 3 in deep", "6 ft × 7 in". */
+/** A tier's size in a few words, from the released numbers: "priced at 6 ft tall, about 2 to 3 in deep", "6 ft × 7 in". */
 function tierSize(tier: HedgeTier): string {
   const { heightFt, depthIn } = tier;
-  if (heightFt !== null && typeof depthIn === 'number') return `${heightFt} ft × ${depthIn} in`;
-  return typeof depthIn === 'number' ? `${depthIn} in deep` : `about ${depthIn[0]} to ${depthIn[1]} in deep`;
+  if (typeof depthIn === 'number') return `${heightFt} ft × ${depthIn} in`;
+  return `Priced at ${heightFt} ft tall, about ${depthIn[0]} to ${depthIn[1]} in deep; scales with height`;
 }
 
 /** A card's second line of small print: the configuration its figure is released for. */

@@ -26,12 +26,6 @@ function fill(range: Range, value: number): CSSProperties {
   return { '--fill': `${pct}%` } as CSSProperties;
 }
 
-/** Splits a line of working at its last "=" so the results line up in a column. */
-function splitWorking(line: string): [string, string] {
-  const at = line.lastIndexOf(' = ');
-  return at === -1 ? ['', line] : [line.slice(0, at), line.slice(at + 3)];
-}
-
 interface MeasureProps {
   id: string;
   label: string;
@@ -40,9 +34,10 @@ interface MeasureProps {
   onCommit: (value: number) => void;
 }
 
-/** A slider and a number field editing one value. The field commits on blur or Enter. */
+/** A slider and a number field editing one value, in whole feet or the range's step. The field commits on blur or Enter. */
 function Measure({ id, label, range, value, onCommit }: MeasureProps) {
   const labelId = `${id}-label`;
+  const step = range.step ?? 1;
   const [draft, setDraft] = useState<string | null>(null);
 
   const commit = () => {
@@ -60,10 +55,10 @@ function Measure({ id, label, range, value, onCommit }: MeasureProps) {
         <input
           id={id}
           type="number"
-          inputMode="numeric"
+          inputMode={step < 1 ? 'decimal' : 'numeric'}
           min={range.min}
           max={range.max}
-          step={1}
+          step={step}
           value={draft ?? String(value)}
           onChange={(event) => setDraft(event.target.value)}
           onBlur={commit}
@@ -80,7 +75,7 @@ function Measure({ id, label, range, value, onCommit }: MeasureProps) {
         type="range"
         min={range.min}
         max={range.max}
-        step={1}
+        step={step}
         value={value}
         aria-labelledby={labelId}
         onChange={(event) => {
@@ -110,8 +105,8 @@ interface HomeEstimatorProps {
 /**
  * Screen 2, the signature. The visitor picks a system and sets the run; the
  * plan draws it, and the readout leads with the starting material figure from
- * the released prices, then counts the panels, with the working shown. Every
- * figure carries the installation caveat. "Send" carries the numbers into the
+ * the released prices with the arithmetic shown, never a panel or unit count.
+ * Every figure carries the installation caveat. "Send" carries the numbers into the
  * quote form below (step 2 of 2).
  */
 export default function HomeEstimator({
@@ -158,11 +153,6 @@ export default function HomeEstimator({
     return () => io.disconnect();
   }, []);
 
-  const workingRef = useRef<HTMLDetailsElement>(null);
-  useEffect(() => {
-    if (window.matchMedia('(max-width: 1023px)').matches) workingRef.current?.removeAttribute('open');
-  }, []);
-
   /* While the dock is up, the page's Call / Quote bar steps aside. */
   useEffect(() => {
     document.documentElement.toggleAttribute('data-est-dock', dock);
@@ -179,8 +169,6 @@ export default function HomeEstimator({
     scrollToQuote();
   };
 
-  const { lines } = estimate;
-  const working = [lines.across, lines.rows, lines.panels, lines.area].filter((line): line is string => line !== null);
 
   return (
     <section id="estimate" aria-labelledby={`${uid}-title`} className="relative overflow-clip">
@@ -226,7 +214,7 @@ export default function HomeEstimator({
 
               <div className="mt-8 grid gap-7">
                 <Measure id={`${uid}-run`} label={ESTIMATOR.runLabel} range={RUN} value={runFt} onCommit={(v) => setRunFt(clampRun(v))} />
-                {isHeightLocked(system) ? (
+                {isPerUnit(system) ? null : isHeightLocked(system) ? (
                   <p className="field-label">
                     {ESTIMATOR.heightFixedLabel}: {estimate.heightFt} ft{' '}
                     <span className="font-normal text-cedar">({ESTIMATOR.heightFixedNote})</span>
@@ -235,7 +223,7 @@ export default function HomeEstimator({
                   <div>
                     <Measure
                       id={`${uid}-height`}
-                      label={ESTIMATOR.heightLabel}
+                      label={system.heightLabel}
                       range={system.height}
                       value={heightFt}
                       onCommit={(v) => setHeightFt(clampHeight(system, v))}
@@ -265,13 +253,7 @@ export default function HomeEstimator({
             <div className="estimator-plan relative">
               {/* The spine arrives from the hero and ends on the corner where the run starts. */}
               <span className="spine estimator-spine hidden lg:block" aria-hidden="true" />
-              <YardPlan
-                runFt={estimate.runFt}
-                count={estimate.across}
-                units={isPerUnit(system)}
-                moduleNote={system.note}
-                depthIn={system.depthIn}
-              />
+              <YardPlan runFt={estimate.runFt} depthIn={system.depthIn} />
             </div>
 
             <div className="estimator-readout">
@@ -292,36 +274,22 @@ export default function HomeEstimator({
               <p className="t-small mt-2 max-w-[52ch] text-cedar">{price.frNote}</p>
 
               <div aria-live="polite" aria-atomic="true" className="mt-7">
-                <div className="grid grid-cols-2 border-y border-rule">
+                <div className={estimate.areaSqFt === null ? 'border-y border-rule' : 'grid grid-cols-2 border-y border-rule'}>
                   <p className="py-4 pr-4">
                     <span className="t-figure block text-[clamp(2.25rem,1.7rem+1.4vw,3rem)]">
-                      {formatNumber(estimate.panels)}
+                      {formatNumber(estimate.runFt)}
                     </span>{' '}
-                    <span className="mt-1.5 block text-[16px] font-[620] text-cedar">{estimate.panelsWord}</span>
+                    <span className="mt-1.5 block text-[16px] font-[620] text-cedar">linear ft</span>
                   </p>
-                  <p className="border-l border-rule py-4 pl-5 sm:pl-7">
-                    <span className="t-figure block text-[clamp(2.25rem,1.7rem+1.4vw,3rem)]">
-                      {formatNumber(estimate.areaSqFt)}
-                    </span>{' '}
-                    <span className="mt-1.5 block text-[16px] font-[620] text-cedar">sq ft</span>
-                  </p>
+                  {estimate.areaSqFt === null ? null : (
+                    <p className="border-l border-rule py-4 pl-5 sm:pl-7">
+                      <span className="t-figure block text-[clamp(2.25rem,1.7rem+1.4vw,3rem)]">
+                        {formatNumber(estimate.areaSqFt)}
+                      </span>{' '}
+                      <span className="mt-1.5 block text-[16px] font-[620] text-cedar">sq ft</span>
+                    </p>
+                  )}
                 </div>
-                {/* Open in the markup (desktop shows it); folded on phones after load. */}
-                <details ref={workingRef} className="working-wrap border-b border-rule" open>
-                  <summary className="working-summary">{ESTIMATOR.workingLabel}</summary>
-                <ol className="working mono m-0 list-none p-0 py-5">
-                  {working.map((line) => {
-                    const [left, result] = splitWorking(line);
-                    return (
-                      <li key={line} className="working-row">
-                        <span className="working-left">{left}</span>
-                        <span className="working-eq">=</span>
-                        <span className="working-result">{result}</span>
-                      </li>
-                    );
-                  })}
-                </ol>
-                </details>
               </div>
               <p className="t-small mt-5 max-w-[48ch] text-cedar">{ESTIMATOR.qualifier}</p>
               <button type="button" onClick={send} className="btn btn-primary mt-6 w-full sm:w-auto" data-primary-cta data-cta="estimator">
@@ -343,7 +311,8 @@ export default function HomeEstimator({
             {price.per ? <small> {price.per}</small> : null}
           </span>
           <span className="est-dock-meta">
-            {formatNumber(estimate.panels)} {estimate.panelsWord} · {formatNumber(estimate.areaSqFt)} sq ft · {system.label}
+            {formatNumber(estimate.runFt)} linear ft
+            {estimate.areaSqFt === null ? '' : ` · ${formatNumber(estimate.areaSqFt)} sq ft`} · {system.label}
           </span>
         </p>
         <button type="button" onClick={send} className="btn" data-cta="estimator-dock">

@@ -21,6 +21,7 @@ import {
   FR_PRICE_NOTE,
   INSTALLATION_CAVEAT,
   STARTING_PRICES,
+  formatFenceExtensionPriceProse,
   formatHedgePricesProse,
   formatStartingPriceProse,
   type StartingPriceId,
@@ -98,7 +99,12 @@ const CAVEAT = INSTALLATION_CAVEAT.replace('+ ', '+\u00a0');
  */
 function systemLine(note: string, price?: StartingPriceId): ReactNode {
   if (!price) return `${note} Quoted after a site review.`;
-  const prose = price === 'hedge' ? formatHedgePricesProse() : formatStartingPriceProse(STARTING_PRICES[price]);
+  const prose =
+    price === 'hedge'
+      ? formatHedgePricesProse()
+      : price === 'fence-extension'
+        ? formatFenceExtensionPriceProse()
+        : formatStartingPriceProse(STARTING_PRICES[price]);
   return (
     <>
       {note} {prose.charAt(0).toUpperCase()}

@@ -109,7 +109,7 @@ export const POSTS: readonly BlogPostSummary[] = [
       ]
     },
     "summary": "How Texas fire codes apply to artificial greenery in commercial buildings, which codes Texas adopts, how occupancy types affect requirements, what the AHJ expects, and how to avoid problems during inspection.",
-    "readingMinutes": 7,
+    "readingMinutes": 8,
     "featuredScore": 50,
     "city": ""
   },

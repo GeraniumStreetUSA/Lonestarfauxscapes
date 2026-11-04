@@ -11,6 +11,7 @@ import {
   FR_PRICE_NOTE,
   FR_STATEMENT,
   STARTING_PRICES,
+  formatFenceExtensionPriceProse,
   formatHedgePricesProse,
   formatStartingPriceProse,
   type StartingPrice,
@@ -103,11 +104,10 @@ export const AUSTIN_STORY = {
 export const ESTIMATOR = {
   callout: '◦ STEP 1 OF 2: MEASURE YOUR RUN',
   title: 'How long is the line you want green?',
-  body: 'Pick a system and set the run. We draw it, count the panels and do the arithmetic on our published starting prices. Installation is quoted after a site review.',
+  body: 'Pick a system and set the run. We draw it and do the arithmetic on our published starting prices. Installation is quoted after a site review.',
   /** Fieldset legend. Not in the deck: reuses the deck's quote-form field name. */
   systemLegend: 'System',
   runLabel: 'Run length (ft)',
-  heightLabel: 'Height (ft)',
   /** Shown instead of the height slider where the price fixes the height: "Height: 6 ft (priced size)". */
   heightFixedLabel: 'Height',
   heightFixedNote: 'priced size',
@@ -117,8 +117,6 @@ export const ESTIMATOR = {
   send: 'Send these numbers to my quote',
   /** The phone dock's short button. */
   dockSend: 'Send',
-  /** Phones: the panel-count working folds behind this. */
-  workingLabel: 'How the panels are counted',
 } as const;
 
 export const LINK_BAND = {
@@ -192,7 +190,7 @@ export const QUESTIONS = {
       question: 'What will it cost?',
       answer:
         `Starting prices are published: hedge ${formatHedgePricesProse()}, ` +
-        `fence extension ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])}, ` +
+        `fence extension ${formatFenceExtensionPriceProse()}, ` +
         `living wall ${formatStartingPriceProse(STARTING_PRICES['living-wall'])}, ` +
         `privacy wall ${formatStartingPriceProse(STARTING_PRICES['privacy-wall'])}. ` +
         `Installation is quoted after a site review, because access, mounting and run length drive it. ${FR_PRICE_NOTE}`,
@@ -208,7 +206,6 @@ export interface SystemCard {
   startingPrice: StartingPrice | null;
   /** A second released price for the same card (the freestanding hedge), shown under the first. */
   alsoPriced?: StartingPrice;
-  module: string;
   mount: string;
   bestFor: string;
   link: { label: string; href: string };
@@ -220,7 +217,7 @@ export const SYSTEMS_SECTION = {
   titleLines: ['Five systems.', 'Measured to your site.'],
   /** The price line of a card with no released price. */
   quoted: 'Quoted after a site review',
-  specLabels: { module: 'Module', mount: 'Mount', bestFor: 'Best for' },
+  specLabels: { mount: 'Mount', bestFor: 'Best for' },
   /** Phones: the picker's one-row labels, in card order. */
   short: ['Hedge', 'Living wall', 'Fence ext.', 'Commercial', 'Privacy wall'],
   pickerLabel: 'Choose a system',
@@ -230,7 +227,6 @@ export const SYSTEMS_SECTION = {
       title: 'Artificial hedge',
       startingPrice: STARTING_PRICES.hedge,
       alsoPriced: STARTING_PRICES['hedge-freestanding'],
-      module: '20 in panels',
       mount: 'Your fence or wall, or freestanding on posts',
       bestFor: 'Backyard privacy, pool screens',
       link: { label: 'Artificial hedges', href: '/artificial-hedge' },
@@ -240,7 +236,6 @@ export const SYSTEMS_SECTION = {
       id: 'living-wall',
       title: 'Living wall',
       startingPrice: STARTING_PRICES['living-wall'],
-      module: '40 in panels',
       mount: 'Wall or frame',
       bestFor: 'Courtyards, patios, interiors',
       link: { label: 'Living walls', href: '/living-wall' },
@@ -250,7 +245,6 @@ export const SYSTEMS_SECTION = {
       id: 'fence-extension',
       title: 'Fence extension',
       startingPrice: STARTING_PRICES['fence-extension'],
-      module: '20 in panels',
       mount: 'Face of your fence or wall, steel square tube',
       bestFor: 'Second-story sightlines',
       link: { label: 'Fence extensions', href: '/fence-extensions' },
@@ -260,7 +254,6 @@ export const SYSTEMS_SECTION = {
       id: 'commercial',
       title: 'Commercial wall',
       startingPrice: null,
-      module: 'Per system spec',
       mount: 'Wall or freestanding frame',
       bestFor: 'Restaurants, retail, multifamily',
       link: { label: 'Commercial walls', href: '/commercial-wall' },
@@ -270,7 +263,6 @@ export const SYSTEMS_SECTION = {
       id: 'privacy-wall',
       title: 'Privacy wall',
       startingPrice: STARTING_PRICES['privacy-wall'],
-      module: '4 × 4 ft units',
       mount: 'Freestanding, standard base',
       bestFor: 'Patios, pool decks, quick screens',
       link: { label: 'Privacy walls', href: '/privacy-wall' },
@@ -413,9 +405,9 @@ export const FAQ = {
         "We cannot promise approval. Check your HOA's rules and submit product specs and photos with your request.",
     },
     {
-      question: 'What size are the panels?',
+      question: 'Does the price change with height?',
       answer:
-        'Hedge panels are 20 in. Living wall panels are 40 in. The estimator above counts them for your run.',
+        'For two systems, yes. A hedge on your fence or wall is priced at 6 ft tall and scales with height, so a taller one costs more per linear foot and a shorter one costs less. A fence extension is priced by how far it rises over your fence. The estimator above does the arithmetic as you move the height.',
     },
   ] satisfies Faq[],
 } as const;

@@ -148,7 +148,7 @@ Fire-rated foliage (NFPA 701) is an upgrade at extra cost over our standard UV-s
 
 - [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge), fire-rated options for fences, screens, and balcony applications
 - [Commercial living wall systems](/commercial-wall), Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces
-- [Vallum FRX architectural wall system](/vallum-frx), A modular system for large-scale commercial and architectural installations
+- [Vallum FRX architectural wall system](/vallum-frx), A modular system for large-scale commercial and architectural installations that comes fire-rated (NFPA 701) as standard
 
 For the NFPA 701 documentation for the exact system you're considering, [contact us directly](/contact).
 

@@ -23,7 +23,6 @@ export const POOL_LIVING_WALL: SystemPageData = {
       alt: 'Close view of artificial mixed foliage on a living wall',
     },
     facts: [
-      { label: 'Panels', value: '40 in wide' },
       { label: 'Height', value: 'You set it' },
       { label: 'Mount', value: 'Wall, fence or frame' },
       { label: 'Foliage', value: 'UV-stabilized' },

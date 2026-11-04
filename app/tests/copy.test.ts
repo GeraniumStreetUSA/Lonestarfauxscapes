@@ -46,7 +46,9 @@ test('dollar figures only in src/data/starting-prices.ts', () => {
 test('the only dollar figures in the prices file are the five released ones', () => {
   const figures = [...readFileSync(pricesFile, 'utf8').matchAll(/\$\s?(\d[\d,]*)/g)].map((match) => match[1]);
   // Code comments quote the formatted examples ("$99", "$3,960", "$108,000"); the released set must all be there.
-  for (const released of ['99', '200', '65', '18', '699']) assert.ok(figures.includes(released), `$${released}`);
+  for (const released of ['99', '200', '81', '18', '699']) assert.ok(figures.includes(released), `$${released}`);
+  // The old $65 extension price is gone.
+  assert.ok(!figures.includes('65'), '$65');
   // No fire-rated price is released: no figure sits next to the fire-rating note or statement.
   const text = readFileSync(pricesFile, 'utf8');
   assert.doesNotMatch(text, /fire-rated[^.\n]{0,60}\$\s?\d/i);

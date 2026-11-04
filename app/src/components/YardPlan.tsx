@@ -16,7 +16,6 @@ import {
   VIEW_H,
   VIEW_W,
   buildRun,
-  buildUnitBlocks,
   depthToPlan,
   pointAt,
   pointsToPath,
@@ -31,12 +30,6 @@ const NOON = '#F2B53A';
 
 interface YardPlanProps {
   runFt: number;
-  /** Panels across the run, or freestanding units when `units` is set. */
-  count: number;
-  /** Draw freestanding units as separate blocks instead of panel ticks on a band. */
-  units?: boolean;
-  /** The system's module note, drawn in the start corner ("20 in panels"). */
-  moduleNote: string;
   /** True depth of a hedge in inches (3 on a fence line, 7 freestanding); null draws the default depth. */
   depthIn?: number | null;
 }
@@ -137,17 +130,15 @@ const StaticYard = memo(function StaticYard() {
  * Markup is always the finished drawing for the current numbers, so the
  * prerendered page and the first paint show the 40 ft default complete. Only a
  * change the visitor makes animates: the line draws (stroke-dashoffset over
- * 600 ms), then the panel ticks (or a privacy wall's unit blocks) land left
- * to right inside 300 ms while the run-length callout counts to the new
- * value. Reduced motion and `?qa=1` get the finished drawing instantly.
+ * 600 ms), then the hedge's band fades in while the run-length callout counts
+ * to the new value. The plan shows the run and its length only, never a panel
+ * or unit count. Reduced motion and `?qa=1` get the finished drawing instantly.
  */
-export default function YardPlan({ runFt, count, units = false, moduleNote, depthIn = null }: YardPlanProps) {
+export default function YardPlan({ runFt, depthIn = null }: YardPlanProps) {
   const depth = depthIn === null ? TICK_LENGTH : depthToPlan(depthIn);
-  const run = useMemo(() => buildRun(runFt, count, depth), [runFt, count, depth]);
-  const blocks = useMemo(() => (units ? buildUnitBlocks(run, count) : null), [units, run, count]);
+  const run = useMemo(() => buildRun(runFt, depth), [runFt, depth]);
 
   const pathRef = useRef<SVGPathElement>(null);
-  const ticksRef = useRef<SVGGElement>(null);
   const bandRef = useRef<SVGPathElement>(null);
 
   /** Mid-draw position of the line's tip and the callout's count; null at rest. */
@@ -155,58 +146,36 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
 
   const motion = useRef({
     line: null as Animation | null,
-    ticks: [] as Animation[],
+    landing: [] as Animation[],
     raf: 0,
     shownPx: run.length,
     shownFt: runFt,
-    last: { runFt, count, units },
+    last: { runFt, depth },
   });
 
   useLayoutEffect(() => {
     const m = motion.current;
     const prev = m.last;
-    if (prev.runFt === runFt && prev.count === count && prev.units === units) return;
-    m.last = { runFt, count, units };
+    if (prev.runFt === runFt && prev.depth === depth) return;
+    m.last = { runFt, depth };
 
     const path = pathRef.current;
-    const tickGroup = ticksRef.current;
     const band = bandRef.current;
 
-    m.ticks.forEach((a) => a.cancel());
-    m.ticks = [];
+    m.landing.forEach((a) => a.cancel());
+    m.landing = [];
 
     const hideLanding = (hidden: boolean) => {
-      const value = hidden ? '0' : '';
-      if (tickGroup) tickGroup.style.opacity = value;
-      if (band) band.style.opacity = value;
+      if (band) band.style.opacity = hidden ? '0' : '';
     };
 
-    const landTicks = () => {
-      if (!tickGroup) return;
+    const landBand = () => {
+      if (!band) return;
       hideLanding(false);
-      const els = Array.from(tickGroup.children) as SVGElement[];
-      const duration = 140;
-      const span = Math.max(0, PLAN_TICKS_MS - duration);
-      m.ticks = els.map((el, i) =>
-        el.animate(
-          [
-            { transform: el.dataset.axis === 'x' ? 'scaleX(0)' : 'scaleY(0)', opacity: 0 },
-            { transform: 'none', opacity: 1 },
-          ],
-          {
-            duration,
-            delay: els.length > 1 ? (i / (els.length - 1)) * span : 0,
-            easing: PLAN_EASING,
-            fill: 'backwards',
-          },
-        ),
-      );
-      if (band) {
-        m.ticks.push(band.animate([{ opacity: 0 }, { opacity: 1 }], { duration: PLAN_TICKS_MS, easing: PLAN_EASING }));
-      }
+      m.landing = [band.animate([{ opacity: 0 }, { opacity: 1 }], { duration: PLAN_TICKS_MS, easing: PLAN_EASING })];
     };
 
-    if (!motionAllowed() || !path || !tickGroup) {
+    if (!motionAllowed() || !path || !band) {
       m.line?.cancel();
       m.line = null;
       cancelAnimationFrame(m.raf);
@@ -217,9 +186,9 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
       return;
     }
 
-    // A system change with the same run: the line stays put, the panels re-land.
+    // A system change with the same run: the line stays put, the band re-lands.
     if (prev.runFt === runFt && !m.line) {
-      landTicks();
+      landBand();
       return;
     }
 
@@ -245,7 +214,7 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
     line.onfinish = () => {
       if (m.line !== line) return;
       m.line = null;
-      landTicks();
+      landBand();
     };
 
     cancelAnimationFrame(m.raf);
@@ -266,13 +235,13 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
     };
     setLive({ px: fromPx, ft: fromFt });
     m.raf = requestAnimationFrame(step);
-  }, [run, runFt, count, units]);
+  }, [run, runFt, depth]);
 
   useEffect(() => {
     const m = motion.current;
     return () => {
       m.line?.cancel();
-      m.ticks.forEach((a) => a.cancel());
+      m.landing.forEach((a) => a.cancel());
       cancelAnimationFrame(m.raf);
     };
   }, []);
@@ -282,57 +251,20 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
   const runLabel = runLabelAnchor(tipPx);
   const labelFt = live ? Math.round(live.ft) : runFt;
 
-  // Panel ticks, or for freestanding units one block per unit. Either way they
-  // land left to right after the line has drawn.
-  const ticks = useMemo(
-    () =>
-      blocks
-        ? blocks.map((points, i) => (
-            <path
-              key={i}
-              className="plan-tick"
-              data-axis={points[0].y === points[1].y ? 'y' : 'x'}
-              d={pointsToPath(points)}
-              fill="none"
-              strokeOpacity={0.5}
-              strokeWidth={depth}
-              strokeLinejoin="miter"
-            />
-          ))
-        : run.ticks.map((t, i) => (
-            <line
-              key={i}
-              className="plan-tick"
-              data-axis={t.x1 === t.x2 ? 'y' : 'x'}
-              x1={t.x1}
-              y1={t.y1}
-              x2={t.x2}
-              y2={t.y2}
-              vectorEffect="non-scaling-stroke"
-            />
-          )),
-    [blocks, run.ticks],
-  );
-
   return (
     <div className="plan">
       <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} aria-hidden="true" focusable="false">
         <StaticYard />
-        {units ? null : (
-          <path
-            ref={bandRef}
-            d={pointsToPath(run.band)}
-            fill="none"
-            stroke={BOXWOOD}
-            strokeOpacity={0.13}
-            strokeWidth={depth}
-            strokeLinejoin="miter"
-            strokeLinecap="butt"
-          />
-        )}
-        <g ref={ticksRef} stroke={BOXWOOD} strokeWidth={1.25} strokeLinecap="butt">
-          {ticks}
-        </g>
+        <path
+          ref={bandRef}
+          d={pointsToPath(run.band)}
+          fill="none"
+          stroke={BOXWOOD}
+          strokeOpacity={0.32}
+          strokeWidth={depth}
+          strokeLinejoin="miter"
+          strokeLinecap="butt"
+        />
         <path
           ref={pathRef}
           className="plan-run"
@@ -350,15 +282,6 @@ export default function YardPlan({ runFt, count, units = false, moduleNote, dept
 
       <span className="plan-label plan-run-label" data-side={runLabel.side} style={place(runLabel)} aria-hidden="true">
         {formatNumber(labelFt)} FT
-      </span>
-      <span className="plan-label" data-side="below" style={place(run.labels.module)} aria-hidden="true">
-        {moduleNote}
-        {!units && run.tickStep > 1 ? (
-          <>
-            <br />
-            <span className="mt-1.5 inline-block text-cedar">1 tick = {run.tickStep} panels</span>
-          </>
-        ) : null}
       </span>
       <span className="plan-label" data-side="above" style={place(NORTH.label)} aria-hidden="true">
         N

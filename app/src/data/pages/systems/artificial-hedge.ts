@@ -24,9 +24,8 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
     },
     facts: [
       // Short forms: the tier comparison right below gives each build in full.
-      { label: HEDGE_TIERS.hedge.label, value: '2 to 3 in deep' },
+      { label: HEDGE_TIERS.hedge.label, value: '2 to 3 in deep, priced at 6 ft tall' },
       { label: HEDGE_TIERS['hedge-freestanding'].label, value: '6 ft × 7 in, on posts' },
-      { label: 'Panels', value: '20 in wide' },
       { label: 'Fire-rated', value: 'Upgrade (NFPA 701)' },
     ],
   },
@@ -60,7 +59,7 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       kind: 'estimator',
       system: 'hedge',
       title: 'How long is the hedge run?',
-      body: 'Pick a hedge on your fence or wall, or a freestanding hedge, and set the run. We count 20 in panels and do the arithmetic on our published hedge starting prices. Installation is quoted after a site review.',
+      body: 'Pick a hedge on your fence or wall, or a freestanding hedge, and set the run. On a fence or wall, set the height too. We do the arithmetic on our published hedge starting prices. Installation is quoted after a site review.',
     },
     {
       kind: 'options',
@@ -101,7 +100,7 @@ export const ARTIFICIAL_HEDGE: SystemPageData = {
       driversTitle: 'What to send',
       drivers: [
         'Run length: the line you want green, corners and returns included.',
-        'Height: from the ground to the height you want. A hedge on your fence or wall is priced per linear foot; a taller run may be priced to your site.',
+        'Height: from the ground to the height you want. A hedge on your fence or wall is priced per linear foot at 6 ft tall and scales with height.',
         'Mounting surface: fence, block wall, metal posts or building facade.',
         'Photos: wide shots of the run and close ones of the mounting surface.',
       ],

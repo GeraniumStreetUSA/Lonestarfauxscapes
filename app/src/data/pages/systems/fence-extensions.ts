@@ -7,7 +7,12 @@
  * comparison table.
  */
 
-import { INSTALLATION_CAVEAT, STARTING_PRICES, formatStartingPriceProse } from '../../starting-prices.ts';
+import {
+  FENCE_EXTENSION_FOLIAGE_PER_FT,
+  INSTALLATION_CAVEAT,
+  STARTING_PRICES,
+  formatStartingPriceProse,
+} from '../../starting-prices.ts';
 import { EXTENSION_ATTACHMENT, VINYL_CAVEAT } from './claims-copy.ts';
 import { GUIDES, PAGES } from './shared.ts';
 import type { SystemPageData } from './types.ts';
@@ -24,8 +29,7 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       alt: 'Tall artificial hedge rising above a low stucco wall along the side of a house, under a clear blue sky',
     },
     facts: [
-      { label: 'Extension', value: '3 ft priced size' },
-      { label: 'Panels', value: '20 in wide' },
+      { label: 'Extension', value: 'Priced by height over the fence' },
       { label: 'Mount', value: 'Face of the fence or wall, steel square tube' },
       { label: 'Foliage', value: 'UV-stabilized' },
     ],
@@ -67,7 +71,7 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       kind: 'estimator',
       system: 'fence-extension',
       title: 'How long is the fence?',
-      body: 'Set the run. We count 20 in panels for a 3 ft extension and do the arithmetic on our published fence extension starting price. Installation is quoted after a site review.',
+      body: 'Set the run and how far the extension rises over your fence. We do the arithmetic on our published fence extension starting price. Installation is quoted after a site review.',
     },
     {
       kind: 'text',
@@ -75,7 +79,7 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       callout: '◦ HEIGHT',
       title: 'How tall can the extension go?',
       paragraphs: [
-        'We price a 3 ft extension. Other heights go in your rough quote.',
+        `A fence extension is priced by its foliage: ${STARTING_PRICES['fence-extension'].qualifiers?.[0]}. The foliage is ${FENCE_EXTENSION_FOLIAGE_PER_FT} times the height over the fence, because of the overlap, so a 3 ft extension is 4.5 ft of foliage and starts ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])}.`,
         "Check your HOA's fence height limit, and your city's, before you pick one. Tell us the limit and we plan to it.",
       ],
       links: [PAGES.hoa],
@@ -109,7 +113,7 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       {
         question: 'How much height can I add?',
         answer:
-          'We price a 3 ft extension, which takes a 6 ft fence to 9 ft. Other heights are quoted. Check your HOA and city height limits first.',
+          'The price follows the height you add. A 3 ft extension takes a 6 ft fence to 9 ft. Check your HOA and city height limits first.',
       },
       {
         question: 'Will my HOA allow it?',
@@ -122,7 +126,7 @@ export const FENCE_EXTENSIONS: SystemPageData = {
       },
       {
         question: 'How is the price set?',
-        answer: `Fence extensions start ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])} (${STARTING_PRICES['fence-extension'].configuration}) ${INSTALLATION_CAVEAT}. You get a rough quote by email first; the site review sets the final invoice.`,
+        answer: `Fence extensions start ${formatStartingPriceProse(STARTING_PRICES['fence-extension'])} (${STARTING_PRICES['fence-extension'].configuration}; ${STARTING_PRICES['fence-extension'].qualifiers?.[0]}) ${INSTALLATION_CAVEAT}. You get a rough quote by email first; the site review sets the final invoice.`,
       },
     ],
   },

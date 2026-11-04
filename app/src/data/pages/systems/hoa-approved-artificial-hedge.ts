@@ -98,7 +98,7 @@ export const HOA_APPROVED_ARTIFICIAL_HEDGE: SystemPageData = {
       {
         question: 'How tall can the hedge be?',
         answer:
-          "Your HOA's rules and your city set the limit. Tell us the limit and we plan to it. A hedge on your fence or wall is priced per linear foot, and a taller run may be priced to your site; a freestanding hedge is priced at 6 ft. Other heights go in your rough quote.",
+          "Your HOA's rules and your city set the limit. Tell us the limit and we plan to it. A hedge on your fence or wall is priced per linear foot at 6 ft tall and scales with height; a freestanding hedge is priced at 6 ft. Other heights go in your rough quote.",
       },
       {
         question: 'How long does approval take?',

@@ -3,11 +3,17 @@ import test from 'node:test';
 
 import { ESTIMATOR, FAQ, QUESTIONS, QUOTE, SEO, SYSTEMS_SECTION } from '../src/data/home-content.ts';
 import {
+  FENCE_EXTENSION_FOLIAGE_PER_FT,
+  FENCE_EXTENSION_RATE_PER_FT_OF_FOLIAGE,
   FR_PRICE_NOTE,
   FR_STATEMENT,
+  HEDGE_BASE_HEIGHT_FT,
   HEDGE_TIERS,
   INSTALLATION_CAVEAT,
   STARTING_PRICES,
+  fenceExtensionFoliageFt,
+  fenceExtensionRatePerLinearFt,
+  formatFenceExtensionPriceProse,
   formatHedgePriceProse,
   formatHedgePricesProse,
   formatRate,
@@ -15,22 +21,35 @@ import {
   formatStartingPriceCaption,
   formatStartingPriceProse,
   formatUsd,
+  formatUsdExact,
+  hedgeRatePerLinearFt,
 } from '../src/data/starting-prices.ts';
 import { SYSTEMS } from '../src/lib/estimator.ts';
 
 /** Captions carry no-break spaces for wrapping; compare them as plain text. */
 const plain = (text: string) => text.replace(/\u00A0/g, ' ');
 
-test('the released starting prices, verbatim (owner 2026-10-25, hedge corrected 2026-11-04)', () => {
+test('the released starting prices, verbatim (owner 2026-10-25, corrected and extended 2026-11-04)', () => {
   assert.equal(Object.keys(STARTING_PRICES).length, 5);
   assert.deepEqual(STARTING_PRICES, {
-    hedge: { amount: 99, per: 'linear-foot', configuration: 'On your fence or wall, single-sided, about 2 to 3 in deep' },
+    hedge: {
+      amount: 99,
+      per: 'linear-foot',
+      baseHeightFt: 6,
+      configuration: 'On your fence or wall, priced at 6 ft tall, about 2 to 3 in deep; scales with height',
+    },
     'hedge-freestanding': {
       amount: 200,
       per: 'linear-foot',
       configuration: 'Freestanding, 6 ft × 7 in, a full 3D hedge on posts set in concrete',
     },
-    'fence-extension': { amount: 65, per: 'linear-foot', configuration: '3 ft extension' },
+    'fence-extension': {
+      amount: 81,
+      per: 'linear-foot',
+      baseHeightFt: 3,
+      configuration: '3 ft over the fence (4.5 ft of foliage with the overlap)',
+      qualifiers: ['$18 per linear ft per ft of foliage'],
+    },
     'living-wall': { amount: 18, per: 'square-foot', configuration: 'Fully custom' },
     'privacy-wall': {
       amount: 699,
@@ -51,15 +70,15 @@ test('the two hedge kinds: a single hedge price always says its tier', () => {
   assert.deepEqual(
     Object.values(HEDGE_TIERS).map((tier) => [tier.id, tier.label, tier.heightFt, tier.depthIn]),
     [
-      ['hedge', 'On your fence or wall', null, [2, 3]],
+      ['hedge', 'On your fence or wall', 6, [2, 3]],
       ['hedge-freestanding', 'Freestanding', 6, 7],
     ],
   );
-  assert.equal(formatHedgePriceProse('hedge'), 'from $99 per linear ft on your fence or wall');
+  assert.equal(formatHedgePriceProse('hedge'), 'from $99 per linear ft on your fence or wall at 6 ft tall');
   assert.equal(formatHedgePriceProse('hedge-freestanding'), 'from $200 per linear ft freestanding at 6 ft × 7 in');
   assert.equal(
     formatHedgePricesProse(),
-    'from $99 per linear ft on your fence or wall and from $200 per linear ft freestanding at 6 ft × 7 in',
+    'from $99 per linear ft on your fence or wall at 6 ft tall and from $200 per linear ft freestanding at 6 ft × 7 in',
   );
   // Each caption leads with how the hedge stands.
   assert.match(plain(formatStartingPriceCaption(STARTING_PRICES.hedge)), /^On your fence or wall,/);
@@ -68,14 +87,19 @@ test('the two hedge kinds: a single hedge price always says its tier', () => {
 
 test('price lines, captions and prose', () => {
   assert.equal(formatStartingPrice(STARTING_PRICES.hedge), 'from $99 / linear ft');
-  assert.equal(formatStartingPrice(STARTING_PRICES['fence-extension']), 'from $65 / linear ft');
+  assert.equal(formatStartingPrice(STARTING_PRICES['fence-extension']), 'from $81 / linear ft');
   assert.equal(formatStartingPrice(STARTING_PRICES['living-wall']), 'from $18 / sq ft');
   assert.equal(formatStartingPrice(STARTING_PRICES['privacy-wall']), 'from $699');
   assert.equal(formatRate(STARTING_PRICES['privacy-wall']), '$699 / unit');
   assert.equal(
     plain(formatStartingPriceCaption(STARTING_PRICES.hedge)),
-    'On your fence or wall, single-sided, about 2 to 3 in deep · + installation, quoted after a site review',
+    'On your fence or wall, priced at 6 ft tall, about 2 to 3 in deep; scales with height · + installation, quoted after a site review',
   );
+  assert.equal(
+    plain(formatStartingPriceCaption(STARTING_PRICES['fence-extension'])),
+    '3 ft over the fence (4.5 ft of foliage with the overlap) · $18 per linear ft per ft of foliage · + installation, quoted after a site review',
+  );
+  assert.equal(formatFenceExtensionPriceProse(), 'from $81 per linear ft at 3 ft over the fence');
   assert.equal(formatStartingPrice(STARTING_PRICES['hedge-freestanding']), 'from $200 / linear ft');
   assert.equal(
     plain(formatStartingPriceCaption(STARTING_PRICES['hedge-freestanding'])),
@@ -102,7 +126,7 @@ test('Four questions #4 is built from the data file', () => {
   assert.equal(cost.question, 'What will it cost?');
   assert.equal(
     cost.answer,
-    'Starting prices are published: hedge from $99 per linear ft on your fence or wall and from $200 per linear ft freestanding at 6 ft × 7 in, fence extension from $65 per linear ft, living wall from $18 per sq ft, privacy wall from $699 per unit. Installation is quoted after a site review, because access, mounting and run length drive it. Prices are for standard UV-stabilized foliage; fire-rated foliage costs extra.',
+    'Starting prices are published: hedge from $99 per linear ft on your fence or wall at 6 ft tall and from $200 per linear ft freestanding at 6 ft × 7 in, fence extension from $81 per linear ft at 3 ft over the fence, living wall from $18 per sq ft, privacy wall from $699 per unit. Installation is quoted after a site review, because access, mounting and run length drive it. Prices are for standard UV-stabilized foliage; fire-rated foliage costs extra.',
   );
   assert.deepEqual(cost.link, { label: 'How pricing works', href: '/pricing' });
 });
@@ -114,7 +138,7 @@ test('the FAQ price answer and the estimator copy', () => {
   );
   assert.equal(
     ESTIMATOR.body,
-    'Pick a system and set the run. We draw it, count the panels and do the arithmetic on our published starting prices. Installation is quoted after a site review.',
+    'Pick a system and set the run. We draw it and do the arithmetic on our published starting prices. Installation is quoted after a site review.',
   );
   assert.equal(
     ESTIMATOR.qualifier,
@@ -155,12 +179,13 @@ test('systems cards: four priced from the data file, commercial quoted after a s
     ],
   );
   assert.equal(SYSTEMS_SECTION.cards[2].mount, 'Face of your fence or wall, steel square tube');
-  const { title, module, mount, bestFor, link } = SYSTEMS_SECTION.cards[4];
+  // No card states a panel size or unit size (owner 2026-11-04).
+  for (const card of SYSTEMS_SECTION.cards) assert.ok(!('module' in card), card.id);
+  const { title, mount, bestFor, link } = SYSTEMS_SECTION.cards[4];
   assert.deepEqual(
-    { title, module, mount, bestFor, link },
+    { title, mount, bestFor, link },
     {
       title: 'Privacy wall',
-      module: '4 × 4 ft units',
       mount: 'Freestanding, standard base',
       bestFor: 'Patios, pool decks, quick screens',
       link: { label: 'Privacy walls', href: '/privacy-wall' },
@@ -181,4 +206,45 @@ test('every estimator system sends a System chip the quote form offers', () => {
   for (const system of SYSTEMS) {
     assert.ok((QUOTE.systems as readonly string[]).includes(system.quoteSystem), system.quoteSystem);
   }
+});
+
+test('the hedge on your fence or wall scales with height: $99 per linear ft at 6 ft tall', () => {
+  assert.equal(HEDGE_BASE_HEIGHT_FT, 6);
+  assert.equal(STARTING_PRICES.hedge.baseHeightFt, 6);
+  assert.equal(hedgeRatePerLinearFt(6), 99);
+  assert.equal(hedgeRatePerLinearFt(8), 132);
+  assert.equal(hedgeRatePerLinearFt(4), 66);
+  assert.equal(hedgeRatePerLinearFt(3), 49.5);
+  assert.equal(hedgeRatePerLinearFt(10), 165);
+  // $16.50 per sq ft of hedge face.
+  for (const h of [3, 4, 5, 6, 7, 8, 9, 10]) assert.equal(hedgeRatePerLinearFt(h), h * 16.5);
+  // The freestanding hedge is fixed.
+  assert.equal(STARTING_PRICES['hedge-freestanding'].baseHeightFt, undefined);
+});
+
+test('the fence extension: $18 per linear ft per foot of foliage, foliage = height over the fence x 1.5', () => {
+  assert.equal(FENCE_EXTENSION_RATE_PER_FT_OF_FOLIAGE, 18);
+  assert.equal(FENCE_EXTENSION_FOLIAGE_PER_FT, 1.5);
+  assert.equal(fenceExtensionFoliageFt(3), 4.5);
+  assert.equal(fenceExtensionRatePerLinearFt(3), 81);
+  assert.equal(fenceExtensionRatePerLinearFt(2), 54);
+  assert.equal(fenceExtensionRatePerLinearFt(2.5), 67.5);
+  assert.equal(fenceExtensionRatePerLinearFt(6), 162);
+  // The released amount is the 3 ft figure.
+  assert.equal(STARTING_PRICES['fence-extension'].amount, fenceExtensionRatePerLinearFt(3));
+  assert.equal(STARTING_PRICES['fence-extension'].baseHeightFt, 3);
+});
+
+test('exact dollars show cents only when there are some', () => {
+  assert.equal(formatUsdExact(132), '$132');
+  assert.equal(formatUsdExact(49.5), '$49.50');
+  assert.equal(formatUsdExact(2029.5), '$2,029.50');
+  assert.equal(formatUsdExact(5280), '$5,280');
+});
+
+test('the other prices stay as released: living wall $18 per sq ft, privacy wall $699 per unit', () => {
+  assert.deepEqual(STARTING_PRICES['living-wall'], { amount: 18, per: 'square-foot', configuration: 'Fully custom' });
+  assert.equal(STARTING_PRICES['privacy-wall'].amount, 699);
+  assert.equal(STARTING_PRICES['privacy-wall'].per, 'unit');
+  assert.equal(STARTING_PRICES['privacy-wall'].configuration, '4 ft × 4 ft with standard base');
 });

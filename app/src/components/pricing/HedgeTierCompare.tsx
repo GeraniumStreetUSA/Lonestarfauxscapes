@@ -32,7 +32,9 @@ export default function HedgeTierCompare() {
                 </div>
                 <h3 className="pr-tier-name">{tier.label}</h3>
                 <PriceFigure id={id} />
-                <p className="pr-build">{tier.build}</p>
+                <p className="pr-build">
+                  {tier.id === 'hedge' ? `${tier.build}, priced at ${tier.heightFt} ft tall and scales with height` : tier.build}
+                </p>
               </article>
             );
           })}

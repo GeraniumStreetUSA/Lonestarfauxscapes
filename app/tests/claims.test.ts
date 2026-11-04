@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 import { SEO, QUESTIONS, FAQ, FIRE_CHAPTER, SYSTEMS_SECTION } from '../src/data/home-content.ts';
 import { EXTENSION_ATTACHMENT, HEDGE_PRICE_ANSWER, VINYL_CAVEAT } from '../src/data/pages/systems/claims-copy.ts';
+import { VALLUM_FRX } from '../src/data/pages/systems/vallum-frx.ts';
 import { FIRE_ANSWER, PRICE_ANSWER } from '../src/data/pages/metros/shared.ts';
 import {
   FR_PRICE_NOTE,
@@ -57,12 +58,13 @@ function withoutHeadings(text: string): string {
     .replace(/(id|href)=\\?"[^"]*"/g, '');
 }
 
-function scan(pattern: RegExp): string[] {
+/** Sentences matching `pattern`, except those matching `exempt` (tested on the whole sentence). */
+function scan(pattern: RegExp, exempt?: RegExp): string[] {
   const hits: string[] = [];
   for (const file of sources) {
     const text = withoutHeadings(readFileSync(file, 'utf8'));
     for (const sentence of sentences(text)) {
-      if (pattern.test(sentence)) hits.push(`${rel(file)}: ${sentence.slice(0, 160)}`);
+      if (pattern.test(sentence) && !exempt?.test(sentence)) hits.push(`${rel(file)}: ${sentence.slice(0, 160)}`);
     }
   }
   return hits;
@@ -93,7 +95,8 @@ test('no sentence calls fire-rated foliage standard', () => {
     new RegExp(`\\bour\\s+(hedges?|walls?|panels?|mats?|products?|foliage)\\s+(is|are)\\s+(all\\s+)?built (for|to) NFPA`, 'i'),
   ];
   for (const pattern of patterns) {
-    const hits = scan(pattern).filter((hit) => !/\bnot\b[^.]{0,30}standard/i.test(hit));
+    // Vallum FRX is the one product that only comes fire-rated (owner, 2026-11-04): its own sentences may say so.
+    const hits = scan(pattern, /\bVallum FRX\b/).filter((hit) => !/\bnot\b[^.]{0,30}standard/i.test(hit));
     assert.deepEqual(hits, [], String(pattern));
   }
 });
@@ -197,7 +200,7 @@ test('every hedge price the data builds is labelled by its tier', async () => {
     assert.equal(untiered(text), null, text);
   }
   assert.match(SEO.description, /\$99[^.]*on your fence or wall/);
-  assert.match(PRICE_ANSWER, /\$99 per linear ft on your fence or wall and from \$200 per linear ft freestanding/);
+  assert.match(PRICE_ANSWER, /\$99 per linear ft on your fence or wall at 6 ft tall and from \$200 per linear ft freestanding/);
 });
 
 test('every rendered hedge price line and caption carries its tier', () => {
@@ -244,7 +247,47 @@ test('CLAIMS.md records the corrections with their source', () => {
     'fire-rated foliage is an upgrade at extra cost',
     'steel square tube',
     'vinyl',
+    'owner 2026-11-04',
+    '$81',
+    '$18 per linear ft per ft of foliage',
+    'scales with height',
+    'vallum frx',
+    'nfpa 701',
   ]) {
     assert.ok(claims.includes(needle.toLowerCase()), `CLAIMS.md is missing: ${needle}`);
   }
+});
+
+test('Vallum FRX only comes fire-rated: standard, priced above standard foliage, no figure of its own', () => {
+  const text = strings(VALLUM_FRX).join('\n');
+  assert.match(text, /Vallum FRX comes fire-rated \(NFPA 701\) as standard/);
+  assert.match(text, /priced above standard living wall foliage/);
+  assert.match(text, /fire-rated foliage costs extra/i);
+  assert.match(text, /after a site review/);
+  // The page is quoted: no Vallum figure. The only dollar figure is the standard living wall reference.
+  assert.equal(VALLUM_FRX.hero.price, 'quoted');
+  assert.deepEqual([...new Set(text.match(/\$[\d,]+/g))], ['$18']);
+  for (const sentence of sentences(text)) {
+    if (/\$\d/.test(sentence)) assert.match(sentence, /standard living walls start/i, sentence);
+  }
+  // No sentence about Vallum FRX calls the fire rating an upgrade.
+  for (const sentence of sentences(text)) {
+    if (/Vallum FRX/.test(sentence)) assert.doesNotMatch(sentence, /upgrade/i, sentence);
+  }
+});
+
+test('no panel size or panel count is stated as a product spec', () => {
+  const patterns = [
+    /\b(hedge|living wall|wall|fence extension)?\s*panels? (are|is) (about |roughly )?\d+\s*(in|inch|inches|ft)\b/i,
+    /\b(20|40)[\s-]?(in|inch|inches)[\s-]+(hedge |wall |living wall )?(panels?|modules?|wide)\b/i,
+    /\b(20|40) in wide\b/i,
+    /\bwe count (the )?(\d+ in )?panels\b/i,
+    /\bhow the panels are counted\b/i,
+    /\bpanel module\b/i,
+    /\b\d+ panels\b/i,
+    /\bin 4 ft (units|sections)\b/i,
+    /\b4 [×x] 4 ft units\b/i,
+    /\broughly 20 by 20 inches\b/i,
+  ];
+  for (const pattern of patterns) assert.deepEqual(scan(pattern), [], String(pattern));
 });

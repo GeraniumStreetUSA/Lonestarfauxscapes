@@ -147,7 +147,7 @@ You might also find these useful:
 - [NFPA 701 vs ASTM E84: fire ratings explained](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery)
 - [Firewise artificial hedges for multifamily properties](/blog/firewise-artificial-hedges-for-multi-family-units)
 
-For fire-rated products, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [Vallum FRX system](/vallum-frx). Fire-rated foliage is an upgrade at extra cost, built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose.
+For fire-rated products, see our [fire-rated artificial hedge page](/fire-rated-artificial-hedge) or [Vallum FRX system](/vallum-frx). Vallum FRX comes fire-rated (NFPA 701) as standard and is priced above standard foliage. On our other systems, fire-rated foliage is an upgrade at extra cost, built for NFPA 701; ask for the NFPA 701 documentation for the exact system you choose.
 
 ## FAQ
 
