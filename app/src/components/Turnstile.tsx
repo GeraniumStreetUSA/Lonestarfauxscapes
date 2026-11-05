@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type MutableRefObject } from 'react';
 
 const SCRIPT_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 const SCRIPT_ID = 'cf-turnstile-script';
@@ -8,6 +8,7 @@ export const TURNSTILE_SITE_KEY = '0x4AAAAAACV8gs7CEDMYDaQu';
 interface TurnstileApi {
   render: (container: HTMLElement, options: Record<string, unknown>) => string;
   remove: (widgetId: string) => void;
+  reset: (widgetId: string) => void;
 }
 
 declare global {
@@ -39,6 +40,8 @@ function loadScript(): Promise<void> {
 
 interface TurnstileProps {
   onToken: (token: string | null) => void;
+  /** Filled with a function that asks the widget for a new token (tokens are single-use). */
+  resetRef?: MutableRefObject<(() => void) | null>;
 }
 
 /**
@@ -47,7 +50,7 @@ interface TurnstileProps {
  * invisible unless Cloudflare needs the visitor to act. Never rendered on
  * localhost: dev shows the payload instead of posting.
  */
-export default function Turnstile({ onToken }: TurnstileProps) {
+export default function Turnstile({ onToken, resetRef }: TurnstileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const onTokenRef = useRef(onToken);
 
@@ -73,11 +76,17 @@ export default function Turnstile({ onToken }: TurnstileProps) {
             return true;
           },
         });
+        if (resetRef) {
+          resetRef.current = () => {
+            if (widgetId && window.turnstile) window.turnstile.reset(widgetId);
+          };
+        }
       })
       .catch(() => onTokenRef.current(null));
 
     return () => {
       cancelled = true;
+      if (resetRef) resetRef.current = null;
       if (widgetId && window.turnstile) {
         try {
           window.turnstile.remove(widgetId);
