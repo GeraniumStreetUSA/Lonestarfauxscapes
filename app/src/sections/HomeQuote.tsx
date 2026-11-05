@@ -86,6 +86,7 @@ export default function HomeQuote({
   const [local, setLocal] = useState(false);
   const [devPayload, setDevPayload] = useState<LeadPayload | null>(null);
   const token = useRef<string | null>(null);
+  const resetTurnstile = useRef<(() => void) | null>(null);
   const tokenWaiters = useRef<((value: string | null) => void)[]>([]);
 
   useEffect(() => {
@@ -155,14 +156,27 @@ export default function HomeQuote({
     setStatus('sending');
     const verified = token.current ?? (await waitForToken(8000));
     try {
-      const body = JSON.stringify(buildLeadPayload(values, summary, verified ?? ''));
-      const send = (url: string) =>
-        fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+      const send = (url: string, turnstileToken: string | null) =>
+        fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(buildLeadPayload(values, summary, turnstileToken ?? '')),
+        });
       // Same order as the old site: the Pages Function first, then the
       // contact-form Worker, which is what delivers leads when the Function
       // cannot (its email settings live on the Worker).
-      let response = await send('/api/contact').catch(() => null);
-      if (!response?.ok) response = await send(LEAD_WORKER_URL);
+      let response = await send('/api/contact', verified).catch(() => null);
+      if (!response?.ok) {
+        // Turnstile tokens are single-use, and the first try may have spent
+        // this one: ask the widget for a fresh token before the second try.
+        let retryToken = verified;
+        if (verified && resetTurnstile.current) {
+          token.current = null;
+          resetTurnstile.current();
+          retryToken = await waitForToken(8000);
+        }
+        response = await send(LEAD_WORKER_URL, retryToken);
+      }
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       setStatus('sent');
       track('form_submit', eventProps);
@@ -356,7 +370,7 @@ export default function HomeQuote({
 
               {armed && !local ? (
                 <div className="sm:col-span-2">
-                  <Turnstile onToken={onToken} />
+                  <Turnstile onToken={onToken} resetRef={resetTurnstile} />
                 </div>
               ) : null}
 
