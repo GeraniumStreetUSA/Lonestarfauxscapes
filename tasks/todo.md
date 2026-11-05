@@ -265,6 +265,9 @@ Review: estimator checked in the page: hedge 40 ft at 8 ft = $5,280, at 4 ft = $
 - [x] `/get-quote` legacy redirect now one hop to `/quote` (REDIRECTS.md, _redirects, fixture)
 - Review: checked in the browser at 1440 and 390 (form in the first screen; estimate summary and system chip carried over); 123 tests pass.
 
+### Creative 404 (owner 2026-11-05: "make a creative 404 not found as well that fits our motif")
+- [x] "Out of sight. / Page not found." in the hero's two-tone display type, over a site-plan drawing: your sightline runs into a hedge, the page sits behind it as a dashed "404" outline ("SIGHTLINE: BLOCKED", "SHEET 404 · NOT ON THIS SURVEY"); the cone sweeps out once and the pin pulses (off under reduced motion and ?qa=1); homepage and quote buttons; systems, areas and contact links kept below. Reviewed at desktop and 390.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
