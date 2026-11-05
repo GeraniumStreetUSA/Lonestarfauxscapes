@@ -54,7 +54,7 @@ function renderResultPage({ title, message, detailHtml = '' }) {
         <h1>${escapeHtml(title)}</h1>
         <p>${escapeHtml(message)}</p>
         ${detailHtml ? `<div class="detail">${detailHtml}</div>` : ''}
-        <p><a href="/index.html">Back to home</a></p>
+        <p><a href="/">Back to home</a></p>
       </div>
     </div>
   </body>
@@ -114,7 +114,7 @@ export async function onRequestPost({ request, env }) {
     return htmlResponse(
       renderResultPage({
         title: 'Request received',
-        message: 'Thanks! We received your request. Expect a reply within one business day.',
+        message: 'Thanks! We received your request. We will email you with next steps.',
       }),
     );
   }
@@ -189,7 +189,7 @@ Referer: ${referer}
   return htmlResponse(
     renderResultPage({
       title: 'Request received',
-      message: 'Thanks! We received your request. Expect a reply within one business day.',
+      message: 'Thanks! We received your request. We will email you with next steps.',
       detailHtml:
         'We’ll review your configuration and send a tailored quote (and a render if needed).',
     }),

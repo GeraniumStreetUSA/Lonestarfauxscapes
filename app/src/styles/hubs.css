@@ -1,0 +1,495 @@
+/* The hub pages (/products, /residential, /commercial, /commercial-resources,
+   /case-studies, /gallery) and the three project pages. Plain CSS on top of
+   the page kit (page-kit.css) and the site tokens (--ink, --rule, --boxwood
+   ...). Every class starts with `hb-p-`. Phones first. */
+
+/* ----------------------------------------------------------- inline links */
+
+/* Arrow links under a sentence, in a point list or a prose block. */
+.hb-p-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+  margin-top: 4px;
+}
+
+/* One link under a block of cards or photos. */
+.hb-p-more {
+  margin: 12px 0 0;
+}
+
+/* ------------------------------------------------------------ system cards */
+
+/* The card body is one grid cell, so the phone row keeps the kit's four rows
+   (callout, title, body, link) next to the square picture. */
+.hb-p-card-body {
+  min-width: 0;
+}
+
+.hb-p-price {
+  margin: 6px 0 0;
+  font-size: 18px;
+  font-weight: 680;
+  font-stretch: 106%;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.hb-p-caption {
+  margin: 2px 0 0;
+  color: var(--cedar);
+}
+
+/* The caveat is said once under the list on phones; desktop keeps it on every card. */
+.hb-p-caveat-once {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .hb-p-caveat {
+    display: none;
+  }
+
+  /* `terse`: the "best for" line repeats the points above the cards; phones keep the price and the link. */
+  .pk-cards[data-terse] .hb-p-card-body .pk-card-text {
+    display: none;
+  }
+
+  .hb-p-caveat-once {
+    display: block;
+    margin: 12px 0 0;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--cedar);
+  }
+}
+
+@media (min-width: 640px) {
+  .hb-p-price {
+    margin-top: 10px;
+  }
+
+  .hb-p-card-body .pk-card-text {
+    margin-top: 12px;
+  }
+}
+
+/* ------------------------------------------------------------------ prose */
+
+.hb-p-copy {
+  max-width: 62ch;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.hb-p-copy > * + * {
+  margin-top: 0.8em;
+}
+
+/* ------------------------------------------------------- points beside links */
+
+.hb-p-split {
+  display: grid;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .hb-p-split {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 72px;
+    align-items: start;
+  }
+}
+
+/* ------------------------------------------------------------ before/after */
+
+.hb-p-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hb-p-pair figure {
+  margin: 0;
+}
+
+.hb-p-pair-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.hb-p-pair figcaption {
+  padding-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--cedar);
+}
+
+@media (min-width: 640px) {
+  .hb-p-pair {
+    gap: 20px;
+    max-width: 880px;
+  }
+}
+
+/* ------------------------------------------------------------------ chips */
+
+.hb-p-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-p-chips a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--rule);
+  font-weight: 620;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.hb-p-chips a:hover {
+  border-color: var(--boxwood);
+  color: var(--boxwood);
+}
+
+/* -------------------------------------------------------------- photo grid */
+
+/* Two columns on phones. A lone last photo spans both and shows at 16:9, so
+   a row of three never leaves a hole. */
+.hb-p-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-p-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  aspect-ratio: 4 / 3;
+  cursor: zoom-in;
+}
+
+.hb-p-photo img {
+  transition: transform 500ms var(--ease-plan);
+}
+
+.hb-p-photo:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 639px) {
+  .hb-p-photos > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .hb-p-photos > li:last-child:nth-child(odd) .hb-p-photo {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (min-width: 640px) {
+  .hb-p-photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .hb-p-photos[data-count='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hb-p-photos {
+    gap: 18px;
+  }
+}
+
+/* ----------------------------------------------------------------- gallery */
+
+.hb-p-gallery {
+  padding-bottom: 48px;
+}
+
+.hb-p-group + .hb-p-group {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 2px solid var(--ink);
+}
+
+.hb-p-group-head {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.hb-p-group-title {
+  margin-top: 6px;
+}
+
+@media (min-width: 640px) {
+  .hb-p-gallery {
+    padding-bottom: 80px;
+  }
+
+  .hb-p-group + .hb-p-group {
+    margin-top: 64px;
+    padding-top: 40px;
+  }
+
+  .hb-p-group-head {
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hb-p-group-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'callout link'
+      'title link';
+    align-items: end;
+    column-gap: 32px;
+  }
+
+  .hb-p-group-head .callout {
+    grid-area: callout;
+  }
+
+  .hb-p-group-title {
+    grid-area: title;
+  }
+
+  .hb-p-group-link {
+    grid-area: link;
+  }
+}
+
+/* The larger view: a native modal dialog. */
+.hb-p-dialog {
+  --focus: var(--noon);
+  width: min(1100px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overflow: auto;
+  background: var(--ink);
+  color: var(--caliche);
+}
+
+.hb-p-dialog::backdrop {
+  background: rgb(21 33 27 / 0.82);
+}
+
+.hb-p-dialog-body {
+  position: relative;
+}
+
+.hb-p-dialog-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 120px);
+  object-fit: contain;
+  background: var(--ink);
+}
+
+.hb-p-dialog-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 24px;
+  padding: 10px 16px 12px;
+}
+
+.hb-p-dialog-caption {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.hb-p-dialog .link-go {
+  color: var(--leaf);
+  text-decoration-color: rgb(143 192 138 / 0.5);
+}
+
+.hb-p-dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  background: var(--caliche);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 620;
+  cursor: pointer;
+}
+
+.hb-p-dialog-close:hover {
+  background: var(--limestone);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hb-p-dialog[open] {
+    animation: hb-p-rise 240ms var(--ease-plan);
+  }
+
+  .hb-p-dialog[open]::backdrop {
+    animation: hb-p-fade 240ms ease;
+  }
+}
+
+@keyframes hb-p-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes hb-p-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------ project story */
+
+/* The hero already ends in space; the story starts close under the facts. */
+.hb-p-story {
+  padding-block: 8px 24px;
+}
+
+.hb-p-chapter {
+  display: grid;
+  gap: 10px;
+  padding: 22px 0 26px;
+  border-top: 1px solid var(--rule);
+}
+
+.hb-p-chapter:first-child {
+  border-top: 2px solid var(--ink);
+}
+
+.hb-p-chapter-title {
+  margin-top: 8px;
+}
+
+/* Scope and materials, as short lists. */
+.hb-p-spec {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.hb-p-spec dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--cedar);
+}
+
+.hb-p-spec dd {
+  margin: 6px 0 0;
+}
+
+/* Phones: the hero facts and the chapter above already say this. */
+@media (max-width: 639px) {
+  .hb-p-spec {
+    display: none;
+  }
+}
+
+.hb-p-spec ul,
+.hb-p-notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-p-spec li,
+.hb-p-notes li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.hb-p-spec li + li,
+.hb-p-notes li + li {
+  margin-top: 6px;
+}
+
+.hb-p-spec li::before,
+.hb-p-notes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  background: var(--boxwood);
+}
+
+.hb-p-notes {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  color: var(--cedar);
+}
+
+@media (min-width: 640px) {
+  .hb-p-story {
+    padding-block: 16px 48px;
+  }
+
+  .hb-p-spec {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hb-p-story {
+    padding-bottom: 64px;
+  }
+
+  .hb-p-chapter {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 64px;
+    padding: 40px 0 44px;
+  }
+}

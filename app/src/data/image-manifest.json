@@ -1,0 +1,269 @@
+{
+  "hero-austin-boxwood-wall": {
+    "width": 1200,
+    "height": 750,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "hero-austin-boxwood-wall-phone": {
+    "width": 717,
+    "height": 896,
+    "widths": [
+      480,
+      717
+    ]
+  },
+  "austin-before": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "austin-install": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "austin-after": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "install-austin-panels": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "commercial-houston-patio": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "case-austin-privacy-wall": {
+    "width": 960,
+    "height": 720,
+    "widths": [
+      480,
+      768,
+      960
+    ]
+  },
+  "case-houston-restaurant": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1024
+    ]
+  },
+  "case-houston-storefront": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1024
+    ]
+  },
+  "system-hedge": {
+    "width": 640,
+    "height": 480,
+    "widths": [
+      480,
+      640
+    ]
+  },
+  "system-living-wall": {
+    "width": 1350,
+    "height": 1012,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "system-fence-extension": {
+    "width": 1350,
+    "height": 1012,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "system-commercial": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1024
+    ]
+  },
+  "system-privacy-wall": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "hub-houston-restaurant-wide": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "hub-houston-storefront-front": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "hub-houston-storefront-side": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "hub-houston-storefront-mount": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-living-wall-hero": {
+    "width": 3493,
+    "height": 2620,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-living-wall-close": {
+    "width": 1500,
+    "height": 1125,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-vallum-wall": {
+    "width": 1200,
+    "height": 896,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-vallum-before": {
+    "width": 768,
+    "height": 1376,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sys-vallum-after": {
+    "width": 768,
+    "height": 1376,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sys-fence-topper": {
+    "width": 1350,
+    "height": 1012,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-hedge-path": {
+    "width": 1350,
+    "height": 1012,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-pool-hedge": {
+    "width": 1200,
+    "height": 900,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "sys-mat-boxwood": {
+    "width": 464,
+    "height": 464,
+    "widths": [
+      464
+    ]
+  },
+  "sys-mat-ficus": {
+    "width": 464,
+    "height": 464,
+    "widths": [
+      464
+    ]
+  },
+  "sys-mat-oasis": {
+    "width": 464,
+    "height": 464,
+    "widths": [
+      464
+    ]
+  },
+  "sys-mat-other": {
+    "width": 464,
+    "height": 464,
+    "widths": [
+      464
+    ]
+  }
+}

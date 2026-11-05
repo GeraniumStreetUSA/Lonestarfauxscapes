@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#EDECE6" />
+    <script>
+      // ?qa=1 is screenshot mode: set before first paint so nothing animates.
+      (function () {
+        try {
+          var html = document.documentElement;
+          var qa = new URLSearchParams(window.location.search).get('qa') === '1';
+          if (qa) html.setAttribute('data-qa-mode', '1');
+          // Hold the hero drawing for its entrance only when it will play.
+          // Fails open: the hold lifts by itself after 2.5 s.
+          var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (!qa && !reduced && !window.__PRERENDER__ && 'animate' in Element.prototype) {
+            html.classList.add('scene-intro');
+            setTimeout(function () { html.classList.remove('scene-intro'); }, 2500);
+          }
+        } catch (error) {
+          // No URLSearchParams: leave motion as the visitor's settings allow.
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/besley-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/libre-franklin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- No static head tags: scripts/prerender.mjs writes each page's title,
+         description, robots, canonical and JSON-LD from src/routes.ts. In dev
+         (no prerender) App sets document.title. -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

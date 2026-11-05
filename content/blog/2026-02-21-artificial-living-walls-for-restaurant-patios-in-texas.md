@@ -17,14 +17,14 @@ faq:
   - question: "Will kitchen grease and smoke damage artificial living walls?"
     answer: "Grease and smoke create a film on artificial foliage over time, especially on walls near grill stations, fryers, or smoker exhausts. The film does not damage quality polyethylene panels, but it dulls the appearance and can attract dust. Regular cleaning with mild soap and water prevents buildup. Position the living wall away from direct exhaust paths where possible."
   - question: "Can artificial living walls pass a health inspection?"
-    answer: "Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests—which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this."
+    answer: "Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests, which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this."
   - question: "How long do artificial living walls last on a restaurant patio?"
     answer: "Outdoors in Texas, lifespan depends on sun exposure, product quality, and maintenance. Indoor installations usually hold appearance longer because they avoid direct UV exposure. Near kitchens, more frequent cleaning helps preserve the wall."
 ---
 
-Texas restaurant patios run most of the year. In Austin, San Antonio, Houston, and Dallas, outdoor dining isn't seasonal—it's the default for a large share of the calendar. And for most restaurants, the patio is where the photos happen, where the ambiance matters most, and where the competition for a customer's attention plays out.
+Texas restaurant patios run most of the year. In Austin, San Antonio, Houston, and Dallas, outdoor dining isn't seasonal, it's the default for a large share of the calendar. And for most restaurants, the patio is where the photos happen, where the ambiance matters most, and where the competition for a customer's attention plays out.
 
-A living wall—an artificial vertical garden on a patio wall, fence, or freestanding structure—has become one of the most common design elements in Texas restaurant patios. The appeal is obvious: it softens hardscape, creates a lush backdrop for photos and social media, and defines the space without blocking sightlines or airflow.
+A living wall (an artificial vertical garden on a patio wall, fence, or freestanding structure) has become one of the most common design elements in Texas restaurant patios. The appeal is obvious: it softens hardscape, creates a lush backdrop for photos and social media, and defines the space without blocking sightlines or airflow.
 
 But restaurant patios add real-world considerations that a residential backyard doesn't face: fire codes for assembly occupancies, food safety inspections, grease and smoke exposure, high foot traffic, and the need to look good every single day because every day is a business day.
 
@@ -36,13 +36,13 @@ Live planted walls on restaurant patios sound great in theory. In practice, they
 
 **Irrigation near food service.** A live wall needs a plumbing system that runs water through or behind the wall. On a patio where food is being served, that means potential leaks near dining areas, humidity issues, and an irrigation system that needs monitoring and maintenance.
 
-**Pests.** Soil, moisture, and organic matter attract insects. On a restaurant patio, any pest issue—real or perceived—is a problem. Artificial living walls have no soil, no moisture retention, and no organic matter. They don't create habitat for mosquitoes, gnats, or other insects.
+**Pests.** Soil, moisture, and organic matter attract insects. On a restaurant patio, any pest issue (real or perceived) is a problem. Artificial living walls have no soil, no moisture retention, and no organic matter. They don't create habitat for mosquitoes, gnats, or other insects.
 
 **Inconsistent appearance.** Live walls look great when everything is working. They look terrible when a section dies from heat stress, pest damage, or an irrigation malfunction. On a restaurant patio, a patchy wall with dead plants is worse than no wall at all.
 
 **Seasonal limitations.** Even in Texas, some planted wall species struggle during peak summer heat or unexpected cold snaps. Artificial panels look the same in August as they do in March.
 
-**Maintenance burden.** Live planted walls on restaurant patios need a dedicated maintenance schedule—pruning, fertilizing, pest treatment, irrigation adjustments, and plant replacement. That's labor and cost on top of an already demanding kitchen and front-of-house operation.
+**Maintenance burden.** Live planted walls on restaurant patios need a dedicated maintenance schedule, pruning, fertilizing, pest treatment, irrigation adjustments, and plant replacement. That's labor and cost on top of an already demanding kitchen and front-of-house operation.
 
 Artificial living walls need periodic cleaning and an annual fastener check. For a restaurant owner, that's a meaningful operational difference.
 
@@ -58,9 +58,9 @@ How fire codes apply to your patio depends on how the patio is classified:
 
 **Enclosed patios** (roof plus walls or roll-down screens) are typically treated as interior space and subject to the same fire requirements as indoor dining rooms.
 
-The practical advice: if your patio has any roof structure or enclosure, check with your local Authority Having Jurisdiction (AHJ)—usually the fire marshal or building inspector—before installing decorative materials. If fire-rated products are needed, options tested to [NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701) are available.
+The practical advice: if your patio has any roof structure or enclosure, check with your local Authority Having Jurisdiction (AHJ), usually the fire marshal or building inspector, before installing decorative materials. If fire-rated products are needed, we can supply fire-rated foliage ([NFPA 701](https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701)) as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose.
 
-For a detailed comparison of fire test standards, see our [NFPA 701 vs ASTM E84 guide](/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader fire compliance guidance, see our [fire-rated artificial greenery guide for commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties).
+For a detailed comparison of fire test standards, see our [NFPA 701 vs ASTM E84 guide](/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery). For broader fire compliance guidance, see our [fire-rated artificial greenery guide for commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties).
 
 ## Placement and kitchen proximity
 
@@ -72,7 +72,7 @@ Kitchen exhaust creates a fine film of grease and smoke particles that settles o
 
 **Position the living wall away from direct exhaust paths.** If the kitchen exhaust vents toward the patio, locate the wall on the opposite side or perpendicular to the exhaust direction. The farther the wall is from the grease source, the less cleaning it needs.
 
-**Plan for regular cleaning.** Near a kitchen, monthly cleaning with mild soap and water is reasonable. Farther from the kitchen, quarterly cleaning may be sufficient. Build this into your regular cleaning schedule—it takes less time than maintaining live plants.
+**Plan for regular cleaning.** Near a kitchen, monthly cleaning with mild soap and water is reasonable. Farther from the kitchen, quarterly cleaning may be sufficient. Build this into your regular cleaning schedule, it takes less time than maintaining live plants.
 
 ### Heat from kitchen equipment
 
@@ -80,19 +80,19 @@ If the living wall is mounted on or near a wall that backs up to kitchen equipme
 
 ### Separation from open flames
 
-This applies regardless of fire rating: don't mount decorative materials—artificial or live—directly adjacent to open flame sources like patio heaters, fire pits, or tiki torches. Maintain separation distance, and position the living wall where it serves as a backdrop, not a heat shield.
+This applies regardless of fire rating: don't mount decorative materials (artificial or live) directly adjacent to open flame sources like patio heaters, fire pits, or tiki torches. Maintain separation distance, and position the living wall where it serves as a backdrop, not a heat shield.
 
 ## What makes a restaurant patio wall work
 
 ### Mixed foliage for visual depth
 
-The best restaurant living walls use mixed foliage—ferns, grasses, trailing vines, mosses, and small accent plants layered at different depths. This creates the dimensional, "planted" look that reads as an intentional design element rather than a green sheet on the wall.
+The best restaurant living walls use mixed foliage, ferns, grasses, trailing vines, mosses, and small accent plants layered at different depths. This creates the dimensional, "planted" look that reads as an intentional design element rather than a green sheet on the wall.
 
-For a detailed comparison of living walls vs. hedge panels, see our [complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas).
+For a detailed comparison of living walls vs. hedge panels, see our [complete guide to artificial living walls in Texas](/blog/the-complete-guide-to-artificial-living-walls-in-texas).
 
 ### Lighting integration
 
-Outdoor lighting transforms a living wall. Without it, the wall disappears after sunset—which is when most restaurant patios are busiest.
+Outdoor lighting transforms a living wall. Without it, the wall disappears after sunset, which is when most restaurant patios are busiest.
 
 **Uplighting** from ground-level or low-mounted fixtures washes the wall with warm light, creating shadows and depth in the foliage. This is the most effective technique for restaurant walls.
 
@@ -110,7 +110,7 @@ Choose panels with sturdy backing grids and resilient foliage that springs back 
 
 ### Social media and photography
 
-This is a real business consideration. A living wall on a restaurant patio creates a backdrop that guests photograph and share. That organic visibility has value—and it works best when the wall looks good in photos.
+This is a real business consideration. A living wall on a restaurant patio creates a backdrop that guests photograph and share. That organic visibility has value, and it works best when the wall looks good in photos.
 
 What makes a wall photograph well:
 - **Mixed foliage** with varied textures and shades of green (uniform panels look flat in photos)
@@ -136,11 +136,11 @@ The solution is simple: include the living wall in your regular cleaning schedul
 
 ## Related articles
 
-This article is part of our [complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas), which covers materials, indoor vs outdoor, residential and commercial applications.
+This article is part of our [complete guide to artificial living walls in Texas](/blog/the-complete-guide-to-artificial-living-walls-in-texas), which covers materials, indoor vs outdoor, residential and commercial applications.
 
 You might also find these useful:
-- [Artificial living walls for Texas summers](/blog/2026-01-31-artificial-living-walls-for-the-texas-summers)
-- [Fire-rated artificial greenery for commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties)
+- [Artificial living walls for Texas summers](/blog/artificial-living-walls-for-the-texas-summers)
+- [Fire-rated artificial greenery for commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties)
 
 For commercial living wall products, see our [commercial living wall page](/commercial-wall) or [Vallum FRX system](/vallum-frx).
 
@@ -153,7 +153,7 @@ It depends on your jurisdiction and the patio configuration. Restaurants fall un
 Grease and smoke create a film on artificial foliage over time, especially on walls near grill stations, fryers, or smoker exhausts. The film does not damage quality polyethylene panels, but it dulls the appearance and can attract dust. Regular cleaning with mild soap and water prevents buildup. Position the living wall away from direct exhaust paths where possible.
 
 ### Can artificial living walls pass a health inspection?
-Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests—which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this.
+Artificial living walls do not harbor soil, standing water, or organic matter that attracts pests, which makes them a lower risk than live planted walls in food service environments. However, any surface in a restaurant must be maintained and kept clean. Dusty or grease-coated panels could draw attention during an inspection. A regular cleaning schedule addresses this.
 
 ### How long do artificial living walls last on a restaurant patio?
 Outdoors in Texas, lifespan depends on sun exposure, product quality, and maintenance. Indoor installations usually hold appearance longer because they avoid direct UV exposure. Near kitchens, more frequent cleaning helps preserve the wall.
@@ -163,6 +163,6 @@ Outdoors in Texas, lifespan depends on sun exposure, product quality, and mainte
 - NFPA 701, Standard Methods of Fire Tests for Flame Propagation of Textiles and Films: https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701
 - Texas Department of State Health Services: https://www.dshs.texas.gov/
 
-<!-- image: /images/blog/artificial-living-walls-002.jpg -->
-<!-- image: /images/commercial/commercial-2.jpg -->
-<!-- image: /images/living_walls/living-wall-1.jpg -->
+<!-- image: /images/blog/artificial-living-walls-002.jpg | Wood-framed artificial living wall in a lobby, beside a reception desk and armchairs -->
+<!-- image: /images/commercial/commercial-2.jpg | Artificial hedge panels covering a storefront wall around a doorway -->
+<!-- image: /images/living_walls/living-wall-1.jpg | Artificial living wall on a patio wall, seen through sliding glass doors from a living room -->

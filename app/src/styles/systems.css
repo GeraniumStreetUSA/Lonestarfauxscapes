@@ -1,0 +1,235 @@
+/* System and use-case pages (src/pages/SystemPage.tsx). Plain CSS, loaded after
+   page-kit.css, so it reads the same tokens. Every class starts with `sys-p-`.
+   Phones first: each block is written at 390 px, then widened. */
+
+/* --------------------------------------------------------- product sample */
+
+/* A product shot on white, shown whole inside the option grid's plan frame.
+   The white multiplies into the frame, so the mat sits on the page ground. */
+.sys-p-sample {
+  width: 100%;
+}
+
+.sys-p-sample picture,
+.sys-p-sample img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: 640px) {
+  .sys-p-sample {
+    width: min(100%, 190px);
+  }
+}
+
+/* ------------------------------------------------------------ short prose */
+
+.sys-p-text {
+  max-width: 62ch;
+}
+
+.sys-p-text p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--cedar);
+}
+
+.sys-p-text p + p {
+  margin-top: 1em;
+}
+
+.sys-p-text ul {
+  display: grid;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.sys-p-text li {
+  position: relative;
+  padding: 12px 0 12px 22px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+.sys-p-text li::before {
+  content: '';
+  position: absolute;
+  top: 1.2em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  background: var(--boxwood);
+}
+
+.sys-p-text-links {
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+/* ------------------------------------------------------- process and cost */
+
+.sys-p-process {
+  display: grid;
+  gap: 32px;
+}
+
+.sys-p-drivers {
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+}
+
+.sys-p-drivers-title {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+
+.sys-p-drivers ul {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sys-p-drivers li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* Phones: both blocks are fold rows; the heading sits in the summary. */
+@media (max-width: 639px) {
+  .sys-p-process {
+    gap: 12px;
+  }
+
+  .sys-p-drivers {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sys-p-process {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .sys-p-drivers {
+    padding-top: 22px;
+  }
+}
+
+/* ------------------------------------------------------------ photo pair */
+
+.sys-p-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 640px;
+}
+
+.sys-p-pair figure {
+  margin: 0;
+}
+
+.sys-p-pair .photo {
+  aspect-ratio: 768 / 1376;
+}
+
+.sys-p-pair-label {
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .sys-p-pair {
+    gap: 24px;
+  }
+}
+
+/* ------------------------------------------------------------- link band */
+
+.sys-p-links {
+  display: grid;
+  gap: 40px;
+}
+
+.sys-p-group {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--grass);
+}
+
+.sys-p-group-metros {
+  margin-top: 40px;
+}
+
+.sys-p-metros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sys-p-metros a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--rule-on-ink);
+  font-size: 16px;
+  font-weight: 620;
+  color: var(--caliche);
+  transition:
+    border-color 160ms var(--ease-plan),
+    color 160ms var(--ease-plan);
+}
+
+.sys-p-metros a:hover {
+  border-color: var(--leaf);
+  color: var(--leaf);
+}
+
+/* Phones: chips need less air between the groups. */
+@media (max-width: 639px) {
+  .sys-p-links {
+    gap: 28px;
+  }
+
+  .sys-p-group {
+    margin-bottom: 10px;
+  }
+
+  .sys-p-group-metros {
+    margin-top: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sys-p-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+  }
+
+  .sys-p-group-metros {
+    margin-top: 56px;
+  }
+}

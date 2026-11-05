@@ -18,20 +18,20 @@ faq:
   - question: "What is NFPA 701?"
     answer: "NFPA 701 is a standard published by the National Fire Protection Association that establishes test methods for measuring the flame propagation of textiles and films. It includes two methods: Method 1 for individual fabrics and small-scale items, and Method 2 for larger assemblies. It is commonly referenced for decorative materials in commercial spaces, including artificial greenery."
   - question: "What is the difference between fire-rated and fireproof?"
-    answer: "Fire-rated means the product has been tested and meets a specific standard for flame propagation resistance—it resists ignition and slows flame spread under test conditions. Fireproof implies the material cannot burn at all. No decorative artificial greenery is fireproof. The accurate terms are fire-rated, fire-retardant, or flame-resistant."
+    answer: "Fire-rated means the product has been tested and meets a specific standard for flame propagation resistance, it resists ignition and slows flame spread under test conditions. Fireproof implies the material cannot burn at all. No decorative artificial greenery is fireproof. The accurate terms are fire-rated, fire-retardant, or flame-resistant."
   - question: "Can fire-retardant treatments wear off over time?"
     answer: "If the fire resistance comes from a topical chemical treatment applied after manufacturing, it can degrade due to UV exposure, weathering, and cleaning. Products with fire-retardant properties built into the base material during manufacturing are generally more durable. Always ask whether the fire performance is inherent or applied, and whether reapplication is recommended."
   - question: "Do outdoor artificial hedges on commercial properties need fire ratings?"
-    answer: "It depends on placement and jurisdiction. Outdoor installations near building egress paths, balconies, covered patios, or close to ignition sources may be subject to fire code review. Fully exterior installations away from buildings often face less scrutiny, but local enforcement varies. When in doubt, specify fire-rated products—it eliminates the question."
+    answer: "It depends on placement and jurisdiction. Outdoor installations near building egress paths, balconies, covered patios, or close to ignition sources may be subject to fire code review. Fully exterior installations away from buildings often face less scrutiny, but local enforcement varies. When in doubt, specify fire-rated products, it eliminates the question."
   - question: "What documentation should I keep on file?"
     answer: "Keep the fire test report or certificate that names the exact product installed, the test standard and method used, the product specification sheet, installation details, and any maintenance or cleaning guidance that could affect the fire rating. Store these in a shared project folder that survives staff turnover."
 ---
 
-When artificial greenery goes into a commercial project—a hotel lobby, a restaurant patio, a multifamily courtyard, an office building—the conversation shifts. It's no longer just about how it looks. It's about what happens in a fire, what the inspector expects to see, and what paperwork you need in the file.
+When artificial greenery goes into a commercial project (a hotel lobby, a restaurant patio, a multifamily courtyard, an office building), the conversation shifts. It's no longer just about how it looks. It's about what happens in a fire, what the inspector expects to see, and what paperwork you need in the file.
 
-This guide is for property managers, architects, general contractors, and building owners working on commercial projects in Texas. We'll cover what "fire-rated" actually means when it comes to artificial greenery, which standards apply, where fire compliance is most likely to be required, and how to avoid the procurement and installation mistakes that create problems later.
+This guide is for property managers, architects, general contractors, and building owners working on commercial projects in Texas. We'll cover what "fire-rated" actually means when it comes to artificial greenery, which standards apply, where fire compliance is most likely to be required, and how to avoid the procurement and installation mistakes that create problems later. A note on our own products: standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
-For project-specific guidance, we've written detailed articles on two common commercial applications: [fire-rated artificial hedges for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex) and [firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units).
+For project-specific guidance, we've written detailed articles on two common commercial applications: [fire-rated artificial hedges for Texas high-rises](/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas) and [firewise artificial hedges for multifamily properties](/blog/firewise-artificial-hedges-for-multi-family-units).
 
 ## What "fire-rated" means for artificial greenery
 
@@ -43,16 +43,16 @@ That's the whole definition. If there's no test report, no lab name, and no stan
 
 ### The standards you'll encounter
 
-**NFPA 701** — This is the standard most commonly referenced for artificial greenery in commercial settings. Published by the [National Fire Protection Association](https://www.nfpa.org/), NFPA 701 establishes test methods for flame propagation of textiles and films. It includes two methods:
+**NFPA 701**: This is the standard most commonly referenced for artificial greenery in commercial settings. Published by the [National Fire Protection Association](https://www.nfpa.org/), NFPA 701 establishes test methods for flame propagation of textiles and films. It includes two methods:
 
 - **Method 1** applies to individual fabrics and small-scale items.
-- **Method 2** applies to larger decorative assemblies—this is usually the relevant method for artificial greenery panels and living wall systems.
+- **Method 2** applies to larger decorative assemblies, this is usually the relevant method for artificial greenery panels and living wall systems.
 
-The test exposes the material to a controlled flame for a set duration and measures how the material responds—whether it self-extinguishes, how far flames propagate, and the characteristics of any dripping or melting.
+The test exposes the material to a controlled flame for a set duration and measures how the material responds, whether it self-extinguishes, how far flames propagate, and the characteristics of any dripping or melting.
 
-**ASTM E84** — Also called the "tunnel test," this standard measures flame spread and smoke development of materials when exposed to fire. It assigns a **Flame Spread Index** and a **Smoke Developed Index**. ASTM E84 is referenced in building codes (particularly the International Building Code, which Texas largely adopts) for interior finish materials. Some jurisdictions may apply it to artificial greenery installations depending on how they classify the product.
+**ASTM E84**: Also called the "tunnel test," this standard measures flame spread and smoke development of materials when exposed to fire. It assigns a **Flame Spread Index** and a **Smoke Developed Index**. ASTM E84 is referenced in building codes (particularly the International Building Code, which Texas largely adopts) for interior finish materials. Some jurisdictions may apply it to artificial greenery installations depending on how they classify the product.
 
-**California Title 19, Section 1237** — California's state fire marshal standard for flame-resistant decorative materials. Some Texas jurisdictions reference this, particularly for interior commercial applications. If you see a product certified to California Title 19, it's a relevant data point.
+**California Title 19, Section 1237**: California's state fire marshal standard for flame-resistant decorative materials. Some jurisdictions reference this, so ask your AHJ whether it applies. If you see a product certified to California Title 19, it's a relevant data point.
 
 ### What these standards do and don't tell you
 
@@ -71,16 +71,16 @@ The practical takeaway: fire-rated artificial greenery is designed to **resist i
 Texas adopts the **International Building Code (IBC)** and **International Fire Code (IFC)** as its base codes, with local amendments by jurisdiction. Fire code requirements for decorative materials and wall coverings vary depending on:
 
 1. **Building occupancy type.** Assembly occupancies (restaurants, event spaces, hotels), high-rise buildings, healthcare facilities, and educational buildings face the most scrutiny.
-2. **Location within the building.** Interior installations—especially along egress paths, in lobbies, and in assembly areas—are more likely to require documentation than fully exterior installations.
+2. **Location within the building.** Interior installations (especially along egress paths, in lobbies, and in assembly areas) are more likely to require documentation than fully exterior installations.
 3. **Local enforcement.** Texas cities enforce codes through their local Authority Having Jurisdiction (AHJ), typically the fire marshal or building inspector. What triggers a requirement in Houston may not in a smaller jurisdiction, and vice versa.
 
 ### Where you'll most likely need fire-rated products
 
-**Interior common areas in multifamily buildings.** Lobbies, hallways, amenity spaces, leasing offices. If the artificial greenery is functioning as a wall covering or decorative element in an occupied interior space, the local AHJ may require documentation. Our guide on [firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units) covers the procurement and placement details for property managers.
+**Interior common areas in multifamily buildings.** Lobbies, hallways, amenity spaces, leasing offices. If the artificial greenery is functioning as a wall covering or decorative element in an occupied interior space, the local AHJ may require documentation. Our guide on [firewise artificial hedges for multifamily properties](/blog/firewise-artificial-hedges-for-multi-family-units) covers the procurement and placement details for property managers.
 
-**High-rise balconies and common areas.** High-rise fire codes are strict about combustible materials on balconies and in common areas because fire spread between floors is a primary concern. Many high-rise HOAs and management companies require fire-rated materials as a standard specification. See our detailed guide on [fire-rated artificial hedges for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex).
+**High-rise balconies and common areas.** High-rise fire codes are strict about combustible materials on balconies and in common areas because fire spread between floors is a primary concern. Many high-rise HOAs and management companies require fire-rated materials as a standard specification. See our detailed guide on [fire-rated artificial hedges for Texas high-rises](/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas).
 
-**Restaurant and hospitality interiors.** Restaurants, bars, hotels, and event spaces fall under assembly occupancy classifications that require interior finishes and decorative materials to meet fire standards. The kitchen proximity adds another layer—artificial greenery near cooking equipment, grills, or heaters faces practical fire risk beyond code compliance.
+**Restaurant and hospitality interiors.** Restaurants, bars, hotels, and event spaces fall under assembly occupancy classifications that require interior finishes and decorative materials to meet fire standards. The kitchen proximity adds another layer, artificial greenery near cooking equipment, grills, or heaters faces practical fire risk beyond code compliance.
 
 **Covered patios and semi-outdoor spaces.** This is where requirements get gray. A fully open-air patio may face fewer requirements than a covered patio that's treated as interior space for code purposes. If in doubt, specify fire-rated materials. It eliminates the ambiguity.
 
@@ -101,13 +101,13 @@ The document should identify the product by name, model, and ideally manufacture
 NFPA 701 Method 1 or Method 2, ASTM E84, or another recognized standard. The report should clearly state which standard was used and the result.
 
 **3. The testing laboratory.**
-The lab should be accredited—look for accreditation by a recognized body (NVLAP, A2LA, or similar). An unaccredited "lab" report carries less weight with inspectors and insurers.
+The lab should be accredited, look for accreditation by a recognized body (NVLAP, A2LA, or similar). An unaccredited "lab" report carries less weight with inspectors and insurers.
 
 **4. Product specification sheet.**
 Material composition, dimensions, weight, intended use (indoor/outdoor), UV treatment details, and cleaning instructions.
 
 **5. Installation instructions.**
-How the product is designed to be installed—fastener types, substrate requirements, mounting method. This matters because the fire test was performed on a specific product configuration. If the installation deviates significantly from the tested configuration, the test results may not apply.
+How the product is designed to be installed, fastener types, substrate requirements, mounting method. This matters because the fire test was performed on a specific product configuration. If the installation deviates significantly from the tested configuration, the test results may not apply.
 
 **6. Fire-retardant treatment details (if applicable).**
 Some products have fire-retardant properties built into the base material during manufacturing. Others rely on a topical treatment applied to the surface. If it's a topical treatment, document:
@@ -123,7 +123,7 @@ There are two ways an artificial greenery product achieves fire performance:
 
 **Inherent fire resistance (built-in).** The fire-retardant chemistry is integrated into the polymer during manufacturing. The material itself has fire-resistant properties that don't depend on a surface coating. This approach is generally more durable because the fire performance doesn't degrade with cleaning, UV exposure, or weathering.
 
-**Topical fire-retardant treatment (applied).** A chemical solution is sprayed or dipped onto the finished product. This can be effective, but the treatment can wear off over time—particularly with UV exposure, rain, harsh cleaning, or heavy use. Some products require periodic reapplication.
+**Topical fire-retardant treatment (applied).** A chemical solution is sprayed or dipped onto the finished product. This can be effective, but the treatment can wear off over time, particularly with UV exposure, rain, harsh cleaning, or heavy use. Some products require periodic reapplication.
 
 For commercial projects where long-term compliance matters, products with inherent fire resistance are the lower-risk choice. If the product relies on a topical treatment, build reapplication into your maintenance plan and document the schedule.
 
@@ -144,13 +144,13 @@ If artificial greenery is being used to screen one of these areas, treat the pla
 
 ## Product options for commercial projects
 
-We offer several product lines suited for commercial fire compliance:
+Fire-rated foliage (NFPA 701) is an upgrade at extra cost over our standard UV-stabilized foliage; ask for the NFPA 701 documentation for the exact system you choose. Our product lines for commercial projects:
 
-- [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge) — NFPA 701 tested options for fences, screens, and balcony applications
-- [Commercial living wall systems](/commercial-wall) — Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces
-- [Vallum FRX architectural wall system](/vallum-frx) — Our premium modular system for large-scale commercial and architectural installations
+- [Fire-rated artificial hedge panels](/fire-rated-artificial-hedge), fire-rated options for fences, screens, and balcony applications
+- [Commercial living wall systems](/commercial-wall), Mixed foliage panels designed for lobbies, restaurants, and high-visibility commercial spaces
+- [Vallum FRX architectural wall system](/vallum-frx), A modular system for large-scale commercial and architectural installations that comes fire-rated (NFPA 701) as standard
 
-Each product page includes material specifications. For fire test documentation specific to a product you're considering, [contact us directly](/#contact).
+For the NFPA 701 documentation for the exact system you're considering, [contact us directly](/contact).
 
 ## Working with inspectors and the AHJ
 
@@ -160,7 +160,7 @@ A few practical notes for navigating the approval process:
 
 **Know your AHJ.** The Authority Having Jurisdiction is typically the local fire marshal or building official. Requirements and enforcement vary by city and county across Texas. What passes in one jurisdiction may get flagged in another. A quick phone call or email to the AHJ before procurement can save significant time.
 
-**Keep it simple.** Inspectors want to see that the product is documented, that the documentation matches what's installed, and that the installation makes sense from a safety perspective. A clean submittal package—test report, product spec, installation plan—goes a long way.
+**Keep it simple.** Inspectors want to see that the product is documented, that the documentation matches what's installed, and that the installation makes sense from a safety perspective. A clean submittal package (test report, product spec, installation plan) goes a long way.
 
 **Don't mix and match undocumented components.** If the fire test covers a specific panel, mounting it with a different backing, adhesive, or frame that wasn't part of the test can undermine the documentation. Keep the assembly consistent with what was tested.
 
@@ -168,13 +168,13 @@ A few practical notes for navigating the approval process:
 
 This guide focuses on the fire compliance side. For broader guidance on artificial greenery products, materials, and installation in Texas, see our companion guides:
 
-- [The complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas) — Types, climate performance, costs, HOA, and installation
-- [The complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas) — Materials, indoor vs outdoor, residential and commercial applications
+- [The complete guide to artificial hedges in Texas](/blog/the-complete-guide-to-artificial-hedges-in-texas), Types, climate performance, costs, HOA, and installation
+- [The complete guide to artificial living walls in Texas](/blog/the-complete-guide-to-artificial-living-walls-in-texas), Materials, indoor vs outdoor, residential and commercial applications
 
 And for detailed commercial applications:
 
-- [Fire-rated artificial hedges for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex)
-- [Firewise artificial hedges for multifamily properties](/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units)
+- [Fire-rated artificial hedges for Texas high-rises](/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas)
+- [Firewise artificial hedges for multifamily properties](/blog/firewise-artificial-hedges-for-multi-family-units)
 
 ## FAQ
 
@@ -185,26 +185,26 @@ Not universally. Requirements depend on the building type, occupancy classificat
 NFPA 701 is a standard published by the National Fire Protection Association that establishes test methods for measuring the flame propagation of textiles and films. It includes two methods: Method 1 for individual fabrics and small-scale items, and Method 2 for larger assemblies. It is commonly referenced for decorative materials in commercial spaces, including artificial greenery.
 
 ### What is the difference between fire-rated and fireproof?
-Fire-rated means the product has been tested and meets a specific standard for flame propagation resistance—it resists ignition and slows flame spread under test conditions. Fireproof implies the material cannot burn at all. No decorative artificial greenery is fireproof. The accurate terms are fire-rated, fire-retardant, or flame-resistant.
+Fire-rated means the product has been tested and meets a specific standard for flame propagation resistance, it resists ignition and slows flame spread under test conditions. Fireproof implies the material cannot burn at all. No decorative artificial greenery is fireproof. The accurate terms are fire-rated, fire-retardant, or flame-resistant.
 
 ### Can fire-retardant treatments wear off over time?
 If the fire resistance comes from a topical chemical treatment applied after manufacturing, it can degrade due to UV exposure, weathering, and cleaning. Products with fire-retardant properties built into the base material during manufacturing are generally more durable. Always ask whether the fire performance is inherent or applied, and whether reapplication is recommended.
 
 ### Do outdoor artificial hedges on commercial properties need fire ratings?
-It depends on placement and jurisdiction. Outdoor installations near building egress paths, balconies, covered patios, or close to ignition sources may be subject to fire code review. Fully exterior installations away from buildings often face less scrutiny, but local enforcement varies. When in doubt, specify fire-rated products—it eliminates the question.
+It depends on placement and jurisdiction. Outdoor installations near building egress paths, balconies, covered patios, or close to ignition sources may be subject to fire code review. Fully exterior installations away from buildings often face less scrutiny, but local enforcement varies. When in doubt, specify fire-rated products, it eliminates the question.
 
 ### What documentation should I keep on file?
 Keep the fire test report or certificate that names the exact product installed, the test standard and method used, the product specification sheet, installation details, and any maintenance or cleaning guidance that could affect the fire rating. Store these in a shared project folder that survives staff turnover.
 
 ---
 
-Need fire-rated product specifications for a commercial project? [Contact us for documentation and quotes](/#contact).
+Need fire-rated product specifications for a commercial project? [Contact us and ask for the NFPA 701 documentation](/contact).
 
 ## References
 - NFPA 701, Standard Methods of Fire Tests for Flame Propagation of Textiles and Films: https://www.nfpa.org/codes-and-standards/nfpa-701-standard-development/701
 - ASTM E84, Standard Test Method for Surface Burning Characteristics of Building Materials: https://www.astm.org/e0084-24.html
 - International Code Council (IBC/IFC adopted by Texas): https://www.iccsafe.org/
 
-<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
-<!-- image: /images/blog/balcony-artificial-hedge-highrise-001.jpg -->
-<!-- image: /images/blog/balcony-artificial-hedge-highrise-002.jpg -->
+<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png | Row of artificial hedge panels screening a rooftop deck with lounge chairs and a small table -->
+<!-- image: /images/blog/balcony-artificial-hedge-highrise-001.jpg | Artificial hedge screen at the end of a high-rise balcony, with a small FIRE-RATED tag and a city view beyond -->
+<!-- image: /images/blog/balcony-artificial-hedge-highrise-002.jpg | Tall artificial hedge screen above the glass railing of a high-rise balcony, tagged FIRE-RATED -->

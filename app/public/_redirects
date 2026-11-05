@@ -1,0 +1,134 @@
+# Cloudflare Pages redirects for the React rebuild. Shipped as dist/_redirects.
+# Tests: app/tests/redirects.test.ts (fixture: app/tests/fixtures/redirect-tables.json).
+# Live check: node scripts/crawl-check.mjs
+#
+# Host rules (http to https, www to apex) are NOT here. Pages _redirects cannot
+# match a host, so they stay a Cloudflare zone Redirect Rule. Do not add them back.
+#
+# How Pages resolves our files (dist has dallas.html, blog.html, blog/<slug>.html,
+# case-studies.html, case-studies/<slug>.html and an admin/index.html):
+#   Order: _redirects first (first match wins), then the file lookup below.
+#   /dallas              serves dallas.html, 200
+#   /dallas/             no dallas/index.html, but dallas.html exists: Pages 308s to /dallas
+#   /dallas.html         hits the global /*.html rule below: 301 to /dallas
+#   /blog                serves blog.html. The dist/blog/ folder does not matter: Pages
+#                        tries the exact file, then blog.html, then blog/index.html
+#   /blog/               no blog/index.html, blog.html exists: Pages 308s to /blog
+#   /blog/<slug>         serves blog/<slug>.html
+#   /blog/<slug>/        no blog/<slug>/index.html: Pages 308s to /blog/<slug>
+#   /case-studies and /case-studies/<slug> behave exactly like /blog and /blog/<slug>
+#                        (the case-studies/<slug>/ folders hold only images)
+#   /admin               no admin.html, admin/index.html exists: Pages 308s to /admin/
+#   /admin/              serves admin/index.html (Decap CMS)
+# So there is no global "/:path/ /:path" rule. It was the cause of the live /admin/
+# loop (301 to /admin, then Pages 308 back to /admin/) and Pages already does it.
+#
+# Rules for legacy URLs come in three variants (bare, .html, trailing slash) and
+# sit ABOVE /*.html, so each reaches its final page in ONE hop. A legacy .html
+# URL that fell through to the global rule would hop twice.
+# /*.html is the only dynamic rule (Pages allows 100 dynamic, 2000 static rules).
+# It cannot break real assets: nothing in dist is served as an .html file URL
+# except admin/index.html, which has its own rule above it.
+# Paths that are real pages are never listed as a source. /privacy-wall is a
+# page now, so its old 301 to /residential is gone.
+# Gone URLs (410) are not here: functions/[[path]].js answers them.
+
+# Index and CMS entry points (the global rule below would turn these into /index and /admin/index)
+/index.html / 301
+/admin/index.html /admin/ 301
+
+# Legacy page paths
+/projects /case-studies 301
+/projects.html /case-studies 301
+/projects/ /case-studies 301
+/get-quote /quote 301
+/get-quote.html /quote 301
+/get-quote/ /quote 301
+/privacy-policy /privacy 301
+/privacy-policy.html /privacy 301
+/privacy-policy/ /privacy 301
+/fire-rated /fire-rated-artificial-hedge 301
+/fire-rated.html /fire-rated-artificial-hedge 301
+/fire-rated/ /fire-rated-artificial-hedge 301
+/lighthouse-report /installation 301
+/lighthouse-report.html /installation 301
+/lighthouse-report/ /installation 301
+/commercial-wall-covering /commercial-wall 301
+/commercial-wall-covering.html /commercial-wall 301
+/commercial-wall-covering/ /commercial-wall 301
+/commercial-fire-retardant-tested-artificial-solutions /commercial 301
+/commercial-fire-retardant-tested-artificial-solutions.html /commercial 301
+/commercial-fire-retardant-tested-artificial-solutions/ /commercial 301
+/residential-fire-retardant-tested-artificial-solutions /commercial 301
+/residential-fire-retardant-tested-artificial-solutions.html /commercial 301
+/residential-fire-retardant-tested-artificial-solutions/ /commercial 301
+/artificial-living-wall /living-wall 301
+/artificial-living-wall.html /living-wall 301
+/artificial-living-wall/ /living-wall 301
+
+# Legacy dated blog slugs
+/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main.html /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-01-03-artificial-living-walls-the-ultimate-guide-to-main/ /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas /blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas 301
+/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas.html /blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas 301
+/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas/ /blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas 301
+/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t /blog/dallas-privacy-without-the-watering-a-real-guide 301
+/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t.html /blog/dallas-privacy-without-the-watering-a-real-guide 301
+/blog/2026-02-23-dallas-privacy-without-the-watering-a-real-guide-t/ /blog/dallas-privacy-without-the-watering-a-real-guide 301
+/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia /blog/houston-no-water-greenery-fix-choosing-artificial-hedges 301
+/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia.html /blog/houston-no-water-greenery-fix-choosing-artificial-hedges 301
+/blog/2026-02-23-houston-s-no-water-greenery-fix-choosing-artificia/ /blog/houston-no-water-greenery-fix-choosing-artificial-hedges 301
+/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo /blog/artificial-living-walls-and-hedges-in-houston 301
+/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo.html /blog/artificial-living-walls-and-hedges-in-houston 301
+/blog/2026-02-21-artificial-living-walls-and-hedges-in-houston-a-lo/ /blog/artificial-living-walls-and-hedges-in-houston 301
+/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties /blog/fire-rated-artificial-greenery-for-texas-commercial-properties 301
+/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties.html /blog/fire-rated-artificial-greenery-for-texas-commercial-properties 301
+/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties/ /blog/fire-rated-artificial-greenery-for-texas-commercial-properties 301
+/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas /blog/the-complete-guide-to-artificial-hedges-in-texas 301
+/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas.html /blog/the-complete-guide-to-artificial-hedges-in-texas 301
+/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas/ /blog/the-complete-guide-to-artificial-hedges-in-texas 301
+/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas /blog/the-complete-guide-to-artificial-living-walls-in-texas 301
+/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas.html /blog/the-complete-guide-to-artificial-living-walls-in-texas 301
+/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas/ /blog/the-complete-guide-to-artificial-living-walls-in-texas 301
+/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio- /blog/artificial-living-walls-and-hedges-in-san-antonio 301
+/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-.html /blog/artificial-living-walls-and-hedges-in-san-antonio 301
+/blog/2026-02-20-artificial-living-walls-and-hedges-in-san-antonio-/ /blog/artificial-living-walls-and-hedges-in-san-antonio 301
+/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units /blog/firewise-artificial-hedges-for-multi-family-units 301
+/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units.html /blog/firewise-artificial-hedges-for-multi-family-units 301
+/blog/2026-02-03-firewise-artificial-hedges-for-multi-family-units/ /blog/firewise-artificial-hedges-for-multi-family-units 301
+/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces /blog/faux-living-walls-transforming-texas-office-spaces 301
+/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces.html /blog/faux-living-walls-transforming-texas-office-spaces 301
+/blog/2025-12-14-faux-living-walls-transforming-texas-office-spaces/ /blog/faux-living-walls-transforming-texas-office-spaces 301
+/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex /blog/why-fire-rated-artificial-hedges-are-ideal-for-texas 301
+/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex.html /blog/why-fire-rated-artificial-hedges-are-ideal-for-texas 301
+/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex/ /blog/why-fire-rated-artificial-hedges-are-ideal-for-texas 301
+/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes /blog/artificial-vs-real-living-walls-for-texas-homes 301
+/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes.html /blog/artificial-vs-real-living-walls-for-texas-homes 301
+/blog/2025-12-12-artificial-vs-real-living-walls-for-texas-homes/ /blog/artificial-vs-real-living-walls-for-texas-homes 301
+/blog/2025-12-11-artificial-vs-real-boxwood-texas /blog/artificial-vs-real-boxwood-texas 301
+/blog/2025-12-11-artificial-vs-real-boxwood-texas.html /blog/artificial-vs-real-boxwood-texas 301
+/blog/2025-12-11-artificial-vs-real-boxwood-texas/ /blog/artificial-vs-real-boxwood-texas 301
+/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes /blog/faux-green-walls-vs-real-plants-for-texas-homes 301
+/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes.html /blog/faux-green-walls-vs-real-plants-for-texas-homes 301
+/blog/2025-12-10-faux-green-walls-vs-real-plants-for-texas-homes/ /blog/faux-green-walls-vs-real-plants-for-texas-homes 301
+/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is /blog/artificial-hedges-vs-real-plants-in-texas 301
+/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is.html /blog/artificial-hedges-vs-real-plants-in-texas 301
+/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is/ /blog/artificial-hedges-vs-real-plants-in-texas 301
+/blog/2026-01-31-artificial-living-walls-for-the-texas-summers /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-01-31-artificial-living-walls-for-the-texas-summers.html /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-01-31-artificial-living-walls-for-the-texas-summers/ /blog/artificial-living-walls-for-the-texas-summers 301
+/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery.html /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/blog/2026-02-21-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery/ /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+
+# Stray URLs seen in Search Console
+/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained.html /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained/ /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained.html /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+/graph-nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery-explained/ /blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery 301
+
+# Global .html to clean URL (one hop for every page and post)
+/*.html /:splat 301

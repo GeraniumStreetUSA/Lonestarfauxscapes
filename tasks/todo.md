@@ -1,3 +1,300 @@
+# Current Task: React rebuild, homepage first, "Read the yard" (2026-10-24)
+
+**Status: APPROVED 2026-10-24, in progress. Keep everything local (no push, PR, deploy) until the whole site is approved.** Owner picked (2026-10-24): React rebuild per prompt.md, estimator with no dollars, signature "plan draws itself". Branch `rebuild/homepage` (from `origin/main`). `redesign/panel-by-panel` untouched.
+Sources: `califaux-main/design.md` (quality bar), `califaux-main/prompt.md` (Lone Star brief).
+
+## Why the current homepage isn't working
+
+- **Search:** GSC (Feb 22 to Mar 21) shows 2,188 impressions, 16 clicks, 0.73% CTR, avg position 9.4. Pages rank but don't get clicked: generic titles and snippets, and some intent mismatch with real-plant searches.
+- **Live homepage (main):** a generic dark-green template. "Request Project Pricing" with nothing to anchor it. Unverified claims ("Est. 2019", "Licensed & Insured", lifespans).
+- **Panel-by-panel homepage:** a pinned 3D scroll story. The hero copy starts faded (even with `?qa=1`), content sits behind motion, and the buyer has to sit through a story before reaching a quote. Three.js weight. The "cells snap in" signature is too close to the Califauxscapes install motion.
+- **Psychology:** visitors arrive with one job (privacy, or cover this wall, fast) and four fears in a fixed order: *Will it look fake? Will Texas sun kill it? Will my HOA let me? What will it cost?* Neither version answers them in that order.
+
+## Concept
+
+- **Look:** daylight Hill Country. Caliche `#EDECE6` ground, Live oak `#15211B` ink, one Boxwood `#2E5A2C` green, Noon `#F2B53A` used rarely and never as text. One dark chapter for fire and commercial.
+- **Drawing language:** top-down site plan. Property lines, fence runs, setbacks, a north arrow, pool outlines, run lengths read off the plan. No elevation drawings, no tile-grid reveals.
+- **Signature motion, "the plan draws itself":** in the estimator, the visitor's fence run draws on a yard plan as they set it, with live run length and panel count. It needs no photos, can't be mistaken for Califauxscapes, and turns the first interaction into a small commitment (foot in the door, plus the IKEA effect) that carries into the quote form.
+- **Type:** Archivo variable (already self-hosted, Lone Star's own) for display and text. Swap the mono from IBM Plex Mono (Califauxscapes' mono) to JetBrains Mono, used only for real measurements.
+- **Voice:** plainspoken Texas builder, short sentences, hedged outcomes, arithmetic shown. No em-dashes, no banned words.
+
+## Homepage, top to bottom (with each section's job)
+
+1. **Header:** wordmark, Systems, Pricing, Projects, Areas, phone, "Get a free quote". (Reduce choice.)
+2. **Hero:** an H1 carrying the query ("Artificial hedges and living walls, installed in Texas"), a subline that names the pain (a neighbor's second story, a bare fence line, a blank wall), one primary CTA plus the phone, and the trust line "A Geranium Street USA brand". Real install photo with a separate mobile crop and a preloaded LCP. A small "For homes / For businesses" fork lets visitors self-select.
+3. **Estimator ("Measure your run"), screen 2:** system chips, run length, height, city or ZIP, then the plan draws the run with arithmetic (`48 ft run ÷ 20 in panels = 29 panels`), a qualifier, and "Send to my quote". Dimension mode, no dollar figure, unless you release prices (see question 2).
+4. **Link band:** popular systems and the 5 metro pages, so crawlable links sit high on the page.
+5. **"The four questions everyone asks":** answer-first blocks in fear order. Realism (leaf and seam close-up), Texas sun (UV-rated options, hedged), HOA (Texas Property Code text cited, no promise of approval), cost (how a quote is built). Each links to its guide.
+6. **Systems cards:** hedge, living wall, fence extension, commercial / Vallum FRX. Each card has a photo, a small plan drawing, "quoted after a site review" (or the released price), 3 spec rows and one link.
+7. **Dark chapter, commercial and fire:** NFPA 701 vs ASTM E84 in plain words, sourced, with no certificate claims.
+8. **Texas installs:** the 3 real case studies (Austin, Houston x2). Fix the Austin square-footage maths.
+9. **Process:** 4 steps (send dimensions, site review, build, install), with no timelines unless you confirm them.
+10. **Quote form:** prefilled from the estimator, framed as "Step 2 of 2" (endowed progress). Honeypot, Turnstile mounted on first interaction, POST `/api/contact`, LSFSCRO events kept.
+11. **FAQ** (FAQPage schema, visible questions only) and **service area** (5 metros), then the contact block and footer.
+12. **Sticky CTA:** a desktop pill hidden while a primary CTA is in view, and a mobile bar with Call and Quote.
+
+**SEO:**
+- Title: "Artificial Hedges & Living Walls in Texas | Lone Star" (52 characters).
+- A new meta description of 155 characters or fewer, written for clicks.
+- The H1 carries the query, and about 1,000+ words of real text are on the page with no scroll-jacking.
+- One canonical `HomeAndConstructionBusiness` node with a region-only address.
+- Drop Three.js from the homepage.
+
+## Todo
+
+New React app lives in `app/` beside today's site. The live static site keeps serving until cutover. Cutover (Cloudflare Pages build settings) only with owner OK.
+
+### Phase 0: check in
+- [x] Owner approves this plan.
+
+### Phase 1: truth and URL docs (before any build)
+- [x] `OWNER-NEEDS.md`: every open fact in one batch (brand spelling, logo, prices, warranty, crews, timelines, licence, address, photos, metros, booking, IDs, CMS, byline).
+- [x] `REDIRECTS.md`: all 65 sitemap URLs, 6 suburb pages, /terms, /privacy, /sitemap, /hedge-quote, each kept or 301 one hop.
+- [x] `CLAIMS.md`: claim register, starting with the homepage.
+- [x] `IMAGE-PROMPTS.md`: one prompt per image slot; real-install-only slots marked.
+
+### Phase 2: concept and homepage mock (STOP for owner yes)
+- [x] One-page concept: palette (AA checked), type pair, signature motion, homepage order, card anatomy.
+- [x] Scaffold `app/`: Vite 7, React 19, TS, Tailwind 3, react-router 7, helmet-async. Tokens, fonts, header, footer.
+- [x] Homepage built in React with the plan-drawing estimator. Screenshots at 1440x900 and 390x844.
+
+### Pricing add-on (owner request 2026-10-25, done, owner answers: install extra, heights locked to priced sizes, privacy wall added)
+Owner: use Califauxscapes pricing structure on the Lone Star build, "plus install". Live califauxscapes.com/pricing and its `starting-prices.ts` agree:
+hedge from $99 / linear ft (6 ft x 12 in), fence extension from $65 / linear ft (3 ft), living wall from $18 / sq ft (fully custom), freestanding privacy wall from $699 / unit (4 x 4 ft, standard base). Every figure carries "+ installation, quoted after a site review".
+- [x] `app/src/data/starting-prices.ts`: the one data file for prices, configs and the install qualifier, with tests.
+- [x] Estimator: add the starting-material figure and its arithmetic (`40 linear ft x $99 = $3,960`), the "+ installation" line, the panel count kept.
+- [x] Systems cards: price line from the data file. Commercial wall stays "Quoted after a site review".
+- [x] Copy: remove "No prices here" lines; update Four questions #4, the FAQ price answer, and SEO description if needed.
+- [x] `CLAIMS.md` and `OWNER-NEEDS.md` #7: record owner release 2026-10-25.
+- [x] Verify: tests, build, browser at 1440 and 390.
+
+### Phase 2b: "Out of sight" redesign (owner 2026-10-26: "3/10, hero weak, drawings hard to read, no interaction, flat"; approved hero-first 2026-10-26)
+
+**Why it's flat:** template split hero; top-down plans read as blueprints to homeowners; every section has the same rhythm (H2 left, list right); zero motion or response to the visitor.
+
+**Core idea: show privacy as a sightline.** Every buyer's real problem is someone looking in. So the site draws that look, literally, and lets the visitor block it.
+
+1. **Hero: "the sightline."**
+   - Full-width axonometric (3/4 view, not top-down) drawing of a Texas backyard: house, pool, live oak, fence, and the neighbor's two-story window.
+   - A Noon-yellow sightline cone runs from that window onto the pool.
+   - On load the scene inks itself in, then the hedge rises along the fence, cuts the cone, and the cone goes dark.
+   - The hedge face is filled with the real boxwood photo texture: a drawn world, real material.
+   - The visitor can drag the hedge height (3 to 12 ft). The cone recalculates live from real geometry, with plain labels: "Neighbor's window", "Your pool", "Hedge 8 ft", "Out of sight".
+   - Headline: small SEO line "Artificial hedges and living walls, installed in Texas" over a huge display line "Out of sight. Still green." Both sit in the H1.
+   - Desktop gets a subtle cursor tilt, leaf sway on the oak, and shimmer on the pool.
+2. **Drawing to real:** the next scroll expands the drawn hedge into the real Austin photo full-bleed (scroll-scrubbed mask, no tiles). Caption: "The real one, Austin."
+3. **Estimator in the same 3/4 yard:** the run draws along the fence, then the hedge rises on it, so it's readable at a glance. Priced arithmetic stays as it is.
+4. **Four questions as a sticky story:** the question list stays pinned on the left while the answers scroll on the right, each with its own interaction:
+   - Realism: a magnifier loupe over the real leaf close-up.
+   - Texas sun: drag the sun across the sky and the hedge's shadow sweeps.
+   - HOA: the Chapter 202 citation card turns over.
+   - Cost: a live mini estimate.
+5. **Spine:** one fence line draws down the page as you scroll and links the process steps.
+6. **Systems:** on hover a card's drawing animates, its photo settles, and the arrow nudges. Phone: swipe carousel with snap.
+7. **Projects:** a horizontal drag gallery with parallax inside each photo.
+8. **Fire chapter:** the statement's words light up as you scroll, one by one.
+9. **Throughout:**
+   - Line-mask heading reveals and numbers that count up.
+   - Buttons with a fill sweep, plus a magnetic primary CTA on desktop.
+   - Lenis smooth scroll on desktop, GSAP ScrollTrigger loaded on demand.
+10. **Guardrails kept:**
+    - Content never waits on motion, reduced motion shows the final state, and `?qa=1` turns everything off.
+    - No scroll-jacking: the only pin is the four-questions column, and no tile reveals.
+    - No new claims, real photos only.
+    - The phone layout is designed first, not shrunk from desktop.
+
+Build order: hero prototype first, shown to the owner, then the rest. Builder: Fable 5 (highest taste) for the hero and motion system, with Opus for the follow-on sections.
+- [x] Hero prototype (sightline scene, drag, load sequence, drawing-to-real transition), desktop and phone. Built by Opus 5.5 after owner asked (Fable stopped before writing code). STOP: owner review.
+- [ ] Estimator in the 3/4 yard.
+- [ ] Four questions sticky story with its 4 interactions.
+- [ ] Spine, systems hover and carousel, projects gallery, fire word-fill, global micro-interactions.
+- [ ] Verify: 60 fps on a mid laptop, Lighthouse, reduced motion, `?qa=1`, 390 px.
+
+### Owner round 2026-10-26 (b)
+- [x] Fire copy: NFPA 701 only, no ASTM anywhere (owner: no ASTM E84 test on file). Three-point NFPA explainer (what it is, where fire code asks for it, what to ask for). FAQ fire answer matches.
+- [x] "Where we work": a real Texas outline map (survey grid, north arrow, true scale bar), metro rows with coordinates; hovering a row lights its pin and the reverse; the outline draws in on scroll (fails open).
+- [x] Sticky header: follows on scroll. Desktop compacts. Phone hides the nav row while scrolling down and shows it on scroll up. The desktop floating quote pill goes, since the header button is always there. Anchors offset for the header.
+
+### Section after the hero: "The Austin job" (owner approved 2026-10-28)
+- [x] Replace HomeReal (floating texture parallelogram, dead scroll, soft dirt-yard photo) with a three-step story of the real Austin job: Before (05), Install (07/08), After (06).
+- [x] Sticky photo stage on desktop: the step's photo wipes in as its text scrolls by; a progress line draws down. Phones: stacked cards. Fails open to stacked cards.
+- [x] Fact strip from the case study only: 130 ft run, 16 ft tall, existing wire mesh, boxwood with UV-resistant materials. No area figure, no timeline.
+- [x] Exits: "Read the Austin case study" and "Measure your run". Image variants for 05 and 07.
+
+### "Four things everyone asks first", made interactive (owner 2026-10-28)
+- [x] Desktop: sticky numbered index on the left (active question lit, reading line); answers scroll on the right. Phones: stacked cards.
+- [x] Q1 realism: a magnifier over a real boxwood product close-up (pointer, touch drag, arrow keys).
+- [x] Q2 Texas sun: drag the sun across the sky (or arrow keys), the hedge's shadow swings, with a time readout.
+- [x] Q3 HOA: a submission checklist you can tick (real checkboxes), Chapter 202 citation, "no promise of approval".
+- [x] Q4 cost: a live mini estimate (system chips, run slider) from the published prices, linking to the full estimator.
+- [x] Same copy and links; motion fails open; reduced motion and ?qa=1 show final states.
+
+### Four questions: pinned side scroll with morphing cards (owner 2026-10-28)
+- [x] Desktop: section pins; vertical scroll drives the four questions sideways (staggered parallax text), cards morph via an iris from a focal point (lens to sun, sun to the § mark, sheet to price). Each panel holds so the card is usable. Background tint shifts per question. Four-step progress bar, click to jump.
+- [x] Phones: native swipe carousel with scroll-snap; off-centre cards scale and fade slightly.
+- [x] Reduced motion and ?qa=1: stacked list. No change to copy or links.
+
+### Mobile UX pass (owner 2026-10-28: "mobile experience is awful, make it perfect")
+Audit at 390x844: 22,750 px tall (27 screens); first screen has no CTA, price or phone; estimator result is below its controls; quote form buried; long stacked sections.
+- [x] Header: one row on phones (wordmark, call icon, "Quote" button, Menu) with a full-screen menu sheet; tucks on scroll down, returns on scroll up.
+- [x] Hero first screen: headline, a shorter scene crop, then CTA + call + price in view without scrolling; trust and fork below. Faster intro on phones.
+- [x] Estimator: 2x2 system chips, smaller plan; a sticky result bar (price, panels, Send) while the estimator is on screen, replacing the Call/Quote bar.
+- [x] Austin story, Systems, Recent jobs: swipe carousels (snap, one card and a peek, position dots, counter).
+- [x] Process: compact vertical timeline with small drawings.
+- [x] FAQ: accordions (answers stay in the markup for SEO).
+- [x] Link band: one swipeable chip row per group.
+- [x] Quote form: fields first, "what happens next" after; system choice as a compact 2-column grid.
+- [x] Four questions: position dots. Map: Houston label inside the frame; labels not tappable on touch.
+- [x] Verify at 390x844 and 360x780 (motion on, reduced, ?qa=1); page height 22,750 to 14,850 px (target 13,000 not reached: the rest is real content); desktop unchanged.
+
+### Mobile v2: no sideways swiping (owner 2026-10-28: "too many swipe to the right ... be creative")
+- [x] Remove every phone carousel (Austin, systems, projects, questions) and the swipe/dots code.
+- [x] Austin: photo pinned under the header while the three steps scroll beneath; each step wipes its photo in.
+- [x] Four questions: vertical, with a pinned section bar (four-step progress and the current question); each card's visual irises open as it arrives.
+- [x] Systems: a tap picker (all five names) over one card that changes in place (photo wipe, drawing redraw, text rise). No script: all five cards stacked.
+- [x] Recent jobs: compact rows (square photo, city, title).
+- [x] Process: a green line draws down the timeline as you scroll; each step number lights when reached.
+- [x] Link band: wrapped chips, all visible.
+- [x] Verify at 390 and 360, motion on and ?qa=1; desktop unchanged; republish the preview.
+
+### Mobile length + subtle motion (owner 2026-10-29: "too long on mobile ... missing subtle animations")
+
+Approved by owner in chat. Research: NN/g "Scrolling and Attention" (57% of viewing time above the fold, 74% in the first two screens). Phone page at 390x844 measured 17,672 px = 20.9 screens. Target about 12. Desktop layout unchanged; all copy and links stay in the markup (SEO).
+
+Before (px at 390): hero 1033, austin 1943, estimator 1603, link band 389, questions 3262, systems 989, fire 1502, installs 918, process 1050, quote 1536, faq 694, area 1420, footer 1246.
+
+- [x] Questions (phones): accordion, first open with its card; opening one irises its card and closes the last
+- [x] Service area (phones): map + tappable city chips instead of five tall rows; contact strip hidden (the footer contact column sits right below)
+- [x] Process (phones): text-only timeline (line still draws); quote's "what happens next" hidden on phones (repeats process)
+- [x] Installs (phones): drop the Austin row (already told in the story)
+- [x] Austin story (phones): shorter pinned steps
+- [x] Fire chapter (phones): photo hidden, points tightened
+- [x] Footer (phones): lower fence crop, closing CTA hidden (bottom bar carries it)
+- [x] Link band hidden on phones; FAQ items already answered above hidden on phones; hero fork as text links
+- [x] Motion: heading mask rise + stagger, photo settle, smooth accordions, press states, desktop hover underline/lift, scroll progress line; reduced motion and ?qa=1 get none
+- [x] Verify 390/360 + desktop, typecheck/tests/build, em-dash check, share build + artifact, local commit
+
+Review:
+- Phone page at 390x844: 17,672 px (20.9 screens) to 12,443 px (14.7 screens). Target of about 12 not reached; what is left is the estimator (1,595), quote form (1,252) and the Austin proof (1,577). Going further means cutting real content, which is the owner's call.
+- Also trimmed on phones: the systems card's drawing (the photo shows the same), Austin's "Measure your run" button (the estimator is the next section), Austin facts set smaller, section padding 56 to 48 px.
+- Four questions on phones/tablets is now an accordion (`data-mode='fold'`); the old pinned progress bar and its scroll code are gone. Desktop pin mode is unchanged (`.q-body` is `display: contents`).
+- Motion: `armSectionMotion` (src/lib/reveal.ts) for heading mask rise, callout ring/leader draw, photo settle; `armAccordions` (src/lib/accordion.ts) for every details element; touch press states; desktop card lift on recent jobs; CSS scroll-driven progress line. All off under reduced motion and `?qa=1`.
+- Found: an IntersectionObserver never reports a fully clip-path-ed element as intersecting, so headings are held by opacity and the mask plays only in the animation.
+- Every hidden block stays in the markup (crawlable); desktop shows all of it. Tests 52/52, build and share build pass. Preview republished (artifact v4). Nothing pushed.
+
+### Austin story, phones: finished job only (owner 2026-11-04: "yes fix the austin story")
+- [x] Phones (<640): hide the three scrolling steps, the step counter and chip index; photo is static (After), then facts and the case-study link. Steps stay in the markup; tablets and desktop unchanged.
+- [x] Review: Austin 1,577 to 836 px; phone page 12,443 to 11,702 px (14.7 to 13.9 screens). Tests 52/52, builds pass, preview v5. Nothing pushed.
+
+### Full site rebuild: every page in the new design (owner 2026-11-04: "redo all other pages ... mobile as important as desktop ... sonnet sub agents code, you review")
+
+Scope: all 89 live URLs in `REDIRECTS.md` Table A move to the React app at their exact paths (slashless), prerendered to static HTML. Nothing deployed; live site untouched until the owner approves the whole site.
+
+Evidence (GSC, 2026-08-04..2026-11-01, `gsc.py perf --dims page --days 90`): 80 clicks, 8,929 impressions. The blog carries most of it: the NFPA 701 vs ASTM E84 post is the top click page (16), green-wall maintenance (1,751 impr), Texas Property Code 202.007 (803). Google shows jump links to blog heading anchors (`#what-section-202007-actually-says`), so heading ids must be byte-identical. Two stray URLs seen in GSC get one-hop 301s (`/blog/nfpa-...-explained`, `/graph-nfpa-...-explained`).
+
+Architecture (decided):
+- One route manifest (`app/src/routes.ts`): path, page type, title, description, robots, sitemap flag, breadcrumbs, lazy page loader. It drives the router, prerender, sitemap.xml, robots.txt and tests.
+- Prerender with Vite SSR + `renderToString` (no browser needed in the Cloudflare build; deviates from the brief's Puppeteer on purpose). Head tags (title, description, canonical, robots, JSON-LD) written from the manifest. Internal links stay plain `<a>`, so every page load is a full prerendered page.
+- Per-route code splitting; the current route's chunk loads before `hydrateRoot`.
+- Blog stays sourced from `content/blog/*.md` (Decap CMS and the Website Factory pipeline keep working). A build step turns each post into JSON with the same heading-id algorithm and guide modules as `scripts/build-blog.js`.
+- Old asset paths kept (`/images/*`, `/downloads/*`, `/favicon/*`, `/admin/`, `/content/*.json`, case-study images).
+- `_redirects` rewritten from `REDIRECTS.md` Tables B and C (one hop, `/admin/` loop fixed); 410s via a narrow Pages Function scoped with `_routes.json`; existing `functions/` (contact, cms, hedge-quote) kept; real 404 status for unknown paths.
+- Owner decision 2026-11-04: the NFPA 701 vs ASTM E84 post keeps its URL, title and explainer content; any line saying or implying Lone Star products have ASTM E84 results is removed.
+- Owner defaults from `OWNER-NEEDS.md` apply (#26 suburbs stay noindex, #27 keep `/case-studies`, #28 keep `/commercial-resources` without internal notes, #29 fix `/admin/`, #30 `/privacy-wall` becomes its own page, #21 Decap kept). No unconfirmed claims, no unreleased prices, no em-dashes. Existing titles and meta descriptions kept unless they break length rules (they are GSC-tuned).
+
+Mobile is a first-class target: every template is designed at 390 first, then 1440. Page-length budget on phones: system/use-case pages about 8 screens, metro 7, hubs 6, posts as long as their content with a folded table of contents. Sticky Call/Quote bar on every page. No sideways swipe carousels.
+
+Templates (all in the homepage's language: Besley + Libre Franklin, caliche/limestone/boxwood, plan drawings):
+1. System page: `/artificial-hedge`, `/living-wall`, `/fence-extensions`, `/commercial-wall`, `/privacy-wall` (new)
+2. Use-case page: `/artificial-boxwood-hedge`, `/fire-rated-artificial-hedge`, `/hoa-approved-artificial-hedge`, `/pool-privacy-hedge`, `/pool-living-wall`, `/vallum-frx`
+3. Hub page: `/products`, `/residential`, `/commercial`, `/commercial-resources`, `/locations`, `/guides`, `/blog`, `/case-studies`, `/gallery`
+4. Metro page: 5 metros (indexed) + 6 suburbs (noindex, same template)
+5. Post page: 34 posts, flagship guide modules, TOC, related posts
+6. Project page: 3 case studies
+7. Utility: `/contact`, `/pricing`, `/installation`, `/privacy`, `/terms`, `/sitemap`, `/404`, `/hedge-builder-residential`, `/hedge-builder-commercial`
+
+Work (Sonnet sub-agents build; I write specs and review every page at 390/360/1440, motion on/reduced/`?qa=1`):
+- [x] A. Platform: manifest, layout shell (header nav to real pages, footer, sticky bar), lazy hydrate, SSR prerender, head/JSON-LD builder, sitemap/robots/llms.txt, asset copy, 404. Proven on home + one stub.
+- [x] B. Inner-page kit: page hero, breadcrumbs, spec rows, prose styles, FAQ, quote band, card grid, TOC, related links. Reviewed on a kit page at 390 and 1440 before any page work.
+- [x] C1. Blog pipeline (34 posts, titles/descriptions/heading ids match live), claims cleanup (134 dollar figures and fabricated stats out), post template, /blog, /guides. Fixed: 5 posts hid content behind dead reveal scripts (now settled at build + test) + `/blog` + `/guides` (heading ids identical to live, checked by test against the live HTML).
+- [x] C2. Systems + use-case pages (11): built, reviewed at 390.
+- [x] C3. Metros, `/locations`, suburbs (12): built, reviewed at 390 and 1440.
+- [x] C4. Hubs, projects (3 case studies), gallery: built, reviewed at 390.
+- [x] D. Redirects (90 rules, one hop, tested), `_headers`, `_routes.json`, 410 function, crawl script (349/355 on wrangler; 6 = case studies not built yet). Final crawl after pages land. Was: local `wrangler pages dev` crawl: all Table A 200 + self canonical, all Table B one 301, Table C 410, unknown 404; titles/meta diffed against live.
+- Review polish list (collected while reviewing):
+  - [x] Metro (phones): "Nearby areas" as chips; drop the duplicate "Guides" sub-heading; trim toward 7 screens (Dallas 8.9 incl. form)
+  - [x] /locations (desktop): map in the hero media slot (right half empty)
+  - [x] Phone length (system 12.4 to 9.8, residential 9.9 to 8.4, Dallas 8.9 to 7.8; suburbs, projects, most hubs within budget; the rest is the shared footer, estimator and form): related-link bands as chips on phones; the 5-step process folded on phones (it repeats on every page; full on /installation)
+  - [x] IMAGE-PROMPTS.md: real freestanding 4 ft privacy wall unit; real living wall at a Texas pool (#12, #13)
+- Owner items found during the rebuild (for the final report):
+  - /terms carries old claims kept verbatim: "We stand behind our work" + warranty section, "Quotes are valid for 30 days", deposit terms, "Last updated: December 11, 2025"; /privacy says "IP address (anonymized)". Keep, edit or drop?
+  - Five blog headings promise numbers the cleaned bodies no longer give (editing them changes their anchor links).
+- [x] C4b. Utility pages (9): built, reviewed at 390 (contact email fixed to one line), hedge-builder meta and the hedge-quote reply-time line fixed.
+  - [x] Posts: 5 posts with embedded components restyled for the light theme (old dark-theme styles stripped at build); responsive post images (hero 768w: 4.0 MB to 0.6 MB across those 5); 67 real alt texts; leftover claims (acoustic row, DIY timing, "eliminate the question") fixed
+- [x] Owner round 2026-11-04: Terms rewritten for Texas and to protect the business (attorney review before launch); NFPA 701 report confirmed, Intertek kept off the site; IMAGE-PROMPTS.md opened; five blog headings rewritten with their live anchors pinned (`{#old-id}` support in build-content.mjs) and the invented cost-bar graphic removed
+- [x] E. Checks (78 pages; typecheck; 104 tests; em-dash 0 in dist; one H1 per page; crawl on wrangler 355/355 for both the preview and the ALLOW_INDEXING=1 build; reviewed every template at 390 and 1440). Was: typecheck, tests (route sync, title/desc lengths, redirects, schema, heading ids), em-dash on dist, img attrs, claims audit vs `CLAIMS.md`; every page reviewed on phone and desktop; preview for the owner; local commit only.
+
+### Pricing and product corrections from the Califauxscapes handoff (owner 2026-11-04: "make sure it visual and not super cramped and text heavy")
+
+Source: `/Volumes/hermes_agent/Downloads/LONESTAR-HANDOFF.md` (applied on califauxscapes.com in GeraniumStreetUSA/califaux#40).
+
+- [x] Data: hedge priced in two tiers in `starting-prices.ts` (on your fence or wall: single-sided, about 2 to 3 in deep, from $99/linear ft; freestanding: 6 ft x 7 in full 3D hedge on posts set in concrete, from $200/linear ft); `FR_PRICE_NOTE` ("Prices are for standard UV-stabilized foliage; fire-rated foliage costs extra."); one source, tests updated
+- [x] Fire rating presented as an upgrade at extra cost everywhere (pages, FAQs, spec rows, blog, schema, llms.txt); test that no built page says fire-rated is standard
+- [x] Fence extension: attaches to the face of the fence or wall, generally with steel square tube, overlapping 1 ft per 2 ft of extension height (3 ft overlaps 1.5 ft); vinyl caveat; wording that says "on top of" / "frame above" replaced
+- [x] Every single hedge price says which tier; hedge pages show both side by side; "6 ft x 12 in" gone (estimator, homepage, hero drawing note, CostCard, metros, hubs)
+- [x] Estimator: hedge offers both tiers (on-fence per linear ft; freestanding per linear ft at 6 ft x 7 in)
+- [x] /pricing redesigned visual-first: a price board with a section drawing per system (on-fence vs freestanding depth, extension overlap on the fence face, living wall, 4 x 4 privacy wall unit), big figures, short labels, what is included vs extra, the estimator to try your numbers, cost drivers as a compact icon grid, the 5 steps, FAQ folded; phones first, no wall of text
+- [x] Built-site search: no "6 ft x 12 in", every hedge price labelled by tier, no fire-rated-as-standard sentence; review at 390/360/1440; commit locally
+
+Review: owner confirmed Texas = Califauxscapes facts (2026-11-04). Data in one file (two hedge tiers, FR notes); estimator offers both hedge kinds; every hedge price labelled by tier (25 pages); fire-rated foliage is an upgrade at extra cost everywhere (no "UV + FR", no fire-rated-as-standard in the built HTML); extension face-mount wording and vinyl caveat; claims.test.ts guards it; 122 tests pass. /pricing rebuilt as a price board with six section drawings, one "every price" legend instead of chips on each card, in/extra lists, estimator, cost-driver icon grid, folded steps and FAQ. Hero price line trimmed to the labelled on-fence price. Open for owner: freestanding hedge panel module (counted as 20 in), whether the 3 ft extension's overlap is inside the $65 figure, whether the "Vallum FRX" name stays now that fire rating is an upgrade.
+
+### Pricing round 2 (owner 2026-11-04)
+Owner: "just dont put size ... keep it simple, non confusing for the privacy, only ones that need it are the movable hedges"; hedge on fence "Scale from 6 ft"; extension "4.5 = 81usd per lin ft at 3ft over the fence ... 18usd a lin ft per ft height"; "vallum only comes in FR".
+- [x] No panel sizes or panel counts for privacy products (hedges, extensions, privacy wall, estimator, pricing, homepage); movable hedges keep theirs
+- [x] Hedge on fence: $99/linear ft at 6 ft, scales with height ($16.50 per sq ft of face); estimator price follows the height slider
+- [x] Fence extension: $18 per linear ft per ft of foliage; foliage = extension height x 1.5 (overlap 1 ft per 2 ft); 3 ft over the fence = 4.5 ft = from $81/linear ft (replaces $65); estimator height adjustable
+- [x] Vallum FRX only comes fire-rated: say so; claims test allows it as the one exception
+- [x] Tests, CLAIMS.md, review at 390 and 1440, commit
+
+Review: estimator checked in the page: hedge 40 ft at 8 ft = $5,280, at 4 ft = $2,640; extension 40 ft at 3 ft over = $3,240 ($81/ft), at 2 ft = $2,160. No panel sizes or counts left for privacy products (built-site search: no "$65", "20 in", "40 in"). Vallum FRX says it comes fire-rated as standard and is quoted after a site review. 123 tests pass.
+
+### Separate quote page (owner 2026-11-05: "right now if i click get a free quote it shoots it all the way to the bottom of the page")
+- [x] New `/quote` page: the form first (its heading is the page H1), numbers from any estimator prefilled (sessionStorage)
+- [x] Every "Get a free quote" button (header, menu, sticky bar, hero, page heroes, bands, footer, service area) goes to `/quote`; arrows point right, not down
+- [x] Estimator "Send these numbers" goes to `/quote` with the numbers
+- [x] `/get-quote` legacy redirect now one hop to `/quote` (REDIRECTS.md, _redirects, fixture)
+- Review: checked in the browser at 1440 and 390 (form in the first screen; estimate summary and system chip carried over); 123 tests pass.
+
+### Creative 404 (owner 2026-11-05: "make a creative 404 not found as well that fits our motif")
+- [x] "Out of sight. / Page not found." in the hero's two-tone display type, over a site-plan drawing: your sightline runs into a hedge, the page sits behind it as a dashed "404" outline ("SIGHTLINE: BLOCKED", "SHEET 404 · NOT ON THIS SURVEY"); the cone sweeps out once and the pin pulses (off under reduced motion and ?qa=1); homepage and quote buttons; systems, areas and contact links kept below. Reviewed at desktop and 390.
+
+### Phase 3: homepage to ship quality
+- [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
+- [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.
+- [ ] Sticky CTA, answer-first block, FAQ, process, case cards, contact block.
+- [ ] Motion fail-open, reduced motion, `?qa=1`; GSAP/Lenis desktop only, dynamic import.
+- [ ] Skip link, 44px targets, 2px Boxwood focus ring, real radio groups.
+
+### Phase 4: platform
+- [ ] Route manifest driving router, prerender, sitemap, valid-routes, with a sync test.
+- [ ] Puppeteer prerender + Critters; hydration check; build under 15 min.
+- [ ] SEO: title/description helpers with length tests, canonicals, noindex on preview hosts until `ALLOW_INDEXING`, one `HomeAndConstructionBusiness` node, llms.txt.
+- [ ] Pages Functions: `/api/contact` ported, catch-all redirect function from `REDIRECTS.md`, tested.
+
+### Phase 5: templates and migration (owner review after each)
+- [ ] Templates: system, metro, guide, blog post, project.
+- [ ] Migrate: systems pages, 5 metro hubs, suburbs (noindex or folded), 34 blog posts with URLs kept, 3 case studies (Austin maths fixed), pricing, residential, commercial, about, legal, 404.
+
+### Phase 6: verify
+- [ ] typecheck, lint, node tests, hydration, motion, H1-clears-nav, em-dash on `dist/`, img attribute check.
+- [ ] Lighthouse a11y, best practices, SEO at 100; real browser at both sizes, motion on, reduced, `?qa=1`.
+
+### Phase 7
+- [ ] Review section below. No push to main, no deploy, no DNS or Cloudflare changes without owner OK.
+
+
+---
+
 # Current Task: Website Factory Proposal 20260817-060405
 
 **Status: APPROVED by Alex for implementation.**
@@ -511,3 +808,14 @@ Scope: apply only `chg-1-title-meta` to `/blog/green-wall-maintenance-in-texas-w
 - Preserved the route, canonical, `index, follow`, sitemap, CTA destinations, analytics behavior, pricing, body claims, FAQ answers, schema types, styling, and all unapproved pages.
 - The isolated full production build, flagship-guide verification, focused metadata/schema assertions, protected-scope checks, JSON checks, and whitespace checks passed.
 - Impeccable reported seven pre-existing design warnings outside `chg-1-title-meta`; no design changes were made. Browser screenshots could not be captured because the sandbox blocked local port binding and the browser CLI socket directory was read-only.
+
+## Texas hedge tiers, fire rating as an upgrade, fence extension attachment (owner 2026-11-04)
+
+### Review
+
+- Estimator: two hedge chips (`hedge` on your fence or wall, `hedge-freestanding`), hedge height input kept for the drawing and panel count with the "per linear foot, taller runs may be priced to your site" note, `FR_PRICE_NOTE` under every price, plan drawn 3 in vs 7 in deep (`depthToPlan`), quote-form chips accept both.
+- Every hedge price names its tier (homepage hero, systems card, Four questions, FAQ, SEO description, page hero, hub cards, metro rows, system FAQs); hero sightline hedge is 0.25 ft deep and opens at 9 ft.
+- Fire rating is an upgrade at extra cost everywhere (`FR_STATEMENT` / `FR_PRICE_NOTE` / `claims-copy.ts`), 34 blog posts reviewed (29 edited).
+- Fence extensions: face-mounted, steel square tube, 1 ft per 2 ft overlap, vinyl caveat; FAQ "How does it attach to my fence?".
+- `tests/claims.test.ts` fails if the old claims return; `CLAIMS.md` updated.
+- Open for the owner: freestanding hedge panel size (counted as 20 in), whether the extension price covers the 1.5 ft overlap, blog summaries and one heading ("Fence toppers for added height") that still use old wording and are protected.

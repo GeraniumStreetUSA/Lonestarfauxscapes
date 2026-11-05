@@ -14,7 +14,7 @@ draft: false
 
 If you manage a multifamily property, you’ve probably had this conversation on repeat: residents want more privacy and a nicer-looking courtyard, leasing wants something that looks good in photos, and ownership wants fewer headaches than real landscaping. Artificial hedges can solve a lot of that quickly.
 
-But there’s one piece you can’t gloss over: how it behaves in a fire—and whether you can prove what you installed.
+But there’s one piece you can’t gloss over: how it behaves in a fire, and whether you can prove what you installed. For Lone Star Faux Scapes hedges, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 “Green wall” and “faux hedge” are marketing labels. Firewise decisions come down to what the product is made of, how it was tested, where it’s going, and what you can hand a city inspector or risk consultant without scrambling.
 
@@ -62,7 +62,7 @@ The document should match what’s being installed: product name, style, and ide
 If it’s NFPA 701, the paperwork should spell out Method 1 or Method 2 and the result. If your city has a specific pathway for approvals, your installer may need to coordinate with the AHJ (Authority Having Jurisdiction).
 
 **3) Installation instructions**
-How is it attached—mechanical fasteners, wire ties, a backer panel, adhesive? The moment the crew starts improvising, you can end up outside the tested configuration.
+How is it attached, mechanical fasteners, wire ties, a backer panel, adhesive? The moment the crew starts improvising, you can end up outside the tested configuration.
 
 **4) Fire-retardant treatment details (if applicable)**
 Some products are inherently fire resistant; others depend on a topical treatment. If it’s a treatment, ask:
@@ -98,10 +98,10 @@ And keep it straightforward. A planned screen wall with stand-offs and a noncomb
 Texas sites add a twist: long sun exposure and heat cycling. Even if fire performance is the first filter, **UV stability** and heat tolerance drive what it looks like a year or two in.
 
 - **UV-stabilized polymers** usually hold color longer and shed less.
-- Cheaper panels can dry out, turn brittle, and start dropping leaves—then debris collects in corners and along fence lines.
+- Cheaper panels can dry out, turn brittle, and start dropping leaves, then debris collects in corners and along fence lines.
 - Near kitchens or grills, grease and smoke can stain panels and make cleaning miserable. And buildup isn’t just cosmetic; it can become fuel.
 
-A firewise plan isn’t only “does it pass a test.” It’s “will this still look and behave acceptably two summers from now—or will it turn into a maintenance problem that adds risk.”
+A firewise plan isn’t only “does it pass a test.” It’s “will this still look and behave acceptably two summers from now, or will it turn into a maintenance problem that adds risk.”
 
 ## Installation details that matter (more than the pretty render)
 
@@ -110,7 +110,7 @@ Most artificial hedge issues on multifamily sites come from installation choices
 A few scope details that pay off:
 
 **Mechanical attachment beats mystery adhesives.**  
-Adhesives are tempting for speed, but they’re tough to inspect and can fail in heat. If adhesive is part of the plan, require the exact product and method in writing—and make the installer own it.
+Adhesives are tempting for speed, but they’re tough to inspect and can fail in heat. If adhesive is part of the plan, require the exact product and method in writing, and make the installer own it.
 
 **Mind the substrate.**  
 Mounting to wood fencing is common, but it’s still wood. If the hedge is going on or near combustible substrates, have the risk conversation before anyone starts drilling.
@@ -162,18 +162,16 @@ Some do. If the fire performance comes from a topical treatment, harsh cleaning 
 
 --- 
 
-If you want, tell me the city (or at least the metro) and the main install locations (pool fence, courtyard walls, trash enclosure, etc.). I can tighten this into a version that lines up with what inspectors and owners usually focus on in that area.
-
 ## Related articles
 
-This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/2026-02-21-fire-rated-artificial-greenery-for-texas-commercial-properties), which covers fire test standards, documentation, and compliance for commercial projects.
+This article is part of our [fire-rated artificial greenery guide for Texas commercial properties](/blog/fire-rated-artificial-greenery-for-texas-commercial-properties), which covers fire test standards, documentation, and compliance for commercial projects.
 
 You might also find these useful:
-- [Why fire-rated artificial hedges are ideal for Texas high-rises](/blog/2025-12-13-why-fire-rated-artificial-hedges-are-ideal-for-tex)
-- [The complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas)
+- [Why fire-rated artificial hedges are ideal for Texas high-rises](/blog/why-fire-rated-artificial-hedges-are-ideal-for-texas)
+- [The complete guide to artificial hedges in Texas](/blog/the-complete-guide-to-artificial-hedges-in-texas)
 
 <!-- Article Images -->
-<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
-<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
-<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
-<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png -->
+<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png | Row of artificial hedge panels screening a rooftop deck with lounge chairs and a small table -->
+<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png | Row of artificial hedge panels screening a rooftop deck with lounge chairs and a small table -->
+<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png | Row of artificial hedge panels screening a rooftop deck with lounge chairs and a small table -->
+<!-- image: /images/2026-02-03-firewise-artificial-hedges-for-multi-family-units-image.png | Row of artificial hedge panels screening a rooftop deck with lounge chairs and a small table -->

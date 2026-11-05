@@ -1,0 +1,79 @@
+# Cloudflare Pages headers for the React rebuild. Shipped as dist/_headers.
+# Where several rules match one URL, Pages joins their values for the same header,
+# so Cache-Control is set by exactly one rule per URL: nothing under /* sets it.
+# HTML gets the Pages default (public, max-age=0, must-revalidate): always
+# revalidated, so a deploy shows at once. Headers do not apply to Function
+# responses (/api/*, /hedge-quote, 410s); those set their own.
+# The old _headers set no Content-Security-Policy, and neither does this one.
+
+# Keep every *.pages.dev copy (production alias and per-deploy previews) out of the index.
+# The custom domain is unaffected. The prerender also writes noindex meta unless ALLOW_INDEXING=1.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Security headers on every response
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Hashed build output (Vite names every file by content): cache for a year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts and favicons keep fixed file names, so no "immutable": 30 days, then revalidate
+/fonts/*
+  Cache-Control: public, max-age=2592000
+/favicon/*
+  Cache-Control: public, max-age=2592000
+/favicon.svg
+  Cache-Control: public, max-age=2592000
+
+# Images keep fixed file names: 30 days
+/images/*
+  Cache-Control: public, max-age=2592000
+/LIVING-WALL-MATS/*
+  Cache-Control: public, max-age=2592000
+/VALLUM/*
+  Cache-Control: public, max-age=2592000
+/mats/*
+  Cache-Control: public, max-age=2592000
+
+# Home page and blog: a short browser cache, and the edge may keep a copy for an hour
+/
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+/blog/*
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+
+# Pages that must stay out of the index (the same pages also carry a robots meta tag)
+# One rule covers /admin/ and everything under it; two matching rules would join into a doubled value.
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+/404
+  X-Robots-Tag: noindex, follow
+/terms
+  X-Robots-Tag: noindex, follow
+/privacy
+  X-Robots-Tag: noindex, follow
+/sitemap
+  X-Robots-Tag: noindex, follow
+/hedge-builder-commercial
+  X-Robots-Tag: noindex, follow
+/hedge-builder-residential
+  X-Robots-Tag: noindex, follow
+/arlington
+  X-Robots-Tag: noindex, follow
+/frisco
+  X-Robots-Tag: noindex, follow
+/irving
+  X-Robots-Tag: noindex, follow
+/plano
+  X-Robots-Tag: noindex, follow
+/sugar-land
+  X-Robots-Tag: noindex, follow
+/the-woodlands
+  X-Robots-Tag: noindex, follow

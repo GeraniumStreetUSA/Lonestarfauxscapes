@@ -1,0 +1,1578 @@
+/* The page kit: the shared blocks of every inner page (src/components/page/).
+   Plain CSS, loaded after index.css, so it reads the same tokens (--ink,
+   --rule, --boxwood ...) and reuses .t-*, .btn, .link-go, .callout, .photo,
+   .lot-frame, .faq-* and .on-ink. Every class here starts with `pk-`, bar
+   `.prose` and `.table-wrap`, so a page's own CSS never collides.
+   Phones first: each block is written at 390 px, then widened. */
+
+:root {
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', 'Courier New', monospace;
+  /* The ink chapter's hairline. */
+  --rule-on-ink: rgb(169 179 173 / 0.28);
+}
+
+/* ---------------------------------------------------------- breadcrumbs */
+
+.pk-crumbs {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+.pk-crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-crumbs li {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pk-crumbs a {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: rgb(77 88 82 / 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* The link is one line of 12.5 px type; this grows its tap target to 44 px. */
+.pk-crumbs a::after {
+  content: '';
+  position: absolute;
+  inset: -13px -6px;
+}
+
+.pk-crumbs a:hover {
+  color: var(--boxwood);
+  text-decoration-color: currentColor;
+}
+
+.pk-crumbs [aria-current] {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.pk-crumbs-sep {
+  flex: none;
+  padding-inline: 0.75em;
+  color: var(--control);
+}
+
+/* ------------------------------------------------------------ page hero */
+
+.pk-hero {
+  padding-bottom: 32px;
+}
+
+.pk-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pk-hero-bar {
+  padding-top: 14px;
+}
+
+.pk-hero-callout {
+  margin-top: 16px;
+}
+
+/* Phones: 32 px at 390 keeps a 60-character title to three lines. */
+.pk-hero-title {
+  margin-top: 14px;
+  font-size: clamp(1.75rem, 0.66rem + 5.5vw, 2.625rem);
+  font-weight: 790;
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+}
+
+.pk-hero-lede {
+  margin-top: 16px;
+  max-width: 40ch;
+}
+
+.pk-hero-price {
+  margin-top: 18px;
+}
+
+.pk-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.4em;
+  margin: 0;
+}
+
+.pk-price-word {
+  font-size: 15px;
+  font-weight: 620;
+  color: var(--cedar);
+}
+
+.pk-price-fig {
+  font-family: var(--font-display);
+  font-size: 2.375rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: proportional-nums;
+}
+
+.pk-price-text {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 720;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+
+.pk-price-caption {
+  margin-top: 8px;
+  max-width: 44ch;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--cedar);
+}
+
+/* Phones: the button spans the width and the call line sits under it. */
+.pk-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.pk-hero-actions > span {
+  display: flex;
+}
+
+.pk-hero-actions .btn {
+  width: 100%;
+}
+
+.pk-hero-actions p {
+  text-align: center;
+}
+
+.pk-hero-media {
+  margin-top: 24px;
+}
+
+.pk-hero-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.pk-hero-frame > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pk-hero .pk-hero-facts {
+  margin-top: 28px;
+}
+
+/* Phones and tablets: the picture alone, no lot lines. */
+@media (max-width: 1023px) {
+  .pk-hero-media.lot-frame {
+    padding: 0;
+    background-image: none;
+  }
+
+  .pk-hero-media .pin {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .pk-hero {
+    padding-bottom: 56px;
+  }
+
+  .pk-hero-title {
+    font-size: clamp(2.5rem, 1rem + 3.4vw, 4rem);
+  }
+
+  .pk-hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 22px;
+  }
+
+  .pk-hero-actions > span {
+    display: inline-flex;
+  }
+
+  .pk-hero-actions .btn {
+    width: auto;
+  }
+
+  .pk-hero-actions p {
+    text-align: left;
+  }
+
+  .pk-hero .pk-hero-facts {
+    margin-top: 40px;
+  }
+}
+
+/* Desktop: a title block (the trail left, the sheet label right, between two
+   rules), then the copy left and the picture right in an offset lot frame. */
+@media (min-width: 1024px) {
+  .pk-hero {
+    padding-bottom: 80px;
+  }
+
+  .pk-hero-grid {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    grid-template-rows: auto auto auto auto auto 1fr;
+    grid-template-areas:
+      'bar callout'
+      'title media'
+      'lede media'
+      'price media'
+      'actions media'
+      '. media';
+    column-gap: 72px;
+  }
+
+  .pk-hero-grid[data-media='no'] {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'bar callout'
+      'title title'
+      'lede lede'
+      'price price'
+      'actions actions';
+  }
+
+  .pk-hero-grid {
+    padding-top: 28px;
+  }
+
+  /* The two rules across the top row, under the trail and the sheet label. */
+  .pk-hero-grid::before {
+    content: '';
+    grid-column: 1 / -1;
+    grid-row: 1;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pk-hero-bar,
+  .pk-hero-callout {
+    align-self: center;
+    padding-block: 14px;
+  }
+
+  .pk-hero-bar {
+    grid-area: bar;
+  }
+
+  .pk-hero-callout {
+    grid-area: callout;
+    justify-self: end;
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .pk-hero-title {
+    grid-area: title;
+    margin-top: 44px;
+    font-size: clamp(3rem, 1rem + 3.6vw, 4.25rem);
+    line-height: 1;
+  }
+
+  .pk-hero-grid[data-media='no'] .pk-hero-title {
+    max-width: 20ch;
+  }
+
+  .pk-hero-lede {
+    grid-area: lede;
+    margin-top: 24px;
+    max-width: 42ch;
+  }
+
+  .pk-hero-price {
+    grid-area: price;
+    margin-top: 28px;
+  }
+
+  .pk-hero-actions {
+    grid-area: actions;
+    margin-top: 28px;
+  }
+
+  /* The lot line runs past the photo's left and bottom edges and ends in a
+     survey pin: the frame's top and right edges sit under the picture. */
+  .pk-hero-media {
+    grid-area: media;
+    align-self: start;
+    margin-top: 44px;
+    padding: 0 0 18px 18px;
+  }
+
+  .pk-hero-frame {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+/* -------------------------------------------------------------- section */
+
+.pk-section-head {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.pk-section-title {
+  max-width: 20ch;
+}
+
+.pk-section-intro {
+  margin-top: 18px;
+  max-width: 46ch;
+  color: var(--cedar);
+}
+
+.on-ink .pk-section-intro {
+  color: var(--grass);
+}
+
+@media (min-width: 1024px) {
+  .pk-section-head {
+    margin-bottom: 52px;
+  }
+}
+
+/* A limestone section: tables fade into its ground, drawings sit on caliche. */
+.pk-limestone {
+  --ground: var(--limestone);
+}
+
+.pk-limestone .pk-media-drawing {
+  background: var(--caliche);
+}
+
+/* ------------------------------------------------------------ fact rows */
+
+/* Two columns on phones, four from 640 px, for any count: the left rule
+   skips the first cell of each row. */
+.pk-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-top: 2px solid var(--ink);
+}
+
+.pk-facts > div {
+  min-width: 0;
+  padding: 10px 12px 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-facts > div:nth-child(2n) {
+  padding-left: 16px;
+  border-left: 1px solid var(--rule);
+}
+
+.pk-facts dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--cedar);
+}
+
+.pk-facts dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 640;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .pk-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pk-facts > div,
+  .pk-facts > div:nth-child(2n) {
+    padding: 14px 12px 16px 0;
+    border-left: 0;
+  }
+
+  .pk-facts > div:not(:nth-child(4n + 1)) {
+    padding-left: 16px;
+    border-left: 1px solid var(--rule);
+  }
+
+  .pk-facts dd {
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+  }
+}
+
+/* ------------------------------------------------------------ point list */
+
+.pk-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.pk-point {
+  display: grid;
+  gap: 6px;
+  padding: 16px 0 18px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-point-head {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: baseline;
+}
+
+.pk-point-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--boxwood);
+}
+
+.pk-point-title {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+
+.pk-point-text {
+  padding-left: 28px;
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--cedar);
+}
+
+.pk-point-text > * + * {
+  margin-top: 0.6em;
+}
+
+@media (min-width: 768px) {
+  .pk-point {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+    gap: 28px;
+    padding: 24px 0 26px;
+  }
+
+  .pk-point-title {
+    font-size: 1.375rem;
+  }
+
+  .pk-point-text {
+    padding-left: 0;
+    font-size: 17px;
+  }
+}
+
+/* Phones, `terse`: the title row only (and a row's links). The sentence stays in the markup. */
+@media (max-width: 639px) {
+  .pk-points[data-terse] .pk-point {
+    gap: 0;
+    padding: 14px 0;
+  }
+
+  .pk-points[data-terse] .pk-point-text:not(:has(a)),
+  .pk-points[data-terse] .pk-point-text > p {
+    display: none;
+  }
+
+  .pk-points[data-terse] .pk-point-text:has(a) {
+    margin-top: 2px;
+  }
+}
+
+.on-ink .pk-points {
+  border-top: 1px solid var(--rule-on-ink);
+}
+
+.on-ink .pk-point {
+  border-bottom-color: var(--rule-on-ink);
+}
+
+.on-ink .pk-point-index {
+  color: var(--noon);
+}
+
+.on-ink .pk-point-title {
+  color: var(--caliche);
+}
+
+.on-ink .pk-point-text {
+  color: var(--grass);
+}
+
+/* ---------------------------------------------- media in cells and cards */
+
+.pk-media-photo {
+  width: 96px;
+  aspect-ratio: 1 / 1;
+}
+
+.pk-media-drawing {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  aspect-ratio: 1 / 1;
+  padding: 8px;
+  background: var(--limestone);
+}
+
+.pk-media-drawing > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ----------------------------------------------------------- option grid */
+
+/* Phones: rows, a square picture on the left. */
+.pk-options {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.pk-option {
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-option article {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+  padding: 14px 0;
+}
+
+.pk-option article[data-media='no'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pk-option-title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+}
+
+.pk-option-text {
+  display: -webkit-box;
+  margin-top: 6px;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--cedar);
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* One link covers the whole cell; the title is its text. */
+.pk-stretch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pk-option-arrow {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  color: var(--boxwood);
+  transition: transform 200ms var(--ease-plan);
+}
+
+.pk-option article[data-link='yes'] .pk-option-body {
+  padding-right: 28px;
+}
+
+.pk-option article:hover .pk-option-arrow {
+  transform: translate(3px, -3px);
+}
+
+.pk-option article[data-link='yes']:hover .pk-option-title {
+  color: var(--boxwood);
+}
+
+/* Tablets: two across; every cell is a column with the picture on top. */
+@media (min-width: 640px) {
+  .pk-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-left: 1px solid var(--rule);
+  }
+
+  .pk-option {
+    border-right: 1px solid var(--rule);
+  }
+
+  .pk-option article,
+  .pk-option article[data-media='no'] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+  }
+
+  .pk-option .pk-media-photo,
+  .pk-option .pk-media-drawing {
+    width: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .pk-option .pk-media-drawing {
+    padding: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pk-option-body {
+    padding: 18px 20px 24px;
+  }
+
+  .pk-option-title {
+    font-size: 1.25rem;
+  }
+
+  .pk-option-text {
+    display: block;
+    font-size: 16px;
+    -webkit-line-clamp: unset;
+  }
+
+  .pk-option-arrow {
+    top: auto;
+    right: 18px;
+    bottom: 22px;
+  }
+
+  .pk-option article[data-link='yes'] .pk-option-body {
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pk-options[data-cols='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pk-options[data-cols='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ------------------------------------------------------------ link rows */
+
+.pk-link-rows {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.pk-link-row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-link-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--boxwood);
+}
+
+.pk-link-title {
+  display: block;
+  font-size: 17px;
+  font-weight: 640;
+  line-height: 1.3;
+  transition: color 160ms ease;
+}
+
+.pk-link-text {
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--cedar);
+}
+
+.pk-link-arrow {
+  flex: none;
+  color: var(--boxwood);
+  transition: transform 200ms var(--ease-plan);
+}
+
+.pk-link-row:hover .pk-link-title {
+  color: var(--boxwood);
+}
+
+.pk-link-row:hover .pk-link-arrow {
+  transform: translateX(4px);
+}
+
+@media (min-width: 768px) {
+  .pk-link-rows[data-cols='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+
+  .pk-link-title {
+    font-size: 18px;
+  }
+}
+
+.on-ink .pk-link-rows {
+  border-top: 1px solid var(--rule-on-ink);
+}
+
+.on-ink .pk-link-row {
+  border-bottom-color: var(--rule-on-ink);
+}
+
+.on-ink .pk-link-index {
+  color: var(--noon);
+}
+
+.on-ink .pk-link-title {
+  color: var(--caliche);
+}
+
+.on-ink .pk-link-text {
+  color: var(--grass);
+}
+
+.on-ink .pk-link-arrow,
+.on-ink .pk-link-row:hover .pk-link-title {
+  color: var(--leaf);
+}
+
+/* Phones: `chips` turns the rows into wrapped 44 px chips (the title alone),
+   grouped under small mono labels. Descriptions, index and arrows stay in the
+   markup and are hidden; tablets and desktop keep the rows. */
+.pk-link-group {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .pk-link-rows[data-chips] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 0;
+  }
+
+  .pk-link-rows[data-chips] > li:not(.pk-link-group) {
+    max-width: 100%;
+  }
+
+  .pk-link-rows[data-chips] .pk-link-group {
+    display: block;
+    flex: 0 0 100%;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--cedar);
+  }
+
+  .pk-link-rows[data-chips] .pk-link-group:first-child {
+    margin-top: 0;
+  }
+
+  .pk-link-rows[data-chips] .pk-link-row {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 16px;
+    border: 1px solid var(--rule);
+    gap: 0;
+  }
+
+  .pk-link-rows[data-chips] .pk-link-index,
+  .pk-link-rows[data-chips] .pk-link-text,
+  .pk-link-rows[data-chips] .pk-link-arrow {
+    display: none;
+  }
+
+  .pk-link-rows[data-chips] .pk-link-title {
+    font-size: 16px;
+    font-weight: 620;
+    line-height: 1.25;
+  }
+
+  .pk-link-rows[data-terse] .pk-link-text {
+    display: none;
+  }
+
+  .on-ink .pk-link-rows[data-chips] {
+    border-top: 0;
+  }
+
+  .on-ink .pk-link-rows[data-chips] .pk-link-row {
+    border-color: var(--rule-on-ink);
+  }
+
+  .on-ink .pk-link-rows[data-chips] .pk-link-group {
+    color: var(--grass);
+  }
+}
+
+/* ----------------------------------------------------------- card grid */
+
+/* Phones: compact rows, the homepage's recent jobs. */
+.pk-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.pk-cards > li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-cards article {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 14px;
+  padding: 14px 0;
+}
+
+.pk-cards article[data-media='no'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pk-cards .pk-media-photo,
+.pk-cards .pk-media-drawing {
+  grid-row: 1 / -1;
+  align-self: start;
+  width: 104px;
+}
+
+.pk-card-callout {
+  margin-top: 2px;
+}
+
+.pk-card-title {
+  margin-top: 6px;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+}
+
+.pk-card-text {
+  display: -webkit-box;
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--cedar);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.pk-card-link {
+  align-self: start;
+  justify-self: start;
+  padding-top: 6px;
+  font-size: 15px;
+}
+
+/* Phones: `compact` keeps the picture, place, title and link, and drops the line. */
+@media (max-width: 639px) {
+  .pk-cards[data-compact] .pk-card-text {
+    display: none;
+  }
+
+  .pk-cards[data-compact] .pk-media-photo,
+  .pk-cards[data-compact] .pk-media-drawing {
+    width: 88px;
+  }
+
+  .pk-cards[data-compact] article {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 640px) {
+  .pk-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 28px;
+    border-top: 0;
+  }
+
+  .pk-cards > li {
+    border-bottom: 0;
+  }
+
+  .pk-cards article,
+  .pk-cards article[data-media='no'] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+  }
+
+  .pk-cards .pk-media-photo,
+  .pk-cards .pk-media-drawing {
+    width: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .pk-cards .pk-media-drawing {
+    padding: 28px;
+  }
+
+  .pk-card-callout {
+    margin-top: 20px;
+  }
+
+  .pk-card-title {
+    margin-top: 12px;
+    font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+    line-height: 1.15;
+  }
+
+  .pk-card-text {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .pk-card-link {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pk-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 56px;
+  }
+}
+
+/* ------------------------------------------------------------------ fold */
+
+/* A block that folds on phones: the summary is the tap row, a rule above and
+   below like the FAQ. Tablets and desktop show the content as if there were
+   no fold (the summary hidden, or a plain heading when the page asks). */
+.pk-fold {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.pk-fold-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pk-fold-summary::-webkit-details-marker {
+  display: none;
+}
+
+.pk-fold-summary > :is(h3, h4) {
+  margin: 0;
+}
+
+.pk-fold-icon {
+  flex: none;
+  color: var(--boxwood);
+  transition: transform 240ms var(--ease-plan);
+}
+
+.pk-fold[open] .pk-fold-icon {
+  transform: rotate(45deg);
+}
+
+.pk-fold[open] .pk-fold-body {
+  padding-bottom: 16px;
+}
+
+.pk-fold-body .pk-points {
+  border-top: 1px solid var(--rule);
+}
+
+.on-ink .pk-fold {
+  border-top-color: var(--rule-on-ink);
+  border-bottom-color: var(--rule-on-ink);
+}
+
+.on-ink .pk-fold-summary {
+  color: var(--caliche);
+}
+
+.on-ink .pk-fold-icon {
+  color: var(--leaf);
+}
+
+.on-ink .pk-fold-body .pk-points {
+  border-top-color: var(--rule-on-ink);
+}
+
+@media (max-width: 639px) {
+  .pk-fold-body > :first-child {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .pk-fold {
+    border: 0;
+  }
+
+  .pk-fold:not([data-desktop-summary]) > .pk-fold-summary,
+  .pk-fold-icon {
+    display: none;
+  }
+
+  .pk-fold[data-desktop-summary] > .pk-fold-summary {
+    min-height: 0;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .pk-fold[open] .pk-fold-body {
+    padding-bottom: 0;
+  }
+
+  .pk-fold-body .pk-points {
+    border-top: 2px solid var(--ink);
+  }
+
+  .on-ink .pk-fold-body .pk-points {
+    border-top: 1px solid var(--rule-on-ink);
+  }
+}
+
+/* ------------------------------------------------- estimator on a page */
+
+/* The system pages already name their system and say the caveat: on phones the
+   estimator drops its system picker and intro line and goes straight to the run. */
+@media (max-width: 639px) {
+  .pk-estimator .estimator-intro .t-body,
+  .pk-estimator .estimator-controls fieldset {
+    display: none;
+  }
+
+  .pk-estimator .estimator-controls > div {
+    margin-top: 0;
+  }
+}
+
+/* ----------------------------------------------------------------- FAQ */
+
+.pk-faq {
+  display: grid;
+  gap: 24px;
+  padding-top: var(--section-y);
+  border-top: 1px solid var(--rule);
+}
+
+.pk-faq-title {
+  max-width: 14ch;
+}
+
+.pk-faq-list .faq-item {
+  border-top: 2px solid var(--ink);
+}
+
+.pk-faq-list .faq-a {
+  max-width: 62ch;
+}
+
+/* Phones: folded questions sit in tighter rows (still over 44 px tall). */
+@media (max-width: 639px) {
+  .pk-faq-list .faq-q {
+    padding-top: 14px;
+  }
+
+  .pk-faq-list .faq-item:not([open]) .faq-q {
+    padding-bottom: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pk-faq {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 64px;
+  }
+}
+
+/* ------------------------------------------------------------ quote band */
+
+.pk-band {
+  border-top: 2px solid var(--ink);
+  background: var(--limestone);
+}
+
+.pk-band-inner {
+  display: grid;
+  gap: 20px;
+  padding-block: 36px;
+}
+
+.pk-band-title {
+  max-width: 18ch;
+  font-size: clamp(1.625rem, 1.15rem + 1.8vw, 2.5rem);
+  font-weight: 770;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+
+.pk-band-text {
+  margin-top: 10px;
+  max-width: 44ch;
+  color: var(--cedar);
+}
+
+.pk-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pk-band-actions .btn {
+  width: 100%;
+}
+
+.pk-band-actions p {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .pk-band-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 48px;
+    padding-block: 64px;
+  }
+
+  .pk-band-actions {
+    align-items: flex-start;
+  }
+
+  .pk-band-actions .btn {
+    width: auto;
+  }
+
+  .pk-band-actions p {
+    text-align: left;
+  }
+}
+
+/* ------------------------------------------------------------------ toc */
+
+/* Phones: a folded "On this page" bar above the content. */
+.pk-toc {
+  margin-bottom: 24px;
+}
+
+.pk-toc-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pk-toc-summary::-webkit-details-marker {
+  display: none;
+}
+
+.pk-toc-chevron {
+  flex: none;
+  color: var(--boxwood);
+  transition: transform 240ms var(--ease-plan);
+}
+
+.pk-toc details[open] .pk-toc-chevron {
+  transform: rotate(180deg);
+}
+
+.pk-toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-toc-list a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  font-weight: 560;
+  line-height: 1.3;
+}
+
+.pk-toc-list li[data-level='3'] a {
+  padding-left: 16px;
+  font-weight: 450;
+  color: var(--cedar);
+}
+
+.pk-toc-list a:hover {
+  color: var(--boxwood);
+}
+
+/* A table of contents beside the content. */
+.pk-with-toc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Desktop: a sticky list under the header; the section in view is marked. */
+@media (min-width: 1024px) {
+  .pk-with-toc {
+    grid-template-columns: 248px minmax(0, 1fr);
+    column-gap: 64px;
+    align-items: start;
+  }
+
+  .pk-toc {
+    position: sticky;
+    top: 104px;
+    max-height: calc(100vh - 128px);
+    margin-bottom: 0;
+    overflow-y: auto;
+  }
+
+  .pk-toc-summary {
+    min-height: 40px;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .pk-toc-chevron {
+    display: none;
+  }
+
+  .pk-toc-list a {
+    min-height: 38px;
+    padding-block: 5px;
+    font-size: 15px;
+    transition:
+      color 160ms ease,
+      box-shadow 160ms ease,
+      padding-left 160ms ease;
+  }
+
+  .pk-toc-list a[aria-current='location'] {
+    padding-left: 12px;
+    box-shadow: inset 3px 0 0 var(--boxwood);
+    color: var(--boxwood);
+  }
+
+  .pk-toc-list li[data-level='3'] a[aria-current='location'] {
+    padding-left: 24px;
+  }
+}
+
+/* ---------------------------------------------------------------- prose */
+
+/* Long-form content: 17 px type on a 1.65 line, a 68-character measure. */
+.prose {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+.prose > * + * {
+  margin-top: 1.15em;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  scroll-margin-top: 24px;
+}
+
+.prose h2 {
+  margin-top: 2.1em;
+  font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.25rem);
+  font-weight: 770;
+  letter-spacing: -0.024em;
+  line-height: 1.08;
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem);
+  font-weight: 720;
+  letter-spacing: -0.016em;
+  line-height: 1.15;
+}
+
+.prose h4 {
+  margin-top: 1.6em;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + * {
+  margin-top: 0.7em;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose a {
+  color: var(--boxwood);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(46 90 44 / 0.5);
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+.prose strong {
+  font-weight: 680;
+}
+
+/* Tailwind's reset removes list markers; long-form text needs them back. */
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li + li {
+  margin-top: 0.45em;
+}
+
+.prose li::marker {
+  color: var(--boxwood);
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.45em;
+}
+
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: 1.1em;
+  border-left: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.25em;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  line-height: 1.4;
+}
+
+.prose blockquote > * + * {
+  margin-top: 0.6em;
+}
+
+.prose hr {
+  margin-block: 2.5em;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.prose code {
+  padding: 0.1em 0.35em;
+  background: var(--limestone);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+
+.prose pre {
+  padding: 16px;
+  overflow-x: auto;
+  background: var(--limestone);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.prose pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+  overflow-wrap: normal;
+}
+
+.prose figure {
+  margin-inline: 0;
+}
+
+.prose img,
+.prose video,
+.prose iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose iframe {
+  aspect-ratio: 16 / 9;
+}
+
+.prose figure,
+.prose > img,
+.prose > p > img:only-child {
+  margin-block: 2em;
+}
+
+.prose figcaption {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--cedar);
+}
+
+/* Tables never widen the page: they scroll inside themselves, with a soft
+   edge on the side that has more (the scroll-shadow trick: the ground-coloured
+   patches are `local`, so they cover the shadows once scrolled to the end;
+   set --ground on a limestone parent).
+   `.table-wrap` is the same for a table in JSX; a bare <table> in HTML
+   content gets it from the first rule. */
+.prose table,
+.table-wrap {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background:
+    linear-gradient(to right, var(--ground, var(--caliche)) 30%, transparent) left center / 28px 100% no-repeat local,
+    linear-gradient(to left, var(--ground, var(--caliche)) 30%, transparent) right center / 28px 100% no-repeat local,
+    linear-gradient(to right, rgb(21 33 27 / 0.16), transparent) left center / 14px 100% no-repeat scroll,
+    linear-gradient(to left, rgb(21 33 27 / 0.16), transparent) right center / 14px 100% no-repeat scroll;
+}
+
+.table-wrap > table {
+  width: 100%;
+}
+
+.prose table,
+.table-wrap table {
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.prose th,
+.prose td,
+.table-wrap th,
+.table-wrap td {
+  padding: 12px 16px 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th,
+.table-wrap th {
+  border-bottom-color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--cedar);
+}
+
+.prose thead,
+.table-wrap thead {
+  border-top: 2px solid var(--ink);
+}
+
+@media (min-width: 1024px) {
+  .prose {
+    font-size: 18px;
+  }
+
+  .prose table,
+  .table-wrap table {
+    font-size: 17px;
+  }
+}

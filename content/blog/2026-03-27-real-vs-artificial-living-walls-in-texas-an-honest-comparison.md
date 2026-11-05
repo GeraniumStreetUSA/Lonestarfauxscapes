@@ -17,13 +17,13 @@ tags:
 draft: false
 faq:
   - question: "Is a real or artificial living wall cheaper in Texas?"
-    answer: "Artificial walls cost more upfront but have near-zero ongoing costs. Real living walls are cheaper to install per square foot but add $1,800 to $3,600+ per year in maintenance for a 100 sq ft wall, plus water, plant replacements, and irrigation repairs. Over 5 years, artificial is usually cheaper."
+    answer: "Artificial walls cost more upfront but have near-zero ongoing costs. Real living walls are often cheaper to install per square foot but add ongoing professional maintenance, plus water, plant replacements, and irrigation repairs. Over the long run, artificial is often cheaper."
   - question: "Do artificial living walls look fake?"
-    answer: "Modern commercial-grade artificial foliage uses mixed species, varied tones, and realistic textures that are difficult to distinguish from real plants at conversational distance. Quality varies widely by manufacturer — budget panels with uniform color and shiny plastic look noticeably fake."
+    answer: "Modern commercial-grade artificial foliage uses mixed species, varied tones, and realistic textures that are difficult to distinguish from real plants at conversational distance. Quality varies widely by manufacturer, budget panels with uniform color and shiny plastic look noticeably fake."
   - question: "Do real living walls purify the air?"
-    answer: "The 1989 NASA Clean Air Study showed plants can remove VOCs in sealed chambers. However, the American Lung Association notes these results don't apply to typical buildings — you would need 10 to 1,000 plants per square meter of floor space to match the air exchange rate of normal ventilation."
+    answer: "The 1989 NASA Clean Air Study showed plants can remove VOCs in sealed chambers. However, the American Lung Association notes these results don't apply to typical buildings, you would need 10 to 1,000 plants per square meter of floor space to match the air exchange rate of normal ventilation."
   - question: "How long do artificial living walls last outdoors in Texas?"
-    answer: "UV-stabilized artificial living walls typically last 5 to 10 years outdoors in full sun. Without UV treatment, artificial plants can lose up to 40% of color saturation within 3 months. Quality of materials and UV stabilization method are the main factors."
+    answer: "Outdoor lifespan depends on UV stabilization, sun exposure, mounting, and maintenance. Without UV treatment, artificial plants can fade quickly. Ask for UV and warranty terms in writing."
 ---
 
 <style>
@@ -142,7 +142,7 @@ faq:
 
 If you're searching "real vs fake plant wall" or "artificial vs real living wall," you want to know which one to actually put on your property in Texas. Here's the honest answer: **it depends on your budget for ongoing maintenance, where the wall sits, and how much time you want to spend keeping it alive.**
 
-This article breaks down the real numbers — cost, maintenance, lifespan, appearance, and environmental impact — so you can decide based on facts, not marketing.
+This article breaks down the real numbers (cost, maintenance, lifespan, appearance, and environmental impact) so you can decide based on facts, not marketing.
 
 <div class="rva-callout rva-callout-info rva-reveal">
   <span class="rva-callout-icon">&#9432;</span>
@@ -151,18 +151,13 @@ This article breaks down the real numbers — cost, maintenance, lifespan, appea
 
 ## Cost: upfront vs. total cost of ownership
 
-This is where the conversation usually starts and where the biggest misunderstanding lives. A real living wall is often cheaper to install. But the total cost over 5 years is a different story.
+This is where the conversation usually starts and where the biggest misunderstanding lives. A real living wall is often cheaper to install. But the total cost over several years is a different story.
 
 <div class="rva-stats-row">
   <div class="rva-stat-card rva-reveal">
-    <span class="rva-stat-icon">&#127793;</span>
-    <span class="rva-stat-value">$175–250</span>
-    <span class="rva-stat-label">Real living wall<br>install per sq ft</span>
-  </div>
-  <div class="rva-stat-card rva-reveal">
     <span class="rva-stat-icon">&#128176;</span>
-    <span class="rva-stat-value">$1.50–3</span>
-    <span class="rva-stat-label">Real wall monthly<br>maintenance per sq ft</span>
+    <span class="rva-stat-value">Ongoing</span>
+    <span class="rva-stat-label">Real wall upkeep:<br>irrigation, pruning, replants</span>
   </div>
   <div class="rva-stat-card rva-reveal">
     <span class="rva-stat-icon">&#128167;</span>
@@ -171,30 +166,19 @@ This is where the conversation usually starts and where the biggest misunderstan
   </div>
   <div class="rva-stat-card rva-reveal">
     <span class="rva-stat-icon">&#9989;</span>
-    <span class="rva-stat-value">$0</span>
-    <span class="rva-stat-label">Artificial wall<br>annual maintenance</span>
+    <span class="rva-stat-value">Low</span>
+    <span class="rva-stat-label">Artificial wall<br>routine upkeep</span>
   </div>
 </div>
 
-**Real living wall:** $175 to $250 per square foot installed, plus $1.50 to $3.00 per square foot per month in ongoing maintenance. That maintenance covers irrigation monitoring, fertilization, pruning, plant replacements, and professional visits. For a 100 sq ft wall, maintenance alone runs $1,800 to $3,600 per year.
+**Real living wall:** Install cost, plus ongoing monthly maintenance. That maintenance covers irrigation monitoring, fertilization, pruning, plant replacements, and professional visits.
 
-**Artificial living wall:** Higher upfront cost per square foot (varies by system and foliage quality), but ongoing costs are effectively zero. A hose rinse once or twice a year is the standard recommendation.
+**Artificial living wall:** Higher upfront cost per square foot (varies by system and foliage quality), but ongoing costs are effectively zero. A hose rinse once or twice a year is the standard recommendation. Starting prices are published on the [pricing page](/pricing) (installation is quoted after a site review).
 
-### 5-year total cost for a 100 sq ft wall
+### Cost over time: real vs artificial {#5-year-total-cost-for-a-100-sq-ft-wall}
 
-<div class="rva-cost-bars rva-reveal">
-  <div class="rva-cost-bar-label">Real living wall — install + 5 years maintenance</div>
-  <div class="rva-cost-bar-wrap">
-    <div class="rva-cost-bar rva-cost-bar-real" data-width="100">$26,500 – $43,000+</div>
-  </div>
-  <div class="rva-cost-bar-label">Artificial living wall — install + 5 years maintenance</div>
-  <div class="rva-cost-bar-wrap">
-    <div class="rva-cost-bar rva-cost-bar-artificial" data-width="45">Install cost only (no ongoing)</div>
-  </div>
-  <div class="rva-cost-note">Real wall estimate: $17,500–$25,000 install + $9,000–$18,000 maintenance over 5 years. Artificial: one-time install only. Water costs not included in either.</div>
-</div>
 
-The math isn't close on a 5-year horizon. Real walls cost more over time because the maintenance never stops. Artificial walls front-load the cost and then it's done.
+Over several years, the math often isn't close. Real walls cost more over time because the maintenance never stops. Artificial walls front-load the cost and then it's done.
 
 ## The full comparison
 
@@ -210,13 +194,13 @@ The math isn't close on a 5-year horizon. Real walls cost more over time because
     <tbody>
       <tr>
         <td>Upfront cost</td>
-        <td>$175–250 / sq ft</td>
+        <td>Often lower</td>
         <td>Varies by system</td>
       </tr>
       <tr>
         <td>Annual maintenance</td>
-        <td class="rva-lose">$1,800–$3,600 (100 sq ft)</td>
-        <td class="rva-win">$0</td>
+        <td class="rva-lose">Recurring professional maintenance</td>
+        <td class="rva-win">Minimal (occasional rinse)</td>
       </tr>
       <tr>
         <td>Water use</td>
@@ -226,7 +210,7 @@ The math isn't close on a 5-year horizon. Real walls cost more over time because
       <tr>
         <td>Lifespan (outdoor TX sun)</td>
         <td>Indefinite with maintenance</td>
-        <td>5–10 years (UV-stabilized)</td>
+        <td>Depends on UV stabilization and exposure</td>
       </tr>
       <tr>
         <td>Air purification</td>
@@ -235,7 +219,7 @@ The math isn't close on a 5-year horizon. Real walls cost more over time because
       </tr>
       <tr>
         <td>Biophilic benefits</td>
-        <td class="rva-win">Real — linked to productivity gains</td>
+        <td class="rva-win">Real, linked to productivity gains</td>
         <td>Visual only</td>
       </tr>
       <tr>
@@ -245,18 +229,18 @@ The math isn't close on a 5-year horizon. Real walls cost more over time because
       </tr>
       <tr>
         <td>Irrigation system</td>
-        <td class="rva-lose">Required — needs monitoring</td>
+        <td class="rva-lose">Required, needs monitoring</td>
         <td class="rva-win">None</td>
       </tr>
       <tr>
         <td>Fire rating options</td>
         <td>Limited by plant species</td>
-        <td class="rva-win">NFPA 701 rated foliage available</td>
+        <td class="rva-win">Fire-rated upgrade (NFPA 701) at extra cost</td>
       </tr>
       <tr>
         <td>HOA approval</td>
         <td>Usually approved</td>
-        <td class="rva-win">Usually approved — no irrigation mess</td>
+        <td class="rva-win">Usually approved, no irrigation mess</td>
       </tr>
       <tr>
         <td>Environmental impact</td>
@@ -273,9 +257,9 @@ We'll be straight about this. Real living walls have advantages that artificial 
 
 **Biophilic health benefits.** Research from the University of Exeter found that office workers in environments with real plants were 15% more creative and reported 15% higher wellbeing. A study published in *Scientific Reports* (Nature, 2024) found positive correlations between biophilic design elements and employee wellbeing. These effects are linked to real organic material, not visual approximation.
 
-**Air quality (with a major caveat).** The 1989 NASA Clean Air Study found that certain plants remove VOCs like formaldehyde and benzene from sealed chambers — in some cases reducing concentrations by up to 90%. However, the American Lung Association has clarified that these results don't translate to real buildings. You would need **10 to 1,000 plants per square meter** of floor space to match the air exchange rate of normal building ventilation. A single living wall won't meaningfully clean your air.
+**Air quality (with a major caveat).** The 1989 NASA Clean Air Study found that certain plants remove VOCs like formaldehyde and benzene from sealed chambers, in some cases reducing concentrations by up to 90%. However, the American Lung Association has clarified that these results don't translate to real buildings. You would need **10 to 1,000 plants per square meter** of floor space to match the air exchange rate of normal building ventilation. A single living wall won't meaningfully clean your air.
 
-**Environmental lifecycle.** Real plants are carbon-absorbing and biodegradable. Artificial plants are made from plastic, metal, and foam. The Worldwatch Institute estimates plastic production accounts for about 6% of global oil consumption. However, the environmental math is more complex than it appears — commercially grown plants require energy-intensive greenhouses, transportation, and ongoing water consumption. Neither option is environmentally free.
+**Environmental lifecycle.** Real plants are carbon-absorbing and biodegradable. Artificial plants are made from plastic, metal, and foam. The Worldwatch Institute estimates plastic production accounts for about 6% of global oil consumption. However, the environmental math is more complex than it appears, commercially grown plants require energy-intensive greenhouses, transportation, and ongoing water consumption. Neither option is environmentally free.
 
 <div class="rva-callout rva-callout-neutral rva-reveal">
   <span class="rva-callout-icon">&#128161;</span>
@@ -284,11 +268,11 @@ We'll be straight about this. Real living walls have advantages that artificial 
 
 ## Where artificial walls win
 
-**Total cost of ownership.** As shown above, the 5-year cost gap is significant. Artificial walls eliminate the entire maintenance line item — no labor, water, fertilizer, plant replacements, or irrigation repairs.
+**Total cost of ownership.** As shown above, the long-term cost gap can be significant. Artificial walls eliminate the entire maintenance line item, no labor, water, fertilizer, plant replacements, or irrigation repairs.
 
-**Consistency in Texas heat.** UV-stabilized artificial foliage tested to ASTM G154 standards retains appearance for 5 to 10 years in full sun. Real plants in exterior Texas installations face 100+ degree surface temperatures, high evapotranspiration rates (documented by Texas A&M's TexasET Network), and water restrictions tracked by TCEQ. Without flawless maintenance, real walls struggle in Texas summers.
+**Consistency in Texas heat.** UV-stabilized artificial foliage is made to hold its appearance in full sun; ask for UV and warranty terms in writing. Real plants in exterior Texas installations face 100+ degree surface temperatures, high evapotranspiration rates (documented by Texas A&M's TexasET Network), and water restrictions tracked by TCEQ. Without flawless maintenance, real walls struggle in Texas summers.
 
-**Fire rating.** Artificial foliage can be manufactured with NFPA 701 Method 2 fire-rated materials and documented for code compliance. Real plants have variable fire behavior based on species, moisture content, and season. For commercial, hospitality, and multifamily applications where fire documentation is required, artificial has a clear advantage.
+**Fire rating.** Fire-rated foliage (NFPA 701) is available as an upgrade at extra cost; ask for the NFPA 701 documentation for the exact system you choose. Real plants have variable fire behavior based on species, moisture content, and season. For commercial, hospitality, and multifamily applications where fire documentation is required, artificial has a clear advantage.
 
 **Zero water.** In a state where the TWDB documents that 31% of residential water use goes to outdoor purposes, adding a living wall that consumes 5 to 12 gallons per square foot per year is a meaningful additional draw. Artificial uses none.
 
@@ -322,27 +306,26 @@ We'll be straight about this. Real living walls have advantages that artificial 
   </div>
 </div>
 
-Most of the artificial walls we install in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio) fall into one of those right-column scenarios. But when a client has the budget and conditions for real, we'll tell them so.
+Artificial walls in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio) tend to fit one of those right-column scenarios. But when you have the budget and conditions for real, a living wall can be the better choice.
 
 ## Related reading
 
-- [Green wall maintenance costs in Texas](/blog/green-wall-maintenance-in-texas-what-it-actually-takes) — detailed maintenance costs and schedule
-- [Artificial living walls](/living-wall) — our product page with system details
-- [The complete guide to artificial living walls in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-living-walls-in-texas) — types, materials, and installation
+- [Green wall maintenance costs in Texas](/blog/green-wall-maintenance-in-texas-what-it-actually-takes), maintenance tasks and schedule
+- [Artificial living walls](/living-wall), our product page with system details
+- [The complete guide to artificial living walls in Texas](/blog/the-complete-guide-to-artificial-living-walls-in-texas), types, materials, and installation
 
 ## Sources
 
 <div class="rva-sources">
-  <a class="rva-source-chip" href="https://greenscapeinc.com/blog/how-much-do-living-walls-cost/" target="_blank" rel="noopener">&#128218; Living wall cost data</a>
   <a class="rva-source-chip" href="https://www.sciencedirect.com/science/article/abs/pii/S1618866721000509" target="_blank" rel="noopener">&#128218; Water consumption study</a>
   <a class="rva-source-chip" href="https://ntrs.nasa.gov/citations/19930072988" target="_blank" rel="noopener">&#128218; NASA Clean Air Study</a>
-  <a class="rva-source-chip" href="https://www.lung.org/blog/houseplants-dont-clean-air" target="_blank" rel="noopener">&#127987; American Lung Assn — plants caveat</a>
-  <a class="rva-source-chip" href="https://www.nature.com/articles/s41598-024-83791-9" target="_blank" rel="noopener">&#128218; Nature — biophilic design study</a>
-  <a class="rva-source-chip" href="https://arb.umn.edu/blog/2024/05/07/biophilic-design-in-the-workplace-improves-creativity-wellbeing-and-productivity" target="_blank" rel="noopener">&#127793; U of Minnesota — productivity</a>
+  <a class="rva-source-chip" href="https://www.lung.org/blog/houseplants-dont-clean-air" target="_blank" rel="noopener">&#127987; American Lung Assn, plants caveat</a>
+  <a class="rva-source-chip" href="https://www.nature.com/articles/s41598-024-83791-9" target="_blank" rel="noopener">&#128218; Nature, biophilic design study</a>
+  <a class="rva-source-chip" href="https://arb.umn.edu/blog/2024/05/07/biophilic-design-in-the-workplace-improves-creativity-wellbeing-and-productivity" target="_blank" rel="noopener">&#127793; U of Minnesota, productivity</a>
   <a class="rva-source-chip" href="https://texaset.tamu.edu/" target="_blank" rel="noopener">&#127793; Texas A&M TexasET Network</a>
-  <a class="rva-source-chip" href="https://www.twdb.texas.gov/publications/reports/technical_notes/doc/SeasonalWaterUseReport-final.pdf" target="_blank" rel="noopener">&#127987; TWDB — TX outdoor water use</a>
-  <a class="rva-source-chip" href="https://www.tceq.texas.gov/drinkingwater/trot/droughtw.html" target="_blank" rel="noopener">&#127987; TCEQ — Water restrictions</a>
-  <a class="rva-source-chip" href="https://livewall.com/technical/maintenance/" target="_blank" rel="noopener">&#128736; LiveWall — Maintenance docs</a>
+  <a class="rva-source-chip" href="https://www.twdb.texas.gov/publications/reports/technical_notes/doc/SeasonalWaterUseReport-final.pdf" target="_blank" rel="noopener">&#127987; TWDB, TX outdoor water use</a>
+  <a class="rva-source-chip" href="https://www.tceq.texas.gov/drinkingwater/trot/droughtw.html" target="_blank" rel="noopener">&#127987; TCEQ, Water restrictions</a>
+  <a class="rva-source-chip" href="https://livewall.com/technical/maintenance/" target="_blank" rel="noopener">&#128736; LiveWall, Maintenance docs</a>
 </div>
 
 See our [artificial living walls](/living-wall) page to compare options, or explore installations in [Dallas](/dallas), [Fort Worth](/fort-worth), [Houston](/houston), and [San Antonio](/san-antonio).

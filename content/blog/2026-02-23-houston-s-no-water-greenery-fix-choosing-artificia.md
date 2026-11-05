@@ -21,7 +21,7 @@ You know the moment: it’s late July in Houston, the heat index is doing its th
 
 That’s where **Artificial living walls and Artificial hedges in Houston** come in. When they’re done well, they don’t read as “plastic décor.” They’re modular greenery systems built to hold up to sun, humidity, and high-traffic properties with a lot less maintenance.
 
-In this guide, you’ll see what Houston weather does to faux greenery, where these installs make sense (homes, restaurants, multifamily), how to compare providers, and what “fire rated” means in plain language—especially for commercial spaces.
+In this guide, you’ll see what Houston weather does to faux greenery, where these installs make sense (homes, restaurants, multifamily), how to compare providers, and what “fire rated” means in plain language, especially for commercial spaces.
 
 ## 1) The artificial living wall and hedge scene in Houston (and where it’s actually getting installed)
 
@@ -29,7 +29,7 @@ Houston is rough on anything outdoors: strong sun, sudden downpours, long humid 
 
 In neighborhoods like **The Heights** and **River Oaks**, artificial privacy hedges usually land in tight side yards, along pool equipment runs, or on patios where people want screening without tearing up the ground for irrigation. You’ll also see them used to soften modern stucco-and-steel exteriors when someone wants a “living” look but the light is inconsistent.
 
-In **EaDo (East Downtown)** and around **Washington Avenue**, you’ll see more **faux living wall** installs at restaurants and retail. Part of it is the “always green” photo backdrop. Part of it is that high-traffic patios and courtyards beat up real plants fast. If you’ve walked near **Buffalo Bayou Park** and then grabbed food along Washington, you’ve probably noticed more vertical greenery popping up—some real, plenty artificial—because it reads well from the sidewalk and in pictures.
+In **EaDo (East Downtown)** and around **Washington Avenue**, you’ll see more **faux living wall** installs at restaurants and retail. Part of it is the “always green” photo backdrop. Part of it is that high-traffic patios and courtyards beat up real plants fast. If you’ve walked near **Buffalo Bayou Park** and then grabbed food along Washington, you’ve probably noticed more vertical greenery popping up (some real, plenty artificial) because it reads well from the sidewalk and in pictures.
 
 Commercial property managers also use **artificial hedge panels** to screen trash enclosures, loading zones, and mechanical areas without pouring a taller wall or reworking hardscape. On multifamily sites near corridors like **I-10** and **Loop 610**, hedges get used to separate dog runs, pool decks, and shared walkways.
 
@@ -40,12 +40,12 @@ There’s a practical reason behind a lot of this: **water use and maintenance l
 Most people start looking for an artificial living wall Texas installer for one of three reasons: privacy, consistent appearance, or control.
 
 ### Privacy that doesn’t turn into a weekly chore
-An **artificial privacy hedge** makes sense when a wood fence feels stark, or when you can’t add fence height because of HOA rules or driveway sightline limits. A 40–60" tall hedge line above an existing fence can change how a yard feels without rebuilding the fence.
+An **artificial privacy hedge** makes sense when a wood fence feels stark, or when you can’t add fence height because of HOA rules or driveway sightline limits. A hedge fence extension can change how a yard feels without rebuilding the fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom.
 
 In Houston, privacy is often about **pool and patio season**. Outdoor areas get used early and late in the year, so people want screening that looks the same in February as it does in August.
 
 ### Consistent green where real plants struggle
-Houston’s humidity is no joke. Neither are fungus, pests, or the way some courtyards turn into heat traps between buildings. A real vine wall can look great—until it thins out, scorches on a south-facing wall, or goes patchy where sprinklers don’t hit.
+Houston’s humidity is no joke. Neither are fungus, pests, or the way some courtyards turn into heat traps between buildings. A real vine wall can look great, until it thins out, scorches on a south-facing wall, or goes patchy where sprinklers don’t hit.
 
 A **faux living wall** won’t develop bare spots because one drip line is clogged. It also won’t dump leaves into pool skimmers or clog patio drains during those Gulf Coast downpours.
 
@@ -57,7 +57,7 @@ Artificial wall systems are predictable. If you’re running a patio in Midtown,
 ### Fire-rated options (what that means in real terms)
 If you’re specifying **Fire rated Artificial Living Walls** or **Fire rated artificial hedges** for a commercial job, ask about documentation right away.
 
-A lot of buyers hear “fire rated” and assume it’s just a marketing phrase. It shouldn’t be. It should mean the product was tested to a specific standard (often **ASTM E84** for surface burning characteristics) and the supplier can provide the paperwork.
+A lot of buyers hear “fire rated” and assume it’s just a marketing phrase. It shouldn’t be. It should mean the product was tested to a specific standard (for decorative greenery, usually **NFPA 701**) and the supplier can provide the paperwork. For Lone Star Faux Scapes products, standard foliage is UV-stabilized for outdoor sun. Fire-rated foliage (NFPA 701) is an upgrade at extra cost, with documentation on request.
 
 A simple way to think about it:
 
@@ -79,7 +79,7 @@ A lot of **artificial hedge panels** look identical online. In person, the diffe
 - **Color variation:** Better panels blend multiple greens (sometimes with subtle dry tips) so it doesn’t look like a flat carpet.
 - **Backing rigidity:** A flimsy grid backing can sag over time, especially on wide spans.
 
-If you’re comparing an **artificial boxwood hedge Texas** style, ask to see a sample outside—not just under showroom lighting.
+If you’re comparing an **artificial boxwood hedge Texas** style, ask to see a sample outside, not just under showroom lighting.
 
 ### UV strategy matters more than people think
 Houston gets long stretches of hard sun, especially on west-facing walls. Ask how the product handles UV and what the warranty really covers (fading and total failure aren’t the same claim).
@@ -117,11 +117,11 @@ They should also talk about drainage and airflow so water doesn’t get trapped 
 ### Fire-rated documentation for commercial projects
 If you need **commercial living wall Texas** specs or a fire-rated install for a public-facing space, ask for:
 
-- The test standard (commonly ASTM E84)
-- The classification (often referred to as Class A, B, or C)
+- The test standard (for decorative greenery, usually NFPA 701)
+- The method used and the result, as stated in the report
 - A data sheet you can submit to your GC, architect, or inspector
 
-And yes—final approval still sits with your local AHJ. A provider should say that clearly.
+And yes, final approval still sits with your local AHJ. A provider should say that clearly.
 
 ## 4) Houston-specific considerations that change the outcome
 
@@ -139,7 +139,7 @@ When panels sit tight to an exterior wall with no airflow, moisture can hang aro
 - Mildew on shaded sides
 - Corrosion on cheap hardware
 
-The fix is usually spacing, drainage planning, and better fasteners—not a miracle coating.
+The fix is usually spacing, drainage planning, and better fasteners, not a miracle coating.
 
 ### Sun angles and “the glossy leaf problem”
 Houston sun can turn glossy faux leaves into little mirrors, especially on west-facing walls in late afternoon. If the wall is near seating, that glare gets annoying fast.
@@ -154,10 +154,10 @@ Houston isn’t a wildfire market like parts of California, but fire-rated requi
 - Restaurant interiors and covered patios
 - Temporary event builds that still need venue approval
 
-If you’re near high-traffic zones—around **The Galleria**, for example—clean documentation can speed things up when a new tenant is trying to open on a deadline.
+If you’re near high-traffic zones (around **The Galleria**, for example), clean documentation can speed things up when a new tenant is trying to open on a deadline.
 
 ### A quick note on local rules
-Fire ratings and code acceptance can vary by project type and jurisdiction. Confirm requirements with the local **AHJ (Authority Having Jurisdiction)** tied to your permit/inspection path. And if insurance is part of the decision, check with your carrier—coverage comes down to the policy.
+Fire ratings and code acceptance can vary by project type and jurisdiction. Confirm requirements with the local **AHJ (Authority Having Jurisdiction)** tied to your permit/inspection path. And if insurance is part of the decision, check with your carrier, coverage comes down to the policy.
 
 ## 5) Getting started with artificial living walls and hedges in Houston (a practical path)
 
@@ -169,13 +169,13 @@ Then measure like you mean it. Height and width are obvious, but don’t miss ob
 
 Next, figure out whether you need a fire-rated product. For commercial spaces, ask for the paperwork early so it doesn’t turn into a last-week sprint before inspection.
 
-Finally, schedule a site visit with **Lone Star Faux Scapes** so the installer can look at sun exposure, mounting surfaces, and drainage. Houston sites vary too much for “close enough” pricing based on photos.
+Finally, send your numbers to **Lone Star Faux Scapes**. We email an assessment and a rough quote (with a 3D render when it helps), and a site review of sun exposure, mounting surfaces, and drainage sets the final invoice.
 
 ## Conclusion: a Houston-friendly way to get the green look without the upkeep
 
-If real plants keep thinning out, or your patio privacy still feels unfinished, artificial greenery can be a straightforward fix—especially when it’s installed with Houston sun, storms, and humidity in mind.
+If real plants keep thinning out, or your patio privacy still feels unfinished, artificial greenery can be a straightforward fix, especially when it’s installed with Houston sun, storms, and humidity in mind.
 
-If you’re looking for **Artificial living walls and Artificial hedges Houston TX** for a home, restaurant, or commercial property, Lone Star Faux Scapes can visit the site, bring real samples, and talk through panel type, mounting method, and fire-rated documentation if you need it. Start with a site assessment so you know what’ll work before you commit.
+If you’re looking for **Artificial living walls and Artificial hedges Houston TX** for a home, restaurant, or commercial property, Lone Star Faux Scapes can talk through panel type, mounting method, and NFPA 701 documentation if you need it. Send your numbers and we email an assessment and a rough quote (with a 3D render when it helps); a site review sets the final invoice.
 
 ### FAQ
 
@@ -183,10 +183,10 @@ If you’re looking for **Artificial living walls and Artificial hedges Houston 
 It depends on sun exposure, product quality, and where it’s installed (full sun vs. covered patio). Ask about UV resistance and what the warranty covers for fading.
 
 **Do artificial hedge panels work for fence-top privacy?**
-Yes, as long as the fence and posts can handle the extra surface area in wind. A good installer will explain fastening and support so panels don’t flap or pull loose.
+Yes, as long as the fence and posts can handle the extra surface area in wind. An extension attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height; the foliage covers the tube at the bottom. A good installer will explain fastening and support so panels don’t flap or pull loose. Extending a vinyl fence is much harder and generally not recommended.
 
 **What does “fire rated” mean for artificial living walls?**
-Usually it means the product was tested to a standard like ASTM E84 and comes with documentation showing a classification (often referenced as Class A/B/C). Final acceptance depends on your AHJ.
+Usually it means the product was tested to a standard like NFPA 701 and comes with documentation for the exact system. Final acceptance depends on your AHJ.
 
 **Will an artificial wall trap moisture and cause mold?**
 It can if it’s installed flush with no airflow on a surface that stays damp. Spacing, drainage planning, and hardware choice matter, especially in humid Houston.

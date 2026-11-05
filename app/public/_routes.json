@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*",
+    "/hedge-quote",
+    "/hero-backup",
+    "/hero-backup/",
+    "/hero-backup.html",
+    "/lighthouse-report.json",
+    "/lh-scores.json",
+    "/navbar-component",
+    "/navbar-component/",
+    "/navbar-component.html",
+    "/navbar-universal",
+    "/navbar-universal/",
+    "/navbar-universal.html",
+    "/roadmap",
+    "/roadmap/",
+    "/roadmap.html",
+    "/sample-page/feed",
+    "/sample-page/feed/",
+    "/understanding-responsible-gambling-practices-a",
+    "/understanding-responsible-gambling-practices-a/",
+    "/mastering-advanced-casino-strategies-a",
+    "/mastering-advanced-casino-strategies-a/",
+    "/seasonal-shifts-how-trends-influence-gambling",
+    "/seasonal-shifts-how-trends-influence-gambling/"
+  ],
+  "exclude": []
+}

@@ -25,7 +25,7 @@ Pool privacy is one of the most common reasons Texas homeowners look into artifi
 
 Real hedges around pools come with a long list of problems: leaves in the water, root systems that can damage pool plumbing, insects, constant watering during months when the pool is in daily use, and the reality that anything planted next to a pool deck gets hammered by reflected UV and chlorine mist. Most live hedges don't hold up.
 
-Artificial hedges solve the privacy problem instantly—full coverage on day one, no debris in the water, and no irrigation. But there are specific considerations for pool installations that don't apply to a standard fence-line hedge. This guide covers what you need to know.
+Artificial hedges solve the privacy problem instantly, full coverage on day one, no debris in the water, and no irrigation. But there are specific considerations for pool installations that don't apply to a standard fence-line hedge. This guide covers what you need to know.
 
 ## Pool barrier codes: what the fence underneath must do
 
@@ -37,7 +37,7 @@ The [International Residential Code (IRC)](https://codes.iccsafe.org/content/IRC
 - **Maximum gap of 2 inches** between the bottom of the barrier and the ground.
 - **Gates must be self-closing and self-latching**, and must open outward (away from the pool).
 - **Gate latches** on the pool side must be at least **54 inches above** the ground surface when the release mechanism is accessed from the non-pool side.
-- The barrier must resist climbing—openings in the fence must not allow a 4-inch sphere to pass through.
+- The barrier must resist climbing, openings in the fence must not allow a 4-inch sphere to pass through.
 
 Texas cities adopt these codes with local amendments, so requirements may vary. Check with your city's building inspection department for the exact standards in your jurisdiction.
 
@@ -62,10 +62,10 @@ Once the fence is handled, the privacy screening conversation becomes simpler. H
 Pool areas add environmental factors that standard fence-line installations don't face:
 
 ### Reflected UV
-Water acts as a mirror for ultraviolet light. Panels near a pool receive direct UV from above and reflected UV bouncing off the water surface. This accelerated UV exposure means you want the best UV-stabilized panels available—not the budget option.
+Water acts as a mirror for ultraviolet light. Panels near a pool receive direct UV from above and reflected UV bouncing off the water surface. This accelerated UV exposure means you want the best UV-stabilized panels available, not the budget option.
 
 ### Chlorine and chemical exposure
-Chlorinated pool water creates a fine mist that lands on nearby surfaces. Over weeks and months, this mist—combined with sunscreen, body oils, and airborne dust—creates a film on artificial hedge panels. The film doesn't damage quality polyethylene panels, but it dulls the appearance.
+Chlorinated pool water creates a fine mist that lands on nearby surfaces. Over weeks and months, this mist (combined with sunscreen, body oils, and airborne dust) creates a film on artificial hedge panels. The film doesn't damage quality polyethylene panels, but it dulls the appearance.
 
 The solution is periodic rinsing. A garden hose with mild dish soap handles the buildup. For stubborn residue, a soft brush helps. Avoid pressure washers and harsh chemicals near the panels.
 
@@ -73,7 +73,7 @@ The solution is periodic rinsing. A garden hose with mild dish soap handles the 
 Concrete, travertine, and stone pool decks absorb and radiate heat. Panels mounted near these surfaces face higher ambient temperatures than a standard fence line. The same air-gap principle applies: mounting panels with even a small gap behind them allows heat to dissipate rather than getting trapped against the panel backing.
 
 ### Splash zone
-If the hedge is within splashing distance of the pool—near a diving board, slide, or spa overflow—the panels will get wet regularly. That's fine for the material (polyethylene handles water), but the constant wetting and drying cycle can leave mineral deposits if your water is hard. Periodic rinsing prevents buildup.
+If the hedge is within splashing distance of the pool (near a diving board, slide, or spa overflow), the panels will get wet regularly. That's fine for the material (polyethylene handles water), but the constant wetting and drying cycle can leave mineral deposits if your water is hard. Periodic rinsing prevents buildup.
 
 ## Common pool privacy configurations
 
@@ -86,19 +86,19 @@ This works especially well on:
 - **Chain-link fences** that are structurally sound but visually unattractive
 
 ### Fence height extensions
-If 6 feet of fence isn't enough, a hedge topper adds height without building a taller fence. A 2-foot hedge topper on a 6-foot fence gives you 8 feet of screening—often enough to block second-story sightlines.
+If 6 feet of fence isn't enough, a hedge extension adds height without building a taller fence. It attaches to the face of your fence or wall, generally with steel square tube, and comes down 1 ft for every 2 ft of extension height, so a 3 ft extension overlaps the fence by 1.5 ft; the foliage covers the tube at the bottom. A 2-foot extension on a 6-foot fence gives you 8 feet of screening, often enough to block second-story sightlines. Extending a vinyl fence is much harder and generally not recommended.
 
-Check your city's fence height ordinance and your HOA's CC&Rs before adding height. Many Texas cities allow 8-foot fences in backyards. For guidance on HOA approval, see our [HOA approval guide for artificial hedges](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas).
+Check your city's fence height ordinance and your HOA's CC&Rs before adding height. Many Texas cities allow 8-foot fences in backyards. For guidance on HOA approval, see our [HOA approval guide for artificial hedges](/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas).
 
 For product options, see our [fence extension page](/fence-extensions).
 
 ### Pool equipment screening
 Pool pumps, filters, heaters, and automation panels are functional but ugly. An artificial hedge screen hides them from view while keeping the area accessible for maintenance.
 
-The critical rule: **don't block airflow to equipment that needs it.** Pool heaters, heat pumps, and some filter systems require air circulation. Mount the screen far enough away—or use a frame with clearance—so equipment can breathe. And leave a removable panel or access door for the equipment you service regularly.
+The critical rule: **don't block airflow to equipment that needs it.** Pool heaters, heat pumps, and some filter systems require air circulation. Mount the screen far enough away (or use a frame with clearance) so equipment can breathe. And leave a removable panel or access door for the equipment you service regularly.
 
 ### Freestanding privacy walls
-For pool areas where the fence line is too far away to provide privacy at the pool deck itself—large lots, for example—a freestanding privacy screen closer to the pool seating area can be more effective than extending the perimeter fence.
+For pool areas where the fence line is too far away to provide privacy at the pool deck itself (large lots, for example), a freestanding privacy screen closer to the pool seating area can be more effective than extending the perimeter fence.
 
 These use a post-and-frame system with hedge panels attached to the frame. They can be positioned exactly where privacy is needed: behind the lounge chairs, next to the outdoor kitchen, or between the pool and a guest house.
 
@@ -111,11 +111,11 @@ These use a post-and-frame system with hedge panels attached to the frame. They 
 
 ## Related articles
 
-This article is part of our [complete guide to artificial hedges in Texas](/blog/2026-02-21-the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, costs, and more.
+This article is part of our [complete guide to artificial hedges in Texas](/blog/the-complete-guide-to-artificial-hedges-in-texas), which covers types, materials, climate performance, costs, and more.
 
 You might also find these useful:
-- [How to get HOA approval for artificial hedges in Texas](/blog/2026-02-21-how-to-get-hoa-approval-for-artificial-hedges-in-texas)
-- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/2025-12-09-artificial-hedges-vs-real-plants-in-texas-which-is)
+- [How to get HOA approval for artificial hedges in Texas](/blog/how-to-get-hoa-approval-for-artificial-hedges-in-texas)
+- [Artificial hedges vs. real plants in Texas: which is cheaper?](/blog/artificial-hedges-vs-real-plants-in-texas)
 
 For pool-specific products, see our [pool privacy hedge page](/pool-privacy-hedge) or [pool living wall page](/pool-living-wall).
 
@@ -137,6 +137,6 @@ No. Artificial hedges do not hold standing water and do not create the moist soi
 - International Residential Code, Chapter 42 (Swimming Pools): https://codes.iccsafe.org/content/IRC2018/chapter-42-swimming-pools
 - EPA Mosquito Control: https://www.epa.gov/mosquitocontrol
 
-<!-- image: /images/blog/pool-privacy/pool-privacy-08.webp -->
-<!-- image: /images/blog/pool-privacy/pool-privacy-10.webp -->
-<!-- image: /images/blog/pool-privacy/pool-privacy-11.webp -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-08.webp | Artificial hedge wall behind a swimming pool and spa, with a rock feature at the right -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-10.webp | Backyard pool with artificial hedge panels along the back fence and patio chairs in the foreground -->
+<!-- image: /images/blog/pool-privacy/pool-privacy-11.webp | Artificial living wall above a wood-clad bench wall, beside a pool and spa -->

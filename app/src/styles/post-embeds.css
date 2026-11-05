@@ -1,0 +1,892 @@
+/* The components five blog posts carry in their text, drawn in the site's own
+   language: caliche and limestone ground, ink text, boxwood accents, hairline
+   rules, mono labels, square corners. The posts brought their own <style> for
+   the old dark site; build-content.mjs strips it, so every class they use is
+   styled here.
+
+     hoa-   texas-property-code-202-007-artificial-hedges-and-hoa-rules
+     gw-    green-wall-maintenance-in-texas-what-it-actually-takes
+     rva-   real-vs-artificial-living-walls-in-texas-an-honest-comparison
+     prv-   texas-backyard-privacy-solutions-compared-fences-hedges-walls
+     rst-   artificial-green-walls-for-texas-restaurants-and-bars
+
+   Phones first (390 and 360): one column or a compact two, no sideways page
+   scroll, 44 px tap targets. Selectors start with `.prose` so they win over the
+   prose rules for lists, tables and links. The reveal classes are static now. */
+
+/* A name for a table's empty corner cell, read by screen readers only. */
+.po-e-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Decorative emoji the posts used as icons: the words beside them say it all. */
+.prose :is(.hoa-callout-icon, .rva-callout-icon, .prv-callout-icon, .rst-callout-icon, .rva-stat-icon, .rst-stat-icon, .rva-verdict-icon, .prv-use-icon, .rst-use-icon) {
+  display: none;
+}
+
+/* ------------------------------------------------------------- callouts */
+
+/* A note on limestone with a bar on its left: ink for law and neutral notes,
+   boxwood for notes, noon for cautions. The mono label names the kind. */
+.prose :is(.hoa-callout, .gw-callout, .rva-callout, .prv-callout, .rst-callout) {
+  display: block;
+  margin: 26px 0;
+  padding: 16px 16px 18px 18px;
+  background: var(--limestone);
+  border-left: 3px solid var(--boxwood);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.prose :is(.hoa-callout-warn, .gw-callout-warn, .prv-callout-warn, .rst-callout-warn, .rst-callout-fire) {
+  border-left-color: var(--noon);
+}
+
+.prose :is(.hoa-callout-legal, .rva-callout-neutral) {
+  border-left-color: var(--ink);
+}
+
+.prose :is(.hoa-callout-body, .gw-callout-body, .rva-callout-body, .prv-callout-body, .rst-callout-body) {
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--ink);
+}
+
+.prose :is(.hoa-callout, .rva-callout, .prv-callout, .rst-callout)::before,
+.prose .gw-callout-label {
+  display: block;
+  margin-bottom: 6px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+.prose :is(.hoa-callout, .rva-callout, .prv-callout, .rst-callout)::before {
+  content: 'Note';
+}
+
+.prose :is(.hoa-callout-warn, .prv-callout-warn, .rst-callout-warn)::before {
+  content: 'Heads up';
+}
+
+.prose .hoa-callout-legal::before {
+  content: 'Legal note';
+}
+
+.prose .rst-callout-fire::before {
+  content: 'Fire code';
+}
+
+.prose .rst-callout-info::before {
+  content: 'Health code';
+}
+
+.prose .gw-callout-warn .gw-callout-label {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------ statutes */
+
+/* A quoted section of law: the words in the display face on a rule, the cite in mono. */
+.prose .hoa-statute {
+  margin: 28px 0;
+  padding: 18px 16px 20px;
+  background: var(--limestone);
+  border-top: 2px solid var(--ink);
+}
+
+.prose .hoa-statute-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+.prose .hoa-statute-text {
+  margin-top: 12px;
+  padding-left: 14px;
+  border-left: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 560;
+  letter-spacing: -0.006em;
+  line-height: 1.5;
+}
+
+.prose .hoa-statute-text strong {
+  font-weight: 760;
+}
+
+.prose .hoa-statute-cite {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* ---------------------------------------------------------------- steps */
+
+/* Numbered rows on hairlines. The number is drawn from a counter, in mono. */
+.prose :is(.hoa-steps, .gw-steps) {
+  margin: 24px 0;
+  padding: 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose .hoa-steps {
+  counter-reset: hoa-step;
+}
+
+.prose .gw-steps {
+  counter-reset: gw-step;
+}
+
+.prose :is(.hoa-step, .gw-step) {
+  position: relative;
+  margin: 0;
+  padding: 14px 0 14px 44px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose .hoa-step {
+  counter-increment: hoa-step;
+}
+
+.prose .gw-step {
+  counter-increment: gw-step;
+}
+
+.prose .hoa-step::before {
+  content: counter(hoa-step, decimal-leading-zero);
+}
+
+.prose .gw-step::before {
+  content: counter(gw-step, decimal-leading-zero);
+}
+
+.prose :is(.hoa-step, .gw-step)::before {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--boxwood);
+}
+
+.prose :is(.hoa-step-title, .gw-step-title) {
+  font-size: 17px;
+  font-weight: 680;
+  line-height: 1.3;
+}
+
+.prose :is(.hoa-step-desc, .gw-step-desc) {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* ----------------------------------------------------------- checklists */
+
+.prose :is(.hoa-checklist, .gw-checklist, .rst-checklist) {
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.prose :is(.hoa-checklist, .gw-checklist, .rst-checklist) li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: 12px;
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* The mark: a square with the tick or arrow in it. Boxwood is the yes, noon the "this fits you" list. */
+.prose :is(.hoa-check-icon, .gw-check-icon, .rst-check-icon) {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  background: var(--boxwood);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--caliche);
+}
+
+.prose .gw-check-amber {
+  background: var(--noon);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------- flow cards */
+
+/* Three steps after a denial: stacked rows on phones, three columns from 640 px. */
+.prose .hoa-flow {
+  display: grid;
+  margin: 24px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose .hoa-flow-card {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose .hoa-flow-num {
+  grid-row: 1 / span 2;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--boxwood);
+}
+
+.prose .hoa-flow-title {
+  font-size: 17px;
+  font-weight: 680;
+  line-height: 1.3;
+}
+
+.prose .hoa-flow-desc {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* -------------------------------------------------------- source chips */
+
+/* Source links: hairline rows on phones (44 px tall), two columns from 640 px. */
+.prose :is(.hoa-sources, .gw-sources, .rva-sources, .prv-sources, .rst-sources) {
+  display: grid;
+  margin: 18px 0 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.prose :is(.hoa-source-chip, .gw-source-chip, .rva-source-chip, .prv-source-chip, .rst-source-chip) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 4px 8px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.35;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.prose :is(.hoa-source-chip, .gw-source-chip, .rva-source-chip, .prv-source-chip, .rst-source-chip):hover {
+  color: var(--boxwood);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.prose .gw-source-type {
+  flex: none;
+  min-width: 56px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+/* ---------------------------------------------------------- stat cards */
+
+/* Three figures. Phones: a ledger, the figure left and its label right.
+   From 640 px: three columns, the figure over its label. */
+.prose :is(.gw-stats-row, .rva-stats-row, .rst-stats-row) {
+  display: grid;
+  margin: 26px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose :is(.gw-stat-card, .rva-stat-card, .rst-stat-card) {
+  display: grid;
+  grid-template-columns: minmax(96px, 36%) minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose .gw-stat-kicker {
+  grid-column: 1 / -1;
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+.prose :is(.gw-stat-value, .rva-stat-value, .rst-stat-value) {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose :is(.gw-stat-label, .rva-stat-label, .rst-stat-label) {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--cedar);
+}
+
+/* --------------------------------------------------------- danger cards */
+
+.prose .gw-dangers {
+  display: grid;
+  margin: 24px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose .gw-danger-card {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose .gw-danger-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+.prose .gw-danger-title {
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 680;
+  line-height: 1.3;
+}
+
+.prose .gw-danger-desc {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* ------------------------------------------------------------- timeline */
+
+/* Care by frequency: a rule down the left, a square on it for each stage. */
+.prose .gw-timeline {
+  position: relative;
+  margin: 26px 0;
+  padding-left: 30px;
+}
+
+.prose .gw-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--ink);
+}
+
+.prose .gw-tl-item {
+  position: relative;
+  padding-bottom: 22px;
+}
+
+.prose .gw-tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.prose .gw-tl-dot {
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background: var(--boxwood);
+}
+
+.prose .gw-tl-freq {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+.prose .gw-tl-tasks {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .gw-tl-tasks li {
+  position: relative;
+  margin: 0;
+  padding: 3px 0 3px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.prose .gw-tl-tasks li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 5px;
+  height: 5px;
+  background: var(--ink);
+}
+
+/* ---------------------------------------------------- comparison tables */
+
+/* Phones: each row is a card. The row's name on top, then its cells two by two
+   with a mono label over each (build-content.mjs puts `data-label` on the cells).
+   From 720 px it is a table. */
+.prose :is(.gw-compare, .rva-compare, .prv-compare) {
+  margin: 26px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) table {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  background: none;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) :is(thead, tbody) {
+  display: block;
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) tr {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) tbody th {
+  display: block;
+  grid-column: 1 / -1;
+  padding: 0 0 6px;
+  border: 0;
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-weight: 680;
+  letter-spacing: 0;
+  line-height: 1.3;
+  text-transform: none;
+  white-space: normal;
+  color: var(--ink);
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) td {
+  display: block;
+  padding: 6px 0 0;
+  border: 0;
+}
+
+.prose :is(.gw-compare, .rva-compare, .prv-compare) td::before {
+  content: attr(data-label);
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+/* The better value is in boxwood and bold; the cost is marked by a noon underline. */
+.prose :is(.rva-win, .prv-win, .gw-zero) {
+  font-weight: 680;
+  color: var(--boxwood);
+}
+
+.prose .rva-lose {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--noon);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------- cost bars */
+
+/* An illustration, not a price: the words on top, a bar under them as long as
+   its share (`--w`, set by the build from the old `data-width`). */
+.prose .rva-cost-bars {
+  margin: 26px 0;
+  padding: 18px 16px 16px;
+  background: var(--limestone);
+  border-top: 2px solid var(--ink);
+}
+
+.prose .rva-cost-bar-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--cedar);
+}
+
+.prose .rva-cost-bar-wrap {
+  margin: 6px 0 18px;
+}
+
+.prose .rva-cost-bar {
+  font-size: 16px;
+  font-weight: 680;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.prose .rva-cost-bar::after {
+  content: '';
+  display: block;
+  width: var(--w, 100%);
+  height: 12px;
+  margin-top: 8px;
+}
+
+.prose .rva-cost-bar-real::after {
+  background: var(--noon);
+}
+
+.prose .rva-cost-bar-artificial::after {
+  background: var(--boxwood);
+}
+
+.prose .rva-cost-note {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+/* ------------------------------------------------------------- verdicts */
+
+.prose .rva-verdicts {
+  display: grid;
+  gap: 12px;
+  margin: 26px 0;
+}
+
+.prose .rva-verdict {
+  padding: 16px 16px 18px;
+  background: var(--limestone);
+  border-top: 2px solid var(--ink);
+}
+
+.prose .rva-verdict-artificial {
+  border-top-color: var(--boxwood);
+}
+
+.prose .rva-verdict-title {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 720;
+  letter-spacing: -0.014em;
+  line-height: 1.2;
+}
+
+.prose .rva-verdict-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .rva-verdict-list li {
+  position: relative;
+  margin: 0;
+  padding: 5px 0 5px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.prose .rva-verdict-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 6px;
+  height: 6px;
+  background: var(--boxwood);
+}
+
+/* ----------------------------------------------------------- city cards */
+
+.prose .prv-city-grid {
+  display: grid;
+  margin: 24px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose .prv-city-card {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose .prv-city-name {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 720;
+  letter-spacing: -0.014em;
+  line-height: 1.2;
+}
+
+.prose .prv-city-limit {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+.prose .prv-city-limit strong {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------ use cards */
+
+.prose :is(.prv-use-cards, .rst-uses) {
+  display: grid;
+  margin: 24px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.prose :is(.prv-use-card, .rst-use-card) {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose :is(.prv-use-title, .rst-use-title) {
+  font-size: 17px;
+  font-weight: 680;
+  line-height: 1.3;
+}
+
+.prose :is(.prv-use-desc, .rst-use-desc) {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cedar);
+}
+
+.prose .prv-use-rec {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--boxwood);
+}
+
+/* ---------------------------------------------------------------- wider */
+
+@media (min-width: 640px) {
+  .prose .hoa-statute {
+    padding: 22px 24px 24px;
+  }
+
+  .prose :is(.hoa-callout, .gw-callout, .rva-callout, .prv-callout, .rst-callout) {
+    padding: 18px 22px 20px;
+  }
+
+  .prose .hoa-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+
+  .prose .hoa-flow-card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px 0 18px;
+  }
+
+  .prose .hoa-flow-num {
+    grid-row: auto;
+    margin-bottom: 10px;
+  }
+
+  .prose :is(.hoa-sources, .gw-sources, .rva-sources, .prv-sources, .rst-sources) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+
+  .prose :is(.gw-stats-row, .rva-stats-row, .rst-stats-row) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .prose :is(.gw-stat-card, .rva-stat-card, .rst-stat-card) {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 6px;
+    align-items: start;
+    padding: 16px 16px 18px 0;
+    border-bottom: 0;
+  }
+
+  .prose :is(.gw-stat-card, .rva-stat-card, .rst-stat-card) + :is(.gw-stat-card, .rva-stat-card, .rst-stat-card) {
+    padding-left: 16px;
+    border-left: 1px solid var(--rule);
+  }
+
+  .prose :is(.gw-stat-value, .rva-stat-value, .rst-stat-value) {
+    font-size: 2rem;
+  }
+
+  .prose .gw-dangers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+
+  .prose .rva-verdicts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .prose .rva-cost-bars {
+    padding: 22px 24px 20px;
+  }
+
+  .prose .prv-city-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+
+  .prose :is(.prv-use-cards, .rst-uses) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+}
+
+/* Comparison tables turn back into tables once a row's cells fit on one line. */
+@media (min-width: 720px) {
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) table {
+    display: table;
+    font-size: 16px;
+  }
+
+  .prose .prv-compare table {
+    font-size: 15px;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) thead {
+    position: static;
+    display: table-header-group;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) tbody {
+    display: table-row-group;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) tr {
+    display: table-row;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) :is(th, td) {
+    display: table-cell;
+    padding: 11px 14px 11px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) thead th {
+    border-bottom-color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: normal;
+    color: var(--boxwood);
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) tbody th {
+    display: table-cell;
+    width: 24%;
+    padding: 11px 14px 11px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: inherit;
+    text-align: left;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) td::before {
+    content: none;
+  }
+
+  .prose :is(.gw-compare, .rva-compare, .prv-compare) tbody tr:last-child :is(th, td) {
+    border-bottom-color: var(--ink);
+  }
+}
+
+@media (min-width: 1024px) {
+  .prose .hoa-statute-text {
+    font-size: 1.25rem;
+  }
+
+  .prose .gw-stat-value,
+  .prose .rva-stat-value,
+  .prose .rst-stat-value {
+    font-size: 2.25rem;
+  }
+}

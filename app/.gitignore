@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+dist-share
+share
+.screens
+*.tsbuildinfo
+.DS_Store
+# Blog photo variants: scripts/build-content.mjs regenerates them on every build
+public/images/blog-r/
