@@ -5,15 +5,15 @@ interface QuoteSectionProps {
   callout?: string;
   title?: string;
   body?: string;
+  headingAs?: 'h1' | 'h2';
 }
 
 /**
- * The homepage's quote form (`<section id="quote">`) on any page. A page that
- * renders it must set `hasQuoteForm: true` in its route in src/routes.ts:
- * that is what points the chrome's "Get a free quote" buttons (header, phone
- * bar, hero) at this `#quote` instead of at `/contact#quote`. Render it once
- * per page: the id is the anchor.
+ * The homepage's quote form (`<section id="quote">`) on any page; on /quote
+ * it is the page itself. The "Get a free quote" buttons go to /quote, so a
+ * form lower on a page is only for visitors who read that far. Render it
+ * once per page: the id is the anchor.
  */
-export default function QuoteSection({ callout = '◦ FREE QUOTE', title, body }: QuoteSectionProps) {
-  return <HomeQuote callout={callout} title={title} body={body} />;
+export default function QuoteSection({ callout = '◦ FREE QUOTE', title, body, headingAs }: QuoteSectionProps) {
+  return <HomeQuote callout={callout} title={title} body={body} headingAs={headingAs} />;
 }

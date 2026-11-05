@@ -258,6 +258,13 @@ Owner: "just dont put size ... keep it simple, non confusing for the privacy, on
 
 Review: estimator checked in the page: hedge 40 ft at 8 ft = $5,280, at 4 ft = $2,640; extension 40 ft at 3 ft over = $3,240 ($81/ft), at 2 ft = $2,160. No panel sizes or counts left for privacy products (built-site search: no "$65", "20 in", "40 in"). Vallum FRX says it comes fire-rated as standard and is quoted after a site review. 123 tests pass.
 
+### Separate quote page (owner 2026-11-05: "right now if i click get a free quote it shoots it all the way to the bottom of the page")
+- [x] New `/quote` page: the form first (its heading is the page H1), numbers from any estimator prefilled (sessionStorage)
+- [x] Every "Get a free quote" button (header, menu, sticky bar, hero, page heroes, bands, footer, service area) goes to `/quote`; arrows point right, not down
+- [x] Estimator "Send these numbers" goes to `/quote` with the numbers
+- [x] `/get-quote` legacy redirect now one hop to `/quote` (REDIRECTS.md, _redirects, fixture)
+- Review: checked in the browser at 1440 and 390 (form in the first screen; estimate summary and system chip carried over); 123 tests pass.
+
 ### Phase 3: homepage to ship quality
 - [ ] Estimator maths React-free with node tests; deterministic plan SVG; send to quote store.
 - [ ] Quote form: react-hook-form + zod, honeypot, Turnstile on first interaction, POST `/api/contact`, LSFSCRO event names kept.

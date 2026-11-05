@@ -55,6 +55,8 @@ interface HomeQuoteProps {
   callout?: string;
   title?: string;
   body?: string;
+  /** `h1` on the quote page, where the form is the page; `h2` everywhere else. */
+  headingAs?: 'h1' | 'h2';
 }
 
 /**
@@ -66,7 +68,12 @@ interface HomeQuoteProps {
  * on the first touch of the form. On localhost nothing is posted: the payload
  * is shown in a dev-only notice so no real lead is ever sent from dev.
  */
-export default function HomeQuote({ callout = QUOTE.callout, title = QUOTE.title, body = QUOTE.body }: HomeQuoteProps) {
+export default function HomeQuote({
+  callout = QUOTE.callout,
+  title = QUOTE.title,
+  body = QUOTE.body,
+  headingAs: Heading = 'h2',
+}: HomeQuoteProps) {
   const uid = useId();
   const id = (name: string) => `${uid}-${name}`;
   const sent = useSentEstimate();
@@ -176,9 +183,9 @@ export default function HomeQuote({ callout = QUOTE.callout, title = QUOTE.title
         <div className="quote-side" data-reveal>
           <div className="quote-intro">
             <Callout text={callout} />
-            <h2 id="quote-title" className="t-h2 mt-5">
+            <Heading id="quote-title" className="t-h2 mt-5">
               {title}
-            </h2>
+            </Heading>
             <p className="t-lede mt-5 max-w-[30ch] text-cedar">{body}</p>
           </div>
 

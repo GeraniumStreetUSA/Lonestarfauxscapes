@@ -27,7 +27,7 @@
         "/get-quote.html",
         "/get-quote/"
       ],
-      "to": "/contact"
+      "to": "/quote"
     },
     {
       "from": [

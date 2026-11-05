@@ -17,11 +17,30 @@ export interface SentEstimate {
   summary: string;
 }
 
-let current: SentEstimate | null = null;
+const KEY = 'lsfs-sent-estimate';
 const listeners = new Set<() => void>();
+
+/* Kept in sessionStorage too, so numbers sent from any page's estimator are
+   waiting in the form on /quote. Read lazily, on the client only. */
+let current: SentEstimate | null | undefined;
+
+function read(): SentEstimate | null {
+  if (current !== undefined) return current;
+  try {
+    current = JSON.parse(window.sessionStorage.getItem(KEY) ?? 'null') as SentEstimate | null;
+  } catch {
+    current = null;
+  }
+  return current;
+}
 
 export function sendEstimate(value: SentEstimate): void {
   current = value;
+  try {
+    window.sessionStorage.setItem(KEY, JSON.stringify(value));
+  } catch {
+    // Private mode or storage off: the form on this page still gets them.
+  }
   listeners.forEach((listener) => listener());
 }
 
@@ -32,24 +51,9 @@ function subscribe(listener: () => void): () => void {
   };
 }
 
-const getSnapshot = () => current;
+const getSnapshot = () => read();
 const getServerSnapshot = (): SentEstimate | null => null;
 
 export function useSentEstimate(): SentEstimate | null {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
-
-/**
- * Scroll to the quote section and put the keyboard in its first field, so
- * "Send these numbers to my quote" completes without a mouse.
- */
-export function scrollToQuote(): void {
-  if (typeof document === 'undefined') return;
-  const target = document.getElementById('quote');
-  if (!target) return;
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  window.setTimeout(() => {
-    const field = target.querySelector<HTMLElement>('[data-lead-first-field]');
-    field?.focus({ preventScroll: true });
-  }, 600);
 }

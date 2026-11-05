@@ -87,6 +87,7 @@ const PAGE_MODULES: Record<string, Route['load']> = {
   '/sugar-land': () => import('./pages/routes/sugar-land'),
   '/the-woodlands': () => import('./pages/routes/the-woodlands'),
   '/contact': () => import('./pages/routes/contact'),
+  '/quote': () => import('./pages/routes/quote'),
   '/pricing': () => import('./pages/routes/pricing'),
   '/installation': () => import('./pages/routes/installation'),
   '/privacy': () => import('./pages/routes/privacy'),
@@ -278,6 +279,10 @@ export const STATIC_ROUTES: readonly Route[] = [
     'Custom artificial hedge installation in The Woodlands, TX, for master-planned communities, businesses, and homes. No watering. Free quotes.',
     { label: 'The Woodlands', parent: LOCATIONS, robots: 'noindex' }),
   // UTILITY
+  page('/quote', 'utility',
+    'Get a Free Quote | Lone Star Faux Scapes',
+    'Send your run length, city and photos for a free quote on artificial hedges, fence extensions and living walls across Texas.',
+    { label: 'Get a Free Quote', quote: true }),
   page('/contact', 'utility',
     'Contact Us | Lone Star Faux Scapes',
     'Contact Lone Star Faux Scapes for artificial hedges & living walls across Texas. Free quotes in Dallas, Fort Worth, Houston, Austin and San Antonio.',

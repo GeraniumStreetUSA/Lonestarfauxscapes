@@ -1,10 +1,10 @@
-import { ArrowDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
 
 import Callout from '../components/Callout';
 import YardPlan from '../components/YardPlan';
 import { ESTIMATOR } from '../data/home-content';
-import { scrollToQuote, sendEstimate } from '../lib/estimate-store';
+import { sendEstimate } from '../lib/estimate-store';
 import {
   DEFAULT_SYSTEM_ID,
   RUN,
@@ -166,7 +166,8 @@ export default function HomeEstimator({
 
   const send = () => {
     sendEstimate({ system: system.quoteSystem, location: location.trim().slice(0, 80), summary: estimate.summary });
-    scrollToQuote();
+    // The numbers wait in the form on /quote (owner: no long jump down the page).
+    window.location.assign('/quote');
   };
 
 
@@ -294,7 +295,7 @@ export default function HomeEstimator({
               <p className="t-small mt-5 max-w-[48ch] text-cedar">{ESTIMATOR.qualifier}</p>
               <button type="button" onClick={send} className="btn btn-primary mt-6 w-full sm:w-auto" data-primary-cta data-cta="estimator">
                 {ESTIMATOR.send}
-                <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
+                <ArrowRight size={18} strokeWidth={2.2} className="nudge-right" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -317,7 +318,7 @@ export default function HomeEstimator({
         </p>
         <button type="button" onClick={send} className="btn" data-cta="estimator-dock">
           {ESTIMATOR.dockSend}
-          <ArrowDown size={16} strokeWidth={2.4} aria-hidden="true" />
+          <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
         </button>
       </div>
     </section>

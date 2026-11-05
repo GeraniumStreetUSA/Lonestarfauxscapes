@@ -1,4 +1,4 @@
-import { ArrowDown, Menu, Phone, X } from 'lucide-react';
+import { ArrowRight, Menu, Phone, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -159,7 +159,7 @@ export default function SiteHeader() {
             </a>
             <a href={quoteHref} className="btn btn-primary btn-lg w-full" onClick={() => setMenuOpen(false)} data-cta="menu">
               {HERO.cta}
-              <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
+              <ArrowRight size={18} strokeWidth={2.2} className="nudge-right" aria-hidden="true" />
             </a>
           </div>
         </div>,

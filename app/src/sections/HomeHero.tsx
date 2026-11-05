@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import Magnetic from '../components/Magnetic';
 import { ForkGlyph } from '../components/PlanDrawings';
@@ -38,9 +38,9 @@ export default function HomeHero() {
           <p className="t-lede hero-sub">{HERO.sub}</p>
           <div className="hero-actions">
             <Magnetic>
-              <a href="#quote" className="btn btn-primary btn-lg" data-primary-cta data-cta="hero">
+              <a href="/quote" className="btn btn-primary btn-lg" data-primary-cta data-cta="hero">
                 {HERO.cta}
-                <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
+                <ArrowRight size={18} strokeWidth={2.2} className="nudge-right" aria-hidden="true" />
               </a>
             </Magnetic>
             <p className="t-small text-cedar">

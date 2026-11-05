@@ -35,7 +35,7 @@ Indexable "yes" = `index, follow` meta, self canonical, HTTP 200 (all verified l
 | 6 | `/commercial-resources` | `/commercial-resources` | keep | yes | brief proposes fold into /commercial (decision 4); default keep, strip internal notes |
 | 7 | `/commercial-wall` | `/commercial-wall` | keep | yes | target of legacy /commercial-wall-covering |
 | 8 | `/commercial` | `/commercial` | keep | yes | target of 3 legacy rules |
-| 9 | `/contact` | `/contact` | keep | yes | target of legacy /get-quote |
+| 9 | `/contact` | `/contact` | keep | yes | legacy /get-quote now goes to the new `/quote` |
 | 10 | `/dallas` | `/dallas` | keep | yes | confirmed metro page; slashless path kept |
 | 11 | `/fence-extensions` | `/fence-extensions` | keep | yes |  |
 | 12 | `/fire-rated-artificial-hedge` | `/fire-rated-artificial-hedge` | keep | yes | use-case page; also target of legacy /fire-rated |
@@ -128,7 +128,7 @@ Both `_redirects` and `public/_redirects` are identical except line 1's comment.
 | `/index.html` | `/` | 1 hop |
 | `/admin/index.html` | `/admin/` | 1 hop to `/admin/`, which then loops (Defects 1) |
 | `/projects` | `/case-studies` | bare and `/` 1 hop; `.html` 2 hops |
-| `/get-quote` | `/contact` | bare and `/` 1 hop; `.html` 2 hops |
+| `/get-quote` | `/quote` (owner 2026-11-05: a separate quote page; was `/contact`) | bare and `/` 1 hop; `.html` 2 hops |
 | `/privacy-policy` | `/privacy` | bare and `/` 1 hop; `.html` 2 hops |
 | `/fire-rated` | `/fire-rated-artificial-hedge` | bare and `/` 1 hop; `.html` 2 hops |
 | `/privacy-wall` | **proposed: new page `/privacy-wall` (freestanding privacy wall, added 2026-10-25); drop this 301 if owner OKs OWNER-NEEDS #30** | was `/residential`, 1 hop |

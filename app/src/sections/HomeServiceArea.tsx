@@ -62,7 +62,7 @@ export default function HomeServiceArea() {
               </li>
             ))}
             <li>
-              <a href="#quote" className="area-row area-row-else group" data-cta="elsewhere">
+              <a href="/quote" className="area-row area-row-else group" data-cta="elsewhere">
                 <span className="area-index" aria-hidden="true">
                   +
                 </span>

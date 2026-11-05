@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, ArrowUpRight, Plus } from 'lucide-react';
+import { ArrowRight, ArrowUp, ArrowUpRight, Plus } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 import FooterFence from '../components/FooterFence';
@@ -70,7 +70,7 @@ export default function SiteFooter() {
               <div className="ft-act-row">
                 <a href={quoteHref} className="btn btn-primary" data-cta="footer">
                   {HERO.cta}
-                  <ArrowDown size={18} strokeWidth={2.2} className="nudge-down" aria-hidden="true" />
+                  <ArrowRight size={18} strokeWidth={2.2} className="nudge-right" aria-hidden="true" />
                 </a>
                 <a href={BUSINESS.phoneHref} className="ft-phone tabular">
                   {BUSINESS.phoneDisplay}
