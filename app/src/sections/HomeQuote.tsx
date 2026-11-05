@@ -22,6 +22,9 @@ import {
 
 const FORM_NAME = 'home_quote';
 
+/** The contact-form Worker the old site fell back to (workers/contact-form.js). */
+const LEAD_WORKER_URL = 'https://contact-form.atrex92.workers.dev';
+
 function isLocalHost(): boolean {
   const host = window.location.hostname;
   return host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host === '::1' || host.endsWith('.localhost');
@@ -152,11 +155,14 @@ export default function HomeQuote({
     setStatus('sending');
     const verified = token.current ?? (await waitForToken(8000));
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(buildLeadPayload(values, summary, verified ?? '')),
-      });
+      const body = JSON.stringify(buildLeadPayload(values, summary, verified ?? ''));
+      const send = (url: string) =>
+        fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+      // Same order as the old site: the Pages Function first, then the
+      // contact-form Worker, which is what delivers leads when the Function
+      // cannot (its email settings live on the Worker).
+      let response = await send('/api/contact').catch(() => null);
+      if (!response?.ok) response = await send(LEAD_WORKER_URL);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       setStatus('sent');
       track('form_submit', eventProps);
