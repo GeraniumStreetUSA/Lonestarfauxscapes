@@ -251,8 +251,8 @@ export const POSTS: readonly BlogPostSummary[] = [
   {
     "slug": "green-wall-maintenance-in-texas-what-it-actually-takes",
     "path": "/blog/green-wall-maintenance-in-texas-what-it-actually-takes",
-    "title": "Green Wall Maintenance in Dallas, TX: Living vs. Artificial Walls",
-    "description": "Compare living green wall maintenance in Dallas with artificial living wall care, including upkeep, Texas heat risks, and pre-installation planning.",
+    "title": "Green Wall Maintenance in Dallas, TX: Care and Planning",
+    "description": "Planning a green wall in Dallas? Compare living wall upkeep, irrigation checks, pruning, and artificial wall cleaning before choosing a system.",
     "date": "2026-03-25",
     "displayDate": "Mar 25, 2026",
     "category": "Guides",
@@ -261,7 +261,7 @@ export const POSTS: readonly BlogPostSummary[] = [
     "image": "/images/living_walls/living-wall-3.jpg",
     "imageWidth": 1800,
     "imageHeight": 1350,
-    "imageAlt": "Green Wall Maintenance in Dallas, TX: Living vs. Artificial Walls",
+    "imageAlt": "Green Wall Maintenance in Dallas, TX: Care and Planning",
     "imageVariants": {
       "base": "/images/blog-r/living_walls-living-wall-3-jpg",
       "widths": [
