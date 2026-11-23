@@ -1,4 +1,4 @@
-import { AREA_LINKS, SYSTEM_LINKS, type NavLink } from '../data/site';
+import { AREA_LINKS, GUIDE_LINKS, SYSTEM_LINKS, type NavLink } from '../data/site';
 import { LINK_BAND } from '../data/home-content';
 
 function Row({ label, links }: { label: string; links: readonly NavLink[] }) {
@@ -22,7 +22,7 @@ function Row({ label, links }: { label: string; links: readonly NavLink[] }) {
 }
 
 /**
- * Systems and the five metros as plain links, high on the page and compact,
+ * Systems, the five metros and the key guides as plain links, high on the page and compact,
  * so the pages that matter are one click from home for people and crawlers.
  */
 export default function HomeLinkBand() {
@@ -31,6 +31,7 @@ export default function HomeLinkBand() {
       <div className="wrap divide-y divide-line py-2">
         <Row label={LINK_BAND.systemsLabel} links={SYSTEM_LINKS} />
         <Row label={LINK_BAND.areasLabel} links={AREA_LINKS} />
+        <Row label={LINK_BAND.guidesLabel} links={GUIDE_LINKS} />
       </div>
     </div>
   );

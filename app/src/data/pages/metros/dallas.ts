@@ -8,7 +8,7 @@ export const DALLAS: MetroData = {
   mapActive: 'Dallas',
   callout: '◦ DALLAS, TX',
   title: 'Dallas artificial hedge installation and faux living walls',
-  lede: 'Hedges and living walls for Dallas patios, storefronts, pool decks and backyard privacy, built to your measurements. No watering, no trimming.',
+  lede: 'Hedges and green walls (living walls) for Dallas patios, storefronts, pool decks and backyard privacy, built to your measurements. No watering, no trimming.',
   needsTitle: 'What Dallas projects usually need',
   needsIntro:
     'In Dallas the work is often seen from the street, the pool deck and the dining room at once. It has to look built for the site.',
