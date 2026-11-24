@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#EDECE6" />
     <script>
+      // lonestarfauxscapes-main.pages.dev is this project's production alias and
+      // kept ranking despite its noindex header. Send it to the real domain.
+      // Client-side because a server redirect would route every request on
+      // both hosts through a Pages Function. Exact host match only.
+      if (window.location.hostname === 'lonestarfauxscapes-main.pages.dev') {
+        window.location.replace('https://lonestarfauxscapes.com' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
+    <script>
       // ?qa=1 is screenshot mode: set before first paint so nothing animates.
       (function () {
         try {
