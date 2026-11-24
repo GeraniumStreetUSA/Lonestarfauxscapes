@@ -9,7 +9,7 @@ export const HOUSTON: MetroData = {
   photo: 'houston',
   callout: '◦ HOUSTON, TX',
   title: 'Artificial hedge and living wall installation in Houston, TX',
-  lede: 'Hedges and living walls for Houston patios, storefronts and amenity decks. No irrigation, no live plants to lose to heat and humidity.',
+  lede: 'Hedges and green walls (living walls) for Houston patios, storefronts and amenity decks. No irrigation, no live plants to lose to heat and humidity.',
   needsTitle: 'What Houston projects usually need',
   needsIntro:
     'Houston projects often turn on practical questions first: foot traffic, weather, upkeep and who coordinates the work.',

@@ -1,3 +1,33 @@
+# LoneStar: act on "Redesign results 2026-11-23" (Obsidian 06_Reports/SEO)
+
+Source note confirmed against GSC (query+page, 2026-10-20..11-03 vs 2026-11-06..11-20) and old vs live HTML.
+
+## Confirmed causes
+- Homepage lost "artificial green wall installers in houston/dallas" (pos 4.1/2.7 -> gone/13.5).
+  Old homepage said "green wall" and linked 6 guides (incl. 202.007, green wall maintenance, restaurants green walls).
+  New homepage: 0 "green wall", 0 blog links. Title dropped "Installation".
+- Houston/Dallas city pages: "green wall" mentions reduced (2->1, 3->2); queries slid 7 -> 9.1 (Houston).
+- Boxwood page drop is noise: 3 impressions before, 1 after. No change.
+- 202.007 post holds pos ~9 on its section rows; the 31.9 is one row. Lost the homepage link though.
+
+## Plan (small, copy/link only — branch off main)
+- [x] 1. Homepage title: restored the old ranking title `Texas Artificial Hedge & Living Wall Installation | Lone Star` (the longer one broke the 65-char test) (data/home-content.ts SEO.title)
+- [x] 2. Homepage link band: add a "Guides" row linking the 6 guides the old homepage linked (sections/HomeLinkBand.tsx + data) — also gives the 22 unindexed posts a home link
+- [x] 3. Houston + Dallas ledes: add "green wall" wording, e.g. "Hedges and green walls (living walls) for ..." (data/pages/metros/*.ts)
+- [x] 4. Build + tests, check prerendered HTML, open PR (noindex-free; normal deploy after your OK)
+
+## Owner-only (not code)
+- Cloudflare email-service settings for the quote Worker, then one real test submission
+- GSC "Request indexing" for the 25 not-indexed URLs (+ homepage after deploy)
+- Re-run comparison ~Dec 7
+
+## Review
+- 5 files: home-content.ts (title, guides label), site.ts (GUIDE_LINKS), HomeLinkBand.tsx (Guides row), houston.ts/dallas.ts (lede).
+- Tests 123/123, build OK, prerendered HTML has new title, 6 guide links, "green walls" ledes. Screenshot-checked link band at 1280px (band stays desktop-only, as before).
+- Boxwood page untouched (3 impressions: noise).
+
+---
+
 # Current Task: React rebuild, homepage first, "Read the yard" (2026-10-24)
 
 **Status: APPROVED 2026-10-24, in progress. Keep everything local (no push, PR, deploy) until the whole site is approved.** Owner picked (2026-10-24): React rebuild per prompt.md, estimator with no dollars, signature "plan draws itself". Branch `rebuild/homepage` (from `origin/main`). `redesign/panel-by-panel` untouched.

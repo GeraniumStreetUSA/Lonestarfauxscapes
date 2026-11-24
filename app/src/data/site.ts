@@ -55,6 +55,16 @@ export const AREA_LINKS: readonly NavLink[] = [
   { label: 'San Antonio', href: '/san-antonio' },
 ];
 
+/** The six guides the old homepage linked; the rebuild had dropped them. */
+export const GUIDE_LINKS: readonly NavLink[] = [
+  { label: 'Texas Property Code 202.007 and your HOA', href: '/blog/texas-property-code-202-007-artificial-hedges-and-hoa-rules' },
+  { label: 'Backyard privacy compared', href: '/blog/texas-backyard-privacy-solutions-compared-fences-hedges-walls' },
+  { label: 'Real vs artificial living walls', href: '/blog/real-vs-artificial-living-walls-in-texas-an-honest-comparison' },
+  { label: 'Green wall maintenance in Texas', href: '/blog/green-wall-maintenance-in-texas-what-it-actually-takes' },
+  { label: 'Green walls for restaurants and bars', href: '/blog/artificial-green-walls-for-texas-restaurants-and-bars' },
+  { label: 'NFPA 701 vs ASTM E84', href: '/blog/nfpa-701-vs-astm-e84-fire-ratings-for-artificial-greenery' },
+];
+
 export const COMPANY_LINKS: readonly NavLink[] = [
   { label: 'Projects', href: '/case-studies' },
   { label: 'Guides', href: '/guides' },

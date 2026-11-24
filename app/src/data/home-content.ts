@@ -18,7 +18,7 @@ import {
 } from './starting-prices.ts';
 
 export const SEO = {
-  title: 'Artificial Hedges & Living Walls in Texas | Lone Star Faux Scapes',
+  title: 'Texas Artificial Hedge & Living Wall Installation | Lone Star',
   /** ≤155 characters (tested). "DFW" keeps all five metros inside the limit. */
   description: `Artificial hedges ${formatStartingPriceProse(STARTING_PRICES.hedge)} on your fence or wall, plus install. Living walls and fence extensions in DFW, Houston, Austin, San Antonio.`,
   canonical: 'https://lonestarfauxscapes.com/',
@@ -122,6 +122,7 @@ export const ESTIMATOR = {
 export const LINK_BAND = {
   systemsLabel: 'Systems',
   areasLabel: 'Areas',
+  guidesLabel: 'Guides',
 } as const;
 
 export interface Question {
