@@ -86,6 +86,12 @@ test('the generated folder holds exactly the posts (no stale files)', () => {
  * one brand spelling, 2026-11-04). Everything else must match live exactly.
  */
 const DELIBERATE: Record<string, { title?: string; description?: string }> = {
+  // Approved Website Factory proposal-20260901-060008, chg-1-title-meta.
+  'green-wall-maintenance-in-texas-what-it-actually-takes': {
+    title: 'Green Wall Maintenance Dallas TX: Care & Planning',
+    description:
+      'Planning a green wall in Dallas? Compare living wall upkeep, irrigation checks, pruning, and artificial wall cleaning before choosing a system.',
+  },
   'artificial-living-walls-and-hedges-in-san-antonio': {
     description:
       'Get artificial living walls and faux hedges in San Antonio, TX: clean, low-maintenance greenery for homes and businesses. Ask Lone Star Faux Scapes.',

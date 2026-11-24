@@ -123,14 +123,14 @@ export const BLOG_ROUTES: readonly Route[] = [
   {
     path: "/blog/green-wall-maintenance-in-texas-what-it-actually-takes",
     type: 'post',
-    title: "Green Wall Maintenance Dallas TX: Living vs Artificial",
-    description: "Compare living green wall maintenance in Dallas with artificial living wall care, including upkeep, Texas heat risks, and pre-installation planning.",
+    title: "Green Wall Maintenance Dallas TX: Care & Planning",
+    description: "Planning a green wall in Dallas? Compare living wall upkeep, irrigation checks, pruning, and artificial wall cleaning before choosing a system.",
     robots: 'index',
     sitemap: true,
-    breadcrumbs: [HOME, BLOG, { label: "Green Wall Maintenance in Dallas, TX: Living vs.…", href: "/blog/green-wall-maintenance-in-texas-what-it-actually-takes" }],
+    breadcrumbs: [HOME, BLOG, { label: "Green Wall Maintenance in Dallas, TX: Care and Planning", href: "/blog/green-wall-maintenance-in-texas-what-it-actually-takes" }],
     hasQuoteForm: false,
     load: () => import('./posts/green-wall-maintenance-in-texas-what-it-actually-takes.page'),
-    schema: () => [blogPostingNode({"path":"/blog/green-wall-maintenance-in-texas-what-it-actually-takes","title":"Green Wall Maintenance in Dallas, TX: Living vs. Artificial Walls","summary":"Compare living green wall maintenance in Texas heat with artificial green wall care, including routine tasks, upkeep risks, and when each option fits.","image":"/images/living_walls/living-wall-3.jpg","datePublished":"2026-03-25","dateModified":"2026-03-25"})],
+    schema: () => [blogPostingNode({"path":"/blog/green-wall-maintenance-in-texas-what-it-actually-takes","title":"Green Wall Maintenance in Dallas, TX: Care and Planning","summary":"Compare living green wall maintenance in Texas heat with artificial green wall care, including routine tasks, upkeep risks, and when each option fits.","image":"/images/living_walls/living-wall-3.jpg","datePublished":"2026-03-25","dateModified":"2026-03-25"})],
   },
   {
     path: "/blog/indoor-vs-outdoor-artificial-living-walls-materials-and-design",
